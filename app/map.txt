@@ -28436,6 +28436,30 @@ com.android.common.Utils -> com.android.common.Utils:
     16:16:void <init>() -> <init>
     223:224:boolean requireAsk4Permission(int) -> requireAsk4Permission
     230:238:int checkOp(android.content.Context,int) -> a
+com.android.kpa.R -> com.android.a.a:
+com.android.kpa.R$string -> com.android.a.a$a:
+    int abc_action_bar_home_description -> abc_action_bar_home_description
+    int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
+    int abc_action_bar_home_subtitle_description_format -> abc_action_bar_home_subtitle_description_format
+    int abc_action_bar_up_description -> abc_action_bar_up_description
+    int abc_action_menu_overflow_description -> abc_action_menu_overflow_description
+    int abc_action_mode_done -> abc_action_mode_done
+    int abc_activity_chooser_view_see_all -> abc_activity_chooser_view_see_all
+    int abc_activitychooserview_choose_application -> abc_activitychooserview_choose_application
+    int abc_capital_off -> abc_capital_off
+    int abc_capital_on -> abc_capital_on
+    int abc_search_hint -> abc_search_hint
+    int abc_searchview_description_clear -> abc_searchview_description_clear
+    int abc_searchview_description_query -> abc_searchview_description_query
+    int abc_searchview_description_search -> abc_searchview_description_search
+    int abc_searchview_description_submit -> abc_searchview_description_submit
+    int abc_searchview_description_voice -> abc_searchview_description_voice
+    int abc_shareactionprovider_share_with -> abc_shareactionprovider_share_with
+    int abc_shareactionprovider_share_with_application -> abc_shareactionprovider_share_with_application
+    int abc_toolbar_collapse_description -> abc_toolbar_collapse_description
+    int app_name -> app_name
+    int com_android_kpa_nativ_process_name -> com_android_kpa_nativ_process_name
+    int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
 com.android.network.HttpClient -> com.android.network.HttpClient:
     javax.net.ssl.HostnameVerifier DO_NOT_VERIFY -> a
     20:20:void <init>() -> <init>
@@ -28587,27 +28611,27 @@ com.bruder.clean.activity.BaseActivity -> com.bruder.clean.activity.BaseActivity
     boolean onDestroyed -> n
     boolean onResume -> o
     27:33:void <init>() -> <init>
-    37:49:void onCreate(android.os.Bundle) -> onCreate
-    53:56:void onResume() -> onResume
-    60:63:void onPause() -> onPause
-    67:69:void onDestroy() -> onDestroy
-    73:79:void setContentView(int) -> setContentView
-    82:82:void findId() -> b
-    85:86:void tuiGuang() -> d
-    89:91:void jumpTo(java.lang.Class) -> a
-    94:97:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    100:103:void jumpToActivity(java.lang.Class,android.os.Bundle) -> a
-    106:108:void jumpToActivity(java.lang.Class,int) -> a
-    111:116:int getStatusHeight(android.app.Activity) -> a
-    137:146:void setTranslucentStatus(boolean) -> a
-    149:156:void full() -> a
-    160:173:void setHideVirtualKey(android.view.Window) -> a
-    180:186:void showToast(java.lang.String) -> a
-    189:189:android.view.View $(int) -> a
+    37:50:void onCreate(android.os.Bundle) -> onCreate
+    54:57:void onResume() -> onResume
+    61:64:void onPause() -> onPause
+    68:70:void onDestroy() -> onDestroy
+    74:80:void setContentView(int) -> setContentView
+    83:83:void findId() -> b
+    86:87:void tuiGuang() -> d
+    90:92:void jumpTo(java.lang.Class) -> a
+    95:98:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
+    101:104:void jumpToActivity(java.lang.Class,android.os.Bundle) -> a
+    107:109:void jumpToActivity(java.lang.Class,int) -> a
+    112:117:int getStatusHeight(android.app.Activity) -> a
+    138:147:void setTranslucentStatus(boolean) -> a
+    150:157:void full() -> a
+    161:174:void setHideVirtualKey(android.view.Window) -> a
+    181:187:void showToast(java.lang.String) -> a
+    190:190:android.view.View $(int) -> a
 com.bruder.clean.activity.BaseActivity$1 -> com.bruder.clean.activity.BaseActivity$1:
     com.bruder.clean.activity.BaseActivity this$0 -> a
-    150:150:void <init>(com.bruder.clean.activity.BaseActivity) -> <init>
-    153:154:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+    151:151:void <init>(com.bruder.clean.activity.BaseActivity) -> <init>
+    154:155:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.bruder.clean.activity.CoolActivity -> com.bruder.clean.activity.CoolActivity:
     android.widget.ImageView cooling_xuehua -> a
     android.widget.LinearLayout cooling_piao -> b
@@ -29768,10 +29792,16 @@ com.bruder.clean.activity.MainActivity$9 -> com.bruder.clean.activity.MainActivi
 com.bruder.clean.activity.MyApplication -> com.bruder.clean.activity.MyApplication:
     android.app.ActivityManager am -> a
     android.os.HandlerThread mThread -> b
-    28:28:void <init>() -> <init>
-    40:43:void attachBaseContext(android.content.Context) -> attachBaseContext
-    47:98:void onCreate() -> onCreate
-    103:104:void onTerminate() -> onTerminate
+    31:31:void <init>() -> <init>
+    42:94:void onCreate() -> onCreate
+    99:100:void onTerminate() -> onTerminate
+    104:125:void attachBaseContext(android.content.Context) -> attachBaseContext
+com.bruder.clean.activity.MyApplication$1 -> com.bruder.clean.activity.MyApplication$1:
+    com.bruder.clean.activity.MyApplication this$0 -> a
+    107:107:void <init>(com.bruder.clean.activity.MyApplication) -> <init>
+    110:111:void onPersistentStart(android.content.Context) -> a
+    115:116:void onDaemonAssistantStart(android.content.Context) -> b
+    120:121:void onWatchDaemonDead() -> a
 com.bruder.clean.activity.NotifiIfActivity -> com.bruder.clean.activity.NotifiIfActivity:
     android.widget.Button notifi_info_text -> a
     com.sample.lottie.LottieAnimationView notifi_info_lot -> b
@@ -30346,82 +30376,70 @@ com.bruder.clean.activity.ShortCutingActivity -> com.bruder.clean.activity.Short
     boolean istween -> h
     android.view.View nativeView -> i
     java.lang.String TAG_SHORTCUT -> j
-    com.bruder.clean.customeview.FlakeOnShortView flakeView -> k
-    android.view.animation.Animation suo -> p
-    android.app.Dialog dialog -> q
+    android.view.animation.Animation suo -> k
+    android.app.Dialog dialog -> p
     android.widget.FrameLayout short_backg -> a
     android.widget.LinearLayout ll_ad -> b
-    boolean isdoudong -> r
-    long size -> s
-    int count -> t
-    android.os.Handler myHandler -> u
+    long size -> q
+    int count -> r
+    android.os.Handler myHandler -> s
     android.widget.ImageView short_cut2 -> c
     android.widget.ImageView short_cut3 -> d
     android.widget.ImageView short_cut4 -> e
     android.widget.RelativeLayout short_cut_beijing -> f
-    42:47:void <init>() -> <init>
-    63:91:void onCreate(android.os.Bundle) -> onCreate
-    94:108:void loadAd() -> a
-    112:118:void findId() -> b
-    121:122:void clear(android.content.Context) -> b
-    125:153:void show_text() -> c
-    156:159:long getAvailMemory(android.app.ActivityManager) -> a
-    163:180:long killAll(android.content.Context) -> a
-    184:212:void setAnimationThread() -> e
-    241:247:void onPause() -> onPause
-    251:255:void onStop() -> onStop
-    259:329:void onResume() -> onResume
-    42:42:void access$000(com.bruder.clean.activity.ShortCutingActivity,android.content.Context) -> a
-    42:42:int access$108(com.bruder.clean.activity.ShortCutingActivity) -> a
-    42:42:void access$200(com.bruder.clean.activity.ShortCutingActivity) -> b
-    42:42:boolean access$300(com.bruder.clean.activity.ShortCutingActivity) -> c
-    42:42:com.twee.module.tweenengine.TweenManager access$400(com.bruder.clean.activity.ShortCutingActivity) -> d
-    42:42:com.bruder.clean.customeview.FlakeOnShortView access$600(com.bruder.clean.activity.ShortCutingActivity) -> e
-    42:42:android.view.animation.Animation access$700(com.bruder.clean.activity.ShortCutingActivity) -> f
-    42:42:boolean access$502(com.bruder.clean.activity.ShortCutingActivity,boolean) -> a
+    43:48:void <init>() -> <init>
+    62:84:void onCreate(android.os.Bundle) -> onCreate
+    87:101:void loadAd() -> a
+    105:111:void findId() -> b
+    114:115:void clear(android.content.Context) -> b
+    118:161:void show_text() -> c
+    164:167:long getAvailMemory(android.app.ActivityManager) -> a
+    171:188:long killAll(android.content.Context) -> a
+    192:220:void setAnimationThread() -> e
+    224:225:void onPause() -> onPause
+    229:233:void onStop() -> onStop
+    237:294:void onResume() -> onResume
+    43:43:void access$000(com.bruder.clean.activity.ShortCutingActivity,android.content.Context) -> a
+    43:43:int access$108(com.bruder.clean.activity.ShortCutingActivity) -> a
+    43:43:void access$200(com.bruder.clean.activity.ShortCutingActivity) -> b
+    43:43:boolean access$300(com.bruder.clean.activity.ShortCutingActivity) -> c
+    43:43:com.twee.module.tweenengine.TweenManager access$400(com.bruder.clean.activity.ShortCutingActivity) -> d
+    43:43:android.view.animation.Animation access$500(com.bruder.clean.activity.ShortCutingActivity) -> e
 com.bruder.clean.activity.ShortCutingActivity$1 -> com.bruder.clean.activity.ShortCutingActivity$1:
     com.bruder.clean.activity.ShortCutingActivity this$0 -> a
-    72:72:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
-    76:76:void run() -> run
+    71:71:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
+    74:82:void run() -> run
+com.bruder.clean.activity.ShortCutingActivity$1$1 -> com.bruder.clean.activity.ShortCutingActivity$1$1:
+    com.bruder.clean.activity.ShortCutingActivity$1 this$1 -> a
+    75:75:void <init>(com.bruder.clean.activity.ShortCutingActivity$1) -> <init>
+    78:80:void run() -> run
 com.bruder.clean.activity.ShortCutingActivity$2 -> com.bruder.clean.activity.ShortCutingActivity$2:
     com.bruder.clean.activity.ShortCutingActivity this$0 -> a
-    78:78:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
-    81:89:void run() -> run
-com.bruder.clean.activity.ShortCutingActivity$2$1 -> com.bruder.clean.activity.ShortCutingActivity$2$1:
-    com.bruder.clean.activity.ShortCutingActivity$2 this$1 -> a
-    82:82:void <init>(com.bruder.clean.activity.ShortCutingActivity$2) -> <init>
-    85:87:void run() -> run
+    154:154:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
+    157:158:void onDismiss(android.content.DialogInterface) -> onDismiss
 com.bruder.clean.activity.ShortCutingActivity$3 -> com.bruder.clean.activity.ShortCutingActivity$3:
-    com.bruder.clean.activity.ShortCutingActivity this$0 -> a
-    146:146:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
-    149:150:void onDismiss(android.content.DialogInterface) -> onDismiss
-com.bruder.clean.activity.ShortCutingActivity$4 -> com.bruder.clean.activity.ShortCutingActivity$4:
     long lastMillis -> b
     com.bruder.clean.activity.ShortCutingActivity this$0 -> a
-    184:185:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
-    188:210:void run() -> run
-com.bruder.clean.activity.ShortCutingActivity$4$1 -> com.bruder.clean.activity.ShortCutingActivity$4$1:
+    192:193:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
+    196:218:void run() -> run
+com.bruder.clean.activity.ShortCutingActivity$3$1 -> com.bruder.clean.activity.ShortCutingActivity$3$1:
     float val$delta -> a
-    com.bruder.clean.activity.ShortCutingActivity$4 this$1 -> b
-    193:193:void <init>(com.bruder.clean.activity.ShortCutingActivity$4,float) -> <init>
-    196:198:void run() -> run
-com.bruder.clean.activity.ShortCutingActivity$6 -> com.bruder.clean.activity.ShortCutingActivity$5:
+    com.bruder.clean.activity.ShortCutingActivity$3 this$1 -> b
+    201:201:void <init>(com.bruder.clean.activity.ShortCutingActivity$3,float) -> <init>
+    204:206:void run() -> run
+com.bruder.clean.activity.ShortCutingActivity$4 -> com.bruder.clean.activity.ShortCutingActivity$4:
     com.bruder.clean.activity.ShortCutingActivity this$0 -> a
-    264:264:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
-    268:271:void run() -> run
-com.bruder.clean.activity.ShortCutingActivity$7 -> com.bruder.clean.activity.ShortCutingActivity$6:
+    244:244:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
+    248:248:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    252:256:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    261:261:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    266:266:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.bruder.clean.activity.ShortCutingActivity$5 -> com.bruder.clean.activity.ShortCutingActivity$5:
     com.bruder.clean.activity.ShortCutingActivity this$0 -> a
-    278:278:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
-    282:282:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    286:290:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    295:295:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    300:300:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-com.bruder.clean.activity.ShortCutingActivity$8 -> com.bruder.clean.activity.ShortCutingActivity$7:
-    com.bruder.clean.activity.ShortCutingActivity this$0 -> a
-    309:309:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
-    312:316:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    321:321:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    326:326:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    275:275:void <init>(com.bruder.clean.activity.ShortCutingActivity) -> <init>
+    278:281:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    286:286:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    291:291:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.bruder.clean.activity.SuccessingActivity -> com.bruder.clean.activity.SuccessingActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -30732,23 +30750,15 @@ com.bruder.clean.customeview.FlakeOnShortView -> com.bruder.clean.customeview.Fl
     long startTime -> i
     long prevTime -> j
     int frames -> k
-    android.graphics.Paint textPaint -> l
-    float fps -> m
-    android.graphics.Matrix m -> n
-    java.lang.String fpsString -> o
-    java.lang.String numFlakesString -> p
-    44:100:void <init>(android.content.Context) -> <init>
+    float fps -> l
+    android.graphics.Matrix m -> m
+    java.lang.String fpsString -> n
+    java.lang.String numFlakesString -> o
     103:106:int getNumFlakes() -> getNumFlakes
     110:112:void setNumFlakes(int) -> setNumFlakes
     118:133:void addFlakes(int) -> a
-    140:148:void subtractFlakes(int) -> b
     152:164:void onSizeChanged(int,int,int,int) -> onSizeChanged
     168:193:void onDraw(android.graphics.Canvas) -> onDraw
-    198:203:void pause() -> a
-com.bruder.clean.customeview.FlakeOnShortView$1 -> com.bruder.clean.customeview.FlakeOnShortView$1:
-    com.bruder.clean.customeview.FlakeOnShortView this$0 -> a
-    78:78:void <init>(com.bruder.clean.customeview.FlakeOnShortView) -> <init>
-    82:96:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.bruder.clean.customeview.FloatStateMyView -> com.bruder.clean.customeview.FloatStateMyView:
     int width -> a
     int height -> b
@@ -31875,7 +31885,7 @@ com.bruder.clean.junk.R$styleable -> com.bruder.clean.b.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5152:14024:void <clinit>() -> <clinit>
+    5153:14025:void <clinit>() -> <clinit>
 com.bruder.clean.myadapter.AddGameAdapter -> com.bruder.clean.c.a:
     java.util.ArrayList game_list -> a
     35:37:void <init>(android.content.Context,java.util.ArrayList) -> <init>
@@ -32530,7 +32540,13 @@ com.bruder.clean.util.PhoneManager -> com.bruder.clean.f.d:
     113:120:java.lang.String getPhoneNetworkType() -> a
     125:128:boolean isOnline(android.net.NetworkInfo) -> a
     382:391:boolean isRoot() -> b
-com.bruder.clean.util.ReaderCpuTemp -> com.bruder.clean.f.e:
+com.bruder.clean.util.PreData -> com.bruder.clean.f.e:
+    int _putCount -> a
+    android.content.SharedPreferences db -> b
+    18:20:android.content.SharedPreferences getDB(android.content.Context) -> a
+    135:143:boolean getDB(android.content.Context,java.lang.String,boolean) -> a
+    14:15:void <clinit>() -> <clinit>
+com.bruder.clean.util.ReaderCpuTemp -> com.bruder.clean.f.f:
     java.lang.String TAG -> a
     java.lang.String[] CPU_TEMP_FILE_PATHS -> b
     10:10:void <init>() -> <init>
@@ -32538,16 +32554,16 @@ com.bruder.clean.util.ReaderCpuTemp -> com.bruder.clean.f.e:
     37:40:void getCPUTemp(com.bruder.clean.util.ReaderCpuTemp$TemperatureResultCallback) -> a
     10:10:boolean access$100(java.lang.Double) -> a
     11:13:void <clinit>() -> <clinit>
-com.bruder.clean.util.ReaderCpuTemp$1 -> com.bruder.clean.f.e$1:
-com.bruder.clean.util.ReaderCpuTemp$ResultCpuTemperature -> com.bruder.clean.f.e$a:
+com.bruder.clean.util.ReaderCpuTemp$1 -> com.bruder.clean.f.f$1:
+com.bruder.clean.util.ReaderCpuTemp$ResultCpuTemperature -> com.bruder.clean.f.f$a:
     java.lang.String cpuFilePath -> a
     boolean needDivide1k -> b
     double temperature -> c
     122:123:void <init>() -> <init>
     136:136:double getTemperature() -> a
-com.bruder.clean.util.ReaderCpuTemp$TemperatureResultCallback -> com.bruder.clean.f.e$b:
+com.bruder.clean.util.ReaderCpuTemp$TemperatureResultCallback -> com.bruder.clean.f.f$b:
     void callbackResult(com.bruder.clean.util.ReaderCpuTemp$ResultCpuTemperature) -> a
-com.bruder.clean.util.ReaderCpuTemp$TryGetFilesTask -> com.bruder.clean.f.e$c:
+com.bruder.clean.util.ReaderCpuTemp$TryGetFilesTask -> com.bruder.clean.f.f$c:
     com.bruder.clean.util.ReaderCpuTemp$TemperatureResultCallback callback -> a
     com.bruder.clean.util.ReaderCpuTemp$ResultCpuTemperature cachedResult -> b
     42:42:void <init>() -> <init>
@@ -32557,228 +32573,217 @@ com.bruder.clean.util.ReaderCpuTemp$TryGetFilesTask -> com.bruder.clean.f.e$c:
     42:42:void onPostExecute(java.lang.Object) -> onPostExecute
     42:42:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
     42:42:void <init>(com.bruder.clean.util.ReaderCpuTemp$1) -> <init>
-com.bruder.clean.util.ShortCutUtils -> com.bruder.clean.f.f:
+com.bruder.clean.util.ShortCutUtils -> com.bruder.clean.f.g:
     31:62:void addShortcut(android.app.Activity) -> a
     96:106:void addShortcut(android.app.Activity,android.content.Intent,java.lang.String,boolean,android.graphics.Bitmap) -> a
     109:115:void removeShortcut(android.content.Context,android.content.Intent,java.lang.String) -> a
-com.bruder.clean.util.SwitchControl -> com.bruder.clean.f.g:
+com.bruder.clean.util.SwitchControl -> com.bruder.clean.f.h:
     android.hardware.Camera camera -> a
     87:97:void setMobileData(android.content.Context,boolean) -> a
     100:111:int switchWifi(android.content.Context) -> a
     116:124:void switchSound(android.content.Context) -> b
     35:35:void <clinit>() -> <clinit>
-com.bruder.clean.util.TransmitValue -> com.bruder.clean.f.h:
+com.bruder.clean.util.TransmitValue -> com.bruder.clean.f.i:
     boolean isCool -> a
     boolean isJunk -> b
     boolean isRam -> c
-com.bruder.clean.util.UtilAd -> com.bruder.clean.f.i:
+com.bruder.clean.util.UtilAd -> com.bruder.clean.f.j:
     15:17:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
     20:40:android.view.View getNativeAdView(java.lang.String,int) -> a
-com.bruder.clean.util.UtilGp -> com.bruder.clean.f.j:
+com.bruder.clean.util.UtilGp -> com.bruder.clean.f.k:
     boolean xiaomi -> a
     boolean huawei -> b
     113:114:void rate(android.content.Context) -> a
     135:159:void openPlayStore(android.content.Context,java.lang.String) -> a
     162:169:void launchApp(android.content.Context,java.lang.String,android.content.Intent) -> a
     508:509:void <clinit>() -> <clinit>
-com.bruder.kpa.BruderDaemonReceiver -> com.bruder.kpa.BruderDaemonReceiver:
-    12:12:void <init>() -> <init>
-    15:15:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.bruder.kpa.BruderDaemonService -> com.bruder.kpa.BruderDaemonService:
-    12:12:void <init>() -> <init>
-    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
-    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-com.bruder.kpa.BruderPersistReceiver -> com.bruder.kpa.BruderPersistReceiver:
-    12:12:void <init>() -> <init>
-    16:16:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.bruder.kpa.BruderPersistService -> com.bruder.kpa.BruderPersistService:
-    12:12:void <init>() -> <init>
-    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
-    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-com.bruder.kpa.DaemonApplication -> com.bruder.kpa.DaemonApplication:
-    com.bruder.kpa.IDaemonClient mDaemonClient -> a
+com.brudering.kpa.DaemonApplication -> com.brudering.kpa.DaemonApplication:
+    com.brudering.kpa.IDaemonClient mDaemonClient -> a
     boolean mHasAttachBaseContext -> b
-    com.bruder.kpa.DaemonConfigurations getDaemonConfigurations() -> a
+    com.brudering.kpa.DaemonConfigurations getDaemonConfigurations() -> a
     23:32:void <init>() -> <init>
     36:43:void attachBaseContext(android.content.Context) -> attachBaseContext
     51:51:void attachBaseContextByDaemon(android.content.Context) -> a
-com.bruder.kpa.DaemonClient -> com.bruder.kpa.a:
-    com.bruder.kpa.DaemonConfigurations mConfigurations -> a
+com.brudering.kpa.DaemonClient -> com.brudering.kpa.a:
+    com.brudering.kpa.DaemonConfigurations mConfigurations -> a
     java.lang.String DAEMON_PERMITTING_SP_FILENAME -> b
     java.lang.String DAEMON_PERMITTING_SP_KEY -> c
     java.io.BufferedReader mBufferedReader -> d
-    26:54:void <init>(android.content.Context,com.bruder.kpa.DaemonConfigurations$DaemonListener) -> <init>
-    40:54:void <init>(com.bruder.kpa.DaemonConfigurations) -> <init>
-    46:50:void onAttachBaseContext(android.content.Context) -> a
-    61:63:com.bruder.kpa.DaemonConfigurations createDaemonConfigurations(android.content.Context,com.bruder.kpa.DaemonConfigurations$DaemonListener) -> a
-    73:95:void initDaemon(android.content.Context) -> b
-    115:120:java.lang.String getProcessName() -> a
-    128:136:void releaseIO() -> b
-    139:140:boolean isDaemonPermitting(android.content.Context) -> c
-com.bruder.kpa.DaemonConfigurations -> com.bruder.kpa.b:
-    com.bruder.kpa.DaemonConfigurations$DaemonConfiguration PERSISTENT_CONFIG -> a
-    com.bruder.kpa.DaemonConfigurations$DaemonConfiguration DAEMON_ASSISTANT_CONFIG -> b
-    com.bruder.kpa.DaemonConfigurations$DaemonListener LISTENER -> c
-    14:34:void <init>(android.content.Context,com.bruder.kpa.DaemonConfigurations$DaemonConfiguration,com.bruder.kpa.DaemonConfigurations$DaemonListener) -> <init>
-com.bruder.kpa.DaemonConfigurations$DaemonConfiguration -> com.bruder.kpa.b$a:
+    20:38:void <init>(android.content.Context,com.brudering.kpa.DaemonConfigurations$DaemonListener) -> <init>
+    24:38:void <init>(com.brudering.kpa.DaemonConfigurations) -> <init>
+    30:34:void onAttachBaseContext(android.content.Context) -> a
+    45:47:com.brudering.kpa.DaemonConfigurations createDaemonConfigurations(android.content.Context,com.brudering.kpa.DaemonConfigurations$DaemonListener) -> a
+    57:79:void initDaemon(android.content.Context) -> b
+    99:104:java.lang.String getProcessName() -> a
+    112:120:void releaseIO() -> b
+    123:124:boolean isDaemonPermitting(android.content.Context) -> c
+com.brudering.kpa.DaemonConfigurations -> com.brudering.kpa.b:
+    com.brudering.kpa.DaemonConfigurations$DaemonConfiguration PERSISTENT_CONFIG -> a
+    com.brudering.kpa.DaemonConfigurations$DaemonConfiguration DAEMON_ASSISTANT_CONFIG -> b
+    com.brudering.kpa.DaemonConfigurations$DaemonListener LISTENER -> c
+    14:34:void <init>(android.content.Context,com.brudering.kpa.DaemonConfigurations$DaemonConfiguration,com.brudering.kpa.DaemonConfigurations$DaemonListener) -> <init>
+com.brudering.kpa.DaemonConfigurations$DaemonConfiguration -> com.brudering.kpa.b$a:
     java.lang.String PROCESS_NAME -> a
     java.lang.String SERVICE_NAME -> b
     java.lang.String RECEIVER_NAME -> c
     48:52:void <init>(java.lang.String,java.lang.Class,java.lang.Class) -> <init>
-com.bruder.kpa.DaemonConfigurations$DaemonListener -> com.bruder.kpa.b$b:
+com.brudering.kpa.DaemonConfigurations$DaemonListener -> com.brudering.kpa.b$b:
     void onPersistentStart(android.content.Context) -> a
     void onDaemonAssistantStart(android.content.Context) -> b
     void onWatchDaemonDead() -> a
-com.bruder.kpa.IDaemonClient -> com.bruder.kpa.c:
+com.brudering.kpa.DaemonReceiver -> com.brudering.kpa.DaemonReceiver:
+    12:12:void <init>() -> <init>
+    15:15:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.brudering.kpa.DaemonService -> com.brudering.kpa.DaemonService:
+    12:12:void <init>() -> <init>
+    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
+    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+com.brudering.kpa.IDaemonClient -> com.brudering.kpa.c:
     void onAttachBaseContext(android.content.Context) -> a
-com.bruder.kpa.IDaemonStrategy -> com.bruder.kpa.d:
+com.brudering.kpa.IDaemonStrategy -> com.brudering.kpa.d:
     boolean onInitialization(android.content.Context) -> a
-    void onPersistentCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> a
-    void onDaemonAssistantCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> b
+    void onPersistentCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> a
+    void onDaemonAssistantCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> b
     void onDaemonDead() -> a
-com.bruder.kpa.IDaemonStrategy$Fetcher -> com.bruder.kpa.d$a:
-    com.bruder.kpa.IDaemonStrategy mDaemonStrategy -> a
-    63:94:com.bruder.kpa.IDaemonStrategy fetchStrategy() -> a
-com.bruder.kpa.NativeDaemonBase -> com.bruder.kpa.e:
+com.brudering.kpa.IDaemonStrategy$Fetcher -> com.brudering.kpa.d$a:
+    com.brudering.kpa.IDaemonStrategy mDaemonStrategy -> a
+    63:94:com.brudering.kpa.IDaemonStrategy fetchStrategy() -> a
+com.brudering.kpa.JobSchedulerService -> com.brudering.kpa.JobSchedulerService:
+    8:8:void <init>() -> <init>
+    14:20:boolean onStartJob(android.app.job.JobParameters) -> onStartJob
+    25:26:boolean onStopJob(android.app.job.JobParameters) -> onStopJob
+com.brudering.kpa.KeepLiveManager -> com.brudering.kpa.e:
+    30:44:void startJobScheduler(android.app.Application,long) -> a
+com.brudering.kpa.NativeDaemonBase -> com.brudering.kpa.f:
     android.content.Context mContext -> mContext
     17:19:void <init>(android.content.Context) -> <init>
     25:26:void onDaemonDead() -> onDaemonDead
-com.bruder.kpa.R -> com.bruder.kpa.f:
-com.bruder.kpa.R$string -> com.bruder.kpa.f$a:
-    int abc_action_bar_home_description -> abc_action_bar_home_description
-    int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
-    int abc_action_bar_home_subtitle_description_format -> abc_action_bar_home_subtitle_description_format
-    int abc_action_bar_up_description -> abc_action_bar_up_description
-    int abc_action_menu_overflow_description -> abc_action_menu_overflow_description
-    int abc_action_mode_done -> abc_action_mode_done
-    int abc_activity_chooser_view_see_all -> abc_activity_chooser_view_see_all
-    int abc_activitychooserview_choose_application -> abc_activitychooserview_choose_application
-    int abc_capital_off -> abc_capital_off
-    int abc_capital_on -> abc_capital_on
-    int abc_search_hint -> abc_search_hint
-    int abc_searchview_description_clear -> abc_searchview_description_clear
-    int abc_searchview_description_query -> abc_searchview_description_query
-    int abc_searchview_description_search -> abc_searchview_description_search
-    int abc_searchview_description_submit -> abc_searchview_description_submit
-    int abc_searchview_description_voice -> abc_searchview_description_voice
-    int abc_shareactionprovider_share_with -> abc_shareactionprovider_share_with
-    int abc_shareactionprovider_share_with_application -> abc_shareactionprovider_share_with_application
-    int abc_toolbar_collapse_description -> abc_toolbar_collapse_description
-    int com_vatermobi_kpa_nativ_process_name -> com_vatermobi_kpa_nativ_process_name
-    int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
-com.bruder.kpa.job.BruderKeepJobService -> com.bruder.kpa.job.BruderKeepJobService:
-    13:13:void <init>() -> <init>
-    16:16:boolean onStartJob(android.app.job.JobParameters) -> onStartJob
-    21:21:boolean onStopJob(android.app.job.JobParameters) -> onStopJob
-com.bruder.kpa.nativ.NativeDaemonAPIK -> com.bruder.kpa.nativ.NativeDaemonAPIK:
+com.brudering.kpa.PersistReceiver -> com.brudering.kpa.PersistReceiver:
+    12:12:void <init>() -> <init>
+    16:16:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.brudering.kpa.PersistService -> com.brudering.kpa.PersistService:
+    15:15:void <init>() -> <init>
+    19:21:void onCreate() -> onCreate
+    25:25:android.os.IBinder onBind(android.content.Intent) -> onBind
+    30:30:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    36:48:void onDestroy() -> onDestroy
+    52:59:void keepAlive() -> a
+com.brudering.kpa.PersistService$1 -> com.brudering.kpa.PersistService$1:
+    com.brudering.kpa.PersistService this$0 -> a
+    36:36:void <init>(com.brudering.kpa.PersistService) -> <init>
+    41:45:void run() -> run
+com.brudering.kpa.WatchmenReceiver -> com.brudering.kpa.WatchmenReceiver:
+    20:20:void <init>() -> <init>
+    25:29:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.brudering.kpa.nativ.NativeDaemonAPIK -> com.brudering.kpa.nativ.NativeDaemonAPIK:
     15:16:void <init>(android.content.Context) -> <init>
     void doDaemon(java.lang.String,java.lang.String,java.lang.String) -> doDaemon
     20:24:void <clinit>() -> <clinit>
-com.bruder.kpa.nativ.NativeDaemonAPIL -> com.bruder.kpa.nativ.NativeDaemonAPIL:
+com.brudering.kpa.nativ.NativeDaemonAPIL -> com.brudering.kpa.nativ.NativeDaemonAPIL:
     15:16:void <init>(android.content.Context) -> <init>
     void doDaemon(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> doDaemon
     20:24:void <clinit>() -> <clinit>
-com.bruder.kpa.strategy.DaemonStrategy21 -> com.bruder.kpa.a.a:
+com.brudering.kpa.strategy.DaemonStrategy21 -> com.brudering.kpa.a.a:
     android.app.AlarmManager mAlarmManager -> a
     android.app.PendingIntent mPendingIntent -> b
-    com.bruder.kpa.DaemonConfigurations mConfigs -> c
+    com.brudering.kpa.DaemonConfigurations mConfigs -> c
     22:22:void <init>() -> <init>
     35:35:boolean onInitialization(android.content.Context) -> a
-    40:65:void onPersistentCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> a
-    69:93:void onDaemonAssistantCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> b
+    40:65:void onPersistentCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> a
+    69:93:void onDaemonAssistantCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> b
     97:103:void onDaemonDead() -> a
     107:118:void initAlarm(android.content.Context,java.lang.String) -> a
     122:132:boolean initIndicators(android.content.Context) -> b
     138:142:void createNewFile(java.io.File,java.lang.String) -> a
-com.bruder.kpa.strategy.DaemonStrategy21$1 -> com.bruder.kpa.a.a$1:
+com.brudering.kpa.strategy.DaemonStrategy21$1 -> com.brudering.kpa.a.a$1:
     android.content.Context val$context -> a
-    com.bruder.kpa.strategy.DaemonStrategy21 this$0 -> b
-    47:47:void <init>(com.bruder.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
+    com.brudering.kpa.strategy.DaemonStrategy21 this$0 -> b
+    47:47:void <init>(com.brudering.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
     50:56:void run() -> run
-com.bruder.kpa.strategy.DaemonStrategy21$2 -> com.bruder.kpa.a.a$2:
+com.brudering.kpa.strategy.DaemonStrategy21$2 -> com.brudering.kpa.a.a$2:
     android.content.Context val$context -> a
-    com.bruder.kpa.strategy.DaemonStrategy21 this$0 -> b
-    76:76:void <init>(com.bruder.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
+    com.brudering.kpa.strategy.DaemonStrategy21 this$0 -> b
+    76:76:void <init>(com.brudering.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
     78:84:void run() -> run
-com.bruder.kpa.strategy.DaemonStrategy22 -> com.bruder.kpa.a.b:
+com.brudering.kpa.strategy.DaemonStrategy22 -> com.brudering.kpa.a.b:
     android.os.IBinder mRemote -> a
     android.os.Parcel mServiceData -> b
-    com.bruder.kpa.DaemonConfigurations mConfigs -> c
-    26:26:void <init>() -> <init>
-    39:39:boolean onInitialization(android.content.Context) -> a
-    44:64:void onPersistentCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> a
-    68:89:void onDaemonAssistantCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> b
-    94:102:void onDaemonDead() -> a
-    108:126:void initAmsBinder() -> b
-    131:163:void initServiceParcel(android.content.Context,java.lang.String) -> a
-    168:176:boolean startServiceByAmsBinder() -> c
-    184:194:boolean initIndicatorFiles(android.content.Context) -> b
-    199:203:void createNewFile(java.io.File,java.lang.String) -> a
-com.bruder.kpa.strategy.DaemonStrategy22$1 -> com.bruder.kpa.a.b$1:
-    android.content.Context val$context -> a
-    com.bruder.kpa.strategy.DaemonStrategy22 this$0 -> b
-    48:48:void <init>(com.bruder.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
-    50:56:void run() -> run
-com.bruder.kpa.strategy.DaemonStrategy22$2 -> com.bruder.kpa.a.b$2:
-    android.content.Context val$context -> a
-    com.bruder.kpa.strategy.DaemonStrategy22 this$0 -> b
-    72:72:void <init>(com.bruder.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
-    74:80:void run() -> run
-com.bruder.kpa.strategy.DaemonStrategy23 -> com.bruder.kpa.a.c:
-    android.os.IBinder mRemote -> a
-    android.os.Parcel mBroadcastData -> b
-    com.bruder.kpa.DaemonConfigurations mConfigs -> c
+    com.brudering.kpa.DaemonConfigurations mConfigs -> c
     27:27:void <init>() -> <init>
     40:40:boolean onInitialization(android.content.Context) -> a
-    45:72:void onPersistentCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> a
-    76:103:void onDaemonAssistantCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> b
+    45:65:void onPersistentCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> a
+    69:90:void onDaemonAssistantCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> b
+    95:103:void onDaemonDead() -> a
+    109:127:void initAmsBinder() -> b
+    132:164:void initServiceParcel(android.content.Context,java.lang.String) -> a
+    169:177:boolean startServiceByAmsBinder() -> c
+    185:195:boolean initIndicatorFiles(android.content.Context) -> b
+    200:204:void createNewFile(java.io.File,java.lang.String) -> a
+com.brudering.kpa.strategy.DaemonStrategy22$1 -> com.brudering.kpa.a.b$1:
+    android.content.Context val$context -> a
+    com.brudering.kpa.strategy.DaemonStrategy22 this$0 -> b
+    49:49:void <init>(com.brudering.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
+    51:57:void run() -> run
+com.brudering.kpa.strategy.DaemonStrategy22$2 -> com.brudering.kpa.a.b$2:
+    android.content.Context val$context -> a
+    com.brudering.kpa.strategy.DaemonStrategy22 this$0 -> b
+    73:73:void <init>(com.brudering.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
+    75:81:void run() -> run
+com.brudering.kpa.strategy.DaemonStrategy23 -> com.brudering.kpa.a.c:
+    android.os.IBinder mRemote -> a
+    android.os.Parcel mBroadcastData -> b
+    com.brudering.kpa.DaemonConfigurations mConfigs -> c
+    27:27:void <init>() -> <init>
+    40:40:boolean onInitialization(android.content.Context) -> a
+    45:72:void onPersistentCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> a
+    76:103:void onDaemonAssistantCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> b
     108:114:void onDaemonDead() -> a
     120:138:void initAmsBinder() -> b
     144:180:void initBroadcastParcel(android.content.Context,java.lang.String) -> a
     186:194:boolean sendBroadcastByAmsBinder() -> c
     200:210:boolean initIndicatorFiles(android.content.Context) -> b
     215:219:void createNewFile(java.io.File,java.lang.String) -> a
-com.bruder.kpa.strategy.DaemonStrategy23$1 -> com.bruder.kpa.a.c$1:
+com.brudering.kpa.strategy.DaemonStrategy23$1 -> com.brudering.kpa.a.c$1:
     android.content.Context val$context -> a
-    com.bruder.kpa.strategy.DaemonStrategy23 this$0 -> b
-    49:49:void <init>(com.bruder.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
+    com.brudering.kpa.strategy.DaemonStrategy23 this$0 -> b
+    49:49:void <init>(com.brudering.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
     51:57:void run() -> run
-com.bruder.kpa.strategy.DaemonStrategy23$2 -> com.bruder.kpa.a.c$2:
+com.brudering.kpa.strategy.DaemonStrategy23$2 -> com.brudering.kpa.a.c$2:
     android.content.Context val$context -> a
-    com.bruder.kpa.strategy.DaemonStrategy23 this$0 -> b
-    80:80:void <init>(com.bruder.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
+    com.brudering.kpa.strategy.DaemonStrategy23 this$0 -> b
+    80:80:void <init>(com.brudering.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
     82:88:void run() -> run
-com.bruder.kpa.strategy.DaemonStrategyUnder21 -> com.bruder.kpa.a.d:
+com.brudering.kpa.strategy.DaemonStrategyUnder21 -> com.brudering.kpa.a.d:
     java.lang.String BINARY_DEST_DIR_NAME -> a
     java.lang.String BINARY_FILE_NAME -> b
     android.app.AlarmManager mAlarmManager -> c
     android.app.PendingIntent mPendingIntent -> d
     28:30:void <init>() -> <init>
     37:37:boolean onInitialization(android.content.Context) -> a
-    42:58:void onPersistentCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> a
-    62:70:void onDaemonAssistantCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> b
+    42:58:void onPersistentCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> a
+    62:70:void onDaemonAssistantCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> b
     75:77:void onDaemonDead() -> a
     81:92:void initAlarm(android.content.Context,java.lang.String) -> a
     96:105:boolean installBinary(android.content.Context) -> b
     110:118:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
     123:126:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
     129:142:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
-com.bruder.kpa.strategy.DaemonStrategyUnder21$1 -> com.bruder.kpa.a.d$1:
+com.brudering.kpa.strategy.DaemonStrategyUnder21$1 -> com.brudering.kpa.a.d$1:
     android.content.Context val$context -> a
-    com.bruder.kpa.DaemonConfigurations val$configs -> b
-    com.bruder.kpa.strategy.DaemonStrategyUnder21 this$0 -> c
-    43:43:void <init>(com.bruder.kpa.strategy.DaemonStrategyUnder21,android.content.Context,com.bruder.kpa.DaemonConfigurations) -> <init>
+    com.brudering.kpa.DaemonConfigurations val$configs -> b
+    com.brudering.kpa.strategy.DaemonStrategyUnder21 this$0 -> c
+    43:43:void <init>(com.brudering.kpa.strategy.DaemonStrategyUnder21,android.content.Context,com.brudering.kpa.DaemonConfigurations) -> <init>
     45:50:void run() -> run
-com.bruder.kpa.strategy.DaemonStrategyXiaomi -> com.bruder.kpa.a.e:
+com.brudering.kpa.strategy.DaemonStrategyXiaomi -> com.brudering.kpa.a.e:
     java.lang.String BINARY_DEST_DIR_NAME -> a
     java.lang.String BINARY_FILE_NAME -> b
     android.os.IBinder mRemote -> c
     android.os.Parcel mServiceData -> d
-    com.bruder.kpa.DaemonConfigurations mConfigs -> e
+    com.brudering.kpa.DaemonConfigurations mConfigs -> e
     30:32:void <init>() -> <init>
     40:40:boolean onInitialization(android.content.Context) -> a
-    45:64:void onPersistentCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> a
-    69:77:void onDaemonAssistantCreate(android.content.Context,com.bruder.kpa.DaemonConfigurations) -> b
+    45:64:void onPersistentCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> a
+    69:77:void onDaemonAssistantCreate(android.content.Context,com.brudering.kpa.DaemonConfigurations) -> b
     81:89:void onDaemonDead() -> a
     94:112:void initAmsBinder() -> b
     118:150:void initServiceParcel(android.content.Context,java.lang.String) -> a
@@ -32787,11 +32792,11 @@ com.bruder.kpa.strategy.DaemonStrategyXiaomi -> com.bruder.kpa.a.e:
     181:189:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
     194:197:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
     200:213:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
-com.bruder.kpa.strategy.DaemonStrategyXiaomi$1 -> com.bruder.kpa.a.e$1:
+com.brudering.kpa.strategy.DaemonStrategyXiaomi$1 -> com.brudering.kpa.a.e$1:
     android.content.Context val$context -> a
-    com.bruder.kpa.DaemonConfigurations val$configs -> b
-    com.bruder.kpa.strategy.DaemonStrategyXiaomi this$0 -> c
-    47:47:void <init>(com.bruder.kpa.strategy.DaemonStrategyXiaomi,android.content.Context,com.bruder.kpa.DaemonConfigurations) -> <init>
+    com.brudering.kpa.DaemonConfigurations val$configs -> b
+    com.brudering.kpa.strategy.DaemonStrategyXiaomi this$0 -> c
+    47:47:void <init>(com.brudering.kpa.strategy.DaemonStrategyXiaomi,android.content.Context,com.brudering.kpa.DaemonConfigurations) -> <init>
     49:54:void run() -> run
 com.bumptech.glide.MemoryCategory -> com.bumptech.glide.MemoryCategory:
     com.bumptech.glide.MemoryCategory LOW -> LOW

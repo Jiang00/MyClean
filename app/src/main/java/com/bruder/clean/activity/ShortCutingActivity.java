@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -25,9 +26,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.bruder.clean.customeview.FlakeOnShortView;
 import com.bruder.clean.junk.R;
 import com.bruder.clean.util.Constant;
+import com.bruder.clean.util.PreData;
 import com.bruder.clean.util.UtilAd;
 import com.cleaner.util.DataPre;
 import com.cleaner.util.Util;
@@ -45,12 +46,10 @@ public class ShortCutingActivity extends BaseActivity {
     private static final int FLAKE_NUM = 3;
     private View nativeView;
     private String TAG_SHORTCUT = "bruder_shortcut";//
-    private FlakeOnShortView flakeView;
     private Animation suo;
     private Dialog dialog;
     FrameLayout short_backg;
     LinearLayout ll_ad;
-    private boolean isdoudong;
     private long size;
     private int count;
     private Handler myHandler;
@@ -69,12 +68,6 @@ public class ShortCutingActivity extends BaseActivity {
         setAnimationThread();
         suo = AnimationUtils.loadAnimation(this, R.anim.suo_short);
 
-        myHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-//                startTween();
-            }
-        }, 500);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -141,6 +134,21 @@ public class ShortCutingActivity extends BaseActivity {
             WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
             lp.width = dm.widthPixels; //设置宽度
             lp.height = dm.heightPixels; //设置高度
+            if (PreData.getDB(this, Constant.IS_ACTION_BAR, true)) {
+                int uiOptions =
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                                //布局位于状态栏下方
+                                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                                //隐藏导航栏
+                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+                if (Build.VERSION.SDK_INT >= 19) {
+                    uiOptions |= 0x00001000;
+                } else {
+                    uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+                }
+                dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+            }
             window.setAttributes(lp);
             window.setContentView(view);
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -211,39 +219,9 @@ public class ShortCutingActivity extends BaseActivity {
         }).start();
     }
 
-    private void startTween() {
-        final float hy = short_cut2.getTop();
-        final float hx = short_cut2.getLeft();
-        isdoudong = true;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (isdoudong) {
-                    int x = (int) (Math.random() * (10)) - 5;
-                    int y = (int) (Math.random() * (10)) - 5;
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    //震动的动画
-//                    Tween.to(short_cut2, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1f, 1)
-//                            .ease(TweenEquations.easeInQuad).delay(0)
-//                            .start(tweenManager);
-                }
-            }
-        }).start();
-
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
-        if (flakeView != null) {
-            flakeView.subtractFlakes(FLAKE_NUM);
-            flakeView.pause();
-            flakeView = null;
-        }
     }
 
     @Override
@@ -258,18 +236,6 @@ public class ShortCutingActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        flakeView = new FlakeOnShortView(this);
-//        short_xian.addView(flakeView);
-        flakeView.setRotation(35);
-        myHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    flakeView.addFlakes(FLAKE_NUM);
-                } catch (Exception e) {
-                }
-            }
-        });
         AnimatorSet set = new AnimatorSet();
         ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, 359f);
         ObjectAnimator animator2 = ObjectAnimator.ofFloat(short_cut3, "rotation", 0f, -359f);
@@ -311,7 +277,6 @@ public class ShortCutingActivity extends BaseActivity {
             public void onAnimationEnd(Animation animation) {
                 short_cut_beijing.setVisibility(View.GONE);
                 count++;
-                isdoudong = false;
                 show_text();
             }
 
