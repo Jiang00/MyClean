@@ -184,7 +184,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                adapterRam.upList(list);
+                adapterRam.addDataList(list);
                 adapterRam.notifyDataSetChanged();
             }
         });

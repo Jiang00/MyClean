@@ -142,12 +142,8 @@ public class FloatService extends Service {
                 mana.getDefaultDisplay().getMetrics(dm);
                 int viewHeight = mFullScreenCheckView.getHeight();
                 if (viewHeight == dm.widthPixels || viewHeight == dm.heightPixels) {
-                    Log.e("full", "==1");
-
                     manager.removeWindowsView();
-
                 } else {
-                    Log.e("full", "==2");
                     manager.addWindowsView();
                 }
             }
@@ -173,6 +169,9 @@ public class FloatService extends Service {
         PackageManager packageManager = this.getPackageManager();
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
+        if (packageManager == null) {
+            return packageNames;
+        }
         List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
         for (ResolveInfo resolveInfo : resolveInfos) {
             ActivityInfo activityInfo = resolveInfo.activityInfo;

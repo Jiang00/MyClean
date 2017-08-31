@@ -238,7 +238,7 @@ public class BatteryView extends FrameLayout {
             initViews();
             isBindView = true;
 
-            initShell();
+//            initShell();
 
             updateTime();
             Log.e("charging_ad", "==1");
@@ -359,13 +359,13 @@ public class BatteryView extends FrameLayout {
 
     public void pauseBubble() {
         if (bubbleLayout != null) {
-            bubbleLayout.pause();
+//            bubbleLayout.pause();
         }
     }
 
     public void reStartBubble() {
         if (bubbleLayout != null) {
-            bubbleLayout.reStart();
+//            bubbleLayout.reStart();
         }
     }
 
@@ -393,7 +393,7 @@ public class BatteryView extends FrameLayout {
             shell.cancelAnimation();
         }
         if (bubbleLayout != null) {
-            bubbleLayout.destroy();
+//            bubbleLayout.destroy();
         }
         if (isBindView) {
             isBindView = false;

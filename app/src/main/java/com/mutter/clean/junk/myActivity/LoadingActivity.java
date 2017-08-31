@@ -55,13 +55,13 @@ public class LoadingActivity extends BaseActivity {
         myHandler.postDelayed(runnable1, 2000);
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.translate_loading);
 
-        loading_text_1.startAnimation(animation);
+//        loading_text_1.startAnimation(animation);
         loading_text_1.setVisibility(View.VISIBLE);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
                 Animation animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.translate_loading);
-                loading_text_2.startAnimation(animation1);
+//                loading_text_2.startAnimation(animation1);
                 loading_text_2.setVisibility(View.VISIBLE);
             }
 

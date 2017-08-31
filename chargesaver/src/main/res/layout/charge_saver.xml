@@ -19,7 +19,8 @@
         <com.mutter.module.charge.saver.Aview.BubbleLayout
             android:id="@+id/battery_bubble_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:visibility="gone" />
 
     </FrameLayout>
 
@@ -121,12 +122,22 @@
                 android:layout_marginLeft="@dimen/d23"
                 android:layout_marginTop="@dimen/d16">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="@dimen/d9"
+                    android:layout_marginRight="@dimen/d9"
+                    android:layout_marginTop="1dp"
+                    android:background="@mipmap/battery_di" />
+
                 <com.sample.lottie.LottieAnimationView
                     android:id="@+id/battery_electricity"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="1dp"
                     app:lottie_autoPlay="false" />
+
 
                 <com.sample.lottie.LottieAnimationView
                     android:id="@+id/battery_shell"

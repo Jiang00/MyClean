@@ -30801,27 +30801,27 @@ com.github.mikephil.charting.utils.ViewPortHandler -> com.github.mikephil.charti
     747:747:boolean canZoomInMoreY() -> z
 com.jaredrummler.android.processes.AndroidProcesses -> com.jaredrummler.android.processes.a:
     boolean loggingEnabled -> a
-    132:135:void log(java.lang.String,java.lang.Object[]) -> a
-    148:151:void log(java.lang.Throwable,java.lang.String,java.lang.Object[]) -> a
-    214:234:java.util.List getRunningAppProcesses() -> a
+    128:131:void log(java.lang.String,java.lang.Object[]) -> a
+    144:147:void log(java.lang.Throwable,java.lang.String,java.lang.Object[]) -> a
+    179:199:java.util.List getRunningAppProcesses() -> a
 com.jaredrummler.android.processes.models.AndroidAppProcess -> com.jaredrummler.android.processes.models.AndroidAppProcess:
     boolean SYS_SUPPORTS_SCHEDGROUPS -> e
     boolean foreground -> a
     int uid -> b
     android.os.Parcelable$Creator CREATOR -> CREATOR
-    47:96:void <init>(int) -> <init>
-    103:103:java.lang.String getPackageName() -> a
-    130:133:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    136:139:void <init>(android.os.Parcel) -> <init>
-    33:141:void <clinit>() -> <clinit>
+    42:91:void <init>(int) -> <init>
+    98:98:java.lang.String getPackageName() -> a
+    125:128:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    131:134:void <init>(android.os.Parcel) -> <init>
+    33:136:void <clinit>() -> <clinit>
 com.jaredrummler.android.processes.models.AndroidAppProcess$1 -> com.jaredrummler.android.processes.models.AndroidAppProcess$1:
-    141:141:void <init>() -> <init>
-    144:144:com.jaredrummler.android.processes.models.AndroidAppProcess createFromParcel(android.os.Parcel) -> a
-    148:148:com.jaredrummler.android.processes.models.AndroidAppProcess[] newArray(int) -> a
-    141:141:java.lang.Object[] newArray(int) -> newArray
-    141:141:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    136:136:void <init>() -> <init>
+    139:139:com.jaredrummler.android.processes.models.AndroidAppProcess createFromParcel(android.os.Parcel) -> a
+    143:143:com.jaredrummler.android.processes.models.AndroidAppProcess[] newArray(int) -> a
+    136:136:java.lang.Object[] newArray(int) -> newArray
+    136:136:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.jaredrummler.android.processes.models.AndroidAppProcess$NotAndroidAppProcessException -> com.jaredrummler.android.processes.models.AndroidAppProcess$a:
-    155:156:void <init>(int) -> <init>
+    150:151:void <init>(int) -> <init>
 com.jaredrummler.android.processes.models.AndroidProcess -> com.jaredrummler.android.processes.models.AndroidProcess:
     java.lang.String name -> c
     int pid -> d
@@ -30877,19 +30877,19 @@ com.jaredrummler.android.processes.models.ControlGroup$1 -> com.jaredrummler.and
 com.jaredrummler.android.processes.models.ProcFile -> com.jaredrummler.android.processes.models.ProcFile:
     java.lang.String content -> b
     android.os.Parcelable$Creator CREATOR -> CREATOR
-    40:54:java.lang.String readFile(java.lang.String) -> b
-    62:64:void <init>(java.lang.String) -> <init>
-    67:69:void <init>(android.os.Parcel) -> <init>
-    72:72:long length() -> length
-    76:76:int describeContents() -> describeContents
-    80:82:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    84:84:void <clinit>() -> <clinit>
+    40:51:java.lang.String readFile(java.lang.String) -> b
+    59:61:void <init>(java.lang.String) -> <init>
+    64:66:void <init>(android.os.Parcel) -> <init>
+    69:69:long length() -> length
+    73:73:int describeContents() -> describeContents
+    77:79:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    81:81:void <clinit>() -> <clinit>
 com.jaredrummler.android.processes.models.ProcFile$1 -> com.jaredrummler.android.processes.models.ProcFile$1:
-    84:84:void <init>() -> <init>
-    87:87:com.jaredrummler.android.processes.models.ProcFile createFromParcel(android.os.Parcel) -> a
-    91:91:com.jaredrummler.android.processes.models.ProcFile[] newArray(int) -> a
-    84:84:java.lang.Object[] newArray(int) -> newArray
-    84:84:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    81:81:void <init>() -> <init>
+    84:84:com.jaredrummler.android.processes.models.ProcFile createFromParcel(android.os.Parcel) -> a
+    88:88:com.jaredrummler.android.processes.models.ProcFile[] newArray(int) -> a
+    81:81:java.lang.Object[] newArray(int) -> newArray
+    81:81:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.jaredrummler.android.processes.models.Stat -> com.jaredrummler.android.processes.models.Stat:
     java.lang.String[] fields -> a
     android.os.Parcelable$Creator CREATOR -> CREATOR
@@ -31738,31 +31738,31 @@ com.mutter.clean.core.CleanManager -> com.mutter.clean.core.a:
     527:542:java.util.List getUsageStatistics(int) -> a
     547:567:void clearSystemCache() -> c
     571:588:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    593:608:void notificationChanged(com.mutter.clean.notifi.NotificationInfo,boolean) -> a
-    611:618:void clearNotificationInfo() -> d
-    621:631:void addNotificationCallBack(com.mutter.clean.notifi.NotificationCallBack) -> a
-    634:640:void removeNotificatioCallBack(com.mutter.clean.notifi.NotificationCallBack) -> b
-    644:644:long getCacheSize() -> e
-    652:652:long getApkSize() -> f
-    656:656:long getUnloadSize() -> g
-    660:660:long getLogSize() -> h
-    664:664:long getDataSize() -> i
-    668:668:long getRamSize() -> j
-    672:672:java.util.ArrayList getAppRamList() -> k
-    676:676:java.util.ArrayList getUninstallResiduals() -> l
-    680:680:java.util.ArrayList getAppCaches() -> m
-    684:684:java.util.ArrayList getSystemCaches() -> n
-    688:688:java.util.ArrayList getAppList() -> o
-    692:692:java.util.ArrayList getApkFiles() -> p
-    696:696:java.util.ArrayList getLogFiles() -> q
-    701:709:void removeRam(com.mutter.clean.entity.JunkInfo) -> a
-    712:717:void removeRamSelfBoot(com.mutter.clean.entity.JunkInfo) -> b
-    720:724:void clearRam() -> r
-    727:732:void removeAppCache(com.mutter.clean.entity.JunkInfo) -> c
-    735:739:void removeAppList(com.mutter.clean.entity.JunkInfo) -> d
-    742:747:void removeFilesOfUnintalledApk(com.mutter.clean.entity.JunkInfo) -> e
-    750:755:void removeApkFiles(com.mutter.clean.entity.JunkInfo) -> f
-    758:763:void removeAppLog(com.mutter.clean.entity.JunkInfo) -> g
+    593:616:void notificationChanged(com.mutter.clean.notifi.NotificationInfo,boolean) -> a
+    619:626:void clearNotificationInfo() -> d
+    629:639:void addNotificationCallBack(com.mutter.clean.notifi.NotificationCallBack) -> a
+    642:648:void removeNotificatioCallBack(com.mutter.clean.notifi.NotificationCallBack) -> b
+    652:652:long getCacheSize() -> e
+    660:660:long getApkSize() -> f
+    664:664:long getUnloadSize() -> g
+    668:668:long getLogSize() -> h
+    672:672:long getDataSize() -> i
+    676:676:long getRamSize() -> j
+    680:680:java.util.ArrayList getAppRamList() -> k
+    684:684:java.util.ArrayList getUninstallResiduals() -> l
+    688:688:java.util.ArrayList getAppCaches() -> m
+    692:692:java.util.ArrayList getSystemCaches() -> n
+    696:696:java.util.ArrayList getAppList() -> o
+    700:700:java.util.ArrayList getApkFiles() -> p
+    704:704:java.util.ArrayList getLogFiles() -> q
+    709:717:void removeRam(com.mutter.clean.entity.JunkInfo) -> a
+    720:725:void removeRamSelfBoot(com.mutter.clean.entity.JunkInfo) -> b
+    728:732:void clearRam() -> r
+    735:740:void removeAppCache(com.mutter.clean.entity.JunkInfo) -> c
+    743:747:void removeAppList(com.mutter.clean.entity.JunkInfo) -> d
+    750:755:void removeFilesOfUnintalledApk(com.mutter.clean.entity.JunkInfo) -> e
+    758:763:void removeApkFiles(com.mutter.clean.entity.JunkInfo) -> f
+    766:771:void removeAppLog(com.mutter.clean.entity.JunkInfo) -> g
     60:60:void access$000(com.mutter.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.mutter.clean.core.CleanManager$1 -> com.mutter.clean.core.a$1:
     com.mutter.clean.core.CleanManager this$0 -> a
@@ -32724,7 +32724,7 @@ com.mutter.clean.junk.R$styleable -> com.mutter.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6012:14998:void <clinit>() -> <clinit>
+    6013:14999:void <clinit>() -> <clinit>
 com.mutter.clean.junk.broadcast.UnloadBroadcast -> com.mutter.clean.junk.broadcast.UnloadBroadcast:
     23:23:void <init>() -> <init>
     27:55:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -35768,10 +35768,10 @@ com.mutter.clean.junk.service.FloatService -> com.mutter.clean.junk.service.Floa
     50:50:android.os.IBinder onBind(android.content.Intent) -> onBind
     68:99:void updata() -> b
     107:122:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    127:160:void createFullScreenCheckView() -> c
-    165:169:void onCreate() -> onCreate
-    172:185:java.util.List getLaunchers() -> a
-    190:197:void onDestroy() -> onDestroy
+    127:156:void createFullScreenCheckView() -> c
+    161:165:void onCreate() -> onCreate
+    168:184:java.util.List getLaunchers() -> a
+    189:196:void onDestroy() -> onDestroy
     40:40:void access$000(com.mutter.clean.junk.service.FloatService) -> a
     40:40:com.mutter.clean.junk.presenter.GetTopApp access$100(com.mutter.clean.junk.service.FloatService) -> b
     40:40:android.widget.LinearLayout access$200(com.mutter.clean.junk.service.FloatService) -> c
@@ -35786,7 +35786,7 @@ com.mutter.clean.junk.service.FloatService$2 -> com.mutter.clean.junk.service.Fl
 com.mutter.clean.junk.service.FloatService$3 -> com.mutter.clean.junk.service.FloatService$3:
     com.mutter.clean.junk.service.FloatService this$0 -> a
     135:135:void <init>(com.mutter.clean.junk.service.FloatService) -> <init>
-    141:153:void onGlobalLayout() -> onGlobalLayout
+    141:149:void onGlobalLayout() -> onGlobalLayout
 com.mutter.clean.junk.service.NotificationService -> com.mutter.clean.junk.service.NotificationService:
     android.app.Notification notification_ram -> c
     android.app.Notification notification_cooling -> d
@@ -38025,10 +38025,9 @@ com.mutter.module.charge.saver.Aview.BatteryView -> com.mutter.module.charge.sav
     87:88:void setUnlockListener(com.mutter.module.charge.saver.Aview.BatteryView$UnlockListener) -> setUnlockListener
     142:156:void updateTime() -> a
     161:197:void bind(com.mutter.module.charge.saver.entry.BatteryEntry) -> a
-    207:217:void initShell() -> f
-    221:231:void initWater() -> g
+    221:231:void initWater() -> f
     236:339:void onFinishInflate() -> onFinishInflate
-    342:358:void initViews() -> h
+    342:358:void initViews() -> g
     361:364:void pauseBubble() -> b
     367:370:void reStartBubble() -> c
     374:381:void onAttachedToWindow() -> onAttachedToWindow
@@ -38088,11 +38087,8 @@ com.mutter.module.charge.saver.Aview.BubbleLayout -> com.mutter.module.charge.sa
     20:31:void <init>(android.content.Context) -> <init>
     20:36:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     20:41:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    44:45:void init() -> d
-    48:56:void destroy() -> a
+    44:45:void init() -> a
     59:60:void setParticleBitmap(android.graphics.Bitmap) -> setParticleBitmap
-    63:67:void pause() -> b
-    70:73:void reStart() -> c
     77:174:void onDraw(android.graphics.Canvas) -> onDraw
     18:18:boolean access$000(com.mutter.module.charge.saver.Aview.BubbleLayout) -> a
     18:18:boolean access$100(com.mutter.module.charge.saver.Aview.BubbleLayout) -> b
@@ -38430,6 +38426,7 @@ com.mutter.module.charge.saver.R$layout -> com.mutter.module.charge.saver.a$c:
 com.mutter.module.charge.saver.R$mipmap -> com.mutter.module.charge.saver.a$d:
     int ad_right -> ad_right
     int battery_bubble -> battery_bubble
+    int battery_di -> battery_di
     int battery_inner_icon -> battery_inner_icon
     int battery_more -> battery_more
     int side_check_normal -> side_check_normal
@@ -39061,7 +39058,7 @@ com.mutter.module.charge.saver.R$styleable -> com.mutter.module.charge.saver.a$f
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1451:2032:void <clinit>() -> <clinit>
+    1452:2033:void <clinit>() -> <clinit>
 com.mutter.module.charge.saver.Util.ADRequest -> com.mutter.module.charge.saver.Util.a:
     16:17:void showFullAD() -> a
 com.mutter.module.charge.saver.Util.Utils -> com.mutter.module.charge.saver.Util.b:
