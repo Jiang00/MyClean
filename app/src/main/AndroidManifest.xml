@@ -87,7 +87,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LajiFileActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.vectorapps.LajiFileActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.LajiAndRamActivity"
             android:exported="true"
@@ -100,7 +105,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ANeicunAvtivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.vectorapps.ANeicunAvtivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.SettingActivity"
             android:screenOrientation="portrait" />

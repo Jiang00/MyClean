@@ -264,6 +264,11 @@ public class ANeicunAvtivity extends BaseActivity implements MRamView {
         }).start();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -299,7 +304,6 @@ public class ANeicunAvtivity extends BaseActivity implements MRamView {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            setResult(Constant.RAM_RESUIL);
             onBackPressed();
         } else if (resultCode == Constant.WHITE_RESUIL) {
             ramPresenter.addAdapterData();
