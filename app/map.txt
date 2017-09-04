@@ -27678,32 +27678,33 @@ com.android.clean.core.CleanManager -> com.android.clean.core.a:
     496:528:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
     533:543:java.util.List getUsageStatistics(int) -> a
     551:571:void clearSystemCache() -> c
-    575:592:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    597:613:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
-    616:623:void clearNotificationInfo() -> d
-    626:636:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
-    639:645:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
-    649:649:long getCacheSize() -> e
-    657:657:long getApkSize() -> f
-    661:661:long getUnloadSize() -> g
-    665:665:long getLogSize() -> h
-    669:669:long getDataSize() -> i
-    673:673:long getRamSize() -> j
-    677:677:java.util.ArrayList getAppRamList() -> k
-    681:681:java.util.ArrayList getUninstallResiduals() -> l
-    685:685:java.util.ArrayList getAppCaches() -> m
-    689:689:java.util.ArrayList getSystemCaches() -> n
-    693:693:java.util.ArrayList getAppList() -> o
-    697:697:java.util.ArrayList getApkFiles() -> p
-    701:701:java.util.ArrayList getLogFiles() -> q
-    706:714:void removeRam(com.android.clean.entity.JunkInfo) -> a
-    717:722:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> b
-    725:729:void clearRam() -> r
-    732:737:void removeAppCache(com.android.clean.entity.JunkInfo) -> c
-    740:744:void removeAppList(com.android.clean.entity.JunkInfo) -> d
-    747:752:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> e
-    755:760:void removeApkFiles(com.android.clean.entity.JunkInfo) -> f
-    763:768:void removeAppLog(com.android.clean.entity.JunkInfo) -> g
+    575:578:void remuveSystemCache(com.android.clean.entity.JunkInfo) -> a
+    581:598:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
+    603:619:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
+    622:629:void clearNotificationInfo() -> d
+    632:642:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
+    645:651:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
+    655:655:long getCacheSize() -> e
+    663:663:long getApkSize() -> f
+    667:667:long getUnloadSize() -> g
+    671:671:long getLogSize() -> h
+    675:675:long getDataSize() -> i
+    679:679:long getRamSize() -> j
+    683:683:java.util.ArrayList getAppRamList() -> k
+    687:687:java.util.ArrayList getUninstallResiduals() -> l
+    691:691:java.util.ArrayList getAppCaches() -> m
+    695:695:java.util.ArrayList getSystemCaches() -> n
+    699:699:java.util.ArrayList getAppList() -> o
+    703:703:java.util.ArrayList getApkFiles() -> p
+    707:707:java.util.ArrayList getLogFiles() -> q
+    712:720:void removeRam(com.android.clean.entity.JunkInfo) -> b
+    723:728:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> c
+    731:735:void clearRam() -> r
+    738:743:void removeAppCache(com.android.clean.entity.JunkInfo) -> d
+    746:750:void removeAppList(com.android.clean.entity.JunkInfo) -> e
+    753:758:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> f
+    761:766:void removeApkFiles(com.android.clean.entity.JunkInfo) -> g
+    769:774:void removeAppLog(com.android.clean.entity.JunkInfo) -> h
     61:61:void access$000(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.android.clean.core.CleanManager$1 -> com.android.clean.core.a$1:
     com.android.clean.core.CleanManager this$0 -> a
@@ -33533,7 +33534,7 @@ com.eos.manager.AppLockEosService -> com.eos.manager.AppLockEosService:
     boolean hasAccessUsagePermission -> y
     boolean dontaskagain -> z
     java.util.HashMap excludesClasses -> A
-    75:1093:void <init>() -> <init>
+    75:1095:void <init>() -> <init>
     87:88:void startWorking(android.content.Context) -> a
     91:92:void stopWorking(android.content.Context) -> b
     95:99:void startLock(android.content.Context,java.lang.String) -> a
@@ -33553,12 +33554,12 @@ com.eos.manager.AppLockEosService -> com.eos.manager.AppLockEosService:
     820:825:void stopTimer() -> f
     842:984:void onCreate() -> onCreate
     988:988:android.os.IBinder onBind(android.content.Intent) -> onBind
-    998:1017:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    1024:1066:void protect(java.lang.String) -> a
-    1070:1091:void lockNew(java.lang.String) -> b
-    1096:1110:void onWakeUp() -> g
-    1113:1116:void onStopProtect() -> h
-    1120:1129:void onDestroy() -> onDestroy
+    998:1019:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    1026:1068:void protect(java.lang.String) -> a
+    1072:1093:void lockNew(java.lang.String) -> b
+    1098:1112:void onWakeUp() -> g
+    1115:1118:void onStopProtect() -> h
+    1122:1131:void onDestroy() -> onDestroy
     75:75:android.app.ActivityManager access$002(com.eos.manager.AppLockEosService,android.app.ActivityManager) -> a
     75:75:android.app.ActivityManager access$000(com.eos.manager.AppLockEosService) -> a
     75:75:void access$100(com.eos.manager.AppLockEosService) -> b
@@ -33590,18 +33591,18 @@ com.eos.manager.AppLockEosService$13 -> com.eos.manager.AppLockEosService$5:
 com.eos.manager.AppLockEosService$14 -> com.eos.manager.AppLockEosService$6:
     java.lang.String val$pkg -> a
     com.eos.manager.AppLockEosService this$0 -> b
-    1053:1053:void <init>(com.eos.manager.AppLockEosService,java.lang.String) -> <init>
-    1056:1060:void onClick(android.content.DialogInterface,int) -> onClick
+    1055:1055:void <init>(com.eos.manager.AppLockEosService,java.lang.String) -> <init>
+    1058:1062:void onClick(android.content.DialogInterface,int) -> onClick
 com.eos.manager.AppLockEosService$15 -> com.eos.manager.AppLockEosService$7:
     java.lang.String val$pkg -> a
     com.eos.manager.AppLockEosService this$0 -> b
-    1045:1045:void <init>(com.eos.manager.AppLockEosService,java.lang.String) -> <init>
-    1048:1051:void onClick(android.content.DialogInterface,int) -> onClick
+    1047:1047:void <init>(com.eos.manager.AppLockEosService,java.lang.String) -> <init>
+    1050:1053:void onClick(android.content.DialogInterface,int) -> onClick
 com.eos.manager.AppLockEosService$16 -> com.eos.manager.AppLockEosService$8:
     java.lang.String val$pkg -> a
     com.eos.manager.AppLockEosService this$0 -> b
-    1077:1077:void <init>(com.eos.manager.AppLockEosService,java.lang.String) -> <init>
-    1080:1084:void onClick(android.content.DialogInterface,int) -> onClick
+    1079:1079:void <init>(com.eos.manager.AppLockEosService,java.lang.String) -> <init>
+    1082:1086:void onClick(android.content.DialogInterface,int) -> onClick
 com.eos.manager.AppLockEosService$2 -> com.eos.manager.AppLockEosService$9:
     com.eos.manager.AppLockEosService this$0 -> a
     578:578:void <init>(com.eos.manager.AppLockEosService) -> <init>
@@ -34411,6 +34412,7 @@ com.eos.manager.meta.SecurityMyPref -> com.eos.manager.c.c:
     62:67:com.eos.manager.meta.SecurityMyPref setPasswd(java.lang.String,boolean) -> a
     74:75:boolean checkPasswd(java.lang.String,boolean) -> b
     81:85:java.lang.String getPasswd() -> e
+    93:94:boolean isPasswdSet(boolean) -> b
     128:133:boolean isANewDay() -> f
     137:149:void pressMenu(int) -> a
     160:161:void clearMenuPressedStateWithOptions(int,int) -> a
@@ -34420,23 +34422,23 @@ com.eos.manager.meta.SecurityMyPref -> com.eos.manager.c.c:
     226:227:void pressOption(int) -> c
     230:230:boolean isOptionPressed(int) -> d
     259:259:boolean isProtectStopped() -> i
-    263:264:void stopProtect(boolean) -> b
+    263:264:void stopProtect(boolean) -> c
     271:271:boolean isEnglish() -> j
     296:301:boolean requireAsk() -> k
     352:352:boolean getVisitor() -> l
-    375:376:void setFirstLeader(boolean) -> c
+    375:376:void setFirstLeader(boolean) -> d
     379:379:boolean getFirstLeader() -> m
-    384:385:void setOpenPermission(boolean) -> d
+    384:385:void setOpenPermission(boolean) -> e
     388:388:boolean getOpenPermission() -> n
-    402:403:void setshowLockAll(boolean) -> e
+    402:403:void setshowLockAll(boolean) -> f
     406:406:boolean getshowLockAll() -> o
-    429:430:void setClickOK(boolean) -> f
+    429:430:void setClickOK(boolean) -> g
     433:433:boolean getClickOK() -> p
-    438:439:void setMainFirstFull(boolean) -> g
+    438:439:void setMainFirstFull(boolean) -> h
     442:442:boolean getMainFirstFull() -> q
     447:448:void setMainFirstFullCountDown(int) -> e
     451:451:int getMainFirstFullCountDown() -> r
-    456:457:void setPasswordLockOk(boolean) -> h
+    456:457:void setPasswordLockOk(boolean) -> i
     17:332:void <clinit>() -> <clinit>
 com.eos.manager.meta.SecurityTheBridge -> com.eos.manager.c.d:
     com.eos.manager.myinterface.ISecurityBridge bridge -> a
@@ -46123,13 +46125,6 @@ com.sample.lottie.Utils -> com.sample.lottie.Utils:
     38:46:void closeQuietly(java.io.Closeable) -> closeQuietly
     49:54:int getScreenWidth(android.content.Context) -> getScreenWidth
     58:63:int getScreenHeight(android.content.Context) -> getScreenHeight
-com.squareup.leakcanary.LeakCanary -> com.squareup.a.a:
-    12:12:com.squareup.leakcanary.RefWatcher install(android.app.Application) -> a
-    16:16:boolean isInAnalyzerProcess(android.content.Context) -> a
-com.squareup.leakcanary.RefWatcher -> com.squareup.a.b:
-    com.squareup.leakcanary.RefWatcher DISABLED -> a
-    11:12:void <init>() -> <init>
-    9:9:void <clinit>() -> <clinit>
 com.squareup.picasso.Action -> com.squareup.picasso.a:
     com.squareup.picasso.Picasso picasso -> a
     com.squareup.picasso.Request request -> b
@@ -47457,7 +47452,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6384:15445:void <clinit>() -> <clinit>
+    6387:15448:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -47956,22 +47951,22 @@ com.supers.clean.junk.activity.GBoostActivity -> com.supers.clean.junk.activity.
     java.util.List listEdit -> I
     int screenWidth -> J
     android.view.View$OnClickListener clickListener -> w
-    59:237:void <init>() -> <init>
+    59:235:void <init>() -> <init>
     108:126:void findId() -> a
     130:156:void onCreate(android.os.Bundle) -> onCreate
     159:162:void initList() -> e
-    165:235:void addData() -> f
-    299:353:void toggleEditAnimation() -> g
-    356:373:long getCup() -> h
-    377:384:long getNetWork() -> i
-    389:390:long getTotalRxBytes() -> j
-    395:435:void onResume() -> onResume
-    439:457:void onBackPressed() -> onBackPressed
-    460:506:void shortGame(boolean) -> a
-    509:524:void initData() -> k
-    527:536:void upData(java.lang.String) -> c
-    540:542:void onDestroy() -> onDestroy
-    546:554:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    165:233:void addData() -> f
+    297:351:void toggleEditAnimation() -> g
+    354:371:long getCup() -> h
+    375:382:long getNetWork() -> i
+    387:388:long getTotalRxBytes() -> j
+    393:433:void onResume() -> onResume
+    437:455:void onBackPressed() -> onBackPressed
+    458:504:void shortGame(boolean) -> a
+    507:522:void initData() -> k
+    525:534:void upData(java.lang.String) -> c
+    538:540:void onDestroy() -> onDestroy
+    544:552:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     59:59:java.util.ArrayList access$000(com.supers.clean.junk.activity.GBoostActivity) -> a
     59:59:android.os.Handler access$100(com.supers.clean.junk.activity.GBoostActivity) -> b
     59:59:com.supers.clean.junk.customeview.LaunchpadAdapter access$202(com.supers.clean.junk.activity.GBoostActivity,com.supers.clean.junk.customeview.LaunchpadAdapter) -> a
@@ -48008,41 +48003,41 @@ com.supers.clean.junk.activity.GBoostActivity$2$1$2 -> com.supers.clean.junk.act
     209:225:void onClick(java.lang.Object,int) -> onClick
 com.supers.clean.junk.activity.GBoostActivity$3 -> com.supers.clean.junk.activity.GBoostActivity$3:
     com.supers.clean.junk.activity.GBoostActivity this$0 -> a
-    237:237:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
-    240:295:void onClick(android.view.View) -> onClick
+    235:235:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
+    238:293:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.GBoostActivity$3$1 -> com.supers.clean.junk.activity.GBoostActivity$3$1:
     com.supers.clean.junk.activity.GBoostActivity$3 this$1 -> a
-    277:277:void <init>(com.supers.clean.junk.activity.GBoostActivity$3) -> <init>
-    280:282:void run() -> run
+    275:275:void <init>(com.supers.clean.junk.activity.GBoostActivity$3) -> <init>
+    278:280:void run() -> run
 com.supers.clean.junk.activity.GBoostActivity$4 -> com.supers.clean.junk.activity.GBoostActivity$4:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.supers.clean.junk.activity.GBoostActivity this$0 -> d
-    319:319:void <init>(com.supers.clean.junk.activity.GBoostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    322:350:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    317:317:void <init>(com.supers.clean.junk.activity.GBoostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    320:348:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.supers.clean.junk.activity.GBoostActivity$4$1 -> com.supers.clean.junk.activity.GBoostActivity$4$1:
     com.supers.clean.junk.activity.GBoostActivity$4 this$1 -> a
-    330:330:void <init>(com.supers.clean.junk.activity.GBoostActivity$4) -> <init>
-    333:334:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    339:339:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    344:344:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    328:328:void <init>(com.supers.clean.junk.activity.GBoostActivity$4) -> <init>
+    331:332:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    337:337:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    342:342:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.supers.clean.junk.activity.GBoostActivity$5 -> com.supers.clean.junk.activity.GBoostActivity$5:
     com.supers.clean.junk.activity.GBoostActivity this$0 -> a
-    396:396:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
-    399:433:void run() -> run
+    394:394:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
+    397:431:void run() -> run
 com.supers.clean.junk.activity.GBoostActivity$5$1 -> com.supers.clean.junk.activity.GBoostActivity$5$1:
     int val$cup -> a
     int val$memo -> b
     int val$speed -> c
     long val$size -> d
     com.supers.clean.junk.activity.GBoostActivity$5 this$1 -> e
-    405:405:void <init>(com.supers.clean.junk.activity.GBoostActivity$5,int,int,int,long) -> <init>
-    408:425:void run() -> run
+    403:403:void <init>(com.supers.clean.junk.activity.GBoostActivity$5,int,int,int,long) -> <init>
+    406:423:void run() -> run
 com.supers.clean.junk.activity.GBoostActivity$6 -> com.supers.clean.junk.activity.GBoostActivity$6:
     com.supers.clean.junk.activity.GBoostActivity this$0 -> a
-    460:460:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
-    463:464:void run() -> run
+    458:458:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
+    461:462:void run() -> run
 com.supers.clean.junk.activity.JunkActivity -> com.supers.clean.junk.activity.JunkActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -48473,17 +48468,17 @@ com.supers.clean.junk.activity.LoadingActivity -> com.supers.clean.junk.activity
     android.os.Handler myHandler -> a
     android.widget.TextView tv_tiaoguo -> b
     java.lang.Runnable runnable1 -> c
-    27:415:void <init>() -> <init>
+    27:60:void <init>() -> <init>
     33:36:void findId() -> a
-    42:413:void onCreate(android.os.Bundle) -> onCreate
-    431:433:void onResume() -> onResume
-    437:438:void onStop() -> onStop
-    442:444:void onDestroy() -> onDestroy
-    448:449:void onBackPressed() -> onBackPressed
+    42:58:void onCreate(android.os.Bundle) -> onCreate
+    76:78:void onResume() -> onResume
+    82:83:void onStop() -> onStop
+    87:89:void onDestroy() -> onDestroy
+    93:94:void onBackPressed() -> onBackPressed
 com.supers.clean.junk.activity.LoadingActivity$1 -> com.supers.clean.junk.activity.LoadingActivity$1:
     com.supers.clean.junk.activity.LoadingActivity this$0 -> a
-    415:415:void <init>(com.supers.clean.junk.activity.LoadingActivity) -> <init>
-    419:425:void run() -> run
+    60:60:void <init>(com.supers.clean.junk.activity.LoadingActivity) -> <init>
+    64:70:void run() -> run
 com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.MainActivity:
     com.supers.clean.junk.customeview.MyScrollView main_scroll_view -> a
     com.supers.clean.junk.customeview.PullToRefreshLayout main_pull_refresh -> b
@@ -48535,210 +48530,211 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     android.widget.LinearLayout ll_ad_side -> ab
     com.mingle.widget.LinearLayout ll_ad_full -> ac
     android.widget.ProgressBar ad_progressbar -> ad
-    android.widget.FrameLayout fl_lot_side -> ae
-    android.widget.ImageView side_title -> af
-    com.sample.lottie.LottieAnimationView lot_main -> ag
-    com.sample.lottie.LottieAnimationView lot_family -> ah
-    com.sample.lottie.LottieAnimationView lot_side -> ai
-    android.widget.LinearLayout main_battery -> aj
-    java.lang.String TAG_MAIN -> ar
-    java.lang.String TAG_HUA -> as
-    java.lang.String TAG_SIDE -> at
-    java.lang.String TAG_START_FULL -> au
-    java.lang.String TAG_EXIT_FULL -> av
-    java.lang.String TAG_DETECT -> aw
-    com.supers.clean.junk.activity.MyApplication cleanApplication -> ax
-    android.os.Handler handler -> ay
-    com.supers.clean.junk.presenter.MainPresenter mainPresenter -> az
-    com.supers.clean.junk.adapter.SideAdapter adapter -> aA
-    int temp -> aB
-    android.support.v4.view.ViewPager viewpager -> aC
-    com.rd.PageIndicatorView pageindicatorview -> ak
-    android.support.v4.view.PagerAdapter pagerAdapter -> al
-    boolean mDrawerOpened -> aD
-    com.eos.ui.demo.entries.CrossData$CrossPromotionBean bean -> aE
-    android.view.View viewpager_3 -> aF
-    java.lang.String from -> aG
-    android.support.v7.app.AlertDialog dialog -> aH
-    android.widget.LinearLayout deep -> aI
-    android.widget.FrameLayout lot_tap -> aJ
-    java.util.ArrayList arrayList -> aK
-    boolean isSave -> am
-    int sdProgress -> an
-    java.lang.Runnable fullAdRunnale -> ao
-    com.supers.clean.junk.customeview.PullToRefreshLayout$OnRefreshListener refreshListener -> ap
-    android.view.View$OnClickListener onClickListener -> aq
-    72:882:void <init>() -> <init>
-    148:196:void findId() -> a
-    202:204:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
-    208:404:void onCreate(android.os.Bundle) -> onCreate
-    407:487:void showDetectDialog() -> j
-    491:504:java.lang.String millTransFate(long) -> a
-    508:525:boolean addTapTuiguang() -> k
-    529:595:void tuiGuang() -> d
-    600:633:void onClick() -> onClick
-    637:656:void initCpu(int) -> b
-    662:702:void initSd(int,java.lang.String,long) -> a
-    706:728:void initRam(int,java.lang.String) -> a
-    732:736:void initGuard(int,android.view.animation.RotateAnimation) -> a
-    740:763:void initSideData() -> f
-    767:768:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
-    772:773:void setRotateGone() -> g
-    777:778:void openDrawer() -> h
-    782:785:void closeDrawer() -> i
-    789:841:void loadFullAd() -> e
-    1085:1126:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    1130:1133:void onRestart() -> onRestart
-    1137:1149:void onPause() -> onPause
-    1153:1166:void onResume() -> onResume
-    1170:1180:void onDestroy() -> onDestroy
-    1183:1200:void onBackPressed() -> onBackPressed
-    1203:1223:void adDelete() -> l
-    1226:1275:void showExitDialog() -> m
-    1280:1280:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    1284:1289:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    1293:1298:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    1303:1303:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    72:72:com.supers.clean.junk.presenter.MainPresenter access$000(com.supers.clean.junk.activity.MainActivity) -> a
-    72:72:java.util.ArrayList access$100(com.supers.clean.junk.activity.MainActivity) -> b
-    72:72:android.support.v4.view.ViewPager access$200(com.supers.clean.junk.activity.MainActivity) -> c
-    72:72:android.support.v7.app.AlertDialog access$300(com.supers.clean.junk.activity.MainActivity) -> d
-    72:72:com.eos.ui.demo.entries.CrossData$CrossPromotionBean access$400(com.supers.clean.junk.activity.MainActivity) -> e
-    72:72:boolean access$500(com.supers.clean.junk.activity.MainActivity) -> f
-    72:72:android.os.Handler access$600(com.supers.clean.junk.activity.MainActivity) -> g
-    72:72:void access$700(com.supers.clean.junk.activity.MainActivity) -> h
-    72:72:int access$800(com.supers.clean.junk.activity.MainActivity) -> i
-    72:72:java.lang.String access$900(com.supers.clean.junk.activity.MainActivity) -> j
-    72:72:com.supers.clean.junk.adapter.SideAdapter access$1000(com.supers.clean.junk.activity.MainActivity) -> k
+    com.supers.clean.junk.customeview.SnowView ad_snow_view -> ae
+    android.widget.FrameLayout fl_lot_side -> af
+    android.widget.ImageView side_title -> ag
+    com.sample.lottie.LottieAnimationView lot_main -> ah
+    com.sample.lottie.LottieAnimationView lot_family -> ai
+    com.sample.lottie.LottieAnimationView lot_side -> aj
+    android.widget.LinearLayout main_battery -> ak
+    java.lang.String TAG_MAIN -> as
+    java.lang.String TAG_HUA -> at
+    java.lang.String TAG_SIDE -> au
+    java.lang.String TAG_START_FULL -> av
+    java.lang.String TAG_EXIT_FULL -> aw
+    java.lang.String TAG_DETECT -> ax
+    com.supers.clean.junk.activity.MyApplication cleanApplication -> ay
+    android.os.Handler handler -> az
+    com.supers.clean.junk.presenter.MainPresenter mainPresenter -> aA
+    com.supers.clean.junk.adapter.SideAdapter adapter -> aB
+    int temp -> aC
+    android.support.v4.view.ViewPager viewpager -> aD
+    com.rd.PageIndicatorView pageindicatorview -> al
+    android.support.v4.view.PagerAdapter pagerAdapter -> am
+    boolean mDrawerOpened -> aE
+    com.eos.ui.demo.entries.CrossData$CrossPromotionBean bean -> aF
+    android.view.View viewpager_3 -> aG
+    java.lang.String from -> aH
+    android.support.v7.app.AlertDialog dialog -> aI
+    android.widget.LinearLayout deep -> aJ
+    android.widget.FrameLayout lot_tap -> aK
+    java.util.ArrayList arrayList -> aL
+    boolean isSave -> an
+    int sdProgress -> ao
+    java.lang.Runnable fullAdRunnale -> ap
+    com.supers.clean.junk.customeview.PullToRefreshLayout$OnRefreshListener refreshListener -> aq
+    android.view.View$OnClickListener onClickListener -> ar
+    73:886:void <init>() -> <init>
+    150:198:void findId() -> a
+    204:206:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    210:408:void onCreate(android.os.Bundle) -> onCreate
+    411:491:void showDetectDialog() -> j
+    495:508:java.lang.String millTransFate(long) -> a
+    512:529:boolean addTapTuiguang() -> k
+    533:599:void tuiGuang() -> d
+    604:637:void onClick() -> onClick
+    641:660:void initCpu(int) -> b
+    666:706:void initSd(int,java.lang.String,long) -> a
+    710:732:void initRam(int,java.lang.String) -> a
+    736:740:void initGuard(int,android.view.animation.RotateAnimation) -> a
+    744:767:void initSideData() -> f
+    771:772:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
+    776:777:void setRotateGone() -> g
+    781:782:void openDrawer() -> h
+    786:789:void closeDrawer() -> i
+    793:845:void loadFullAd() -> e
+    1098:1139:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    1143:1146:void onRestart() -> onRestart
+    1150:1162:void onPause() -> onPause
+    1166:1179:void onResume() -> onResume
+    1183:1196:void onDestroy() -> onDestroy
+    1199:1216:void onBackPressed() -> onBackPressed
+    1219:1239:void adDelete() -> l
+    1242:1291:void showExitDialog() -> m
+    1296:1296:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    1300:1305:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    1309:1314:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    1319:1319:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    73:73:com.supers.clean.junk.presenter.MainPresenter access$000(com.supers.clean.junk.activity.MainActivity) -> a
+    73:73:java.util.ArrayList access$100(com.supers.clean.junk.activity.MainActivity) -> b
+    73:73:android.support.v4.view.ViewPager access$200(com.supers.clean.junk.activity.MainActivity) -> c
+    73:73:android.support.v7.app.AlertDialog access$300(com.supers.clean.junk.activity.MainActivity) -> d
+    73:73:com.eos.ui.demo.entries.CrossData$CrossPromotionBean access$400(com.supers.clean.junk.activity.MainActivity) -> e
+    73:73:boolean access$500(com.supers.clean.junk.activity.MainActivity) -> f
+    73:73:android.os.Handler access$600(com.supers.clean.junk.activity.MainActivity) -> g
+    73:73:void access$700(com.supers.clean.junk.activity.MainActivity) -> h
+    73:73:int access$800(com.supers.clean.junk.activity.MainActivity) -> i
+    73:73:java.lang.String access$900(com.supers.clean.junk.activity.MainActivity) -> j
+    73:73:com.supers.clean.junk.adapter.SideAdapter access$1000(com.supers.clean.junk.activity.MainActivity) -> k
 com.supers.clean.junk.activity.MainActivity$1 -> com.supers.clean.junk.activity.MainActivity$1:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    285:285:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    288:290:void onClick(android.view.View) -> onClick
+    289:289:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    292:294:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$10 -> com.supers.clean.junk.activity.MainActivity$2:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    624:624:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    627:630:void onScrollChanged(com.supers.clean.junk.customeview.MyScrollView,int,int,int,int) -> a
+    628:628:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    631:634:void onScrollChanged(com.supers.clean.junk.customeview.MyScrollView,int,int,int,int) -> a
 com.supers.clean.junk.activity.MainActivity$11 -> com.supers.clean.junk.activity.MainActivity$3:
     int val$temp -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    639:639:void <init>(com.supers.clean.junk.activity.MainActivity,int) -> <init>
-    642:653:void progressUpdate(int) -> a
+    643:643:void <init>(com.supers.clean.junk.activity.MainActivity,int) -> <init>
+    646:657:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$11$1 -> com.supers.clean.junk.activity.MainActivity$3$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$11 this$1 -> b
-    642:642:void <init>(com.supers.clean.junk.activity.MainActivity$11,int) -> <init>
-    645:651:void run() -> run
+    646:646:void <init>(com.supers.clean.junk.activity.MainActivity$11,int) -> <init>
+    649:655:void run() -> run
 com.supers.clean.junk.activity.MainActivity$12 -> com.supers.clean.junk.activity.MainActivity$4:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    663:663:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    666:667:void run() -> run
+    667:667:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    670:671:void run() -> run
 com.supers.clean.junk.activity.MainActivity$13 -> com.supers.clean.junk.activity.MainActivity$5:
     java.lang.Runnable val$sdRunable -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    669:669:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.Runnable) -> <init>
-    672:674:void progressUpdate(int) -> a
+    673:673:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.Runnable) -> <init>
+    676:678:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$14 -> com.supers.clean.junk.activity.MainActivity$6:
     java.lang.String val$size -> a
     long val$sd_kongxian -> b
     com.supers.clean.junk.activity.MainActivity this$0 -> c
-    677:677:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String,long) -> <init>
-    680:699:void run() -> run
+    681:681:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String,long) -> <init>
+    684:703:void run() -> run
 com.supers.clean.junk.activity.MainActivity$15 -> com.supers.clean.junk.activity.MainActivity$7:
     java.lang.String val$size -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    707:707:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String) -> <init>
-    710:725:void progressUpdate(int) -> a
+    711:711:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String) -> <init>
+    714:729:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$15$1 -> com.supers.clean.junk.activity.MainActivity$7$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$15 this$1 -> b
-    710:710:void <init>(com.supers.clean.junk.activity.MainActivity$15,int) -> <init>
-    713:723:void run() -> run
+    714:714:void <init>(com.supers.clean.junk.activity.MainActivity$15,int) -> <init>
+    717:727:void run() -> run
 com.supers.clean.junk.activity.MainActivity$16 -> com.supers.clean.junk.activity.MainActivity$8:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    830:830:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    833:835:void onClick(android.view.View) -> onClick
+    834:834:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    837:839:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$17 -> com.supers.clean.junk.activity.MainActivity$9:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    843:843:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    846:847:void run() -> run
+    847:847:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    850:851:void run() -> run
 com.supers.clean.junk.activity.MainActivity$18 -> com.supers.clean.junk.activity.MainActivity$10:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    851:851:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    855:855:void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
-    860:868:void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
+    855:855:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    859:859:void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
+    864:872:void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
 com.supers.clean.junk.activity.MainActivity$18$1 -> com.supers.clean.junk.activity.MainActivity$10$1:
     com.supers.clean.junk.activity.MainActivity$18 this$1 -> a
-    861:861:void <init>(com.supers.clean.junk.activity.MainActivity$18) -> <init>
-    864:866:void run() -> run
+    865:865:void <init>(com.supers.clean.junk.activity.MainActivity$18) -> <init>
+    868:870:void run() -> run
 com.supers.clean.junk.activity.MainActivity$19 -> com.supers.clean.junk.activity.MainActivity$11:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    882:882:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    886:1080:void onClick(android.view.View) -> onClick
+    886:886:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    890:1093:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$19$1 -> com.supers.clean.junk.activity.MainActivity$11$1:
     com.supers.clean.junk.activity.MainActivity$19 this$1 -> a
-    978:978:void <init>(com.supers.clean.junk.activity.MainActivity$19) -> <init>
-    981:1004:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    1009:1009:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    1014:1014:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    985:985:void <init>(com.supers.clean.junk.activity.MainActivity$19) -> <init>
+    988:1017:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    1022:1022:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    1027:1027:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.supers.clean.junk.activity.MainActivity$19$1$1 -> com.supers.clean.junk.activity.MainActivity$11$1$1:
     com.supers.clean.junk.activity.MainActivity$19$1 this$2 -> a
-    981:981:void <init>(com.supers.clean.junk.activity.MainActivity$19$1) -> <init>
-    984:995:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    999:1002:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    988:988:void <init>(com.supers.clean.junk.activity.MainActivity$19$1) -> <init>
+    991:1005:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    1009:1015:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.supers.clean.junk.activity.MainActivity$19$1$1$1 -> com.supers.clean.junk.activity.MainActivity$11$1$1$1:
     com.supers.clean.junk.activity.MainActivity$19$1$1 this$3 -> a
-    987:987:void <init>(com.supers.clean.junk.activity.MainActivity$19$1$1) -> <init>
-    990:991:void onClick(android.view.View) -> onClick
+    994:994:void <init>(com.supers.clean.junk.activity.MainActivity$19$1$1) -> <init>
+    997:998:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$12:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    339:339:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    342:342:int getCount() -> getCount
-    347:348:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    353:356:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    360:360:int getItemPosition(java.lang.Object) -> getItemPosition
-    366:366:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    343:343:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    346:346:int getCount() -> getCount
+    351:352:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    357:360:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    364:364:int getItemPosition(java.lang.Object) -> getItemPosition
+    370:370:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.supers.clean.junk.activity.MainActivity$20 -> com.supers.clean.junk.activity.MainActivity$13:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1214:1214:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1217:1219:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
+    1230:1230:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1233:1235:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
 com.supers.clean.junk.activity.MainActivity$21 -> com.supers.clean.junk.activity.MainActivity$14:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1237:1237:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1240:1242:void onClick(android.view.View) -> onClick
+    1253:1253:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1256:1258:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$22 -> com.supers.clean.junk.activity.MainActivity$15:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1244:1244:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1247:1248:void onClick(android.view.View) -> onClick
+    1260:1260:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1263:1264:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$3 -> com.supers.clean.junk.activity.MainActivity$16:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    373:373:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    376:377:void run() -> run
+    377:377:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    380:381:void run() -> run
 com.supers.clean.junk.activity.MainActivity$4 -> com.supers.clean.junk.activity.MainActivity$17:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    379:379:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    382:383:void run() -> run
+    383:383:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    386:387:void run() -> run
 com.supers.clean.junk.activity.MainActivity$5 -> com.supers.clean.junk.activity.MainActivity$18:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    416:416:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    419:420:void onClick(android.view.View) -> onClick
+    420:420:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    423:424:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$6 -> com.supers.clean.junk.activity.MainActivity$19:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    422:422:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    425:427:void onClick(android.view.View) -> onClick
+    426:426:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    429:431:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$7 -> com.supers.clean.junk.activity.MainActivity$20:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    515:515:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    518:523:void onClick(android.view.View) -> onClick
+    519:519:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    522:527:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$8 -> com.supers.clean.junk.activity.MainActivity$21:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    538:538:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    542:542:void onClick(android.view.View) -> onClick
-    546:565:void onLoadView(android.view.View) -> a
+    542:542:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    546:546:void onClick(android.view.View) -> onClick
+    550:569:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.MainActivity$9 -> com.supers.clean.junk.activity.MainActivity$22:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    567:567:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    571:571:void onClick(android.view.View) -> onClick
-    575:592:void onLoadView(android.view.View) -> a
+    571:571:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    575:575:void onClick(android.view.View) -> onClick
+    579:596:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.ManagerActivity -> com.supers.clean.junk.activity.ManagerActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -48884,44 +48880,45 @@ com.supers.clean.junk.activity.MessageActivity$4 -> com.supers.clean.junk.activi
     170:170:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
     173:174:void run() -> run
 com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.MyApplication:
-    32:32:void <init>() -> <init>
-    36:39:void attachBaseContext(android.content.Context) -> attachBaseContext
-    43:55:void changeAppLanguage(java.lang.String) -> a
-    59:65:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
-    69:125:void onCreate() -> onCreate
-    130:131:void onTerminate() -> onTerminate
+    31:31:void <init>() -> <init>
+    35:38:void attachBaseContext(android.content.Context) -> attachBaseContext
+    42:54:void changeAppLanguage(java.lang.String) -> a
+    58:64:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    68:124:void onCreate() -> onCreate
+    129:130:void onTerminate() -> onTerminate
 com.supers.clean.junk.activity.NetMonitor -> com.supers.clean.junk.activity.NetMonitor:
-    android.net.wifi.WifiManager mWifiManager -> b
-    android.net.wifi.WifiInfo mWifiInfo -> c
-    android.content.Context mContext -> d
-    android.widget.LinearLayout ll_netmon_main -> e
-    android.widget.LinearLayout ll_netmon_unconnect -> f
-    android.widget.LinearLayout ll_netmon_list -> g
-    android.widget.LinearLayout ll_netmon_none -> h
-    android.widget.ListView lv_netmon -> o
-    android.widget.TextView tv_netmon_ssid -> p
-    android.widget.TextView tv_netmon_up -> q
-    android.widget.TextView tv_netmon_down -> r
-    android.widget.FrameLayout title_left -> s
-    android.widget.ProgressBar iv_empty -> t
-    java.util.List mRunAppInfoList -> u
-    android.os.Handler mHandler -> a
-    long lastTotalRxBytes -> v
-    long lastTotalTxBytes -> w
-    long lastTimeStamp -> x
-    com.supers.clean.junk.activity.NetMonitor$MyAdapter mAdapter -> y
-    long downSpeed -> z
-    long upSpeed -> A
-    java.lang.Runnable runnableW -> B
-    45:136:void <init>() -> <init>
-    63:118:void onCreate(android.os.Bundle) -> onCreate
-    122:132:void findId() -> a
-    159:164:boolean isWifiConnected(android.content.Context) -> a
-    168:176:boolean isDataConnected(android.content.Context) -> b
-    181:183:void onResume() -> onResume
-    187:189:void onPause() -> onPause
-    193:216:void loadFinish(java.util.List,boolean) -> a
-    295:298:void onDestroy() -> onDestroy
+    android.net.wifi.WifiManager mWifiManager -> d
+    android.net.wifi.WifiInfo mWifiInfo -> e
+    android.content.Context mContext -> f
+    android.widget.LinearLayout ll_netmon_main -> g
+    android.widget.LinearLayout ll_netmon_unconnect -> h
+    android.widget.LinearLayout ll_netmon_none -> o
+    android.widget.FrameLayout ll_netmon_list -> a
+    android.widget.Button junk_button_clean -> b
+    android.widget.ListView lv_netmon -> p
+    android.widget.TextView tv_netmon_ssid -> q
+    android.widget.TextView tv_netmon_up -> r
+    android.widget.TextView tv_netmon_down -> s
+    android.widget.FrameLayout title_left -> t
+    android.widget.ProgressBar iv_empty -> u
+    java.util.List mRunAppInfoList -> v
+    android.os.Handler mHandler -> c
+    long lastTotalRxBytes -> w
+    long lastTotalTxBytes -> x
+    long lastTimeStamp -> y
+    com.supers.clean.junk.activity.NetMonitor$MyAdapter mAdapter -> z
+    long downSpeed -> A
+    long upSpeed -> B
+    java.lang.Runnable runnableW -> C
+    45:138:void <init>() -> <init>
+    65:119:void onCreate(android.os.Bundle) -> onCreate
+    123:134:void findId() -> a
+    161:166:boolean isWifiConnected(android.content.Context) -> a
+    170:178:boolean isDataConnected(android.content.Context) -> b
+    183:185:void onResume() -> onResume
+    189:191:void onPause() -> onPause
+    195:218:void loadFinish(java.util.List,boolean) -> a
+    300:303:void onDestroy() -> onDestroy
     45:45:long access$002(com.supers.clean.junk.activity.NetMonitor,long) -> a
     45:45:long access$100(com.supers.clean.junk.activity.NetMonitor) -> a
     45:45:long access$200(com.supers.clean.junk.activity.NetMonitor) -> b
@@ -48940,44 +48937,49 @@ com.supers.clean.junk.activity.NetMonitor -> com.supers.clean.junk.activity.NetM
     45:45:com.supers.clean.junk.activity.NetMonitor$MyAdapter access$1000(com.supers.clean.junk.activity.NetMonitor) -> k
 com.supers.clean.junk.activity.NetMonitor$1 -> com.supers.clean.junk.activity.NetMonitor$1:
     com.supers.clean.junk.activity.NetMonitor this$0 -> a
-    69:69:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
-    72:73:void onClick(android.view.View) -> onClick
+    71:71:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
+    74:75:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.NetMonitor$2 -> com.supers.clean.junk.activity.NetMonitor$2:
     com.supers.clean.junk.activity.NetMonitor this$0 -> a
-    136:136:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
-    138:155:void run() -> run
+    111:111:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
+    114:117:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.NetMonitor$3 -> com.supers.clean.junk.activity.NetMonitor$3:
     com.supers.clean.junk.activity.NetMonitor this$0 -> a
-    194:194:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
-    197:199:void run() -> run
+    138:138:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
+    140:157:void run() -> run
 com.supers.clean.junk.activity.NetMonitor$4 -> com.supers.clean.junk.activity.NetMonitor$4:
+    com.supers.clean.junk.activity.NetMonitor this$0 -> a
+    196:196:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
+    199:201:void run() -> run
+com.supers.clean.junk.activity.NetMonitor$5 -> com.supers.clean.junk.activity.NetMonitor$5:
     java.util.List val$lastRunAppInfoList -> a
     com.supers.clean.junk.activity.NetMonitor this$0 -> b
-    204:204:void <init>(com.supers.clean.junk.activity.NetMonitor,java.util.List) -> <init>
-    207:213:void run() -> run
+    206:206:void <init>(com.supers.clean.junk.activity.NetMonitor,java.util.List) -> <init>
+    209:215:void run() -> run
 com.supers.clean.junk.activity.NetMonitor$MyAdapter -> com.supers.clean.junk.activity.NetMonitor$a:
     android.view.LayoutInflater inflater -> a
     java.util.List list -> b
     com.supers.clean.junk.activity.NetMonitor this$0 -> c
-    223:226:void <init>(com.supers.clean.junk.activity.NetMonitor,android.content.Context,java.util.List) -> <init>
-    229:231:void refresh(java.util.List) -> a
-    235:235:int getCount() -> getCount
-    240:240:java.lang.Object getItem(int) -> getItem
-    245:245:long getItemId(int) -> getItemId
-    252:283:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    225:228:void <init>(com.supers.clean.junk.activity.NetMonitor,android.content.Context,java.util.List) -> <init>
+    231:233:void refresh(java.util.List) -> a
+    237:237:int getCount() -> getCount
+    242:242:java.lang.Object getItem(int) -> getItem
+    247:247:long getItemId(int) -> getItemId
+    254:288:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.supers.clean.junk.activity.NetMonitor$MyAdapter$1 -> com.supers.clean.junk.activity.NetMonitor$a$1:
-    int val$position -> a
-    com.supers.clean.junk.activity.NetMonitor$MyAdapter this$1 -> b
-    269:269:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter,int) -> <init>
-    272:281:void onClick(android.view.View) -> onClick
+    com.supers.clean.junk.wifi.RunAppInfo val$appInfo -> a
+    com.supers.clean.junk.activity.NetMonitor$MyAdapter$ViewHolder val$holder -> b
+    com.supers.clean.junk.activity.NetMonitor$MyAdapter this$1 -> c
+    276:276:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter,com.supers.clean.junk.wifi.RunAppInfo,com.supers.clean.junk.activity.NetMonitor$MyAdapter$ViewHolder) -> <init>
+    279:286:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.NetMonitor$MyAdapter$ViewHolder -> com.supers.clean.junk.activity.NetMonitor$a$a:
     android.widget.ImageView iv_netmonitem_icon -> a
     android.widget.TextView tv_netmonitem_name -> b
     android.widget.TextView tv_netmonitem_down -> c
     android.widget.TextView tv_netmonitem_up -> d
-    android.widget.Button bt_netmonitem_stop -> e
+    android.widget.ImageView bt_netmonitem_stop -> e
     com.supers.clean.junk.activity.NetMonitor$MyAdapter this$1 -> f
-    286:286:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter) -> <init>
+    291:291:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter) -> <init>
 com.supers.clean.junk.activity.NotifiActivity -> com.supers.clean.junk.activity.NotifiActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -50043,16 +50045,16 @@ com.supers.clean.junk.activity.WhiteListAvtivity -> com.supers.clean.junk.activi
     java.util.List white_list -> g
     java.util.List whiteList -> o
     android.view.View$OnClickListener clickListener -> h
-    26:79:void <init>() -> <init>
+    26:78:void <init>() -> <init>
     38:44:void findId() -> a
-    48:60:void onCreate(android.os.Bundle) -> onCreate
-    63:77:void initDAta() -> e
-    96:98:void onBackPressed() -> onBackPressed
-    102:106:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    48:58:void onCreate(android.os.Bundle) -> onCreate
+    61:76:void initDAta() -> e
+    95:97:void onBackPressed() -> onBackPressed
+    101:105:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
 com.supers.clean.junk.activity.WhiteListAvtivity$1 -> com.supers.clean.junk.activity.WhiteListAvtivity$1:
     com.supers.clean.junk.activity.WhiteListAvtivity this$0 -> a
-    79:79:void <init>(com.supers.clean.junk.activity.WhiteListAvtivity) -> <init>
-    82:91:void onClick(android.view.View) -> onClick
+    78:78:void <init>(com.supers.clean.junk.activity.WhiteListAvtivity) -> <init>
+    81:90:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.adapter.AddGameAdapter -> com.supers.clean.junk.a.a:
     java.util.ArrayList game_list -> a
     36:38:void <init>(android.content.Context,java.util.ArrayList) -> <init>
@@ -50436,13 +50438,13 @@ com.supers.clean.junk.adapter.WhiteListAdapter$ViewHolder -> com.supers.clean.ju
     com.supers.clean.junk.adapter.WhiteListAdapter this$0 -> e
     121:121:void <init>(com.supers.clean.junk.adapter.WhiteListAdapter) -> <init>
 com.supers.clean.junk.broadcast.UnloadBroadcast -> com.supers.clean.junk.broadcast.UnloadBroadcast:
-    23:23:void <init>() -> <init>
-    27:55:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    27:27:void <init>() -> <init>
+    47:76:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.supers.clean.junk.broadcast.UnloadBroadcast$1 -> com.supers.clean.junk.broadcast.UnloadBroadcast$1:
     android.content.Context val$context -> a
     com.supers.clean.junk.broadcast.UnloadBroadcast this$0 -> b
-    35:35:void <init>(com.supers.clean.junk.broadcast.UnloadBroadcast,android.content.Context) -> <init>
-    38:52:void run() -> run
+    56:56:void <init>(com.supers.clean.junk.broadcast.UnloadBroadcast,android.content.Context) -> <init>
+    59:73:void run() -> run
 com.supers.clean.junk.customeview.CirLinearLayout -> com.supers.clean.junk.customeview.CirLinearLayout:
     23:24:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     27:28:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
@@ -51189,6 +51191,51 @@ com.supers.clean.junk.customeview.SlowScrollView -> com.supers.clean.junk.custom
     52:60:void computeScroll() -> computeScroll
     67:68:void fling(int) -> fling
     74:75:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.supers.clean.junk.customeview.SnowView -> com.supers.clean.junk.customeview.SnowView:
+    android.content.Context mContext -> a
+    int screenWidth -> b
+    int screenHeight -> c
+    int count -> d
+    boolean isShouldPlayAnimation -> e
+    android.os.Handler mHandler -> f
+    android.graphics.Bitmap snow -> g
+    android.graphics.Bitmap snow1 -> h
+    java.util.List snows -> i
+    android.graphics.Paint mPaint -> j
+    java.util.ArrayList list -> k
+    34:153:void <init>(android.content.Context) -> <init>
+    40:153:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    46:153:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    53:71:void onDraw(android.graphics.Canvas) -> onDraw
+    76:77:void setSnowCount(int) -> setSnowCount
+    82:86:void playAni() -> a
+    130:146:void init() -> b
+    149:151:void initScreen() -> c
+    156:161:void getSnow() -> getSnow
+    27:27:android.content.Context access$000(com.supers.clean.junk.customeview.SnowView) -> a
+com.supers.clean.junk.customeview.SnowView$1 -> com.supers.clean.junk.customeview.SnowView$1:
+    com.supers.clean.junk.customeview.SnowView this$0 -> a
+    114:114:void <init>(com.supers.clean.junk.customeview.SnowView) -> <init>
+    117:121:void handleMessage(android.os.Message) -> handleMessage
+com.supers.clean.junk.customeview.SnowView$Snow -> com.supers.clean.junk.customeview.SnowView$a:
+    int X -> a
+    int Y -> b
+    int translateY -> c
+    int translateX -> d
+    int alpha -> e
+    int num -> f
+    float scale -> g
+    java.util.Random random -> i
+    com.supers.clean.junk.customeview.SnowView this$0 -> h
+    164:183:void <init>(com.supers.clean.junk.customeview.SnowView) -> <init>
+    186:190:void getAlpha() -> a
+    193:194:void getScale() -> b
+    197:198:void getDistanceX() -> c
+    201:202:void getDistanceY() -> d
+    205:206:void getX(int) -> a
+com.supers.clean.junk.customeview.WidgetUtil -> com.supers.clean.junk.customeview.f:
+    14:17:int getScreenWidth(android.content.Context) -> a
+    21:24:int getScreenHeight(android.content.Context) -> b
 com.supers.clean.junk.entity.JsonData -> com.supers.clean.junk.entity.JsonData:
     int full_main -> full_main
     int full_start -> full_start
@@ -51362,39 +51409,39 @@ com.supers.clean.junk.presenter.JunkPresenter -> com.supers.clean.junk.presenter
     long allSize -> allSize
     long cleanSize -> cleanSize
     java.util.ArrayList clearList -> clearList
-    23:24:void <init>(com.supers.clean.junk.view.JunkView,android.content.Context) -> <init>
-    28:64:void init() -> init
-    67:68:void changeColor(long) -> changeColor
-    71:77:void addCleandata(boolean,long) -> addCleandata
-    80:85:void addAdapterData() -> addAdapterData
-    88:89:void addSystemAdapterData() -> addSystemAdapterData
-    92:93:void addApkAdapterData() -> addApkAdapterData
-    96:97:void addUnloadAdapterData() -> addUnloadAdapterData
-    100:101:void addLogAdapterData() -> addLogAdapterData
-    104:105:void addUserAdapterData() -> addUserAdapterData
-    109:112:void setUnit(long,android.widget.TextView) -> setUnit
-    116:160:void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> bleachFile
+    24:25:void <init>(com.supers.clean.junk.view.JunkView,android.content.Context) -> <init>
+    29:65:void init() -> init
+    68:69:void changeColor(long) -> changeColor
+    72:78:void addCleandata(boolean,long) -> addCleandata
+    81:86:void addAdapterData() -> addAdapterData
+    89:90:void addSystemAdapterData() -> addSystemAdapterData
+    93:94:void addApkAdapterData() -> addApkAdapterData
+    97:98:void addUnloadAdapterData() -> addUnloadAdapterData
+    101:102:void addLogAdapterData() -> addLogAdapterData
+    105:106:void addUserAdapterData() -> addUserAdapterData
+    110:113:void setUnit(long,android.widget.TextView) -> setUnit
+    117:161:void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> bleachFile
 com.supers.clean.junk.presenter.JunkRamPresenter -> com.supers.clean.junk.presenter.JunkRamPresenter:
     long allSize -> allSize
     long cleanSize -> cleanSize
     java.util.ArrayList clearList -> clearList
     24:25:void <init>(com.supers.clean.junk.view.JunkRamView,android.content.Context) -> <init>
-    29:69:void init() -> init
-    72:73:void changeColor(long) -> changeColor
-    76:82:void addCleandata(boolean,long) -> addCleandata
-    86:92:void addAdapterData() -> addAdapterData
-    96:97:void addSystemAdapterData() -> addSystemAdapterData
-    100:101:void addApkAdapterData() -> addApkAdapterData
-    104:105:void addUnloadAdapterData() -> addUnloadAdapterData
-    108:109:void addLogAdapterData() -> addLogAdapterData
-    112:113:void addUserAdapterData() -> addUserAdapterData
-    117:118:void addRamAdapterData() -> addRamAdapterData
-    122:124:void setUnit(long,android.widget.TextView) -> setUnit
-    128:182:void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> bleachFile
+    29:68:void init() -> init
+    71:72:void changeColor(long) -> changeColor
+    75:81:void addCleandata(boolean,long) -> addCleandata
+    85:91:void addAdapterData() -> addAdapterData
+    95:96:void addSystemAdapterData() -> addSystemAdapterData
+    99:100:void addApkAdapterData() -> addApkAdapterData
+    103:104:void addUnloadAdapterData() -> addUnloadAdapterData
+    107:108:void addLogAdapterData() -> addLogAdapterData
+    111:112:void addUserAdapterData() -> addUserAdapterData
+    116:117:void addRamAdapterData() -> addRamAdapterData
+    121:123:void setUnit(long,android.widget.TextView) -> setUnit
+    127:181:void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> bleachFile
 com.supers.clean.junk.presenter.LastRunsort -> com.supers.clean.junk.presenter.LastRunsort:
-    124:124:void <init>() -> <init>
-    127:127:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
-    124:124:int compare(java.lang.Object,java.lang.Object) -> compare
+    130:130:void <init>() -> <init>
+    133:133:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
+    130:130:int compare(java.lang.Object,java.lang.Object) -> compare
 com.supers.clean.junk.presenter.MainPresenter -> com.supers.clean.junk.presenter.MainPresenter:
     int cpuTemp -> cpuTemp
     27:33:void <init>(com.supers.clean.junk.view.MainView,android.content.Context) -> <init>
@@ -51431,7 +51478,7 @@ com.supers.clean.junk.presenter.ManagerPresenter -> com.supers.clean.junk.presen
     58:65:void addCleandata(boolean,long) -> addCleandata
     68:69:void addAdapterData() -> addAdapterData
     73:83:void bleachFile(java.util.List) -> bleachFile
-    86:107:void unloadSuccess(java.lang.String) -> unloadSuccess
+    86:113:void unloadSuccess(java.lang.String) -> unloadSuccess
 com.supers.clean.junk.presenter.RamPresenter -> com.supers.clean.junk.presenter.RamPresenter:
     long allSize -> allSize
     long cleanSize -> cleanSize
@@ -51445,13 +51492,13 @@ com.supers.clean.junk.presenter.RamPresenter -> com.supers.clean.junk.presenter.
     75:76:void addRamAdapterData() -> addRamAdapterData
     79:90:void bleachFile(java.util.List) -> bleachFile
 com.supers.clean.junk.presenter.Sizesort -> com.supers.clean.junk.presenter.Sizesort:
-    111:111:void <init>() -> <init>
-    114:114:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
-    111:111:int compare(java.lang.Object,java.lang.Object) -> compare
-com.supers.clean.junk.presenter.Timesort -> com.supers.clean.junk.presenter.Timesort:
-    118:118:void <init>() -> <init>
+    117:117:void <init>() -> <init>
     120:120:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
-    118:118:int compare(java.lang.Object,java.lang.Object) -> compare
+    117:117:int compare(java.lang.Object,java.lang.Object) -> compare
+com.supers.clean.junk.presenter.Timesort -> com.supers.clean.junk.presenter.Timesort:
+    124:124:void <init>() -> <init>
+    126:126:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
+    124:124:int compare(java.lang.Object,java.lang.Object) -> compare
 com.supers.clean.junk.privacy.CallEntity -> com.supers.clean.junk.privacy.CallEntity:
     java.lang.String callName -> a
     java.lang.String callNumber -> b
@@ -51842,21 +51889,21 @@ com.supers.clean.junk.wifi.RunAppInfo -> com.supers.clean.junk.d.a:
     java.lang.String processName -> f
     java.lang.String upspeed -> g
     java.lang.String downspeed -> h
-    java.lang.Boolean checked -> i
+    boolean checked -> i
     long lastRxBytes -> j
     long lastTxBytes -> k
     19:20:void <init>() -> <init>
     23:23:java.lang.String getAppLabel() -> a
     27:28:void setAppLabel(java.lang.String) -> a
-    31:31:boolean getIsSelfBoot() -> b
     35:36:void setIsSelfBoot(boolean) -> a
-    39:39:android.graphics.drawable.Drawable getAppIcon() -> c
+    39:39:android.graphics.drawable.Drawable getAppIcon() -> b
     43:44:void setAppIcon(android.graphics.drawable.Drawable) -> a
-    47:47:java.lang.String getPkgName() -> d
+    47:47:java.lang.String getPkgName() -> c
     51:52:void setPkgName(java.lang.String) -> b
     59:60:void setPid(int) -> a
     67:68:void setProcessName(java.lang.String) -> c
-    76:77:void setChecked(java.lang.Boolean) -> a
+    72:72:java.lang.Boolean getChecked() -> d
+    76:77:void setChecked(boolean) -> b
     80:80:long getLastRxBytes() -> e
     84:85:void setLastRxBytes(long) -> a
     88:88:long getLastTxBytes() -> f

@@ -60,6 +60,7 @@ import com.supers.clean.junk.customeview.CustomRoundCpu;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
+import com.supers.clean.junk.customeview.SnowView;
 import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
 import com.supers.clean.junk.util.AdUtil;
@@ -104,6 +105,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LinearLayout ll_ad, ll_ad_side;
     com.mingle.widget.LinearLayout ll_ad_full;
     ProgressBar ad_progressbar;
+    SnowView ad_snow_view;
 
     // LottieAnimationView lot_side;
     FrameLayout fl_lot_side;
@@ -187,7 +189,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
-
+        ad_snow_view = (SnowView) findViewById(R.id.ad_snow_view);
         //lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
         side_title = (ImageView) findViewById(R.id.side_title);
@@ -209,6 +211,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (savedInstanceState != null) {
             isSave = savedInstanceState.getBoolean("onSave");
         }
+
+
         setContentView(R.layout.activity_dra);
         cleanApplication = (MyApplication) getApplication();
         try {
@@ -972,8 +976,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                    );
                     Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
                     ll_ad_full.startAnimation(animation);
-                    ll_ad_full.setVisibility(View.VISIBLE);
+//                    ll_ad_full.setVisibility(View.VISIBLE);
                     ad_progressbar.setVisibility(View.VISIBLE);
+                    if (ad_snow_view != null) {
+                        ad_snow_view.playAni();
+                    }
                     ll_ad_full.removeAllViews();
                     animation.setAnimationListener(new Animation.AnimationListener() {
                         @Override
@@ -991,6 +998,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                                         }
                                     });
                                     ll_ad_full.addView(view);
+                                    if (ad_snow_view != null) {
+//                                        ad_snow_view.cancelAni();
+                                    }
                                     ad_progressbar.setVisibility(View.GONE);
                                 }
 
@@ -998,6 +1008,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                                 public void onNativeAdLoadFails() {
                                     showToast(getString(R.string.load_fails));
                                     adDelete();
+                                    if (ad_snow_view != null) {
+//                                        ad_snow_view.cancelAni();
+                                    }
                                     ad_progressbar.setVisibility(View.GONE);
                                 }
                             });
@@ -1176,6 +1189,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
         if (lot_side != null) {
             lot_side.clearAnimation();
+        }
+        if (ad_snow_view != null) {
+            ad_snow_view = null;
         }
     }
 

@@ -19,6 +19,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
     private long cleanSize;
     private ArrayList<JunkInfo> clearList;
 
+
     public JunkPresenter(JunkView iView, Context context) {
         super(iView, context);
     }
@@ -33,9 +34,9 @@ public class JunkPresenter extends BasePresenter<JunkView> {
                 + CleanManager.getInstance(context).getDataSize();
         for (JunkInfo info : CleanManager.getInstance(context).getSystemCaches()) {
 
-            if (info.isChecked) {
-                cleanSize += info.size;
-            }
+//            if (info.isChecked) {
+            cleanSize += info.size;
+//            }
         }
         for (JunkInfo info : CleanManager.getInstance(context).getApkFiles()) {
             if (info.isChecked) {
@@ -59,7 +60,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
         }
         iView.initData(allSize);
         iView.setCleanDAta(true, cleanSize);
-        iView.setColor(allSize);
+        iView.setColor(cleanSize);
         iView.onClick();
     }
 

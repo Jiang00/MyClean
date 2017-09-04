@@ -60,6 +60,7 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
+        android:persistent="true"
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
@@ -210,6 +211,7 @@
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
 
                 <data android:scheme="package" />
             </intent-filter>

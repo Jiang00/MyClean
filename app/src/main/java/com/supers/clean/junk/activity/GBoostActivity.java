@@ -228,9 +228,7 @@ public class GBoostActivity extends BaseActivity {
                     }
                 });
             }
-        }).
-
-                start();
+        }).start();
 
     }
 

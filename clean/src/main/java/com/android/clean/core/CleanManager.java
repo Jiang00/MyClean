@@ -570,6 +570,12 @@ public class CleanManager {
         }
     }
 
+    public void remuveSystemCache(JunkInfo info) {
+        try {
+            systemCaches.remove(info);
+        } catch (Exception e) {
+        }
+    }
 
     public Method getPackageSizeInfoMethod(Context context) {
         PackageManager pm = context.getPackageManager();

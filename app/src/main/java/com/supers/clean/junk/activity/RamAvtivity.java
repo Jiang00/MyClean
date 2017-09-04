@@ -214,9 +214,9 @@ public class RamAvtivity extends BaseActivity implements RamView {
                 }
             }).start();
         } else {
-//            if (size != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + Util.convertStorage(size, true) + ")");
-//            }
+            if (size != 0) {
+                junk_size_all.setText(Util.convertStorage(size, false));
+            }
         }
 
     }

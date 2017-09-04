@@ -104,6 +104,12 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
                 return;
             }
         }
+        for (JunkInfo ramInfo : CleanManager.getInstance(context).getSystemCaches()) {
+            if (TextUtils.equals(ramInfo.pkg, packageName)) {
+                CleanManager.getInstance(context).remuveSystemCache(ramInfo);
+                return;
+            }
+        }
     }
 
 }

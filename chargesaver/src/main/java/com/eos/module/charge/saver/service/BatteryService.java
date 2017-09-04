@@ -150,7 +150,7 @@ public class BatteryService extends Service {
                 long connected_time = (long) PreData.getDB(BatteryService.this, Constant.CONNECTED_TIME, time_now);
                 long chongdian_time = time_now - connected_time;
                 Log.e("battery", "ACTION_POWER_DISCONNECTED==" + chongdian_time);
-                if (chongdian_time <= 60 * 5 * 1000) {
+                if (chongdian_time <= 60 * 1000) {
                     return;
                 }
                 long leftUseTime = entry.getLeftUseTime() * 1000;

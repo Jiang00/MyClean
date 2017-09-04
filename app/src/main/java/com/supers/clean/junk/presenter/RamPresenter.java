@@ -35,7 +35,7 @@ public class RamPresenter extends BasePresenter<RamView> {
         }
         iView.initData(allSize);
         iView.setCleanDAta(true, cleanSize);
-        changeColor(allSize);
+        changeColor(cleanSize);
         iView.onClick();
     }
 

@@ -32,10 +32,9 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
                 + CleanManager.getInstance(context).getDataSize() + CleanManager.getInstance(context).getRamSize();
 
         for (JunkInfo info : CleanManager.getInstance(context).getSystemCaches()) {
-
-            if (info.isChecked) {
-                cleanSize += info.size;
-            }
+//            if (info.isChecked) {
+            cleanSize += info.size;
+//            }
         }
         for (JunkInfo info : CleanManager.getInstance(context).getApkFiles()) {
             if (info.isChecked) {
@@ -64,7 +63,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
         }
         iView.initData(allSize);
         iView.setCleanDAta(true, cleanSize);
-        iView.setColor(allSize);
+        iView.setColor(cleanSize);
         iView.onClick();
     }
 

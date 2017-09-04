@@ -1004,7 +1004,9 @@ public class AppLockEosService extends Service {
             } else {
                 switch (intent.getIntExtra(WORK_EXTRA_KEY, WORK_IDLE)) {
                     case WORK_LOCK_NEW:
-                        lockNew(intent.getStringExtra("pkg"));
+                        if (SecurityMyPref.isPasswdSet(true)){
+                            lockNew(intent.getStringExtra("pkg"));
+                        }
                         break;
 
                     case WORK_TURN_ON_PROTECT:

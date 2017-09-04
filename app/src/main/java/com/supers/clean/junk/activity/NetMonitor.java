@@ -46,7 +46,9 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
     private WifiManager mWifiManager;
     private WifiInfo mWifiInfo;
     private Context mContext;
-    private LinearLayout ll_netmon_main, ll_netmon_unconnect, ll_netmon_list, ll_netmon_none;
+    private LinearLayout ll_netmon_main, ll_netmon_unconnect, ll_netmon_none;
+    FrameLayout ll_netmon_list;
+    Button junk_button_clean;
     private ListView lv_netmon;
     private TextView tv_netmon_ssid, tv_netmon_up, tv_netmon_down;
     private FrameLayout title_left;
@@ -76,15 +78,6 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
             mHandler = new Handler();
         }
         mHandler.removeCallbacks(runnableW);
-//        mHandler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                if (mRunAppInfoList.size() < 1) {
-//                    iv_empty.setVisibility(View.GONE);
-//                    ll_netmon_none.setVisibility(View.VISIBLE);
-//                }
-//            }
-//        }, 2000);
         mWifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
         if (isDataConnected(mContext)) {
             ll_netmon_unconnect.setVisibility(View.GONE);
@@ -115,14 +108,23 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
             mHandler.post(runnableW);
 
         }
+        junk_button_clean.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NetMonitor.this, RamAvtivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 
     public void findId() {
         ll_netmon_none = (LinearLayout) findViewById(R.id.ll_netmon_none);
         ll_netmon_unconnect = (LinearLayout) findViewById(R.id.ll_netmon_unconnect);
+        junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         ll_netmon_main = (LinearLayout) findViewById(R.id.ll_netmon_main);
-        ll_netmon_list = (LinearLayout) findViewById(R.id.ll_netmon_list);
+        ll_netmon_list = (FrameLayout) findViewById(R.id.ll_netmon_list);
         lv_netmon = (ListView) findViewById(R.id.lv_netmon);
         tv_netmon_ssid = (TextView) findViewById(R.id.tv_netmon_ssid);
         tv_netmon_up = (TextView) findViewById(R.id.tv_netmon_up);
@@ -256,7 +258,7 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
                 holder.tv_netmonitem_name = (TextView) convertView.findViewById(R.id.tv_netmonitem_name);
                 holder.tv_netmonitem_down = (TextView) convertView.findViewById(R.id.tv_netmonitem_down);
                 holder.tv_netmonitem_up = (TextView) convertView.findViewById(R.id.tv_netmonitem_up);
-                holder.bt_netmonitem_stop = (Button) convertView.findViewById(R.id.bt_netmonitem_stop);
+                holder.bt_netmonitem_stop = (ImageView) convertView.findViewById(R.id.bt_netmonitem_stop);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
@@ -266,18 +268,21 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
             holder.tv_netmonitem_name.setText(appInfo.getAppLabel());
             holder.tv_netmonitem_down.setText(appInfo.getDownspeed());
             holder.tv_netmonitem_up.setText(appInfo.getUpspeed());
+            if (appInfo.getChecked()) {
+                holder.bt_netmonitem_stop.setImageResource(R.mipmap.ram_passed);
+            } else {
+                holder.bt_netmonitem_stop.setImageResource(R.mipmap.ram_normal);
+            }
             holder.bt_netmonitem_stop.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AndroidSdk.track("点击网络监控界面停止按钮", "", "", 1);
-                    if (list.get(position).getIsSelfBoot()) {
-                        Intent intent = new Intent(NetMonitor.this, PowerActivity.class);
-                        startActivity(intent);
+                    appInfo.setChecked(!appInfo.getChecked());
+                    if (appInfo.getChecked()) {
+                        holder.bt_netmonitem_stop.setImageResource(R.mipmap.ram_passed);
                     } else {
-                        Intent intent = new Intent(NetMonitor.this, RamAvtivity.class);
-                        startActivity(intent);
+                        holder.bt_netmonitem_stop.setImageResource(R.mipmap.ram_normal);
                     }
-                    finish();
+
                 }
             });
             return convertView;
@@ -286,7 +291,7 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
         public class ViewHolder {
             ImageView iv_netmonitem_icon;
             TextView tv_netmonitem_name, tv_netmonitem_down, tv_netmonitem_up;
-            Button bt_netmonitem_stop;
+            ImageView bt_netmonitem_stop;
         }
     }
 

@@ -445,9 +445,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
                 }
             }).start();
         } else {
-//            if (size != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(size, true) + ")");
-//            }
+            if (size != 0) {
+                junk_size_all.setText(Util.convertStorage(size, false));
+            }
         }
 
     }

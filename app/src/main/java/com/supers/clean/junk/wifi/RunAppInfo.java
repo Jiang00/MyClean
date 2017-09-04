@@ -13,7 +13,7 @@ public class RunAppInfo {
     private boolean isSelfBoot;
     private int pid;
     private String processName, upspeed, downspeed;
-    private Boolean checked;
+    private boolean checked;
     private long lastRxBytes, lastTxBytes;
 
     public RunAppInfo() {
@@ -72,7 +72,7 @@ public class RunAppInfo {
         return checked;
     }
 
-    public void setChecked(Boolean checked) {
+    public void setChecked(boolean checked) {
         this.checked = checked;
     }
 

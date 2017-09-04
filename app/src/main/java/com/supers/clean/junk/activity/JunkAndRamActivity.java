@@ -487,9 +487,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                 }
             }).start();
         } else {
-//            if (cleanSize != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(cleanSize, true) + ")");
-//            }
+            if (cleanSize != 0) {
+                junk_size_all.setText(Util.convertStorage(cleanSize, false));
+            }
         }
 
     }
