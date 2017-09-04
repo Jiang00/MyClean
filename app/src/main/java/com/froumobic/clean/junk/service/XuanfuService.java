@@ -46,7 +46,6 @@ public class XuanfuService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        manager = FloatStateManager.getInstance(XuanfuService.this);
         return null;
     }
 
@@ -59,7 +58,7 @@ public class XuanfuService extends Service {
         if (myHandler == null) {
             myHandler = new Handler();
         }
-        manager = FloatStateManager.getInstance(XuanfuService.this);
+
         if (pm == null)
             pm = getPackageManager();
         if (am == null)
@@ -141,7 +140,6 @@ public class XuanfuService extends Service {
                 mana.getDefaultDisplay().getMetrics(dm);
                 int viewHeight = mFullScreenCheckView.getHeight();
                 if (viewHeight == dm.widthPixels || viewHeight == dm.heightPixels) {
-
                     manager.removeWindowsView();
                 } else {
                     manager.addWindowsView();
@@ -160,6 +158,7 @@ public class XuanfuService extends Service {
     public void onCreate() {
         super.onCreate();
         mana = (WindowManager) XuanfuService.this.getSystemService(Context.WINDOW_SERVICE);
+        manager = FloatStateManager.getInstance(XuanfuService.this);
         createFullScreenCheckView();
 
     }
