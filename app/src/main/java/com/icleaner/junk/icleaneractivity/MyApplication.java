@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.client.AndroidSdk;
 import com.icleaner.clean.core.CleanManager;
@@ -19,7 +20,10 @@ import com.icleaner.junk.services.SuspensionBallService;
 import com.icleaner.module.charge.saver.Utils.BatteryConstants;
 import com.icleaner.module.charge.saver.Utils.Utils;
 import com.icleaner.module.charge.saver.protectservice.ServiceBattery;
-import com.squareup.leakcanary.LeakCanary;
+import com.icleanering.kpa.DaemonClient;
+import com.icleanering.kpa.DaemonConfigurations;
+import com.icleanering.kpa.KeepLiveManager;
+import com.icleanering.kpa.PersistService;
 //import com.vatermobi.kpa.DaemonClient;
 
 /**
@@ -72,17 +76,35 @@ public class MyApplication extends Application {
             PreData.putDB(this, MyConstant.IS_ACTION_BAR, MyUtils.checkDeviceHasNavigationBar(this));
             PreData.putDB(this, MyConstant.FIRST_INSTALL, false);
         }
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            return;
-        }
-        LeakCanary.install(this);
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//            return;
+//        }
+//        LeakCanary.install(this);
+        startService(new Intent(this, PersistService.class));
+        KeepLiveManager.startJobScheduler(this, 1000);
     }
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-//        DaemonClient mDaemonClient = new DaemonClient(base, null);
-//        mDaemonClient.onAttachBaseContext(base);
+        DaemonClient mDaemonClient = new DaemonClient(base, new DaemonConfigurations.DaemonListener() {
+            @Override
+            public void onPersistentStart(Context context) {
+                Log.e("rqy", "onPersistentStart");
+            }
+
+            @Override
+            public void onDaemonAssistantStart(Context context) {
+                Log.e("rqy", "onDaemonAssistantStart");
+            }
+
+            @Override
+            public void onWatchDaemonDead() {
+                Log.e("rqy", "onWatchDaemonDead");
+            }
+        });
+
+        mDaemonClient.onAttachBaseContext(base);
     }
 
     @Override

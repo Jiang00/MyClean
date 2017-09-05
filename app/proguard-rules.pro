@@ -113,4 +113,4 @@
 
 -dontwarn com.squareup.picasso.**
 
-
+-keep class com.icleanering.kpa.nativ.** { *; }
