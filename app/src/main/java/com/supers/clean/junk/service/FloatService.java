@@ -59,7 +59,7 @@ public class FloatService extends Service {
         if (myHandler == null) {
             myHandler = new Handler();
         }
-        manager = FloatStateManager.getInstance(FloatService.this);
+
         if (pm == null)
             pm = getPackageManager();
         if (am == null)
@@ -167,6 +167,7 @@ public class FloatService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        manager = FloatStateManager.getInstance(FloatService.this);
         mana = (WindowManager) FloatService.this.getSystemService(Context.WINDOW_SERVICE);
         createFullScreenCheckView();
 
