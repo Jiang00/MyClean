@@ -1,9 +1,13 @@
 package com.mutter.clean.junk.myActivity;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.LayoutRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -27,7 +31,9 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.client.AdListener;
 import com.mutter.clean.core.CleanManager;
+import com.mutter.clean.junk.myview.LoadingTime;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -77,12 +83,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     DrawerLayout main_drawer;
     LinearLayout ll_ad_side, ad_native_2;
     com.mingle.widget.LinearLayout ll_ad_full;
-    ProgressBar ad_progressbar;
     TextView main_full_time;
     ImageView main_circle;
     LinearLayout tuiguang_main;
     LinearLayout tuiguang_side;
     RelativeLayout tuiguang_side_title;
+    FrameLayout libao_load;
+    ImageView load_2, load_2_2, load_3, load_1, load_4;
 
     // LottieAnimationView lot_side;
     ImageView side_title;
@@ -96,7 +103,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private String TAG_SIDE = "mutter_side";
     private String TAG_START_FULL = "mutter_start_native";
     private String TAG_EXIT_FULL = "mutter_exit_native";
-    private String TAG_FULL_PULL = "pull_full";
+    private String TAG_FULL_PULL = "mutter_native";//pull_full
 
     private MyApplication cleanApplication;
     private Handler handler = new Handler();
@@ -116,6 +123,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private FrameLayout lot_tap;
     private ArrayList<View> arrayList;
     private AlertDialog dialogB;
+    private ObjectAnimator load_rotate;
+    private LoadingTime ad_loading;
 
     @Override
     protected void findId() {
@@ -150,7 +159,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
-        ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
 
         side_title = (ImageView) findViewById(R.id.side_title);
         lot_family = (ImageView) findViewById(R.id.lot_family);
@@ -159,12 +167,19 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         tuiguang_main = (LinearLayout) findViewById(R.id.tuiguang_main);
         tuiguang_side = (LinearLayout) findViewById(R.id.tuiguang_side);
         tuiguang_side_title = (RelativeLayout) findViewById(R.id.tuiguang_side_title);
+        libao_load = (FrameLayout) findViewById(R.id.libao_load);
+        load_1 = (ImageView) findViewById(R.id.load_1);
+        load_2 = (ImageView) findViewById(R.id.load_2);
+        load_2_2 = (ImageView) findViewById(R.id.load_2_2);
+        load_3 = (ImageView) findViewById(R.id.load_3);
+        load_4 = (ImageView) findViewById(R.id.load_4);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         cleanApplication = (MyApplication) getApplication();
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
@@ -199,12 +214,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
-        View adView = AdUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_6);
-        if (adView != null) {
-            view_ad.addView(adView);
-            view_ad.setGravity(Gravity.CENTER);
-            arrayList.add(viewpager_2);
-        }
+//        View adView = AdUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_6);
+//        if (adView != null) {
+//            view_ad.addView(adView);
+//            view_ad.setGravity(Gravity.CENTER);
+//            arrayList.add(viewpager_2);
+//        }
         viewpager = (ViewPager) findViewById(R.id.viewpager);
 
         viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
@@ -429,26 +444,33 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
 
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.showFullAd("mutter_start_full");
-            Log.e("ad", "full===");
+//        if (true) {
+            AndroidSdk.showFullAd("loading_full");
+
         } else {
-            Log.e("ad", "native===");
             View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
                 LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
                 loading_text.setOnClickListener(null);
-                ImageView ad_delete = (ImageView) nativeView_full.findViewById(R.id.ad_delete);
-                ad_delete.setOnClickListener(new View.OnClickListener() {
+                ad_loading = (LoadingTime) nativeView_full.findViewById(R.id.ad_loading);
+                ad_loading.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         handler.removeCallbacks(fullAdRunnale);
                         adDelete();
                     }
                 });
-                int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
-                handler.postDelayed(fullAdRunnale, skip * 1000);
+                ad_loading.startProgress();
+                ad_loading.setCustomRoundListener(new LoadingTime.CustomRoundListener() {
+                    @Override
+                    public void progressUpdate() {
+                        adDelete();
+                    }
+                });
+//                int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
+//                handler.postDelayed(fullAdRunnale, skip * 1000);
             }
         }
     }
@@ -587,12 +609,36 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.lot_family:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
-                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
-                    ll_ad_full.startAnimation(animation);
-                    ll_ad_full.setVisibility(View.VISIBLE);
-                    ad_progressbar.setVisibility(View.VISIBLE);
-                    ll_ad_full.removeAllViews();
-                    animation.setAnimationListener(new Animation.AnimationListener() {
+                    load_2.setVisibility(View.VISIBLE);
+                    load_1.setVisibility(View.VISIBLE);
+                    load_3.setVisibility(View.VISIBLE);
+                    load_2_2.setVisibility(View.VISIBLE);
+                    load_4.setVisibility(View.GONE);
+                    load_rotate = ObjectAnimator.ofFloat(load_1, View.ROTATION, 0, 3600);
+                    load_rotate.setDuration(4000);
+                    load_rotate.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                        int count = 0;
+
+                        public void onAnimationUpdate(ValueAnimator animation) {
+                            count++;
+                            if (count % 15 == 0) {
+                                if (load_2.getVisibility() == View.VISIBLE) {
+                                    load_2.setVisibility(View.GONE);
+                                } else {
+                                    load_2.setVisibility(View.VISIBLE);
+                                }
+                            }
+                        }
+                    });
+                    load_rotate.start();
+                    libao_load.setVisibility(View.VISIBLE);
+                    handler.postDelayed(runnable_load, 4500);
+                    handler.post(runnable_pus);
+//                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
+//                    ll_ad_full.startAnimation(animation);
+//                    ll_ad_full.setVisibility(View.VISIBLE);
+//                    ll_ad_full.removeAllViews();
+                    /*animation.setAnimationListener(new Animation.AnimationListener() {
                         @Override
                         public void onAnimationEnd(Animation animation) {
                             AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
@@ -608,14 +654,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                                         }
                                     });
                                     ll_ad_full.addView(view);
-                                    ad_progressbar.setVisibility(View.GONE);
                                 }
 
                                 @Override
                                 public void onNativeAdLoadFails() {
                                     showToast(getString(R.string.load_fails));
                                     adDelete();
-                                    ad_progressbar.setVisibility(View.GONE);
                                 }
                             });
                         }
@@ -629,7 +673,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         public void onAnimationStart(Animation animation) {
 
                         }
-                    });
+                    });*/
 
                     break;
                 case R.id.main_circle:
@@ -686,6 +730,30 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
     };
 
+    Runnable runnable_pus = new Runnable() {
+        @Override
+        public void run() {
+            if (onPause) {
+                if (load_rotate != null) {
+                    load_rotate.removeAllListeners();
+                    load_rotate.cancel();
+                }
+                libao_load.setVisibility(View.GONE);
+                handler.removeCallbacks(runnable_load);
+            } else {
+                handler.postDelayed(this, 500);
+            }
+        }
+    };
+    Runnable runnable_load = new Runnable() {
+        @Override
+        public void run() {
+            AndroidSdk.showFullAd("loading_full");
+            handler.removeCallbacks(runnable_pus);
+            libao_load.setVisibility(View.GONE);
+        }
+    };
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Constant.SETTING_RESUIL) {
@@ -725,8 +793,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void onResume() {
         super.onResume();
+
         AndroidSdk.onResumeWithoutTransition(this);
         handler.postDelayed(runnable1, 500);
+        AndroidSdk.loadFullAd("loading_full");
     }
 
     Runnable runnable1 = new Runnable() {
@@ -743,6 +813,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (lot_family != null) {
             lot_family.clearAnimation();
         }
+        if (ad_loading != null) {
+            ad_loading.cancle();
+        }
     }
 
     public void onBackPressed() {
@@ -751,11 +824,21 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             handler.removeCallbacks(fullAdRunnale);
             return;
         }
+        if (libao_load.getVisibility() == View.VISIBLE) {
+            libao_load.setVisibility(View.GONE);
+            if (load_rotate != null) {
+                load_rotate.removeAllListeners();
+                load_rotate.cancel();
+            }
+            handler.removeCallbacks(runnable_load);
+            handler.removeCallbacks(runnable_pus);
+            return;
+        }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
             if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd("mutter_exit_full");
+                AndroidSdk.showFullAd("loading_full");
             }
             showExitDialog();
         }
@@ -784,17 +867,37 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
     }
 
+    public static View getNativeAd(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd(tag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, AndroidSdk.NATIVE_AD_TYPE_ALL, layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+        }
+        return nativeView;
+    }
+
     private void showExitDialog() {
         View view = View.inflate(this, R.layout.dialog_exit, null);
         LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 0) {
-            View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_6);
+            View nativeExit = getNativeAd(TAG_EXIT_FULL, R.layout.native_ad_6);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.VISIBLE);
             }
+        } else {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         }
         exit_queren.setOnClickListener(new View.OnClickListener() {
             @Override

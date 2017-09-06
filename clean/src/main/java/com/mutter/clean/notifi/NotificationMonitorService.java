@@ -22,7 +22,8 @@ import java.util.List;
 /**
  */
 
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2
+)
 public class NotificationMonitorService extends NotificationListenerService {
     public static final String KEY_NOTIFI = "KEY_NOTIFI";//notifi
     public static final String NOTIFI_WHILT_LIST = "NOTIFI_WHILT_LIST";//通知栏清理白名单
@@ -36,13 +37,6 @@ public class NotificationMonitorService extends NotificationListenerService {
         analysisSbn(sbn);
     }
 
-    public void onNotificationRemoved(StatusBarNotification sbn) {
-        super.onNotificationRemoved(sbn);
-    }
-
-    public void onNotificationRemoved(StatusBarNotification sbn, RankingMap rankingMap) {
-        super.onNotificationRemoved(sbn, rankingMap);
-    }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private void analysisSbn(StatusBarNotification sbn) {

@@ -700,17 +700,52 @@
             android:orientation="vertical"
             android:visibility="gone" />
 
+        <FrameLayout
+            android:id="@+id/libao_load"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_40"
+            android:clickable="true"
+            android:visibility="gone">
 
-        <ProgressBar
-            android:id="@+id/ad_progressbar"
-            style="?android:attr/progressBarStyleInverse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:indeterminateDrawable="@anim/progress_rotate"
-            android:indeterminateTintMode="src_atop"
-            android:visibility="gone" />
+            <ImageView
+                android:id="@+id/load_2_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/load_2" />
+
+            <ImageView
+                android:id="@+id/load_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:rotation="22.5"
+                android:src="@mipmap/load_2"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/load_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/load_1" />
+
+            <ImageView
+                android:id="@+id/load_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/load_3" />
+
+            <ImageView
+                android:id="@+id/load_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/load_4"
+                android:visibility="gone" />
+        </FrameLayout>
 
     </FrameLayout>
 

@@ -114,6 +114,7 @@ public class JiangwenActivity extends BaseActivity {
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);
                 bundle.putString("from", "cooling");
+                bundle.putString("name", getString(R.string.cooling_succ));
                 jumpToActivity(SuccessActivity.class, bundle, 1);
 
             }

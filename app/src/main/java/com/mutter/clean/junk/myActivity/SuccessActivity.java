@@ -64,6 +64,7 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
     LinearLayout tuiguang_success;
+    TextView success_c;
 
     LinearLayout ad_native_2;
     private View nativeView;
@@ -104,6 +105,7 @@ public class SuccessActivity extends BaseActivity {
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
         tuiguang_success = (LinearLayout) findViewById(R.id.tuiguang_success);
+        success_c = (TextView) findViewById(R.id.success_c);
     }
 
     @Override
@@ -136,6 +138,7 @@ public class SuccessActivity extends BaseActivity {
             main_junk_button.setVisibility(View.GONE);
             main_gboost_button.setVisibility(View.GONE);
         } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+            success_c.setText(R.string.cooling_succ);
             main_file_button.setVisibility(View.GONE);
             main_notifi_button.setVisibility(View.GONE);
             main_ram_button.setVisibility(View.GONE);

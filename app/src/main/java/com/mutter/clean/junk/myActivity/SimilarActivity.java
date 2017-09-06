@@ -276,7 +276,6 @@ public class SimilarActivity extends BaseActivity {
         title_left.setOnClickListener(clickListener);
         title_right.setOnClickListener(clickListener);
         picture_button.setOnClickListener(clickListener);
-        picture_other.setOnClickListener(clickListener);
         pic_pager_left.setOnClickListener(clickListener);
     }
 
@@ -377,11 +376,6 @@ public class SimilarActivity extends BaseActivity {
                         return;
                     }
                     deleteDialog(bitmaps);
-                    break;
-                case R.id.picture_other:
-                    AdUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
-                    jumpTo(CleanActivity.class);
-                    onBackPressed();
                     break;
                 case R.id.pic_pager_left:
                     pager_fl.setVisibility(View.GONE);

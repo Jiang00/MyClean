@@ -20,10 +20,10 @@ public class AdUtil {
     }
 
     public static View getNativeAdView(String tag, @LayoutRes int layout) {
-        if (!AndroidSdk.hasNativeAd(tag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+        if (!AndroidSdk.hasNativeAd("mutter_native", AndroidSdk.NATIVE_AD_TYPE_ALL)) {
             return null;
         }
-        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, AndroidSdk.NATIVE_AD_TYPE_ALL, layout, null);
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout("mutter_native", AndroidSdk.NATIVE_AD_TYPE_ALL, layout, null);
         if (nativeView == null) {
             return null;
         }
