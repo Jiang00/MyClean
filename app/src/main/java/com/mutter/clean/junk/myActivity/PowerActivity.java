@@ -100,7 +100,7 @@ public class PowerActivity extends BaseActivity {
                     Util.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PowerActivity.this, NotificationService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
                 } else {
@@ -212,7 +212,7 @@ public class PowerActivity extends BaseActivity {
                     Util.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PowerActivity.this, NotificationService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
 

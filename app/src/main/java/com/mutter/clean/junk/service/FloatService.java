@@ -88,7 +88,7 @@ public class FloatService extends Service {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(FloatService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(FloatService.this, NotificationService.class);
-                            intent.setAction("gboost");
+                            intent.putExtra("from", "gboost");
                             startService(intent);
                         }
                     }
