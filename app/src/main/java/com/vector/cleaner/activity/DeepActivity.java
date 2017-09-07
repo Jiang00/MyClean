@@ -141,7 +141,7 @@ public class DeepActivity extends BaseActivity {
                     Util.doStartApplicationWithPackageName(DeepActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(DeepActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(DeepActivity.this, NotificationService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from","gboost");
                         startService(intent);
                     }
                 } else {
@@ -193,7 +193,7 @@ public class DeepActivity extends BaseActivity {
                     Util.doStartApplicationWithPackageName(DeepActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(DeepActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(DeepActivity.this, NotificationService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from","gboost");
                         startService(intent);
                     }
 

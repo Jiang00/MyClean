@@ -118,7 +118,7 @@ public class MemoryService extends Service {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(MemoryService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(MemoryService.this, NotificationService.class);
-                            intent.setAction("gboost");
+                            intent.putExtra("from","gboost");
                             startService(intent);
                         }
                     }
