@@ -200,7 +200,8 @@
         <service
             android:name=".fuwu.NotificationService"
             android:enabled="true"
-            android:excludeFromRecents="true" />
+            android:excludeFromRecents="true"
+            android:exported="false" />
 
         <activity
             android:name=".jiemian.FileManagerActivity"

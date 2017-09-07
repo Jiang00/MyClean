@@ -83,8 +83,6 @@ public class XuanfuService extends Service {
     String runingGboost;
 
 
-
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -92,6 +90,7 @@ public class XuanfuService extends Service {
         createFullScreenCheckView();
 
     }
+
     private void createFullScreenCheckView() {
         final LayoutParams layoutParams = new LayoutParams();
         layoutParams.type = LayoutParams.TYPE_PHONE;
@@ -152,7 +151,7 @@ public class XuanfuService extends Service {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(XuanfuService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(XuanfuService.this, NotificationService.class);
-                            intent.setAction("gboost");
+                            intent.putExtra("from", "gboost");
                             startService(intent);
                         }
                     }
