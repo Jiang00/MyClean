@@ -40,7 +40,6 @@ public class MyApplication extends Application {
     }
 
 
-
     private ActivityManager am;
 
     @Override
@@ -61,7 +60,7 @@ public class MyApplication extends Application {
 
         if (PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotificationService.class);
-            intent.setAction("notification");
+            intent.putExtra("from", "notification");
             startService(intent);
         }
 
