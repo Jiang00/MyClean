@@ -72,7 +72,9 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_picture_button;
     ImageView power_icon;
     TextView power_text;
-    ImageView main_rotate_good;
+    LinearLayout main_rotate_good;
+    ImageView rotate_delete;
+    TextView main_rotate_bad;
     //    ImageView delete;
     ImageView success_progress;
     LinearLayout ad_title;
@@ -120,7 +122,9 @@ public class SuccessActivity extends BaseActivity {
         main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
         main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         power_text = (TextView) findViewById(R.id.power_text);
-        main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
+        main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
+        rotate_delete = (ImageView) findViewById(R.id.rotate_delete);
+        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
 //        delete = (ImageView) findViewById(R.id.delete);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
@@ -203,6 +207,8 @@ public class SuccessActivity extends BaseActivity {
         int sizePic = getIntent().getIntExtra("sizePic", 0);
         //强力清理
         int count = getIntent().getIntExtra("count", 0);
+        //游戏加速
+        int game = getIntent().getIntExtra("game", 0);
         //通知栏
         int num = getIntent().getIntExtra("num", 0);
         //降温
@@ -215,6 +221,8 @@ public class SuccessActivity extends BaseActivity {
             success_clean_size.setText(getString(R.string.power_1, String.valueOf(count)) + " ");
         } else if (sizeF > 0) {
             success_clean_size.setText(getString(R.string.success_7, Util.convertStorage(sizeF, true)));
+        } else if (game > 0) {
+            success_clean_size.setText(getString(R.string.gboost_8));
         } else if (num > 0) {
             success_clean_size.setText(getString(R.string.success_6, num + ""));
         } else if (wendu > 0) {
@@ -341,7 +349,8 @@ public class SuccessActivity extends BaseActivity {
     private void addListener() {
         title_left.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
-//        delete.setOnClickListener(onClickListener);
+        main_rotate_bad.setOnClickListener(onClickListener);
+        rotate_delete.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
@@ -565,6 +574,11 @@ public class SuccessActivity extends BaseActivity {
                 case R.id.main_rotate_good:
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     UtilGp.rate(SuccessActivity.this);
+                    main_rotate_all.setVisibility(View.GONE);
+                    break;
+                case R.id.main_rotate_bad:
+                case R.id.rotate_delete:
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:

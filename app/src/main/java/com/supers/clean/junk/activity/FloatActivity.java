@@ -367,6 +367,7 @@ public class FloatActivity extends BaseActivity {
 
     private void xianshiD() {
         int light = getLight();
+
         if (light > 0 && light <= LIGHT_NORMAL) {
             //低亮度
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_0);
@@ -376,7 +377,7 @@ public class FloatActivity extends BaseActivity {
         } else if (light == LIGHT_100_PERCENT) {
             //高
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_100);
-        } else if (light == 0) {
+        } else if (light == -1) {
             //自动
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_zidong);
         }
@@ -410,10 +411,12 @@ public class FloatActivity extends BaseActivity {
                     Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
             light = android.provider.Settings.System.getInt(cr,
                     Settings.System.SCREEN_BRIGHTNESS, -1);
+            if (auto) {
+                light = -1;
+            }
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }
-
         return light;
     }
 

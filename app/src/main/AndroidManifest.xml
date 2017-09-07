@@ -187,16 +187,22 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.ShortCutActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.GameShortCutActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -221,9 +227,13 @@
             android:name=".service.FloatService"
             android:excludeFromRecents="true" />
         <service
+            android:name=".service.AutoService"
+            android:excludeFromRecents="true" />
+        <service
             android:name=".service.NotificationService"
             android:enabled="true"
-            android:excludeFromRecents="true" />
+            android:excludeFromRecents="true"
+            android:exported="false" />
 
         <activity
             android:name=".activity.TranslateActivity"

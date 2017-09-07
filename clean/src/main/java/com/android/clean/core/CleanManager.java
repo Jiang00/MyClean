@@ -117,60 +117,35 @@ public class CleanManager {
         loadAppCache(new AppCacheCallBack() {
             @Override
             public void loadFinished(ArrayList<JunkInfo> appCaches, long totalSize) {
-                Log.e("rqy", "loadAppCache--" + totalSize);
-                for (JunkInfo appCache : appCaches) {
-                    Log.e("rqy", appCache + "");
-                }
             }
         });
         loadAppRam(new AppRamCallBack() {
             @Override
             public void loadFinished(List<JunkInfo> appRamList, List<String> whiteList, long totalSize) {
-                Log.e("rqy", "loadAppRam--" + totalSize);
-                for (JunkInfo appRam : appRamList) {
-                    Log.e("rqy", appRam + "");
-                }
             }
         });
         loadApkFile(new FileInfoCallBack() {
             @Override
             public void loadFinished(ArrayList<JunkInfo> fileInfos, long totalSize) {
-                Log.e("rqy", "loadApkFile--" + totalSize);
-                for (JunkInfo fileInfo : fileInfos) {
-                    Log.e("rqy", fileInfo + "");
-                }
             }
         });
         loadLogFile(new FileInfoCallBack() {
             @Override
             public void loadFinished(ArrayList<JunkInfo> fileInfos, long totalSize) {
-                Log.e("rqy", "loadLogFile--" + totalSize);
-                for (JunkInfo fileInfo : fileInfos) {
-                    Log.e("rqy", fileInfo + "");
-                }
             }
         });
         loadUninstallResidual(new UninstallResidualCallback() {
             @Override
             public void loadFinished(ArrayList<JunkInfo> uninstallResiduals, long totalSize) {
-                Log.e("rqy", "loadUninstallResidual--" + totalSize);
-                for (JunkInfo uninstallResidual : uninstallResiduals) {
-                    Log.e("rqy", uninstallResidual + "");
-                }
             }
         });
         //注意，这个要放在最后执行
         loadSystemCache(new SystemCacheCallBack() {
             @Override
             public void loadFinished(ArrayList<JunkInfo> appInfoList, long totalSize) {
-                Log.e("rqy", "loadSystemCache--" + totalSize);
-                for (JunkInfo appInfo : appInfoList) {
-                    Log.e("rqy", appInfo + "");
-                }
             }
         });
         long endTime = System.currentTimeMillis();
-        Log.e("rqy", "time=" + (endTime - startTime));
     }
 
     public void loadAppRam(AppRamCallBack appRamCallBack) {

@@ -12,71 +12,49 @@
         android:layout_height="1dp" />
 
     <LinearLayout
+        android:id="@+id/loading_text"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/tv_tiaoguo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="5dp"
-            android:gravity="right"
-            android:text="@string/loading_tiaoguo"
-            android:textColor="#4cffffff"
-            android:textSize="12sp"
-            android:visibility="visible" />
-
-        <LinearLayout
-            android:id="@+id/ll_ad"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/tv_tiaoguo"
-            android:orientation="vertical"
-            android:visibility="invisible" />
-    </LinearLayout>
-
-
-    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-        android:id="@+id/load_text_3"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/d17"
-        android:text="@string/loading_2"
-        android:textColor="@color/B3"
-        android:textSize="@dimen/s13"
-        app:typeface="eos_clean.otf" />
+        android:orientation="vertical"
+        android:visibility="invisible">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/d56"
-        android:layout_above="@id/load_text_3"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="@dimen/d32"
-            android:layout_height="@dimen/d32"
-            android:layout_gravity="center"
-            android:src="@mipmap/loading_icon_1" />
+            <ImageView
+                android:id="@+id/load_icon"
+                android:layout_width="@dimen/d32"
+                android:layout_height="@dimen/d32"
+                android:layout_gravity="center"
+                android:src="@mipmap/loading_icon_1" />
+
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                android:id="@+id/load_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/d10"
+                android:text="@string/app_name"
+                android:textColor="@color/B6"
+                android:textSize="@dimen/s24"
+                android:textStyle="bold"
+                app:typeface="eos_clean.otf" />
+        </LinearLayout>
 
         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+            android:id="@+id/load_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/d10"
-            android:text="@string/app_name"
-            android:textColor="@color/B6"
-            android:textSize="@dimen/s24"
-            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/d17"
+            android:text="@string/loading_2"
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s13"
             app:typeface="eos_clean.otf" />
     </LinearLayout>
-
-
 </RelativeLayout>

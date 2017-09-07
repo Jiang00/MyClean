@@ -19,6 +19,7 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.service.AutoService;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
 import com.android.clean.util.Constant;
@@ -91,6 +92,10 @@ public class MyApplication extends App {
             Intent intent1 = new Intent(this, FloatService.class);
             startService(intent1);
         }
+        if (PreData.getDB(this, Constant.AUTO_KAIGUAN, true)) {
+            Intent intent = new Intent(this, AutoService.class);
+            startService(intent);
+        }
 
         //启动通知兰清理
         if (Util.isNotificationListenEnabled(this) && PreData.getDB(this, Constant.KEY_NOTIFI, false)) {
@@ -111,7 +116,7 @@ public class MyApplication extends App {
         }
         if (PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotificationService.class);
-            intent.setAction("notification");
+            intent.putExtra("from", "notification");
             startService(intent);
         }
 

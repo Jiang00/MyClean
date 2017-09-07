@@ -22,24 +22,31 @@
 
         <FrameLayout
             android:id="@+id/short_fl"
-            android:layout_width="@dimen/d90"
-            android:layout_height="@dimen/d90"
-            android:layout_gravity="center"
-            android:background="@mipmap/short_0">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <ImageView
-                android:id="@+id/short_huojian"
+                android:id="@+id/rotate_ni"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/short_0" />
+
+            <ImageView
+                android:id="@+id/rotate_zheng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/short_3" />
+
+            <ImageView
+                android:id="@+id/short_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@mipmap/short_4" />
 
-            <LinearLayout
-                android:id="@+id/short_xian"
-                android:layout_width="@dimen/d61"
-                android:layout_height="@dimen/d61"
-                android:layout_gravity="center"
-                android:orientation="vertical" />
         </FrameLayout>
 
 

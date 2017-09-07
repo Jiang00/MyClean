@@ -1,6 +1,11 @@
 package com.supers.clean.junk.activity;
 
+import android.animation.AnimatorSet;
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,6 +26,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
@@ -58,6 +64,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
 import com.supers.clean.junk.customeview.CustomRoundCpu;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
+import com.supers.clean.junk.customeview.LoadTime;
 import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
 import com.supers.clean.junk.customeview.SnowView;
@@ -86,7 +93,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LinearLayout main_manager_button, main_applock_button, main_theme_button;
     TextView main_junk_h, main_ram_h, main_cooling_h;
     LinearLayout main_rotate_all;
-    ImageView main_rotate_good;
+    LinearLayout main_rotate_good;
+    ImageView rotate_delete;
+    TextView main_rotate_bad;
     LinearLayout main_tuiguang_button;
     FrameLayout fl_lot_main;
     TextView main_msg_tuiguang;
@@ -112,7 +121,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     ImageView side_title;
     LottieAnimationView lot_main;
     LottieAnimationView lot_main_tap;
-    LottieAnimationView lot_family;
+    ImageView lot_family;
+    FrameLayout load_loading;
+    ImageView load_1, load_2, load_3, load_4, load_5, load_6;
 
     LottieAnimationView lot_side;
     LinearLayout main_battery;
@@ -123,6 +134,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private String TAG_START_FULL = "eos_start_native";
     private String TAG_EXIT_FULL = "eos_exit_native";
     private String TAG_DETECT = "detect";
+    private String TAG_LOAD_FULL = "loading_full";
 
     private MyApplication cleanApplication;
     private Handler handler = new Handler();
@@ -144,6 +156,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private LinearLayout deep;
     private FrameLayout lot_tap;
     private ArrayList<View> arrayList;
+    private AnimatorSet animatorSet;
+    private AnimationDrawable animationDrawable;
 
     @Override
     protected void findId() {
@@ -167,7 +181,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_ram_h = (TextView) findViewById(R.id.main_ram_h);
         main_cooling_h = (TextView) findViewById(R.id.main_cooling_h);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
-        main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
+        main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
+        rotate_delete = (ImageView) findViewById(R.id.rotate_delete);
+        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
         fl_lot_main = (FrameLayout) findViewById(R.id.fl_lot_main);
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
@@ -193,7 +209,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         //lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
         side_title = (ImageView) findViewById(R.id.side_title);
-        lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
+        lot_family = (ImageView) findViewById(R.id.lot_family);
+        load_loading = (FrameLayout) findViewById(R.id.load_loading);
+        load_1 = (ImageView) findViewById(R.id.load_1);
+        load_2 = (ImageView) findViewById(R.id.load_2);
+        load_3 = (ImageView) findViewById(R.id.load_3);
+        load_4 = (ImageView) findViewById(R.id.load_4);
+        load_5 = (ImageView) findViewById(R.id.load_5);
+        load_6 = (ImageView) findViewById(R.id.load_6);
         main_battery = (LinearLayout) findViewById(R.id.main_battery);
     }
 
@@ -211,7 +234,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (savedInstanceState != null) {
             isSave = savedInstanceState.getBoolean("onSave");
         }
-
 
         setContentView(R.layout.activity_dra);
         cleanApplication = (MyApplication) getApplication();
@@ -377,25 +399,24 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         view.postDelayed(new Runnable() {
             @Override
             public void run() {
-                viewpager.setCurrentItem(2);
+                viewpager.setCurrentItem(1);
             }
-        }, 3000);
+        }, 7000);
         view.postDelayed(new Runnable() {
             @Override
             public void run() {
-                viewpager.setCurrentItem(1);
+                viewpager.setCurrentItem(2);
             }
-        }, 4000);
+        }, 12000);
 //        }
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
 
         AdUtil.track("主页面", "进入主页面", "", 1);
-        lot_family.setImageAssetsFolder("images/box/");
-        lot_family.setAnimation("box.json");
-        lot_family.loop(true);
-        lot_family.playAnimation();
+        animationDrawable = (AnimationDrawable) getResources().getDrawable(R.drawable.zhen);
+        lot_family.setBackgroundDrawable(animationDrawable);
+
         if (PreData.getDB(this, Constant.FIRST_BATTERY, true)) {
             PreData.putDB(this, Constant.FIRST_BATTERY, false);
             main_battery.setVisibility(View.VISIBLE);
@@ -615,6 +636,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_applock_button.setOnClickListener(onClickListener);
         main_theme_button.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
+        rotate_delete.setOnClickListener(onClickListener);
+        main_rotate_bad.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
@@ -791,6 +814,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     public void loadFullAd() {
         if (PreData.getDB(this, Constant.FULL_MAIN, 0) == 1) {
+
         } else {
             View nativeView = AdUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
@@ -819,7 +843,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         }
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.showFullAd("eos_start_full");
+            AndroidSdk.showFullAd(TAG_LOAD_FULL);
         } else {
             if (TextUtils.equals(from, "translate") || isSave) {
                 return;
@@ -828,18 +852,26 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
-                ImageView ad_delete = (ImageView) nativeView_full.findViewById(R.id.ad_delete);
+                final LoadTime ad_loading = (LoadTime) nativeView_full.findViewById(R.id.ad_loading);
                 LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
                 loading_text.setOnClickListener(null);
-                ad_delete.setOnClickListener(new View.OnClickListener() {
+                ad_loading.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        ad_loading.cancle();
                         handler.removeCallbacks(fullAdRunnale);
                         adDelete();
                     }
                 });
-                int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
-                handler.postDelayed(fullAdRunnale, skip * 1000);
+                ad_loading.startProgress();
+                ad_loading.setCustomRoundListener(new LoadTime.CustomRoundListener() {
+                    @Override
+                    public void progressUpdate() {
+                        handler.post(fullAdRunnale);
+                    }
+                });
+//                int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
+//                handler.postDelayed(fullAdRunnale, skip * 1000);
             }
         }
     }
@@ -881,6 +913,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_scale_all.setScaleY((float) cercle_linearParams.height / );
         main_scale_all.setScaleX((float) cercle_linearParams.height / cercle_value);
     }*/
+
 
     //点击事件监听
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -974,15 +1007,37 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                    ShopMaster.launch(MainActivity.this, "EOS_Family",
 //                            new Theme(R.raw.battery_0, getPackageName())
 //                    );
-                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
-                    ll_ad_full.startAnimation(animation);
-                    ll_ad_full.setVisibility(View.VISIBLE);
-                    ad_progressbar.setVisibility(View.VISIBLE);
-//                    if (ad_snow_view != null) {
-//                        ad_snow_view.playAni();
-//                    }
-                    ll_ad_full.removeAllViews();
-                    animation.setAnimationListener(new Animation.AnimationListener() {
+                    animatorSet = new AnimatorSet();
+                    ObjectAnimator animator_1 = ObjectAnimator.ofFloat(load_1, View.ROTATION, 0, 30, 0, -30, 0);
+                    animator_1.setRepeatCount(2);
+                    ObjectAnimator animator_2 = ObjectAnimator.ofFloat(load_2, View.ROTATION, 0, -30, 0, 30, 0);
+                    animator_2.setRepeatCount(2);
+                    ObjectAnimator animator_3 = ObjectAnimator.ofFloat(load_3, View.ROTATION, 0, 30, 0, -30, 0);
+                    animator_3.setRepeatCount(2);
+                    ObjectAnimator animator_4 = ObjectAnimator.ofFloat(load_4, View.ROTATION, 0, -30, 0, 30, 0);
+                    animator_4.setRepeatCount(2);
+                    ObjectAnimator animator_5 = ObjectAnimator.ofFloat(load_5, View.ROTATION, 0, 30, 0, -30, 0);
+                    animator_5.setRepeatCount(2);
+                    ObjectAnimator animator_6 = ObjectAnimator.ofFloat(load_6, View.ROTATION, 0, -30, 0, 30, 0);
+                    animator_6.setRepeatCount(2);
+                    animatorSet.play(animator_1).with(animator_2).with(animator_3).with(animator_4).with(animator_5).with(animator_6);
+                    animatorSet.setDuration(1500);
+                    animatorSet.setInterpolator(new LinearInterpolator());
+                    animatorSet.start();
+                    load_loading.setBackgroundColor(getResources().getColor(R.color.load_1));
+                    load_loading.setVisibility(View.VISIBLE);
+                    handler.postDelayed(runnable_color, 375);
+                    handler.postDelayed(runnable_load, 4500);
+                    handler.post(runnable_pus);
+//                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
+//                    ll_ad_full.startAnimation(animation);
+//                    ll_ad_full.setVisibility(View.VISIBLE);
+//                    ad_progressbar.setVisibility(View.VISIBLE);
+////                    if (ad_snow_view != null) {
+////                        ad_snow_view.playAni();
+////                    }
+//                    ll_ad_full.removeAllViews();
+                  /*  animation.setAnimationListener(new Animation.AnimationListener() {
                         @Override
                         public void onAnimationEnd(Animation animation) {
                             AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
@@ -1025,13 +1080,18 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         public void onAnimationStart(Animation animation) {
 
                         }
-                    });
+                    });*/
 
                     break;
 
                 case R.id.main_rotate_good:
                     AdUtil.track("主页面", "点击好评good按钮", "", 1);
                     mainPresenter.clickRotate(true);
+                    break;
+                case R.id.main_rotate_bad:
+                case R.id.rotate_delete:
+                    AdUtil.track("主页面", "点击好评bad按钮", "", 1);
+                    mainPresenter.clickRotate(false);
                     break;
                 case R.id.main_msg_button:
                     AdUtil.track("主页面", "点击进入硬件信息", "", 1);
@@ -1050,7 +1110,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.main_gboost_button:
                     AdUtil.track("主页面", "点击进入游戏加速", "", 1);
                     PreData.putDB(MainActivity.this, Constant.GBOOST_CLEAN, true);
-                    mainPresenter.jumpToActivity(PrivacyActivity.class, 1);
+                    mainPresenter.jumpToActivity(GBoostActivity.class, 1);
                     break;
                 case R.id.main_picture_button:
                     AdUtil.track("主页面", "点击进入相似图片", "", 1);
@@ -1090,6 +1150,50 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
 
             }
+        }
+    };
+
+    Runnable runnable_pus = new Runnable() {
+        @Override
+        public void run() {
+            if (onPause) {
+                if (animatorSet != null) {
+                    animatorSet.removeAllListeners();
+                    animatorSet.cancel();
+                }
+                load_loading.setVisibility(View.GONE);
+                if (colorAnim != null) {
+                    colorAnim.cancel();
+                }
+                handler.removeCallbacks(runnable_load);
+            } else {
+                handler.postDelayed(this, 500);
+            }
+        }
+    };
+    Runnable runnable_load = new Runnable() {
+        @Override
+        public void run() {
+            AndroidSdk.showFullAd(TAG_LOAD_FULL);
+            handler.removeCallbacks(runnable_pus);
+            load_loading.setVisibility(View.GONE);
+            if (colorAnim != null) {
+                colorAnim.cancel();
+            }
+        }
+    };
+    private ValueAnimator colorAnim;
+    Runnable runnable_color = new Runnable() {
+        @Override
+        public void run() {
+            colorAnim = ObjectAnimator.ofInt(load_loading, "backgroundColor", getResources().getColor(R.color.load_1),
+                    getResources().getColor(R.color.load_2), getResources().getColor(R.color.load_3),
+                    getResources().getColor(R.color.load_4), getResources().getColor(R.color.load_5), getResources().getColor(R.color.load_6));
+            colorAnim.setDuration(4125);
+            colorAnim.setInterpolator(new LinearInterpolator());
+            colorAnim.setRepeatCount(0);
+            colorAnim.setEvaluator(new ArgbEvaluator());
+            colorAnim.start();
         }
     };
 
@@ -1139,6 +1243,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     }
 
     @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (animationDrawable != null) {
+            animationDrawable.start();
+        }
+    }
+
+    @Override
     protected void onRestart() {
         super.onRestart();
         mainPresenter.reStart();
@@ -1148,9 +1260,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void onPause() {
         super.onPause();
-        if (lot_family != null) {
-            lot_family.pauseAnimation();
-        }
         if (lot_main != null) {
             lot_main.pauseAnimation();
         }
@@ -1165,12 +1274,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+        AndroidSdk.loadFullAd(TAG_LOAD_FULL);
         Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
-        if (lot_family != null) {
-            lot_family.playAnimation();
-        }
         if (lot_main != null) {
             lot_main.playAnimation();
+        }
+        if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
+            AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         }
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
         rotateAnimation.setDuration(2000);
@@ -1181,9 +1291,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (lot_family != null) {
-            lot_family.clearAnimation();
-        }
         if (lot_main != null) {
             lot_main.clearAnimation();
         }
@@ -1193,6 +1300,18 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //        if (ad_snow_view != null) {
 //            ad_snow_view = null;
 //        }
+        if (animatorSet != null) {
+            animatorSet.removeAllListeners();
+            animatorSet.cancel();
+        }
+        if (colorAnim != null) {
+            colorAnim.cancel();
+        }
+        if (animationDrawable != null) {
+            if (animationDrawable.isRunning()) {
+                animationDrawable.stop();
+            }
+        }
     }
 
     public void onBackPressed() {
@@ -1205,11 +1324,24 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             main_battery.setVisibility(View.GONE);
             return;
         }
+        if (load_loading.getVisibility() == View.VISIBLE) {
+            load_loading.setVisibility(View.GONE);
+            if (colorAnim != null) {
+                colorAnim.cancel();
+            }
+            if (animatorSet != null) {
+                animatorSet.removeAllListeners();
+                animatorSet.cancel();
+            }
+            handler.removeCallbacks(runnable_load);
+            handler.removeCallbacks(runnable_pus);
+            return;
+        }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
             if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd("eos_exit_full");
+                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
             }
             showExitDialog();
         }

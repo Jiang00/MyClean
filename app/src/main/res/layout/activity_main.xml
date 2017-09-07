@@ -46,6 +46,13 @@
                         android:scaleType="center"
                         android:src="@mipmap/main_menu" />
 
+                    <ImageView
+                        android:layout_width="@dimen/d10"
+                        android:layout_height="@dimen/d10"
+                        android:layout_alignRight="@id/iv_title_left"
+                        android:layout_marginTop="@dimen/d8"
+                        android:src="@drawable/shape_a2" />
+
                     <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/tv_title_name"
                         android:layout_width="wrap_content"
@@ -71,22 +78,14 @@
                         android:scaleType="center"
                         android:src="@mipmap/main_setting" />
 
-                    <com.sample.lottie.LottieAnimationView
+                    <ImageView
                         android:id="@+id/lot_family"
-                        android:layout_width="@dimen/d40"
-                        android:layout_height="@dimen/d40"
-                        android:layout_marginTop="@dimen/d5"
-                        android:layout_toLeftOf="@id/iv_title_right" />
-
-                    <TextView
-                        android:layout_width="@dimen/d40"
-                        android:layout_height="@dimen/d40"
-                        android:layout_marginTop="@dimen/d5"
+                        android:layout_width="@dimen/d24"
+                        android:layout_height="@dimen/d24"
+                        android:layout_centerVertical="true"
                         android:layout_toLeftOf="@id/iv_title_right"
-                        android:gravity="center"
-                        android:text="AD"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s10" />
+                        android:src="@mipmap/libao_ad" />
+
 
                 </RelativeLayout>
 
@@ -398,12 +397,13 @@
                                 android:id="@+id/main_rotate_all"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/A8"
+                                android:background="@color/white_100"
                                 android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="@dimen/d40"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d15"
                                     android:orientation="horizontal">
 
                                     <ImageView
@@ -413,52 +413,94 @@
                                         android:layout_marginLeft="@dimen/d19"
                                         android:src="@mipmap/main_rotate_1" />
 
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/d5"
+                                        android:text="@string/main_rotate_title"
+                                        android:textColor="@color/black_87"
+                                        android:textSize="@dimen/s16" />
+                                    <ImageView
+                                        android:id="@+id/rotate_delete"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d6"
-                                        android:text="@string/main_rotate_title"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        android:layout_marginRight="@dimen/d16"
+                                        android:padding="@dimen/d5"
+                                        android:src="@mipmap/rotate_cha" />
                                 </LinearLayout>
+
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/d121"
+                                        android:layout_marginTop="@dimen/d15"
+                                        android:scaleType="centerCrop"
+                                        android:layout_marginLeft="@dimen/d16"
+                                        android:layout_marginRight="@dimen/d16"
+                                        android:src="@mipmap/main_rotate_2" />
+
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/d53"
+                                    android:layout_marginRight="@dimen/d53"
+                                    android:layout_marginTop="@dimen/d18"
+                                    android:gravity="center"
+                                    android:text="@string/main_rotate_msg"
+                                    android:textColor="#1e88e5"
+                                    android:textSize="@dimen/s17" />
 
                                 <View
                                     android:layout_width="match_parent"
                                     android:layout_height="1dp"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:background="@color/B1" />
+                                    android:layout_marginTop="@dimen/d30"
+                                    android:background="#e5e5e5" />
 
-                                <FrameLayout
+                                <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d16">
+                                    android:layout_height="@dimen/d40"
+                                    android:orientation="horizontal">
 
-                                    <ImageView
+                                    <TextView
+                                        android:id="@+id/main_rotate_bad"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackground"
+                                        android:gravity="center"
+                                        android:text="@string/main_rotate_bad"
+                                        android:textColor="@color/black_54"
+                                        android:textSize="@dimen/s17" />
+
+                                    <LinearLayout
                                         android:id="@+id/main_rotate_good"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="@dimen/d141"
-                                        android:layout_marginBottom="@dimen/d16"
-                                        android:layout_marginLeft="@dimen/d16"
-                                        android:layout_marginRight="@dimen/d16"
-                                        android:scaleType="centerCrop"
-                                        android:src="@mipmap/main_rotate_2" />
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackground"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
 
-                                    <ImageView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="bottom|right"
-                                        android:src="@mipmap/main_rotate_4" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/main_rotate_good"
+                                            android:textColor="@color/black_54"
+                                            android:textSize="@dimen/s17" />
 
-                                </FrameLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
 
                                 <View
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/d9"
                                     android:background="@color/A10" />
-
                             </LinearLayout>
 
                             <!--交叉推广-->
@@ -1152,8 +1194,61 @@
         </FrameLayout>
     </LinearLayout>
 
-    <!--<com.supers.clean.junk.customeview.SnowView-->
-    <!--android:id="@+id/ad_snow_view"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent" />-->
+    <FrameLayout
+        android:id="@+id/load_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/load_1"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/d72"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/load_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1px"
+                android:background="@mipmap/load_1" />
+
+            <ImageView
+                android:id="@+id/load_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1px"
+                android:background="@mipmap/load_1" />
+
+            <ImageView
+                android:id="@+id/load_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1px"
+                android:background="@mipmap/load_1" />
+
+            <ImageView
+                android:id="@+id/load_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1px"
+                android:background="@mipmap/load_1" />
+
+            <ImageView
+                android:id="@+id/load_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1px"
+                android:background="@mipmap/load_1" />
+
+            <ImageView
+                android:id="@+id/load_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1px"
+                android:background="@mipmap/load_1" />
+        </LinearLayout>
+    </FrameLayout>
 </FrameLayout>

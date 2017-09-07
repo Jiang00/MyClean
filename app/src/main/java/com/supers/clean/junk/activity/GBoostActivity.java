@@ -465,9 +465,10 @@ public class GBoostActivity extends BaseActivity {
         Intent shortcutIntent = new Intent();
         shortcutIntent.setAction(Intent.ACTION_VIEW);
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
-                "com.supers.clean.junk.activity.GBoostActivity"));
+                GameShortCutActivity.class.getCanonicalName()));
         String title = GBoostActivity.this.getString(R.string.gboost_0);
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+//        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+        if (true) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
             ShortCutUtils.addShortcut(GBoostActivity.this, shortcutIntent, title, false, bitmap);
             return;

@@ -112,7 +112,7 @@ public class FloatService extends Service {
                         if (gboost_names.contains(pkg)) {
 
                             Intent intent = new Intent(FloatService.this, NotificationService.class);
-                            intent.setAction("gboost");
+                            intent.putExtra("from", "gboost");
                             startService(intent);
                         }
                     }

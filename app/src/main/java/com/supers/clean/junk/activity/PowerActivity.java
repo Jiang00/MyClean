@@ -130,7 +130,7 @@ public class PowerActivity extends BaseActivity {
             }
         });
         if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
-            title_name.setText(R.string.gboost_11);
+//            title_name.setText(R.string.gboost_11);
             for (JunkInfo info : startList) {
                 if (TextUtils.equals(info.pkg, getIntent().getStringExtra("packageName"))) {
                     startList.remove(info);
@@ -142,7 +142,7 @@ public class PowerActivity extends BaseActivity {
                     Util.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PowerActivity.this, NotificationService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
                 } else {
@@ -161,7 +161,9 @@ public class PowerActivity extends BaseActivity {
     private void setContainer() {
         containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
         containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
+        TextView name = (TextView) containerView.findViewById(R.id.title_name);
         containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
+        name.setText(R.string.side_power);
         containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         containerView_junk_button_clean.setVisibility(View.GONE);
         containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
@@ -196,7 +198,7 @@ public class PowerActivity extends BaseActivity {
                     Util.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PowerActivity.this, NotificationService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
 
