@@ -25,7 +25,4 @@ public class Constants {
     public static final String TYPE_HOR_BAR = "hor_bar";
 
 
-
-
-
 }

@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,47 +120,47 @@ public class ShortCutActivity extends BaseActivity {
     private void show_text() {
         if (count == 2) {
             count = 0;
-//            Bundle bundle = new Bundle();
-//            bundle.putString("name", (String) getText(R.string.jiasu_success));
-//            bundle.putString("from", "ramSpeed");
-//            if (size < 0) {
-//                size = 0;
-//            }
-//            bundle.putLong("sizeR", size);
-//            jumpToActivity(SuccessActivity.class, bundle);
-//            finish();
-            View view = getLayoutInflater().inflate(R.layout.layout_short_dialog, null);
-            LinearLayout dialog_a = (LinearLayout) view.findViewById(R.id.dialog_a);
-            dialog_a.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
+            if (TextUtils.equals("auto", getIntent().getStringExtra("from"))) {
+                if (PreData.hasDB(this, Constant.AUTO_KAIGUAN)) {
+
+                } else {
+
                 }
-            });
-            ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
-            loadAd();
-            TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
-            if (size < 0) {
-                size = 0;
-            }
-            short_clean_szie.setText(Util.convertStorage(size, true));
-            dialog = new Dialog(ShortCutActivity.this, R.style.add_dialog);
-            dialog.show();
-            Window window = dialog.getWindow();
-            window.setWindowAnimations(R.style.dialog_anim);
+            } else {
+                View view = getLayoutInflater().inflate(R.layout.layout_short_dialog, null);
+                LinearLayout dialog_a = (LinearLayout) view.findViewById(R.id.dialog_a);
+                dialog_a.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
+                loadAd();
+                TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
+                if (size < 0) {
+                    size = 0;
+                }
+                short_clean_szie.setText(Util.convertStorage(size, true));
+                dialog = new Dialog(ShortCutActivity.this, R.style.add_dialog);
+                dialog.show();
+                Window window = dialog.getWindow();
+                window.setWindowAnimations(R.style.dialog_anim);
 //            dialog.setCanceledOnTouchOutside(true);
-            DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
-            WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-            lp.width = dm.widthPixels; //设置宽度
-            lp.height = dm.heightPixels; //设置高度
-            window.setAttributes(lp);
-            window.setContentView(view);
-            dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    ShortCutActivity.this.finish();
-                }
-            });
+                DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
+                WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+                lp.width = dm.widthPixels; //设置宽度
+                lp.height = dm.heightPixels; //设置高度
+                window.setAttributes(lp);
+                window.setContentView(view);
+                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        ShortCutActivity.this.finish();
+                    }
+                });
+            }
+
         }
     }
 
@@ -247,6 +248,12 @@ public class ShortCutActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
         count = 0;
         if (animatorSet != null) {
             animatorSet.cancel();

@@ -92,7 +92,7 @@ public class MyApplication extends App {
             Intent intent1 = new Intent(this, FloatService.class);
             startService(intent1);
         }
-        if (PreData.getDB(this, Constant.AUTO_KAIGUAN, true)) {
+        if (PreData.getDB(this, Constant.AUTO_KAIGUAN, false) || !PreData.hasDB(this, Constant.AUTO_KAIGUAN)) {
             Intent intent = new Intent(this, AutoService.class);
             startService(intent);
         }

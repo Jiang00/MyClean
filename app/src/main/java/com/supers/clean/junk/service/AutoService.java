@@ -70,7 +70,7 @@ public class AutoService extends Service {
             String pkg = topApp.execute();
             if (hmoes.contains(pkg)) {
                 count = 0;
-                startActivity(new Intent(AutoService.this, ShortCutActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                startActivity(new Intent(AutoService.this, ShortCutActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("from", "auto"));
             } else if (count <= 20) {
                 myHandler.postDelayed(runnable, 2000);
             }
@@ -90,14 +90,14 @@ public class AutoService extends Service {
     public BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (!PreData.getDB(AutoService.this, Constant.AUTO_KAIGUAN, true)) {
+            if (!PreData.getDB(AutoService.this, Constant.AUTO_KAIGUAN, false) && PreData.hasDB(AutoService.this, Constant.AUTO_KAIGUAN)) {
                 return;
             }
             String action = intent.getAction();
             if (TextUtils.equals(Intent.ACTION_SCREEN_ON, action)) {
                 long this_time = System.currentTimeMillis();
                 long time = PreData.getDB(AutoService.this, Constant.AUTO_TIME, System.currentTimeMillis());
-                if (this_time - time > 10 * 60 * 1000) {
+                if (this_time - time > 2 * 1000) {
                     myHandler.post(runnable);
                 } else {
                     PreData.putDB(AutoService.this, Constant.AUTO_TIME, this_time);
