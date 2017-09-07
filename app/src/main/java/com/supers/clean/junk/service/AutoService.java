@@ -28,10 +28,14 @@ import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.Constant;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.ShortCutActivity;
 import com.supers.clean.junk.presenter.FloatStateManager;
 import com.supers.clean.junk.presenter.GetTopApp;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,7 +107,14 @@ public class AutoService extends Service {
                 long this_time = System.currentTimeMillis();
                 long time = PreData.getDB(AutoService.this, Constant.AUTO_TIME, System.currentTimeMillis());
                 time_diff = this_time - time;
-                if (time_diff > 10 * 1000) {
+                int default_time = 10;
+                try {
+                    JSONObject jsonObject = new JSONObject(AndroidSdk.getExtraData());
+                    default_time = jsonObject.optInt("auto_time");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (time_diff > default_time * 60 * 1000) {
                     myHandler.post(runnable);
                 } else {
                     PreData.putDB(AutoService.this, Constant.AUTO_TIME, this_time);

@@ -198,7 +198,7 @@ public class BatteryView extends FrameLayout {
             } else {
                 if (lighting.getVisibility() == View.GONE) {
                     lighting.setVisibility(VISIBLE);
-                    slide.setVisibility(GONE);
+                    slide.setVisibility(VISIBLE);
                     lighting.resumeAnimation();
                 } else {
                     if (!lighting.isAnimating()) {

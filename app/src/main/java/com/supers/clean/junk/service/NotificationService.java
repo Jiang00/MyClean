@@ -164,7 +164,6 @@ public class NotificationService extends Service {
         if (intent != null && "notification".equals(intent.getStringExtra("from"))) {
             onstart();
         }
-        Log.e("start", intent.getAction() + "==" + intent.getPackage());
         if (intent != null && "gboost".equals(intent.getStringExtra("from"))) {
             tonghzi_gboost();
             mNotifyManager.cancel(101);

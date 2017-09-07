@@ -66,6 +66,7 @@ public class FileDocActivity extends BaseActivity {
     private String TAG_FILE_2 = "eos_file_2";
     private View nativeView;
     private LinearLayout ll_ad;
+    private LinearLayout null_doc, null_txt, null_pdf;
 
     @Override
     protected void findId() {
@@ -135,12 +136,29 @@ public class FileDocActivity extends BaseActivity {
                 mHandler.post(new Runnable() {
                     public void run() {
                         file_progressbar.setVisibility(View.GONE);
+
                         adapter_doc.upList(docList);
                         adapter_doc.notifyDataSetChanged();
+                        if (docList.size() == 0) {
+                            if (null_doc != null) {
+                                null_doc.setVisibility(View.VISIBLE);
+                            }
+                        }
                         adapter_txt.upList(txtList);
                         adapter_txt.notifyDataSetChanged();
+                        if (txtList.size() == 0) {
+                            if (null_txt != null) {
+                                null_txt.setVisibility(View.VISIBLE);
+                            }
+                        }
                         adapter_pdf.upList(pdfList);
                         adapter_pdf.notifyDataSetChanged();
+                        if (pdfList.size() == 0) {
+                            if (null_pdf != null) {
+                                null_pdf.setVisibility(View.VISIBLE);
+                            }
+                        }
+
                     }
                 });
             }
@@ -224,8 +242,11 @@ public class FileDocActivity extends BaseActivity {
 
     private void initDoc() {
         ListView listView_doc = (ListView) view_doc.findViewById(R.id.file_list);
+        null_doc = (LinearLayout) view_doc.findViewById(R.id.null_ll);
         ListView listView_txt = (ListView) view_txt.findViewById(R.id.file_list);
+        null_txt = (LinearLayout) view_txt.findViewById(R.id.null_ll);
         ListView listView_pdf = (ListView) view_pdf.findViewById(R.id.file_list);
+        null_pdf = (LinearLayout) view_pdf.findViewById(R.id.null_ll);
         listView_doc.setAdapter(adapter_doc);
         listView_txt.setAdapter(adapter_txt);
         listView_pdf.setAdapter(adapter_pdf);

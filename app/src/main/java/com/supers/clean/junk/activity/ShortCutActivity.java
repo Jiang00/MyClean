@@ -182,7 +182,11 @@ public class ShortCutActivity extends BaseActivity {
                 TextView auto_battery_size = (TextView) view.findViewById(R.id.auto_battery_size);
                 ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
                 Button auto_ok = (Button) view.findViewById(R.id.auto_ok);
-                auto_ram_size.setText(Util.convertStorage(size, true));
+                if (size <= 0) {
+                    auto_ram_size.setText(R.string.success_normal);
+                } else {
+                    auto_ram_size.setText(Util.convertStorage(size, true));
+                }
                 auto_junk_size.setText(Util.convertStorage(junk_size, true));
                 long time_diff = getIntent().getLongExtra("time", 0);
                 if (time_diff > 24 * 60 * 60 * 1000) {
