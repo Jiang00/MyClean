@@ -141,7 +141,7 @@ public class DeepActivity extends MBaseActivity {
                     Util.doStartApplicationWithPackageName(DeepActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(DeepActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(DeepActivity.this, NotificationService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
                 } else {
@@ -193,7 +193,7 @@ public class DeepActivity extends MBaseActivity {
                     Util.doStartApplicationWithPackageName(DeepActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(DeepActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(DeepActivity.this, NotificationService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
 
@@ -254,6 +254,7 @@ public class DeepActivity extends MBaseActivity {
         rotate.start();
         set.start();
     }
+
     private void initData() {
         startList = new ArrayList<>();
         for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
@@ -262,6 +263,7 @@ public class DeepActivity extends MBaseActivity {
             }
         }
     }
+
     private void showPackageDetail(String packageName) {
         Intent intent = new Intent();
         intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
@@ -269,7 +271,6 @@ public class DeepActivity extends MBaseActivity {
         intent.setData(uri);
         startActivity(intent);
     }
-
 
 
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {

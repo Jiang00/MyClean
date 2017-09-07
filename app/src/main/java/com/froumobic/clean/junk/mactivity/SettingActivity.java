@@ -234,7 +234,7 @@ public class SettingActivity extends MBaseActivity {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
                         Intent intent = new Intent(SettingActivity.this, NotificationService.class);
-                        intent.setAction("notification");
+                        intent.putExtra("from","notification");
                         startService(intent);
                     }
                     break;
