@@ -187,7 +187,7 @@ public class SettingActivity extends BaseActivity {
         } else {
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if (PreData.getDB(SettingActivity.this, Constant.AUTO_KAIGUAN, true)) {
+        if (PreData.getDB(SettingActivity.this, Constant.AUTO_KAIGUAN, false)) {
             setting_auto_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_auto_check.setImageResource(R.mipmap.side_check_normal);
@@ -278,7 +278,7 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_auto:
                     AdUtil.track("设置页面", "点击自动清理开关", "", 1);
-                    if (PreData.getDB(SettingActivity.this, Constant.AUTO_KAIGUAN, true)) {
+                    if (PreData.getDB(SettingActivity.this, Constant.AUTO_KAIGUAN, false)) {
                         PreData.putDB(SettingActivity.this, Constant.AUTO_KAIGUAN, false);
                         Intent intent1 = new Intent(SettingActivity.this, AutoService.class);
                         setting_auto_check.setImageResource(R.mipmap.side_check_normal);

@@ -68,9 +68,10 @@ public class AutoService extends Service {
         public void run() {
             count++;
             String pkg = topApp.execute();
+            Log.e("autoservice", pkg + "==");
             if (hmoes.contains(pkg)) {
                 count = 0;
-                startActivity(new Intent(AutoService.this, ShortCutActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("from", "auto"));
+                startActivity(new Intent(AutoService.this, ShortCutActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("from", "auto").putExtra("time", time_diff));
             } else if (count <= 20) {
                 myHandler.postDelayed(runnable, 2000);
             }
@@ -81,23 +82,28 @@ public class AutoService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.e("autoservice", "onCreate");
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
         registerReceiver(mReceiver, intentFilter);
     }
 
+    private long time_diff;
     public BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            Log.e("autoservice", "onReceive1");
             if (!PreData.getDB(AutoService.this, Constant.AUTO_KAIGUAN, false) && PreData.hasDB(AutoService.this, Constant.AUTO_KAIGUAN)) {
                 return;
             }
+            Log.e("autoservice", "onReceive2");
             String action = intent.getAction();
             if (TextUtils.equals(Intent.ACTION_SCREEN_ON, action)) {
                 long this_time = System.currentTimeMillis();
                 long time = PreData.getDB(AutoService.this, Constant.AUTO_TIME, System.currentTimeMillis());
-                if (this_time - time > 2 * 1000) {
+                time_diff = this_time - time;
+                if (time_diff > 10 * 1000) {
                     myHandler.post(runnable);
                 } else {
                     PreData.putDB(AutoService.this, Constant.AUTO_TIME, this_time);

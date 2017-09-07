@@ -1174,6 +1174,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     Runnable runnable_load = new Runnable() {
         @Override
         public void run() {
+//            load广告
             AndroidSdk.showFullAd(TAG_LOAD_FULL);
             handler.removeCallbacks(runnable_pus);
             load_loading.setVisibility(View.GONE);

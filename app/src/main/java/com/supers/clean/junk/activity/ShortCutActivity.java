@@ -18,11 +18,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
+import com.android.clean.entity.JunkInfo;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -34,6 +37,7 @@ import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.util.AdUtil;
 import com.android.clean.util.Constant;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -55,6 +59,7 @@ public class ShortCutActivity extends BaseActivity {
     private boolean istween;
     private boolean isdoudong;
     private long size;
+    private long junk_size;
     private int count;
     private Handler myHandler;
     private View nativeView;
@@ -62,6 +67,8 @@ public class ShortCutActivity extends BaseActivity {
     private Animation suo;
     private Dialog dialog;
     private AnimatorSet animatorSet;
+    private LinearLayout auto_ram_l, auto_junk_l, auto_battery_l;
+    Animation animation_ram, animation_junk, animation_battery;
 
     @Override
     protected void findId() {
@@ -78,6 +85,9 @@ public class ShortCutActivity extends BaseActivity {
         setContentView(R.layout.layout_short_cut);
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
         fang = AnimationUtils.loadAnimation(this, R.anim.fang);
+        animation_ram = AnimationUtils.loadAnimation(ShortCutActivity.this, R.anim.short_ram);
+        animation_junk = AnimationUtils.loadAnimation(ShortCutActivity.this, R.anim.short_junk);
+        animation_battery = AnimationUtils.loadAnimation(ShortCutActivity.this, R.anim.short_battery);
         tweenManager = new TweenManager();
         myHandler = new Handler();
         Tween.registerAccessor(ImageView.class, new ImageAccessor());
@@ -88,11 +98,34 @@ public class ShortCutActivity extends BaseActivity {
             @Override
             public void run() {
                 clear(ShortCutActivity.this);
+                try {
+                    List<JunkInfo> deletelist = new ArrayList<>();
+                    deletelist.addAll(CleanManager.getInstance(ShortCutActivity.this).getApkFiles());
+
+                    for (JunkInfo fileListInfo : deletelist) {
+                        CleanManager.getInstance(ShortCutActivity.this).removeApkFiles(fileListInfo);
+                        junk_size += fileListInfo.size;
+                    }
+                    deletelist.clear();
+                    deletelist.addAll(CleanManager.getInstance(ShortCutActivity.this).getLogFiles());
+                    for (JunkInfo fileListInfo : deletelist) {
+                        CleanManager.getInstance(ShortCutActivity.this).removeAppLog(fileListInfo);
+                        junk_size += fileListInfo.size;
+                    }
+                    deletelist.clear();
+                    deletelist.addAll(CleanManager.getInstance(ShortCutActivity.this).getAppCaches());
+                    for (JunkInfo fileListInfo : deletelist) {
+                        CleanManager.getInstance(ShortCutActivity.this).removeAppCache(fileListInfo);
+                        junk_size += fileListInfo.size;
+                    }
+                } catch (Exception e) {
+                }
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         count++;
                         show_text();
+
                     }
                 });
             }
@@ -104,11 +137,6 @@ public class ShortCutActivity extends BaseActivity {
         } else {
             nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
             if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == Util.dp2px(250)) {
-                    layout_ad.height = Util.dp2px(250);
-                }
-                ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
                 ll_ad.setVisibility(View.VISIBLE);
             } else {
@@ -116,16 +144,116 @@ public class ShortCutActivity extends BaseActivity {
         }
     }
 
+    boolean ischeck;
 
     private void show_text() {
         if (count == 2) {
             count = 0;
+            dialog = new Dialog(ShortCutActivity.this, R.style.add_dialog);
+            dialog.show();
+            Window window = dialog.getWindow();
+            window.setWindowAnimations(R.style.dialog_anim);
+//            dialog.setCanceledOnTouchOutside(true);
+            DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
+            WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+            lp.width = dm.widthPixels; //设置宽度
+            lp.height = dm.heightPixels; //设置高度
+            window.setAttributes(lp);
+
+            dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    ShortCutActivity.this.finish();
+                }
+            });
+
             if (TextUtils.equals("auto", getIntent().getStringExtra("from"))) {
+                ischeck = true;
+                View view = getLayoutInflater().inflate(R.layout.layout_auto, null);
+                ImageView auto_cha = (ImageView) view.findViewById(R.id.auto_cha);
+                final ImageView auto_check = (ImageView) view.findViewById(R.id.auto_check);
+                FrameLayout dialog_a = (FrameLayout) view.findViewById(R.id.dialog_a);
+                auto_ram_l = (LinearLayout) view.findViewById(R.id.auto_ram_l);
+                auto_junk_l = (LinearLayout) view.findViewById(R.id.auto_junk_l);
+                auto_battery_l = (LinearLayout) view.findViewById(R.id.auto_battery_l);
+                LinearLayout auto_is_first = (LinearLayout) view.findViewById(R.id.auto_is_first);
+                TextView auto_ram_size = (TextView) view.findViewById(R.id.auto_ram_size);
+                TextView auto_junk_size = (TextView) view.findViewById(R.id.auto_junk_size);
+                TextView auto_battery_size = (TextView) view.findViewById(R.id.auto_battery_size);
+                ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
+                Button auto_ok = (Button) view.findViewById(R.id.auto_ok);
+                auto_ram_size.setText(Util.convertStorage(size, true));
+                auto_junk_size.setText(Util.convertStorage(junk_size, true));
+                long time_diff = getIntent().getLongExtra("time", 0);
+                if (time_diff > 24 * 60 * 60 * 1000) {
+                    time_diff = 24 * 60 * 60 * 1000;
+                }
+                auto_battery_size.setText(Util.millTransFate2(time_diff / 10));
+
+                myHandler.postDelayed(runnable_r, 300);
+                myHandler.postDelayed(runnable_j, 500);
+                myHandler.postDelayed(runnable_b, 700);
+
+                dialog_a.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                auto_cha.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                loadAd();
                 if (PreData.hasDB(this, Constant.AUTO_KAIGUAN)) {
+                    auto_is_first.setVisibility(View.GONE);
+                    int x = (int) (Math.random() * (10));
+                    if (x > 4) {
+                        auto_ok.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                    } else {
+                        auto_ok.setText(R.string.side_power);
+                        auto_ok.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                jumpTo(PowerActivity.class);
+                                dialog.dismiss();
+                            }
+                        });
+                    }
 
                 } else {
-
+                    auto_check.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ischeck = !ischeck;
+                            if (ischeck) {
+                                auto_check.setImageResource(R.mipmap.auto_passed);
+                            } else {
+                                auto_check.setImageResource(R.mipmap.auto_normal);
+                            }
+                        }
+                    });
+                    auto_ok.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (ischeck) {
+                                PreData.putDB(ShortCutActivity.this, Constant.AUTO_KAIGUAN, true);
+                            }
+                            dialog.dismiss();
+                        }
+                    });
                 }
+
+                window.setContentView(view);
             } else {
                 View view = getLayoutInflater().inflate(R.layout.layout_short_dialog, null);
                 LinearLayout dialog_a = (LinearLayout) view.findViewById(R.id.dialog_a);
@@ -142,27 +270,39 @@ public class ShortCutActivity extends BaseActivity {
                     size = 0;
                 }
                 short_clean_szie.setText(Util.convertStorage(size, true));
-                dialog = new Dialog(ShortCutActivity.this, R.style.add_dialog);
-                dialog.show();
-                Window window = dialog.getWindow();
-                window.setWindowAnimations(R.style.dialog_anim);
-//            dialog.setCanceledOnTouchOutside(true);
-                DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
-                WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-                lp.width = dm.widthPixels; //设置宽度
-                lp.height = dm.heightPixels; //设置高度
-                window.setAttributes(lp);
                 window.setContentView(view);
-                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        ShortCutActivity.this.finish();
-                    }
-                });
             }
 
         }
     }
+
+    Runnable runnable_r = new Runnable() {
+        @Override
+        public void run() {
+            if (auto_ram_l != null) {
+                auto_ram_l.startAnimation(animation_ram);
+                auto_ram_l.setVisibility(View.VISIBLE);
+            }
+        }
+    };
+    Runnable runnable_j = new Runnable() {
+        @Override
+        public void run() {
+            if (auto_junk_l != null) {
+                auto_junk_l.startAnimation(animation_junk);
+                auto_junk_l.setVisibility(View.VISIBLE);
+            }
+        }
+    };
+    Runnable runnable_b = new Runnable() {
+        @Override
+        public void run() {
+            if (auto_battery_l != null) {
+                auto_battery_l.startAnimation(animation_battery);
+                auto_battery_l.setVisibility(View.VISIBLE);
+            }
+        }
+    };
 
     private void clear(Context context) {
         size = killAll(context);
@@ -260,6 +400,10 @@ public class ShortCutActivity extends BaseActivity {
         }
         if (myHandler != null) {
             myHandler.removeCallbacks(run_suo);
+            myHandler.removeCallbacks(runnable_r);
+            myHandler.removeCallbacks(runnable_j);
+            myHandler.removeCallbacks(runnable_b);
+
         }
         if (suo != null) {
             suo.setAnimationListener(null);

@@ -95,7 +95,6 @@ public class Util {
     }
 
 
-
     public static String millTransFate2(long millisecond) {
         String str = "";
         long day = millisecond / 86400000;
@@ -109,6 +108,9 @@ public class Util {
         }
         if (minute > 0) {
             str += String.valueOf(minute) + " m ";
+        }
+        if (str.length() == 0) {
+            str += "0";
         }
         return str;
     }

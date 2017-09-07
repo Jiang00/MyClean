@@ -140,7 +140,7 @@ public final class PreData {
             if (db.contains(key)) {
                 return db.getBoolean(key, defValue);
             } else {
-                db.edit().putBoolean(key, defValue).commit();
+//                db.edit().putBoolean(key, defValue).commit();
             }
         }
         return defValue;
