@@ -466,7 +466,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 ad_loading.setCustomRoundListener(new LoadingTime.CustomRoundListener() {
                     @Override
                     public void progressUpdate() {
-                        adDelete();
+                        handler.post(fullAdRunnale);
                     }
                 });
 //                int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
