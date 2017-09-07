@@ -80,7 +80,7 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             // 更改最终apk命名
-            String appName = project.name
+            String appName = NAME
             String vCode = variant.versionCode
             String vName = variant.versionName
             String buildTypeName = variant.buildType.name
