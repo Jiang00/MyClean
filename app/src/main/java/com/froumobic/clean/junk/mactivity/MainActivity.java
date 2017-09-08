@@ -57,6 +57,7 @@ import com.froumobic.clean.junk.adapter.MSideAdapter;
 import com.froumobic.clean.junk.entity.SideInfo;
 import com.froumobic.clean.junk.mview.CustomRoundCpu;
 import com.froumobic.clean.junk.mview.ListViewForScrollView;
+import com.froumobic.clean.junk.mview.LoadingTime;
 import com.froumobic.clean.junk.mview.MyScrollView;
 import com.froumobic.clean.junk.mview.PullToRefreshLayout;
 import com.froumobic.clean.junk.mview.QiqiuLayout;
@@ -133,7 +134,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private String TAG_START_FULL = "start_native";
     private String TAG_EXIT_FULL = "exit_native";
     private String TAG_FULL_PULL = "pull_full";
-    private String LOAD_FULL = "load_full";
+    private String LOAD_FULL = "loading_full";
 
     private Handler handler = new Handler();
     private MainPresenter mainPresenter;
@@ -146,6 +147,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private AlertDialog dialog;
     private ArrayList<View> arrayList;
     private AnimatorSet animatorSet;
+    private LoadingTime ad_loading;
 
 
     @Override
@@ -383,17 +385,20 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         ObjectAnimator objectAnimator_t = ObjectAnimator.ofFloat(lot_family, View.TRANSLATION_X, getResources().getDimension(R.dimen.d72), 0);
         objectAnimator_t.setDuration(1500);
         objectAnimator_t.setInterpolator(new AnticipateOvershootInterpolator());
-        ObjectAnimator translate_1 = ObjectAnimator.ofFloat(libao_1, View.TRANSLATION_Y, 0, 20, -20, 0);
+        ObjectAnimator translate_1 = ObjectAnimator.ofFloat(libao_1, View.TRANSLATION_Y, 0, getResources().getDimensionPixelOffset(R.dimen.d6),
+                -getResources().getDimensionPixelOffset(R.dimen.d6), 0);
         translate_1.setDuration(4000);
-        translate_1.setRepeatCount(3);
+        translate_1.setRepeatCount(-1);
         translate_1.setInterpolator(new LinearInterpolator());
-        ObjectAnimator translate_2 = ObjectAnimator.ofFloat(libao_2, View.TRANSLATION_Y, 0, 8, -8, 0);
+        ObjectAnimator translate_2 = ObjectAnimator.ofFloat(libao_2, View.TRANSLATION_Y, 0, getResources().getDimensionPixelOffset(R.dimen.d3),
+                -getResources().getDimensionPixelOffset(R.dimen.d3), 0);
         translate_2.setDuration(3000);
-        translate_2.setRepeatCount(4);
+        translate_2.setRepeatCount(-1);
         translate_2.setInterpolator(new LinearInterpolator());
-        ObjectAnimator translate_3 = ObjectAnimator.ofFloat(libao_3, View.TRANSLATION_Y, 0, 12, -12, 0);
+        ObjectAnimator translate_3 = ObjectAnimator.ofFloat(libao_3, View.TRANSLATION_Y, 0, getResources().getDimensionPixelOffset(R.dimen.d4),
+                -getResources().getDimensionPixelOffset(R.dimen.d4), 0);
         translate_3.setDuration(3500);
-        translate_3.setRepeatCount(3);
+        translate_3.setRepeatCount(-1);
         translate_3.setInterpolator(new LinearInterpolator());
         animatorSet.play(translate_1).with(translate_2).with(translate_3).after(objectAnimator_t);
 
@@ -708,61 +713,28 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd(LOAD_FULL);
         } else {
-            int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
-            if (true) {
-                View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_exit);
-                if (ll_ad_loading != null && nativeView_full != null) {
-                    ll_ad_loading.removeAllViews();
-                    ll_ad_loading.addView(nativeView_full);
-                    ll_ad_full.setVisibility(View.VISIBLE);
-                    ImageView ad_delete = (ImageView) findViewById(R.id.ad_delete);
-                    ad_delete.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            handler.removeCallbacks(fullAdRunnale);
-                            adDelete();
-                        }
-                    });
-                    int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
-                    Log.e("timead", skip + "-==");
-                    handler.postDelayed(fullAdRunnale, skip * 1000);
-                }
-            } else {
-                try {
-                    UiManager.getCrossView(this, new Builder("cross")
-                                    .setServiceData(AndroidSdk.getExtraData())
-                                    .setType(Builder.Type.TYPE_DIALOG).setAdTagImageId(R.mipmap.ad)
-                                    .setIsShouldShowDownLoadBtn(true)
-                                    .setRootViewBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.A1))
-                                    .setActionBtnBackground(R.drawable.select_text_ad)
-                                    .setActionTextColor(getResources().getColor(R.color.white_100))
-                                    .setTitleTextColor(getResources().getColor(R.color.white_100))
-                                    .setSubTitleTextColor(getResources().getColor(R.color.white_100))
-                                    .setTrackTag("广告位_loading")
-                            , new CrossView.OnDataFinishListener() {
-                                @Override
-                                public void onFinish(CrossView crossView) {
-                                    ll_ad_loading.removeAllViews();
-                                    ll_ad_loading.addView(crossView, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-                                    ImageView ad_delete = (ImageView) findViewById(R.id.ad_delete);
-                                    ad_delete.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            handler.removeCallbacks(fullAdRunnale);
-                                            adDelete();
-                                        }
-                                    });
-                                    ll_ad_full.setVisibility(View.VISIBLE);
-                                }
-                            });
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
-                Log.e("timead", skip + "-==");
-                handler.postDelayed(fullAdRunnale, skip * 1000);
-            }
+            View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_exit);
+            if (ll_ad_loading != null && nativeView_full != null) {
+                ll_ad_loading.removeAllViews();
+                ll_ad_loading.addView(nativeView_full);
+                ll_ad_full.setVisibility(View.VISIBLE);
+                ad_loading = (LoadingTime) findViewById(R.id.ad_loading);
+                ad_loading.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        handler.removeCallbacks(fullAdRunnale);
+                        adDelete();
+                    }
+                });
+                ad_loading.startProgress();
+                ad_loading.setCustomRoundListener(new LoadingTime.CustomRoundListener() {
+                    @Override
+                    public void progressUpdate() {
+                        handler.post(fullAdRunnale);
+                    }
+                });
 
+            }
         }
     }
 
@@ -852,7 +824,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                     break;
                 case R.id.lot_family:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
-
+                    AndroidSdk.loadFullAd(LOAD_FULL);
                     full_loading.setVisibility(View.VISIBLE);
                     full_loading.reStart();
 
@@ -1080,7 +1052,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        AndroidSdk.loadFullAd(LOAD_FULL);
+
 //        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
 //        rotateAnimation.setDuration(2000);
 //        rotateAnimation.setRepeatCount(-1);
@@ -1095,10 +1067,13 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (handler != null) {
             handler.removeCallbacks(runnable_load);
             handler.removeCallbacks(runnable_pus);
-            if (full_loading != null) {
-                full_loading.pause();
-                full_loading.destroy();
-            }
+        }
+        if (full_loading != null) {
+            full_loading.pause();
+            full_loading.destroy();
+        }
+        if (ad_loading != null) {
+            ad_loading.cancle();
         }
     }
 
@@ -1106,6 +1081,9 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (ll_ad_full.getVisibility() == View.VISIBLE) {
             adDelete();
             handler.removeCallbacks(fullAdRunnale);
+            if (ad_loading != null) {
+                ad_loading.cancle();
+            }
             return;
         }
         if (full_loading.getVisibility() == View.VISIBLE) {

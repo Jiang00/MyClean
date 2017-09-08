@@ -52,7 +52,7 @@ public class LoadingActivity extends MBaseActivity {
             PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.loadFullAd("load_full");
+            AndroidSdk.loadFullAd("loading_full");
         }
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2000);
