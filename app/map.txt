@@ -33514,193 +33514,178 @@ com.froumobic.clean.junk.mactivity.MainActivity -> com.froumobic.clean.junk.mact
     com.froumobic.clean.junk.mview.RoundJinduRam main_msg_ram_backg -> an
     android.widget.FrameLayout main_battery -> ao
     android.widget.LinearLayout main_tuiguang -> ap
-    android.widget.ImageView side_title -> aq
-    android.widget.ImageView lot_family -> ar
-    android.support.v4.view.PagerAdapter pagerAdapter -> as
-    java.lang.String TAG_MAIN -> ax
-    java.lang.String TAG_HUA -> ay
-    java.lang.String TAG_SIDE -> az
-    java.lang.String TAG_START_FULL -> aA
-    java.lang.String TAG_EXIT_FULL -> aB
-    java.lang.String TAG_FULL_PULL -> aC
-    android.os.Handler handler -> aD
-    com.froumobic.clean.junk.presenter.MainPresenter mainPresenter -> aE
-    com.froumobic.clean.junk.adapter.MSideAdapter adapter -> aF
-    int temp -> aG
-    android.support.v4.view.ViewPager viewpager -> aH
-    com.rd.PageIndicatorView pageindicatorview -> at
-    android.view.View viewpager_3 -> aI
-    android.support.v7.app.AlertDialog dialog -> aJ
-    java.util.ArrayList arrayList -> aK
-    java.lang.Runnable fullAdRunnale -> au
-    com.froumobic.clean.junk.mview.PullToRefreshLayout$OnRefreshListener refreshListener -> av
-    android.view.View$OnClickListener onClickListener -> aw
-    73:784:void <init>() -> <init>
-    143:200:void findId() -> a
-    204:368:void onCreate(android.os.Bundle) -> onCreate
-    371:419:void tuiguangButton(java.lang.String) -> b
-    424:447:void startFenshu(int,boolean) -> a
-    450:455:void setColorAnimation(android.view.View,int,int) -> a
-    458:487:void setColor(int,boolean) -> b
-    492:519:void onClick() -> c
-    524:550:void initSd(int,long) -> a
-    554:570:void initRam(int) -> b
-    574:582:void initCpu(int) -> c
-    585:603:void initSideData() -> d
-    607:607:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
-    611:618:void setRotateGone() -> e
-    622:623:void openDrawer() -> f
-    634:735:void loadFullAd() -> b
-    930:996:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    1000:1003:void onRestart() -> onRestart
-    1007:1008:void onPause() -> onPause
-    1012:1017:void onResume() -> onResume
-    1021:1022:void onDestroy() -> onDestroy
-    1025:1046:void onBackPressed() -> onBackPressed
-    1049:1069:void adDelete() -> g
-    1072:1149:void showExitDialog() -> h
-    1154:1154:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    1158:1158:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    1162:1162:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    1167:1167:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    73:73:com.froumobic.clean.junk.presenter.MainPresenter access$000(com.froumobic.clean.junk.mactivity.MainActivity) -> a
-    73:73:java.util.ArrayList access$100(com.froumobic.clean.junk.mactivity.MainActivity) -> b
-    73:73:android.support.v4.view.ViewPager access$200(com.froumobic.clean.junk.mactivity.MainActivity) -> c
-    73:73:void access$300(com.froumobic.clean.junk.mactivity.MainActivity,int,boolean) -> a
-    73:73:android.os.Handler access$400(com.froumobic.clean.junk.mactivity.MainActivity) -> d
-    73:73:void access$500(com.froumobic.clean.junk.mactivity.MainActivity) -> e
-    73:73:java.lang.String access$600(com.froumobic.clean.junk.mactivity.MainActivity) -> f
-    73:73:int access$700(com.froumobic.clean.junk.mactivity.MainActivity) -> g
-    73:73:java.lang.String access$800(com.froumobic.clean.junk.mactivity.MainActivity) -> h
-    73:73:com.froumobic.clean.junk.adapter.MSideAdapter access$900(com.froumobic.clean.junk.mactivity.MainActivity) -> i
-    73:73:android.support.v7.app.AlertDialog access$1000(com.froumobic.clean.junk.mactivity.MainActivity) -> j
+    com.froumobic.clean.junk.mview.QiqiuLayout full_loading -> aq
+    android.widget.ImageView side_title -> ar
+    android.widget.ImageView lot_family -> as
+    android.support.v4.view.PagerAdapter pagerAdapter -> at
+    java.lang.String TAG_MAIN -> ay
+    java.lang.String TAG_HUA -> az
+    java.lang.String TAG_SIDE -> aA
+    java.lang.String TAG_START_FULL -> aB
+    java.lang.String TAG_EXIT_FULL -> aC
+    java.lang.String TAG_FULL_PULL -> aD
+    android.os.Handler handler -> aE
+    com.froumobic.clean.junk.presenter.MainPresenter mainPresenter -> aF
+    com.froumobic.clean.junk.adapter.MSideAdapter adapter -> aG
+    int temp -> aH
+    android.support.v4.view.ViewPager viewpager -> aI
+    com.rd.PageIndicatorView pageindicatorview -> au
+    android.view.View viewpager_3 -> aJ
+    android.support.v7.app.AlertDialog dialog -> aK
+    java.util.ArrayList arrayList -> aL
+    java.lang.Runnable fullAdRunnale -> av
+    com.froumobic.clean.junk.mview.PullToRefreshLayout$OnRefreshListener refreshListener -> aw
+    android.view.View$OnClickListener onClickListener -> ax
+    74:787:void <init>() -> <init>
+    145:203:void findId() -> a
+    207:371:void onCreate(android.os.Bundle) -> onCreate
+    374:422:void tuiguangButton(java.lang.String) -> b
+    427:450:void startFenshu(int,boolean) -> a
+    453:458:void setColorAnimation(android.view.View,int,int) -> a
+    461:490:void setColor(int,boolean) -> b
+    495:522:void onClick() -> c
+    527:553:void initSd(int,long) -> a
+    557:573:void initRam(int) -> b
+    577:585:void initCpu(int) -> c
+    588:606:void initSideData() -> d
+    610:610:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
+    614:621:void setRotateGone() -> e
+    625:626:void openDrawer() -> f
+    637:738:void loadFullAd() -> b
+    937:1003:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    1007:1010:void onRestart() -> onRestart
+    1014:1015:void onPause() -> onPause
+    1019:1024:void onResume() -> onResume
+    1028:1029:void onDestroy() -> onDestroy
+    1032:1053:void onBackPressed() -> onBackPressed
+    1056:1076:void adDelete() -> g
+    1079:1156:void showExitDialog() -> h
+    1161:1161:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    1165:1165:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    1169:1169:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    1174:1174:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    74:74:com.froumobic.clean.junk.presenter.MainPresenter access$000(com.froumobic.clean.junk.mactivity.MainActivity) -> a
+    74:74:java.util.ArrayList access$100(com.froumobic.clean.junk.mactivity.MainActivity) -> b
+    74:74:android.support.v4.view.ViewPager access$200(com.froumobic.clean.junk.mactivity.MainActivity) -> c
+    74:74:void access$300(com.froumobic.clean.junk.mactivity.MainActivity,int,boolean) -> a
+    74:74:android.os.Handler access$400(com.froumobic.clean.junk.mactivity.MainActivity) -> d
+    74:74:void access$500(com.froumobic.clean.junk.mactivity.MainActivity) -> e
+    74:74:java.lang.String access$600(com.froumobic.clean.junk.mactivity.MainActivity) -> f
+    74:74:int access$700(com.froumobic.clean.junk.mactivity.MainActivity) -> g
+    74:74:com.froumobic.clean.junk.adapter.MSideAdapter access$800(com.froumobic.clean.junk.mactivity.MainActivity) -> h
+    74:74:android.support.v7.app.AlertDialog access$900(com.froumobic.clean.junk.mactivity.MainActivity) -> i
 com.froumobic.clean.junk.mactivity.MainActivity$1 -> com.froumobic.clean.junk.mactivity.MainActivity$1:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    252:252:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    255:257:void onClick(android.view.View) -> onClick
+    255:255:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    258:260:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$10 -> com.froumobic.clean.junk.mactivity.MainActivity$2:
     int val$percent -> a
     boolean val$isRestart -> b
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> c
-    440:440:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int,boolean) -> <init>
-    443:444:void run() -> run
+    443:443:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int,boolean) -> <init>
+    446:447:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$11 -> com.froumobic.clean.junk.mactivity.MainActivity$3:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    510:510:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    513:516:void onScrollChanged(com.froumobic.clean.junk.mview.MyScrollView,int,int,int,int) -> a
+    513:513:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    516:519:void onScrollChanged(com.froumobic.clean.junk.mview.MyScrollView,int,int,int,int) -> a
 com.froumobic.clean.junk.mactivity.MainActivity$12 -> com.froumobic.clean.junk.mactivity.MainActivity$4:
     int val$percent -> a
     long val$sd_kongxian -> b
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> c
-    524:524:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int,long) -> <init>
-    527:547:void run() -> run
+    527:527:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int,long) -> <init>
+    530:550:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$13 -> com.froumobic.clean.junk.mactivity.MainActivity$5:
     int val$percent -> a
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> b
-    554:554:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int) -> <init>
-    557:567:void run() -> run
+    557:557:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int) -> <init>
+    560:570:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$14 -> com.froumobic.clean.junk.mactivity.MainActivity$6:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    611:611:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    614:615:void run() -> run
+    614:614:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    617:618:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$16 -> com.froumobic.clean.junk.mactivity.MainActivity$7:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    687:687:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    690:692:void onClick(android.view.View) -> onClick
+    690:690:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    693:695:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$18 -> com.froumobic.clean.junk.mactivity.MainActivity$8:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    737:737:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    740:741:void run() -> run
+    740:740:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    743:744:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$19 -> com.froumobic.clean.junk.mactivity.MainActivity$9:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    745:745:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    750:750:void onRefresh(com.froumobic.clean.junk.mview.PullToRefreshLayout) -> a
-    755:779:void onLoadMore(com.froumobic.clean.junk.mview.PullToRefreshLayout) -> b
+    748:748:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    753:753:void onRefresh(com.froumobic.clean.junk.mview.PullToRefreshLayout) -> a
+    758:782:void onLoadMore(com.froumobic.clean.junk.mview.PullToRefreshLayout) -> b
 com.froumobic.clean.junk.mactivity.MainActivity$19$1 -> com.froumobic.clean.junk.mactivity.MainActivity$9$1:
     com.froumobic.clean.junk.mactivity.MainActivity$19 this$1 -> a
-    756:756:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$19) -> <init>
-    759:772:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    776:777:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    759:759:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$19) -> <init>
+    762:775:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    779:780:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.froumobic.clean.junk.mactivity.MainActivity$2 -> com.froumobic.clean.junk.mactivity.MainActivity$10:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    295:295:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    298:298:int getCount() -> getCount
-    304:305:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    315:318:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    322:322:int getItemPosition(java.lang.Object) -> getItemPosition
-    327:327:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    298:298:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    301:301:int getCount() -> getCount
+    307:308:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    318:321:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    325:325:int getItemPosition(java.lang.Object) -> getItemPosition
+    330:330:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.froumobic.clean.junk.mactivity.MainActivity$20 -> com.froumobic.clean.junk.mactivity.MainActivity$11:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    784:784:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    788:925:void onClick(android.view.View) -> onClick
-com.froumobic.clean.junk.mactivity.MainActivity$20$1 -> com.froumobic.clean.junk.mactivity.MainActivity$11$1:
-    com.froumobic.clean.junk.mactivity.MainActivity$20 this$1 -> a
-    828:828:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$20) -> <init>
-    831:852:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    857:857:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    862:862:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.froumobic.clean.junk.mactivity.MainActivity$20$1$1 -> com.froumobic.clean.junk.mactivity.MainActivity$11$1$1:
-    com.froumobic.clean.junk.mactivity.MainActivity$20$1 this$2 -> a
-    831:831:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$20$1) -> <init>
-    834:843:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    847:850:void onNativeAdLoadFails() -> onNativeAdLoadFails
-com.froumobic.clean.junk.mactivity.MainActivity$20$1$1$1 -> com.froumobic.clean.junk.mactivity.MainActivity$11$1$1$1:
-    com.froumobic.clean.junk.mactivity.MainActivity$20$1$1 this$3 -> a
-    835:835:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$20$1$1) -> <init>
-    838:839:void onClick(android.view.View) -> onClick
+    787:787:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    791:932:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$21 -> com.froumobic.clean.junk.mactivity.MainActivity$12:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    930:930:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    933:934:void run() -> run
+    937:937:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    940:941:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$22 -> com.froumobic.clean.junk.mactivity.MainActivity$13:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    1060:1060:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    1063:1065:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
+    1067:1067:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    1070:1072:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
 com.froumobic.clean.junk.mactivity.MainActivity$24 -> com.froumobic.clean.junk.mactivity.MainActivity$14:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    1111:1111:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    1114:1116:void onClick(android.view.View) -> onClick
+    1118:1118:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    1121:1123:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$25 -> com.froumobic.clean.junk.mactivity.MainActivity$15:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    1118:1118:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    1121:1122:void onClick(android.view.View) -> onClick
+    1125:1125:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    1128:1129:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$3 -> com.froumobic.clean.junk.mactivity.MainActivity$16:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    334:334:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    337:338:void run() -> run
+    337:337:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    340:341:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$4 -> com.froumobic.clean.junk.mactivity.MainActivity$17:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    340:340:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    343:344:void run() -> run
+    343:343:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    346:347:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$5 -> com.froumobic.clean.junk.mactivity.MainActivity$18:
     java.util.ArrayList val$crossItems -> a
     int val$tuiguang_1 -> b
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> c
-    384:384:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,java.util.ArrayList,int) -> <init>
-    387:390:void onClick(android.view.View) -> onClick
+    387:387:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,java.util.ArrayList,int) -> <init>
+    390:393:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$6 -> com.froumobic.clean.junk.mactivity.MainActivity$19:
     java.util.ArrayList val$crossItems -> a
     int val$finalTuiguang_ -> b
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> c
-    393:393:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,java.util.ArrayList,int) -> <init>
-    396:399:void onClick(android.view.View) -> onClick
+    396:396:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,java.util.ArrayList,int) -> <init>
+    399:402:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$7 -> com.froumobic.clean.junk.mactivity.MainActivity$20:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    404:404:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    407:409:void onClick(android.view.View) -> onClick
+    407:407:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    410:412:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$8 -> com.froumobic.clean.junk.mactivity.MainActivity$21:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    411:411:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    414:416:void onClick(android.view.View) -> onClick
+    414:414:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    417:419:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$9 -> com.froumobic.clean.junk.mactivity.MainActivity$22:
     int val$percent -> a
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> b
-    429:429:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int) -> <init>
-    432:438:void progressUpdate(int) -> a
+    432:432:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int) -> <init>
+    435:441:void progressUpdate(int) -> a
 com.froumobic.clean.junk.mactivity.MainActivity$9$1 -> com.froumobic.clean.junk.mactivity.MainActivity$22$1:
     com.froumobic.clean.junk.mactivity.MainActivity$9 this$1 -> a
-    432:432:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$9) -> <init>
-    435:436:void run() -> run
+    435:435:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$9) -> <init>
+    438:439:void run() -> run
 com.froumobic.clean.junk.mactivity.MessageActivity -> com.froumobic.clean.junk.mactivity.MessageActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -34863,6 +34848,64 @@ com.froumobic.clean.junk.mview.PullToRefreshLayout$OnRefreshListener -> com.frou
 com.froumobic.clean.junk.mview.Pullable -> com.froumobic.clean.junk.mview.b:
     boolean canPullDown() -> a
     boolean canPullUp() -> b
+com.froumobic.clean.junk.mview.QiqiuLayout -> com.froumobic.clean.junk.mview.QiqiuLayout:
+    java.util.List bubbles -> a
+    java.util.Random random -> b
+    int width -> c
+    int height -> d
+    boolean starting -> e
+    boolean thread -> f
+    android.graphics.Bitmap bitmap1 -> g
+    android.graphics.Bitmap bitmap2 -> h
+    android.graphics.Bitmap bitmap3 -> i
+    android.graphics.Bitmap bitmap4 -> j
+    android.graphics.Bitmap bitmap5 -> k
+    20:35:void <init>(android.content.Context) -> <init>
+    20:40:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    20:45:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    48:53:void init() -> b
+    79:80:void setParticleBitmap(android.graphics.Bitmap) -> setParticleBitmap
+    90:93:void reStart() -> a
+    97:231:void onDraw(android.graphics.Canvas) -> onDraw
+    18:18:boolean access$000(com.froumobic.clean.junk.mview.QiqiuLayout) -> a
+    18:18:boolean access$100(com.froumobic.clean.junk.mview.QiqiuLayout) -> b
+    18:18:java.util.Random access$300(com.froumobic.clean.junk.mview.QiqiuLayout) -> c
+    18:18:int access$400(com.froumobic.clean.junk.mview.QiqiuLayout) -> d
+    18:18:int access$500(com.froumobic.clean.junk.mview.QiqiuLayout) -> e
+    18:18:android.graphics.Bitmap access$600(com.froumobic.clean.junk.mview.QiqiuLayout) -> f
+    18:18:android.graphics.Bitmap access$700(com.froumobic.clean.junk.mview.QiqiuLayout) -> g
+    18:18:android.graphics.Bitmap access$800(com.froumobic.clean.junk.mview.QiqiuLayout) -> h
+    18:18:android.graphics.Bitmap access$900(com.froumobic.clean.junk.mview.QiqiuLayout) -> i
+    18:18:android.graphics.Bitmap access$1000(com.froumobic.clean.junk.mview.QiqiuLayout) -> j
+    18:18:java.util.List access$1100(com.froumobic.clean.junk.mview.QiqiuLayout) -> k
+com.froumobic.clean.junk.mview.QiqiuLayout$1 -> com.froumobic.clean.junk.mview.QiqiuLayout$1:
+    com.froumobic.clean.junk.mview.QiqiuLayout this$0 -> a
+    102:102:void <init>(com.froumobic.clean.junk.mview.QiqiuLayout) -> <init>
+    104:190:void run() -> run
+com.froumobic.clean.junk.mview.QiqiuLayout$Bubble -> com.froumobic.clean.junk.mview.QiqiuLayout$a:
+    float radius -> b
+    float speedY -> c
+    float speedX -> d
+    float x -> e
+    float y -> f
+    float scale -> g
+    android.graphics.Bitmap bitmap -> h
+    com.froumobic.clean.junk.mview.QiqiuLayout this$0 -> a
+    234:248:void <init>(com.froumobic.clean.junk.mview.QiqiuLayout) -> <init>
+    251:251:android.graphics.Bitmap getBitmap() -> a
+    255:256:void setBitmap(android.graphics.Bitmap) -> a
+    259:259:float getRadius() -> b
+    263:264:void setRadius(float) -> a
+    267:268:void setScale(float) -> b
+    275:275:float getX() -> c
+    279:280:void setX(float) -> c
+    283:283:float getY() -> d
+    287:288:void setY(float) -> d
+    291:291:float getSpeedY() -> e
+    295:296:void setSpeedY(float) -> e
+    299:299:float getSpeedX() -> f
+    303:304:void setSpeedX(float) -> f
+    234:234:void <init>(com.froumobic.clean.junk.mview.QiqiuLayout,com.froumobic.clean.junk.mview.QiqiuLayout$1) -> <init>
 com.froumobic.clean.junk.mview.RoundJindu -> com.froumobic.clean.junk.mview.RoundJindu:
     android.content.Context context -> c
     android.graphics.Paint circlePoint -> d
@@ -35574,6 +35617,11 @@ com.froumobic.module.charge.saver.R$mipmap -> com.froumobic.module.charge.saver.
     int battery_setting_checkbox_close -> battery_setting_checkbox_close
     int battery_setting_checkbox_open -> battery_setting_checkbox_open
     int frou_bubble -> frou_bubble
+    int qiqiu1 -> qiqiu1
+    int qiqiu2 -> qiqiu2
+    int qiqiu3 -> qiqiu3
+    int qiqiu4 -> qiqiu4
+    int qiqiu5 -> qiqiu5
     int unlock -> unlock
 com.froumobic.module.charge.saver.R$string -> com.froumobic.module.charge.saver.a$e:
     int abc_action_bar_home_description -> abc_action_bar_home_description
@@ -36201,7 +36249,7 @@ com.froumobic.module.charge.saver.R$styleable -> com.froumobic.module.charge.sav
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1529:2110:void <clinit>() -> <clinit>
+    1534:2115:void <clinit>() -> <clinit>
 com.froumobic.module.charge.saver.Util.ADRequest -> com.froumobic.module.charge.saver.Util.a:
     16:17:void showFullAD() -> a
 com.froumobic.module.charge.saver.Util.Utils -> com.froumobic.module.charge.saver.Util.b:

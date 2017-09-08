@@ -1,306 +1,620 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white_100"
-    android:orientation="vertical"
     tools:context="com.froumobic.clean.junk.mactivity.MainActivity">
 
-
-    <View
-        android:id="@+id/view_title_bar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@color/A1" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
+        <View
+            android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="10dp"
+            android:background="@color/A1" />
 
-            <RelativeLayout
-                android:id="@+id/main_title"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/title_hight"
-                android:background="@color/A1">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/iv_title_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginRight="@dimen/d8"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:padding="@dimen/d8"
-                    android:scaleType="center"
-                    android:src="@mipmap/main_menu" />
-
-                <ImageView
-                    android:id="@+id/main_red"
-                    android:layout_width="@dimen/d10"
-                    android:layout_height="@dimen/d10"
-                    android:layout_alignRight="@id/iv_title_left"
-                    android:layout_alignTop="@id/iv_title_left"
-                    android:src="@drawable/shape_a2"
-                    android:visibility="visible" />
-
-                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/tv_title_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/iv_title_left"
-                    android:text="@string/app_name"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s17"
-                    app:typeface="ljh_1.TTF" />
-
-                <ImageView
-                    android:id="@+id/iv_title_right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginRight="@dimen/d8"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:padding="@dimen/d8"
-                    android:scaleType="center"
-                    android:src="@mipmap/main_setting" />
-
-                <ImageView
-                    android:id="@+id/lot_family"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@id/iv_title_right"
-                    android:src="@mipmap/ad_box" />
-
-
-            </RelativeLayout>
-
-            <com.froumobic.clean.junk.mview.PullToRefreshLayout
-                android:id="@+id/main_pull_refresh"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <include layout="@layout/layout_load_more" />
-
-                <com.froumobic.clean.junk.mview.MyScrollView
-                    android:id="@+id/main_scroll_view"
+                <RelativeLayout
+                    android:id="@+id/main_title"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:overScrollMode="never"
-                    android:scrollbars="none">
+                    android:layout_height="@dimen/title_hight"
+                    android:background="@color/A1">
 
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/iv_title_left"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d8"
+                        android:layout_marginRight="@dimen/d8"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:padding="@dimen/d8"
+                        android:scaleType="center"
+                        android:src="@mipmap/main_menu" />
 
-                        <RelativeLayout
-                            android:id="@+id/main_all_cercle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/main_t"
-                            android:background="@color/A1">
+                    <ImageView
+                        android:id="@+id/main_red"
+                        android:layout_width="@dimen/d10"
+                        android:layout_height="@dimen/d10"
+                        android:layout_alignRight="@id/iv_title_left"
+                        android:layout_alignTop="@id/iv_title_left"
+                        android:src="@drawable/shape_a2"
+                        android:visibility="visible" />
 
-                            <android.support.v4.view.ViewPager
-                                android:id="@+id/viewpager"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_alignParentLeft="true"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentTop="true" />
+                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/tv_title_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/iv_title_left"
+                        android:text="@string/app_name"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s17"
+                        app:typeface="ljh_1.TTF" />
 
-                            <com.rd.PageIndicatorView
-                                android:id="@+id/pageindicatorview"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginBottom="@dimen/d10"
-                                app:piv_animationType="worm"
-                                app:piv_interactiveAnimation="true"
-                                app:piv_radius="@dimen/d3"
-                                app:piv_viewPager="@id/viewpager" />
+                    <ImageView
+                        android:id="@+id/iv_title_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d8"
+                        android:layout_marginRight="@dimen/d8"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="@dimen/d8"
+                        android:scaleType="center"
+                        android:src="@mipmap/main_setting" />
 
-                        </RelativeLayout>
-                        <!--六个按钮-->
+                    <ImageView
+                        android:id="@+id/lot_family"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/iv_title_right"
+                        android:src="@mipmap/ad_box" />
+
+
+                </RelativeLayout>
+
+                <com.froumobic.clean.junk.mview.PullToRefreshLayout
+                    android:id="@+id/main_pull_refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include layout="@layout/layout_load_more" />
+
+                    <com.froumobic.clean.junk.mview.MyScrollView
+                        android:id="@+id/main_scroll_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:overScrollMode="never"
+                        android:scrollbars="none">
+
+
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d203"
+                            android:layout_height="wrap_content"
                             android:orientation="vertical">
 
+                            <RelativeLayout
+                                android:id="@+id/main_all_cercle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/main_t"
+                                android:background="@color/A1">
+
+                                <android.support.v4.view.ViewPager
+                                    android:id="@+id/viewpager"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true" />
+
+                                <com.rd.PageIndicatorView
+                                    android:id="@+id/pageindicatorview"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="@dimen/d10"
+                                    app:piv_animationType="worm"
+                                    app:piv_interactiveAnimation="true"
+                                    app:piv_radius="@dimen/d3"
+                                    app:piv_viewPager="@id/viewpager" />
+
+                            </RelativeLayout>
+                            <!--六个按钮-->
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1">
+                                android:layout_height="@dimen/d203"
+                                android:orientation="vertical">
 
-                                <RelativeLayout
-                                    android:id="@+id/main_junk_button"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="?attr/selectableItemBackground"
-                                    android:orientation="vertical">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <RelativeLayout
+                                        android:id="@+id/main_junk_button"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackground"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:id="@+id/main_junk_image"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <ImageView
+                                                android:layout_width="@dimen/d30"
+                                                android:layout_height="@dimen/d30"
+                                                android:layout_marginBottom="@dimen/d12"
+                                                android:src="@mipmap/main_junk_button" />
+
+                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/main_junk_name"
+                                                android:textColor="#bdbdbd"
+                                                android:textSize="@dimen/s12"
+                                                app:typeface="ljh_1.TTF" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:id="@+id/main_junk_text"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
+
+                                            <TextView
+                                                android:id="@+id/main_junk_h"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="@dimen/d30"
+                                                android:layout_marginBottom="@dimen/d12"
+                                                android:gravity="bottom"
+                                                android:textColor="#ff3c3c"
+                                                android:textSize="@dimen/s20"
+                                                android:visibility="invisible" />
+
+                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/main_junk_name"
+                                                android:textColor="#bdbdbd"
+                                                android:textSize="@dimen/s12"
+                                                app:typeface="ljh_1.TTF" />
+                                        </LinearLayout>
+
+
+                                    </RelativeLayout>
+
+                                    <View
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/B1" />
+
+                                    <RelativeLayout
+                                        android:id="@+id/main_ram_button"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackground">
+
+                                        <LinearLayout
+                                            android:id="@+id/main_ram_image"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <ImageView
+                                                android:layout_width="@dimen/d30"
+                                                android:layout_height="@dimen/d30"
+                                                android:layout_marginBottom="@dimen/d12"
+                                                android:src="@mipmap/main_ram_button" />
+
+                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/main_ram_name"
+                                                android:textColor="#bdbdbd"
+                                                android:textSize="@dimen/s12"
+                                                app:typeface="ljh_1.TTF" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:id="@+id/main_ram_text"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
+
+                                            <TextView
+                                                android:id="@+id/main_ram_h"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="@dimen/d30"
+                                                android:layout_marginBottom="@dimen/d12"
+                                                android:gravity="bottom"
+                                                android:textColor="#ff3c3c"
+                                                android:textSize="@dimen/s20"
+                                                android:visibility="invisible" />
+
+                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/main_ram_name"
+                                                android:textColor="#bdbdbd"
+                                                android:textSize="@dimen/s12"
+                                                app:typeface="ljh_1.TTF" />
+                                        </LinearLayout>
+
+                                    </RelativeLayout>
+
+                                    <View
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/B1" />
 
                                     <LinearLayout
-                                        android:id="@+id/main_junk_image"
-                                        android:layout_width="match_parent"
+                                        android:id="@+id/main_button_tuiguang_1"
+                                        android:layout_width="0dp"
                                         android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackground"
                                         android:gravity="center"
                                         android:orientation="vertical">
 
                                         <ImageView
+                                            android:id="@+id/main_button_tuiguang_1_icon"
                                             android:layout_width="@dimen/d30"
                                             android:layout_height="@dimen/d30"
                                             android:layout_marginBottom="@dimen/d12"
-                                            android:src="@mipmap/main_junk_button" />
+                                            android:src="@mipmap/main_applock_button" />
 
                                         <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:id="@+id/main_button_tuiguang_1_lable"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="@string/main_junk_name"
+                                            android:text="@string/main_aopplock_name"
                                             android:textColor="#bdbdbd"
                                             android:textSize="@dimen/s12"
                                             app:typeface="ljh_1.TTF" />
                                     </LinearLayout>
 
-                                    <LinearLayout
-                                        android:id="@+id/main_junk_text"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="vertical"
-                                        android:visibility="gone">
-
-                                        <TextView
-                                            android:id="@+id/main_junk_h"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="@dimen/d30"
-                                            android:layout_marginBottom="@dimen/d12"
-                                            android:gravity="bottom"
-                                            android:textColor="#ff3c3c"
-                                            android:textSize="@dimen/s20"
-                                            android:visibility="invisible" />
-
-                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="@string/main_junk_name"
-                                            android:textColor="#bdbdbd"
-                                            android:textSize="@dimen/s12"
-                                            app:typeface="ljh_1.TTF" />
-                                    </LinearLayout>
-
-
-                                </RelativeLayout>
+                                </LinearLayout>
 
                                 <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/B1" />
-
-                                <RelativeLayout
-                                    android:id="@+id/main_ram_button"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="?attr/selectableItemBackground">
-
-                                    <LinearLayout
-                                        android:id="@+id/main_ram_image"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="vertical">
-
-                                        <ImageView
-                                            android:layout_width="@dimen/d30"
-                                            android:layout_height="@dimen/d30"
-                                            android:layout_marginBottom="@dimen/d12"
-                                            android:src="@mipmap/main_ram_button" />
-
-                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="@string/main_ram_name"
-                                            android:textColor="#bdbdbd"
-                                            android:textSize="@dimen/s12"
-                                            app:typeface="ljh_1.TTF" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/main_ram_text"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="vertical"
-                                        android:visibility="gone">
-
-                                        <TextView
-                                            android:id="@+id/main_ram_h"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="@dimen/d30"
-                                            android:layout_marginBottom="@dimen/d12"
-                                            android:gravity="bottom"
-                                            android:textColor="#ff3c3c"
-                                            android:textSize="@dimen/s20"
-                                            android:visibility="invisible" />
-
-                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="@string/main_ram_name"
-                                            android:textColor="#bdbdbd"
-                                            android:textSize="@dimen/s12"
-                                            app:typeface="ljh_1.TTF" />
-                                    </LinearLayout>
-
-                                </RelativeLayout>
-
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
                                     android:background="@color/B1" />
 
                                 <LinearLayout
-                                    android:id="@+id/main_button_tuiguang_1"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="?attr/selectableItemBackground"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <RelativeLayout
+                                        android:id="@+id/main_cooling_button"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackground">
+
+                                        <LinearLayout
+                                            android:id="@+id/main_cooling_image"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <ImageView
+                                                android:layout_width="@dimen/d30"
+                                                android:layout_height="@dimen/d30"
+                                                android:layout_marginBottom="@dimen/d12"
+                                                android:src="@mipmap/main_cooling_button" />
+
+                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/main_cooling_name"
+                                                android:textColor="#bdbdbd"
+                                                android:textSize="@dimen/s12"
+                                                app:typeface="ljh_1.TTF" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:id="@+id/main_cooling_text"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
+
+                                            <TextView
+                                                android:id="@+id/main_cooling_h"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="@dimen/d30"
+                                                android:layout_marginBottom="@dimen/d12"
+                                                android:gravity="bottom"
+                                                android:textColor="#ff3c3c"
+                                                android:textSize="@dimen/s20"
+                                                android:visibility="invisible" />
+
+                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/main_cooling_name"
+                                                android:textColor="#bdbdbd"
+                                                android:textSize="@dimen/s12"
+                                                app:typeface="ljh_1.TTF" />
+                                        </LinearLayout>
+
+                                    </RelativeLayout>
+
+                                    <View
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/B1" />
+
+                                    <LinearLayout
+                                        android:id="@+id/main_manager_button"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackground"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/d30"
+                                            android:layout_height="@dimen/d30"
+                                            android:layout_marginBottom="@dimen/d12"
+                                            android:src="@mipmap/main_manager_button" />
+
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/main_manager_name"
+                                            android:textColor="#bdbdbd"
+                                            android:textSize="@dimen/s12"
+                                            app:typeface="ljh_1.TTF" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/B1" />
+
+                                    <LinearLayout
+                                        android:id="@+id/main_button_tuiguang_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="?attr/selectableItemBackground"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:id="@+id/main_button_tuiguang_2_icon"
+                                            android:layout_width="@dimen/d30"
+                                            android:layout_height="@dimen/d30"
+                                            android:layout_marginBottom="@dimen/d12"
+                                            android:src="@mipmap/main_safe_button" />
+
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:id="@+id/main_button_tuiguang_2_lable"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/main_safe_name"
+                                            android:textColor="#bdbdbd"
+                                            android:textSize="@dimen/s12"
+                                            app:typeface="ljh_1.TTF" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d9"
+                                android:background="#f5f7fa" />
+                            <!--好评-->
+                            <LinearLayout
+                                android:id="@+id/main_rotate_all"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/A8"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d44"
+                                    android:orientation="horizontal">
 
                                     <ImageView
-                                        android:id="@+id/main_button_tuiguang_1_icon"
-                                        android:layout_width="@dimen/d30"
-                                        android:layout_height="@dimen/d30"
-                                        android:layout_marginBottom="@dimen/d12"
-                                        android:src="@mipmap/main_applock_button" />
+                                        android:layout_width="@dimen/d4"
+                                        android:layout_height="@dimen/d16"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/d16"
+                                        android:src="@drawable/shape_lv_r" />
 
                                     <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                        android:id="@+id/main_button_tuiguang_1_lable"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/main_aopplock_name"
-                                        android:textColor="#bdbdbd"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/d9"
+                                        android:text="@string/main_rotate_title"
+                                        android:textColor="#414141"
+                                        android:textSize="@dimen/s15"
+                                        app:typeface="ljh_1.TTF" />
+                                </LinearLayout>
+
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d84"
+                                    android:layout_marginBottom="@dimen/d16"
+                                    android:scaleType="centerCrop"
+                                    android:src="@mipmap/main_rotate_2" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text="@string/rotate_msg"
+                                    android:textColor="#5d5d5d"
+                                    android:textSize="@dimen/s14" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="@dimen/d8"
+                                    android:text="@string/rotate_msg_2"
+                                    android:textColor="#5d5d5d"
+                                    android:textSize="@dimen/s14" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d50"
+                                    android:layout_marginTop="@dimen/d10">
+
+                                    <FrameLayout
+                                        android:id="@+id/main_rotate_bad"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:text="@string/main_rotate_bad"
+                                            android:textColor="#949494"
+                                            android:textSize="@dimen/s12" />
+                                    </FrameLayout>
+
+                                    <FrameLayout
+                                        android:id="@+id/main_rotate_good"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:layout_width="@dimen/d146"
+                                            android:layout_height="@dimen/d36"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/shape_2fb5ff"
+                                            android:gravity="center"
+                                            android:text="@string/main_rotate_good"
+                                            android:textColor="@color/white_100"
+                                            android:textSize="@dimen/s16" />
+
+                                    </FrameLayout>
+                                </LinearLayout>
+
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d9"
+                                    android:background="#f5f7fa" />
+
+                            </LinearLayout>
+
+                            <!--ad-->
+                            <LinearLayout
+                                android:id="@+id/ll_ad"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="@dimen/d6"
+                                android:layout_marginRight="@dimen/d6"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical" />
+
+                            <ListView
+                                android:id="@+id/mopub_ad"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:id="@+id/main_tuiguang"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical" />
+
+                            <!--深度清理-->
+                            <LinearLayout
+                                android:id="@+id/main_power_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d16"
+                                    android:src="@mipmap/power_6" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d12"
+                                    android:layout_marginTop="@dimen/d16"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:id="@+id/main_msg_power"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/side_power"
+                                        android:textColor="#2f2f2f"
+                                        android:textSize="@dimen/s16"
+                                        app:typeface="ljh_1.TTF" />
+
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:layout_width="@dimen/d225"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d3"
+                                        android:text="@string/power_3"
+                                        android:textColor="#802f2f2f"
                                         android:textSize="@dimen/s12"
                                         app:typeface="ljh_1.TTF" />
                                 </LinearLayout>
 
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d29"
+                                    android:src="@mipmap/right" />
                             </LinearLayout>
 
                             <View
@@ -308,874 +622,569 @@
                                 android:layout_height="1dp"
                                 android:background="@color/B1" />
 
+                            <!--相似图片-->
                             <LinearLayout
+                                android:id="@+id/main_picture_button"
                                 android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1">
-
-                                <RelativeLayout
-                                    android:id="@+id/main_cooling_button"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="?attr/selectableItemBackground">
-
-                                    <LinearLayout
-                                        android:id="@+id/main_cooling_image"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="vertical">
-
-                                        <ImageView
-                                            android:layout_width="@dimen/d30"
-                                            android:layout_height="@dimen/d30"
-                                            android:layout_marginBottom="@dimen/d12"
-                                            android:src="@mipmap/main_cooling_button" />
-
-                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="@string/main_cooling_name"
-                                            android:textColor="#bdbdbd"
-                                            android:textSize="@dimen/s12"
-                                            app:typeface="ljh_1.TTF" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/main_cooling_text"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="vertical"
-                                        android:visibility="gone">
-
-                                        <TextView
-                                            android:id="@+id/main_cooling_h"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="@dimen/d30"
-                                            android:layout_marginBottom="@dimen/d12"
-                                            android:gravity="bottom"
-                                            android:textColor="#ff3c3c"
-                                            android:textSize="@dimen/s20"
-                                            android:visibility="invisible" />
-
-                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="@string/main_cooling_name"
-                                            android:textColor="#bdbdbd"
-                                            android:textSize="@dimen/s12"
-                                            app:typeface="ljh_1.TTF" />
-                                    </LinearLayout>
-
-                                </RelativeLayout>
-
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/B1" />
-
-                                <LinearLayout
-                                    android:id="@+id/main_manager_button"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="?attr/selectableItemBackground"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:layout_width="@dimen/d30"
-                                        android:layout_height="@dimen/d30"
-                                        android:layout_marginBottom="@dimen/d12"
-                                        android:src="@mipmap/main_manager_button" />
-
-                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/main_manager_name"
-                                        android:textColor="#bdbdbd"
-                                        android:textSize="@dimen/s12"
-                                        app:typeface="ljh_1.TTF" />
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/B1" />
-
-                                <LinearLayout
-                                    android:id="@+id/main_button_tuiguang_2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="?attr/selectableItemBackground"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:id="@+id/main_button_tuiguang_2_icon"
-                                        android:layout_width="@dimen/d30"
-                                        android:layout_height="@dimen/d30"
-                                        android:layout_marginBottom="@dimen/d12"
-                                        android:src="@mipmap/main_safe_button" />
-
-                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                        android:id="@+id/main_button_tuiguang_2_lable"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/main_safe_name"
-                                        android:textColor="#bdbdbd"
-                                        android:textSize="@dimen/s12"
-                                        app:typeface="ljh_1.TTF" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d9"
-                            android:background="#f5f7fa" />
-                        <!--好评-->
-                        <LinearLayout
-                            android:id="@+id/main_rotate_all"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/A8"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/d44"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
                                 android:orientation="horizontal">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d4"
-                                    android:layout_height="@dimen/d16"
-                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
                                     android:layout_marginLeft="@dimen/d16"
-                                    android:src="@drawable/shape_lv_r" />
+                                    android:layout_marginTop="@dimen/d16"
+                                    android:src="@mipmap/picture_main" />
 
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d9"
-                                    android:text="@string/main_rotate_title"
-                                    android:textColor="#414141"
-                                    android:textSize="@dimen/s15"
-                                    app:typeface="ljh_1.TTF" />
-                            </LinearLayout>
-
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/d84"
-                                android:layout_marginBottom="@dimen/d16"
-                                android:scaleType="centerCrop"
-                                android:src="@mipmap/main_rotate_2" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:text="@string/rotate_msg"
-                                android:textColor="#5d5d5d"
-                                android:textSize="@dimen/s14" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="@dimen/d8"
-                                android:text="@string/rotate_msg_2"
-                                android:textColor="#5d5d5d"
-                                android:textSize="@dimen/s14" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/d50"
-                                android:layout_marginTop="@dimen/d10">
-
-                                <FrameLayout
-                                    android:id="@+id/main_rotate_bad"
+                                <LinearLayout
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d12"
+                                    android:layout_marginTop="@dimen/d16"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
 
-                                    <TextView
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:id="@+id/main_msg_picture"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        android:text="@string/main_rotate_bad"
-                                        android:textColor="#949494"
-                                        android:textSize="@dimen/s12" />
-                                </FrameLayout>
+                                        android:text="@string/side_picture"
+                                        android:textColor="#2f2f2f"
+                                        android:textSize="@dimen/s16"
+                                        app:typeface="ljh_1.TTF" />
 
-                                <FrameLayout
-                                    android:id="@+id/main_rotate_good"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1">
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:layout_width="@dimen/d225"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d3"
+                                        android:text="@string/picture_delete"
+                                        android:textColor="#802f2f2f"
+                                        android:textSize="@dimen/s14"
+                                        app:typeface="ljh_1.TTF" />
+                                </LinearLayout>
 
-                                    <TextView
-                                        android:layout_width="@dimen/d146"
-                                        android:layout_height="@dimen/d36"
-                                        android:layout_gravity="center"
-                                        android:background="@drawable/shape_2fb5ff"
-                                        android:gravity="center"
-                                        android:text="@string/main_rotate_good"
-                                        android:textColor="@color/white_100"
-                                        android:textSize="@dimen/s16" />
-
-                                </FrameLayout>
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d29"
+                                    android:src="@mipmap/right" />
                             </LinearLayout>
 
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/B1" />
+
+
+                            <!--通知栏清理-->
+                            <LinearLayout
+                                android:id="@+id/main_notifi_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d16"
+                                    android:src="@mipmap/notifi_6" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d12"
+                                    android:layout_marginTop="@dimen/d16"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:id="@+id/main_msg_notifi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/side_notifi"
+                                        android:textColor="#2f2f2f"
+                                        android:textSize="@dimen/s16"
+                                        app:typeface="ljh_1.TTF" />
+
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:layout_width="@dimen/d225"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d3"
+                                        android:text="@string/notifi_msg_main"
+                                        android:textColor="#802f2f2f"
+                                        android:textSize="@dimen/s12"
+                                        app:typeface="ljh_1.TTF" />
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d29"
+                                    android:src="@mipmap/right" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/B1" />
+
+
+                            <!--文件管理-->
+                            <LinearLayout
+                                android:id="@+id/main_file_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d16"
+                                    android:src="@mipmap/file_main" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d12"
+                                    android:layout_marginTop="@dimen/d16"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:id="@+id/main_msg_file"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/side_file"
+                                        android:textColor="#2f2f2f"
+                                        android:textSize="@dimen/s16"
+                                        app:typeface="ljh_1.TTF" />
+
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:layout_width="@dimen/d225"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d3"
+                                        android:text="@string/file_main"
+                                        android:textColor="#802f2f2f"
+                                        android:textSize="@dimen/s14"
+                                        app:typeface="ljh_1.TTF" />
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d29"
+                                    android:src="@mipmap/right" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/B1" />
+
+                            <!--游戏加速-->
+                            <LinearLayout
+                                android:id="@+id/main_gboost_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d16"
+                                    android:src="@mipmap/gboost_main" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d12"
+                                    android:layout_marginTop="@dimen/d16"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:id="@+id/main_msg_GBoost"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/gboost_0"
+                                        android:textColor="#2f2f2f"
+                                        android:textSize="@dimen/s16"
+                                        app:typeface="ljh_1.TTF" />
+
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:layout_width="@dimen/d225"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d3"
+                                        android:text="@string/gboost_10"
+                                        android:textColor="#802f2f2f"
+                                        android:textSize="@dimen/s14"
+                                        app:typeface="ljh_1.TTF" />
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d29"
+                                    android:src="@mipmap/right" />
+                            </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/d9"
                                 android:background="#f5f7fa" />
 
-                        </LinearLayout>
 
-                        <!--ad-->
-                        <LinearLayout
-                            android:id="@+id/ll_ad"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginLeft="@dimen/d6"
-                            android:layout_marginRight="@dimen/d6"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical" />
-
-                        <ListView
-                            android:id="@+id/mopub_ad"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <LinearLayout
-                            android:id="@+id/main_tuiguang"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical" />
-
-                        <!--深度清理-->
-                        <LinearLayout
-                            android:id="@+id/main_power_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginTop="@dimen/d16"
-                                android:src="@mipmap/power_6" />
-
+                            <!--硬件信息-->
                             <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d16"
-                                android:layout_marginLeft="@dimen/d12"
-                                android:layout_marginTop="@dimen/d16"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:id="@+id/main_msg_power"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/side_power"
-                                    android:textColor="#2f2f2f"
-                                    android:textSize="@dimen/s16"
-                                    app:typeface="ljh_1.TTF" />
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="@dimen/d225"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d3"
-                                    android:text="@string/power_3"
-                                    android:textColor="#802f2f2f"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="ljh_1.TTF" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/d16"
-                                android:layout_marginTop="@dimen/d29"
-                                android:src="@mipmap/right" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/B1" />
-
-                        <!--相似图片-->
-                        <LinearLayout
-                            android:id="@+id/main_picture_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginTop="@dimen/d16"
-                                android:src="@mipmap/picture_main" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d16"
-                                android:layout_marginLeft="@dimen/d12"
-                                android:layout_marginTop="@dimen/d16"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:id="@+id/main_msg_picture"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/side_picture"
-                                    android:textColor="#2f2f2f"
-                                    android:textSize="@dimen/s16"
-                                    app:typeface="ljh_1.TTF" />
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="@dimen/d225"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d3"
-                                    android:text="@string/picture_delete"
-                                    android:textColor="#802f2f2f"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="ljh_1.TTF" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/d16"
-                                android:layout_marginTop="@dimen/d29"
-                                android:src="@mipmap/right" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/B1" />
-
-
-                        <!--通知栏清理-->
-                        <LinearLayout
-                            android:id="@+id/main_notifi_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginTop="@dimen/d16"
-                                android:src="@mipmap/notifi_6" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d16"
-                                android:layout_marginLeft="@dimen/d12"
-                                android:layout_marginTop="@dimen/d16"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:id="@+id/main_msg_notifi"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/side_notifi"
-                                    android:textColor="#2f2f2f"
-                                    android:textSize="@dimen/s16"
-                                    app:typeface="ljh_1.TTF" />
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="@dimen/d225"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d3"
-                                    android:text="@string/notifi_msg_main"
-                                    android:textColor="#802f2f2f"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="ljh_1.TTF" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/d16"
-                                android:layout_marginTop="@dimen/d29"
-                                android:src="@mipmap/right" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/B1" />
-
-
-                        <!--文件管理-->
-                        <LinearLayout
-                            android:id="@+id/main_file_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginTop="@dimen/d16"
-                                android:src="@mipmap/file_main" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d16"
-                                android:layout_marginLeft="@dimen/d12"
-                                android:layout_marginTop="@dimen/d16"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:id="@+id/main_msg_file"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/side_file"
-                                    android:textColor="#2f2f2f"
-                                    android:textSize="@dimen/s16"
-                                    app:typeface="ljh_1.TTF" />
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="@dimen/d225"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d3"
-                                    android:text="@string/file_main"
-                                    android:textColor="#802f2f2f"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="ljh_1.TTF" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/d16"
-                                android:layout_marginTop="@dimen/d29"
-                                android:src="@mipmap/right" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/B1" />
-
-                        <!--游戏加速-->
-                        <LinearLayout
-                            android:id="@+id/main_gboost_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginTop="@dimen/d16"
-                                android:src="@mipmap/gboost_main" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d16"
-                                android:layout_marginLeft="@dimen/d12"
-                                android:layout_marginTop="@dimen/d16"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:id="@+id/main_msg_GBoost"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/gboost_0"
-                                    android:textColor="#2f2f2f"
-                                    android:textSize="@dimen/s16"
-                                    app:typeface="ljh_1.TTF" />
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="@dimen/d225"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d3"
-                                    android:text="@string/gboost_10"
-                                    android:textColor="#802f2f2f"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="ljh_1.TTF" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/d16"
-                                android:layout_marginTop="@dimen/d29"
-                                android:src="@mipmap/right" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d9"
-                            android:background="#f5f7fa" />
-
-
-                        <!--硬件信息-->
-                        <LinearLayout
-                            android:id="@+id/main_msg_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="vertical">
-
-                            <LinearLayout
+                                android:id="@+id/main_msg_button"
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d44"
-                                android:orientation="horizontal">
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="@dimen/d4"
-                                    android:layout_height="@dimen/d16"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@drawable/shape_lv_r" />
-
-                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d6"
-                                    android:text="@string/main_msg_title"
-                                    android:textColor="#414141"
-                                    android:textSize="@dimen/s15"
-                                    app:typeface="ljh_1.TTF" />
-
-                                <RelativeLayout
+                                <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center_vertical">
+                                    android:layout_height="@dimen/d44"
+                                    android:orientation="horizontal">
 
                                     <ImageView
-                                        android:id="@+id/msg_im"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginRight="@dimen/d16"
-                                        android:src="@mipmap/main_msg_1" />
+                                        android:layout_width="@dimen/d4"
+                                        android:layout_height="@dimen/d16"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/d16"
+                                        android:src="@drawable/shape_lv_r" />
 
                                     <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginRight="@dimen/d5"
-                                        android:layout_toLeftOf="@id/msg_im"
-                                        android:text="@string/main_msg_more"
-                                        android:textColor="@color/black_50"
-                                        android:textSize="@dimen/s12"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/d6"
+                                        android:text="@string/main_msg_title"
+                                        android:textColor="#414141"
+                                        android:textSize="@dimen/s15"
                                         app:typeface="ljh_1.TTF" />
 
-
-                                </RelativeLayout>
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/d15"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
                                     <RelativeLayout
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center">
-
-                                        <com.froumobic.clean.junk.mview.RoundJinduRam
-                                            android:id="@+id/main_msg_ram_backg"
-                                            android:layout_width="@dimen/d56"
-                                            android:layout_height="@dimen/d56"
-                                            android:layout_centerInParent="true" />
-
-                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                            android:id="@+id/main_msg_ram_percent"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_centerInParent="true"
-                                            android:text="96%"
-                                            android:textColor="#64b5f6"
-                                            android:textSize="@dimen/s17"
-                                            app:typeface="ljh_1.TTF" />
-                                    </RelativeLayout>
-
-                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal"
-                                        android:layout_marginTop="@dimen/d5"
-                                        android:text="@string/main_msg_ram"
-                                        android:textColor="#9c000000"
-                                        android:textSize="@dimen/s14"
-                                        app:typeface="ljh_1.TTF" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <RelativeLayout
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center">
-
-                                        <com.froumobic.clean.junk.mview.RoundJindu
-                                            android:id="@+id/main_msg_sd_backg"
-                                            android:layout_width="@dimen/d56"
-                                            android:layout_height="@dimen/d56"
-                                            android:layout_centerInParent="true" />
-
-                                        <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_centerInParent="true"
-                                            android:gravity="center"
-                                            android:orientation="vertical">
-
-                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                                android:id="@+id/main_msg_sd_percent"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="864"
-                                                android:textColor="#ffc742"
-                                                android:textSize="@dimen/s17"
-                                                app:typeface="ljh_1.TTF" />
-
-                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                                android:id="@+id/main_msg_sd_unit"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginTop="@dimen/d2"
-                                                android:text="MB"
-                                                android:textColor="#ffc742"
-                                                android:textSize="@dimen/s11"
-                                                app:typeface="ljh_1.TTF" />
-                                        </LinearLayout>
-
-                                    </RelativeLayout>
-
-                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal"
-                                        android:layout_marginTop="@dimen/d5"
-                                        android:text="@string/main_msg_sd"
-                                        android:textColor="#9c000000"
-                                        android:textSize="@dimen/s14"
-                                        app:typeface="ljh_1.TTF" />
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <RelativeLayout
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center">
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_vertical">
 
                                         <ImageView
-                                            android:id="@+id/main_msg_cpu_backg"
-                                            android:layout_width="@dimen/d56"
-                                            android:layout_height="@dimen/d56"
-                                            android:layout_centerInParent="true"
-                                            android:src="@drawable/msg_3" />
-
-                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                            android:id="@+id/main_msg_cpu_percent"
+                                            android:id="@+id/msg_im"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_centerInParent="true"
-                                            android:text="12%"
-                                            android:textColor="#64dd17"
-                                            android:textSize="@dimen/s17"
-                                            app:typeface="ljh_1.TTF" />
-                                    </RelativeLayout>
+                                            android:layout_alignParentRight="true"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginRight="@dimen/d16"
+                                            android:src="@mipmap/main_msg_1" />
 
-                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal"
-                                        android:layout_marginTop="@dimen/d5"
-                                        android:text="@string/main_msg_cpu"
-                                        android:textColor="#9c000000"
-                                        android:textSize="@dimen/s14"
-                                        app:typeface="ljh_1.TTF" />
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginRight="@dimen/d5"
+                                            android:layout_toLeftOf="@id/msg_im"
+                                            android:text="@string/main_msg_more"
+                                            android:textColor="@color/black_50"
+                                            android:textSize="@dimen/s12"
+                                            app:typeface="ljh_1.TTF" />
+
+
+                                    </RelativeLayout>
                                 </LinearLayout>
 
 
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d15"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <RelativeLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center">
+
+                                            <com.froumobic.clean.junk.mview.RoundJinduRam
+                                                android:id="@+id/main_msg_ram_backg"
+                                                android:layout_width="@dimen/d56"
+                                                android:layout_height="@dimen/d56"
+                                                android:layout_centerInParent="true" />
+
+                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                                android:id="@+id/main_msg_ram_percent"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerInParent="true"
+                                                android:text="96%"
+                                                android:textColor="#64b5f6"
+                                                android:textSize="@dimen/s17"
+                                                app:typeface="ljh_1.TTF" />
+                                        </RelativeLayout>
+
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginTop="@dimen/d5"
+                                            android:text="@string/main_msg_ram"
+                                            android:textColor="#9c000000"
+                                            android:textSize="@dimen/s14"
+                                            app:typeface="ljh_1.TTF" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <RelativeLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center">
+
+                                            <com.froumobic.clean.junk.mview.RoundJindu
+                                                android:id="@+id/main_msg_sd_backg"
+                                                android:layout_width="@dimen/d56"
+                                                android:layout_height="@dimen/d56"
+                                                android:layout_centerInParent="true" />
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerInParent="true"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                                    android:id="@+id/main_msg_sd_percent"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="864"
+                                                    android:textColor="#ffc742"
+                                                    android:textSize="@dimen/s17"
+                                                    app:typeface="ljh_1.TTF" />
+
+                                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                                    android:id="@+id/main_msg_sd_unit"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/d2"
+                                                    android:text="MB"
+                                                    android:textColor="#ffc742"
+                                                    android:textSize="@dimen/s11"
+                                                    app:typeface="ljh_1.TTF" />
+                                            </LinearLayout>
+
+                                        </RelativeLayout>
+
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginTop="@dimen/d5"
+                                            android:text="@string/main_msg_sd"
+                                            android:textColor="#9c000000"
+                                            android:textSize="@dimen/s14"
+                                            app:typeface="ljh_1.TTF" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <RelativeLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center">
+
+                                            <ImageView
+                                                android:id="@+id/main_msg_cpu_backg"
+                                                android:layout_width="@dimen/d56"
+                                                android:layout_height="@dimen/d56"
+                                                android:layout_centerInParent="true"
+                                                android:src="@drawable/msg_3" />
+
+                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                                android:id="@+id/main_msg_cpu_percent"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerInParent="true"
+                                                android:text="12%"
+                                                android:textColor="#64dd17"
+                                                android:textSize="@dimen/s17"
+                                                app:typeface="ljh_1.TTF" />
+                                        </RelativeLayout>
+
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginTop="@dimen/d5"
+                                            android:text="@string/main_msg_cpu"
+                                            android:textColor="#9c000000"
+                                            android:textSize="@dimen/s14"
+                                            app:typeface="ljh_1.TTF" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
                             </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ad_native_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d9"
+                                android:background="@color/A1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical"
+                                android:visibility="invisible" />
+
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:id="@+id/ad_native_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d9"
-                            android:background="@color/A1"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical"
-                            android:visibility="invisible" />
+                    </com.froumobic.clean.junk.mview.MyScrollView>
 
-                    </LinearLayout>
+                    <include layout="@layout/layout_load_more" />
 
-                </com.froumobic.clean.junk.mview.MyScrollView>
-
-                <include layout="@layout/layout_load_more" />
-
-            </com.froumobic.clean.junk.mview.PullToRefreshLayout>
-        </LinearLayout>
+                </com.froumobic.clean.junk.mview.PullToRefreshLayout>
+            </LinearLayout>
 
 
-        <com.mingle.widget.LinearLayout
-            android:id="@+id/ll_ad_full"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/A1"
-            android:clickable="true"
-            android:orientation="vertical"
-            android:visibility="gone">
+            <com.mingle.widget.LinearLayout
+                android:id="@+id/ll_ad_full"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/A1"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d3"
-                android:layout_marginTop="@dimen/d3">
-
-                <TextView
-                    android:id="@+id/main_full_time"
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/B8"
-                    android:gravity="center"
-                    android:padding="@dimen/d5"
-                    android:text="Skip"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s15"
-                    android:visibility="gone" />
+                    android:layout_marginLeft="@dimen/d3"
+                    android:layout_marginTop="@dimen/d3">
 
-                <ImageView
-                    android:id="@+id/ad_delete"
-                    android:layout_width="@dimen/d24"
-                    android:layout_height="@dimen/d24"
-                    android:src="@mipmap/ad_delete" />
-            </FrameLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_ad_loading"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/loading_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:clickable="false"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="@dimen/d32"
-                        android:layout_height="@dimen/d32"
-                        android:layout_gravity="center"
-                        android:src="@mipmap/loading_icon_1" />
-
-                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                    <TextView
+                        android:id="@+id/main_full_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/d17"
-                        android:text="@string/app_name"
+                        android:background="@color/B8"
+                        android:gravity="center"
+                        android:padding="@dimen/d5"
+                        android:text="Skip"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s15"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/ad_delete"
+                        android:layout_width="@dimen/d24"
+                        android:layout_height="@dimen/d24"
+                        android:src="@mipmap/ad_delete" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_ad_loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/loading_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:clickable="false"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/d32"
+                            android:layout_height="@dimen/d32"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/loading_icon_1" />
+
+                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/d17"
+                            android:text="@string/app_name"
+                            android:textColor="@color/white_100"
+                            android:textSize="@dimen/s16"
+                            android:textStyle="bold"
+                            app:typeface="ljh_1.TTF" />
+                    </LinearLayout>
+
+                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/load_text_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/d16"
+                        android:layout_marginTop="@dimen/d43"
+                        android:clickable="false"
+                        android:text="@string/loading_2"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s16"
-                        android:textStyle="bold"
+                        android:textSize="@dimen/s12"
                         app:typeface="ljh_1.TTF" />
                 </LinearLayout>
-
-                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/load_text_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="@dimen/d16"
-                    android:layout_marginTop="@dimen/d43"
-                    android:clickable="false"
-                    android:text="@string/loading_2"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s12"
-                    app:typeface="ljh_1.TTF" />
-            </LinearLayout>
-        </com.mingle.widget.LinearLayout>
+            </com.mingle.widget.LinearLayout>
 
 
-        <ProgressBar
-            android:id="@+id/ad_progressbar"
-            style="?android:attr/progressBarStyleInverse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:indeterminateDrawable="@anim/progress_rotate"
-            android:indeterminateTintMode="src_atop"
-            android:visibility="gone" />
+            <ProgressBar
+                android:id="@+id/ad_progressbar"
+                style="?android:attr/progressBarStyleInverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:indeterminateDrawable="@anim/progress_rotate"
+                android:indeterminateTintMode="src_atop"
+                android:visibility="gone" />
 
-        <include layout="@layout/layout_battery" />
+            <include layout="@layout/layout_battery" />
 
-    </FrameLayout>
+        </FrameLayout>
+    </LinearLayout>
 
-
-</LinearLayout>
+    <com.froumobic.clean.junk.mview.QiqiuLayout
+        android:id="@+id/full_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="invisible" />
+</FrameLayout>

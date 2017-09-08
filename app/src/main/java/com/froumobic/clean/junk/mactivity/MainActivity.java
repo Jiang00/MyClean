@@ -54,6 +54,7 @@ import com.froumobic.clean.junk.mview.CustomRoundCpu;
 import com.froumobic.clean.junk.mview.ListViewForScrollView;
 import com.froumobic.clean.junk.mview.MyScrollView;
 import com.froumobic.clean.junk.mview.PullToRefreshLayout;
+import com.froumobic.clean.junk.mview.QiqiuLayout;
 import com.froumobic.clean.junk.mview.RoundJindu;
 import com.froumobic.clean.junk.mview.RoundJinduRam;
 import com.froumobic.clean.junk.presenter.MainPresenter;
@@ -113,6 +114,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     RoundJinduRam main_msg_ram_backg;
     FrameLayout main_battery;
     LinearLayout main_tuiguang;
+    QiqiuLayout full_loading;
 
     // LottieAnimationView lot_side;
     ImageView side_title;
@@ -125,6 +127,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private String TAG_START_FULL = "start_native";
     private String TAG_EXIT_FULL = "exit_native";
     private String TAG_FULL_PULL = "pull_full";
+    private String LOAD_FULL = "load_full";
 
     private Handler handler = new Handler();
     private MainPresenter mainPresenter;
@@ -196,6 +199,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         main_msg_ram_backg = (RoundJinduRam) findViewById(R.id.main_msg_ram_backg);
         main_battery = (FrameLayout) findViewById(R.id.main_battery);
         main_tuiguang = (LinearLayout) findViewById(R.id.main_tuiguang);
+        full_loading = (QiqiuLayout) findViewById(R.id.full_loading);
 
     }
 
@@ -674,7 +678,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
         }
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.showFullAd("start_full");
+            AndroidSdk.showFullAd(LOAD_FULL);
         } else {
             int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
             if (true) {
@@ -820,12 +824,18 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                     break;
                 case R.id.lot_family:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
-                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
-                    ll_ad_full.startAnimation(animation);
-                    ll_ad_full.setVisibility(View.VISIBLE);
-                    ad_progressbar.setVisibility(View.VISIBLE);
-                    ll_ad_loading.removeAllViews();
-                    animation.setAnimationListener(new Animation.AnimationListener() {
+
+                    full_loading.setVisibility(View.VISIBLE);
+                    full_loading.reStart();
+                    handler.post(runnable_pus);
+                    handler.post(runnable_load);
+
+//                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
+//                    ll_ad_full.startAnimation(animation);
+//                    ll_ad_full.setVisibility(View.VISIBLE);
+//                    ad_progressbar.setVisibility(View.VISIBLE);
+//                    ll_ad_loading.removeAllViews();
+                  /*  animation.setAnimationListener(new Animation.AnimationListener() {
                         @Override
                         public void onAnimationEnd(Animation animation) {
                             AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_exit, new ClientNativeAd.NativeAdLoadListener() {
@@ -860,7 +870,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                         public void onAnimationStart(Animation animation) {
 
                         }
-                    });
+                    });*/
 
                     break;
 
@@ -921,6 +931,32 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                     adapter.notifyDataSetChanged();
                     AdUtil.track("主界面", "充电屏保引导", "叉掉了", 1);
                     break;
+            }
+        }
+    };
+
+    Runnable runnable_pus = new Runnable() {
+        @Override
+        public void run() {
+            if (onPause) {
+                if (full_loading != null) {
+                    full_loading.pause();
+                    full_loading.setVisibility(View.GONE);
+                }
+                handler.removeCallbacks(runnable_load);
+            } else {
+                handler.postDelayed(this, 500);
+            }
+        }
+    };
+    Runnable runnable_load = new Runnable() {
+        @Override
+        public void run() {
+            AndroidSdk.showFullAd(LOAD_FULL);
+            handler.removeCallbacks(runnable_pus);
+            if (full_loading != null) {
+                full_loading.pause();
+                full_loading.setVisibility(View.GONE);
             }
         }
     };
@@ -1013,12 +1049,21 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         AndroidSdk.onResumeWithoutTransition(this);
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
         rotateAnimation.setDuration(2000);
+        AndroidSdk.loadFullAd(LOAD_FULL);
         rotateAnimation.setRepeatCount(-1);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (handler != null) {
+            handler.removeCallbacks(runnable_load);
+            handler.removeCallbacks(runnable_pus);
+            if (full_loading != null) {
+                full_loading.pause();
+                full_loading.destroy();
+            }
+        }
     }
 
     public void onBackPressed() {
@@ -1026,6 +1071,14 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             adDelete();
             handler.removeCallbacks(fullAdRunnale);
             return;
+        }
+        if (full_loading.getVisibility() == View.VISIBLE) {
+            full_loading.pause();
+            full_loading.destroy();
+            full_loading.setVisibility(View.GONE);
+            handler.removeCallbacks(runnable_load);
+            handler.removeCallbacks(runnable_pus);
+
         }
         if (main_battery.getVisibility() == View.VISIBLE) {
             AdUtil.track("主界面", "充电屏保引导", "返回键退出", 1);
