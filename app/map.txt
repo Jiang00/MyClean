@@ -28443,6 +28443,30 @@ com.android.common.Utils -> com.android.common.Utils:
     16:16:void <init>() -> <init>
     223:224:boolean requireAsk4Permission(int) -> requireAsk4Permission
     230:238:int checkOp(android.content.Context,int) -> a
+com.android.kpa.R -> com.android.a.a:
+com.android.kpa.R$string -> com.android.a.a$a:
+    int abc_action_bar_home_description -> abc_action_bar_home_description
+    int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
+    int abc_action_bar_home_subtitle_description_format -> abc_action_bar_home_subtitle_description_format
+    int abc_action_bar_up_description -> abc_action_bar_up_description
+    int abc_action_menu_overflow_description -> abc_action_menu_overflow_description
+    int abc_action_mode_done -> abc_action_mode_done
+    int abc_activity_chooser_view_see_all -> abc_activity_chooser_view_see_all
+    int abc_activitychooserview_choose_application -> abc_activitychooserview_choose_application
+    int abc_capital_off -> abc_capital_off
+    int abc_capital_on -> abc_capital_on
+    int abc_search_hint -> abc_search_hint
+    int abc_searchview_description_clear -> abc_searchview_description_clear
+    int abc_searchview_description_query -> abc_searchview_description_query
+    int abc_searchview_description_search -> abc_searchview_description_search
+    int abc_searchview_description_submit -> abc_searchview_description_submit
+    int abc_searchview_description_voice -> abc_searchview_description_voice
+    int abc_shareactionprovider_share_with -> abc_shareactionprovider_share_with
+    int abc_shareactionprovider_share_with_application -> abc_shareactionprovider_share_with_application
+    int abc_toolbar_collapse_description -> abc_toolbar_collapse_description
+    int app_name -> app_name
+    int com_android_kpa_nativ_process_name -> com_android_kpa_nativ_process_name
+    int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
 com.android.network.HttpClient -> com.android.network.HttpClient:
     javax.net.ssl.HostnameVerifier DO_NOT_VERIFY -> a
     20:20:void <init>() -> <init>
@@ -28819,6 +28843,207 @@ com.bumptech.glide.util.Util -> com.bumptech.glide.b.b:
     152:152:boolean isOnMainThread() -> b
     166:166:java.util.Queue createQueue(int) -> a
     20:24:void <clinit>() -> <clinit>
+com.flashcleaning.kpa.DaemonApplication -> com.flashcleaning.kpa.DaemonApplication:
+    com.flashcleaning.kpa.IDaemonClient mDaemonClient -> a
+    boolean mHasAttachBaseContext -> b
+    com.flashcleaning.kpa.DaemonConfigurations getDaemonConfigurations() -> a
+    23:32:void <init>() -> <init>
+    36:43:void attachBaseContext(android.content.Context) -> attachBaseContext
+    51:51:void attachBaseContextByDaemon(android.content.Context) -> a
+com.flashcleaning.kpa.DaemonClient -> com.flashcleaning.kpa.a:
+    com.flashcleaning.kpa.DaemonConfigurations mConfigurations -> a
+    java.lang.String DAEMON_PERMITTING_SP_FILENAME -> b
+    java.lang.String DAEMON_PERMITTING_SP_KEY -> c
+    java.io.BufferedReader mBufferedReader -> d
+    20:38:void <init>(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations$DaemonListener) -> <init>
+    24:38:void <init>(com.flashcleaning.kpa.DaemonConfigurations) -> <init>
+    30:34:void onAttachBaseContext(android.content.Context) -> a
+    45:47:com.flashcleaning.kpa.DaemonConfigurations createDaemonConfigurations(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations$DaemonListener) -> a
+    57:79:void initDaemon(android.content.Context) -> b
+    99:104:java.lang.String getProcessName() -> a
+    112:120:void releaseIO() -> b
+    123:124:boolean isDaemonPermitting(android.content.Context) -> c
+com.flashcleaning.kpa.DaemonConfigurations -> com.flashcleaning.kpa.b:
+    com.flashcleaning.kpa.DaemonConfigurations$DaemonConfiguration PERSISTENT_CONFIG -> a
+    com.flashcleaning.kpa.DaemonConfigurations$DaemonConfiguration DAEMON_ASSISTANT_CONFIG -> b
+    com.flashcleaning.kpa.DaemonConfigurations$DaemonListener LISTENER -> c
+    14:34:void <init>(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations$DaemonConfiguration,com.flashcleaning.kpa.DaemonConfigurations$DaemonListener) -> <init>
+com.flashcleaning.kpa.DaemonConfigurations$DaemonConfiguration -> com.flashcleaning.kpa.b$a:
+    java.lang.String PROCESS_NAME -> a
+    java.lang.String SERVICE_NAME -> b
+    java.lang.String RECEIVER_NAME -> c
+    48:52:void <init>(java.lang.String,java.lang.Class,java.lang.Class) -> <init>
+com.flashcleaning.kpa.DaemonConfigurations$DaemonListener -> com.flashcleaning.kpa.b$b:
+    void onPersistentStart(android.content.Context) -> a
+    void onDaemonAssistantStart(android.content.Context) -> b
+    void onWatchDaemonDead() -> a
+com.flashcleaning.kpa.DaemonReceiver -> com.flashcleaning.kpa.DaemonReceiver:
+    12:12:void <init>() -> <init>
+    15:15:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.flashcleaning.kpa.DaemonService -> com.flashcleaning.kpa.DaemonService:
+    12:12:void <init>() -> <init>
+    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
+    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+com.flashcleaning.kpa.IDaemonClient -> com.flashcleaning.kpa.c:
+    void onAttachBaseContext(android.content.Context) -> a
+com.flashcleaning.kpa.IDaemonStrategy -> com.flashcleaning.kpa.d:
+    boolean onInitialization(android.content.Context) -> a
+    void onPersistentCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> a
+    void onDaemonAssistantCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> b
+    void onDaemonDead() -> a
+com.flashcleaning.kpa.IDaemonStrategy$Fetcher -> com.flashcleaning.kpa.d$a:
+    com.flashcleaning.kpa.IDaemonStrategy mDaemonStrategy -> a
+    63:94:com.flashcleaning.kpa.IDaemonStrategy fetchStrategy() -> a
+com.flashcleaning.kpa.JobSchedulerService -> com.flashcleaning.kpa.JobSchedulerService:
+    8:8:void <init>() -> <init>
+    14:20:boolean onStartJob(android.app.job.JobParameters) -> onStartJob
+    25:26:boolean onStopJob(android.app.job.JobParameters) -> onStopJob
+com.flashcleaning.kpa.KeepLiveManager -> com.flashcleaning.kpa.e:
+    30:44:void startJobScheduler(android.app.Application,long) -> a
+com.flashcleaning.kpa.NativeDaemonBase -> com.flashcleaning.kpa.f:
+    android.content.Context mContext -> mContext
+    17:19:void <init>(android.content.Context) -> <init>
+    25:26:void onDaemonDead() -> onDaemonDead
+com.flashcleaning.kpa.PersistReceiver -> com.flashcleaning.kpa.PersistReceiver:
+    12:12:void <init>() -> <init>
+    16:16:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.flashcleaning.kpa.PersistService -> com.flashcleaning.kpa.PersistService:
+    15:15:void <init>() -> <init>
+    19:21:void onCreate() -> onCreate
+    25:25:android.os.IBinder onBind(android.content.Intent) -> onBind
+    30:30:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    36:48:void onDestroy() -> onDestroy
+    52:59:void keepAlive() -> a
+com.flashcleaning.kpa.PersistService$1 -> com.flashcleaning.kpa.PersistService$1:
+    com.flashcleaning.kpa.PersistService this$0 -> a
+    36:36:void <init>(com.flashcleaning.kpa.PersistService) -> <init>
+    41:45:void run() -> run
+com.flashcleaning.kpa.WatchmenReceiver -> com.flashcleaning.kpa.WatchmenReceiver:
+    20:20:void <init>() -> <init>
+    25:29:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.flashcleaning.kpa.nativ.NativeDaemonAPIK -> com.flashcleaning.kpa.nativ.NativeDaemonAPIK:
+    15:16:void <init>(android.content.Context) -> <init>
+    void doDaemon(java.lang.String,java.lang.String,java.lang.String) -> doDaemon
+    20:24:void <clinit>() -> <clinit>
+com.flashcleaning.kpa.nativ.NativeDaemonAPIL -> com.flashcleaning.kpa.nativ.NativeDaemonAPIL:
+    15:16:void <init>(android.content.Context) -> <init>
+    void doDaemon(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> doDaemon
+    20:24:void <clinit>() -> <clinit>
+com.flashcleaning.kpa.strategy.DaemonStrategy21 -> com.flashcleaning.kpa.a.a:
+    android.app.AlarmManager mAlarmManager -> a
+    android.app.PendingIntent mPendingIntent -> b
+    com.flashcleaning.kpa.DaemonConfigurations mConfigs -> c
+    22:22:void <init>() -> <init>
+    35:35:boolean onInitialization(android.content.Context) -> a
+    40:65:void onPersistentCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> a
+    69:93:void onDaemonAssistantCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> b
+    97:103:void onDaemonDead() -> a
+    107:118:void initAlarm(android.content.Context,java.lang.String) -> a
+    122:132:boolean initIndicators(android.content.Context) -> b
+    138:142:void createNewFile(java.io.File,java.lang.String) -> a
+com.flashcleaning.kpa.strategy.DaemonStrategy21$1 -> com.flashcleaning.kpa.a.a$1:
+    android.content.Context val$context -> a
+    com.flashcleaning.kpa.strategy.DaemonStrategy21 this$0 -> b
+    47:47:void <init>(com.flashcleaning.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
+    50:56:void run() -> run
+com.flashcleaning.kpa.strategy.DaemonStrategy21$2 -> com.flashcleaning.kpa.a.a$2:
+    android.content.Context val$context -> a
+    com.flashcleaning.kpa.strategy.DaemonStrategy21 this$0 -> b
+    76:76:void <init>(com.flashcleaning.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
+    78:84:void run() -> run
+com.flashcleaning.kpa.strategy.DaemonStrategy22 -> com.flashcleaning.kpa.a.b:
+    android.os.IBinder mRemote -> a
+    android.os.Parcel mServiceData -> b
+    com.flashcleaning.kpa.DaemonConfigurations mConfigs -> c
+    27:27:void <init>() -> <init>
+    40:40:boolean onInitialization(android.content.Context) -> a
+    45:65:void onPersistentCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> a
+    69:90:void onDaemonAssistantCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> b
+    95:103:void onDaemonDead() -> a
+    109:127:void initAmsBinder() -> b
+    132:164:void initServiceParcel(android.content.Context,java.lang.String) -> a
+    169:177:boolean startServiceByAmsBinder() -> c
+    185:195:boolean initIndicatorFiles(android.content.Context) -> b
+    200:204:void createNewFile(java.io.File,java.lang.String) -> a
+com.flashcleaning.kpa.strategy.DaemonStrategy22$1 -> com.flashcleaning.kpa.a.b$1:
+    android.content.Context val$context -> a
+    com.flashcleaning.kpa.strategy.DaemonStrategy22 this$0 -> b
+    49:49:void <init>(com.flashcleaning.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
+    51:57:void run() -> run
+com.flashcleaning.kpa.strategy.DaemonStrategy22$2 -> com.flashcleaning.kpa.a.b$2:
+    android.content.Context val$context -> a
+    com.flashcleaning.kpa.strategy.DaemonStrategy22 this$0 -> b
+    73:73:void <init>(com.flashcleaning.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
+    75:81:void run() -> run
+com.flashcleaning.kpa.strategy.DaemonStrategy23 -> com.flashcleaning.kpa.a.c:
+    android.os.IBinder mRemote -> a
+    android.os.Parcel mBroadcastData -> b
+    com.flashcleaning.kpa.DaemonConfigurations mConfigs -> c
+    27:27:void <init>() -> <init>
+    40:40:boolean onInitialization(android.content.Context) -> a
+    45:72:void onPersistentCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> a
+    76:103:void onDaemonAssistantCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> b
+    108:114:void onDaemonDead() -> a
+    120:138:void initAmsBinder() -> b
+    144:180:void initBroadcastParcel(android.content.Context,java.lang.String) -> a
+    186:194:boolean sendBroadcastByAmsBinder() -> c
+    200:210:boolean initIndicatorFiles(android.content.Context) -> b
+    215:219:void createNewFile(java.io.File,java.lang.String) -> a
+com.flashcleaning.kpa.strategy.DaemonStrategy23$1 -> com.flashcleaning.kpa.a.c$1:
+    android.content.Context val$context -> a
+    com.flashcleaning.kpa.strategy.DaemonStrategy23 this$0 -> b
+    49:49:void <init>(com.flashcleaning.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
+    51:57:void run() -> run
+com.flashcleaning.kpa.strategy.DaemonStrategy23$2 -> com.flashcleaning.kpa.a.c$2:
+    android.content.Context val$context -> a
+    com.flashcleaning.kpa.strategy.DaemonStrategy23 this$0 -> b
+    80:80:void <init>(com.flashcleaning.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
+    82:88:void run() -> run
+com.flashcleaning.kpa.strategy.DaemonStrategyUnder21 -> com.flashcleaning.kpa.a.d:
+    java.lang.String BINARY_DEST_DIR_NAME -> a
+    java.lang.String BINARY_FILE_NAME -> b
+    android.app.AlarmManager mAlarmManager -> c
+    android.app.PendingIntent mPendingIntent -> d
+    28:30:void <init>() -> <init>
+    37:37:boolean onInitialization(android.content.Context) -> a
+    42:58:void onPersistentCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> a
+    62:70:void onDaemonAssistantCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> b
+    75:77:void onDaemonDead() -> a
+    81:92:void initAlarm(android.content.Context,java.lang.String) -> a
+    96:105:boolean installBinary(android.content.Context) -> b
+    110:118:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    123:126:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
+    129:142:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
+com.flashcleaning.kpa.strategy.DaemonStrategyUnder21$1 -> com.flashcleaning.kpa.a.d$1:
+    android.content.Context val$context -> a
+    com.flashcleaning.kpa.DaemonConfigurations val$configs -> b
+    com.flashcleaning.kpa.strategy.DaemonStrategyUnder21 this$0 -> c
+    43:43:void <init>(com.flashcleaning.kpa.strategy.DaemonStrategyUnder21,android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> <init>
+    45:50:void run() -> run
+com.flashcleaning.kpa.strategy.DaemonStrategyXiaomi -> com.flashcleaning.kpa.a.e:
+    java.lang.String BINARY_DEST_DIR_NAME -> a
+    java.lang.String BINARY_FILE_NAME -> b
+    android.os.IBinder mRemote -> c
+    android.os.Parcel mServiceData -> d
+    com.flashcleaning.kpa.DaemonConfigurations mConfigs -> e
+    30:32:void <init>() -> <init>
+    40:40:boolean onInitialization(android.content.Context) -> a
+    45:64:void onPersistentCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> a
+    69:77:void onDaemonAssistantCreate(android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> b
+    81:89:void onDaemonDead() -> a
+    94:112:void initAmsBinder() -> b
+    118:150:void initServiceParcel(android.content.Context,java.lang.String) -> a
+    154:162:boolean startServiceByAmsBinder() -> c
+    167:176:boolean installBinary(android.content.Context) -> b
+    181:189:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    194:197:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
+    200:213:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
+com.flashcleaning.kpa.strategy.DaemonStrategyXiaomi$1 -> com.flashcleaning.kpa.a.e$1:
+    android.content.Context val$context -> a
+    com.flashcleaning.kpa.DaemonConfigurations val$configs -> b
+    com.flashcleaning.kpa.strategy.DaemonStrategyXiaomi this$0 -> c
+    47:47:void <init>(com.flashcleaning.kpa.strategy.DaemonStrategyXiaomi,android.content.Context,com.flashcleaning.kpa.DaemonConfigurations) -> <init>
+    49:54:void run() -> run
 com.github.mikephil.charting.animation.ChartAnimator -> com.github.mikephil.charting.animation.a:
     android.animation.ValueAnimator$AnimatorUpdateListener mListener -> c
     float mPhaseY -> a
@@ -33562,10 +33787,16 @@ com.myboost.junk.boostactivity.MemoryAvtivityBoost$4 -> com.myboost.junk.boostac
     274:294:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.MyApplication -> com.myboost.junk.boostactivity.MyApplication:
     android.app.ActivityManager am -> a
-    27:27:void <init>() -> <init>
-    35:78:void onCreate() -> onCreate
-    83:84:void onTerminate() -> onTerminate
-    88:91:void attachBaseContext(android.content.Context) -> attachBaseContext
+    29:29:void <init>() -> <init>
+    37:82:void onCreate() -> onCreate
+    87:88:void onTerminate() -> onTerminate
+    92:111:void attachBaseContext(android.content.Context) -> attachBaseContext
+com.myboost.junk.boostactivity.MyApplication$1 -> com.myboost.junk.boostactivity.MyApplication$1:
+    com.myboost.junk.boostactivity.MyApplication this$0 -> a
+    93:93:void <init>(com.myboost.junk.boostactivity.MyApplication) -> <init>
+    96:97:void onPersistentStart(android.content.Context) -> a
+    101:102:void onDaemonAssistantStart(android.content.Context) -> b
+    106:107:void onWatchDaemonDead() -> a
 com.myboost.junk.boostactivity.NotifingAnimationActivityBoost -> com.myboost.junk.boostactivity.NotifingAnimationActivityBoost:
     android.widget.Button notifi_info_text -> e
     14:14:void <init>() -> <init>
@@ -39531,13 +39762,6 @@ com.sample.lottie.Utils -> com.sample.lottie.Utils:
     38:46:void closeQuietly(java.io.Closeable) -> closeQuietly
     49:54:int getScreenWidth(android.content.Context) -> getScreenWidth
     58:63:int getScreenHeight(android.content.Context) -> getScreenHeight
-com.squareup.leakcanary.LeakCanary -> com.b.a.a:
-    12:12:com.squareup.leakcanary.RefWatcher install(android.app.Application) -> a
-    16:16:boolean isInAnalyzerProcess(android.content.Context) -> a
-com.squareup.leakcanary.RefWatcher -> com.b.a.b:
-    com.squareup.leakcanary.RefWatcher DISABLED -> a
-    11:12:void <init>() -> <init>
-    9:9:void <clinit>() -> <clinit>
 com.twee.module.tweenengine.BaseTween -> com.twee.module.tweenengine.a:
     int step -> f
     int repeatCnt -> g

@@ -152,7 +152,7 @@ public class BoostSuspensionBallService extends Service {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(BoostSuspensionBallService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(BoostSuspensionBallService.this, NotificationServiceBoost.class);
-                            intent.setAction("gboost");
+                            intent.putExtra("from","gboost");//intent.setAction("gboost")改了
                             startService(intent);
                         }
                     }

@@ -200,7 +200,7 @@ public class BoostSetActivity extends BaseActivity {
                         PreData.putDB(BoostSetActivity.this, BoostMyConstant.TONGZHILAN_SWITCH, true);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
                         Intent intent = new Intent(BoostSetActivity.this, NotificationServiceBoost.class);
-                        intent.setAction("notification");
+                        intent.putExtra("from","notification");//intent.setAction("gboost")改了
                         startService(intent);
                     }
                     break;

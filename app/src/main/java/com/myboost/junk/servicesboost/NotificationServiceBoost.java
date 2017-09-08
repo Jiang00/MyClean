@@ -20,6 +20,7 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -173,10 +174,11 @@ public class NotificationServiceBoost extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (intent != null && intent.getAction().equals("notification")) {
+        if (intent != null &&  TextUtils.equals("notification",intent.getStringExtra("from"))) {
             onstart();
         }
-        if (intent != null && intent.getAction().equals("gboost")) {
+
+        if (intent != null &&TextUtils.equals("gboost",intent.getStringExtra("from"))) {
             tonghzi_gboost();
             mNotifyManager.notify(101, notification_gboost);
         }

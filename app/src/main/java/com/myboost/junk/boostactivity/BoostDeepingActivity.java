@@ -84,7 +84,7 @@ public class BoostDeepingActivity extends BaseActivity {
                     MyUtils.doStartApplicationWithPackageName(BoostDeepingActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(BoostDeepingActivity.this, BoostMyConstant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(BoostDeepingActivity.this, NotificationServiceBoost.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");//intent.setAction("gboost")改了
                         startService(intent);
                     }
 
@@ -212,7 +212,7 @@ public class BoostDeepingActivity extends BaseActivity {
                     MyUtils.doStartApplicationWithPackageName(BoostDeepingActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(BoostDeepingActivity.this, BoostMyConstant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(BoostDeepingActivity.this, NotificationServiceBoost.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");//intent.setAction("gboost")改了
                         startService(intent);
                     }
                 } else {
