@@ -1,5 +1,7 @@
 package com.froumobic.clean.junk.mactivity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -24,6 +26,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.AnticipateInterpolator;
+import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
@@ -118,7 +123,8 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
     // LottieAnimationView lot_side;
     ImageView side_title;
-    ImageView lot_family;
+    FrameLayout lot_family;
+    ImageView libao_1, libao_2, libao_3;
     PagerAdapter pagerAdapter;
 
     private String TAG_MAIN = "main";
@@ -139,6 +145,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private View viewpager_3;
     private AlertDialog dialog;
     private ArrayList<View> arrayList;
+    private AnimatorSet animatorSet;
 
 
     @Override
@@ -193,7 +200,10 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         side_title = (ImageView) findViewById(R.id.side_title);
-        lot_family = (ImageView) findViewById(R.id.lot_family);
+        lot_family = (FrameLayout) findViewById(R.id.lot_family);
+        libao_1 = (ImageView) findViewById(R.id.libao_1);
+        libao_2 = (ImageView) findViewById(R.id.libao_2);
+        libao_3 = (ImageView) findViewById(R.id.libao_3);
         main_red = (ImageView) findViewById(R.id.main_red);
         main_msg_sd_backg = (RoundJindu) findViewById(R.id.main_msg_sd_backg);
         main_msg_ram_backg = (RoundJinduRam) findViewById(R.id.main_msg_ram_backg);
@@ -369,6 +379,24 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         tuiguang(TUIGUAN_SIDE, false, side_listView);
         tuiguangButton(TUIGUAN_TAB);
         initSideData();
+        animatorSet = new AnimatorSet();
+        ObjectAnimator objectAnimator_t = ObjectAnimator.ofFloat(lot_family, View.TRANSLATION_X, getResources().getDimension(R.dimen.d72), 0);
+        objectAnimator_t.setDuration(1500);
+        objectAnimator_t.setInterpolator(new AnticipateOvershootInterpolator());
+        ObjectAnimator translate_1 = ObjectAnimator.ofFloat(libao_1, View.TRANSLATION_Y, 0, 20, -20, 0);
+        translate_1.setDuration(4000);
+        translate_1.setRepeatCount(3);
+        translate_1.setInterpolator(new LinearInterpolator());
+        ObjectAnimator translate_2 = ObjectAnimator.ofFloat(libao_2, View.TRANSLATION_Y, 0, 8, -8, 0);
+        translate_2.setDuration(3000);
+        translate_2.setRepeatCount(4);
+        translate_2.setInterpolator(new LinearInterpolator());
+        ObjectAnimator translate_3 = ObjectAnimator.ofFloat(libao_3, View.TRANSLATION_Y, 0, 12, -12, 0);
+        translate_3.setDuration(3500);
+        translate_3.setRepeatCount(3);
+        translate_3.setInterpolator(new LinearInterpolator());
+        animatorSet.play(translate_1).with(translate_2).with(translate_3).after(objectAnimator_t);
+
     }
 
     private void tuiguangButton(String tag) {
@@ -827,8 +855,9 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
                     full_loading.setVisibility(View.VISIBLE);
                     full_loading.reStart();
+
                     handler.post(runnable_pus);
-                    handler.post(runnable_load);
+                    handler.postDelayed(runnable_load, 4500);
 
 //                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
 //                    ll_ad_full.startAnimation(animation);
@@ -1036,21 +1065,28 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         super.onRestart();
 
         initCpu(temp);
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        if (animatorSet != null) {
+            animatorSet.cancel();
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
-        rotateAnimation.setDuration(2000);
         AndroidSdk.loadFullAd(LOAD_FULL);
-        rotateAnimation.setRepeatCount(-1);
+//        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
+//        rotateAnimation.setDuration(2000);
+//        rotateAnimation.setRepeatCount(-1);
+        if (animatorSet != null) {
+            animatorSet.start();
+        }
     }
 
     @Override

@@ -80,13 +80,34 @@
                         android:scaleType="center"
                         android:src="@mipmap/main_setting" />
 
-                    <ImageView
+                    <FrameLayout
                         android:id="@+id/lot_family"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@id/iv_title_right"
-                        android:src="@mipmap/ad_box" />
+                        android:layout_toLeftOf="@id/iv_title_right">
+
+                        <ImageView
+                            android:id="@+id/libao_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/libao_1" />
+
+                        <ImageView
+                            android:id="@+id/libao_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/libao_2" />
+
+                        <ImageView
+                            android:id="@+id/libao_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/libao_3" />
+                    </FrameLayout>
 
 
                 </RelativeLayout>
