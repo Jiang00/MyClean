@@ -52,7 +52,7 @@ public class MyApplication extends Application {
 
         if (DataPre.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotificationingService.class);
-            intent.setAction("notification");
+            intent.putExtra("from","notification");
             startService(intent);
         }
 
