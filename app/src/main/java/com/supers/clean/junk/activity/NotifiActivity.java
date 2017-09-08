@@ -27,6 +27,7 @@ import com.supers.clean.junk.customeview.DeleteListView;
 import com.android.clean.util.Util;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Constant;
+import com.supers.clean.junk.util.AdUtil;
 
 import java.util.ArrayList;
 
@@ -124,7 +125,7 @@ public class NotifiActivity extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE, null);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, NotificationMonitorService.class));

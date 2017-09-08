@@ -103,7 +103,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE, null);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);
         junkPresenter.init();

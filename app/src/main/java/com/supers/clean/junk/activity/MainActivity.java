@@ -898,7 +898,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
                     main_pull_refresh.loadmoreFinish(PullToRefreshLayout.SUCCEED);
                 }
             }, 500);
@@ -1029,7 +1029,26 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     load_loading.setBackgroundColor(getResources().getColor(R.color.load_1));
                     load_loading.setVisibility(View.VISIBLE);
                     load = false;
-                    AndroidSdk.loadFullAd(TAG_LOAD_FULL, null);
+                    AndroidSdk.loadFullAd(TAG_LOAD_FULL, new AdListener() {
+                        @Override
+                        public void onAdLoadSuccess() {
+                            super.onAdLoadSuccess();
+                            load = true;
+                        }
+
+                        @Override
+                        public void onAdLoadFails() {
+                            super.onAdLoadFails();
+                            load = false;
+                        }
+
+                        @Override
+                        public void onAdClosed() {
+                            super.onAdClosed();
+                            handler.removeCallbacks(runnable_pus);
+                            load_loading.setVisibility(View.GONE);
+                        }
+                    });
                     handler.postDelayed(runnable_color, 375);
                     handler.postDelayed(runnable_load, 4500);
                     handler.post(runnable_pus);
@@ -1179,9 +1198,19 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         @Override
         public void run() {
 //            load广告
-            AndroidSdk.showFullAd(TAG_LOAD_FULL);
-            handler.removeCallbacks(runnable_pus);
-            load_loading.setVisibility(View.GONE);
+            if (load) {
+                AndroidSdk.showFullAd(TAG_LOAD_FULL);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        handler.removeCallbacks(runnable_pus);
+                        load_loading.setVisibility(View.GONE);
+                    }
+                }, 1000);
+            } else {
+                handler.removeCallbacks(runnable_pus);
+                load_loading.setVisibility(View.GONE);
+            }
             if (colorAnim != null) {
                 colorAnim.cancel();
             }
@@ -1284,7 +1313,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             lot_main.playAnimation();
         }
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-            AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE, null);
+
+            AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         }
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
         rotateAnimation.setDuration(2000);
@@ -1345,7 +1375,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
             if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                AndroidSdk.showFullAd(AdUtil.DEFAULT);
             }
             showExitDialog();
         }

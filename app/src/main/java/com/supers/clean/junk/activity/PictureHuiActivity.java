@@ -101,7 +101,7 @@ public class PictureHuiActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.RECYCLEBIN, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(AdUtil.DEFAULT);
         } else {
             addAd();
         }

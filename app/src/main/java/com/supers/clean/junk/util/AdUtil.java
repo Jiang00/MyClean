@@ -13,6 +13,7 @@ import com.supers.clean.junk.BuildConfig;
  */
 
 public class AdUtil {
+    public static String DEFAULT = "result_full";
 
     public static void track(String category, String action, String label, int value) {
         if (BuildConfig.TRACK) {

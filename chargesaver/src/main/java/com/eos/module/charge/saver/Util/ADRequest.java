@@ -16,7 +16,7 @@ import com.eos.module.charge.saver.R;
 public class ADRequest {
 
     public static void showFullAD() {
-        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.showFullAd("result_full");
     }
 
     public View showCustomNativeAD(String adTag, int layoutID, final ICustomNativeADClicked adClick) {

@@ -579,7 +579,6 @@ public class AppLockEosService extends Service {
         @Override
         public void run() {
             //showAD
-//            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
 
         }
     };

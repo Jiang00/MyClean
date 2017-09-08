@@ -1123,6 +1123,7 @@ HorizontalListView extends AdapterView<ListAdapter> {
             mViewBeingTouched = null;
         }
     }
+
     private class GestureListener extends GestureDetector.SimpleOnGestureListener {
         @Override
         public boolean onDown(MotionEvent e) {
@@ -1146,6 +1147,7 @@ HorizontalListView extends AdapterView<ListAdapter> {
 
             return true;
         }
+
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
             unpressTouchedChild();

@@ -24,6 +24,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.FlakeView;
 import com.android.clean.util.Constant;
 import com.android.clean.util.PreData;
+import com.supers.clean.junk.util.AdUtil;
 
 import java.util.Random;
 
@@ -80,7 +81,7 @@ public class CoolingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE, null);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +116,7 @@ public class CoolingActivity extends BaseActivity {
                 cooling_fl.setVisibility(View.INVISIBLE);
                 cooling_xuehua.clearAnimation();
                 if (PreData.getDB(CoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
                 }
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);

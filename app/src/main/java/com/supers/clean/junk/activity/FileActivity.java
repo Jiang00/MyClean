@@ -129,7 +129,7 @@ public class FileActivity extends BaseActivity {
     private void initAd() {
 
         if (PreData.getDB(this, Constant.FULL_FILE, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(AdUtil.DEFAULT);
         } else {
             nativeView = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {
