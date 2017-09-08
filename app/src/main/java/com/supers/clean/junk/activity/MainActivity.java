@@ -43,6 +43,7 @@ import com.android.clean.util.Constant;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
+import com.android.client.AdListener;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.android.theme.internal.data.ThemeManager;
@@ -915,6 +916,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     }*/
 
 
+    private boolean load;
     //点击事件监听
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -1026,6 +1028,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     animatorSet.start();
                     load_loading.setBackgroundColor(getResources().getColor(R.color.load_1));
                     load_loading.setVisibility(View.VISIBLE);
+                    load = false;
+                    AndroidSdk.loadFullAd(TAG_LOAD_FULL, null);
                     handler.postDelayed(runnable_color, 375);
                     handler.postDelayed(runnable_load, 4500);
                     handler.post(runnable_pus);
@@ -1275,13 +1279,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        AndroidSdk.loadFullAd(TAG_LOAD_FULL);
         Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
         if (lot_main != null) {
             lot_main.playAnimation();
         }
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-            AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE, null);
         }
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
         rotateAnimation.setDuration(2000);
@@ -1377,7 +1380,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 0) {
-            View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
+            View nativeExit = AdUtil.getNativeAdViewV(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.VISIBLE);

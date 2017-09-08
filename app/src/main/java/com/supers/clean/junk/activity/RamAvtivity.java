@@ -70,7 +70,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE,null);
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();
         ramPresenter.init();

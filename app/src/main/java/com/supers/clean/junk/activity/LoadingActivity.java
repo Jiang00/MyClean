@@ -62,10 +62,8 @@ public class LoadingActivity extends BaseActivity {
             PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.loadFullAd("loading_full");
-            Log.e("loading_full", "=true");
+            AndroidSdk.loadFullAd("loading_full", null);
         } else {
-            Log.e("loading_full", "=false");
         }
 
         Animation animation1 = AnimationUtils.loadAnimation(this, R.anim.load_icon);

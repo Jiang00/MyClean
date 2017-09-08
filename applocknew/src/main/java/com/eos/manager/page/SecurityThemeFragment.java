@@ -133,7 +133,7 @@ public class SecurityThemeFragment extends Fragment {
     }
 
     protected static void createAdView(ViewGroup view) {
-        if (AndroidSdk.hasNativeAd(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+        if (AndroidSdk.hasNativeAd(TAG_UNLOCK)) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP | Gravity.CENTER_HORIZONTAL);
             Point size = Utils.getScreenSize(view.getContext());
             if (size.y < 854) {
@@ -143,7 +143,6 @@ public class SecurityThemeFragment extends Fragment {
             }
 
             adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK,
-                    AndroidSdk.NATIVE_AD_TYPE_ALL,
                     AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE,
                     AndroidSdk.getDefaultNativeLayoutId(false), null, null);
 //            adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.security_native_layout, new ClientNativeAd.NativeAdClickListener() {
