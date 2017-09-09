@@ -1,12 +1,15 @@
 package com.bruder.clean.activity;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -56,6 +60,7 @@ import com.my.bruder.charge.saver.Util.Utils;
 import com.sample.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends BaseActivity implements MainMyView, DrawerLayout.DrawerListener {
 
@@ -96,6 +101,9 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     ImageView lot_ad;
     ImageView main_full_time;
     FrameLayout fl_lot_side;
+    ImageView main_ad_iv;
+    CountDownTimer cdt;
+    int i;
 
     private boolean isFirstIn = false;// 判断是否是第一次登陆
     private ArrayList<View> arrayList;//记录main_circle布局文件的控件绑定信息
@@ -110,6 +118,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     private int temp;
     int sdProgress;
     private long allSize;
+    ObjectAnimator translationY1, translationY2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -139,6 +148,48 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         clear2 = (ImageView) findViewById(R.id.clear2);
         clear3 = (ImageView) findViewById(R.id.clear3);
         clear1 = (ImageView) findViewById(R.id.clear1);
+        clear1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (translationY1 != null) {
+                    translationY1.end();
+                }
+                if (translationY1 != null) {
+                    translationY2.end();
+                }
+
+                translationY1 = ObjectAnimator.ofFloat(clear1, "translationY", clear1.getTranslationY(),
+                        clear1.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d4));
+
+                translationY1.setDuration(800);
+                translationY1.start();
+                translationY1.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        translationY2 = ObjectAnimator.ofFloat(clear1, "translationY",
+                                clear1.getTranslationY(),
+                                clear1.getTranslationY() + getResources().getDimensionPixelSize(R.dimen.d4));
+                        translationY2.setDuration(800);
+                        translationY2.start();
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
+            }
+        });
         arrayList.add(view);
 
         // 广告
@@ -277,11 +328,19 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 
         //lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
+        main_ad_iv = (ImageView) findViewById(R.id.main_ad_iv);
 //        lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
 
         //float left, float top, float right, float bottom  xyxy
-        view1 = findViewById(R.id.moved_item);
-
+        main_xing1 = (ImageView) findViewById(R.id.main_xing1);
+        main_xing2 = (ImageView) findViewById(R.id.main_xing2);
+        main_xing3 = (ImageView) findViewById(R.id.main_xing3);
+        main_xing4 = (ImageView) findViewById(R.id.main_xing4);
+        main_xing5 = (ImageView) findViewById(R.id.main_xing5);
+        main_xing6 = (ImageView) findViewById(R.id.main_xing6);
+        main_xing7 = (ImageView) findViewById(R.id.main_xing7);
+        main_xing8 = (ImageView) findViewById(R.id.main_xing8);
+        main_xing9 = (ImageView) findViewById(R.id.main_xing9);
     }
 
     //初始化监听
@@ -577,28 +636,167 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         }
     };
 
-    View view1;
+    ImageView main_xing1, main_xing2, main_xing3, main_xing4, main_xing5, main_xing6, main_xing7, main_xing8, main_xing9;
+    ObjectAnimator moveIn1, moveIn2, moveIn3, moveIn4, moveIn5, moveIn6, moveIn7, moveIn8, moveIn9;
+    ObjectAnimator rotate1, rotate2, rotate3, rotate4, rotate5, rotate6, rotate7, rotate8, rotate9;
+    AnimatorSet animSet;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void showMainAdAnim() {
+        if (animSet != null) {
+            animSet.cancel();
+        }
+        WindowManager wm = (WindowManager) this
+                .getSystemService(Context.WINDOW_SERVICE);
+        int width = wm.getDefaultDisplay().getWidth();
+        int height = wm.getDefaultDisplay().getHeight();
+        Random random = new Random();
+        int randomNum = random.nextInt(2);
+//        int randomNum = 0;random.nextInt(height)
 
-        showAd();
+        if (randomNum == 0) {
+            main_xing1.setImageResource(R.mipmap.main_xing1);
+            main_xing2.setImageResource(R.mipmap.main_xing2);
+            main_xing3.setImageResource(R.mipmap.main_xing3);
+            main_xing4.setImageResource(R.mipmap.main_xing1);
+            main_xing5.setImageResource(R.mipmap.main_xing2);
+            main_xing6.setImageResource(R.mipmap.main_xing3);
+            main_xing7.setImageResource(R.mipmap.main_xing1);
+            main_xing8.setImageResource(R.mipmap.main_xing2);
+            main_xing9.setImageResource(R.mipmap.main_xing3);
+            moveIn1 = ObjectAnimator.ofFloat(main_xing1, "translationX", 0, width - main_xing1.getWidth());
+            rotate1 = ObjectAnimator.ofFloat(main_xing1, "translationY", -random.nextInt(height), -height);
+            moveIn2 = ObjectAnimator.ofFloat(main_xing2, "translationX", 0, width - main_xing2.getWidth());
+            rotate2 = ObjectAnimator.ofFloat(main_xing2, "translationY", -random.nextInt(height), -height);
+            moveIn3 = ObjectAnimator.ofFloat(main_xing3, "translationX", 0, width - main_xing3.getWidth());
+            rotate3 = ObjectAnimator.ofFloat(main_xing3, "translationY", -random.nextInt(height), -height);
+            moveIn4 = ObjectAnimator.ofFloat(main_xing4, "translationX", 0, width - main_xing4.getWidth());
+            rotate4 = ObjectAnimator.ofFloat(main_xing4, "translationY", -random.nextInt(height), -height);
+            moveIn5 = ObjectAnimator.ofFloat(main_xing5, "translationX", 0, width - main_xing5.getWidth());
+            rotate5 = ObjectAnimator.ofFloat(main_xing5, "translationY", -random.nextInt(height), -height);
+            moveIn6 = ObjectAnimator.ofFloat(main_xing6, "translationX", 0, width - main_xing6.getWidth());
+            rotate6 = ObjectAnimator.ofFloat(main_xing6, "translationY", -random.nextInt(height), -height);
+            moveIn7 = ObjectAnimator.ofFloat(main_xing7, "translationX", 0, width - main_xing7.getWidth());
+            rotate7 = ObjectAnimator.ofFloat(main_xing7, "translationY", -random.nextInt(height), -height);
+            moveIn8 = ObjectAnimator.ofFloat(main_xing8, "translationX", 0, width - main_xing8.getWidth());
+            rotate8 = ObjectAnimator.ofFloat(main_xing8, "translationY", -random.nextInt(height), -height);
+            moveIn9 = ObjectAnimator.ofFloat(main_xing9, "translationX", 0, width - main_xing9.getWidth());
+            rotate9 = ObjectAnimator.ofFloat(main_xing9, "translationY", -random.nextInt(height), -height);
+        } else if (randomNum == 1) {
+            main_xing1.setImageResource(R.mipmap.main_xing11);
+            main_xing2.setImageResource(R.mipmap.main_xing22);
+            main_xing3.setImageResource(R.mipmap.main_xing33);
+            main_xing4.setImageResource(R.mipmap.main_xing11);
+            main_xing5.setImageResource(R.mipmap.main_xing22);
+            main_xing6.setImageResource(R.mipmap.main_xing33);
+            main_xing7.setImageResource(R.mipmap.main_xing11);
+            main_xing8.setImageResource(R.mipmap.main_xing22);
+            main_xing9.setImageResource(R.mipmap.main_xing33);
+            moveIn1 = ObjectAnimator.ofFloat(main_xing1, "translationX", 0, width - main_xing1.getWidth());
+            rotate1 = ObjectAnimator.ofFloat(main_xing1, "translationY", -random.nextInt(height), -height);
+            moveIn2 = ObjectAnimator.ofFloat(main_xing2, "translationX", 0, width - main_xing2.getWidth());
+            rotate2 = ObjectAnimator.ofFloat(main_xing2, "translationY", -random.nextInt(height), -height);
+            moveIn3 = ObjectAnimator.ofFloat(main_xing3, "translationX", 0, width - main_xing3.getWidth());
+            rotate3 = ObjectAnimator.ofFloat(main_xing3, "translationY", -random.nextInt(height), -height);
+            moveIn4 = ObjectAnimator.ofFloat(main_xing4, "translationX", 0, width - main_xing4.getWidth());
+            rotate4 = ObjectAnimator.ofFloat(main_xing4, "translationY", -random.nextInt(height), -height);
+            moveIn5 = ObjectAnimator.ofFloat(main_xing5, "translationX", 0, width - main_xing5.getWidth());
+            rotate5 = ObjectAnimator.ofFloat(main_xing5, "translationY", -random.nextInt(height), -height);
+            moveIn6 = ObjectAnimator.ofFloat(main_xing6, "translationX", 0, width - main_xing6.getWidth());
+            rotate6 = ObjectAnimator.ofFloat(main_xing6, "translationY", -random.nextInt(height), -height);
+            moveIn7 = ObjectAnimator.ofFloat(main_xing7, "translationX", 0, width - main_xing7.getWidth());
+            rotate7 = ObjectAnimator.ofFloat(main_xing7, "translationY", -random.nextInt(height), -height);
+            moveIn8 = ObjectAnimator.ofFloat(main_xing8, "translationX", 0, width - main_xing8.getWidth());
+            rotate8 = ObjectAnimator.ofFloat(main_xing8, "translationY", -random.nextInt(height), -height);
+            moveIn9 = ObjectAnimator.ofFloat(main_xing9, "translationX", 0, width - main_xing9.getWidth());
+            rotate9 = ObjectAnimator.ofFloat(main_xing9, "translationY", -random.nextInt(height), -height);
+        }
+        main_xing1.setVisibility(View.VISIBLE);
+        main_xing2.setVisibility(View.VISIBLE);
+        main_xing3.setVisibility(View.VISIBLE);
+        main_xing4.setVisibility(View.VISIBLE);
+        main_xing5.setVisibility(View.VISIBLE);
+        main_xing6.setVisibility(View.VISIBLE);
+        main_xing7.setVisibility(View.VISIBLE);
+        main_xing8.setVisibility(View.VISIBLE);
+        main_xing9.setVisibility(View.VISIBLE);
+
+
+        animSet = new AnimatorSet();
+        animSet.setInterpolator(new LinearInterpolator());
+        animSet.setInterpolator(new AccelerateInterpolator(1f));
+        animSet.play(rotate1).with(moveIn1).with(moveIn2).with(rotate2).with(moveIn3).with(rotate3).with(moveIn4).with(rotate4).with(moveIn5).with(rotate5)
+                .with(moveIn6).with(rotate6).with(moveIn7).with(rotate7).with(moveIn8).with(rotate8).with(moveIn9).with(rotate9);
+        animSet.setDuration(2000);
+        animSet.start();
+        animSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                adSize++;
+                final View nativeExit = UtilAd.getNativeAdView(TAG_EXIT_FULL, R.layout.main_ad_native);
+                if (nativeExit != null) {
+                    if (adSize == 1) {
+                        showMainAdAnim();
+                    } else {
+                        showAd(nativeExit);
+                    }
+                } else {
+                    if (adSize >= 2) {
+                        adSize = 0;
+                        main_xing1.setVisibility(View.GONE);
+                        main_xing2.setVisibility(View.GONE);
+                        main_xing3.setVisibility(View.GONE);
+                        main_xing4.setVisibility(View.GONE);
+                        main_xing5.setVisibility(View.GONE);
+                        main_xing6.setVisibility(View.GONE);
+                        main_xing7.setVisibility(View.GONE);
+                        main_xing8.setVisibility(View.GONE);
+                        main_xing9.setVisibility(View.GONE);
+                        return;
+                    }
+                    showMainAdAnim();
+                }
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 
+    int adSize;
+
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private void showAd() {
+    private void showAd(View nativeExit) {
         View view = View.inflate(this, R.layout.main_ad_dialog, null);
         final LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
         dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
         if (DataPre.getDB(this, Constant.FULL_EXIT, 0) == 0) {
-            final View nativeExit = UtilAd.getNativeAdView(TAG_EXIT_FULL, R.layout.main_ad_native);
             if (nativeExit != null) {
+                main_xing1.setVisibility(View.GONE);
+                main_xing2.setVisibility(View.GONE);
+                main_xing3.setVisibility(View.GONE);
+                main_xing4.setVisibility(View.GONE);
+                main_xing5.setVisibility(View.GONE);
+                main_xing6.setVisibility(View.GONE);
+                main_xing7.setVisibility(View.GONE);
+                main_xing8.setVisibility(View.GONE);
+                main_xing9.setVisibility(View.GONE);
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.VISIBLE);
-            } else {
-                dialog.dismiss();
             }
         }
         DisplayMetrics dm = new DisplayMetrics();
@@ -644,6 +842,28 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
             notifiactivity.setVisibility(View.GONE);
             main_more.setVisibility(View.GONE);
         }
+
+        cdt = new CountDownTimer(1000, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                if (i == 0) {
+                    main_ad_iv.setImageResource(R.mipmap.main_ad);
+                } else {
+                    main_ad_iv.setImageResource(R.mipmap.main_ad1);
+                }
+                i++;
+                if (i == 2) {
+                    i = 0;
+                }
+                start();
+            }
+        }.start();
+
     }
 
     @Override
@@ -789,6 +1009,9 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     protected void onPause() {
         super.onPause();
         pauseAnimator();
+        if (cdt != null) {
+            cdt.cancel();
+        }
     }
 
     @Override
@@ -847,7 +1070,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         super.onStart();
         //旋转动画
 //        startAnimator(0f, 360f, 0f, -360f);
-        startAnimator(0f, -359f, 0f, 359f);
+        startAnimator(0f, -359f, 0f, 359f, 3);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -995,17 +1218,47 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     }
 
     // 启动动画
-    public void startAnimator(float start1, float end1, float start2, float end2) {
+    public void startAnimator(final float start1, final float end1, final float start2, final float end2, final int count) {
         set = new AnimatorSet();
         ObjectAnimator animator2 = ObjectAnimator.ofFloat(clear3, "rotation", start1, end1);
-        animator2.setRepeatCount(-1);//设置重复次数
+        animator2.setRepeatCount(count);//设置重复次数
         LinearInterpolator lin = new LinearInterpolator();
         ObjectAnimator animator3 = ObjectAnimator.ofFloat(clear2, "rotation", start2, end2);
-        animator3.setRepeatCount(-1);//设置重复次数
-        set.setDuration(10000);
+        animator3.setRepeatCount(count);//设置重复次数
+        set.setDuration(1000);
         set.setInterpolator(lin);
         set.play(animator2).with(animator3);
         set.start();
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                ObjectAnimator animator2 = ObjectAnimator.ofFloat(clear3, "rotation", start1, -end1);
+                animator2.setRepeatCount(1);//设置重复次数
+                LinearInterpolator lin = new LinearInterpolator();
+                ObjectAnimator animator3 = ObjectAnimator.ofFloat(clear2, "rotation", start2, -end2);
+                animator3.setRepeatCount(1);//设置重复次数
+                AnimatorSet set1 = new AnimatorSet();
+                set1.setDuration(4000);
+                set1.setInterpolator(lin);
+                set1.play(animator2).with(animator3);
+                set1.start();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 
     // 暂停动画

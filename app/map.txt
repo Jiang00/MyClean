@@ -29654,12 +29654,12 @@ com.bruder.clean.activity.LoadingActivity$3 -> com.bruder.clean.activity.Loading
     217:217:void <init>(com.bruder.clean.activity.LoadingActivity) -> <init>
     223:295:void run() -> run
 com.bruder.clean.activity.MainActivity -> com.bruder.clean.activity.MainActivity:
-    java.lang.String TAG_HUA -> al
-    java.lang.String TAG_FULL_PULL -> am
-    java.lang.String TAG_START_FULL -> an
-    java.lang.String TAG_EXIT_FULL -> ao
-    java.lang.String TAG_SIDE -> ap
-    java.lang.String TAG_MAIN -> aq
+    java.lang.String TAG_HUA -> aS
+    java.lang.String TAG_FULL_PULL -> aT
+    java.lang.String TAG_START_FULL -> aU
+    java.lang.String TAG_EXIT_FULL -> aV
+    java.lang.String TAG_SIDE -> aW
+    java.lang.String TAG_MAIN -> aX
     com.bruder.clean.customeview.PullToMyRefreshLayout main_pull_refresh -> a
     android.widget.LinearLayout l_title_left -> b
     android.widget.LinearLayout l_title_right -> c
@@ -29693,7 +29693,7 @@ com.bruder.clean.activity.MainActivity -> com.bruder.clean.activity.MainActivity
     android.widget.Button main_notifi_button -> I
     android.widget.Button main_rotate_good -> J
     android.widget.Button main_good_refuse -> K
-    android.animation.AnimatorSet set -> ar
+    android.animation.AnimatorSet set -> aY
     android.widget.TextView main_msg_ram_percent -> L
     android.widget.TextView main_msg_sd_percent -> M
     android.widget.TextView main_msg_sd_unit -> N
@@ -29714,153 +29714,222 @@ com.bruder.clean.activity.MainActivity -> com.bruder.clean.activity.MainActivity
     android.widget.ImageView lot_ad -> ac
     android.widget.ImageView main_full_time -> ad
     android.widget.FrameLayout fl_lot_side -> ae
-    boolean isFirstIn -> as
-    java.util.ArrayList arrayList -> at
-    android.support.v7.app.AlertDialog dialog -> au
-    android.support.v7.app.AlertDialog dialog1 -> av
-    boolean mDrawerOpened -> aw
-    com.sample.lottie.LottieAnimationView lot_side -> af
-    android.os.Handler handler -> ax
-    com.bruder.clean.activity.MyApplication cleanApplication -> ay
-    com.bruder.clean.myadapter.SideAdapter adapter -> az
-    com.bruder.clean.presenter.MainPresenter mainPresenter -> aA
-    int temp -> aB
-    int sdProgress -> ag
-    long allSize -> aC
-    com.bruder.clean.customeview.PullToMyRefreshLayout$OnRefreshListener refreshListener -> ah
-    android.view.View$OnClickListener onClickListener -> ai
-    android.view.View view1 -> aj
-    java.lang.Runnable fullAdRunnale -> ak
-    60:781:void <init>() -> <init>
-    116:164:void onCreate(android.os.Bundle) -> onCreate
-    169:180:void isSharedPreferences() -> j
-    186:231:void isFirstInDialog() -> k
-    235:285:void findId() -> b
-    289:316:void onClick() -> c
-    320:361:void initSd(int,java.lang.String,long) -> a
-    365:365:void initGuard(int,android.view.animation.RotateAnimation) -> a
-    370:391:void initSideData() -> e
-    396:396:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
-    400:401:void openDrawer() -> f
-    406:407:void setRotateGone() -> g
-    411:430:void initCpu(int) -> b
-    585:586:void showMainAdAnim() -> l
-    590:626:void showAd() -> m
-    630:647:void onResume() -> onResume
-    651:656:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    659:680:void adDelete() -> n
-    684:688:void onDestroy() -> onDestroy
-    700:724:void initRam(int,java.lang.String) -> a
-    728:779:void loadFullAd() -> a
-    790:792:void onPause() -> onPause
-    796:821:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    826:826:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    830:838:void onBackPressed() -> onBackPressed
-    843:843:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    847:919:void onStart() -> onStart
-    923:927:void onRestart() -> onRestart
-    931:986:void showExitDialog() -> o
-    990:995:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    999:1009:void startAnimator(float,float,float,float) -> a
-    1013:1016:void pauseAnimator() -> h
-    1020:1021:void endAnimator() -> i
-    60:60:android.support.v7.app.AlertDialog access$000(com.bruder.clean.activity.MainActivity) -> a
-    60:60:android.os.Handler access$100(com.bruder.clean.activity.MainActivity) -> b
-    60:60:long access$202(com.bruder.clean.activity.MainActivity,long) -> a
-    60:60:java.lang.String access$300(com.bruder.clean.activity.MainActivity) -> c
-    60:60:com.bruder.clean.presenter.MainPresenter access$400(com.bruder.clean.activity.MainActivity) -> d
-    60:60:void access$500(com.bruder.clean.activity.MainActivity) -> e
-    60:60:void access$600(com.bruder.clean.activity.MainActivity) -> f
-    60:60:long access$200(com.bruder.clean.activity.MainActivity) -> g
-    60:60:android.support.v7.app.AlertDialog access$700(com.bruder.clean.activity.MainActivity) -> h
+    android.widget.ImageView main_ad_iv -> af
+    android.os.CountDownTimer cdt -> ag
+    int i -> ah
+    boolean isFirstIn -> aZ
+    java.util.ArrayList arrayList -> ba
+    android.support.v7.app.AlertDialog dialog -> bb
+    android.support.v7.app.AlertDialog dialog1 -> bc
+    boolean mDrawerOpened -> bd
+    com.sample.lottie.LottieAnimationView lot_side -> ai
+    android.os.Handler handler -> be
+    com.bruder.clean.activity.MyApplication cleanApplication -> bf
+    com.bruder.clean.myadapter.SideAdapter adapter -> bg
+    com.bruder.clean.presenter.MainPresenter mainPresenter -> bh
+    int temp -> bi
+    int sdProgress -> aj
+    long allSize -> bj
+    android.animation.ObjectAnimator translationY1 -> ak
+    android.animation.ObjectAnimator translationY2 -> al
+    com.bruder.clean.customeview.PullToMyRefreshLayout$OnRefreshListener refreshListener -> am
+    android.view.View$OnClickListener onClickListener -> an
+    android.widget.ImageView main_xing1 -> ao
+    android.widget.ImageView main_xing2 -> ap
+    android.widget.ImageView main_xing3 -> aq
+    android.widget.ImageView main_xing4 -> ar
+    android.widget.ImageView main_xing5 -> as
+    android.widget.ImageView main_xing6 -> at
+    android.widget.ImageView main_xing7 -> au
+    android.widget.ImageView main_xing8 -> av
+    android.widget.ImageView main_xing9 -> aw
+    android.animation.ObjectAnimator moveIn1 -> ax
+    android.animation.ObjectAnimator moveIn2 -> ay
+    android.animation.ObjectAnimator moveIn3 -> az
+    android.animation.ObjectAnimator moveIn4 -> aA
+    android.animation.ObjectAnimator moveIn5 -> aB
+    android.animation.ObjectAnimator moveIn6 -> aC
+    android.animation.ObjectAnimator moveIn7 -> aD
+    android.animation.ObjectAnimator moveIn8 -> aE
+    android.animation.ObjectAnimator moveIn9 -> aF
+    android.animation.ObjectAnimator rotate1 -> aG
+    android.animation.ObjectAnimator rotate2 -> aH
+    android.animation.ObjectAnimator rotate3 -> aI
+    android.animation.ObjectAnimator rotate4 -> aJ
+    android.animation.ObjectAnimator rotate5 -> aK
+    android.animation.ObjectAnimator rotate6 -> aL
+    android.animation.ObjectAnimator rotate7 -> aM
+    android.animation.ObjectAnimator rotate8 -> aN
+    android.animation.ObjectAnimator rotate9 -> aO
+    android.animation.AnimatorSet animSet -> aP
+    int adSize -> aQ
+    java.lang.Runnable fullAdRunnale -> aR
+    65:1001:void <init>() -> <init>
+    125:215:void onCreate(android.os.Bundle) -> onCreate
+    220:231:void isSharedPreferences() -> j
+    237:282:void isFirstInDialog() -> k
+    286:344:void findId() -> b
+    348:375:void onClick() -> c
+    379:420:void initSd(int,java.lang.String,long) -> a
+    424:424:void initGuard(int,android.view.animation.RotateAnimation) -> a
+    429:450:void initSideData() -> e
+    455:455:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
+    459:460:void openDrawer() -> f
+    465:466:void setRotateGone() -> g
+    470:489:void initCpu(int) -> b
+    646:776:void showMainAdAnim() -> l
+    782:824:void showAd(android.view.View) -> a
+    828:867:void onResume() -> onResume
+    871:876:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    879:900:void adDelete() -> m
+    904:908:void onDestroy() -> onDestroy
+    920:944:void initRam(int,java.lang.String) -> a
+    948:999:void loadFullAd() -> a
+    1010:1015:void onPause() -> onPause
+    1019:1044:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    1049:1049:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    1053:1061:void onBackPressed() -> onBackPressed
+    1066:1066:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    1070:1142:void onStart() -> onStart
+    1146:1150:void onRestart() -> onRestart
+    1154:1209:void showExitDialog() -> n
+    1213:1218:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    1222:1262:void startAnimator(float,float,float,float,int) -> a
+    1266:1269:void pauseAnimator() -> h
+    1273:1274:void endAnimator() -> i
+    65:65:android.support.v7.app.AlertDialog access$000(com.bruder.clean.activity.MainActivity) -> a
+    65:65:android.os.Handler access$100(com.bruder.clean.activity.MainActivity) -> b
+    65:65:long access$202(com.bruder.clean.activity.MainActivity,long) -> a
+    65:65:java.lang.String access$300(com.bruder.clean.activity.MainActivity) -> c
+    65:65:com.bruder.clean.presenter.MainPresenter access$400(com.bruder.clean.activity.MainActivity) -> d
+    65:65:void access$500(com.bruder.clean.activity.MainActivity) -> e
+    65:65:java.lang.String access$600(com.bruder.clean.activity.MainActivity) -> f
+    65:65:void access$700(com.bruder.clean.activity.MainActivity,android.view.View) -> a
+    65:65:void access$800(com.bruder.clean.activity.MainActivity) -> g
+    65:65:long access$200(com.bruder.clean.activity.MainActivity) -> h
+    65:65:android.support.v7.app.AlertDialog access$900(com.bruder.clean.activity.MainActivity) -> i
 com.bruder.clean.activity.MainActivity$1 -> com.bruder.clean.activity.MainActivity$1:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    191:191:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    194:198:void onClick(android.view.View) -> onClick
+    151:151:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    154:191:void onClick(android.view.View) -> onClick
+com.bruder.clean.activity.MainActivity$1$1 -> com.bruder.clean.activity.MainActivity$1$1:
+    com.bruder.clean.activity.MainActivity$1 this$1 -> a
+    166:166:void <init>(com.bruder.clean.activity.MainActivity$1) -> <init>
+    170:170:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    174:179:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    184:184:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    189:189:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
 com.bruder.clean.activity.MainActivity$10 -> com.bruder.clean.activity.MainActivity$2:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    671:671:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    674:676:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
+    528:528:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    532:636:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.MainActivity$11 -> com.bruder.clean.activity.MainActivity$3:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    701:701:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    704:722:void progressUpdate(int) -> a
-com.bruder.clean.activity.MainActivity$11$1 -> com.bruder.clean.activity.MainActivity$3$1:
-    int val$progress -> a
-    com.bruder.clean.activity.MainActivity$11 this$1 -> b
-    704:704:void <init>(com.bruder.clean.activity.MainActivity$11,int) -> <init>
-    712:720:void run() -> run
+    732:732:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    736:736:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    740:764:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    769:769:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    774:774:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
 com.bruder.clean.activity.MainActivity$12 -> com.bruder.clean.activity.MainActivity$4:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    768:768:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    771:773:void onClick(android.view.View) -> onClick
+    846:846:void <init>(com.bruder.clean.activity.MainActivity,long,long) -> <init>
+    850:850:void onTick(long) -> onTick
+    854:864:void onFinish() -> onFinish
 com.bruder.clean.activity.MainActivity$13 -> com.bruder.clean.activity.MainActivity$5:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    781:781:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    784:785:void run() -> run
+    891:891:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    894:896:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
 com.bruder.clean.activity.MainActivity$14 -> com.bruder.clean.activity.MainActivity$6:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    851:851:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    854:908:void run() -> run
+    921:921:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    924:942:void progressUpdate(int) -> a
 com.bruder.clean.activity.MainActivity$14$1 -> com.bruder.clean.activity.MainActivity$6$1:
-    long val$finalI -> a
+    int val$progress -> a
     com.bruder.clean.activity.MainActivity$14 this$1 -> b
-    879:879:void <init>(com.bruder.clean.activity.MainActivity$14,long) -> <init>
-    882:902:void run() -> run
+    924:924:void <init>(com.bruder.clean.activity.MainActivity$14,int) -> <init>
+    932:940:void run() -> run
 com.bruder.clean.activity.MainActivity$15 -> com.bruder.clean.activity.MainActivity$7:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    943:943:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    946:952:void onClick(android.view.View) -> onClick
+    988:988:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    991:993:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.MainActivity$16 -> com.bruder.clean.activity.MainActivity$8:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    955:955:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    958:959:void onClick(android.view.View) -> onClick
-com.bruder.clean.activity.MainActivity$2 -> com.bruder.clean.activity.MainActivity$9:
+    1001:1001:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    1004:1005:void run() -> run
+com.bruder.clean.activity.MainActivity$17 -> com.bruder.clean.activity.MainActivity$9:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    200:200:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    203:204:void onClick(android.view.View) -> onClick
-com.bruder.clean.activity.MainActivity$3 -> com.bruder.clean.activity.MainActivity$10:
+    1074:1074:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    1077:1131:void run() -> run
+com.bruder.clean.activity.MainActivity$17$1 -> com.bruder.clean.activity.MainActivity$9$1:
+    long val$finalI -> a
+    com.bruder.clean.activity.MainActivity$17 this$1 -> b
+    1102:1102:void <init>(com.bruder.clean.activity.MainActivity$17,long) -> <init>
+    1105:1125:void run() -> run
+com.bruder.clean.activity.MainActivity$18 -> com.bruder.clean.activity.MainActivity$10:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    311:311:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    314:314:void onScrollChanged(com.bruder.clean.customeview.MyMainScrollView,int,int,int,int) -> a
-com.bruder.clean.activity.MainActivity$4 -> com.bruder.clean.activity.MainActivity$11:
+    1166:1166:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    1169:1175:void onClick(android.view.View) -> onClick
+com.bruder.clean.activity.MainActivity$19 -> com.bruder.clean.activity.MainActivity$11:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    321:321:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    324:324:void run() -> run
-com.bruder.clean.activity.MainActivity$5 -> com.bruder.clean.activity.MainActivity$12:
+    1178:1178:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    1181:1182:void onClick(android.view.View) -> onClick
+com.bruder.clean.activity.MainActivity$2 -> com.bruder.clean.activity.MainActivity$12:
+    com.bruder.clean.activity.MainActivity this$0 -> a
+    242:242:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    245:249:void onClick(android.view.View) -> onClick
+com.bruder.clean.activity.MainActivity$20 -> com.bruder.clean.activity.MainActivity$13:
+    float val$start1 -> a
+    float val$end1 -> b
+    float val$start2 -> c
+    float val$end2 -> d
+    com.bruder.clean.activity.MainActivity this$0 -> e
+    1232:1232:void <init>(com.bruder.clean.activity.MainActivity,float,float,float,float) -> <init>
+    1236:1236:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    1240:1250:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    1255:1255:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    1260:1260:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+com.bruder.clean.activity.MainActivity$3 -> com.bruder.clean.activity.MainActivity$14:
+    com.bruder.clean.activity.MainActivity this$0 -> a
+    251:251:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    254:255:void onClick(android.view.View) -> onClick
+com.bruder.clean.activity.MainActivity$4 -> com.bruder.clean.activity.MainActivity$15:
+    com.bruder.clean.activity.MainActivity this$0 -> a
+    370:370:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    373:373:void onScrollChanged(com.bruder.clean.customeview.MyMainScrollView,int,int,int,int) -> a
+com.bruder.clean.activity.MainActivity$5 -> com.bruder.clean.activity.MainActivity$16:
+    com.bruder.clean.activity.MainActivity this$0 -> a
+    380:380:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    383:383:void run() -> run
+com.bruder.clean.activity.MainActivity$6 -> com.bruder.clean.activity.MainActivity$17:
     java.lang.Runnable val$sdRunable -> a
     com.bruder.clean.activity.MainActivity this$0 -> b
-    326:326:void <init>(com.bruder.clean.activity.MainActivity,java.lang.Runnable) -> <init>
-    329:331:void progressUpdate(int) -> a
-com.bruder.clean.activity.MainActivity$6 -> com.bruder.clean.activity.MainActivity$13:
+    385:385:void <init>(com.bruder.clean.activity.MainActivity,java.lang.Runnable) -> <init>
+    388:390:void progressUpdate(int) -> a
+com.bruder.clean.activity.MainActivity$7 -> com.bruder.clean.activity.MainActivity$18:
     long val$sd_kongxian -> a
     com.bruder.clean.activity.MainActivity this$0 -> b
-    334:334:void <init>(com.bruder.clean.activity.MainActivity,long) -> <init>
-    338:359:void run() -> run
-com.bruder.clean.activity.MainActivity$7 -> com.bruder.clean.activity.MainActivity$14:
+    393:393:void <init>(com.bruder.clean.activity.MainActivity,long) -> <init>
+    397:418:void run() -> run
+com.bruder.clean.activity.MainActivity$8 -> com.bruder.clean.activity.MainActivity$19:
     int val$temp -> a
     com.bruder.clean.activity.MainActivity this$0 -> b
-    413:413:void <init>(com.bruder.clean.activity.MainActivity,int) -> <init>
-    416:427:void progressUpdate(int) -> a
-com.bruder.clean.activity.MainActivity$7$1 -> com.bruder.clean.activity.MainActivity$14$1:
+    472:472:void <init>(com.bruder.clean.activity.MainActivity,int) -> <init>
+    475:486:void progressUpdate(int) -> a
+com.bruder.clean.activity.MainActivity$8$1 -> com.bruder.clean.activity.MainActivity$19$1:
     int val$progress -> a
-    com.bruder.clean.activity.MainActivity$7 this$1 -> b
-    416:416:void <init>(com.bruder.clean.activity.MainActivity$7,int) -> <init>
-    420:425:void run() -> run
-com.bruder.clean.activity.MainActivity$8 -> com.bruder.clean.activity.MainActivity$15:
+    com.bruder.clean.activity.MainActivity$8 this$1 -> b
+    475:475:void <init>(com.bruder.clean.activity.MainActivity$8,int) -> <init>
+    479:484:void run() -> run
+com.bruder.clean.activity.MainActivity$9 -> com.bruder.clean.activity.MainActivity$20:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    433:433:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    437:437:void onRefresh(com.bruder.clean.customeview.PullToMyRefreshLayout) -> a
-    442:465:void onLoadMore(com.bruder.clean.customeview.PullToMyRefreshLayout) -> b
-com.bruder.clean.activity.MainActivity$8$1 -> com.bruder.clean.activity.MainActivity$15$1:
-    com.bruder.clean.activity.MainActivity$8 this$1 -> a
-    443:443:void <init>(com.bruder.clean.activity.MainActivity$8) -> <init>
-    446:458:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    462:463:void onNativeAdLoadFails() -> onNativeAdLoadFails
-com.bruder.clean.activity.MainActivity$9 -> com.bruder.clean.activity.MainActivity$16:
-    com.bruder.clean.activity.MainActivity this$0 -> a
-    469:469:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    473:577:void onClick(android.view.View) -> onClick
+    492:492:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    496:496:void onRefresh(com.bruder.clean.customeview.PullToMyRefreshLayout) -> a
+    501:524:void onLoadMore(com.bruder.clean.customeview.PullToMyRefreshLayout) -> b
+com.bruder.clean.activity.MainActivity$9$1 -> com.bruder.clean.activity.MainActivity$20$1:
+    com.bruder.clean.activity.MainActivity$9 this$1 -> a
+    502:502:void <init>(com.bruder.clean.activity.MainActivity$9) -> <init>
+    505:517:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    521:522:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.bruder.clean.activity.MyApplication -> com.bruder.clean.activity.MyApplication:
     android.app.ActivityManager am -> a
     android.os.HandlerThread mThread -> b
@@ -31982,7 +32051,7 @@ com.bruder.clean.junk.R$styleable -> com.bruder.clean.b.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5178:14050:void <clinit>() -> <clinit>
+    5193:14065:void <clinit>() -> <clinit>
 com.bruder.clean.myadapter.AddGameAdapter -> com.bruder.clean.c.a:
     java.util.ArrayList game_list -> a
     35:37:void <init>(android.content.Context,java.util.ArrayList) -> <init>
