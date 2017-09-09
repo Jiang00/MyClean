@@ -1,5 +1,8 @@
 package com.bruder.clean.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.ComponentName;
@@ -50,7 +53,7 @@ public class FloatingActivity extends BaseActivity {
     private String TAG_FLAOT = "bruder_float";
     private Animation rotate, suo, fang;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
-    ImageView float_rotate,float_cricle;
+    ImageView float_rotate, float_cricle;
     TextView float_memory;
     LinearLayout rl_memory;
     TextView float_tishi;
@@ -210,15 +213,47 @@ public class FloatingActivity extends BaseActivity {
 
         setListAnimation();
         float_cricle.setVisibility(View.INVISIBLE);
-        float_tishi.setVisibility(View.INVISIBLE);
-        rl_memory.startAnimation(suo);
+//        float_tishi.setVisibility(View.INVISIBLE);
+
+        ObjectAnimator suoX = ObjectAnimator.ofFloat(rl_memory, "scaleX", 1f, 0f, 1f);
+        ObjectAnimator suoY = ObjectAnimator.ofFloat(rl_memory, "scaleY", 1f, 0f, 1f);
+        ObjectAnimator suoX2 = ObjectAnimator.ofFloat(float_tishi, "scaleX", 1f, 0f, 1f);
+        ObjectAnimator suoY2 = ObjectAnimator.ofFloat(float_tishi, "scaleY", 1f, 0f, 1f);
+        AnimatorSet animSet = new AnimatorSet();
+        animSet.play(suoY).with(suoX).with(suoX2).with(suoY2);
+        animSet.setDuration(2000);
+        animSet.start();
+        animSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                float_cricle.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+
+//        rl_memory.startAnimation(suo);
+//        float_tishi.startAnimation(suo);
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
                 float_memory.setText(Util.getMemory(FloatingActivity.this) + "");
                 float_tishi.setText(R.string.float_yijiasu);
-                float_tishi.setVisibility(View.VISIBLE);
-
+//                float_tishi.setVisibility(View.VISIBLE);
+                float_tishi.startAnimation(fang);
                 rl_memory.startAnimation(fang);
             }
 

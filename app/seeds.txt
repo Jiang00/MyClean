@@ -30950,6 +30950,12 @@ com.bruder.clean.activity.WhiteAvtivity
 com.bruder.clean.activity.WhiteAvtivity: WhiteAvtivity()
 com.bruder.clean.broadcast.UnloadingBroadcast
 com.bruder.clean.broadcast.UnloadingBroadcast: UnloadingBroadcast()
+com.bruder.clean.customeview.CanvasView
+com.bruder.clean.customeview.CanvasView: CanvasView(android.content.Context)
+com.bruder.clean.customeview.CanvasView: CanvasView(android.content.Context,android.util.AttributeSet)
+com.bruder.clean.customeview.CanvasView: CanvasView(android.content.Context,android.util.AttributeSet,int)
+com.bruder.clean.customeview.CanvasView: android.graphics.Path getPath()
+com.bruder.clean.customeview.CanvasView: void setsTraversalPath(android.graphics.Path)
 com.bruder.clean.customeview.CustomRoundCpuView
 com.bruder.clean.customeview.CustomRoundCpuView: CustomRoundCpuView(android.content.Context)
 com.bruder.clean.customeview.CustomRoundCpuView: CustomRoundCpuView(android.content.Context,android.util.AttributeSet)
@@ -32102,6 +32108,8 @@ com.bruder.clean.junk.R$id: int bt_quxiao
 com.bruder.clean.junk.R$id: int buttonPanel
 com.bruder.clean.junk.R$id: int cancel_action
 com.bruder.clean.junk.R$id: int cancle
+com.bruder.clean.junk.R$id: int canvas
+com.bruder.clean.junk.R$id: int canvas2
 com.bruder.clean.junk.R$id: int center
 com.bruder.clean.junk.R$id: int center_horizontal
 com.bruder.clean.junk.R$id: int center_vertical
@@ -32277,6 +32285,7 @@ com.bruder.clean.junk.R$id: int junk_user_jiantou
 com.bruder.clean.junk.R$id: int junk_user_list
 com.bruder.clean.junk.R$id: int junk_user_size
 com.bruder.clean.junk.R$id: int junk_user_unit
+com.bruder.clean.junk.R$id: int l_title_ad
 com.bruder.clean.junk.R$id: int l_title_left
 com.bruder.clean.junk.R$id: int l_title_right
 com.bruder.clean.junk.R$id: int left
@@ -32289,6 +32298,7 @@ com.bruder.clean.junk.R$id: int list_si
 com.bruder.clean.junk.R$id: int ll
 com.bruder.clean.junk.R$id: int ll_ad
 com.bruder.clean.junk.R$id: int ll_ad_exit
+com.bruder.clean.junk.R$id: int ll_ad_full
 com.bruder.clean.junk.R$id: int ll_ad_side
 com.bruder.clean.junk.R$id: int ll_ad_xiao
 com.bruder.clean.junk.R$id: int ll_add_game
@@ -32302,7 +32312,9 @@ com.bruder.clean.junk.R$id: int ll_tv
 com.bruder.clean.junk.R$id: int ll_wifi
 com.bruder.clean.junk.R$id: int ll_xianshi
 com.bruder.clean.junk.R$id: int ll_zi
+com.bruder.clean.junk.R$id: int loading_iv1
 com.bruder.clean.junk.R$id: int loading_text
+com.bruder.clean.junk.R$id: int lot_ad
 com.bruder.clean.junk.R$id: int lottie_layer_name
 com.bruder.clean.junk.R$id: int main_all_cercle
 com.bruder.clean.junk.R$id: int main_cancel
@@ -32371,6 +32383,9 @@ com.bruder.clean.junk.R$id: int message_system_start_time
 com.bruder.clean.junk.R$id: int message_system_start_time2
 com.bruder.clean.junk.R$id: int middle
 com.bruder.clean.junk.R$id: int mini
+com.bruder.clean.junk.R$id: int moved_item
+com.bruder.clean.junk.R$id: int moved_item2
+com.bruder.clean.junk.R$id: int moved_item_guang
 com.bruder.clean.junk.R$id: int multiply
 com.bruder.clean.junk.R$id: int navigation_header_container
 com.bruder.clean.junk.R$id: int never
@@ -32513,8 +32528,6 @@ com.bruder.clean.junk.R$id: int short_backg
 com.bruder.clean.junk.R$id: int short_clean_szie
 com.bruder.clean.junk.R$id: int short_cut1
 com.bruder.clean.junk.R$id: int short_cut2
-com.bruder.clean.junk.R$id: int short_cut3
-com.bruder.clean.junk.R$id: int short_cut4
 com.bruder.clean.junk.R$id: int short_cut_beijing
 com.bruder.clean.junk.R$id: int shortcut
 com.bruder.clean.junk.R$id: int showCustom
@@ -32564,7 +32577,6 @@ com.bruder.clean.junk.R$id: int tv_danwei
 com.bruder.clean.junk.R$id: int tv_jiasu
 com.bruder.clean.junk.R$id: int tv_memory
 com.bruder.clean.junk.R$id: int tv_name
-com.bruder.clean.junk.R$id: int tv_s
 com.bruder.clean.junk.R$id: int tv_size
 com.bruder.clean.junk.R$id: int tv_tiaoguo
 com.bruder.clean.junk.R$id: int tv_title_name
@@ -32688,6 +32700,8 @@ com.bruder.clean.junk.R$layout: int layout_unload
 com.bruder.clean.junk.R$layout: int layout_white_list_add
 com.bruder.clean.junk.R$layout: int layout_white_list_item
 com.bruder.clean.junk.R$layout: int main_ad
+com.bruder.clean.junk.R$layout: int main_ad_dialog
+com.bruder.clean.junk.R$layout: int main_ad_native
 com.bruder.clean.junk.R$layout: int main_circle
 com.bruder.clean.junk.R$layout: int native_ad
 com.bruder.clean.junk.R$layout: int native_ad1
@@ -32753,7 +32767,6 @@ com.bruder.clean.junk.R$mipmap: int file_zip_icon
 com.bruder.clean.junk.R$mipmap: int flakyclouds
 com.bruder.clean.junk.R$mipmap: int float_ball
 com.bruder.clean.junk.R$mipmap: int float_ball_bj
-com.bruder.clean.junk.R$mipmap: int float_beijing_left
 com.bruder.clean.junk.R$mipmap: int float_beijing_right
 com.bruder.clean.junk.R$mipmap: int float_dialog_3
 com.bruder.clean.junk.R$mipmap: int float_gps
@@ -32793,6 +32806,7 @@ com.bruder.clean.junk.R$mipmap: int load_succeed
 com.bruder.clean.junk.R$mipmap: int loading
 com.bruder.clean.junk.R$mipmap: int loading_icon
 com.bruder.clean.junk.R$mipmap: int log_file
+com.bruder.clean.junk.R$mipmap: int main_ad
 com.bruder.clean.junk.R$mipmap: int main_cooling_button
 com.bruder.clean.junk.R$mipmap: int main_junk_button
 com.bruder.clean.junk.R$mipmap: int main_manager_button
@@ -32802,6 +32816,7 @@ com.bruder.clean.junk.R$mipmap: int main_ram_button
 com.bruder.clean.junk.R$mipmap: int main_rotate_2
 com.bruder.clean.junk.R$mipmap: int main_setting
 com.bruder.clean.junk.R$mipmap: int main_theme_button
+com.bruder.clean.junk.R$mipmap: int main_ufo
 com.bruder.clean.junk.R$mipmap: int more
 com.bruder.clean.junk.R$mipmap: int next_ad_pro
 com.bruder.clean.junk.R$mipmap: int nodetected
@@ -32858,12 +32873,14 @@ com.bruder.clean.junk.R$mipmap: int short_cut3
 com.bruder.clean.junk.R$mipmap: int short_cut4
 com.bruder.clean.junk.R$mipmap: int short_cut_beijing
 com.bruder.clean.junk.R$mipmap: int short_cut_icon
+com.bruder.clean.junk.R$mipmap: int short_saoba
 com.bruder.clean.junk.R$mipmap: int side_charging
 com.bruder.clean.junk.R$mipmap: int side_check_normal
 com.bruder.clean.junk.R$mipmap: int side_check_normal1
 com.bruder.clean.junk.R$mipmap: int side_check_normal2
 com.bruder.clean.junk.R$mipmap: int side_check_passed
 com.bruder.clean.junk.R$mipmap: int side_check_passed3
+com.bruder.clean.junk.R$mipmap: int side_file
 com.bruder.clean.junk.R$mipmap: int side_float
 com.bruder.clean.junk.R$mipmap: int side_junk
 com.bruder.clean.junk.R$mipmap: int side_manager
@@ -35974,6 +35991,7 @@ com.mingle.widget.ImageView: ImageView(android.content.Context,android.util.Attr
 com.mingle.widget.ImageView: void setOnClickListener(android.view.View$OnClickListener)
 com.mingle.widget.ImageView: void setSkinStyle(com.mingle.skin.SkinStyle)
 com.mingle.widget.LinearLayout
+com.mingle.widget.LinearLayout: LinearLayout(android.content.Context)
 com.mingle.widget.LinearLayout: LinearLayout(android.content.Context,android.util.AttributeSet)
 com.mingle.widget.LinearLayout: LinearLayout(android.content.Context,android.util.AttributeSet,int)
 com.mingle.widget.LinearLayout: void setDividerDrawable(android.graphics.drawable.Drawable)

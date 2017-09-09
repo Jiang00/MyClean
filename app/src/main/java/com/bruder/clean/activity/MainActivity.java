@@ -2,6 +2,7 @@ package com.bruder.clean.activity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -47,6 +48,9 @@ import com.bruder.clean.util.UtilAd;
 import com.cleaner.heart.CleanManager;
 import com.cleaner.util.DataPre;
 import com.cleaner.util.Util;
+import com.mingle.circletreveal.CircularRevealCompat;
+import com.mingle.widget.animation.CRAnimation;
+import com.mingle.widget.animation.SimpleAnimListener;
 import com.my.bruder.charge.saver.Util.Constants;
 import com.my.bruder.charge.saver.Util.Utils;
 import com.sample.lottie.LottieAnimationView;
@@ -63,6 +67,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     private String TAG_MAIN = "bruder_main";
     PullToMyRefreshLayout main_pull_refresh;
     LinearLayout l_title_left, l_title_right;
+    LinearLayout l_title_ad;
     MyMainScrollView main_scroll_view;
     ImageView clear1, clear2, clear3;
     public static final String TAG = "MainActivity";
@@ -87,6 +92,8 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     RelativeLayout poweracativity, fileactivity, notifiactivity, main_more;
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side, ad_native_2;
+    LinearLayout ll_ad_full;
+    ImageView lot_ad;
     ImageView main_full_time;
     FrameLayout fl_lot_side;
 
@@ -173,6 +180,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     }
 
     // 第一次登陆对话框
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void isFirstInDialog() {
         // 绑定布局文件
         View view = View.inflate(this, R.layout.dialog_first, null);
@@ -233,6 +241,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
         l_title_left = (LinearLayout) findViewById(R.id.l_title_left);
         l_title_right = (LinearLayout) findViewById(R.id.l_title_right);
+        l_title_ad = (LinearLayout) findViewById(R.id.l_title_ad);
         main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
         main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
         main_manager_button = (RelativeLayout) findViewById(R.id.main_manager_button);
@@ -262,12 +271,16 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         main_more = (RelativeLayout) findViewById(R.id.main_more);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
-//        ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
+        ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
+        lot_ad = (ImageView) findViewById(R.id.lot_ad);
 
         //lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
 //        lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
+
+        //float left, float top, float right, float bottom  xyxy
+        view1 = findViewById(R.id.moved_item);
 
     }
 
@@ -277,6 +290,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         iv_title_left.setOnClickListener(onClickListener);
         l_title_left.setOnClickListener(onClickListener);
         l_title_right.setOnClickListener(onClickListener);
+        l_title_ad.setOnClickListener(onClickListener);
         main_junk_button.setOnClickListener(onClickListener);
         main_ram_button.setOnClickListener(onClickListener);
         main_manager_button.setOnClickListener(onClickListener);
@@ -299,7 +313,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
             public void onScrollChanged(MyMainScrollView scrollView, int x, int y, int oldx, int oldy) {
             }
         });
-
     }
 
     @Override
@@ -362,6 +375,9 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, DataPre.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DataPre.getDB(this, Constant.FILEACTIVITY, 0) != 0) {
+            adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DataPre.getDB(this, Constant.POWERACATIVITY, 0) != 0) {
             adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
         }
@@ -465,6 +481,12 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                     UtilAd.track("主页面", "点击进入设置页面", "", 1);
                     mainPresenter.jumpToActivity(SetActivity.class, 1);
                     break;
+                case R.id.l_title_ad:
+                    //设置按钮
+                    UtilAd.track("主页面", "点击AD", "", 1);
+
+                    showMainAdAnim();
+                    break;
                 case R.id.iv_title_left:
                     // 菜单按钮
                     mainPresenter.openDrawer();
@@ -555,6 +577,54 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         }
     };
 
+    View view1;
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void showMainAdAnim() {
+
+        showAd();
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void showAd() {
+        View view = View.inflate(this, R.layout.main_ad_dialog, null);
+        final LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
+        dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+        if (DataPre.getDB(this, Constant.FULL_EXIT, 0) == 0) {
+            final View nativeExit = UtilAd.getNativeAdView(TAG_EXIT_FULL, R.layout.main_ad_native);
+            if (nativeExit != null) {
+                ll_ad_exit.addView(nativeExit);
+                ll_ad_exit.setVisibility(View.VISIBLE);
+            } else {
+                dialog.dismiss();
+            }
+        }
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.width = dm.widthPixels; //设置宽度
+        lp.height = dm.heightPixels; //设置高度
+        if (DataPre.getDB(this, Constant.IS_ACTION_BAR, true)) {
+            int uiOptions =
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                            //布局位于状态栏下方
+                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                            //隐藏导航栏
+                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+            if (Build.VERSION.SDK_INT >= 19) {
+                uiOptions |= 0x00001000;
+            } else {
+                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+            }
+            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        }
+        dialog.getWindow().setAttributes(lp);
+        dialog.getWindow().setContentView(view);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -586,6 +656,27 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     }
 
     private void adDelete() {
+        if (ll_ad_full == null) {
+            return;
+        }
+        if (onPause || !onResume) {
+            ll_ad_full.setVisibility(View.GONE);
+            return;
+        }
+        int[] loc = new int[2];
+        lot_ad.getLocationOnScreen(loc);
+        CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(loc[0] + lot_ad.getWidth() / 2,
+                loc[1] + lot_ad.getHeight() / 2, ll_ad_full.getHeight(), 0);
+        if (crA != null) {
+            crA.addListener(new SimpleAnimListener() {
+                @Override
+                public void onAnimationEnd(CRAnimation animation) {
+                    super.onAnimationEnd(animation);
+                    ll_ad_full.setVisibility(View.GONE);
+                }
+            });
+            crA.start();
+        }
     }
 
     @Override
@@ -667,8 +758,8 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         } else {
             View nativeView_full = UtilAd.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (nativeView_full != null) {
-//                ll_ad_full.addView(nativeView_full);
-//                ll_ad_full.setVisibility(View.VISIBLE);
+                ll_ad_full.addView(nativeView_full);
+                ll_ad_full.setVisibility(View.VISIBLE);
                 nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
                 main_full_time = (ImageView) nativeView_full.findViewById(R.id.main_full_time);
                 LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
@@ -755,7 +846,8 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     protected void onStart() {
         super.onStart();
         //旋转动画
-        startAnimator(0f, 360f, 0f, -360f);
+//        startAnimator(0f, 360f, 0f, -360f);
+        startAnimator(0f, -359f, 0f, 359f);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -795,13 +887,13 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 //                                main_garbage_wait_clear.startAnimation(animation);
 //                                main_garbage_wait_clear.setVisibility(View.VISIBLE);
                                 main_clear_button.setText(R.string.garbage);
-                                pauseAnimator();
-                                startAnimator(0f, -360f, 0f, 360f);
+//                                pauseAnimator();
+//                                startAnimator(0f, -360f, 0f, 360f);
                             } else if (allSize == 0) {
-                                pauseAnimator();
+//                                pauseAnimator();
                                 main_clear_relativeLayout.setVisibility(View.GONE);
                                 main_clear_relativeLayout1.setVisibility(View.VISIBLE);
-                                startAnimator(0f, -360f, 0f, 360f);
+//                                startAnimator(0f, -360f, 0f, 360f);
                             } else {
                                 // 设置大小
                                 main_garbage_button.setText(mainGarbageButtonSize.subSequence(0, mainGarbageButtonSize.length() - 2));
@@ -834,6 +926,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void showExitDialog() {
         View view = View.inflate(this, R.layout.dialog_exit, null);
         LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);

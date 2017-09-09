@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/title_hight"
                 android:background="@color/A1">
@@ -47,30 +47,21 @@
                         android:src="@mipmap/main_menu" />
                 </LinearLayout>
 
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
                 <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/tv_title_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:layout_gravity="center_vertical"
                     android:text="@string/app_name"
                     android:textColor="@color/A0"
                     android:textSize="@dimen/s18" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
                 <LinearLayout
                     android:id="@+id/l_title_right"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center_vertical">
 
@@ -84,7 +75,37 @@
                         android:src="@mipmap/main_setting" />
                 </LinearLayout>
 
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/l_title_ad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@id/l_title_right"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="center"
+                        android:src="@mipmap/main_ad" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/lot_ad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:scaleType="center"
+                        android:src="@mipmap/main_ad" />
+                </LinearLayout>
+            </RelativeLayout>
 
             <com.bruder.clean.customeview.PullToMyRefreshLayout
                 android:id="@+id/main_pull_refresh"
@@ -1045,15 +1066,33 @@
             </com.bruder.clean.customeview.PullToMyRefreshLayout>
         </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d437"
+            android:layout_gravity="center_vertical">
 
-        <!--<com.mingle.widget.LinearLayout-->
-        <!--android:id="@+id/ll_ad_full"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:background="@color/A8"-->
-        <!--android:clickable="true"-->
-        <!--android:orientation="vertical"-->
-        <!--android:visibility="gone" />-->
+            <ImageView
+                android:id="@+id/moved_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/main_ufo" />
+
+            <ImageView
+                android:id="@+id/moved_item_guang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/moved_item"
+                android:src="@mipmap/main_ad_light" />
+        </RelativeLayout>
+
+        <com.mingle.widget.LinearLayout
+            android:id="@+id/ll_ad_full"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/A0"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:visibility="gone" />
 
 
         <ProgressBar

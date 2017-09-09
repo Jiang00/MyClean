@@ -53,7 +53,7 @@ public class ShortCutingActivity extends BaseActivity {
     private long size;
     private int count;
     private Handler myHandler;
-    ImageView short_cut2, short_cut3, short_cut4;
+    ImageView short_cut2;
     RelativeLayout short_cut_beijing;
 
 
@@ -106,8 +106,6 @@ public class ShortCutingActivity extends BaseActivity {
         short_backg = (FrameLayout) findViewById(R.id.short_backg);
         short_cut_beijing = (RelativeLayout) findViewById(R.id.short_cut_beijing);
         short_cut2 = (ImageView) findViewById(R.id.short_cut2);
-        short_cut3 = (ImageView) findViewById(R.id.short_cut3);
-        short_cut4 = (ImageView) findViewById(R.id.short_cut4);
     }
 
     private void clear(Context context) {
@@ -237,9 +235,7 @@ public class ShortCutingActivity extends BaseActivity {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
         AnimatorSet set = new AnimatorSet();
-        ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, 359f);
-        ObjectAnimator animator2 = ObjectAnimator.ofFloat(short_cut3, "rotation", 0f, -359f);
-        ObjectAnimator animator3 = ObjectAnimator.ofFloat(short_cut4, "rotation", 0f, 359f);
+        ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, -359f);
         set.setDuration(300);
         set.addListener(new Animator.AnimatorListener() {
             @Override
@@ -251,8 +247,6 @@ public class ShortCutingActivity extends BaseActivity {
             public void onAnimationEnd(Animator animation) {
                 short_cut_beijing.startAnimation(suo);
                 short_cut2.setVisibility(View.GONE);
-                short_cut3.setVisibility(View.GONE);
-                short_cut4.setVisibility(View.GONE);
             }
 
             @Override
@@ -267,10 +261,8 @@ public class ShortCutingActivity extends BaseActivity {
         });
         LinearInterpolator lin = new LinearInterpolator();
         set.setInterpolator(lin);
-        animator2.setRepeatCount(5);//设置重复次数
         animator1.setRepeatCount(5);//设置重复次数
-        animator3.setRepeatCount(5);//设置重复次数
-        set.play(animator1).with(animator2).with(animator3);
+        set.play(animator1);
         set.start();
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override

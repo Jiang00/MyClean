@@ -9,11 +9,12 @@ import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.cleaner.util.Util;
 import com.bruder.clean.junk.R;
+import com.cleaner.util.Util;
 
 /**
  * Created by chengyuan on 16/8/12.
@@ -24,11 +25,12 @@ public class FloatStateMyView extends View {
     public static final int STATE_LEFT = 1;
     public static final int STATE_RIGHT = 2;
 
-    public int width = Util.dp2px(30);
-    public int height = Util.dp2px(30);
+    public int width = getResources().getDimensionPixelSize(R.dimen.d48);
+    public int height = getResources().getDimensionPixelSize(R.dimen.d48);
     private Paint textPaint;
+    private Paint paint;
     private Paint firstPaint;
-    private String text = "50%";
+    private String text = "50";
     private int type = 1;
     private int pratent;
     private Bitmap bitmap_normal;
@@ -79,9 +81,16 @@ public class FloatStateMyView extends View {
         textPaint.setColor(Color.WHITE);
         textPaint.setAntiAlias(true);
         textPaint.setFakeBoldText(true);
+        //圆
+        paint = new Paint();
+        paint.setColor(Color.WHITE);
+        paint.setAntiAlias(true);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(getResources().getDimensionPixelSize(R.dimen.d2));
+
         Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.icon);
         bitmap_normal = Bitmap.createScaledBitmap(src, width, height, true);
-        bitmap_left = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_left), width, height, true);
+        bitmap_left = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_right), width, height, true);
         bitmap_right = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_right), width, height, true);
     }
 
@@ -109,12 +118,19 @@ public class FloatStateMyView extends View {
             } else {
                 firstPaint.setColor(getResources().getColor(R.color.A1));
             }
+
             float textWidth = textPaint.measureText(text);
-            float x = width / 2 - textWidth / 2 ;
+            float x = width / 2 - textWidth / 2;
             Paint.FontMetrics metrics = textPaint.getFontMetrics();
             float dy = -(metrics.descent + metrics.ascent) / 2;
             float y = dy + height / 2;
             canvas.drawText(text, x, y, textPaint);
+            /**
+             * 这是一个居中的圆
+             */
+            int w = getResources().getDimensionPixelSize(R.dimen.d10);
+            RectF oval = new RectF(w, w, width - w, height - w);
+            canvas.drawArc(oval, -90, 3.6f * pratent, false, paint);
         }
     }
 
