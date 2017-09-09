@@ -26,6 +26,13 @@
             android:layout_gravity="center">
 
             <ImageView
+                android:id="@+id/short_cut2"
+                android:layout_width="@dimen/d100"
+                android:layout_height="@dimen/d100"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/short_cut2" />
+
+            <ImageView
                 android:id="@+id/short_cut1"
                 android:layout_width="@dimen/d100"
                 android:layout_height="@dimen/d100"
@@ -33,17 +40,11 @@
                 android:src="@mipmap/short_cut1" />
 
             <ImageView
-                android:layout_width="@dimen/d100"
-                android:layout_height="@dimen/d100"
+                android:id="@+id/short_saoba"
+                android:layout_width="@dimen/d32"
+                android:layout_height="@dimen/d32"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/short_saoba" />
-
-            <ImageView
-                android:id="@+id/short_cut2"
-                android:layout_width="@dimen/d100"
-                android:layout_height="@dimen/d100"
-                android:layout_centerInParent="true"
-                android:src="@mipmap/short_cut2" />
         </RelativeLayout>
 
         <LinearLayout

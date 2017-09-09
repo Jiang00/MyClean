@@ -1,5 +1,8 @@
 package com.bruder.clean.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,6 +10,7 @@ import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -27,6 +31,12 @@ import org.json.JSONObject;
 public class LoadingActivity extends BaseActivity {
     TextView tv_tiaoguo;
     Handler myHandler;
+    TextView loading_appname;
+    ImageView loading_iv1, loading_iv2, loading_iv3, loading_iv4, loading_iv5, loading_iv6, loading_iv7,
+            loading_iv8, loading_iv9, loading_iv10, loading_iv11, loading_iv12, loading_iv13;
+    AnimatorSet animSet, animSet2, animSet3, animSet4;
+    ObjectAnimator animator1, animator2, animator3, animator4, animator5, animator6, animator7, animator8,
+            animator9, animator10, animator11, animator12, animator13;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +53,147 @@ public class LoadingActivity extends BaseActivity {
             DataPre.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
         myHandler.removeCallbacks(runnable1);
-        myHandler.postDelayed(runnable1, 2000);
+        myHandler.postDelayed(runnable1, 4000);
+        loading_appname = (TextView) findViewById(R.id.loading_appname);
+        loading_iv1 = (ImageView) findViewById(R.id.loading_iv1);
+        loading_iv2 = (ImageView) findViewById(R.id.loading_iv2);
+        loading_iv3 = (ImageView) findViewById(R.id.loading_iv3);
+        loading_iv4 = (ImageView) findViewById(R.id.loading_iv4);
+        loading_iv5 = (ImageView) findViewById(R.id.loading_iv5);
+        loading_iv6 = (ImageView) findViewById(R.id.loading_iv6);
+        loading_iv7 = (ImageView) findViewById(R.id.loading_iv7);
+        loading_iv8 = (ImageView) findViewById(R.id.loading_iv8);
+        loading_iv9 = (ImageView) findViewById(R.id.loading_iv9);
+        loading_iv10 = (ImageView) findViewById(R.id.loading_iv10);
+        loading_iv11 = (ImageView) findViewById(R.id.loading_iv11);
+        loading_iv12 = (ImageView) findViewById(R.id.loading_iv12);
+        loading_iv13 = (ImageView) findViewById(R.id.loading_iv13);
+
+        animator1 = ObjectAnimator.ofFloat(loading_iv1, "alpha", 0f, 0.3f);
+        animator2 = ObjectAnimator.ofFloat(loading_iv2, "alpha", 0f, 0.3f);
+        animator5 = ObjectAnimator.ofFloat(loading_iv5, "alpha", 0f, 0.6f);
+        animator4 = ObjectAnimator.ofFloat(loading_iv4, "alpha", 0f, 0.4f);
+        ObjectAnimator animatory1 = ObjectAnimator.ofFloat(loading_iv1, "translationY", loading_iv1.getTranslationY(),
+                loading_iv1.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+        ObjectAnimator animatory2 = ObjectAnimator.ofFloat(loading_iv2, "translationY", loading_iv2.getTranslationY(),
+                loading_iv2.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+        ObjectAnimator animatory3 = ObjectAnimator.ofFloat(loading_iv5, "translationY", loading_iv5.getTranslationY(),
+                loading_iv5.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+        ObjectAnimator animatory4 = ObjectAnimator.ofFloat(loading_iv4, "translationY", loading_iv4.getTranslationY(),
+                loading_iv4.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+        animSet2 = new AnimatorSet();
+        animSet2.setDuration(1000);
+        animSet2.play(animator1).with(animator2).with(animator5).with(animator4).with(animatory1).with(animatory2).with(animatory3).with(animatory4);
+        animSet2.start();
+
+        animSet2.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                animator3 = ObjectAnimator.ofFloat(loading_iv3, "alpha", 0f, 0.5f);
+                animator6 = ObjectAnimator.ofFloat(loading_iv6, "alpha", 0f, 1f);
+                animator7 = ObjectAnimator.ofFloat(loading_iv7, "alpha", 0f, 0.7f);
+                animator8 = ObjectAnimator.ofFloat(loading_iv8, "alpha", 0f, 0.3f);
+                animSet3 = new AnimatorSet();
+                animSet3.setDuration(1000);
+                ObjectAnimator animatory1 = ObjectAnimator.ofFloat(loading_iv3, "translationY", loading_iv3.getTranslationY(),
+                        loading_iv3.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+                ObjectAnimator animatory2 = ObjectAnimator.ofFloat(loading_iv6, "translationY", loading_iv6.getTranslationY(),
+                        loading_iv6.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+                ObjectAnimator animatory3 = ObjectAnimator.ofFloat(loading_iv7, "translationY", loading_iv7.getTranslationY(),
+                        loading_iv7.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+                ObjectAnimator animatory4 = ObjectAnimator.ofFloat(loading_iv8, "translationY", loading_iv8.getTranslationY(),
+                        loading_iv8.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+                animSet3.play(animator3).with(animator6).with(animator7).with(animator8).with(animatory1).with(animatory2).with(animatory3).with(animatory4);
+                animSet3.start();
+                animSet3.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        animator9 = ObjectAnimator.ofFloat(loading_iv9, "alpha", 0f, 0.3f);
+                        animator10 = ObjectAnimator.ofFloat(loading_iv10, "alpha", 0f, 0.3f);
+                        animator11 = ObjectAnimator.ofFloat(loading_iv11, "alpha", 0f, 0.3f);
+                        animator12 = ObjectAnimator.ofFloat(loading_iv12, "alpha", 0f, 1f);
+                        ObjectAnimator animatory1 = ObjectAnimator.ofFloat(loading_iv9, "translationY", loading_iv9.getTranslationY(),
+                                loading_iv9.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+                        ObjectAnimator animatory2 = ObjectAnimator.ofFloat(loading_iv10, "translationY", loading_iv10.getTranslationY(),
+                                loading_iv10.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+                        ObjectAnimator animatory3 = ObjectAnimator.ofFloat(loading_iv11, "translationY", loading_iv11.getTranslationY(),
+                                loading_iv11.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+                        ObjectAnimator animatory4 = ObjectAnimator.ofFloat(loading_iv12, "translationY", loading_iv12.getTranslationY(),
+                                loading_iv12.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+                        animSet4 = new AnimatorSet();
+                        animSet4.setDuration(1000);
+                        animSet4.play(animator9).with(animator10).with(animator11).with(animator12).with(animatory1).with(animatory2).with(animatory3).with(animatory4);
+                        animSet4.start();
+
+                        animSetAddListener(animSet4);
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+    }
+
+    private void animSetAddListener(AnimatorSet animSet5) {
+        animSet5.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                animator13 = ObjectAnimator.ofFloat(loading_iv13, "alpha", 0f, 1f);
+
+                ObjectAnimator animator14 = ObjectAnimator.ofFloat(loading_appname, "alpha", 0f, 1f);
+
+                ObjectAnimator animator15 = ObjectAnimator.ofFloat(loading_appname, "translationY", loading_appname.getTranslationY(),
+                        loading_appname.getTranslationY() - getResources().getDimensionPixelSize(R.dimen.d8));
+
+                animSet = new AnimatorSet();
+                animSet.setDuration(1000);
+                animSet.play(animator14).with(animator15).with(animator13);
+                animSet.start();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 
     @Override

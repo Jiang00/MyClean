@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -119,9 +120,16 @@ public class ShortCutingActivity extends BaseActivity {
             ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
             loadAd();
             TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
+            ImageView short_delete = (ImageView) view.findViewById(R.id.short_delete);
             if (size < 0) {
                 size = 0;
             }
+            short_delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
             short_clean_szie.setText(Util.convertStorage(size, true));
             dialog = new Dialog(ShortCutingActivity.this, R.style.add_dialog);
             dialog.show();
@@ -234,6 +242,31 @@ public class ShortCutingActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+        final ImageView short_saoba = (ImageView) findViewById(R.id.short_saoba);
+
+        RotateAnimation animation = new RotateAnimation(0f, -10f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);
+        animation.setDuration(750);
+        animation.setRepeatCount(0);
+        short_saoba.startAnimation(animation);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                RotateAnimation animation2 = new RotateAnimation(-10f, 0f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);
+                animation2.setDuration(750);
+                animation2.setRepeatCount(0);
+                short_saoba.startAnimation(animation2);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
         AnimatorSet set = new AnimatorSet();
         ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, -359f);
         set.setDuration(300);
@@ -245,8 +278,36 @@ public class ShortCutingActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                short_cut_beijing.startAnimation(suo);
-                short_cut2.setVisibility(View.GONE);
+                AnimatorSet set1 = new AnimatorSet();
+                ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, 359f);
+                set1.setDuration(450);
+                LinearInterpolator lin = new LinearInterpolator();
+                set1.setInterpolator(lin);
+                animator1.setRepeatCount(1);//设置重复次数
+                set1.play(animator1);
+                set1.start();
+                set1.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        short_cut_beijing.startAnimation(suo);
+                        short_cut2.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
             }
 
             @Override
@@ -261,9 +322,10 @@ public class ShortCutingActivity extends BaseActivity {
         });
         LinearInterpolator lin = new LinearInterpolator();
         set.setInterpolator(lin);
-        animator1.setRepeatCount(5);//设置重复次数
+        animator1.setRepeatCount(2);//设置重复次数
         set.play(animator1);
         set.start();
+
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
