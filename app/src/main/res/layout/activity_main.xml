@@ -595,55 +595,6 @@
                                 android:background="@color/B1" />
                         </RelativeLayout>
 
-                        <!--应用锁-->
-                        <!-- <RelativeLayout
-                             android:layout_width="match_parent"
-                             android:layout_height="@dimen/d72"
-                             android:background="?attr/selectableItemBackground"
-                             android:gravity="center_vertical"
-                             android:orientation="horizontal">
-
-                             <ImageView
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_marginLeft="@dimen/d25"
-                                 android:src="@mipmap/applock" />
-
-                             <LinearLayout
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_marginLeft="@dimen/d72"
-                                 android:orientation="vertical">
-
-                                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                     android:id="@+id/main_msg_picture"
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:text="@string/applock_9"
-                                     android:textColor="@color/A2"
-                                     android:textSize="@dimen/s14" />
-
-                                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginTop="@dimen/d6"
-                                     android:text="为您的隐私保驾护航"
-                                     android:textColor="@color/A3"
-                                     android:textSize="@dimen/s12" />
-                             </LinearLayout>
-
-                             <Button
-                                 android:id="@+id/main_applock_button"
-                                 android:layout_width="@dimen/d79"
-                                 android:layout_height="@dimen/d32"
-                                 android:layout_alignParentRight="true"
-                                 android:layout_marginRight="@dimen/d16"
-                                 android:background="@drawable/shape_button"
-                                 android:text="点击进入"
-                                 android:textColor="@color/A0"
-                                 android:textSize="@dimen/s12" />
-                         </RelativeLayout>-->
-
                         <!--深度清理-->
                         <RelativeLayout
                             android:id="@+id/poweracativity"
@@ -1073,75 +1024,99 @@
             android:layout_gravity="center_vertical">
 
             <ImageView
-                android:id="@+id/main_xing3"
-                android:layout_width="@dimen/d72"
-                android:layout_height="@dimen/d72"
+                android:id="@+id/main_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:alpha="0.6"
+                android:src="@mipmap/ic_launcher"
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/main_xing2"
-                android:layout_width="@dimen/d60"
-                android:layout_height="@dimen/d60"
-                android:layout_above="@id/main_xing3"
-                android:alpha="0.4"
+                android:id="@+id/main_iv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv"
+                android:src="@mipmap/ic_launcher"
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/main_xing1"
-                android:layout_width="@dimen/d56"
-                android:layout_height="@dimen/d56"
-                android:layout_above="@id/main_xing3"
-                android:alpha="0.5"
+                android:id="@+id/main_iv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv1"
+                android:src="@mipmap/ic_launcher"
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/main_xing6"
-                android:layout_width="@dimen/d72"
-                android:layout_height="@dimen/d72"
-                android:layout_above="@id/main_xing1"
-                android:alpha="0.3"
+                android:id="@+id/main_iv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv2"
+                android:src="@mipmap/ic_launcher"
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/main_xing5"
-                android:layout_width="@dimen/d64"
-                android:layout_height="@dimen/d64"
-                android:layout_above="@id/main_xing6"
-                android:alpha="0.7"
+                android:id="@+id/main_iv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv3"
+                android:src="@mipmap/ic_launcher"
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/main_xing4"
-                android:layout_width="@dimen/d36"
-                android:layout_height="@dimen/d36"
-                android:layout_above="@id/main_xing6"
-                android:alpha="0.5"
+                android:id="@+id/main_iv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv4"
+                android:src="@mipmap/ic_launcher"
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/main_xing9"
-                android:layout_width="@dimen/d48"
-                android:layout_height="@dimen/d48"
-                android:layout_above="@id/main_xing4"
-                android:alpha="0.4"
+                android:id="@+id/main_iv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:src="@mipmap/ic_launcher"
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/main_xing8"
-                android:layout_width="@dimen/d56"
-                android:layout_height="@dimen/d56"
-                android:layout_above="@id/main_xing9"
-                android:alpha="0.6"
+                android:id="@+id/main_iv7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv"
+                android:src="@mipmap/ic_launcher"
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/main_xing7"
-                android:layout_width="@dimen/d56"
-                android:layout_height="@dimen/d56"
-                android:layout_above="@id/main_xing9"
-                android:alpha="0.5"
+                android:id="@+id/main_iv8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv1"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv2"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv3"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv4"
+                android:src="@mipmap/ic_launcher"
                 android:visibility="gone" />
         </RelativeLayout>
 

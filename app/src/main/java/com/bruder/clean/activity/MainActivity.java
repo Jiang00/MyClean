@@ -3,10 +3,12 @@ package com.bruder.clean.activity;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.TypeEvaluator;
+import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PointF;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -21,7 +23,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -104,6 +105,20 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     ImageView main_ad_iv;
     CountDownTimer cdt;
     int i;
+    private int width;
+    private int height;
+    private ImageView main_iv;
+    private ImageView main_iv1;
+    private ImageView main_iv2;
+    private ImageView main_iv3;
+    private ImageView main_iv4;
+    private ImageView main_iv5;
+    private ImageView main_iv6;
+    private ImageView main_iv7;
+    private ImageView main_iv8;
+    private ImageView main_iv9;
+    private ImageView main_iv10;
+    private ImageView main_iv11;
 
     private boolean isFirstIn = false;// 判断是否是第一次登陆
     private ArrayList<View> arrayList;//记录main_circle布局文件的控件绑定信息
@@ -332,15 +347,22 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 //        lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
 
         //float left, float top, float right, float bottom  xyxy
-        main_xing1 = (ImageView) findViewById(R.id.main_xing1);
-        main_xing2 = (ImageView) findViewById(R.id.main_xing2);
-        main_xing3 = (ImageView) findViewById(R.id.main_xing3);
-        main_xing4 = (ImageView) findViewById(R.id.main_xing4);
-        main_xing5 = (ImageView) findViewById(R.id.main_xing5);
-        main_xing6 = (ImageView) findViewById(R.id.main_xing6);
-        main_xing7 = (ImageView) findViewById(R.id.main_xing7);
-        main_xing8 = (ImageView) findViewById(R.id.main_xing8);
-        main_xing9 = (ImageView) findViewById(R.id.main_xing9);
+
+        main_iv = (ImageView) findViewById(R.id.main_iv);
+        main_iv1 = (ImageView) findViewById(R.id.main_iv1);
+        main_iv2 = (ImageView) findViewById(R.id.main_iv2);
+        main_iv3 = (ImageView) findViewById(R.id.main_iv3);
+        main_iv4 = (ImageView) findViewById(R.id.main_iv4);
+        main_iv5 = (ImageView) findViewById(R.id.main_iv5);
+        main_iv6 = (ImageView) findViewById(R.id.main_iv6);
+        main_iv7 = (ImageView) findViewById(R.id.main_iv7);
+        main_iv8 = (ImageView) findViewById(R.id.main_iv8);
+        main_iv9 = (ImageView) findViewById(R.id.main_iv9);
+        main_iv10 = (ImageView) findViewById(R.id.main_iv10);
+        main_iv11 = (ImageView) findViewById(R.id.main_iv11);
+        WindowManager wm = this.getWindowManager();
+        width = wm.getDefaultDisplay().getWidth();
+        height = wm.getDefaultDisplay().getHeight();
     }
 
     //初始化监听
@@ -636,168 +658,137 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         }
     };
 
-    ImageView main_xing1, main_xing2, main_xing3, main_xing4, main_xing5, main_xing6, main_xing7, main_xing8, main_xing9;
-    ObjectAnimator moveIn1, moveIn2, moveIn3, moveIn4, moveIn5, moveIn6, moveIn7, moveIn8, moveIn9;
-    ObjectAnimator rotate1, rotate2, rotate3, rotate4, rotate5, rotate6, rotate7, rotate8, rotate9;
-    AnimatorSet animSet;
-
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void showMainAdAnim() {
-        if (animSet != null) {
-            animSet.cancel();
-        }
-        WindowManager wm = (WindowManager) this
-                .getSystemService(Context.WINDOW_SERVICE);
-        int width = wm.getDefaultDisplay().getWidth();
-        int height = wm.getDefaultDisplay().getHeight();
+//        if (animSet != null) {
+//            animSet.cancel();
+//        }
+        setAdAnim();
+    }
+
+    private void setAdAnim() {
+        //执行属性动画
         Random random = new Random();
         int randomNum = random.nextInt(2);
-//        int randomNum = 0;random.nextInt(height)
+        setHandler(main_iv, 0, 2000, randomNum, 2);
+        setHandler(main_iv1, 100, 1950, randomNum, 2);
+        setHandler(main_iv2, 300, 3700, randomNum, 1);
+        setHandler(main_iv3, 500, 3500, randomNum, 1);
+        setHandler(main_iv4, 700, 1650, randomNum, 2);
+        setHandler(main_iv5, 800, 1600, randomNum, 2);
 
+        setHandler(main_iv6, 400, 3600, randomNum, 1);
+        setHandler(main_iv7, 800, 3200, randomNum, 1);
+        setHandler(main_iv8, 1000, 1000, randomNum, 3);
+        setHandler(main_iv9, 500, 1750, randomNum, 2);
+        setHandler(main_iv10, 700, 3300, randomNum, 1);
+        setHandler(main_iv11, 800, 1600, randomNum, 2);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showAd();
+            }
+        }, 5000);
+    }
+
+    private void setHandler(final ImageView imageView, long delayMillis, final long duration, int randomNum, final int value) {
         if (randomNum == 0) {
-            main_xing1.setImageResource(R.mipmap.main_xing1);
-            main_xing2.setImageResource(R.mipmap.main_xing2);
-            main_xing3.setImageResource(R.mipmap.main_xing3);
-            main_xing4.setImageResource(R.mipmap.main_xing1);
-            main_xing5.setImageResource(R.mipmap.main_xing2);
-            main_xing6.setImageResource(R.mipmap.main_xing3);
-            main_xing7.setImageResource(R.mipmap.main_xing1);
-            main_xing8.setImageResource(R.mipmap.main_xing2);
-            main_xing9.setImageResource(R.mipmap.main_xing3);
-            moveIn1 = ObjectAnimator.ofFloat(main_xing1, "translationX", 0, width - main_xing1.getWidth());
-            rotate1 = ObjectAnimator.ofFloat(main_xing1, "translationY", -random.nextInt(height), -height);
-            moveIn2 = ObjectAnimator.ofFloat(main_xing2, "translationX", 0, width - main_xing2.getWidth());
-            rotate2 = ObjectAnimator.ofFloat(main_xing2, "translationY", -random.nextInt(height), -height);
-            moveIn3 = ObjectAnimator.ofFloat(main_xing3, "translationX", 0, width - main_xing3.getWidth());
-            rotate3 = ObjectAnimator.ofFloat(main_xing3, "translationY", -random.nextInt(height), -height);
-            moveIn4 = ObjectAnimator.ofFloat(main_xing4, "translationX", 0, width - main_xing4.getWidth());
-            rotate4 = ObjectAnimator.ofFloat(main_xing4, "translationY", -random.nextInt(height), -height);
-            moveIn5 = ObjectAnimator.ofFloat(main_xing5, "translationX", 0, width - main_xing5.getWidth());
-            rotate5 = ObjectAnimator.ofFloat(main_xing5, "translationY", -random.nextInt(height), -height);
-            moveIn6 = ObjectAnimator.ofFloat(main_xing6, "translationX", 0, width - main_xing6.getWidth());
-            rotate6 = ObjectAnimator.ofFloat(main_xing6, "translationY", -random.nextInt(height), -height);
-            moveIn7 = ObjectAnimator.ofFloat(main_xing7, "translationX", 0, width - main_xing7.getWidth());
-            rotate7 = ObjectAnimator.ofFloat(main_xing7, "translationY", -random.nextInt(height), -height);
-            moveIn8 = ObjectAnimator.ofFloat(main_xing8, "translationX", 0, width - main_xing8.getWidth());
-            rotate8 = ObjectAnimator.ofFloat(main_xing8, "translationY", -random.nextInt(height), -height);
-            moveIn9 = ObjectAnimator.ofFloat(main_xing9, "translationX", 0, width - main_xing9.getWidth());
-            rotate9 = ObjectAnimator.ofFloat(main_xing9, "translationY", -random.nextInt(height), -height);
-        } else if (randomNum == 1) {
-            main_xing1.setImageResource(R.mipmap.main_xing11);
-            main_xing2.setImageResource(R.mipmap.main_xing22);
-            main_xing3.setImageResource(R.mipmap.main_xing33);
-            main_xing4.setImageResource(R.mipmap.main_xing11);
-            main_xing5.setImageResource(R.mipmap.main_xing22);
-            main_xing6.setImageResource(R.mipmap.main_xing33);
-            main_xing7.setImageResource(R.mipmap.main_xing11);
-            main_xing8.setImageResource(R.mipmap.main_xing22);
-            main_xing9.setImageResource(R.mipmap.main_xing33);
-            moveIn1 = ObjectAnimator.ofFloat(main_xing1, "translationX", 0, width - main_xing1.getWidth());
-            rotate1 = ObjectAnimator.ofFloat(main_xing1, "translationY", -random.nextInt(height), -height);
-            moveIn2 = ObjectAnimator.ofFloat(main_xing2, "translationX", 0, width - main_xing2.getWidth());
-            rotate2 = ObjectAnimator.ofFloat(main_xing2, "translationY", -random.nextInt(height), -height);
-            moveIn3 = ObjectAnimator.ofFloat(main_xing3, "translationX", 0, width - main_xing3.getWidth());
-            rotate3 = ObjectAnimator.ofFloat(main_xing3, "translationY", -random.nextInt(height), -height);
-            moveIn4 = ObjectAnimator.ofFloat(main_xing4, "translationX", 0, width - main_xing4.getWidth());
-            rotate4 = ObjectAnimator.ofFloat(main_xing4, "translationY", -random.nextInt(height), -height);
-            moveIn5 = ObjectAnimator.ofFloat(main_xing5, "translationX", 0, width - main_xing5.getWidth());
-            rotate5 = ObjectAnimator.ofFloat(main_xing5, "translationY", -random.nextInt(height), -height);
-            moveIn6 = ObjectAnimator.ofFloat(main_xing6, "translationX", 0, width - main_xing6.getWidth());
-            rotate6 = ObjectAnimator.ofFloat(main_xing6, "translationY", -random.nextInt(height), -height);
-            moveIn7 = ObjectAnimator.ofFloat(main_xing7, "translationX", 0, width - main_xing7.getWidth());
-            rotate7 = ObjectAnimator.ofFloat(main_xing7, "translationY", -random.nextInt(height), -height);
-            moveIn8 = ObjectAnimator.ofFloat(main_xing8, "translationX", 0, width - main_xing8.getWidth());
-            rotate8 = ObjectAnimator.ofFloat(main_xing8, "translationY", -random.nextInt(height), -height);
-            moveIn9 = ObjectAnimator.ofFloat(main_xing9, "translationX", 0, width - main_xing9.getWidth());
-            rotate9 = ObjectAnimator.ofFloat(main_xing9, "translationY", -random.nextInt(height), -height);
+            imageView.setImageResource(R.mipmap.main_xing3);
+        } else {
+            imageView.setImageResource(R.mipmap.main_xing33);
         }
-        main_xing1.setVisibility(View.VISIBLE);
-        main_xing2.setVisibility(View.VISIBLE);
-        main_xing3.setVisibility(View.VISIBLE);
-        main_xing4.setVisibility(View.VISIBLE);
-        main_xing5.setVisibility(View.VISIBLE);
-        main_xing6.setVisibility(View.VISIBLE);
-        main_xing7.setVisibility(View.VISIBLE);
-        main_xing8.setVisibility(View.VISIBLE);
-        main_xing9.setVisibility(View.VISIBLE);
-
-
-        animSet = new AnimatorSet();
-        animSet.setInterpolator(new LinearInterpolator());
-        animSet.setInterpolator(new AccelerateInterpolator(1f));
-        animSet.play(rotate1).with(moveIn1).with(moveIn2).with(rotate2).with(moveIn3).with(rotate3).with(moveIn4).with(rotate4).with(moveIn5).with(rotate5)
-                .with(moveIn6).with(rotate6).with(moveIn7).with(rotate7).with(moveIn8).with(rotate8).with(moveIn9).with(rotate9);
-        animSet.setDuration(2000);
-        animSet.start();
-        animSet.addListener(new Animator.AnimatorListener() {
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onAnimationStart(Animator animation) {
-
+            public void run() {
+                ValueAnimator valueAnimator = new ValueAnimator();
+                start(valueAnimator, imageView, duration, value);
+                imageView.setVisibility(View.VISIBLE);
             }
+        }, delayMillis);
+    }
 
+    private void start(ValueAnimator valueAnimator, final ImageView imageView, long duration, int value) {
+        //初始位置
+        valueAnimator.setObjectValues(new PointF(0, 0));
+        valueAnimator.setRepeatCount(value);
+        valueAnimator.setDuration(duration);
+        valueAnimator.setEvaluator(new TypeEvaluator<PointF>() {
+            //fraction 当前时间/总时间
+            //startValue 起始点
+            //endValue 终点位置
             @Override
-            public void onAnimationEnd(Animator animation) {
-                adSize++;
-                final View nativeExit = UtilAd.getNativeAdView(TAG_EXIT_FULL, R.layout.main_ad_native);
-                if (nativeExit != null) {
-                    if (adSize == 1) {
-                        showMainAdAnim();
-                    } else {
-                        showAd(nativeExit);
-                    }
-                } else {
-                    if (adSize >= 2) {
-                        adSize = 0;
-                        main_xing1.setVisibility(View.GONE);
-                        main_xing2.setVisibility(View.GONE);
-                        main_xing3.setVisibility(View.GONE);
-                        main_xing4.setVisibility(View.GONE);
-                        main_xing5.setVisibility(View.GONE);
-                        main_xing6.setVisibility(View.GONE);
-                        main_xing7.setVisibility(View.GONE);
-                        main_xing8.setVisibility(View.GONE);
-                        main_xing9.setVisibility(View.GONE);
-                        return;
-                    }
-                    showMainAdAnim();
-                }
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
+            public PointF evaluate(float fraction, PointF startValue, PointF endValue) {
+                PointF pointF = new PointF();
+                pointF.x = fraction * width;
+                pointF.y = -pointF.x * pointF.x / ((width + height) / 5);
+//                pointF.y = -(float) Math.sqrt(pointF.x * height);
+//                pointF.y = (float) height / pointF.x;
+                return pointF;
             }
         });
+        //设置动画监听
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                //将当前位置点取出来
+                PointF pointF = (PointF) animation.getAnimatedValue();
+                imageView.setTranslationX(pointF.x);
+                imageView.setTranslationY(pointF.y);
+            }
+        });
+
+        //执行动画
+        valueAnimator.start();
     }
 
     int adSize;
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private void showAd(View nativeExit) {
+    private void showAd() {
+//        if (DataPre.getDB(this, Constant.FULL_START, 0) == 1) {
+////            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//            AndroidSdk.showFullAd(Constant.FULL_START);
+//        }
+
+//        AndroidSdk.showFullAd(Constant.FULL_START);
+//        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         View view = View.inflate(this, R.layout.main_ad_dialog, null);
         final LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
+        final TextView main_ad_cx_tv = (TextView) view.findViewById(R.id.main_ad_cx_tv);
+        main_ad_cx_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                showMainAdAnim();
+            }
+        });
         dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
         if (DataPre.getDB(this, Constant.FULL_EXIT, 0) == 0) {
+            final View nativeExit = UtilAd.getNativeAdView(TAG_EXIT_FULL, R.layout.main_ad_native);
             if (nativeExit != null) {
-                main_xing1.setVisibility(View.GONE);
-                main_xing2.setVisibility(View.GONE);
-                main_xing3.setVisibility(View.GONE);
-                main_xing4.setVisibility(View.GONE);
-                main_xing5.setVisibility(View.GONE);
-                main_xing6.setVisibility(View.GONE);
-                main_xing7.setVisibility(View.GONE);
-                main_xing8.setVisibility(View.GONE);
-                main_xing9.setVisibility(View.GONE);
+                main_iv.setVisibility(View.GONE);
+                main_iv1.setVisibility(View.GONE);
+                main_iv2.setVisibility(View.GONE);
+                main_iv3.setVisibility(View.GONE);
+                main_iv4.setVisibility(View.GONE);
+                main_iv5.setVisibility(View.GONE);
+                main_iv6.setVisibility(View.GONE);
+                main_iv7.setVisibility(View.GONE);
+                main_iv8.setVisibility(View.GONE);
+                main_iv9.setVisibility(View.GONE);
+                main_iv10.setVisibility(View.GONE);
+                main_iv11.setVisibility(View.GONE);
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.VISIBLE);
+                main_ad_cx_tv.setVisibility(View.GONE);
+            } else {
+                ll_ad_exit.setVisibility(View.GONE);
+                main_ad_cx_tv.setVisibility(View.VISIBLE);
             }
+        } else {
+            dialog.dismiss();
         }
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getRealMetrics(dm);
