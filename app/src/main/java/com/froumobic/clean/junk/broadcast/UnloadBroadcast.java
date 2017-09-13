@@ -27,7 +27,7 @@ public class UnloadBroadcast extends BroadcastReceiver {
         if (!PreData.getDB(context, Constant.KEY_UNLOAD, true)) {
             return;
         }
-        if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {
+        if (intent.getAction().equals(Intent.ACTION_PACKAGE_FULLY_REMOVED)) {
             String packageName = intent.getData().getSchemeSpecificPart();
             context.startActivity(new Intent(context, UnloadActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("packageName", packageName));
         }

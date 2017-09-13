@@ -824,55 +824,57 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                     break;
                 case R.id.lot_family:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
-                    AndroidSdk.loadFullAd(LOAD_FULL);
-                    full_loading.setVisibility(View.VISIBLE);
-                    full_loading.reStart();
+                    if (PreData.getDB(MainActivity.this, Constant.FULL_START, 0) == 1) {
 
-                    handler.post(runnable_pus);
-                    handler.postDelayed(runnable_load, 4500);
+                        AndroidSdk.loadFullAd(LOAD_FULL);
+                        full_loading.setVisibility(View.VISIBLE);
+                        full_loading.reStart();
 
-//                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
-//                    ll_ad_full.startAnimation(animation);
-//                    ll_ad_full.setVisibility(View.VISIBLE);
-//                    ad_progressbar.setVisibility(View.VISIBLE);
-//                    ll_ad_loading.removeAllViews();
-                  /*  animation.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_exit, new ClientNativeAd.NativeAdLoadListener() {
-                                @Override
-                                public void onNativeAdLoadSuccess(View view) {
-                                    ImageView ad_delete = (ImageView) findViewById(R.id.ad_delete);
-                                    ad_delete.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            adDelete();
-                                        }
-                                    });
-                                    ll_ad_loading.addView(view);
-                                    ad_progressbar.setVisibility(View.GONE);
-                                }
+                        handler.post(runnable_pus);
+                        handler.postDelayed(runnable_load, 4500);
+                    } else {
+                        Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
+                        ll_ad_full.startAnimation(animation);
+                        ll_ad_full.setVisibility(View.VISIBLE);
+                        ad_progressbar.setVisibility(View.VISIBLE);
+                        ll_ad_loading.removeAllViews();
+                        animation.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_exit, new ClientNativeAd.NativeAdLoadListener() {
+                                    @Override
+                                    public void onNativeAdLoadSuccess(View view) {
+                                        ImageView ad_delete = (ImageView) findViewById(R.id.ad_delete);
+                                        ad_delete.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                adDelete();
+                                            }
+                                        });
+                                        ll_ad_loading.addView(view);
+                                        ad_progressbar.setVisibility(View.GONE);
+                                    }
 
-                                @Override
-                                public void onNativeAdLoadFails() {
-                                    showToast(getString(R.string.load_fails));
-                                    adDelete();
-                                    ad_progressbar.setVisibility(View.GONE);
-                                }
-                            });
-                        }
+                                    @Override
+                                    public void onNativeAdLoadFails() {
+                                        showToast(getString(R.string.load_fails));
+                                        adDelete();
+                                        ad_progressbar.setVisibility(View.GONE);
+                                    }
+                                });
+                            }
 
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
 
-                        }
+                            }
 
-                        @Override
-                        public void onAnimationStart(Animation animation) {
+                            @Override
+                            public void onAnimationStart(Animation animation) {
 
-                        }
-                    });*/
-
+                            }
+                        });
+                    }
                     break;
 
                 case R.id.main_rotate_good:
@@ -1088,11 +1090,10 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         }
         if (full_loading.getVisibility() == View.VISIBLE) {
             full_loading.pause();
-            full_loading.destroy();
             full_loading.setVisibility(View.GONE);
             handler.removeCallbacks(runnable_load);
             handler.removeCallbacks(runnable_pus);
-
+            return;
         }
         if (main_battery.getVisibility() == View.VISIBLE) {
             AdUtil.track("主界面", "充电屏保引导", "返回键退出", 1);
