@@ -33,14 +33,6 @@
                 android:id="@+id/success_drawhook"
                 android:layout_width="@dimen/d150"
                 android:layout_height="@dimen/d150" />
-
-            <ImageView
-                android:id="@+id/success_huojian"
-                android:layout_width="@dimen/d150"
-                android:layout_height="@dimen/d150"
-                android:scaleType="center"
-                android:src="@mipmap/success_huojian"
-                android:visibility="invisible" />
         </FrameLayout>
 
         <LinearLayout
@@ -91,13 +83,13 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
+                                android:layout_marginTop="@dimen/d30"
                                 android:orientation="horizontal">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="@dimen/d53"
+                                    android:layout_marginLeft="@dimen/d78"
                                     android:src="@mipmap/success_duigou" />
 
 
@@ -175,10 +167,10 @@
                                 android:layout_width="@dimen/d121"
                                 android:layout_height="@dimen/d36"
                                 android:layout_gravity="center_horizontal"
-                                android:background="@drawable/shape_rotate_bad"
+                                android:background="@null"
                                 android:gravity="center"
                                 android:text="@string/rotate_cancel"
-                                android:textColor="@color/A9"
+                                android:textColor="@color/B2"
                                 android:textSize="@dimen/s15" />
 
                             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView

@@ -1,11 +1,16 @@
 package com.vater.clean.junk.jiemian;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.vater.clean.util.PreData;
 import com.vater.clean.util.Util;
@@ -24,12 +29,16 @@ import org.json.JSONObject;
 
 public class LoadingActivity extends BaseActivity {
     Handler myHandler;
+    TextView text_1, text_2;
 
     @Override
     protected void findId() {
         super.findId();
+        text_1 = (TextView) findViewById(R.id.text_1);
+        text_2 = (TextView) findViewById(R.id.text_2);
     }
 
+    AnimatorSet animatorSet;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +53,50 @@ public class LoadingActivity extends BaseActivity {
             PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
         myHandler.removeCallbacks(runnable1);
-        myHandler.postDelayed(runnable1, 2000);
+        myHandler.post(runnable1);
+        if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
+            AndroidSdk.loadFullAd("loading_full",null);
+        }
+        animatorSet = new AnimatorSet();
+        ObjectAnimator animator_1 = ObjectAnimator.ofFloat(text_1, View.TRANSLATION_Y, getResources().getDimensionPixelOffset(R.dimen.d33), 0);
+        ObjectAnimator animator_1_1 = ObjectAnimator.ofFloat(text_1, View.ALPHA, 0, 1);
+        ObjectAnimator animator_1_2 = ObjectAnimator.ofFloat(text_2, View.ALPHA, 0, 0);
+        animator_1.setDuration(1000);
+        animator_1_1.setDuration(1000);
+        animator_1_2.setDuration(1000);
+        ObjectAnimator animator_2 = ObjectAnimator.ofFloat(text_2, View.TRANSLATION_Y, getResources().getDimensionPixelOffset(R.dimen.d20), 0);
+        ObjectAnimator animator_2_1 = ObjectAnimator.ofFloat(text_2, View.ALPHA, 0, 1);
+        animator_2.setDuration(1000);
+        animator_2_1.setDuration(1000);
+        text_1.setVisibility(View.VISIBLE);
+        text_2.setVisibility(View.VISIBLE);
+        animatorSet.play(animator_1).with(animator_1_1).with(animator_1_2);
+        animatorSet.play(animator_2).with(animator_2_1);
+        animatorSet.play(animator_2).after(animator_1);
+        animatorSet.start();
+        animatorSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                jumpTo(MainActivity.class);
+                finish();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
+
     }
 
     Runnable runnable1 = new Runnable() {
@@ -112,14 +164,17 @@ public class LoadingActivity extends BaseActivity {
             getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
             int a = Util.dp2px(360);
             Log.e("jfy", "px=" + a + "" + "=" + metrics.density + "=" + metrics.widthPixels);
-            jumpTo(MainActivity.class);
-            finish();
+
         }
     };
 
     @Override
     protected void onDestroy() {
         myHandler.removeCallbacksAndMessages(null);
+        if (animatorSet != null) {
+            animatorSet.removeAllListeners();
+            animatorSet.cancel();
+        }
         super.onDestroy();
     }
 

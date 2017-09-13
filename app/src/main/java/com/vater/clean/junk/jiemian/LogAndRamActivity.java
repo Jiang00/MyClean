@@ -101,7 +101,7 @@ public class LogAndRamActivity extends BaseActivity implements LogRamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk_ram);
-        AndroidSdk.loadFullAd(AdUtil.HUOJIAN);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
         myHandler = new Handler();
         junkPresenter = new LogRamPresenter(this, this);
         junkPresenter.init();

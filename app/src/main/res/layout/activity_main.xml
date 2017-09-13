@@ -500,10 +500,10 @@
                                     android:layout_width="@dimen/d121"
                                     android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_horizontal"
-                                    android:background="@drawable/shape_rotate_bad"
+                                    android:background="@null"
                                     android:gravity="center"
                                     android:text="@string/rotate_cancel"
-                                    android:textColor="@color/A9"
+                                    android:textColor="@color/B2"
                                     android:textSize="@dimen/s15" />
 
                                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
@@ -516,8 +516,7 @@
                                     android:gravity="center"
                                     android:text="@string/rotate_ok"
                                     android:textColor="@color/white_100"
-                                    android:textSize="@dimen/s15"
-                                    />
+                                    android:textSize="@dimen/s15" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -915,6 +914,54 @@
             android:indeterminateTint="@color/A7"
             android:indeterminateTintMode="src_atop"
             android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/libao_load"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_50"
+            android:clickable="true"
+            android:visibility="invisible">
+
+            <FrameLayout
+                android:layout_width="@dimen/d294"
+                android:layout_height="@dimen/d179"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/load_1"
+                    android:layout_width="@dimen/d588"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:src="@mipmap/full_1" />
+
+                <ImageView
+                    android:id="@+id/load_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@mipmap/full_2" />
+
+                <ImageView
+                    android:id="@+id/load_3"
+                    android:layout_width="@dimen/d20"
+                    android:layout_height="@dimen/d20"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/d24"
+                    android:layout_marginRight="@dimen/d16"
+                    android:src="@mipmap/full_3" />
+
+                <ImageView
+                    android:id="@+id/load_4"
+                    android:layout_width="@dimen/d20"
+                    android:layout_height="@dimen/d20"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/d24"
+                    android:layout_marginLeft="@dimen/d30"
+                    android:src="@mipmap/full_3" />
+            </FrameLayout>
+
+        </FrameLayout>
 
         <include layout="@layout/layout_battery" />
     </FrameLayout>

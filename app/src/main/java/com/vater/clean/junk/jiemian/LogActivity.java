@@ -96,7 +96,7 @@ public class LogActivity extends BaseActivity implements JunkView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk);
-        AndroidSdk.loadFullAd(AdUtil.JUNK);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
         myHandler = new Handler();
         junkPresenter = new LogPresenter(this, this);
         junkPresenter.init();

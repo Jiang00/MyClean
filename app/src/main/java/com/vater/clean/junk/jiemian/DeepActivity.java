@@ -74,7 +74,7 @@ public class DeepActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
         mHandler = new Handler();
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", false));
         initData();
@@ -293,7 +293,7 @@ public class DeepActivity extends BaseActivity {
             if (isWidget) {
                 holder.recyc_check.setVisibility(View.GONE);
             } else {
-                holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.ram_passed : R.mipmap.ram_normal);
+                    holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.ram_passed : R.mipmap.ram_normal);
             }
             holder.recyc_name.setText(startList.get(position).label);
             holder.recyc_icon.setImageDrawable(LoadManager.getInstance(DeepActivity.this).getAppIcon(startList.get(position).pkg));

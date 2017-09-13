@@ -523,6 +523,9 @@ public class CleanManager {
         if (isAdd) {
             notificationList.add(notifiInfo);
         }
+        if (notificationCallBackList == null) {
+            return;
+        }
         for (NotificationCallBack callBack : notificationCallBackList) {
             callBack.notificationChanged(notificationList);
         }
@@ -533,6 +536,9 @@ public class CleanManager {
             notificationList = new ArrayList<>();
         }
         notificationList.clear();
+        if (notificationCallBackList == null) {
+            return;
+        }
         for (NotificationCallBack callBack : notificationCallBackList) {
             callBack.notificationChanged(notificationList);
         }
@@ -553,6 +559,9 @@ public class CleanManager {
 
     public void removeNotificatioCallBack(NotificationCallBack notificationCallBack) {
         if (notificationCallBack == null) {
+            return;
+        }
+        if (notificationCallBackList == null) {
             return;
         }
         if (notificationCallBackList.contains(notificationCallBack)) {

@@ -68,7 +68,7 @@ public class BatteryActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AdUtil.COOLING);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +91,7 @@ public class BatteryActivity extends BaseActivity {
                 cooling_fl.setVisibility(View.INVISIBLE);
                 cooling_xuehua.clearAnimation();
                 if (PreData.getDB(BatteryActivity.this, Constant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
                 }
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);

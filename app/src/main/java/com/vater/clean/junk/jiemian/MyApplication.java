@@ -49,13 +49,13 @@ public class MyApplication extends Application {
         //charging
         startService(new Intent(this, BatteryService.class));
         Utils.writeData(this, Constants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
-        Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.loading_icon_1);
+        Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.side_icon);
 
         CleanManager.getInstance(this).startLoad();
 
         if (PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotificationService.class);
-            intent.putExtra("from","notification");
+            intent.putExtra("from", "notification");
             startService(intent);
         }
 

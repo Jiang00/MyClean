@@ -186,9 +186,16 @@ public class ShortCutActivity extends BaseActivity {
             ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
             loadAd();
             TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
+            ImageView dialog_delete = (ImageView) view.findViewById(R.id.dialog_delete);
             if (size < 0) {
                 size = 0;
             }
+            dialog_delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
             short_clean_szie.setText(Util.convertStorage(size, true));
             dialog = new Dialog(ShortCutActivity.this, R.style.add_dialog);
             dialog.show();
@@ -245,10 +252,8 @@ public class ShortCutActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        ObjectAnimator rotation = ObjectAnimator.ofFloat(short_b, "rotation", 0, 360);
-        rotation.setDuration(1200);
-        rotation.setInterpolator(new LinearInterpolator());
-        rotation.setRepeatCount(2);
+        ObjectAnimator rotation = ObjectAnimator.ofFloat(short_b, "rotation", 0, 3600);
+        rotation.setDuration(3600);
         rotation.start();
         rotation.addListener(new Animator.AnimatorListener() {
             @Override
@@ -260,7 +265,6 @@ public class ShortCutActivity extends BaseActivity {
             public void onAnimationEnd(Animator animation) {
                 AnimatorSet set = new AnimatorSet();
                 ObjectAnimator translationY = ObjectAnimator.ofFloat(short_huojian, "translationY", 0, -Util.dp2px(90));
-                ObjectAnimator translationX = ObjectAnimator.ofFloat(short_huojian, "translationX", 0, Util.dp2px(90));
                 set.setDuration(100);
                 set.addListener(new Animator.AnimatorListener() {
                     @Override
@@ -284,7 +288,7 @@ public class ShortCutActivity extends BaseActivity {
 
                     }
                 });
-                set.play(translationX).with(translationY);
+                set.play(translationY);
                 set.start();
                 suo.setAnimationListener(new Animation.AnimationListener() {
                     @Override

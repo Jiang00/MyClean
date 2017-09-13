@@ -62,7 +62,6 @@ public class SuccessActivity extends BaseActivity {
     ImageView success_jiantou;
     TextView success_clean_size;
     DrawHookView success_drawhook;
-    ImageView success_huojian;
     SlowScrollView scrollView;
     LinearLayout success;
     LinearLayout main_picture_button;
@@ -101,7 +100,6 @@ public class SuccessActivity extends BaseActivity {
         success_jiantou = (ImageView) findViewById(R.id.success_jiantou);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
         success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
-        success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
         success = (LinearLayout) findViewById(R.id.success);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
@@ -227,15 +225,15 @@ public class SuccessActivity extends BaseActivity {
                 duigousuccess = true;
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
                     if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
-                        AndroidSdk.showFullAd(AdUtil.RAM);
+                        AndroidSdk.showFullAd(AdUtil.DEFAULT);
                     } else if (TextUtils.equals("junkClean", getIntent().getStringExtra("from"))) {
-                        AndroidSdk.showFullAd(AdUtil.JUNK);
+                        AndroidSdk.showFullAd(AdUtil.DEFAULT);
                     } else if (TextUtils.equals("allJunk", getIntent().getStringExtra("from"))) {
-                        AndroidSdk.showFullAd(AdUtil.HUOJIAN);
+                        AndroidSdk.showFullAd(AdUtil.DEFAULT);
                     } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
-                        AndroidSdk.showFullAd(AdUtil.COOLING);
+                        AndroidSdk.showFullAd(AdUtil.DEFAULT);
                     } else {
-                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                        AndroidSdk.showFullAd(AdUtil.DEFAULT);
                     }
                 }
                 startSecondAnimation();
@@ -366,100 +364,35 @@ public class SuccessActivity extends BaseActivity {
     }
 
     public void startFirstAnimation() {
-        final ObjectAnimator rotate = ObjectAnimator.ofFloat(success_progress, "rotation", 0f, 360f);
-        rotate.setDuration(600);
-        rotate.setRepeatCount(3);
-        rotate.setInterpolator(new LinearInterpolator());
-        rotate.start();
-        Animation animation = AnimationUtils.loadAnimation(SuccessActivity.this, R.anim.huojian_pop);
-        success_huojian.startAnimation(animation);
-        animation.setFillAfter(true);
-        success_huojian.setVisibility(View.VISIBLE);
-        animation.setAnimationListener(new android.view.animation.Animation.AnimationListener() {
-            @Override
-            public void onAnimationEnd(android.view.animation.Animation animation) {
-                final float hx = success_huojian.getX();
-                final float hy = success_huojian.getY();
-                isdoudong = true;
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        while (isdoudong) {
-                            if (onDestroyed) {
-                                break;
-                            }
-                            int x = (int) (Math.random() * (16)) - 8;
-                            int y = (int) (Math.random() * (16)) - 8;
-                            try {
-                                Thread.sleep(80);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            Tween.to(success_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1, 1)
-                                    .ease(TweenEquations.easeInQuad).delay(0)
-                                    .start(tweenManager);
-                        }
-                    }
-                }).start();
-                rotate.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        isdoudong = false;
-                        ObjectAnimator a = ObjectAnimator.ofFloat(success_huojian, View.TRANSLATION_Y, 0, -2500);
-                        a.setDuration(300);
-                        a.start();
-                        a.addListener(new Animator.AnimatorListener() {
-                            @Override
-                            public void onAnimationCancel(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                success_progress.setVisibility(View.GONE);
-                                success_huojian.setVisibility(View.GONE);
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationStart(Animator animation) {
-
-                            }
-                        });
-                        success_drawhook.startProgress(500);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-                });
-            }
-
-            @Override
-            public void onAnimationRepeat(android.view.animation.Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(android.view.animation.Animation animation) {
-
-            }
-        });
+        isdoudong = false;
+        success_progress.setVisibility(View.GONE);
+        success_drawhook.startProgress(500);
+//        final ObjectAnimator rotate = ObjectAnimator.ofFloat(success_progress, "rotation", 0f, 360f);
+//        rotate.setDuration(600);
+//        rotate.setRepeatCount(3);
+//        rotate.setInterpolator(new LinearInterpolator());
+//        rotate.start();
+//        rotate.addListener(new Animator.AnimatorListener() {
+//            @Override
+//            public void onAnimationCancel(Animator animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animator animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animator animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationStart(Animator animation) {
+//
+//            }
+//        });
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {

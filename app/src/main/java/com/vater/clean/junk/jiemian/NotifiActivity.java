@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.vater.clean.core.CleanManager;
+import com.vater.clean.junk.gongju.AdUtil;
 import com.vater.clean.notification.NotificationCallBack;
 import com.vater.clean.notification.NotificationInfo;
 import com.vater.clean.notification.NotificationMonitorService;
@@ -124,7 +125,7 @@ public class NotifiActivity extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, NotificationMonitorService.class));
