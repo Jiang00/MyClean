@@ -1045,13 +1045,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         @Override
                         public void onAdClosed() {
                             super.onAdClosed();
-                            handler.removeCallbacks(runnable_pus);
                             load_loading.setVisibility(View.GONE);
                         }
                     });
                     handler.postDelayed(runnable_color, 375);
                     handler.postDelayed(runnable_load, 4500);
-                    handler.post(runnable_pus);
 //                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
 //                    ll_ad_full.startAnimation(animation);
 //                    ll_ad_full.setVisibility(View.VISIBLE);
@@ -1175,25 +1173,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
         }
     };
-
-    Runnable runnable_pus = new Runnable() {
-        @Override
-        public void run() {
-            if (onPause) {
-                if (animatorSet != null) {
-                    animatorSet.removeAllListeners();
-                    animatorSet.cancel();
-                }
-                load_loading.setVisibility(View.GONE);
-                if (colorAnim != null) {
-                    colorAnim.cancel();
-                }
-                handler.removeCallbacks(runnable_load);
-            } else {
-                handler.postDelayed(this, 500);
-            }
-        }
-    };
     Runnable runnable_load = new Runnable() {
         @Override
         public void run() {
@@ -1203,12 +1182,17 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        handler.removeCallbacks(runnable_pus);
                         load_loading.setVisibility(View.GONE);
                     }
-                }, 1000);
+                }, 1500);
             } else {
-                handler.removeCallbacks(runnable_pus);
+                if (animatorSet != null) {
+                    animatorSet.removeAllListeners();
+                    animatorSet.cancel();
+                }
+                if (colorAnim != null) {
+                    colorAnim.cancel();
+                }
                 load_loading.setVisibility(View.GONE);
             }
             if (colorAnim != null) {
@@ -1368,7 +1352,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 animatorSet.cancel();
             }
             handler.removeCallbacks(runnable_load);
-            handler.removeCallbacks(runnable_pus);
             return;
         }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
