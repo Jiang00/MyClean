@@ -89,6 +89,7 @@ public class SimerActivity extends BaseActivity {
                     picture_path.setVisibility(View.GONE);
                     if (adapter == null || adapter.getItemCount() == 0) {
                         picture_progressbar.setVisibility(View.GONE);
+                        picture_button.setVisibility(View.GONE);
                         picture_other.setVisibility(View.VISIBLE);
                         picture_other.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -119,7 +120,7 @@ public class SimerActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_picture);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);
         title_right.setImageResource(R.mipmap.picture_right);
@@ -383,6 +384,9 @@ public class SimerActivity extends BaseActivity {
                 case R.id.picture_button:
                     AdUtil.track("相似图片页面", "点击清理按钮,弹出确认弹窗", "", 1);
                     ArrayList<Bitmap> bitmaps = adapter.checkDate();
+                    if (bitmaps == null) {
+                        return;
+                    }
                     int num = bitmaps.size();
                     if (num == 0) {
                         showToast(getString(R.string.delete));
@@ -455,6 +459,7 @@ public class SimerActivity extends BaseActivity {
                                 adapter.notifyDataSetChanged();
                                 if (adapter.getItemCount() == 0) {
                                     picture_progressbar.setVisibility(View.GONE);
+                                    picture_button.setVisibility(View.GONE);
                                     picture_other.setVisibility(View.VISIBLE);
                                     picture_other.setOnClickListener(new View.OnClickListener() {
                                         @Override

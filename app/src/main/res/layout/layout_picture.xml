@@ -117,11 +117,6 @@
                         android:overScrollMode="never"
                         android:scrollbars="none" />
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:background="@mipmap/yinying" />
                 </FrameLayout>
 
                 <RelativeLayout
@@ -139,7 +134,8 @@
                         android:text="@string/picture_14"
                         android:textAllCaps="false"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s18" />
+                        android:textSize="@dimen/s18"
+                        android:visibility="gone" />
                 </RelativeLayout>
             </LinearLayout>
 

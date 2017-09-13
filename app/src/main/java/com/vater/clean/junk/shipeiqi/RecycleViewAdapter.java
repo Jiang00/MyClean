@@ -57,6 +57,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     public ArrayList<Bitmap> checkDate() {
         ArrayList<Bitmap> check = new ArrayList<>();
+        if (groupList == null) {
+            return check;
+        }
         for (ArrayList<ImageInfo> info : groupList) {
             for (ImageInfo i : info) {
                 if (!i.isNormal) {
