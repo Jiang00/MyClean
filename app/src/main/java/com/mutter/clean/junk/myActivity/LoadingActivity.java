@@ -1,6 +1,8 @@
 package com.mutter.clean.junk.myActivity;
 
 import android.annotation.TargetApi;
+import android.content.ComponentName;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -80,6 +82,7 @@ public class LoadingActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.loadFullAd("loading_full");
         }
+
     }
 
     private void init() {

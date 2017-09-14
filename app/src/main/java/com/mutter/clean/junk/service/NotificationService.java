@@ -5,8 +5,10 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -29,6 +31,8 @@ import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
 import com.mutter.clean.core.CleanManager;
+import com.mutter.clean.junk.myActivity.Loading1Activity;
+import com.mutter.clean.junk.myActivity.LoadingActivity;
 import com.mutter.clean.notifi.NotificationCallBack;
 import com.mutter.clean.notifi.NotificationInfo;
 import com.mutter.clean.junk.R;
@@ -178,7 +182,7 @@ public class NotificationService extends Service {
 
     private void onstart() {
         myHandler.removeCallbacks(runnableW);
-        myHandler.postAtTime(runnableW, 2000);
+        myHandler.postDelayed(runnableW, 2000);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -275,8 +279,28 @@ public class NotificationService extends Service {
 
     private void update() {
 
+        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) ||
+                PreData.getDB(this, Constant.HONG_COOLING, true) || PreData.getDB(this, Constant.HONG_MESSAGE, true) || PreData.getDB(this, Constant.HONG_NOTIFI, true) ||
+                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
+                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
+            getPackageManager()
+                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), Loading1Activity.class)
+                            , PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+            getPackageManager()
+                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), LoadingActivity.class)
+                            , PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+        } else {
+            getPackageManager()
+                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), LoadingActivity.class)
+                            , PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+            getPackageManager()
+                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), Loading1Activity.class)
+                            , PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+        }
+
         final int memory = Util.getMemory(this);
         //cpu温度
+
         CpuTempReader.getCPUTemp(new CpuTempReader.TemperatureResultCallback() {
             @Override
             public void callbackResult(CpuTempReader.ResultCpuTemperature result) {
@@ -313,6 +337,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
                 }
                 return;
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_RAM, true)) {
@@ -322,6 +347,7 @@ public class NotificationService extends Service {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, false);
                 }
                 return;
@@ -332,6 +358,7 @@ public class NotificationService extends Service {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, false);
                 }
                 return;
@@ -344,6 +371,7 @@ public class NotificationService extends Service {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.HONG_COOLING, true);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, false);
                 }
                 return;
@@ -354,6 +382,7 @@ public class NotificationService extends Service {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.HONG_COOLING, true);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, false);
                 }
                 return;
@@ -364,6 +393,7 @@ public class NotificationService extends Service {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.HONG_COOLING, true);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, false);
                 }
                 return;
@@ -379,6 +409,7 @@ public class NotificationService extends Service {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.HONG_JUNK, true);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_JUNK, false);
                 }
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_JUNK, true)) {
@@ -388,6 +419,7 @@ public class NotificationService extends Service {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.HONG_JUNK, true);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_JUNK, false);
                 }
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_JUNK, true)) {
@@ -397,6 +429,7 @@ public class NotificationService extends Service {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.HONG_JUNK, true);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, false);
                 }
             }

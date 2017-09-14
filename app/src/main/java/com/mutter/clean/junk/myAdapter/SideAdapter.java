@@ -1,8 +1,10 @@
 package com.mutter.clean.junk.myAdapter;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -15,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.mutter.clean.junk.myActivity.Loading1Activity;
+import com.mutter.clean.junk.myActivity.LoadingActivity;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
 import com.mutter.clean.junk.myActivity.SimilarActivity;
@@ -97,6 +101,8 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                     .findViewById(R.id.rl_item);
             holder.checkBox = (ImageView) convertView
                     .findViewById(R.id.iv_check);
+            holder.iv_hong = (ImageView) convertView
+                    .findViewById(R.id.iv_hong);
             holder.iv_le = (ImageView) convertView
                     .findViewById(R.id.iv_le);
             holder.tv_name = (TextView) convertView
@@ -117,6 +123,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
 
         if (position == BATTERY || position == FLOAT) {
             holder.checkBox.setVisibility(View.VISIBLE);
+            holder.iv_hong.setVisibility(View.GONE);
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
@@ -126,6 +133,8 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else {
             holder.side_divide.setVisibility(View.GONE);
         }
+        hongV(holder, position);
+
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,10 +144,86 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 } else {
                     holder.checkBox.setImageResource(R.mipmap.side_check_normal);
                 }
+                holder.iv_hong.setVisibility(View.GONE);
                 onC(position);
             }
         });
+
+
         return convertView;
+    }
+
+    private void hongV(ViewHolder holder, int position) {
+        if (position == JUNK) {
+            if (PreData.getDB(context, Constant.HONG_JUNK, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == RAM) {
+            if (PreData.getDB(context, Constant.HONG_RAM, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == BATTERY_COOLING) {
+            if (PreData.getDB(context, Constant.HONG_COOLING, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == MANAGER) {
+            if (PreData.getDB(context, Constant.HONG_MANAGER, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == FILE) {
+            if (PreData.getDB(context, Constant.HONG_FILE, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == POWER) {
+            if (PreData.getDB(context, Constant.HONG_DEEP, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == NOTIFI) {
+            if (PreData.getDB(context, Constant.HONG_NOTIFI, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == PICTURE) {
+            if (PreData.getDB(context, Constant.HONG_PHOTO, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == GBOOST) {
+            if (PreData.getDB(context, Constant.HONG_GBOOST, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == MESSAGE) {
+            if (PreData.getDB(context, Constant.HONG_MESSAGE, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
     }
 
     private void guan(int position, int item, ViewHolder holder, View convertView) {
@@ -169,6 +254,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 PreData.putDB(context, Constant.FlOAT_SWITCH, false);
                 Intent intent1 = new Intent(context, FloatService.class);
                 context.stopService(intent1);
+
             } else {
                 AdUtil.track("侧边栏", "点击开启悬浮窗", "", 1);
                 PreData.putDB(context, Constant.FlOAT_SWITCH, true);
@@ -177,31 +263,38 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             }
         } else if (position == JUNK) {
             AdUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
+            PreData.putDB(context, Constant.HONG_JUNK, false);
             Intent intent2 = new Intent(context, CleanActivity.class);
             ((Activity) context).startActivityForResult(intent2, 1);
         } else if (position == RAM) {
+            PreData.putDB(context, Constant.HONG_RAM, false);
             AdUtil.track("侧边栏", "点击进入ram页面", "", 1);
             Intent intent3 = new Intent(context, RamAvtivity.class);
             ((Activity) context).startActivityForResult(intent3, 1);
         } else if (position == BATTERY_COOLING) {
+            PreData.putDB(context, Constant.HONG_COOLING, false);
             AdUtil.track("侧边栏", "点击进入电池降温", "", 1);
             Intent intent = new Intent(context, JiangwenActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == MANAGER) {
+            PreData.putDB(context, Constant.HONG_MANAGER, false);
             AdUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
             Intent intent4 = new Intent(context, UserAppActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
+            PreData.putDB(context, Constant.HONG_FILE, false);
             AdUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
             PreData.putDB(context, Constant.FILE_CLEAN, true);
             Intent intent5 = new Intent(context, FileManaActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == POWER) {
+            PreData.putDB(context, Constant.HONG_DEEP, false);
             PreData.putDB(context, Constant.DEEP_CLEAN, true);
             AdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, PowerActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == NOTIFI) {
+            PreData.putDB(context, Constant.HONG_NOTIFI, false);
             AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
             if (!Util.isNotificationListenEnabled(context) || !PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
@@ -212,16 +305,19 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 ((Activity) context).startActivityForResult(intent6, 1);
             }
         } else if (position == PICTURE) {
+            PreData.putDB(context, Constant.HONG_PHOTO, false);
             AdUtil.track("侧边栏", "点击进入相似图片", "", 1);
             PreData.putDB(context, Constant.PHOTO_CLEAN, true);
             Intent intent = new Intent(context, SimilarActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == GBOOST) {
+            PreData.putDB(context, Constant.HONG_GBOOST, false);
             AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
             PreData.putDB(context, Constant.GBOOST_CLEAN, true);
             Intent intent = new Intent(context, GameActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == MESSAGE) {
+            PreData.putDB(context, Constant.HONG_MESSAGE, false);
             AdUtil.track("侧边栏", "点击进入硬件信息", "", 1);
             Intent intent = new Intent(context, PhoneActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
@@ -235,6 +331,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         }
     }
 
+
     private Bitmap getBitmap(Drawable icon) {
         // TODO Auto-generated method stub
         Bitmap bitmap = null;
@@ -245,6 +342,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     public class ViewHolder {
         RelativeLayout rl_item;
         ImageView checkBox;
+        ImageView iv_hong;
         ImageView iv_le;
         TextView tv_name;
         View side_divide;

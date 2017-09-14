@@ -129,4 +129,16 @@ public class Constant {
     public static final String GBOOST_KAIGUAN = "GBOOST_KAIGUAN";
     public static final String PICTURE_KAIGUAN = "PICTURE_KAIGUAN";
 
+    //    红点
+    public static final String HONG_RAM = "HONG_RAM";
+    public static final String HONG_JUNK = "HONG_JUNK";
+    public static final String HONG_COOLING = "HONG_COOLING";
+    public static final String HONG_NOTIFI = "HONG_NOTIFI";
+    public static final String HONG_FILE = "HONG_FILE";
+    public static final String HONG_MANAGER = "HONG_MANAGER";
+    public static final String HONG_DEEP = "HONG_DEEP";
+    public static final String HONG_PHOTO = "HONG_PHOTO";
+    public static final String HONG_GBOOST = "HONG_GBOOST";
+    public static final String HONG_MESSAGE = "HONG_MESSAGE";
+
 }

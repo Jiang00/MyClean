@@ -61,6 +61,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     ImageView iv_title_right;
     ImageView iv_title_left;
+    ImageView menu_hong;
     RelativeLayout main_sd_air_button, main_ram_air_button;
     public static final String TAG = "MainActivity";
     MyScrollView main_scroll_view;
@@ -135,6 +136,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_pull_refresh = (PullToRefreshLayout) findViewById(R.id.main_pull_refresh);
         iv_title_right = (ImageView) findViewById(R.id.iv_title_right);
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
+        menu_hong = (ImageView) findViewById(R.id.menu_hong);
 
         main_circle = (ImageView) findViewById(R.id.main_circle);
         main_sd_air_button = (RelativeLayout) findViewById(R.id.main_sd_air_button);
@@ -184,21 +186,35 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
+            PreData.putDB(this, Constant.HONG_NOTIFI, false);
         }
         if (PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) == 0) {
             main_notifi_button.setVisibility(View.GONE);
+            PreData.putDB(this, Constant.HONG_NOTIFI, false);
         }
         if (PreData.getDB(this, Constant.DEEP_KAIGUAN, 1) == 0) {
             main_power_button.setVisibility(View.GONE);
+            PreData.putDB(this, Constant.HONG_DEEP, false);
         }
         if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) == 0) {
             main_file_button.setVisibility(View.GONE);
+            PreData.putDB(this, Constant.HONG_FILE, false);
         }
         if (PreData.getDB(this, Constant.GBOOST_KAIGUAN, 1) == 0) {
             main_gboost_button.setVisibility(View.GONE);
+            PreData.putDB(this, Constant.HONG_GBOOST, false);
         }
         if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) == 0) {
             main_picture_button.setVisibility(View.GONE);
+            PreData.putDB(this, Constant.HONG_PHOTO, false);
+        }
+        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) ||
+                PreData.getDB(this, Constant.HONG_COOLING, true) || PreData.getDB(this, Constant.HONG_MESSAGE, true) || PreData.getDB(this, Constant.HONG_NOTIFI, true) ||
+                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
+                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
+            menu_hong.setVisibility(View.VISIBLE);
+        } else {
+            menu_hong.setVisibility(View.GONE);
         }
 
         arrayList = new ArrayList<>();
@@ -308,7 +324,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                             CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
                     if (junk_size > 0) {
                         main_junk_h.setText(Util.convertStorage(junk_size, true));
-//                        main_junk_h.setVisibility(View.VISIBLE);
+                        if (PreData.getDB(MainActivity.this, Constant.HONG_JUNK, true)) {
+                            main_junk_h.setVisibility(View.VISIBLE);
+                        }
                     }
                 }
             }
@@ -331,7 +349,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                             long ram_size = CleanManager.getInstance(MainActivity.this).getRamSize();
                             if (ram_size > 0) {
                                 main_ram_h.setText(Util.convertStorage(ram_size, true));
-//                                main_ram_h.setVisibility(View.VISIBLE);
+                                if (PreData.getDB(MainActivity.this, Constant.HONG_RAM, true)) {
+                                    main_ram_h.setVisibility(View.VISIBLE);
+                                }
                             }
                         }
                     }
@@ -384,7 +404,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         this.temp = temp;
         if (main_cooling_h.getVisibility() == View.INVISIBLE) {
             main_cooling_h.setText(String.valueOf(temp) + "℃");
-//                            main_cooling_h.setVisibility(View.VISIBLE);
+            if (PreData.getDB(MainActivity.this, Constant.HONG_COOLING, true)) {
+                main_cooling_h.setVisibility(View.VISIBLE);
+            }
 
         }
     }
@@ -458,8 +480,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 ad_loading.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        handler.removeCallbacks(fullAdRunnale);
-                        adDelete();
+                        ad_loading.cancle();
                     }
                 });
                 ad_loading.startProgress();
@@ -933,6 +954,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void onDrawerClosed(View drawerView) {
         mDrawerOpened = false;
         Log.e(TAG, "onDrawerClosed");
+        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) ||
+                PreData.getDB(this, Constant.HONG_COOLING, true) || PreData.getDB(this, Constant.HONG_MESSAGE, true) || PreData.getDB(this, Constant.HONG_NOTIFI, true) ||
+                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
+                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
+            menu_hong.setVisibility(View.VISIBLE);
+        } else {
+            menu_hong.setVisibility(View.GONE);
+        }
     }
 
     @Override
