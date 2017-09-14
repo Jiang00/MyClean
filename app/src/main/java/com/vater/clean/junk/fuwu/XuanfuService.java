@@ -58,7 +58,7 @@ public class XuanfuService extends Service {
         if (myHandler == null) {
             myHandler = new Handler();
         }
-        manager = FloatStateManager.getInstance(XuanfuService.this);
+
         if (pm == null)
             pm = getPackageManager();
         if (am == null)
@@ -86,6 +86,7 @@ public class XuanfuService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        manager = FloatStateManager.getInstance(XuanfuService.this);
         mana = (WindowManager) XuanfuService.this.getSystemService(Context.WINDOW_SERVICE);
         createFullScreenCheckView();
 
@@ -111,9 +112,7 @@ public class XuanfuService extends Service {
                 int viewHeight = mFullScreenCheckView.getHeight();
                 if (viewHeight == dm.widthPixels || viewHeight == dm.heightPixels) {
                     Log.e("full", "==1");
-
                     manager.removeWindowsView();
-
                 } else {
                     Log.e("full", "==2");
                     manager.addWindowsView();
