@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.LayoutRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,6 +25,9 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.client.AdListener;
+import com.fast.clean.junk.myview.GifBox;
+import com.fast.clean.junk.myview.Rock;
 import com.fast.clean.junk.myview.Titanic;
 import com.fast.clean.junk.myview.TitanicTextView;
 import com.fast.clean.mutil.PreData;
@@ -78,8 +82,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     ProgressBar ad_progressbar;
     LinearLayout main_battery;
     LinearLayout tuiguang_main;
+    FrameLayout loading_full;
+    Rock full_ani;
 
-    LottieAnimationView lot_ad;
+    GifBox lot_ad;
     ListViewForScrollView side_listView;
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side, ad_native_2, ll_ad_s;
@@ -90,6 +96,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private String TAG_MAIN = "acht_main";
     private String TAG_SIDE = "acht_side";
     private String TAG_REFRESH = "drag";
+    private String LOADING_FULL = "loading_full";
 
     private Handler handler = new Handler();
     private MainPresenter mainPresenter;
@@ -153,9 +160,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
 
 
-        lot_ad = (LottieAnimationView) findViewById(R.id.lot_ad);
+        lot_ad = (GifBox) findViewById(R.id.lot_ad);
         main_battery = (LinearLayout) findViewById(R.id.main_battery);
         tuiguang_main = (LinearLayout) findViewById(R.id.tuiguang_main);
+        loading_full = (FrameLayout) findViewById(R.id.loading_full);
+        full_ani = (Rock) findViewById(R.id.full_ani);
     }
 
     @Override
@@ -166,24 +175,26 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
+        full_ani.stopAni();
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
 
         AdUtil.track("主页面", "进入主页面", "", 1);
-        int main_lot_ad = PreData.getDB(this, Constant.MAIN_LOT_AD, 0);
-        if (main_lot_ad % 3 == 0) {
-            main_applock_button.setVisibility(View.GONE);
+        if (PreData.getDB(this, Constant.FULL_LIBAO, 0) == 1) {
+            main_applock_button.setVisibility(View.INVISIBLE);
             ll_lot_ad.setVisibility(View.VISIBLE);
-            lot_ad.setImageAssetsFolder("images/main/");
-            lot_ad.setAnimation("main.json");
-            lot_ad.loop(true);
-            lot_ad.playAnimation();
         } else {
-            main_applock_button.setVisibility(View.VISIBLE);
-            ll_lot_ad.setVisibility(View.GONE);
+            int main_lot_ad = PreData.getDB(this, Constant.MAIN_LOT_AD, 0);
+            if (main_lot_ad % 3 == 0) {
+                main_applock_button.setVisibility(View.INVISIBLE);
+                ll_lot_ad.setVisibility(View.VISIBLE);
+            } else {
+                main_applock_button.setVisibility(View.VISIBLE);
+                ll_lot_ad.setVisibility(View.INVISIBLE);
+            }
+            PreData.putDB(this, Constant.MAIN_LOT_AD, ++main_lot_ad);
         }
-        PreData.putDB(this, Constant.MAIN_LOT_AD, ++main_lot_ad);
         tuiguang(TUIGUAN_MAIN_SOFT, true, tuiguang_main);
         tuiguang(TUIGUAN_MAIN, false, tuiguang_main);
         tuiguang(TUIGUAN_SIDE_SOFT, true, side_listView);
@@ -396,10 +407,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
 
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.showFullAd("acht_start_full");
+            AndroidSdk.showFullAd(LOADING_FULL);
 
         } else {
-            View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
+            View nativeView_full = getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
@@ -591,49 +602,65 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.lot_ad:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
-                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
-                    ll_ad_full.startAnimation(animation);
-                    ll_ad_full.setVisibility(View.VISIBLE);
-                    ad_progressbar.setVisibility(View.VISIBLE);
-                    ll_ad_full.removeAllViews();
-                    animation.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
-                                @Override
-                                public void onNativeAdLoadSuccess(View view) {
-                                    LinearLayout loading_text = (LinearLayout) view.findViewById(R.id.loading_text);
-                                    loading_text.setOnClickListener(null);
-                                    ImageView ad_delete = (ImageView) view.findViewById(R.id.ad_delete);
-                                    ad_delete.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            adDelete();
-                                        }
-                                    });
-                                    ll_ad_full.addView(view);
-                                    ad_progressbar.setVisibility(View.GONE);
-                                }
+                    if (PreData.getDB(MainActivity.this, Constant.FULL_START, 0) == 1) {
+                        AndroidSdk.loadFullAd(LOADING_FULL, new AdListener() {
+                            @Override
+                            public void onAdClosed() {
+                                super.onAdClosed();
+                                full_ani.stopAni();
+                                handler.removeCallbacks(runnable_load);
+                                loading_full.setVisibility(View.INVISIBLE);
+                            }
+                        });
+                        loading_full.setVisibility(View.VISIBLE);
+                        full_ani.playAni();
+                        handler.postDelayed(runnable_load, 4500);
 
-                                @Override
-                                public void onNativeAdLoadFails() {
-                                    showToast(getString(R.string.load_fails));
-                                    adDelete();
-                                    ad_progressbar.setVisibility(View.GONE);
-                                }
-                            });
-                        }
+                    } else {
+                        Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
+                        ll_ad_full.startAnimation(animation);
+                        ll_ad_full.setVisibility(View.VISIBLE);
+                        ad_progressbar.setVisibility(View.VISIBLE);
+                        ll_ad_full.removeAllViews();
+                        animation.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
+                                    @Override
+                                    public void onNativeAdLoadSuccess(View view) {
+                                        LinearLayout loading_text = (LinearLayout) view.findViewById(R.id.loading_text);
+                                        loading_text.setOnClickListener(null);
+                                        ImageView ad_delete = (ImageView) view.findViewById(R.id.ad_delete);
+                                        ad_delete.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                adDelete();
+                                            }
+                                        });
+                                        ll_ad_full.addView(view);
+                                        ad_progressbar.setVisibility(View.GONE);
+                                    }
 
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
+                                    @Override
+                                    public void onNativeAdLoadFails() {
+                                        showToast(getString(R.string.load_fails));
+                                        adDelete();
+                                        ad_progressbar.setVisibility(View.GONE);
+                                    }
+                                });
+                            }
 
-                        }
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
 
-                        @Override
-                        public void onAnimationStart(Animation animation) {
+                            }
 
-                        }
-                    });
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+
+                            }
+                        });
+                    }
 
                     break;
 
@@ -709,6 +736,20 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
     };
 
+    Runnable runnable_load = new Runnable() {
+        @Override
+        public void run() {
+            AndroidSdk.showFullAd(LOADING_FULL);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    full_ani.stopAni();
+                    loading_full.setVisibility(View.INVISIBLE);
+                }
+            }, 1000);
+        }
+    };
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Constant.SETTING_RESUIL) {
@@ -748,7 +789,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     protected void onPause() {
         super.onPause();
         if (lot_ad != null) {
-            lot_ad.pauseAnimation();
+            lot_ad.stopAni();
         }
     }
 
@@ -758,7 +799,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         AndroidSdk.onResumeWithoutTransition(this);
         Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
         if (lot_ad != null) {
-            lot_ad.playAnimation();
+            lot_ad.playAni();
+        }
+        if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
+            AndroidSdk.loadFullAd("acht_exit_full", null);
         }
     }
 
@@ -766,7 +810,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     protected void onDestroy() {
         super.onDestroy();
         if (lot_ad != null) {
-            lot_ad.clearAnimation();
+            lot_ad.stopAni();
+            lot_ad.destroy();
+        }
+        if (full_ani != null) {
+            full_ani.destroy();
         }
     }
 
@@ -774,6 +822,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (ll_ad_full.getVisibility() == View.VISIBLE) {
             adDelete();
             handler.removeCallbacks(fullAdRunnale);
+            return;
+        }
+        if (loading_full.getVisibility() == View.VISIBLE) {
+            handler.removeCallbacks(runnable_load);
+            full_ani.stopAni();
+            loading_full.setVisibility(View.INVISIBLE);
+
             return;
         }
         if (main_battery.getVisibility() == View.VISIBLE) {
@@ -833,13 +888,31 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         return loc;
     }
 
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd(tag)) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+        }
+        return nativeView;
+    }
+
     private void showExitDialog() {
         View view = View.inflate(this, R.layout.dialog_exit, null);
         LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 0) {
-            View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
+            View nativeExit = getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.VISIBLE);

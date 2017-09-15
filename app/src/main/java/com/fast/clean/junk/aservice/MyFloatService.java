@@ -58,7 +58,7 @@ public class MyFloatService extends Service {
         if (myHandler == null) {
             myHandler = new Handler();
         }
-        manager = FloatStateManager.getInstance(MyFloatService.this);
+
         if (pm == null)
             pm = getPackageManager();
         if (am == null)
@@ -81,6 +81,7 @@ public class MyFloatService extends Service {
         }
     };
     String runingGboost;
+
     public List<String> getLaunchers() {
         List<String> packageNames = new ArrayList<String>();
         PackageManager packageManager = this.getPackageManager();
@@ -122,7 +123,7 @@ public class MyFloatService extends Service {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(MyFloatService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(MyFloatService.this, NotificationService.class);
-                            intent.putExtra("from","gboost");
+                            intent.putExtra("from", "gboost");
                             startService(intent);
                         }
                     }
@@ -133,16 +134,15 @@ public class MyFloatService extends Service {
     }
 
 
-
-
-
     @Override
     public void onCreate() {
         super.onCreate();
+        manager = FloatStateManager.getInstance(MyFloatService.this);
         mana = (WindowManager) MyFloatService.this.getSystemService(Context.WINDOW_SERVICE);
         createFullScreenCheckView();
 
     }
+
     private void createFullScreenCheckView() {
         final LayoutParams layoutParams = new LayoutParams();
         layoutParams.type = LayoutParams.TYPE_PHONE;

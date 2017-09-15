@@ -228,34 +228,10 @@ public class SuccessActivity extends BaseActivity {
             public void duogouSc() {
                 //startSecondAnimation();
                 success_drawhook.setListener(null);
-                final int maxShowCount = PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS_MAX_COUNT, 0);
-                int showCount = PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS_COUNT, 0);
-
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    Log.e("rqy", maxShowCount + "--" + showCount);
-                    PreData.putDB(SuccessActivity.this, Constant.FULL_SUCCESS_COUNT, ++showCount);
-                    if (showCount > maxShowCount) {
-                        PreData.putDB(SuccessActivity.this, Constant.NEED_SHOW_FULL_SUCCESS, true);
-                    }
-                    boolean need_show_full_success = PreData.getDB(SuccessActivity.this, Constant.NEED_SHOW_FULL_SUCCESS, false);
-                    if (need_show_full_success) {
-                        int ad_loading_time = PreData.getDB(SuccessActivity.this, Constant.AD_LOADING_TIME, 0);
-                        if (ad_loading_time != 0) {
-                            success_drawhook.setVisibility(View.GONE);
-                            findViewById(R.id.success_1).setVisibility(View.GONE);
-                            findViewById(R.id.success_progress).setVisibility(View.GONE);
-                            loading_text.setVisibility(View.VISIBLE);
-                        }
-                        Log.e("rqy", maxShowCount + "--" + showCount + "--" + need_show_full_success + "--ad_loading_time=" + ad_loading_time);
-
-                        myHandler.postDelayed(runnable, ad_loading_time * 1000);
-                    } else {
-                        startSecondAnimation();
-                    }
-
-                } else {
-                    startSecondAnimation();
+                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
                 }
+                startSecondAnimation();
 
             }
         });
@@ -281,24 +257,6 @@ public class SuccessActivity extends BaseActivity {
         tuiguang(TUIGUAN_SUCCESS_SOFT, true, tuiguang_success);
         tuiguang(TUIGUAN_SUCCESS, false, tuiguang_success);
     }
-
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
-                AndroidSdk.showFullAd("ramboost");
-            } else if (TextUtils.equals("junkClean", getIntent().getStringExtra("from"))) {
-                AndroidSdk.showFullAd("junkclean");
-            } else if (TextUtils.equals("allJunk", getIntent().getStringExtra("from"))) {
-                AndroidSdk.showFullAd("Rocketclean");
-            } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
-                AndroidSdk.showFullAd("cpucooler");
-            } else {
-                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-            }
-            startSecondAnimation();
-        }
-    };
 
 
     private void shendu() {

@@ -74,7 +74,7 @@ public class PowerActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
-        //AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         mHandler = new Handler();
         startService(new Intent(this, MyAccessibilityService.class).putExtra("isDis", false));
         initData();

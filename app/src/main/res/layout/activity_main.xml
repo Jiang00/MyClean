@@ -450,18 +450,15 @@
                                             android:orientation="vertical">
 
                                             <com.sample.lottie.LottieAnimationView
+
+                                                android:layout_width="@dimen/d78"
+                                                android:layout_height="@dimen/d78" />
+
+                                            <com.fast.clean.junk.myview.GifBox
                                                 android:id="@+id/lot_ad"
                                                 android:layout_width="@dimen/d78"
                                                 android:layout_height="@dimen/d78" />
 
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_alignRight="@id/lot_ad"
-                                                android:layout_alignTop="@id/lot_ad"
-                                                android:text="AD"
-                                                android:textColor="@color/A1"
-                                                android:textSize="@dimen/s8" />
                                         </RelativeLayout>
 
                                     </RelativeLayout>
@@ -1040,6 +1037,21 @@
             android:indeterminateTint="@color/A7"
             android:indeterminateTintMode="src_atop"
             android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/loading_full"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_70"
+            android:visibility="invisible">
+
+            <com.fast.clean.junk.myview.Rock
+                android:id="@+id/full_ani"
+                android:layout_width="@dimen/d176"
+                android:layout_height="@dimen/d176"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
 
         <include layout="@layout/layout_battery" />
     </FrameLayout>

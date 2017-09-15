@@ -7,16 +7,24 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.fast.clean.junk.ui.SuccessActivity;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
 import com.fast.clean.junk.aservice.MyFloatService;
+import com.fast.clean.xsimilarimage.ImageInfo;
 import com.fast.module.charge.saver.Util.Constants;
 import com.fast.module.charge.saver.Util.Utils;
 import com.fast.clean.junk.R;
@@ -34,6 +42,8 @@ import com.fast.clean.junk.entity.SideInfo;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
 import com.fast.clean.junk.util.UtilGp;
+
+import java.util.ArrayList;
 
 
 public class MSideAdapter extends MybaseAdapter<SideInfo> {
@@ -53,6 +63,7 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
     private static final int GBOOST = idx++;
     private static final int SETTING = idx++;
     private static final int ROTATE = idx++;
+    private AlertDialog dialog;
 
     public MSideAdapter(Context context) {
 
@@ -211,8 +222,56 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
             ((Activity) context).startActivityForResult(intent9, 1);
         } else if (position == ROTATE) {
             AdUtil.track("侧边栏", "点击好评", "", 1);
-            UtilGp.rate(context);
+            deleteDialog();
         }
+    }
+
+
+    private void deleteDialog() {
+        View view = View.inflate(context, R.layout.dialog_rotate, null);
+        final TextView main_rotate_bad = (TextView) view.findViewById(R.id.main_rotate_bad);
+        final TextView main_rotate_good = (TextView) view.findViewById(R.id.main_rotate_good);
+        ImageView rotate_delete = (ImageView) view.findViewById(R.id.rotate_delete);
+        main_rotate_bad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        main_rotate_good.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                UtilGp.rate(context);
+            }
+        });
+        rotate_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog = new AlertDialog.Builder(context, R.style.add_dialog).create();
+        dialog.show();
+        DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.width = dm.widthPixels; //设置宽度
+        lp.height = dm.heightPixels; //设置高度
+        int uiOptions =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                        //布局位于状态栏下方
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                        //隐藏导航栏
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+        if (Build.VERSION.SDK_INT >= 19) {
+            uiOptions |= 0x00001000;
+        } else {
+            uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+        }
+        dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        dialog.getWindow().setAttributes(lp);
+        dialog.getWindow().setContentView(view);
     }
 
     private Bitmap getBitmap(Drawable icon) {

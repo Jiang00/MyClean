@@ -138,7 +138,7 @@
 
                 <com.fast.module.charge.saver.view.MainWaterView
                     android:id="@+id/charing_water"
-                    android:layout_width="@dimen/d112"
+                    android:layout_width="@dimen/d133"
                     android:layout_height="match_parent" />
 
                 <LinearLayout
@@ -149,33 +149,34 @@
 
                     <ImageView
                         android:id="@+id/level_0"
-                        android:layout_width="@dimen/d39"
+                        android:layout_width="@dimen/d46"
                         android:layout_height="match_parent"
                         android:background="@mipmap/charging_1"
                         android:visibility="gone" />
 
                     <ImageView
                         android:id="@+id/level_1"
-                        android:layout_width="@dimen/d39"
+                        android:layout_width="@dimen/d46"
                         android:layout_height="match_parent"
                         android:background="@mipmap/charging_0" />
 
                     <ImageView
                         android:id="@+id/level_2"
-                        android:layout_width="@dimen/d39"
+                        android:layout_width="@dimen/d46"
                         android:layout_height="match_parent"
                         android:background="@mipmap/charging_0" />
 
                     <ImageView
-                        android:layout_width="@dimen/d39"
+                        android:layout_width="@dimen/d46"
                         android:layout_height="match_parent"
                         android:background="@mipmap/charging_b" />
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="@dimen/d33"
-                    android:layout_height="@dimen/d33"
+                    android:layout_width="@dimen/d23"
+                    android:layout_height="@dimen/d23"
                     android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/d16"
                     android:background="@mipmap/charging_s" />
 
             </FrameLayout>
@@ -198,7 +199,7 @@
                 android:layout_marginLeft="@dimen/d33"
                 android:text="1h 39m"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/s17"
+                android:textSize="@dimen/s28"
                 app:typeface="Roboto-Light.ttf" />
 
         </LinearLayout>
@@ -250,31 +251,32 @@
     <LinearLayout
         android:id="@+id/battery_switch"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/d30"
         android:layout_gravity="top|right"
-        android:layout_marginRight="@dimen/time_top"
-        android:layout_marginTop="@dimen/switch_top"
-        android:background="@drawable/rectangle_back_ad"
+        android:layout_marginRight="@dimen/d16"
+        android:layout_marginTop="@dimen/d44"
+        android:background="@drawable/shape_ad"
         android:orientation="horizontal"
-        android:paddingBottom="@dimen/title_p"
-        android:paddingRight="@dimen/time_top"
-        android:paddingTop="@dimen/title_p"
         android:visibility="gone">
 
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/battery_switch_check"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingLeft="@dimen/time_top"
-            android:text="@string/charge_screen_save"
-            android:textColor="@color/white_100" />
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/d10"
+            android:layout_marginRight="@dimen/d10"
+            android:text="@string/close"
+            android:textColor="#272b57"
+            android:textSize="@dimen/s13" />
 
         <CheckBox
-            android:id="@+id/battery_switch_check"
+
             style="@style/SettingCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/time_top" />
+            android:layout_marginLeft="@dimen/time_top"
+            android:visibility="gone" />
     </LinearLayout>
 
 </com.fast.module.charge.saver.view.BatteryView>

@@ -5,9 +5,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v7.app.AlertDialog;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -45,6 +48,7 @@ public class SettingActivity extends BaseActivity {
 
     private String TAG_SETTING = "acht_setting";
     private Handler myHandler;
+    private AlertDialog dialog;
 
     @Override
     protected void findId() {
@@ -87,7 +91,7 @@ public class SettingActivity extends BaseActivity {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
                 }
             }, 1000);
         } else {
@@ -195,7 +199,7 @@ public class SettingActivity extends BaseActivity {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
                         Intent intent = new Intent(SettingActivity.this, NotificationService.class);
-                        intent.putExtra("from","notification");
+                        intent.putExtra("from", "notification");
                         startService(intent);
                     }
                     break;
@@ -279,11 +283,58 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_rotate:
                     AdUtil.track("设置页面", "好评", "", 1);
-                    UtilGp.rate(SettingActivity.this);
+                    deleteDialog();
                     break;
             }
         }
     };
+
+    private void deleteDialog() {
+        View view = View.inflate(this, R.layout.dialog_rotate, null);
+        final TextView main_rotate_bad = (TextView) view.findViewById(R.id.main_rotate_bad);
+        final TextView main_rotate_good = (TextView) view.findViewById(R.id.main_rotate_good);
+        ImageView rotate_delete = (ImageView) view.findViewById(R.id.rotate_delete);
+        main_rotate_bad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        main_rotate_good.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                UtilGp.rate(SettingActivity.this);
+            }
+        });
+        rotate_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
+        dialog.show();
+        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.width = dm.widthPixels; //设置宽度
+        lp.height = dm.heightPixels; //设置高度
+        int uiOptions =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                        //布局位于状态栏下方
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                        //隐藏导航栏
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+        if (Build.VERSION.SDK_INT >= 19) {
+            uiOptions |= 0x00001000;
+        } else {
+            uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+        }
+        dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        dialog.getWindow().setAttributes(lp);
+        dialog.getWindow().setContentView(view);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -91,6 +91,9 @@ public class LoadingActivity extends BaseActivity {
             }
         });
         myHandler.post(runnable1);
+        if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
+            AndroidSdk.loadFullAd("loading_full",null);
+        }
     }
 
     Runnable runnable1 = new Runnable() {
@@ -104,6 +107,9 @@ public class LoadingActivity extends BaseActivity {
                 }
                 if (jsonObject.has("full_start")) {
                     PreData.putDB(LoadingActivity.this, Constant.FULL_START, jsonObject.getInt("full_start"));
+                }
+                if (jsonObject.has("gift_switch")) {
+                    PreData.putDB(LoadingActivity.this, Constant.FULL_LIBAO, jsonObject.getInt("gift_switch"));
                 }
                 if (jsonObject.has("full_exit")) {
                     PreData.putDB(LoadingActivity.this, Constant.FULL_EXIT, jsonObject.getInt("full_exit"));

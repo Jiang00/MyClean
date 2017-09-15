@@ -52,7 +52,7 @@ public class BatteryView extends FrameLayout {
     private TextView title;
     private LinearLayout more;
     private LinearLayout switchLayout;
-    private CheckBox saverSwitch;
+    private TextView saverSwitch;
     private TextView time;
     private TextView date;
     private TextView week;
@@ -161,8 +161,8 @@ public class BatteryView extends FrameLayout {
         if (entry == null) {
             return;
         }
-        final int curLevel = 44;
-//        final int curLevel = entry.getLevel();
+//        final int curLevel = 44;
+        final int curLevel = entry.getLevel();
         currentLevel.setText(curLevel + "%");
         charing_water.upDate(curLevel);
         if (curLevel != 0) {
@@ -319,29 +319,30 @@ public class BatteryView extends FrameLayout {
                 }
             });
 
-            if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
-                if (saverSwitch != null) {
-                    saverSwitch.setChecked(true);
-                }
-            } else {
-                if (saverSwitch != null) {
-                    saverSwitch.setChecked(false);
-                }
-            }
+//            if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
+//                if (saverSwitch != null) {
+//                    saverSwitch.setChecked(true);
+//                }
+//            } else {
+//                if (saverSwitch != null) {
+//                    saverSwitch.setChecked(false);
+//                }
+//            }
             saverSwitch.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
-                        if (saverSwitch != null) {
-                            saverSwitch.setChecked(false);
-                            Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, false);
-                        }
-                    } else {
-                        if (saverSwitch != null) {
-                            saverSwitch.setChecked(true);
-                            Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, true);
-                        }
-                    }
+                    Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, false);
+//                    if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
+//                        if (saverSwitch != null) {
+//                            saverSwitch.setChecked(false);
+//
+//                        }
+//                    } else {
+//                        if (saverSwitch != null) {
+//                            saverSwitch.setChecked(true);
+//                            Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, true);
+//                        }
+//                    }
                 }
             });
         }
@@ -358,7 +359,7 @@ public class BatteryView extends FrameLayout {
         level_2 = (ImageView) findViewById(R.id.level_2);
         batteryView = (BatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
-        saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
+        saverSwitch = (TextView) findViewById(R.id.battery_switch_check);
         adLayout = (LinearLayout) findViewById(R.id.battery_ad_layout);
         icon = (ImageView) findViewById(R.id.battery_icon);
         title = (TextView) findViewById(R.id.battery_title);

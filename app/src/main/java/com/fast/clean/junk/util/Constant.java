@@ -70,6 +70,7 @@ public class Constant {
      */
     public static final String FULL_MAIN = "FULL_MAIN";
     public static final String FULL_START = "FULL_START";
+    public static final String FULL_LIBAO = "FULL_LIBAO";
     public static final String FULL_EXIT = "FULL_EXIT";
     public static final String SKIP_TIME = "SKIP_TIME";
 
