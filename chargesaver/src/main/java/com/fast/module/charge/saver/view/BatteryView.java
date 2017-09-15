@@ -5,6 +5,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -55,11 +57,13 @@ public class BatteryView extends FrameLayout {
     private TextView date;
     private TextView week;
     private TextView batteryLeft;
+    private TextView battery_now_battery_left_1;
     private TextView currentLevel;
+    private MainWaterView charing_water;
+    private LinearLayout level_all;
+    private ImageView level_0, level_1, level_2;
     private BubbleLayout bubbleLayout;
 
-    private LottieAnimationView shell;
-    private LottieAnimationView water;
     private int halfWidth;
     private ImageView shutter;
 
@@ -157,40 +161,81 @@ public class BatteryView extends FrameLayout {
         if (entry == null) {
             return;
         }
-        final int curLevel = entry.getLevel();
+        final int curLevel = 44;
+//        final int curLevel = entry.getLevel();
         currentLevel.setText(curLevel + "%");
-        final int le = curLevel % 100;
-
-        if (water != null && !water.isAnimating()) {
-            initWater();
-            water.playAnimation();
-            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    progress = (int) (animation.getAnimatedFraction() * 100);
-                    if (le == 0) {
-                        if (progress == 99) {
-                            progress = 100;
-                            water.pauseAnimation();
-                        }
-                    } else if (progress == le) {
-                        water.pauseAnimation();
-                    }
-                }
-            });
+        charing_water.upDate(curLevel);
+        if (curLevel != 0) {
+            int s = curLevel / 10;
+            int g = curLevel % 10;
+            if (curLevel == 100) {
+                level_0.setVisibility(VISIBLE);
+                level_all.setBackgroundColor(ContextCompat.getColor(mContext, R.color.A3));
+            } else {
+                level_0.setVisibility(GONE);
+                level_all.setBackgroundColor(Color.TRANSPARENT);
+            }
+            if (g == 0) {
+                level_2.setBackgroundResource(R.mipmap.charging_0);
+            } else if (g == 1) {
+                level_2.setBackgroundResource(R.mipmap.charging_1);
+            } else if (g == 2) {
+                level_2.setBackgroundResource(R.mipmap.charging_2);
+            } else if (g == 3) {
+                level_2.setBackgroundResource(R.mipmap.charging_3);
+            } else if (g == 4) {
+                level_2.setBackgroundResource(R.mipmap.charging_4);
+            } else if (g == 5) {
+                level_2.setBackgroundResource(R.mipmap.charging_5);
+            } else if (g == 6) {
+                level_2.setBackgroundResource(R.mipmap.charging_6);
+            } else if (g == 7) {
+                level_2.setBackgroundResource(R.mipmap.charging_7);
+            } else if (g == 8) {
+                level_2.setBackgroundResource(R.mipmap.charging_8);
+            } else if (g == 9) {
+                level_2.setBackgroundResource(R.mipmap.charging_9);
+            }
+            if (s == 0) {
+                level_1.setBackgroundResource(R.mipmap.charging_0);
+            } else if (s == 1) {
+                level_1.setBackgroundResource(R.mipmap.charging_1);
+            } else if (s == 2) {
+                level_1.setBackgroundResource(R.mipmap.charging_2);
+            } else if (s == 3) {
+                level_1.setBackgroundResource(R.mipmap.charging_3);
+            } else if (s == 4) {
+                level_1.setBackgroundResource(R.mipmap.charging_4);
+            } else if (s == 5) {
+                level_1.setBackgroundResource(R.mipmap.charging_5);
+            } else if (s == 6) {
+                level_1.setBackgroundResource(R.mipmap.charging_6);
+            } else if (s == 7) {
+                level_1.setBackgroundResource(R.mipmap.charging_7);
+            } else if (s == 8) {
+                level_1.setBackgroundResource(R.mipmap.charging_8);
+            } else if (s == 9) {
+                level_1.setBackgroundResource(R.mipmap.charging_9);
+            }
+        } else {
+            level_1.setBackgroundResource(R.mipmap.charging_0);
+            level_2.setBackgroundResource(R.mipmap.charging_0);
         }
+
+        final int le = curLevel % 100;
 
 
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
             String str;
             if (entry.isCharging()) {
+                batteryLeft.setText(R.string.left);
                 str = getResources().getString(R.string.charging_on_left);
             } else {
+                batteryLeft.setText(R.string.use);
                 str = getResources().getString(R.string.charging_use_left);
             }
-            String result = String.format(str, entry.extractHours(leftChargeTime), entry.extractMinutes(leftChargeTime));
-            batteryLeft.setText(result);
+            battery_now_battery_left_1.setText(entry.extractHours(leftChargeTime) + "h" + entry.extractMinutes(leftChargeTime) + "m");
         }
     }
 
@@ -200,53 +245,12 @@ public class BatteryView extends FrameLayout {
     }
 
 
-    private void initShell() {
-        try {
-            shell.setImageAssetsFolder(mContext, "theme://images/shell");
-            shell.setAnimation(mContext, "theme://shell.json");
-            shell.loop(true);
-            shell.playAnimation();
-        } catch (Exception e) {
-            shell.setImageAssetsFolder(null, "images/shell");
-            shell.setAnimation(null, "shell.json");
-        }
-        shell.loop(true);
-        shell.playAnimation();
-    }
-
-    private void initWater() {
-        try {
-            water.setImageAssetsFolder(mContext, "theme://images/water");
-            water.setAnimation(mContext, "theme://water.json");
-        } catch (Exception e) {
-            if (!water.isAnimating()) {
-                water.setImageAssetsFolder(null, "images/water");
-                water.setAnimation(null, "water.json");
-            }
-        }
-        water.loop(true);
-        water.setSpeed(5.0f);
-    }
-
-
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
         if (!isBindView) {
             initViews();
             isBindView = true;
-
-//            shell.setAnimation("shell.json");
-//            shell.loop(true);
-//            LottieComposition.Factory.fromAssetFileName(getContext(), "shell.json",
-//                    new OnCompositionLoadedListener() {
-//                        @Override
-//                        public void onCompositionLoaded(LottieComposition composition) {
-//                            shell.setComposition(composition);
-//                        }
-//                    });
-//            shell.playAnimation();
-            initShell();
 
             updateTime();
 
@@ -347,6 +351,11 @@ public class BatteryView extends FrameLayout {
         shutter = (ImageView) findViewById(R.id.battery_shutter);
         bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
         currentLevel = (TextView) findViewById(R.id.battery_level);
+        charing_water = (MainWaterView) findViewById(R.id.charing_water);
+        level_all = (LinearLayout) findViewById(R.id.level_all);
+        level_0 = (ImageView) findViewById(R.id.level_0);
+        level_1 = (ImageView) findViewById(R.id.level_1);
+        level_2 = (ImageView) findViewById(R.id.level_2);
         batteryView = (BatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
@@ -358,19 +367,24 @@ public class BatteryView extends FrameLayout {
         date = (TextView) findViewById(R.id.battery_now_date);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
-        shell = (LottieAnimationView) findViewById(R.id.battery_shell);
-        water = (LottieAnimationView) findViewById(R.id.battery_electricity);
+        battery_now_battery_left_1 = (TextView) findViewById(R.id.battery_now_battery_left_1);
     }
 
     public void pauseBubble() {
         if (bubbleLayout != null) {
             bubbleLayout.pause();
         }
+        if (charing_water != null) {
+            charing_water.stop();
+        }
     }
 
     public void reStartBubble() {
         if (bubbleLayout != null) {
             bubbleLayout.reStart();
+        }
+        if (charing_water != null) {
+            charing_water.start();
         }
     }
 
@@ -379,6 +393,9 @@ public class BatteryView extends FrameLayout {
         super.onAttachedToWindow();
         if (!isRegisterTimeUpdate) {
             registerTimeUpdateReceiver();
+        }
+        if (charing_water != null) {
+            charing_water.start();
         }
         if (!isBindView) {
             isBindView = true;
@@ -400,14 +417,11 @@ public class BatteryView extends FrameLayout {
         if (isRegisterTimeUpdate) {
             unregisterTimeUpdateReceiver();
         }
-        if (water != null && water.isAnimating()) {
-            water.cancelAnimation();
-        }
-        if (shell != null && shell.isAnimating()) {
-            shell.cancelAnimation();
-        }
         if (bubbleLayout != null) {
             bubbleLayout.destroy();
+        }
+        if (charing_water != null) {
+            charing_water.stop();
         }
         if (isBindView) {
             isBindView = false;

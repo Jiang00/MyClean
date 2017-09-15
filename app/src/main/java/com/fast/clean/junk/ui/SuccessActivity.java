@@ -69,7 +69,7 @@ public class SuccessActivity extends BaseActivity {
     SlowScrollView scrollView;
     LinearLayout main_picture_button;
     TextView main_rotate_bad;
-    //    ImageView delete;
+    ImageView rotate_delete;
     ImageView success_progress;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
@@ -116,7 +116,7 @@ public class SuccessActivity extends BaseActivity {
         power_text = (TextView) findViewById(R.id.power_text);
         main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
-//        delete = (ImageView) findViewById(R.id.delete);
+        rotate_delete = (ImageView) findViewById(R.id.rotate_delete);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         success_progress = (ImageView) findViewById(R.id.success_progress);
@@ -334,7 +334,7 @@ public class SuccessActivity extends BaseActivity {
         title_left.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         main_rotate_bad.setOnClickListener(onClickListener);
-//        delete.setOnClickListener(onClickListener);
+        rotate_delete.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
@@ -586,6 +586,7 @@ public class SuccessActivity extends BaseActivity {
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_rotate_bad:
+                case R.id.rotate_delete:
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;

@@ -1,5 +1,8 @@
 package com.fast.clean.junk.ui;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,6 +10,8 @@ import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fast.clean.mutil.PreData;
@@ -27,11 +32,18 @@ import org.json.JSONObject;
 public class LoadingActivity extends BaseActivity {
     Handler myHandler;
     TextView tv_tiaoguo;
+    LinearLayout loading_1;
+    ImageView loading_2;
+    TextView load_text_3;
+    private AnimatorSet animatorSet;
 
     @Override
     protected void findId() {
         super.findId();
         tv_tiaoguo = (TextView) findViewById(R.id.tv_tiaoguo);
+        loading_1 = (LinearLayout) findViewById(R.id.loading_1);
+        loading_2 = (ImageView) findViewById(R.id.loading_2);
+        load_text_3 = (TextView) findViewById(R.id.load_text_3);
         // ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
@@ -49,8 +61,36 @@ public class LoadingActivity extends BaseActivity {
             PreData.putDB(this, Constant.ROOT_TRAK, false);
             PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
-        myHandler.removeCallbacks(runnable1);
-        myHandler.postDelayed(runnable1, 2000);
+        animatorSet = new AnimatorSet();
+        ObjectAnimator animator_1 = ObjectAnimator.ofFloat(loading_2, View.TRANSLATION_X, -getResources().getDimensionPixelSize(R.dimen.d20), 0);
+        ObjectAnimator animator_2 = ObjectAnimator.ofFloat(loading_1, View.TRANSLATION_X, getResources().getDimensionPixelSize(R.dimen.d333), 0);
+        ObjectAnimator animator_3 = ObjectAnimator.ofFloat(load_text_3, View.TRANSLATION_Y, getResources().getDimensionPixelSize(R.dimen.d20), 0);
+        animatorSet.setDuration(2000);
+        animatorSet.play(animator_1).with(animator_2).with(animator_3);
+        animatorSet.start();
+        animatorSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                jumpTo(MainActivity.class);
+                finish();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
+        myHandler.post(runnable1);
     }
 
     Runnable runnable1 = new Runnable() {
@@ -145,8 +185,7 @@ public class LoadingActivity extends BaseActivity {
             getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
             int a = Util.dp2px(360);
             Log.e("jfy", "px=" + a + "" + "=" + metrics.density + "=" + metrics.widthPixels);
-            jumpTo(MainActivity.class);
-            finish();
+
         }
     };
 

@@ -10,20 +10,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
         android:background="@drawable/shape_ad"
         android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d65"
-            android:orientation="horizontal">
+            android:layout_height="@dimen/d37"
+            android:layout_marginTop="@dimen/d5">
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d23"
-                android:src="@mipmap/short_5" />
+                android:layout_marginLeft="@dimen/s16"
+                android:text="@string/app_name"
+                android:textColor="#b8b9be"
+                android:textSize="@dimen/s16" />
+
+            <ImageView
+                android:id="@+id/dialog_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="@dimen/d9"
+                android:padding="@dimen/d8"
+                android:src="@mipmap/rotate_delete" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d61"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -36,12 +55,21 @@
 
             <TextView
                 android:id="@+id/short_clean_szie"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/d2"
+                android:layout_weight="1"
                 android:textColor="@color/A8"
                 android:textSize="@dimen/s15" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d17"
+                android:src="@mipmap/short_5" />
+
         </LinearLayout>
 
         <LinearLayout

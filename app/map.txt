@@ -32730,6 +32730,33 @@ com.fast.clean.junk.myview.SlowScrollView -> com.fast.clean.junk.myview.SlowScro
     56:59:void smoothScrollBySlow(int,int,int) -> a
     67:68:void fling(int) -> fling
     74:75:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.fast.clean.junk.myview.TitanicTextView -> com.fast.clean.junk.myview.TitanicTextView:
+    com.fast.clean.junk.myview.TitanicTextView$AnimationSetupCallback animationSetupCallback -> a
+    float maskX -> b
+    float maskY -> c
+    boolean sinking -> d
+    boolean setUp -> e
+    android.graphics.BitmapShader shader -> f
+    android.graphics.Matrix shaderMatrix -> g
+    android.graphics.drawable.Drawable wave -> h
+    float offsetY -> i
+    51:53:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    56:58:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    61:62:void init() -> a
+    65:65:com.fast.clean.junk.myview.TitanicTextView$AnimationSetupCallback getAnimationSetupCallback() -> getAnimationSetupCallback
+    69:70:void setAnimationSetupCallback(com.fast.clean.junk.myview.TitanicTextView$AnimationSetupCallback) -> setAnimationSetupCallback
+    73:73:float getMaskX() -> getMaskX
+    77:79:void setMaskX(float) -> setMaskX
+    82:82:float getMaskY() -> getMaskY
+    86:88:void setMaskY(float) -> setMaskY
+    95:96:void setSinking(boolean) -> setSinking
+    104:106:void setTextColor(int) -> setTextColor
+    110:112:void setTextColor(android.content.res.ColorStateList) -> setTextColor
+    116:126:void onSizeChanged(int,int,int,int) -> onSizeChanged
+    135:154:void createShader() -> b
+    160:178:void onDraw(android.graphics.Canvas) -> onDraw
+com.fast.clean.junk.myview.TitanicTextView$AnimationSetupCallback -> com.fast.clean.junk.myview.TitanicTextView$a:
+    void onSetupAnimation(com.fast.clean.junk.myview.TitanicTextView) -> a
 com.fast.clean.junk.presenter.BasePresenter -> com.fast.clean.junk.c.a:
     java.lang.Object iView -> a
     int cpuTemp -> c
@@ -33852,18 +33879,29 @@ com.fast.clean.junk.ui.FloatActivity$5 -> com.fast.clean.junk.ui.FloatActivity$5
 com.fast.clean.junk.ui.LoadingActivity -> com.fast.clean.junk.ui.LoadingActivity:
     android.os.Handler myHandler -> a
     android.widget.TextView tv_tiaoguo -> b
-    java.lang.Runnable runnable1 -> c
-    27:56:void <init>() -> <init>
-    33:36:void findId() -> a
-    42:54:void onCreate(android.os.Bundle) -> onCreate
-    156:158:void onResume() -> onResume
-    162:163:void onStop() -> onStop
-    167:169:void onDestroy() -> onDestroy
-    173:174:void onBackPressed() -> onBackPressed
+    android.widget.LinearLayout loading_1 -> c
+    android.widget.ImageView loading_2 -> d
+    android.widget.TextView load_text_3 -> e
+    android.animation.AnimatorSet animatorSet -> g
+    java.lang.Runnable runnable1 -> f
+    32:96:void <init>() -> <init>
+    42:48:void findId() -> a
+    54:94:void onCreate(android.os.Bundle) -> onCreate
+    195:197:void onResume() -> onResume
+    201:202:void onStop() -> onStop
+    206:208:void onDestroy() -> onDestroy
+    212:213:void onBackPressed() -> onBackPressed
 com.fast.clean.junk.ui.LoadingActivity$1 -> com.fast.clean.junk.ui.LoadingActivity$1:
     com.fast.clean.junk.ui.LoadingActivity this$0 -> a
-    56:56:void <init>(com.fast.clean.junk.ui.LoadingActivity) -> <init>
-    61:150:void run() -> run
+    71:71:void <init>(com.fast.clean.junk.ui.LoadingActivity) -> <init>
+    75:75:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    79:81:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    86:86:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    91:91:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.fast.clean.junk.ui.LoadingActivity$2 -> com.fast.clean.junk.ui.LoadingActivity$2:
+    com.fast.clean.junk.ui.LoadingActivity this$0 -> a
+    96:96:void <init>(com.fast.clean.junk.ui.LoadingActivity) -> <init>
+    101:189:void run() -> run
 com.fast.clean.junk.ui.MainActivity -> com.fast.clean.junk.ui.MainActivity:
     android.widget.TextView main_cpu_temp -> a
     android.widget.TextView main_sd_per -> b
@@ -33880,210 +33918,211 @@ com.fast.clean.junk.ui.MainActivity -> com.fast.clean.junk.ui.MainActivity:
     android.widget.LinearLayout main_rotate_all -> x
     android.widget.TextView main_rotate_good -> y
     android.widget.TextView main_rotate_bad -> z
-    android.widget.LinearLayout main_msg_button -> A
-    com.fast.clean.junk.myview.MyScrollView main_scroll_view -> B
-    com.fast.clean.junk.myview.PullToRefreshLayout main_pull_refresh -> C
-    android.widget.ImageView iv_title_right -> D
-    android.widget.ImageView iv_title_left -> E
-    android.widget.RelativeLayout main_cpu_air_button -> F
-    android.widget.RelativeLayout main_sd_air_button -> G
-    android.widget.RelativeLayout main_ram_air_button -> H
-    android.widget.ImageView main_huojian -> I
-    com.fast.clean.junk.myview.CpuRoundView main_custom_cpu -> J
-    com.fast.clean.junk.myview.CpuRoundView main_custom_sd -> K
-    com.fast.clean.junk.myview.RamRoundView main_custom_ram -> L
-    android.widget.LinearLayout main_power_button -> M
-    android.widget.LinearLayout main_notifi_button -> N
-    android.widget.LinearLayout main_file_button -> O
-    android.widget.LinearLayout main_gboost_button -> P
-    android.widget.LinearLayout main_picture_button -> Q
-    android.widget.TextView main_msg_ram_percent -> R
-    android.widget.TextView main_msg_sd_percent -> S
-    android.widget.TextView main_msg_cpu_percent -> T
-    com.mingle.widget.LinearLayout ll_ad_full -> U
-    android.widget.ProgressBar ad_progressbar -> V
-    android.widget.LinearLayout main_battery -> W
-    android.widget.LinearLayout tuiguang_main -> X
-    com.sample.lottie.LottieAnimationView lot_ad -> Y
-    com.fast.clean.junk.myview.ListViewForScrollView side_listView -> Z
-    android.support.v4.widget.DrawerLayout main_drawer -> aa
-    android.widget.LinearLayout ll_ad -> ab
-    android.widget.LinearLayout ll_ad_side -> ac
-    android.widget.LinearLayout ad_native_2 -> ad
-    android.widget.LinearLayout ll_ad_s -> ae
-    java.lang.String TAG_START_FULL -> aj
-    java.lang.String TAG_EXIT_FULL -> ak
-    java.lang.String TAG_FULL_PULL -> al
-    java.lang.String TAG_MAIN -> am
-    java.lang.String TAG_SIDE -> an
-    java.lang.String TAG_REFRESH -> ao
-    android.os.Handler handler -> ap
-    com.fast.clean.junk.presenter.MainPresenter mainPresenter -> aq
-    com.fast.clean.junk.adapter.MSideAdapter adapter -> ar
-    int temp -> as
-    android.support.v7.app.AlertDialog dialog -> at
-    int sdProgress -> af
-    java.lang.Runnable fullAdRunnale -> ag
-    com.fast.clean.junk.myview.PullToRefreshLayout$OnRefreshListener refreshListener -> ah
-    android.view.View$OnClickListener onClickListener -> ai
-    50:527:void <init>() -> <init>
-    101:155:void findId() -> a
-    159:187:void onCreate(android.os.Bundle) -> onCreate
-    193:218:void onClick() -> c
-    222:245:void initCpu(int) -> b
-    252:272:void initSideData() -> d
-    276:306:void initSd(int,java.lang.String,long) -> a
-    310:333:void initRam(int,java.lang.String) -> a
-    337:338:void setRotateGone() -> e
-    342:343:void openDrawer() -> f
-    354:428:void loadFullAd() -> b
-    708:732:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    736:739:void onRestart() -> onRestart
-    743:747:void onPause() -> onPause
-    751:757:void onResume() -> onResume
-    761:765:void onDestroy() -> onDestroy
-    768:786:void onBackPressed() -> onBackPressed
-    789:811:void adDelete() -> g
-    831:880:void showExitDialog() -> h
-    885:885:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    889:890:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    894:895:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    900:900:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    50:50:android.os.Handler access$000(com.fast.clean.junk.ui.MainActivity) -> a
-    50:50:void access$100(com.fast.clean.junk.ui.MainActivity) -> b
-    50:50:java.lang.String access$200(com.fast.clean.junk.ui.MainActivity) -> c
-    50:50:java.lang.String access$300(com.fast.clean.junk.ui.MainActivity) -> d
-    50:50:com.fast.clean.junk.presenter.MainPresenter access$400(com.fast.clean.junk.ui.MainActivity) -> e
-    50:50:int access$500(com.fast.clean.junk.ui.MainActivity) -> f
-    50:50:java.lang.String access$600(com.fast.clean.junk.ui.MainActivity) -> g
-    50:50:com.fast.clean.junk.adapter.MSideAdapter access$700(com.fast.clean.junk.ui.MainActivity) -> h
-    50:50:android.support.v7.app.AlertDialog access$800(com.fast.clean.junk.ui.MainActivity) -> i
+    android.widget.ImageView rotate_delete -> A
+    android.widget.LinearLayout main_msg_button -> B
+    com.fast.clean.junk.myview.MyScrollView main_scroll_view -> C
+    com.fast.clean.junk.myview.PullToRefreshLayout main_pull_refresh -> D
+    android.widget.ImageView iv_title_right -> E
+    android.widget.ImageView iv_title_left -> F
+    android.widget.RelativeLayout main_cpu_air_button -> G
+    android.widget.RelativeLayout main_sd_air_button -> H
+    android.widget.RelativeLayout main_ram_air_button -> I
+    android.widget.ImageView main_huojian -> J
+    com.fast.clean.junk.myview.CpuRoundView main_custom_cpu -> K
+    com.fast.clean.junk.myview.CpuRoundView main_custom_sd -> L
+    com.fast.clean.junk.myview.RamRoundView main_custom_ram -> M
+    android.widget.LinearLayout main_power_button -> N
+    android.widget.LinearLayout main_notifi_button -> O
+    android.widget.LinearLayout main_file_button -> P
+    android.widget.LinearLayout main_gboost_button -> Q
+    android.widget.LinearLayout main_picture_button -> R
+    android.widget.TextView main_msg_ram_percent -> S
+    android.widget.TextView main_msg_sd_percent -> T
+    android.widget.TextView main_msg_cpu_percent -> U
+    com.mingle.widget.LinearLayout ll_ad_full -> V
+    android.widget.ProgressBar ad_progressbar -> W
+    android.widget.LinearLayout main_battery -> X
+    android.widget.LinearLayout tuiguang_main -> Y
+    com.sample.lottie.LottieAnimationView lot_ad -> Z
+    com.fast.clean.junk.myview.ListViewForScrollView side_listView -> aa
+    android.support.v4.widget.DrawerLayout main_drawer -> ab
+    android.widget.LinearLayout ll_ad -> ac
+    android.widget.LinearLayout ll_ad_side -> ad
+    android.widget.LinearLayout ad_native_2 -> ae
+    android.widget.LinearLayout ll_ad_s -> af
+    java.lang.String TAG_START_FULL -> ak
+    java.lang.String TAG_EXIT_FULL -> al
+    java.lang.String TAG_FULL_PULL -> am
+    java.lang.String TAG_MAIN -> an
+    java.lang.String TAG_SIDE -> ao
+    java.lang.String TAG_REFRESH -> ap
+    android.os.Handler handler -> aq
+    com.fast.clean.junk.presenter.MainPresenter mainPresenter -> ar
+    com.fast.clean.junk.adapter.MSideAdapter adapter -> as
+    int temp -> at
+    android.support.v7.app.AlertDialog dialog -> au
+    int sdProgress -> ag
+    java.lang.Runnable fullAdRunnale -> ah
+    com.fast.clean.junk.myview.PullToRefreshLayout$OnRefreshListener refreshListener -> ai
+    android.view.View$OnClickListener onClickListener -> aj
+    52:532:void <init>() -> <init>
+    104:159:void findId() -> a
+    163:191:void onCreate(android.os.Bundle) -> onCreate
+    197:223:void onClick() -> c
+    227:250:void initCpu(int) -> b
+    257:277:void initSideData() -> d
+    281:311:void initSd(int,java.lang.String,long) -> a
+    315:338:void initRam(int,java.lang.String) -> a
+    342:343:void setRotateGone() -> e
+    347:348:void openDrawer() -> f
+    359:433:void loadFullAd() -> b
+    714:738:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    742:745:void onRestart() -> onRestart
+    749:753:void onPause() -> onPause
+    757:763:void onResume() -> onResume
+    767:771:void onDestroy() -> onDestroy
+    774:792:void onBackPressed() -> onBackPressed
+    795:817:void adDelete() -> g
+    837:886:void showExitDialog() -> h
+    891:891:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    895:896:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    900:901:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    906:906:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    52:52:android.os.Handler access$000(com.fast.clean.junk.ui.MainActivity) -> a
+    52:52:void access$100(com.fast.clean.junk.ui.MainActivity) -> b
+    52:52:java.lang.String access$200(com.fast.clean.junk.ui.MainActivity) -> c
+    52:52:java.lang.String access$300(com.fast.clean.junk.ui.MainActivity) -> d
+    52:52:com.fast.clean.junk.presenter.MainPresenter access$400(com.fast.clean.junk.ui.MainActivity) -> e
+    52:52:int access$500(com.fast.clean.junk.ui.MainActivity) -> f
+    52:52:java.lang.String access$600(com.fast.clean.junk.ui.MainActivity) -> g
+    52:52:com.fast.clean.junk.adapter.MSideAdapter access$700(com.fast.clean.junk.ui.MainActivity) -> h
+    52:52:android.support.v7.app.AlertDialog access$800(com.fast.clean.junk.ui.MainActivity) -> i
 com.fast.clean.junk.ui.MainActivity$1 -> com.fast.clean.junk.ui.MainActivity$1:
     int val$temp -> a
     com.fast.clean.junk.ui.MainActivity this$0 -> b
-    224:224:void <init>(com.fast.clean.junk.ui.MainActivity,int) -> <init>
-    227:242:void progressUpdate(int) -> a
+    229:229:void <init>(com.fast.clean.junk.ui.MainActivity,int) -> <init>
+    232:247:void progressUpdate(int) -> a
 com.fast.clean.junk.ui.MainActivity$1$1 -> com.fast.clean.junk.ui.MainActivity$1$1:
     int val$progress -> a
     com.fast.clean.junk.ui.MainActivity$1 this$1 -> b
-    227:227:void <init>(com.fast.clean.junk.ui.MainActivity$1,int) -> <init>
-    230:240:void run() -> run
+    232:232:void <init>(com.fast.clean.junk.ui.MainActivity$1,int) -> <init>
+    235:245:void run() -> run
 com.fast.clean.junk.ui.MainActivity$10 -> com.fast.clean.junk.ui.MainActivity$2:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    527:527:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    531:703:void onClick(android.view.View) -> onClick
+    532:532:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    536:709:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.MainActivity$10$1 -> com.fast.clean.junk.ui.MainActivity$2$1:
     com.fast.clean.junk.ui.MainActivity$10 this$1 -> a
-    594:594:void <init>(com.fast.clean.junk.ui.MainActivity$10) -> <init>
-    597:620:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    625:625:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    630:630:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    599:599:void <init>(com.fast.clean.junk.ui.MainActivity$10) -> <init>
+    602:625:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    630:630:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    635:635:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.fast.clean.junk.ui.MainActivity$10$1$1 -> com.fast.clean.junk.ui.MainActivity$2$1$1:
     com.fast.clean.junk.ui.MainActivity$10$1 this$2 -> a
-    597:597:void <init>(com.fast.clean.junk.ui.MainActivity$10$1) -> <init>
-    600:611:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    615:618:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    602:602:void <init>(com.fast.clean.junk.ui.MainActivity$10$1) -> <init>
+    605:616:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    620:623:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.fast.clean.junk.ui.MainActivity$10$1$1$1 -> com.fast.clean.junk.ui.MainActivity$2$1$1$1:
     com.fast.clean.junk.ui.MainActivity$10$1$1 this$3 -> a
-    603:603:void <init>(com.fast.clean.junk.ui.MainActivity$10$1$1) -> <init>
-    606:607:void onClick(android.view.View) -> onClick
+    608:608:void <init>(com.fast.clean.junk.ui.MainActivity$10$1$1) -> <init>
+    611:612:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.MainActivity$10$2 -> com.fast.clean.junk.ui.MainActivity$2$2:
     com.fast.clean.junk.ui.MainActivity$10 this$1 -> a
-    681:681:void <init>(com.fast.clean.junk.ui.MainActivity$10) -> <init>
-    684:685:void run() -> run
+    687:687:void <init>(com.fast.clean.junk.ui.MainActivity$10) -> <init>
+    690:691:void run() -> run
 com.fast.clean.junk.ui.MainActivity$10$3 -> com.fast.clean.junk.ui.MainActivity$2$3:
     com.fast.clean.junk.ui.MainActivity$10 this$1 -> a
-    692:692:void <init>(com.fast.clean.junk.ui.MainActivity$10) -> <init>
-    695:696:void run() -> run
+    698:698:void <init>(com.fast.clean.junk.ui.MainActivity$10) -> <init>
+    701:702:void run() -> run
 com.fast.clean.junk.ui.MainActivity$11 -> com.fast.clean.junk.ui.MainActivity$3:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    801:801:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    804:806:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
+    807:807:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    810:812:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
 com.fast.clean.junk.ui.MainActivity$12 -> com.fast.clean.junk.ui.MainActivity$4:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    842:842:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    845:847:void onClick(android.view.View) -> onClick
+    848:848:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    851:853:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.MainActivity$13 -> com.fast.clean.junk.ui.MainActivity$5:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    849:849:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    852:853:void onClick(android.view.View) -> onClick
+    855:855:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    858:859:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.MainActivity$2 -> com.fast.clean.junk.ui.MainActivity$6:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    277:277:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    280:281:void run() -> run
+    282:282:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    285:286:void run() -> run
 com.fast.clean.junk.ui.MainActivity$3 -> com.fast.clean.junk.ui.MainActivity$7:
     java.lang.Runnable val$sdRunable -> a
     com.fast.clean.junk.ui.MainActivity this$0 -> b
-    283:283:void <init>(com.fast.clean.junk.ui.MainActivity,java.lang.Runnable) -> <init>
-    286:288:void progressUpdate(int) -> a
+    288:288:void <init>(com.fast.clean.junk.ui.MainActivity,java.lang.Runnable) -> <init>
+    291:293:void progressUpdate(int) -> a
 com.fast.clean.junk.ui.MainActivity$4 -> com.fast.clean.junk.ui.MainActivity$8:
     java.lang.String val$size -> a
     long val$sd_kongxian -> b
     int val$percent -> c
     com.fast.clean.junk.ui.MainActivity this$0 -> d
-    291:291:void <init>(com.fast.clean.junk.ui.MainActivity,java.lang.String,long,int) -> <init>
-    294:303:void run() -> run
+    296:296:void <init>(com.fast.clean.junk.ui.MainActivity,java.lang.String,long,int) -> <init>
+    299:308:void run() -> run
 com.fast.clean.junk.ui.MainActivity$5 -> com.fast.clean.junk.ui.MainActivity$9:
     java.lang.String val$size -> a
     com.fast.clean.junk.ui.MainActivity this$0 -> b
-    311:311:void <init>(com.fast.clean.junk.ui.MainActivity,java.lang.String) -> <init>
-    314:330:void progressUpdate(int) -> a
+    316:316:void <init>(com.fast.clean.junk.ui.MainActivity,java.lang.String) -> <init>
+    319:335:void progressUpdate(int) -> a
 com.fast.clean.junk.ui.MainActivity$5$1 -> com.fast.clean.junk.ui.MainActivity$9$1:
     int val$progress -> a
     com.fast.clean.junk.ui.MainActivity$5 this$1 -> b
-    314:314:void <init>(com.fast.clean.junk.ui.MainActivity$5,int) -> <init>
-    317:328:void run() -> run
+    319:319:void <init>(com.fast.clean.junk.ui.MainActivity$5,int) -> <init>
+    322:333:void run() -> run
 com.fast.clean.junk.ui.MainActivity$6 -> com.fast.clean.junk.ui.MainActivity$10:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    404:404:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    407:415:void onClick(android.view.View) -> onClick
+    409:409:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    412:420:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.MainActivity$6$1 -> com.fast.clean.junk.ui.MainActivity$10$1:
     com.fast.clean.junk.ui.MainActivity$6 this$1 -> a
-    409:409:void <init>(com.fast.clean.junk.ui.MainActivity$6) -> <init>
-    412:413:void run() -> run
+    414:414:void <init>(com.fast.clean.junk.ui.MainActivity$6) -> <init>
+    417:418:void run() -> run
 com.fast.clean.junk.ui.MainActivity$7 -> com.fast.clean.junk.ui.MainActivity$11:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    420:420:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    423:424:void run() -> run
+    425:425:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    428:429:void run() -> run
 com.fast.clean.junk.ui.MainActivity$8 -> com.fast.clean.junk.ui.MainActivity$12:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    430:430:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    433:440:void run() -> run
+    435:435:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    438:445:void run() -> run
 com.fast.clean.junk.ui.MainActivity$8$1 -> com.fast.clean.junk.ui.MainActivity$12$1:
     com.fast.clean.junk.ui.MainActivity$8 this$1 -> a
-    434:434:void <init>(com.fast.clean.junk.ui.MainActivity$8) -> <init>
-    437:438:void run() -> run
+    439:439:void <init>(com.fast.clean.junk.ui.MainActivity$8) -> <init>
+    442:443:void run() -> run
 com.fast.clean.junk.ui.MainActivity$9 -> com.fast.clean.junk.ui.MainActivity$13:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    444:444:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    448:485:void onRefresh(com.fast.clean.junk.myview.PullToRefreshLayout) -> a
-    490:513:void onLoadMore(com.fast.clean.junk.myview.PullToRefreshLayout) -> b
+    449:449:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    453:490:void onRefresh(com.fast.clean.junk.myview.PullToRefreshLayout) -> a
+    495:518:void onLoadMore(com.fast.clean.junk.myview.PullToRefreshLayout) -> b
 com.fast.clean.junk.ui.MainActivity$9$1 -> com.fast.clean.junk.ui.MainActivity$13$1:
     com.fast.clean.junk.ui.MainActivity$9 this$1 -> a
-    448:448:void <init>(com.fast.clean.junk.ui.MainActivity$9) -> <init>
-    451:478:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    482:483:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    453:453:void <init>(com.fast.clean.junk.ui.MainActivity$9) -> <init>
+    456:483:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    487:488:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.fast.clean.junk.ui.MainActivity$9$1$1 -> com.fast.clean.junk.ui.MainActivity$13$1$1:
     android.widget.ImageView val$ad_cha -> a
     com.fast.clean.junk.ui.MainActivity$9$1 this$2 -> b
-    459:459:void <init>(com.fast.clean.junk.ui.MainActivity$9$1,android.widget.ImageView) -> <init>
-    462:474:void onClick(android.view.View) -> onClick
+    464:464:void <init>(com.fast.clean.junk.ui.MainActivity$9$1,android.widget.ImageView) -> <init>
+    467:479:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.MainActivity$9$1$1$1 -> com.fast.clean.junk.ui.MainActivity$13$1$1$1:
     com.fast.clean.junk.ui.MainActivity$9$1$1 this$3 -> a
-    464:464:void <init>(com.fast.clean.junk.ui.MainActivity$9$1$1) -> <init>
-    467:471:void run() -> run
+    469:469:void <init>(com.fast.clean.junk.ui.MainActivity$9$1$1) -> <init>
+    472:476:void run() -> run
 com.fast.clean.junk.ui.MainActivity$9$2 -> com.fast.clean.junk.ui.MainActivity$13$2:
     com.fast.clean.junk.ui.MainActivity$9 this$1 -> a
-    491:491:void <init>(com.fast.clean.junk.ui.MainActivity$9) -> <init>
-    494:506:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    510:511:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    496:496:void <init>(com.fast.clean.junk.ui.MainActivity$9) -> <init>
+    499:511:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    515:516:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.fast.clean.junk.ui.MyApplication -> com.fast.clean.junk.ui.MyApplication:
     android.os.HandlerThread mThread -> a
     android.app.ActivityManager am -> b
     28:28:void <init>() -> <init>
     37:40:void attachBaseContext(android.content.Context) -> attachBaseContext
-    48:98:void onCreate() -> onCreate
-    103:104:void onTerminate() -> onTerminate
+    47:97:void onCreate() -> onCreate
+    102:103:void onTerminate() -> onTerminate
 com.fast.clean.junk.ui.NeicunAvtivity -> com.fast.clean.junk.ui.NeicunAvtivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView junk_unit -> b
@@ -34825,26 +34864,27 @@ com.fast.clean.junk.ui.SuccessActivity -> com.fast.clean.junk.ui.SuccessActivity
     com.fast.clean.junk.myview.SlowScrollView scrollView -> A
     android.widget.LinearLayout main_picture_button -> B
     android.widget.TextView main_rotate_bad -> C
-    android.widget.ImageView success_progress -> D
-    android.widget.LinearLayout ad_title -> E
-    android.widget.LinearLayout ll_ad_xiao -> F
-    android.widget.LinearLayout tuiguang_success -> G
-    android.widget.ImageView power_icon -> H
-    android.widget.TextView power_text -> I
-    android.widget.TextView main_rotate_good -> J
-    android.widget.TextView loading_text -> K
-    android.widget.LinearLayout ad_native_2 -> L
-    android.view.View nativeView -> O
-    android.view.View native_xiao -> P
-    boolean isdoudong -> Q
-    com.twee.module.tweenengine.TweenManager tweenManager -> R
-    boolean istween -> S
-    android.os.Handler myHandler -> T
-    java.lang.String TAG_CLEAN -> U
-    java.lang.String TAG_CLEAN_2 -> V
-    boolean animationEnd -> W
-    java.lang.Runnable runnable -> M
-    android.view.View$OnClickListener onClickListener -> N
+    android.widget.ImageView rotate_delete -> D
+    android.widget.ImageView success_progress -> E
+    android.widget.LinearLayout ad_title -> F
+    android.widget.LinearLayout ll_ad_xiao -> G
+    android.widget.LinearLayout tuiguang_success -> H
+    android.widget.ImageView power_icon -> I
+    android.widget.TextView power_text -> J
+    android.widget.TextView main_rotate_good -> K
+    android.widget.TextView loading_text -> L
+    android.widget.LinearLayout ad_native_2 -> M
+    android.view.View nativeView -> P
+    android.view.View native_xiao -> Q
+    boolean isdoudong -> R
+    com.twee.module.tweenengine.TweenManager tweenManager -> S
+    boolean istween -> T
+    android.os.Handler myHandler -> U
+    java.lang.String TAG_CLEAN -> V
+    java.lang.String TAG_CLEAN_2 -> W
+    boolean animationEnd -> X
+    java.lang.Runnable runnable -> N
+    android.view.View$OnClickListener onClickListener -> O
     53:576:void <init>() -> <init>
     98:127:void findId() -> a
     131:283:void onCreate(android.os.Bundle) -> onCreate
@@ -34854,12 +34894,12 @@ com.fast.clean.junk.ui.SuccessActivity -> com.fast.clean.junk.ui.SuccessActivity
     350:368:void addAd() -> f
     441:543:void startFirstAnimation() -> b
     546:574:void startSecondAnimation() -> g
-    668:679:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    683:685:void onResume() -> onResume
-    689:692:void onPause() -> onPause
-    696:697:void onStop() -> onStop
-    701:703:void onBackPressed() -> onBackPressed
-    706:734:void setAnimationThread() -> h
+    669:680:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    684:686:void onResume() -> onResume
+    690:693:void onPause() -> onPause
+    697:698:void onStop() -> onStop
+    702:704:void onBackPressed() -> onBackPressed
+    707:735:void setAnimationThread() -> h
     53:53:android.os.Handler access$000(com.fast.clean.junk.ui.SuccessActivity) -> a
     53:53:void access$100(com.fast.clean.junk.ui.SuccessActivity) -> b
     53:53:void access$200(com.fast.clean.junk.ui.SuccessActivity) -> c
@@ -34924,17 +34964,17 @@ com.fast.clean.junk.ui.SuccessActivity$6$1 -> com.fast.clean.junk.ui.SuccessActi
 com.fast.clean.junk.ui.SuccessActivity$7 -> com.fast.clean.junk.ui.SuccessActivity$7:
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
     576:576:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    579:663:void onClick(android.view.View) -> onClick
+    579:664:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.SuccessActivity$8 -> com.fast.clean.junk.ui.SuccessActivity$8:
     long lastMillis -> b
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    706:707:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    710:732:void run() -> run
+    707:708:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    711:733:void run() -> run
 com.fast.clean.junk.ui.SuccessActivity$8$1 -> com.fast.clean.junk.ui.SuccessActivity$8$1:
     float val$delta -> a
     com.fast.clean.junk.ui.SuccessActivity$8 this$1 -> b
-    715:715:void <init>(com.fast.clean.junk.ui.SuccessActivity$8,float) -> <init>
-    718:720:void run() -> run
+    716:716:void <init>(com.fast.clean.junk.ui.SuccessActivity$8,float) -> <init>
+    719:721:void run() -> run
 com.fast.clean.junk.ui.UnloadActivity -> com.fast.clean.junk.ui.UnloadActivity:
     android.widget.TextView tv_size -> a
     android.widget.Button bt_quxiao -> b
@@ -35354,7 +35394,94 @@ com.fast.module.charge.saver.R$anim -> com.fast.module.charge.saver.a$a:
     int design_fab_out -> design_fab_out
     int design_snackbar_in -> design_snackbar_in
     int design_snackbar_out -> design_snackbar_out
-com.fast.module.charge.saver.R$id -> com.fast.module.charge.saver.a$b:
+com.fast.module.charge.saver.R$color -> com.fast.module.charge.saver.a$b:
+    int A3 -> A3
+    int A3_50 -> A3_50
+    int abc_background_cache_hint_selector_material_dark -> abc_background_cache_hint_selector_material_dark
+    int abc_background_cache_hint_selector_material_light -> abc_background_cache_hint_selector_material_light
+    int abc_color_highlight_material -> abc_color_highlight_material
+    int abc_input_method_navigation_guard -> abc_input_method_navigation_guard
+    int abc_primary_text_disable_only_material_dark -> abc_primary_text_disable_only_material_dark
+    int abc_primary_text_disable_only_material_light -> abc_primary_text_disable_only_material_light
+    int abc_primary_text_material_dark -> abc_primary_text_material_dark
+    int abc_primary_text_material_light -> abc_primary_text_material_light
+    int abc_search_url_text -> abc_search_url_text
+    int abc_search_url_text_normal -> abc_search_url_text_normal
+    int abc_search_url_text_pressed -> abc_search_url_text_pressed
+    int abc_search_url_text_selected -> abc_search_url_text_selected
+    int abc_secondary_text_material_dark -> abc_secondary_text_material_dark
+    int abc_secondary_text_material_light -> abc_secondary_text_material_light
+    int accent_material_dark -> accent_material_dark
+    int accent_material_light -> accent_material_light
+    int background_floating_material_dark -> background_floating_material_dark
+    int background_floating_material_light -> background_floating_material_light
+    int background_material_dark -> background_material_dark
+    int background_material_light -> background_material_light
+    int bright_foreground_disabled_material_dark -> bright_foreground_disabled_material_dark
+    int bright_foreground_disabled_material_light -> bright_foreground_disabled_material_light
+    int bright_foreground_inverse_material_dark -> bright_foreground_inverse_material_dark
+    int bright_foreground_inverse_material_light -> bright_foreground_inverse_material_light
+    int bright_foreground_material_dark -> bright_foreground_material_dark
+    int bright_foreground_material_light -> bright_foreground_material_light
+    int button_material_dark -> button_material_dark
+    int button_material_light -> button_material_light
+    int design_fab_shadow_end_color -> design_fab_shadow_end_color
+    int design_fab_shadow_mid_color -> design_fab_shadow_mid_color
+    int design_fab_shadow_start_color -> design_fab_shadow_start_color
+    int design_fab_stroke_end_inner_color -> design_fab_stroke_end_inner_color
+    int design_fab_stroke_end_outer_color -> design_fab_stroke_end_outer_color
+    int design_fab_stroke_top_inner_color -> design_fab_stroke_top_inner_color
+    int design_fab_stroke_top_outer_color -> design_fab_stroke_top_outer_color
+    int design_snackbar_background_color -> design_snackbar_background_color
+    int design_textinput_error_color_dark -> design_textinput_error_color_dark
+    int design_textinput_error_color_light -> design_textinput_error_color_light
+    int dim_foreground_disabled_material_dark -> dim_foreground_disabled_material_dark
+    int dim_foreground_disabled_material_light -> dim_foreground_disabled_material_light
+    int dim_foreground_material_dark -> dim_foreground_material_dark
+    int dim_foreground_material_light -> dim_foreground_material_light
+    int foreground_material_dark -> foreground_material_dark
+    int foreground_material_light -> foreground_material_light
+    int highlighted_text_material_dark -> highlighted_text_material_dark
+    int highlighted_text_material_light -> highlighted_text_material_light
+    int hint_foreground_material_dark -> hint_foreground_material_dark
+    int hint_foreground_material_light -> hint_foreground_material_light
+    int list_progress_green -> list_progress_green
+    int main_back -> main_back
+    int material_blue_grey_800 -> material_blue_grey_800
+    int material_blue_grey_900 -> material_blue_grey_900
+    int material_blue_grey_950 -> material_blue_grey_950
+    int material_deep_teal_200 -> material_deep_teal_200
+    int material_deep_teal_500 -> material_deep_teal_500
+    int material_grey_100 -> material_grey_100
+    int material_grey_300 -> material_grey_300
+    int material_grey_50 -> material_grey_50
+    int material_grey_600 -> material_grey_600
+    int material_grey_800 -> material_grey_800
+    int material_grey_850 -> material_grey_850
+    int material_grey_900 -> material_grey_900
+    int primary_dark_material_dark -> primary_dark_material_dark
+    int primary_dark_material_light -> primary_dark_material_light
+    int primary_material_dark -> primary_material_dark
+    int primary_material_light -> primary_material_light
+    int primary_text_default_material_dark -> primary_text_default_material_dark
+    int primary_text_default_material_light -> primary_text_default_material_light
+    int primary_text_disabled_material_dark -> primary_text_disabled_material_dark
+    int primary_text_disabled_material_light -> primary_text_disabled_material_light
+    int rect -> rect
+    int ripple_material_dark -> ripple_material_dark
+    int ripple_material_light -> ripple_material_light
+    int secondary_text_default_material_dark -> secondary_text_default_material_dark
+    int secondary_text_default_material_light -> secondary_text_default_material_light
+    int secondary_text_disabled_material_dark -> secondary_text_disabled_material_dark
+    int secondary_text_disabled_material_light -> secondary_text_disabled_material_light
+    int switch_thumb_disabled_material_dark -> switch_thumb_disabled_material_dark
+    int switch_thumb_disabled_material_light -> switch_thumb_disabled_material_light
+    int switch_thumb_material_dark -> switch_thumb_material_dark
+    int switch_thumb_material_light -> switch_thumb_material_light
+    int switch_thumb_normal_material_dark -> switch_thumb_normal_material_dark
+    int switch_thumb_normal_material_light -> switch_thumb_normal_material_light
+    int white_100 -> white_100
+com.fast.module.charge.saver.R$id -> com.fast.module.charge.saver.a$c:
     int BOTTOM_LEFT -> BOTTOM_LEFT
     int BOTTOM_RIGHT -> BOTTOM_RIGHT
     int TOP_LEFT -> TOP_LEFT
@@ -35384,15 +35511,14 @@ com.fast.module.charge.saver.R$id -> com.fast.module.charge.saver.a$b:
     int battery_ad_layout -> battery_ad_layout
     int battery_bubble_layout -> battery_bubble_layout
     int battery_charge_save -> battery_charge_save
-    int battery_electricity -> battery_electricity
     int battery_icon -> battery_icon
     int battery_level -> battery_level
     int battery_more -> battery_more
     int battery_now_battery_left -> battery_now_battery_left
+    int battery_now_battery_left_1 -> battery_now_battery_left_1
     int battery_now_date -> battery_now_date
     int battery_now_time -> battery_now_time
     int battery_now_week -> battery_now_week
-    int battery_shell -> battery_shell
     int battery_shutter -> battery_shutter
     int battery_slide -> battery_slide
     int battery_switch -> battery_switch
@@ -35406,6 +35532,7 @@ com.fast.module.charge.saver.R$id -> com.fast.module.charge.saver.a$b:
     int center_horizontal -> center_horizontal
     int center_vertical -> center_vertical
     int chains -> chains
+    int charing_water -> charing_water
     int checkbox -> checkbox
     int chronometer -> chronometer
     int clip_horizontal -> clip_horizontal
@@ -35442,6 +35569,10 @@ com.fast.module.charge.saver.R$id -> com.fast.module.charge.saver.a$b:
     int info -> info
     int item_touch_helper_previous_elevation -> item_touch_helper_previous_elevation
     int left -> left
+    int level_0 -> level_0
+    int level_1 -> level_1
+    int level_2 -> level_2
+    int level_all -> level_all
     int line1 -> line1
     int line3 -> line3
     int listMode -> listMode
@@ -35516,7 +35647,7 @@ com.fast.module.charge.saver.R$id -> com.fast.module.charge.saver.a$b:
     int withText -> withText
     int wrap -> wrap
     int wrap_content -> wrap_content
-com.fast.module.charge.saver.R$layout -> com.fast.module.charge.saver.a$c:
+com.fast.module.charge.saver.R$layout -> com.fast.module.charge.saver.a$d:
     int abc_action_bar_title_item -> abc_action_bar_title_item
     int abc_action_bar_up_container -> abc_action_bar_up_container
     int abc_action_bar_view_list_nav_layout -> abc_action_bar_view_list_nav_layout
@@ -35568,7 +35699,7 @@ com.fast.module.charge.saver.R$layout -> com.fast.module.charge.saver.a$c:
     int select_dialog_multichoice_material -> select_dialog_multichoice_material
     int select_dialog_singlechoice_material -> select_dialog_singlechoice_material
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
-com.fast.module.charge.saver.R$mipmap -> com.fast.module.charge.saver.a$d:
+com.fast.module.charge.saver.R$mipmap -> com.fast.module.charge.saver.a$e:
     int ad_right -> ad_right
     int battery_bubble -> battery_bubble
     int battery_inner_icon -> battery_inner_icon
@@ -35577,11 +35708,23 @@ com.fast.module.charge.saver.R$mipmap -> com.fast.module.charge.saver.a$d:
     int battery_setting_checkbox_close -> battery_setting_checkbox_close
     int battery_setting_checkbox_open -> battery_setting_checkbox_open
     int bubble_masked -> bubble_masked
+    int charging_0 -> charging_0
+    int charging_1 -> charging_1
+    int charging_2 -> charging_2
+    int charging_3 -> charging_3
+    int charging_4 -> charging_4
+    int charging_5 -> charging_5
+    int charging_6 -> charging_6
+    int charging_7 -> charging_7
+    int charging_8 -> charging_8
+    int charging_9 -> charging_9
+    int charging_b -> charging_b
+    int charging_s -> charging_s
     int game_icon -> game_icon
     int internet_icon -> internet_icon
     int talk_icon -> talk_icon
     int unlock -> unlock
-com.fast.module.charge.saver.R$string -> com.fast.module.charge.saver.a$e:
+com.fast.module.charge.saver.R$string -> com.fast.module.charge.saver.a$f:
     int abc_action_bar_home_description -> abc_action_bar_home_description
     int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
     int abc_action_bar_home_subtitle_description_format -> abc_action_bar_home_subtitle_description_format
@@ -35611,12 +35754,14 @@ com.fast.module.charge.saver.R$string -> com.fast.module.charge.saver.a$e:
     int cpu -> cpu
     int game -> game
     int internet -> internet
+    int left -> left
     int ram -> ram
     int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
     int talk -> talk
     int temp -> temp
     int unlock -> unlock
-com.fast.module.charge.saver.R$styleable -> com.fast.module.charge.saver.a$f:
+    int use -> use
+com.fast.module.charge.saver.R$styleable -> com.fast.module.charge.saver.a$g:
     int[] ActionBar -> ActionBar
     int[] ActionBarLayout -> ActionBarLayout
     int ActionBarLayout_android_layout_gravity -> ActionBarLayout_android_layout_gravity
@@ -36207,7 +36352,7 @@ com.fast.module.charge.saver.R$styleable -> com.fast.module.charge.saver.a$f:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1523:2104:void <clinit>() -> <clinit>
+    1543:2124:void <clinit>() -> <clinit>
 com.fast.module.charge.saver.Util.ADRequest -> com.fast.module.charge.saver.Util.a:
     13:13:void <init>() -> <init>
     16:17:void showFullAD() -> a
@@ -36297,15 +36442,14 @@ com.fast.module.charge.saver.entry.BatteryEntry -> com.fast.module.charge.saver.
     com.fast.module.charge.saver.entry.LevelStep disChargingStep -> j
     31:35:void <init>(android.content.Context,android.content.Intent) -> <init>
     39:51:void update(android.content.Context) -> a
-    54:54:int getLevel() -> a
-    58:58:int getLeftTime() -> b
+    58:58:int getLeftTime() -> a
     66:66:int extractHours(int) -> a
     70:70:int extractMinutes(int) -> b
     75:83:void update(android.content.Intent) -> a
     87:87:java.lang.String toString() -> toString
-    92:107:void evaluate() -> c
-    110:110:boolean isCharging() -> d
-    114:125:int getElectricCurrent() -> e
+    92:107:void evaluate() -> b
+    110:110:boolean isCharging() -> c
+    114:125:int getElectricCurrent() -> d
 com.fast.module.charge.saver.entry.LevelStep -> com.fast.module.charge.saver.a.b:
     int currentLevel -> a
     int lastLevelUpdateTime -> b
@@ -36416,76 +36560,70 @@ com.fast.module.charge.saver.view.BatteryView -> com.fast.module.charge.saver.vi
     android.widget.TextView date -> p
     android.widget.TextView week -> q
     android.widget.TextView batteryLeft -> r
-    android.widget.TextView currentLevel -> s
-    com.fast.module.charge.saver.view.BubbleLayout bubbleLayout -> t
-    com.sample.lottie.LottieAnimationView shell -> u
-    com.sample.lottie.LottieAnimationView water -> v
-    int halfWidth -> w
-    android.widget.ImageView shutter -> x
-    android.content.BroadcastReceiver timerUpdateReceiver -> y
-    android.content.IntentFilter mIntentFilter -> z
-    int progress -> A
-    41:154:void <init>(android.content.Context) -> <init>
-    41:154:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    41:154:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    84:85:void setUnlockListener(com.fast.module.charge.saver.view.BatteryView$UnlockListener) -> setUnlockListener
-    97:135:void showNativeAD() -> f
-    138:152:void updateTime() -> a
-    157:195:void bind(com.fast.module.charge.saver.entry.BatteryEntry) -> a
-    205:215:void initShell() -> g
-    219:229:void initWater() -> h
-    234:344:void onFinishInflate() -> onFinishInflate
-    347:363:void initViews() -> i
-    366:369:void pauseBubble() -> b
-    372:375:void reStartBubble() -> c
-    379:386:void onAttachedToWindow() -> onAttachedToWindow
-    390:415:void onDetachedFromWindow() -> onDetachedFromWindow
-    418:422:int analysisJson(org.json.JSONObject) -> a
-    427:434:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    437:439:void registerTimeUpdateReceiver() -> d
-    442:444:void unregisterTimeUpdateReceiver() -> e
-    36:36:android.view.GestureDetector access$000(com.fast.module.charge.saver.view.BatteryView) -> a
-    36:36:int access$100(com.fast.module.charge.saver.view.BatteryView) -> b
-    36:36:com.fast.module.charge.saver.view.BatteryView$UnlockListener access$200(com.fast.module.charge.saver.view.BatteryView) -> c
-    36:36:int access$302(com.fast.module.charge.saver.view.BatteryView,int) -> a
-    36:36:int access$300(com.fast.module.charge.saver.view.BatteryView) -> d
-    36:36:com.sample.lottie.LottieAnimationView access$400(com.fast.module.charge.saver.view.BatteryView) -> e
-    36:36:android.widget.LinearLayout access$500(com.fast.module.charge.saver.view.BatteryView) -> f
-    36:36:float access$600(com.fast.module.charge.saver.view.BatteryView) -> g
-    36:36:com.fast.module.charge.saver.view.BatteryView access$700(com.fast.module.charge.saver.view.BatteryView) -> h
-    36:36:float access$602(com.fast.module.charge.saver.view.BatteryView,float) -> a
-    36:36:android.content.Context access$800(com.fast.module.charge.saver.view.BatteryView) -> i
-    36:36:android.widget.CheckBox access$900(com.fast.module.charge.saver.view.BatteryView) -> j
+    android.widget.TextView battery_now_battery_left_1 -> s
+    android.widget.TextView currentLevel -> t
+    com.fast.module.charge.saver.view.MainWaterView charing_water -> u
+    android.widget.LinearLayout level_all -> v
+    android.widget.ImageView level_0 -> w
+    android.widget.ImageView level_1 -> x
+    android.widget.ImageView level_2 -> y
+    com.fast.module.charge.saver.view.BubbleLayout bubbleLayout -> z
+    int halfWidth -> A
+    android.widget.ImageView shutter -> B
+    android.content.BroadcastReceiver timerUpdateReceiver -> C
+    android.content.IntentFilter mIntentFilter -> D
+    int progress -> E
+    43:158:void <init>(android.content.Context) -> <init>
+    43:158:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    43:158:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    88:89:void setUnlockListener(com.fast.module.charge.saver.view.BatteryView$UnlockListener) -> setUnlockListener
+    101:139:void showNativeAD() -> f
+    142:156:void updateTime() -> a
+    161:240:void bind(com.fast.module.charge.saver.entry.BatteryEntry) -> a
+    250:348:void onFinishInflate() -> onFinishInflate
+    351:371:void initViews() -> g
+    374:380:void pauseBubble() -> b
+    383:389:void reStartBubble() -> c
+    393:403:void onAttachedToWindow() -> onAttachedToWindow
+    407:429:void onDetachedFromWindow() -> onDetachedFromWindow
+    432:436:int analysisJson(org.json.JSONObject) -> a
+    441:448:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    451:453:void registerTimeUpdateReceiver() -> d
+    456:458:void unregisterTimeUpdateReceiver() -> e
+    38:38:android.view.GestureDetector access$000(com.fast.module.charge.saver.view.BatteryView) -> a
+    38:38:int access$100(com.fast.module.charge.saver.view.BatteryView) -> b
+    38:38:com.fast.module.charge.saver.view.BatteryView$UnlockListener access$200(com.fast.module.charge.saver.view.BatteryView) -> c
+    38:38:android.widget.LinearLayout access$300(com.fast.module.charge.saver.view.BatteryView) -> d
+    38:38:float access$400(com.fast.module.charge.saver.view.BatteryView) -> e
+    38:38:com.fast.module.charge.saver.view.BatteryView access$500(com.fast.module.charge.saver.view.BatteryView) -> f
+    38:38:float access$402(com.fast.module.charge.saver.view.BatteryView,float) -> a
+    38:38:android.content.Context access$600(com.fast.module.charge.saver.view.BatteryView) -> g
+    38:38:android.widget.CheckBox access$700(com.fast.module.charge.saver.view.BatteryView) -> h
 com.fast.module.charge.saver.view.BatteryView$1 -> com.fast.module.charge.saver.view.BatteryView$1:
     com.fast.module.charge.saver.view.BatteryView this$0 -> a
-    87:87:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
-    90:91:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    91:91:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
+    94:95:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.fast.module.charge.saver.view.BatteryView$2 -> com.fast.module.charge.saver.view.BatteryView$2:
     com.fast.module.charge.saver.view.BatteryView this$0 -> a
-    109:109:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
-    112:132:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    113:113:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
+    116:136:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.fast.module.charge.saver.view.BatteryView$3 -> com.fast.module.charge.saver.view.BatteryView$3:
-    int val$le -> a
-    com.fast.module.charge.saver.view.BatteryView this$0 -> b
-    167:167:void <init>(com.fast.module.charge.saver.view.BatteryView,int) -> <init>
-    170:179:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    com.fast.module.charge.saver.view.BatteryView this$0 -> a
+    260:260:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
+    263:279:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.fast.module.charge.saver.view.BatteryView$4 -> com.fast.module.charge.saver.view.BatteryView$4:
     com.fast.module.charge.saver.view.BatteryView this$0 -> a
-    256:256:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
-    259:275:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    282:282:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
+    285:289:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    294:302:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.fast.module.charge.saver.view.BatteryView$5 -> com.fast.module.charge.saver.view.BatteryView$5:
     com.fast.module.charge.saver.view.BatteryView this$0 -> a
-    278:278:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
-    281:285:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    290:298:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    313:313:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
+    316:319:void onClick(android.view.View) -> onClick
 com.fast.module.charge.saver.view.BatteryView$6 -> com.fast.module.charge.saver.view.BatteryView$6:
     com.fast.module.charge.saver.view.BatteryView this$0 -> a
-    309:309:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
-    312:315:void onClick(android.view.View) -> onClick
-com.fast.module.charge.saver.view.BatteryView$7 -> com.fast.module.charge.saver.view.BatteryView$7:
-    com.fast.module.charge.saver.view.BatteryView this$0 -> a
-    327:327:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
-    330:341:void onClick(android.view.View) -> onClick
+    331:331:void <init>(com.fast.module.charge.saver.view.BatteryView) -> <init>
+    334:345:void onClick(android.view.View) -> onClick
 com.fast.module.charge.saver.view.BatteryView$UnlockListener -> com.fast.module.charge.saver.view.BatteryView$a:
     void onUnlock() -> a
 com.fast.module.charge.saver.view.BubbleLayout -> com.fast.module.charge.saver.view.BubbleLayout:
@@ -36581,6 +36719,41 @@ com.fast.module.charge.saver.view.IndicatorView$OnPageChangeListener -> com.fast
     void onPageScrolled(int,float,int) -> a
     void onPageSelected(int) -> a
     void onPageScrollStateChanged(int) -> b
+com.fast.module.charge.saver.view.MainWaterView -> com.fast.module.charge.saver.view.MainWaterView:
+    int width -> a
+    int height -> b
+    android.graphics.Paint firstPaint -> i
+    java.lang.String text -> j
+    int pratent -> k
+    float sin_offset_increment_value -> l
+    float sin_offset_increment_value2 -> m
+    android.graphics.Path firstPath -> n
+    int sin_amplitude -> o
+    float sin_cycle -> p
+    float sin_offset -> c
+    float sin_offset2 -> d
+    boolean isup -> e
+    com.fast.module.charge.saver.view.MainWaterView$RunThread runThread -> f
+    boolean isStart -> g
+    com.fast.module.charge.saver.view.MainWaterView$FloatWaterListener listener -> h
+    26:27:void <init>(android.content.Context) -> <init>
+    30:31:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    22:119:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    39:45:void onMeasure(int,int) -> onMeasure
+    48:55:void initPaints() -> c
+    67:73:void onDraw(android.graphics.Canvas) -> onDraw
+    84:93:android.graphics.Path firstPath() -> d
+    97:106:android.graphics.Path firstPath2() -> e
+    110:112:void upDate(int) -> a
+    122:127:void start() -> a
+    130:131:void stop() -> b
+    177:178:void setFloatWaterListener(com.fast.module.charge.saver.view.MainWaterView$FloatWaterListener) -> setFloatWaterListener
+    186:192:void init() -> f
+com.fast.module.charge.saver.view.MainWaterView$FloatWaterListener -> com.fast.module.charge.saver.view.MainWaterView$a:
+com.fast.module.charge.saver.view.MainWaterView$RunThread -> com.fast.module.charge.saver.view.MainWaterView$b:
+    com.fast.module.charge.saver.view.MainWaterView this$0 -> a
+    133:133:void <init>(com.fast.module.charge.saver.view.MainWaterView) -> <init>
+    136:144:void run() -> run
 com.github.mikephil.charting.animation.ChartAnimator -> com.github.mikephil.charting.animation.a:
     android.animation.ValueAnimator$AnimatorUpdateListener mListener -> c
     float mPhaseY -> a

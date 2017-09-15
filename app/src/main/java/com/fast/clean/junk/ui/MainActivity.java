@@ -24,6 +24,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.fast.clean.junk.myview.Titanic;
+import com.fast.clean.junk.myview.TitanicTextView;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
@@ -56,6 +58,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     RelativeLayout ll_lot_ad;
     LinearLayout main_rotate_all;
     TextView main_rotate_good, main_rotate_bad;
+    ImageView rotate_delete;
     LinearLayout main_msg_button;
     MyScrollView main_scroll_view;
     PullToRefreshLayout main_pull_refresh;
@@ -121,7 +124,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_ram_per = (TextView) findViewById(R.id.main_ram_per);
         main_ram_size = (TextView) findViewById(R.id.main_ram_size);
 
-
         main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
         main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
         main_manager_button = (LinearLayout) findViewById(R.id.main_manager_button);
@@ -132,6 +134,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
+        rotate_delete = (ImageView) findViewById(R.id.rotate_delete);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
@@ -148,6 +151,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         ll_ad_s = (LinearLayout) findViewById(R.id.ll_ad_s);
         ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
+
 
         lot_ad = (LottieAnimationView) findViewById(R.id.lot_ad);
         main_battery = (LinearLayout) findViewById(R.id.main_battery);
@@ -206,6 +210,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_theme_button.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         main_rotate_bad.setOnClickListener(onClickListener);
+        rotate_delete.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
@@ -637,6 +642,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.clickRotate(true);
                     break;
                 case R.id.main_rotate_bad:
+                case R.id.rotate_delete:
                     AdUtil.track("主页面", "点击好评bad按钮", "", 1);
                     mainPresenter.clickRotate(false);
                     break;
