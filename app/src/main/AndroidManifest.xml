@@ -50,6 +50,7 @@
         android:name="com.mutter.clean.junk.myActivity.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
+
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:supportsRtl="false"
@@ -67,9 +68,10 @@
 
         <activity
             android:name="com.mutter.clean.junk.myActivity.LoadingActivity"
-
             android:icon="@mipmap/icon"
-            android:screenOrientation="portrait">
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -94,7 +96,9 @@
             android:name=".myActivity.Loading1Activity"
             android:enabled="false"
             android:icon="@mipmap/icon_1"
-            android:screenOrientation="portrait">
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

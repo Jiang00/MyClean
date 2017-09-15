@@ -7,6 +7,37 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/A1</item>
+        <!--<item name="android:windowAnimationStyle">@style/MyAnimation</item>-->
+    </style>
+
+    <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/MyAnimation</item>
+    </style>
+
+    <style name="LoadingTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/A1</item>
+        <!--<item name="android:windowAnimationStyle">@style/MyAnimation</item>-->
+    </style>
+
+    <style name="MyAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:activityOpenEnterAnimation">@anim/alpha</item>
+    </style>
+
+    <style name="clean_activityAnimation">
+        <item name="android:activityOpenEnterAnimation">@anim/alpha</item>
+        <item name="android:activityOpenExitAnimation">@anim/alpha_d</item>
+        <item name="android:activityCloseEnterAnimation">@anim/alpha</item>
+        <item name="android:activityCloseExitAnimation">@anim/alpha_d</item>
     </style>
 
     <style name="Transparent" parent="AppTheme">

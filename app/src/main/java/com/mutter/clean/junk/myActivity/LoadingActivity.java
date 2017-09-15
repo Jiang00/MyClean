@@ -170,7 +170,13 @@ public class LoadingActivity extends BaseActivity {
             int a = Util.dp2px(360);
             Log.e("jfy", "px=" + a + "" + "=" + metrics.density + "=" + metrics.widthPixels);
             jumpTo(MainActivity.class);
-            finish();
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            }, 1000);
+
         }
     };
 
