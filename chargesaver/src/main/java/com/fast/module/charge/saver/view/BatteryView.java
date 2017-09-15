@@ -332,6 +332,9 @@ public class BatteryView extends FrameLayout {
                 @Override
                 public void onClick(View v) {
                     Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, false);
+                    if (listener != null) {
+                        listener.onUnlock();
+                    }
 //                    if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
 //                        if (saverSwitch != null) {
 //                            saverSwitch.setChecked(false);

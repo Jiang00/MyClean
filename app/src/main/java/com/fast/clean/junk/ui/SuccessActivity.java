@@ -511,9 +511,12 @@ public class SuccessActivity extends BaseActivity {
                     @Override
                     public void run() {
                         animationEnd = true;
-                        ad_native_2.setVisibility(View.VISIBLE);
+                        if (ad_native_2 != null && nativeView != null) {
+                            ad_native_2.setVisibility(View.VISIBLE);
+                        }
                         scrollView.isTouch = false;
                         scrollView.smoothScrollToSlow(2000);
+
                     }
                 }, 1000);
 
