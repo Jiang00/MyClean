@@ -188,28 +188,25 @@ public class NotificationService extends Service {
         remoteView_1 = new RemoteViews(getPackageName(),
                 R.layout.layout_notification);
         int memory = Util.getMemory(this);
-        paint_1.setColor(ContextCompat.getColor(this, R.color.white_40));
+        paint_1.setColor(ContextCompat.getColor(this, R.color.black_35));
         Canvas canvas = getCanvas();
         canvas.drawArc(oval, 0, 270, false, paint_1);
         if (memory > 70) {
             paint_1.setColor(ContextCompat.getColor(this, R.color.A2));
         } else {
-            paint_1.setColor(ContextCompat.getColor(this, R.color.white_100));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.A1));
         }
         canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
 
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
         remoteView_1.setTextViewText(R.id.norifi_memory_text, Util.getMemory(this) + "%");
         int requestCode = (int) SystemClock.uptimeMillis();
-        PendingIntent pendIntentMain = PendingIntent.getActivity(this, requestCode,
-                notifyIntentMain, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentRam = PendingIntent.getActivity(this, requestCode,
                 notifyIntentRam, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentCooling = PendingIntent.getActivity(this, requestCode,
                 notifyIntentCooling, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentJunkRam = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_UPDATE_CURRENT);
-        remoteView_1.setOnClickPendingIntent(R.id.notifi_icon, pendIntentMain);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_ram, pendIntentRam);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_cooling, pendIntentCooling);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_junk_ram, pendIntentJunkRam);
@@ -283,13 +280,13 @@ public class NotificationService extends Service {
                 }
                 Log.e("notifi", "cpuTemp=" + cpuTemp);
                 remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
-                paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_40));
+                paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.black_35));
                 Canvas canvas = getCanvas();
                 canvas.drawArc(oval, 0, 270, false, paint_1);
                 if (memory > 70) {
                     paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A2));
                 } else {
-                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_100));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A1));
                 }
                 canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
                 remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);

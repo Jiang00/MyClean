@@ -35,10 +35,10 @@
 
             <ImageView
                 android:id="@+id/zhuangshi"
-                android:layout_width="@dimen/d120"
-                android:layout_height="@dimen/d112"
+                android:layout_width="@dimen/d109"
+                android:layout_height="@dimen/d100"
+                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="@dimen/d26"
-                android:layout_marginTop="@dimen/d8"
                 android:src="@mipmap/unload_tong" />
 
             <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
@@ -48,7 +48,7 @@
                 android:layout_marginTop="@dimen/d61"
                 android:layout_toRightOf="@id/zhuangshi"
                 android:text="158"
-                android:textColor="#ff9c1b"
+                android:textColor="#ff3232"
                 android:textSize="@dimen/s18"
                 app:typeface="ljh_1.TTF" />
 
@@ -96,6 +96,12 @@
                     android:textColor="#33414141"
                     android:textSize="@dimen/s18" />
             </LinearLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="@dimen/d30"
+                android:layout_gravity="center_vertical"
+                android:background="#a8a7af" />
 
             <LinearLayout
                 android:layout_width="0dp"

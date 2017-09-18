@@ -46,7 +46,6 @@ public class BatteryView extends FrameLayout {
 
     private BatteryView batteryView;
     private LinearLayout adLayout;
-    private ListView battery_ad_layout_mopub;
     private ImageView icon;
     private TextView title;
     private LinearLayout more;
@@ -98,7 +97,7 @@ public class BatteryView extends FrameLayout {
     private void showNativeAD() {
         try {
             adView = AndroidSdk.peekNativeAdViewWithLayout(Constants.TAG_CHARGING,
-                    AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.native_ad_2_mopub,
+                    AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.native_ad,
                     null);
         } catch (Exception e) {
         }
@@ -165,7 +164,7 @@ public class BatteryView extends FrameLayout {
             return;
         }
         final int curLevel = entry.getLevel();
-        currentLevel.setText(curLevel + "%");
+        currentLevel.setText(mContext.getString(R.string.charging_1) + curLevel + "%");
         final int le = curLevel % 100;
 
         if (water != null && !water.isAnimating()) {
@@ -247,7 +246,7 @@ public class BatteryView extends FrameLayout {
 
             updateTime();
 //native ad
-//            showNativeAD();
+            showNativeAD();
 
             halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 1.3f);
             setOnTouchListener(new OnTouchListener() {
@@ -352,7 +351,6 @@ public class BatteryView extends FrameLayout {
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
         adLayout = (LinearLayout) findViewById(R.id.battery_ad_layout);
-        battery_ad_layout_mopub = (ListView) findViewById(R.id.battery_ad_layout_mopub);
         icon = (ImageView) findViewById(R.id.battery_icon);
         title = (TextView) findViewById(R.id.battery_title);
         more = (LinearLayout) findViewById(R.id.battery_more);
