@@ -45,6 +45,7 @@ import com.bruder.clean.customeview.PullToMyRefreshLayout;
 import com.bruder.clean.entity.SideInfo;
 import com.bruder.clean.junk.R;
 import com.bruder.clean.myadapter.SideAdapter;
+import com.bruder.clean.myview.BubbleLayout;
 import com.bruder.clean.myview.MainMyView;
 import com.bruder.clean.presenter.MainPresenter;
 import com.bruder.clean.util.Constant;
@@ -119,6 +120,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     private ImageView main_iv9;
     private ImageView main_iv10;
     private ImageView main_iv11;
+    BubbleLayout bubble;
 
     private boolean isFirstIn = false;// 判断是否是第一次登陆
     private ArrayList<View> arrayList;//记录main_circle布局文件的控件绑定信息
@@ -141,6 +143,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         setContentView(R.layout.activity_dra);
         cleanApplication = (MyApplication) getApplication();
         isSharedPreferences();
+
         //Build.VERSION.SDK_INT  判断Android SDK版本号
         // Build.VERSION_CODES.KITKAT  是一个Android的版本4.4
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
@@ -163,6 +166,8 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         clear2 = (ImageView) findViewById(R.id.clear2);
         clear3 = (ImageView) findViewById(R.id.clear3);
         clear1 = (ImageView) findViewById(R.id.clear1);
+        bubble = (BubbleLayout) findViewById(R.id.bubble);
+        bubble.pause();
         clear1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -389,6 +394,12 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         main_clear_button.setOnClickListener(onClickListener);
         main_clear_relativeLayout.setOnClickListener(onClickListener);
         main_clear_relativeLayout1.setOnClickListener(onClickListener);
+
+
+        notifiactivity.setOnClickListener(onClickListener);
+        fileactivity.setOnClickListener(onClickListener);
+        poweracativity.setOnClickListener(onClickListener);
+
         main_scroll_view.setScrollViewListener(new MyMainScrollView.ScrollViewListener() {
             @Override
             public void onScrollChanged(MyMainScrollView scrollView, int x, int y, int oldx, int oldy) {
@@ -565,8 +576,11 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                 case R.id.l_title_ad:
                     //设置按钮
                     UtilAd.track("主页面", "点击AD", "", 1);
-
-                    showMainAdAnim();
+                    AndroidSdk.loadFullAd("loading_full");
+//                    showMainAdAnim();
+                    bubble.setVisibility(View.VISIBLE);
+                    bubble.reStart();
+                    handler.postDelayed(runnable, 4000);
                     break;
                 case R.id.iv_title_left:
                     // 菜单按钮
@@ -623,14 +637,26 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                     UtilAd.track("主页面", "点击进入硬件信息", "", 1);
                     mainPresenter.jumpToActivity(InformationActivity.class, 1);
                     break;
-                //下方五个清理事件
+                // 下方五个清理事件
                 case R.id.main_power_button:
                     // 深度清理
                     UtilAd.track("主页面", "点击进入深度清理", "", 1);
                     DataPre.putDB(MainActivity.this, Constant.DEEP_CLEAN, true);
                     mainPresenter.jumpToActivity(PoweringActivity.class, 1);
                     break;
+                case R.id.poweracativity:
+                    // 深度清理
+                    UtilAd.track("主页面", "点击进入深度清理", "", 1);
+                    DataPre.putDB(MainActivity.this, Constant.DEEP_CLEAN, true);
+                    mainPresenter.jumpToActivity(PoweringActivity.class, 1);
+                    break;
                 case R.id.main_file_button:
+                    //文件管理
+                    UtilAd.track("主页面", "点击进入文件管理", "", 1);
+                    DataPre.putDB(MainActivity.this, Constant.FILE_CLEAN, true);
+                    mainPresenter.jumpToActivity(FilesActivity.class, 1);
+                    break;
+                case R.id.fileactivity:
                     //文件管理
                     UtilAd.track("主页面", "点击进入文件管理", "", 1);
                     DataPre.putDB(MainActivity.this, Constant.FILE_CLEAN, true);
@@ -654,7 +680,27 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                         startActivityForResult(intent6, 1);
                     }
                     break;
+                case R.id.notifiactivity:
+                    //通知栏清理
+                    UtilAd.track("主页面", "点击进入通知栏清理", "", 1);
+                    DataPre.putDB(MainActivity.this, Constant.NOTIFI_CLEAN, true);
+                    if (!DataPre.getDB(MainActivity.this, Constant.KEY_NOTIFI, true) || !Util.isNotificationListenEnabled(MainActivity.this)) {
+                        Intent intent6 = new Intent(MainActivity.this, NotifiIfActivity.class);
+                        startActivityForResult(intent6, 1);
+                    } else {
+                        Intent intent6 = new Intent(MainActivity.this, NotifingActivity.class);
+                        startActivityForResult(intent6, 1);
+                    }
+                    break;
             }
+        }
+    };
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            AndroidSdk.showFullAd("loading_full");
+            bubble.pause();
+            bubble.setVisibility(View.INVISIBLE);
         }
     };
 
@@ -663,7 +709,8 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 //        if (animSet != null) {
 //            animSet.cancel();
 //        }
-        setAdAnim();
+
+//        setAdAnim();
     }
 
     private void setAdAnim() {
@@ -680,9 +727,9 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         setHandler(main_iv6, 400, 3600, randomNum, 1);
         setHandler(main_iv7, 800, 3200, randomNum, 1);
         setHandler(main_iv8, 1000, 1000, randomNum, 3);
-        setHandler(main_iv9, 500, 1750, randomNum, 2);
-        setHandler(main_iv10, 700, 3300, randomNum, 1);
-        setHandler(main_iv11, 800, 1600, randomNum, 2);
+        setHandler(main_iv9, 800, 1790, randomNum, 2);
+        setHandler(main_iv10, 1000, 3300, randomNum, 1);
+        setHandler(main_iv11, 1100, 1600, randomNum, 2);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -745,79 +792,76 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void showAd() {
-//        if (DataPre.getDB(this, Constant.FULL_START, 0) == 1) {
-////            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-//            AndroidSdk.showFullAd(Constant.FULL_START);
-//        }
+        AndroidSdk.showFullAd("loading_full");
 
 //        AndroidSdk.showFullAd(Constant.FULL_START);
 //        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-        View view = View.inflate(this, R.layout.main_ad_dialog, null);
-        final LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
-        final TextView main_ad_cx_tv = (TextView) view.findViewById(R.id.main_ad_cx_tv);
-        main_ad_cx_tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                showMainAdAnim();
-            }
-        });
-        dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.show();
-        if (DataPre.getDB(this, Constant.FULL_EXIT, 0) == 0) {
-            final View nativeExit = UtilAd.getNativeAdView(TAG_EXIT_FULL, R.layout.main_ad_native);
-            if (nativeExit != null) {
-                main_iv.setVisibility(View.GONE);
-                main_iv1.setVisibility(View.GONE);
-                main_iv2.setVisibility(View.GONE);
-                main_iv3.setVisibility(View.GONE);
-                main_iv4.setVisibility(View.GONE);
-                main_iv5.setVisibility(View.GONE);
-                main_iv6.setVisibility(View.GONE);
-                main_iv7.setVisibility(View.GONE);
-                main_iv8.setVisibility(View.GONE);
-                main_iv9.setVisibility(View.GONE);
-                main_iv10.setVisibility(View.GONE);
-                main_iv11.setVisibility(View.GONE);
-                ll_ad_exit.addView(nativeExit);
-                ll_ad_exit.setVisibility(View.VISIBLE);
-                main_ad_cx_tv.setVisibility(View.GONE);
-            } else {
-                ll_ad_exit.setVisibility(View.GONE);
-                main_ad_cx_tv.setVisibility(View.VISIBLE);
-            }
-        } else {
-            dialog.dismiss();
-        }
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
-        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = dm.widthPixels; //设置宽度
-        lp.height = dm.heightPixels; //设置高度
-        if (DataPre.getDB(this, Constant.IS_ACTION_BAR, true)) {
-            int uiOptions =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                            //布局位于状态栏下方
-                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                            //隐藏导航栏
-                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-            if (Build.VERSION.SDK_INT >= 19) {
-                uiOptions |= 0x00001000;
-            } else {
-                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
-            }
-            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
-        }
-        dialog.getWindow().setAttributes(lp);
-        dialog.getWindow().setContentView(view);
+//        View view = View.inflate(this, R.layout.main_ad_dialog, null);
+//        final LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
+//        final TextView main_ad_cx_tv = (TextView) view.findViewById(R.id.main_ad_cx_tv);
+//        main_ad_cx_tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//                showMainAdAnim();
+//            }
+//        });
+//        dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
+//        dialog.setCanceledOnTouchOutside(false);
+//        dialog.show();
+//        if (DataPre.getDB(this, Constant.FULL_EXIT, 0) == 0) {
+//            final View nativeExit = UtilAd.getNativeAdView(TAG_EXIT_FULL, R.layout.main_ad_native);
+//            if (nativeExit != null) {
+//                main_iv.setVisibility(View.GONE);
+//                main_iv1.setVisibility(View.GONE);
+//                main_iv2.setVisibility(View.GONE);
+//                main_iv3.setVisibility(View.GONE);
+//                main_iv4.setVisibility(View.GONE);
+//                main_iv5.setVisibility(View.GONE);
+//                main_iv6.setVisibility(View.GONE);
+//                main_iv7.setVisibility(View.GONE);
+//                main_iv8.setVisibility(View.GONE);
+//                main_iv9.setVisibility(View.GONE);
+//                main_iv10.setVisibility(View.GONE);
+//                main_iv11.setVisibility(View.GONE);
+//                ll_ad_exit.addView(nativeExit);
+//                ll_ad_exit.setVisibility(View.VISIBLE);
+//                main_ad_cx_tv.setVisibility(View.GONE);
+//            } else {
+//                dialog.dismiss();
+//            }
+//        } else {
+//            dialog.dismiss();
+//        }
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
+//        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+//        lp.width = dm.widthPixels; //设置宽度
+//        lp.height = dm.heightPixels; //设置高度
+//        if (DataPre.getDB(this, Constant.IS_ACTION_BAR, true)) {
+//            int uiOptions =
+//                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+//                            //布局位于状态栏下方
+//                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+//                            //隐藏导航栏
+//                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+//                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+//            if (Build.VERSION.SDK_INT >= 19) {
+//                uiOptions |= 0x00001000;
+//            } else {
+//                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+//            }
+//            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+//        }
+//        dialog.getWindow().setAttributes(lp);
+//        dialog.getWindow().setContentView(view);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         initSideData();
+        startAnimator(0f, -359f, 0f, 359f, -1);
 //        adapter.notifyDataSetChanged();
         if (TransmitValue.isJunk && TransmitValue.isRam && TransmitValue.isCool) {
             main_clear_relativeLayout.setVisibility(View.GONE);
@@ -854,7 +898,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                 start();
             }
         }.start();
-
     }
 
     @Override
@@ -965,7 +1008,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 
         }
         if (DataPre.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.showFullAd("bruder_start_full");
+            AndroidSdk.showFullAd("loading_full");
         } else {
             View nativeView_full = UtilAd.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (nativeView_full != null) {
@@ -1041,6 +1084,12 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 
     //退出
     public void onBackPressed() {
+        if (bubble.getVisibility() == View.VISIBLE) {
+            bubble.pause();
+            bubble.setVisibility(View.INVISIBLE);
+            handler.removeCallbacks(runnable);
+            return;
+        }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -1061,7 +1110,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         super.onStart();
         //旋转动画
 //        startAnimator(0f, 360f, 0f, -360f);
-        startAnimator(0f, -359f, 0f, 359f, 3);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -1216,40 +1264,10 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         LinearInterpolator lin = new LinearInterpolator();
         ObjectAnimator animator3 = ObjectAnimator.ofFloat(clear2, "rotation", start2, end2);
         animator3.setRepeatCount(count);//设置重复次数
-        set.setDuration(1000);
+        set.setDuration(3000);
         set.setInterpolator(lin);
         set.play(animator2).with(animator3);
         set.start();
-        set.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                ObjectAnimator animator2 = ObjectAnimator.ofFloat(clear3, "rotation", start1, -end1);
-                animator2.setRepeatCount(1);//设置重复次数
-                LinearInterpolator lin = new LinearInterpolator();
-                ObjectAnimator animator3 = ObjectAnimator.ofFloat(clear2, "rotation", start2, -end2);
-                animator3.setRepeatCount(1);//设置重复次数
-                AnimatorSet set1 = new AnimatorSet();
-                set1.setDuration(4000);
-                set1.setInterpolator(lin);
-                set1.play(animator2).with(animator3);
-                set1.start();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
     }
 
     // 暂停动画
