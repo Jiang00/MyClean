@@ -33,6 +33,7 @@ import android.widget.RemoteViews;
 import com.mutter.clean.core.CleanManager;
 import com.mutter.clean.junk.myActivity.Loading1Activity;
 import com.mutter.clean.junk.myActivity.LoadingActivity;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.notifi.NotificationCallBack;
 import com.mutter.clean.notifi.NotificationInfo;
 import com.mutter.clean.junk.R;
@@ -51,6 +52,8 @@ import com.mutter.clean.junk.util.PhoneManager;
 import com.mutter.clean.util.PreData;
 
 import java.util.ArrayList;
+
+import me.leolin.shortcutbadger.ShortcutBadger;
 
 
 public class NotificationService extends Service {
@@ -279,24 +282,13 @@ public class NotificationService extends Service {
 
     private void update() {
 
-        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) ||
-                PreData.getDB(this, Constant.HONG_COOLING, true) || PreData.getDB(this, Constant.HONG_MESSAGE, true) || PreData.getDB(this, Constant.HONG_NOTIFI, true) ||
-                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
-                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
-            getPackageManager()
-                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), Loading1Activity.class)
-                            , PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-            getPackageManager()
-                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), LoadingActivity.class)
-                            , PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-        } else {
-            getPackageManager()
-                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), LoadingActivity.class)
-                            , PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-            getPackageManager()
-                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), Loading1Activity.class)
-                            , PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-        }
+
+//            getPackageManager()
+//                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), LoadingActivity.class)
+//                            , PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+//            getPackageManager()
+//                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), Loading1Activity.class)
+//                            , PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 
         final int memory = Util.getMemory(this);
         //cpu温度
@@ -338,6 +330,7 @@ public class NotificationService extends Service {
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, false);
                     PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
+                    BadgerCount.setCount(NotificationService.this);
                 }
                 return;
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_RAM, true)) {
@@ -348,6 +341,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
+                    BadgerCount.setCount(NotificationService.this);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, false);
                 }
                 return;
@@ -359,6 +353,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
+                    BadgerCount.setCount(NotificationService.this);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, false);
                 }
                 return;
@@ -372,6 +367,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.HONG_COOLING, true);
+                    BadgerCount.setCount(NotificationService.this);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, false);
                 }
                 return;
@@ -383,6 +379,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.HONG_COOLING, true);
+                    BadgerCount.setCount(NotificationService.this);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, false);
                 }
                 return;
@@ -394,6 +391,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.HONG_COOLING, true);
+                    BadgerCount.setCount(NotificationService.this);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, false);
                 }
                 return;
@@ -410,6 +408,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.HONG_JUNK, true);
+                    BadgerCount.setCount(NotificationService.this);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_JUNK, false);
                 }
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_JUNK, true)) {
@@ -420,6 +419,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.HONG_JUNK, true);
+                    BadgerCount.setCount(NotificationService.this);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_JUNK, false);
                 }
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_JUNK, true)) {
@@ -430,6 +430,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.HONG_JUNK, true);
+                    BadgerCount.setCount(NotificationService.this);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, false);
                 }
             }

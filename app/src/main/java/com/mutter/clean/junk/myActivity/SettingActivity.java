@@ -30,6 +30,8 @@ import com.mutter.clean.junk.util.Constant;
 import com.mutter.clean.junk.util.ShortCutUtils;
 import com.mutter.clean.junk.util.UtilGp;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
+
 /**
  * Created by on 2017/3/2.
  */
@@ -216,12 +218,7 @@ public class SettingActivity extends BaseActivity {
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
                         Intent intent = new Intent(SettingActivity.this, NotificationService.class);
                         stopService(intent);
-                        getPackageManager()
-                                .setComponentEnabledSetting(new ComponentName(getApplicationContext(), LoadingActivity.class)
-                                        , PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-                        getPackageManager()
-                                .setComponentEnabledSetting(new ComponentName(getApplicationContext(), Loading1Activity.class)
-                                        , PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+                        ShortcutBadger.removeCount(SettingActivity.this);
                     } else {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);

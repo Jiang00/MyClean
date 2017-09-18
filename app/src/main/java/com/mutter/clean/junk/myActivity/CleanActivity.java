@@ -17,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.mutter.clean.junk.service.NotificationService;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -96,6 +98,7 @@ public class CleanActivity extends BaseActivity implements JunkView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk);
+        BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);

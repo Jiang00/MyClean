@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.mutter.clean.junk.R;
+import com.mutter.clean.junk.service.NotificationService;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.junk.util.Constant;
 import com.mutter.clean.junk.myview.FlakeView;
 import com.mutter.clean.util.PreData;
@@ -75,7 +77,7 @@ public class JiangwenActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
         AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
-
+        BadgerCount.setCount(this);
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
