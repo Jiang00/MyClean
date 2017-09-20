@@ -80,7 +80,7 @@ public class LoadingActivity extends BaseActivity {
             }
         });
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.loadFullAd("loading_full");
+            AndroidSdk.loadFullAd("loading_full",null);
         }
 
     }

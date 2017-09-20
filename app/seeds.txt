@@ -27623,17 +27623,18 @@ com.android.async.QueuedExecutor: void finish()
 com.android.async.QueuedExecutor: void start()
 com.android.async.QueuedExecutor: void run()
 com.android.client.AdListener
-com.android.client.AdListener: void onReceiveReward(boolean,int,java.lang.String)
-com.android.client.AdListener: void onFullAdClosed(java.lang.String)
-com.android.client.AdListener: void onFullAdClicked(java.lang.String)
-com.android.client.AdListener: void onVideoAdClosed(java.lang.String)
-com.android.client.AdListener: void onBannerAdClicked(java.lang.String)
-com.android.client.AdListener: void onCrossAdClicked(java.lang.String)
+com.android.client.AdListener: AdListener()
+com.android.client.AdListener: void onAdShow()
+com.android.client.AdListener: void onAdClosed()
+com.android.client.AdListener: void onAdClicked()
+com.android.client.AdListener: void onAdShowFails()
+com.android.client.AdListener: void onAdReward()
+com.android.client.AdListener: void onAdLoadSuccess()
+com.android.client.AdListener: void onAdLoadFails()
 com.android.client.AndroidSdk
 com.android.client.AndroidSdk: android.content.Context context
 com.android.client.AndroidSdk: com.android.client.AndroidSdk$Builder builder
-com.android.client.AndroidSdk: com.android.client.PaymentResultListener paymentResultListener
-com.android.client.AndroidSdk: com.android.client.AdListener rewardAdListener
+com.android.client.AndroidSdk: com.android.client.PaymentSystemListener paymentResultListener
 com.android.client.AndroidSdk: java.lang.ref.WeakReference activityWeakReference
 com.android.client.AndroidSdk: com.android.client.UserCenterListener userCenterListener
 com.android.client.AndroidSdk: int POS_LEFT_TOP
@@ -27652,9 +27653,6 @@ com.android.client.AndroidSdk: java.lang.String FULL_TAG_CUSTOM
 com.android.client.AndroidSdk: double BACK_HOME_AD_TIME
 com.android.client.AndroidSdk: boolean canShowBackHomeAd
 com.android.client.AndroidSdk: boolean hasRewardAd
-com.android.client.AndroidSdk: int NATIVE_AD_TYPE_OUR
-com.android.client.AndroidSdk: int NATIVE_AD_TYPE_ALL
-com.android.client.AndroidSdk: int NATIVE_AD_TYPE_THIRD
 com.android.client.AndroidSdk: boolean hasNative
 com.android.client.AndroidSdk: int HIDE_BEHAVIOR_AUTO_HIDE
 com.android.client.AndroidSdk: int HIDE_BEHAVIOR_HIDDEN
@@ -27675,11 +27673,9 @@ com.android.client.AndroidSdk: int CONFIG_KEY_PACKAGE_NAME
 com.android.client.AndroidSdk: com.android.client.DummyConfig config
 com.android.client.AndroidSdk: AndroidSdk()
 com.android.client.AndroidSdk: void onCreate(android.app.Activity,com.android.client.AndroidSdk$Builder)
-com.android.client.AndroidSdk: void setRewardAdListener(com.android.client.AdListener)
 com.android.client.AndroidSdk: void onCreate(android.app.Activity)
 com.android.client.AndroidSdk: boolean valid()
 com.android.client.AndroidSdk: void onCreate(android.content.Context)
-com.android.client.AndroidSdk: void showFullAdAsActivity(java.lang.String)
 com.android.client.AndroidSdk: void onStart()
 com.android.client.AndroidSdk: void onStop()
 com.android.client.AndroidSdk: void onPause()
@@ -27688,31 +27684,30 @@ com.android.client.AndroidSdk: void onResumeWithoutTransition(android.app.Activi
 com.android.client.AndroidSdk: void onDestroy()
 com.android.client.AndroidSdk: void onActivityResult(int,int,android.content.Intent)
 com.android.client.AndroidSdk: boolean isNetworkConnected()
-com.android.client.AndroidSdk: void showBanner(int)
 com.android.client.AndroidSdk: void showBanner(java.lang.String,int)
-com.android.client.AndroidSdk: void closeBanner()
+com.android.client.AndroidSdk: void closeBanner(java.lang.String)
 com.android.client.AndroidSdk: void setBackHomeAd(java.lang.String)
 com.android.client.AndroidSdk: int[] calculatePopWindowPos(android.view.View,int)
 com.android.client.AndroidSdk: void _showBanner(java.lang.String,int)
 com.android.client.AndroidSdk: void moreGame()
-com.android.client.AndroidSdk: void loadFullAd(java.lang.String)
+com.android.client.AndroidSdk: void loadFullAd(java.lang.String,com.android.client.AdListener)
+com.android.client.AndroidSdk: void showFullAd(java.lang.String,com.android.client.AdListener)
 com.android.client.AndroidSdk: void showFullAd(java.lang.String)
-com.android.client.AndroidSdk: void _showInterstitialDlg(java.lang.String)
-com.android.client.AndroidSdk: void showRewardAd(java.lang.String,int)
+com.android.client.AndroidSdk: void _showInterstitialDlg(java.lang.String,com.android.client.AdListener)
+com.android.client.AndroidSdk: void showRewardAd(java.lang.String,com.android.client.AdListener)
 com.android.client.AndroidSdk: void pauseActivity()
 com.android.client.AndroidSdk: void resumeActivity()
-com.android.client.AndroidSdk: void showRewardAd(int)
-com.android.client.AndroidSdk: boolean hasRewardAd()
 com.android.client.AndroidSdk: boolean hasRewardAd(java.lang.String)
-com.android.client.AndroidSdk: boolean hasNativeAd(java.lang.String,int)
+com.android.client.AndroidSdk: boolean hasNativeAd(java.lang.String)
 com.android.client.AndroidSdk: int getDefaultNativeLayoutId(boolean)
-com.android.client.AndroidSdk: android.view.View peekNativeAdView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener)
-com.android.client.AndroidSdk: android.view.View peekNativeAdViewWithLayout(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener)
-com.android.client.AndroidSdk: android.view.View peekNativeAdScrollView(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener)
-com.android.client.AndroidSdk: android.view.View peekNativeAdScrollView(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener)
+com.android.client.AndroidSdk: android.view.View peekNativeAdView(java.lang.String,com.android.client.ClientNativeAd$NativeAdClickListener)
+com.android.client.AndroidSdk: android.view.View peekNativeAdViewWithLayout(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener)
+com.android.client.AndroidSdk: android.view.View peekNativeAdScrollView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener)
+com.android.client.AndroidSdk: android.view.View peekNativeAdScrollView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener)
+com.android.client.AndroidSdk: android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener)
 com.android.client.AndroidSdk: android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener)
-com.android.client.AndroidSdk: android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener)
 com.android.client.AndroidSdk: void showNativeAdScrollView(java.lang.String,int,int)
+com.android.client.AndroidSdk: java.lang.String getPrices()
 com.android.client.AndroidSdk: java.lang.String showNativeAd(java.lang.String)
 com.android.client.AndroidSdk: void closeNativeAd(java.lang.String)
 com.android.client.AndroidSdk: void clickNativeAd(java.lang.String)
@@ -27724,7 +27719,9 @@ com.android.client.AndroidSdk: void destroyNativeAdView(java.lang.String,android
 com.android.client.AndroidSdk: void track(java.lang.String,java.lang.String,java.lang.String,int)
 com.android.client.AndroidSdk: void track(java.lang.String,java.lang.String)
 com.android.client.AndroidSdk: void track(java.lang.String)
+com.android.client.AndroidSdk: void pay(int,com.android.client.PaymentSystemListener)
 com.android.client.AndroidSdk: void pay(int)
+com.android.client.AndroidSdk: void query(int,com.android.client.PaymentSystemListener)
 com.android.client.AndroidSdk: void query(int)
 com.android.client.AndroidSdk: void share()
 com.android.client.AndroidSdk: void rateUs()
@@ -27763,23 +27760,24 @@ com.android.client.AndroidSdk: void UM_use(java.lang.String,int,double)
 com.android.client.AndroidSdk: void UM_bonus(java.lang.String,int,double,int)
 com.android.client.AndroidSdk: void access$000(java.lang.String,int)
 com.android.client.AndroidSdk: double access$102(double)
-com.android.client.AndroidSdk: void access$200(java.lang.String)
+com.android.client.AndroidSdk: void access$200(java.lang.String,com.android.client.AdListener)
 com.android.client.AndroidSdk: void access$300()
 com.android.client.AndroidSdk: void access$400()
 com.android.client.AndroidSdk: boolean access$500()
 com.android.client.AndroidSdk: void <clinit>()
 com.android.client.AndroidSdk$1
+com.android.client.AndroidSdk$1: java.lang.String val$tag
 com.android.client.AndroidSdk$1: int val$pos
-com.android.client.AndroidSdk$1: AndroidSdk$1(int)
+com.android.client.AndroidSdk$1: AndroidSdk$1(java.lang.String,int)
 com.android.client.AndroidSdk$1: void run()
 com.android.client.AndroidSdk$10
-com.android.client.AndroidSdk$10: com.android.client.ClientNativeAd$NativeAdClickListener val$listener
-com.android.client.AndroidSdk$10: AndroidSdk$10(com.android.client.ClientNativeAd$NativeAdClickListener)
-com.android.client.AndroidSdk$10: void onClick(android.view.View)
+com.android.client.AndroidSdk$10: java.lang.String val$tag
+com.android.client.AndroidSdk$10: int val$yPercent
+com.android.client.AndroidSdk$10: AndroidSdk$10(java.lang.String,int)
+com.android.client.AndroidSdk$10: void run()
 com.android.client.AndroidSdk$11
 com.android.client.AndroidSdk$11: java.lang.String val$tag
-com.android.client.AndroidSdk$11: int val$yPercent
-com.android.client.AndroidSdk$11: AndroidSdk$11(java.lang.String,int)
+com.android.client.AndroidSdk$11: AndroidSdk$11(java.lang.String)
 com.android.client.AndroidSdk$11: void run()
 com.android.client.AndroidSdk$12
 com.android.client.AndroidSdk$12: java.lang.String val$tag
@@ -27790,100 +27788,94 @@ com.android.client.AndroidSdk$13: java.lang.String val$tag
 com.android.client.AndroidSdk$13: AndroidSdk$13(java.lang.String)
 com.android.client.AndroidSdk$13: void run()
 com.android.client.AndroidSdk$14
-com.android.client.AndroidSdk$14: java.lang.String val$tag
-com.android.client.AndroidSdk$14: AndroidSdk$14(java.lang.String)
+com.android.client.AndroidSdk$14: int val$bill
+com.android.client.AndroidSdk$14: com.android.client.PaymentSystemListener val$paymentListener
+com.android.client.AndroidSdk$14: AndroidSdk$14(int,com.android.client.PaymentSystemListener)
 com.android.client.AndroidSdk$14: void run()
+com.android.client.AndroidSdk$14$1
+com.android.client.AndroidSdk$14$1: com.android.client.AndroidSdk$14 this$0
+com.android.client.AndroidSdk$14$1: AndroidSdk$14$1(com.android.client.AndroidSdk$14)
+com.android.client.AndroidSdk$14$1: void onClick(android.content.DialogInterface,int)
+com.android.client.AndroidSdk$14$2
+com.android.client.AndroidSdk$14$2: com.android.client.AndroidSdk$14 this$0
+com.android.client.AndroidSdk$14$2: AndroidSdk$14$2(com.android.client.AndroidSdk$14)
+com.android.client.AndroidSdk$14$2: void onClick(android.content.DialogInterface,int)
+com.android.client.AndroidSdk$14$3
+com.android.client.AndroidSdk$14$3: com.android.client.AndroidSdk$14 this$0
+com.android.client.AndroidSdk$14$3: AndroidSdk$14$3(com.android.client.AndroidSdk$14)
+com.android.client.AndroidSdk$14$3: void onClick(android.content.DialogInterface,int)
 com.android.client.AndroidSdk$15
-com.android.client.AndroidSdk$15: int val$bill
-com.android.client.AndroidSdk$15: AndroidSdk$15(int)
+com.android.client.AndroidSdk$15: java.lang.String val$msg
+com.android.client.AndroidSdk$15: AndroidSdk$15(java.lang.String)
 com.android.client.AndroidSdk$15: void run()
-com.android.client.AndroidSdk$15$1
-com.android.client.AndroidSdk$15$1: com.android.client.AndroidSdk$15 this$0
-com.android.client.AndroidSdk$15$1: AndroidSdk$15$1(com.android.client.AndroidSdk$15)
-com.android.client.AndroidSdk$15$1: void onClick(android.content.DialogInterface,int)
-com.android.client.AndroidSdk$15$2
-com.android.client.AndroidSdk$15$2: com.android.client.AndroidSdk$15 this$0
-com.android.client.AndroidSdk$15$2: AndroidSdk$15$2(com.android.client.AndroidSdk$15)
-com.android.client.AndroidSdk$15$2: void onClick(android.content.DialogInterface,int)
-com.android.client.AndroidSdk$15$3
-com.android.client.AndroidSdk$15$3: com.android.client.AndroidSdk$15 this$0
-com.android.client.AndroidSdk$15$3: AndroidSdk$15$3(com.android.client.AndroidSdk$15)
-com.android.client.AndroidSdk$15$3: void onClick(android.content.DialogInterface,int)
 com.android.client.AndroidSdk$16
-com.android.client.AndroidSdk$16: java.lang.String val$msg
-com.android.client.AndroidSdk$16: AndroidSdk$16(java.lang.String)
+com.android.client.AndroidSdk$16: AndroidSdk$16()
 com.android.client.AndroidSdk$16: void run()
+com.android.client.AndroidSdk$16$1
+com.android.client.AndroidSdk$16$1: com.android.client.AndroidSdk$16 this$0
+com.android.client.AndroidSdk$16$1: AndroidSdk$16$1(com.android.client.AndroidSdk$16)
+com.android.client.AndroidSdk$16$1: void onClick(android.content.DialogInterface,int)
+com.android.client.AndroidSdk$16$2
+com.android.client.AndroidSdk$16$2: com.android.client.AndroidSdk$16 this$0
+com.android.client.AndroidSdk$16$2: AndroidSdk$16$2(com.android.client.AndroidSdk$16)
+com.android.client.AndroidSdk$16$2: void onClick(android.content.DialogInterface,int)
 com.android.client.AndroidSdk$17
 com.android.client.AndroidSdk$17: AndroidSdk$17()
-com.android.client.AndroidSdk$17: void run()
-com.android.client.AndroidSdk$17$1
-com.android.client.AndroidSdk$17$1: com.android.client.AndroidSdk$17 this$0
-com.android.client.AndroidSdk$17$1: AndroidSdk$17$1(com.android.client.AndroidSdk$17)
-com.android.client.AndroidSdk$17$1: void onClick(android.content.DialogInterface,int)
-com.android.client.AndroidSdk$17$2
-com.android.client.AndroidSdk$17$2: com.android.client.AndroidSdk$17 this$0
-com.android.client.AndroidSdk$17$2: AndroidSdk$17$2(com.android.client.AndroidSdk$17)
-com.android.client.AndroidSdk$17$2: void onClick(android.content.DialogInterface,int)
+com.android.client.AndroidSdk$17: void onSuccess(int,java.lang.String)
+com.android.client.AndroidSdk$17: void onFailure(int)
 com.android.client.AndroidSdk$18
-com.android.client.AndroidSdk$18: AndroidSdk$18()
-com.android.client.AndroidSdk$18: void onSuccess(int,java.lang.String)
-com.android.client.AndroidSdk$18: void onFailure(int)
-com.android.client.AndroidSdk$19
-com.android.client.AndroidSdk$19: java.lang.String val$title
-com.android.client.AndroidSdk$19: java.lang.String val$message
-com.android.client.AndroidSdk$19: AndroidSdk$19(java.lang.String,java.lang.String)
-com.android.client.AndroidSdk$19: void run()
+com.android.client.AndroidSdk$18: java.lang.String val$title
+com.android.client.AndroidSdk$18: java.lang.String val$message
+com.android.client.AndroidSdk$18: AndroidSdk$18(java.lang.String,java.lang.String)
+com.android.client.AndroidSdk$18: void run()
 com.android.client.AndroidSdk$2
-com.android.client.AndroidSdk$2: java.lang.String val$tag
-com.android.client.AndroidSdk$2: int val$pos
-com.android.client.AndroidSdk$2: AndroidSdk$2(java.lang.String,int)
+com.android.client.AndroidSdk$2: AndroidSdk$2()
 com.android.client.AndroidSdk$2: void run()
 com.android.client.AndroidSdk$3
 com.android.client.AndroidSdk$3: AndroidSdk$3()
-com.android.client.AndroidSdk$3: void run()
+com.android.client.AndroidSdk$3: void onClick(android.view.View)
 com.android.client.AndroidSdk$4
 com.android.client.AndroidSdk$4: java.lang.String val$tag
-com.android.client.AndroidSdk$4: AndroidSdk$4(java.lang.String)
-com.android.client.AndroidSdk$4: void onClick(android.view.View)
+com.android.client.AndroidSdk$4: com.android.client.AdListener val$listener
+com.android.client.AndroidSdk$4: AndroidSdk$4(java.lang.String,com.android.client.AdListener)
+com.android.client.AndroidSdk$4: void run()
 com.android.client.AndroidSdk$5
-com.android.client.AndroidSdk$5: java.lang.String val$tag
-com.android.client.AndroidSdk$5: AndroidSdk$5(java.lang.String)
-com.android.client.AndroidSdk$5: void run()
+com.android.client.AndroidSdk$5: com.android.client.AdListener val$listener
+com.android.client.AndroidSdk$5: AndroidSdk$5(com.android.client.AdListener)
+com.android.client.AndroidSdk$5: void onClick(android.view.View)
 com.android.client.AndroidSdk$6
-com.android.client.AndroidSdk$6: java.lang.String val$pos
-com.android.client.AndroidSdk$6: AndroidSdk$6(java.lang.String)
+com.android.client.AndroidSdk$6: com.android.client.AdListener val$listener
+com.android.client.AndroidSdk$6: android.app.Dialog val$dlg
+com.android.client.AndroidSdk$6: AndroidSdk$6(com.android.client.AdListener,android.app.Dialog)
 com.android.client.AndroidSdk$6: void onClick(android.view.View)
 com.android.client.AndroidSdk$7
-com.android.client.AndroidSdk$7: java.lang.String val$pos
-com.android.client.AndroidSdk$7: android.app.Dialog val$dlg
-com.android.client.AndroidSdk$7: AndroidSdk$7(java.lang.String,android.app.Dialog)
-com.android.client.AndroidSdk$7: void onClick(android.view.View)
+com.android.client.AndroidSdk$7: AndroidSdk$7()
+com.android.client.AndroidSdk$7: void onCancel(android.content.DialogInterface)
 com.android.client.AndroidSdk$8
-com.android.client.AndroidSdk$8: AndroidSdk$8()
-com.android.client.AndroidSdk$8: void onCancel(android.content.DialogInterface)
+com.android.client.AndroidSdk$8: java.lang.String val$tag
+com.android.client.AndroidSdk$8: com.android.client.AdListener val$listener
+com.android.client.AndroidSdk$8: AndroidSdk$8(java.lang.String,com.android.client.AdListener)
+com.android.client.AndroidSdk$8: void run()
+com.android.client.AndroidSdk$8$1
+com.android.client.AndroidSdk$8$1: android.app.AlertDialog val$dialog
+com.android.client.AndroidSdk$8$1: com.android.client.AndroidSdk$8 this$0
+com.android.client.AndroidSdk$8$1: AndroidSdk$8$1(com.android.client.AndroidSdk$8,android.app.AlertDialog)
+com.android.client.AndroidSdk$8$1: void onClick(android.view.View)
+com.android.client.AndroidSdk$8$2
+com.android.client.AndroidSdk$8$2: com.android.client.AndroidSdk$8 this$0
+com.android.client.AndroidSdk$8$2: AndroidSdk$8$2(com.android.client.AndroidSdk$8)
+com.android.client.AndroidSdk$8$2: void onCancel(android.content.DialogInterface)
 com.android.client.AndroidSdk$9
-com.android.client.AndroidSdk$9: java.lang.String val$tag
-com.android.client.AndroidSdk$9: int val$rewardId
-com.android.client.AndroidSdk$9: AndroidSdk$9(java.lang.String,int)
-com.android.client.AndroidSdk$9: void run()
-com.android.client.AndroidSdk$9$1
-com.android.client.AndroidSdk$9$1: android.app.AlertDialog val$dialog
-com.android.client.AndroidSdk$9$1: com.android.client.AndroidSdk$9 this$0
-com.android.client.AndroidSdk$9$1: AndroidSdk$9$1(com.android.client.AndroidSdk$9,android.app.AlertDialog)
-com.android.client.AndroidSdk$9$1: void onClick(android.view.View)
-com.android.client.AndroidSdk$9$2
-com.android.client.AndroidSdk$9$2: com.android.client.AndroidSdk$9 this$0
-com.android.client.AndroidSdk$9$2: AndroidSdk$9$2(com.android.client.AndroidSdk$9)
-com.android.client.AndroidSdk$9$2: void onCancel(android.content.DialogInterface)
+com.android.client.AndroidSdk$9: com.android.client.ClientNativeAd$NativeAdClickListener val$listener
+com.android.client.AndroidSdk$9: AndroidSdk$9(com.android.client.ClientNativeAd$NativeAdClickListener)
+com.android.client.AndroidSdk$9: void onClick(android.view.View)
 com.android.client.AndroidSdk$Builder
-com.android.client.AndroidSdk$Builder: com.android.client.AdListener rewardAdListener
-com.android.client.AndroidSdk$Builder: com.android.client.PaymentResultListener paymentResultListener
+com.android.client.AndroidSdk$Builder: com.android.client.PaymentSystemListener paymentResultListener
 com.android.client.AndroidSdk$Builder: com.android.client.UserCenterListener userCenterListener
 com.android.client.AndroidSdk$Builder: com.android.client.UrlListener urlListener
 com.android.client.AndroidSdk$Builder: com.android.client.SdkResultListener sdkResultListener
 com.android.client.AndroidSdk$Builder: AndroidSdk$Builder()
-com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setRewardAdListener(com.android.client.AdListener)
-com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setPaymentResultListener(com.android.client.PaymentResultListener)
+com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setPaymentListener(com.android.client.PaymentSystemListener)
 com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setUserCenterListener(com.android.client.UserCenterListener)
 com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setUrlListener(com.android.client.UrlListener)
 com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setSdkResultListener(com.android.client.SdkResultListener)
@@ -27910,18 +27902,19 @@ com.android.client.Cocos
 com.android.client.Cocos: int AD_FULL
 com.android.client.Cocos: int AD_VIDEO
 com.android.client.Cocos: int AD_BANNER
-com.android.client.Cocos: int AD_CROSS
 com.android.client.Cocos: int SNS_RESULT_LOGIN
 com.android.client.Cocos: int SNS_RESULT_INVITE
 com.android.client.Cocos: int SNS_RESULT_CHALLENGE
 com.android.client.Cocos: int SNS_RESULT_LIKE
+com.android.client.Cocos: int SNS_RESULT_FRIENDS
 com.android.client.Cocos: Cocos()
 com.android.client.Cocos: void rr(boolean,int,java.lang.String)
 com.android.client.Cocos: void awc(int,java.lang.String)
 com.android.client.Cocos: void awd(int,java.lang.String)
+com.android.client.Cocos: void sns(int,boolean,int)
+com.android.client.Cocos: void lar(java.lang.String,boolean)
 com.android.client.Cocos: void pr(int,int)
 com.android.client.Cocos: void pv()
-com.android.client.Cocos: void sns(int,boolean,int)
 com.android.client.Cocos: void sr(int,boolean,java.lang.String)
 com.android.client.Cocos: void url(int,boolean,java.lang.String)
 com.android.client.Cocos: void lb(boolean,boolean,java.lang.String,java.lang.String)
@@ -27935,6 +27928,7 @@ com.android.client.Cocos: void onActivityResult(int,int,android.content.Intent)
 com.android.client.Cocos: void showBanner(int)
 com.android.client.Cocos: void showBanner(java.lang.String,int)
 com.android.client.Cocos: void closeBanner()
+com.android.client.Cocos: void closeBanner(java.lang.String)
 com.android.client.Cocos: void showFullAd(java.lang.String)
 com.android.client.Cocos: void showRewardAd(int)
 com.android.client.Cocos: boolean hasRewardAd()
@@ -27942,6 +27936,7 @@ com.android.client.Cocos: void showRewardAd(java.lang.String,int)
 com.android.client.Cocos: boolean hasRewardAd(java.lang.String)
 com.android.client.Cocos: void pay(int)
 com.android.client.Cocos: void query(int)
+com.android.client.Cocos: java.lang.String getPrices()
 com.android.client.Cocos: void share()
 com.android.client.Cocos: void rate()
 com.android.client.Cocos: void moreGame()
@@ -27974,6 +27969,7 @@ com.android.client.Cocos: void getApp(java.lang.String)
 com.android.client.Cocos: java.lang.String showNativeAd(java.lang.String)
 com.android.client.Cocos: void closeNativeAd(java.lang.String)
 com.android.client.Cocos: void clickNativeAd(java.lang.String)
+com.android.client.Cocos: void loadFullAd(java.lang.String)
 com.android.client.Cocos: void UM_setPlayerLevel(int)
 com.android.client.Cocos: void UM_onEvent(java.lang.String)
 com.android.client.Cocos: void UM_onEvent(java.lang.String,java.lang.String)
@@ -27991,32 +27987,43 @@ com.android.client.Cocos: void UM_bonus(java.lang.String,int,double,int)
 com.android.client.Cocos$1
 com.android.client.Cocos$1: Cocos$1()
 com.android.client.Cocos$1: void onReceiveLoginResult(boolean)
+com.android.client.Cocos$1: void onReceiveFriends(java.lang.String)
 com.android.client.Cocos$1: void onReceiveInviteResult(boolean)
 com.android.client.Cocos$1: void onReceiveChallengeResult(int)
 com.android.client.Cocos$1: void onReceiveLikeResult(boolean)
 com.android.client.Cocos$2
 com.android.client.Cocos$2: Cocos$2()
-com.android.client.Cocos$2: void onReceiveReward(boolean,int,java.lang.String)
-com.android.client.Cocos$2: void onFullAdClosed(java.lang.String)
-com.android.client.Cocos$2: void onFullAdClicked(java.lang.String)
-com.android.client.Cocos$2: void onVideoAdClosed(java.lang.String)
-com.android.client.Cocos$2: void onBannerAdClicked(java.lang.String)
-com.android.client.Cocos$2: void onCrossAdClicked(java.lang.String)
+com.android.client.Cocos$2: void onSuccess(int,java.lang.String)
+com.android.client.Cocos$2: void onFailure(int)
 com.android.client.Cocos$3
 com.android.client.Cocos$3: Cocos$3()
-com.android.client.Cocos$3: void onSuccess(int,java.lang.String)
-com.android.client.Cocos$3: void onFailure(int)
+com.android.client.Cocos$3: void onPaymentSuccess(int)
+com.android.client.Cocos$3: void onPaymentFail(int)
+com.android.client.Cocos$3: void onPaymentSystemValid()
+com.android.client.Cocos$3: void onPaymentCanceled(int)
+com.android.client.Cocos$3: void onPaymentSystemError(int,java.lang.String)
 com.android.client.Cocos$4
 com.android.client.Cocos$4: Cocos$4()
-com.android.client.Cocos$4: void onPaymentSuccess(int)
-com.android.client.Cocos$4: void onPaymentFail(int)
-com.android.client.Cocos$4: void onPaymentSystemValid()
-com.android.client.Cocos$4: void onPaymentCanceled(int)
+com.android.client.Cocos$4: void onInitialized()
+com.android.client.Cocos$4: void onReceiveServerExtra(java.lang.String)
+com.android.client.Cocos$4: void onReceiveNotificationData(java.lang.String)
 com.android.client.Cocos$5
-com.android.client.Cocos$5: Cocos$5()
-com.android.client.Cocos$5: void onInitialized()
-com.android.client.Cocos$5: void onReceiveServerExtra(java.lang.String)
-com.android.client.Cocos$5: void onReceiveNotificationData(java.lang.String)
+com.android.client.Cocos$5: java.lang.String val$tag
+com.android.client.Cocos$5: Cocos$5(java.lang.String)
+com.android.client.Cocos$5: void onAdClosed()
+com.android.client.Cocos$5: void onAdClicked()
+com.android.client.Cocos$6
+com.android.client.Cocos$6: int val$id
+com.android.client.Cocos$6: java.lang.String val$tag
+com.android.client.Cocos$6: Cocos$6(int,java.lang.String)
+com.android.client.Cocos$6: void onAdReward()
+com.android.client.Cocos$6: void onAdShowFails()
+com.android.client.Cocos$6: void onAdClosed()
+com.android.client.Cocos$7
+com.android.client.Cocos$7: java.lang.String val$tag
+com.android.client.Cocos$7: Cocos$7(java.lang.String)
+com.android.client.Cocos$7: void onAdLoadSuccess()
+com.android.client.Cocos$7: void onAdLoadFails()
 com.android.client.DummyConfig
 com.android.client.DummyConfig: java.lang.String v_api
 com.android.client.DummyConfig: java.lang.String appId
@@ -28024,11 +28031,14 @@ com.android.client.DummyConfig: java.lang.String leaderBoardUrl
 com.android.client.DummyConfig: java.lang.String data
 com.android.client.DummyConfig: DummyConfig()
 com.android.client.LeaderBoardListener
-com.android.client.PaymentResultListener
-com.android.client.PaymentResultListener: void onPaymentSuccess(int)
-com.android.client.PaymentResultListener: void onPaymentFail(int)
-com.android.client.PaymentResultListener: void onPaymentSystemValid()
-com.android.client.PaymentResultListener: void onPaymentCanceled(int)
+com.android.client.PaymentSystemListener
+com.android.client.PaymentSystemListener: PaymentSystemListener()
+com.android.client.PaymentSystemListener: void onPaymentSuccess(int)
+com.android.client.PaymentSystemListener: void onPaymentFail(int)
+com.android.client.PaymentSystemListener: void onPaymentCanceled(int)
+com.android.client.PaymentSystemListener: void onReceiveBillPrices(java.lang.String)
+com.android.client.PaymentSystemListener: void onPaymentSystemValid()
+com.android.client.PaymentSystemListener: void onPaymentSystemError(int,java.lang.String)
 com.android.client.R
 com.android.client.R: R()
 com.android.client.R$string
@@ -28055,6 +28065,7 @@ com.android.client.Unity: void onActivityResult(int,int,android.content.Intent)
 com.android.client.Unity: void showBanner(java.lang.String,int)
 com.android.client.Unity: void showBanner(int)
 com.android.client.Unity: void closeBanner()
+com.android.client.Unity: void closeBanner(java.lang.String)
 com.android.client.Unity: void showFullAd(java.lang.String)
 com.android.client.Unity: void showRewardAd(int)
 com.android.client.Unity: boolean hasRewardAd()
@@ -28079,6 +28090,7 @@ com.android.client.Unity: void challenge(java.lang.String,java.lang.String)
 com.android.client.Unity: java.lang.String me()
 com.android.client.Unity: java.lang.String friends()
 com.android.client.Unity: void like()
+com.android.client.Unity: void loadFullAd(java.lang.String)
 com.android.client.Unity: java.lang.String showNativeAd(java.lang.String)
 com.android.client.Unity: void closeNativeAd(java.lang.String)
 com.android.client.Unity: void clickNativeAd(java.lang.String)
@@ -28092,6 +28104,7 @@ com.android.client.Unity: void getApp(java.lang.String)
 com.android.client.Unity: void alert(java.lang.String,java.lang.String)
 com.android.client.Unity: void toast(java.lang.String)
 com.android.client.Unity: java.lang.String getConfig(java.lang.String,int)
+com.android.client.Unity: java.lang.String getPrices()
 com.android.client.Unity: void onKill(android.app.Activity)
 com.android.client.Unity: void UM_setPlayerLevel(int)
 com.android.client.Unity: void UM_onEvent(java.lang.String)
@@ -28114,36 +28127,34 @@ com.android.client.Unity$1$1
 com.android.client.Unity$1$1: com.android.client.Unity$1 this$0
 com.android.client.Unity$1$1: Unity$1$1(com.android.client.Unity$1)
 com.android.client.Unity$1$1: void onReceiveLoginResult(boolean)
+com.android.client.Unity$1$1: void onReceiveFriends(java.lang.String)
 com.android.client.Unity$1$1: void onReceiveInviteResult(boolean)
 com.android.client.Unity$1$1: void onReceiveChallengeResult(int)
 com.android.client.Unity$1$1: void onReceiveLikeResult(boolean)
 com.android.client.Unity$1$2
 com.android.client.Unity$1$2: com.android.client.Unity$1 this$0
 com.android.client.Unity$1$2: Unity$1$2(com.android.client.Unity$1)
-com.android.client.Unity$1$2: void onReceiveReward(boolean,int,java.lang.String)
-com.android.client.Unity$1$2: void onFullAdClosed(java.lang.String)
-com.android.client.Unity$1$2: void onFullAdClicked(java.lang.String)
-com.android.client.Unity$1$2: void onVideoAdClosed(java.lang.String)
-com.android.client.Unity$1$2: void onBannerAdClicked(java.lang.String)
-com.android.client.Unity$1$2: void onCrossAdClicked(java.lang.String)
+com.android.client.Unity$1$2: void onSuccess(int,java.lang.String)
+com.android.client.Unity$1$2: void onFailure(int)
 com.android.client.Unity$1$3
 com.android.client.Unity$1$3: com.android.client.Unity$1 this$0
 com.android.client.Unity$1$3: Unity$1$3(com.android.client.Unity$1)
-com.android.client.Unity$1$3: void onSuccess(int,java.lang.String)
-com.android.client.Unity$1$3: void onFailure(int)
+com.android.client.Unity$1$3: void onPaymentSuccess(int)
+com.android.client.Unity$1$3: void onPaymentFail(int)
+com.android.client.Unity$1$3: void onPaymentSystemValid()
+com.android.client.Unity$1$3: void onPaymentCanceled(int)
+com.android.client.Unity$1$3: void onPaymentSystemError(int,java.lang.String)
 com.android.client.Unity$1$4
 com.android.client.Unity$1$4: com.android.client.Unity$1 this$0
 com.android.client.Unity$1$4: Unity$1$4(com.android.client.Unity$1)
-com.android.client.Unity$1$4: void onPaymentSuccess(int)
-com.android.client.Unity$1$4: void onPaymentFail(int)
-com.android.client.Unity$1$4: void onPaymentSystemValid()
-com.android.client.Unity$1$4: void onPaymentCanceled(int)
-com.android.client.Unity$1$5
-com.android.client.Unity$1$5: com.android.client.Unity$1 this$0
-com.android.client.Unity$1$5: Unity$1$5(com.android.client.Unity$1)
-com.android.client.Unity$1$5: void onInitialized()
-com.android.client.Unity$1$5: void onReceiveServerExtra(java.lang.String)
-com.android.client.Unity$1$5: void onReceiveNotificationData(java.lang.String)
+com.android.client.Unity$1$4: void onInitialized()
+com.android.client.Unity$1$4: void onReceiveServerExtra(java.lang.String)
+com.android.client.Unity$1$4: void onReceiveNotificationData(java.lang.String)
+com.android.client.Unity$10
+com.android.client.Unity$10: java.lang.String val$tag
+com.android.client.Unity$10: Unity$10(java.lang.String)
+com.android.client.Unity$10: void onAdLoadSuccess()
+com.android.client.Unity$10: void onAdLoadFails()
 com.android.client.Unity$2
 com.android.client.Unity$2: Unity$2()
 com.android.client.Unity$2: void run()
@@ -28165,6 +28176,18 @@ com.android.client.Unity$7: int val$resultCode
 com.android.client.Unity$7: android.content.Intent val$data
 com.android.client.Unity$7: Unity$7(int,int,android.content.Intent)
 com.android.client.Unity$7: void run()
+com.android.client.Unity$8
+com.android.client.Unity$8: java.lang.String val$tag
+com.android.client.Unity$8: Unity$8(java.lang.String)
+com.android.client.Unity$8: void onAdClosed()
+com.android.client.Unity$8: void onAdClicked()
+com.android.client.Unity$9
+com.android.client.Unity$9: int val$id
+com.android.client.Unity$9: java.lang.String val$tag
+com.android.client.Unity$9: Unity$9(int,java.lang.String)
+com.android.client.Unity$9: void onAdReward()
+com.android.client.Unity$9: void onAdShowFails()
+com.android.client.Unity$9: void onAdClosed()
 com.android.client.Unity3dPlayerActivity
 com.android.client.Unity3dPlayerActivity: int TYPE_LIKE
 com.android.client.Unity3dPlayerActivity: int TYPE_CHALLENGE
@@ -28178,6 +28201,7 @@ com.android.client.UrlListener: void onSuccess(int,java.lang.String)
 com.android.client.UrlListener: void onFailure(int)
 com.android.client.UserCenterListener
 com.android.client.UserCenterListener: void onReceiveLoginResult(boolean)
+com.android.client.UserCenterListener: void onReceiveFriends(java.lang.String)
 com.android.client.UserCenterListener: void onReceiveInviteResult(boolean)
 com.android.client.UserCenterListener: void onReceiveChallengeResult(int)
 com.android.client.UserCenterListener: void onReceiveLikeResult(boolean)
@@ -39579,8 +39603,11 @@ com.mutter.module.charge.saver.R$drawable: int design_fab_background
 com.mutter.module.charge.saver.R$drawable: int design_snackbar_background
 com.mutter.module.charge.saver.R$drawable: int notification_template_icon_bg
 com.mutter.module.charge.saver.R$drawable: int rectangle_back_ad
+com.mutter.module.charge.saver.R$drawable: int select_text_ad
 com.mutter.module.charge.saver.R$drawable: int setting_checkbox_selector
 com.mutter.module.charge.saver.R$drawable: int shape_ad
+com.mutter.module.charge.saver.R$drawable: int text_ad_normal
+com.mutter.module.charge.saver.R$drawable: int text_ad_passed
 com.mutter.module.charge.saver.R$id: int BOTTOM_LEFT
 com.mutter.module.charge.saver.R$id: int BOTTOM_RIGHT
 com.mutter.module.charge.saver.R$id: int TOP_LEFT
@@ -39790,6 +39817,7 @@ com.mutter.module.charge.saver.R$layout: int design_navigation_item_subheader
 com.mutter.module.charge.saver.R$layout: int design_navigation_menu
 com.mutter.module.charge.saver.R$layout: int design_navigation_menu_item
 com.mutter.module.charge.saver.R$layout: int native_ad
+com.mutter.module.charge.saver.R$layout: int native_ad_2
 com.mutter.module.charge.saver.R$layout: int notification_media_action
 com.mutter.module.charge.saver.R$layout: int notification_media_cancel_action
 com.mutter.module.charge.saver.R$layout: int notification_template_big_media

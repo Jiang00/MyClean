@@ -181,7 +181,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         cleanApplication = (MyApplication) getApplication();
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
@@ -470,7 +469,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             AndroidSdk.showFullAd("loading_full");
 
         } else {
-            View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
+            View nativeView_full = getNativeAd(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
@@ -635,71 +634,84 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.lot_family:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
-                    load_2.setVisibility(View.VISIBLE);
-                    load_1.setVisibility(View.VISIBLE);
-                    load_3.setVisibility(View.VISIBLE);
-                    load_2_2.setVisibility(View.VISIBLE);
-                    load_4.setVisibility(View.GONE);
-                    load_rotate = ObjectAnimator.ofFloat(load_1, View.ROTATION, 0, 3600);
-                    load_rotate.setDuration(4000);
-                    load_rotate.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                        int count = 0;
+                    if (PreData.getDB(MainActivity.this, Constant.FULL_START, 0) == 1) {
+                        AndroidSdk.loadFullAd("loading_full", new AdListener() {
+                            @Override
+                            public void onAdClosed() {
+                                super.onAdClosed();
+                                if (load_rotate != null) {
+                                    load_rotate.removeAllListeners();
+                                    load_rotate.cancel();
+                                }
+                                libao_load.setVisibility(View.GONE);
+                            }
+                        });
+                        load_2.setVisibility(View.VISIBLE);
+                        load_1.setVisibility(View.VISIBLE);
+                        load_3.setVisibility(View.VISIBLE);
+                        load_2_2.setVisibility(View.VISIBLE);
+                        load_4.setVisibility(View.GONE);
+                        load_rotate = ObjectAnimator.ofFloat(load_1, View.ROTATION, 0, 3600);
+                        load_rotate.setDuration(4000);
+                        load_rotate.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                            int count = 0;
 
-                        public void onAnimationUpdate(ValueAnimator animation) {
-                            count++;
-                            if (count % 15 == 0) {
-                                if (load_2.getVisibility() == View.VISIBLE) {
-                                    load_2.setVisibility(View.GONE);
-                                } else {
-                                    load_2.setVisibility(View.VISIBLE);
+                            public void onAnimationUpdate(ValueAnimator animation) {
+                                count++;
+                                if (count % 15 == 0) {
+                                    if (load_2.getVisibility() == View.VISIBLE) {
+                                        load_2.setVisibility(View.GONE);
+                                    } else {
+                                        load_2.setVisibility(View.VISIBLE);
+                                    }
                                 }
                             }
-                        }
-                    });
-                    load_rotate.start();
-                    libao_load.setVisibility(View.VISIBLE);
-                    handler.postDelayed(runnable_load, 4500);
-                    handler.post(runnable_pus);
-//                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
-//                    ll_ad_full.startAnimation(animation);
-//                    ll_ad_full.setVisibility(View.VISIBLE);
-//                    ll_ad_full.removeAllViews();
-                    /*animation.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
-                                @Override
-                                public void onNativeAdLoadSuccess(View view) {
-                                    LinearLayout loading_text = (LinearLayout) view.findViewById(R.id.loading_text);
-                                    loading_text.setOnClickListener(null);
-                                    ImageView ad_delete = (ImageView) view.findViewById(R.id.ad_delete);
-                                    ad_delete.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            adDelete();
-                                        }
-                                    });
-                                    ll_ad_full.addView(view);
-                                }
+                        });
+                        load_rotate.start();
+                        libao_load.setVisibility(View.VISIBLE);
+                        handler.postDelayed(runnable_load, 4500);
+                    } else {
+                        Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
+                        ll_ad_full.startAnimation(animation);
+                        ll_ad_full.setVisibility(View.VISIBLE);
+                        ll_ad_full.removeAllViews();
+                        animation.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
+                                    @Override
+                                    public void onNativeAdLoadSuccess(View view) {
+                                        LinearLayout loading_text = (LinearLayout) view.findViewById(R.id.loading_text);
+                                        loading_text.setOnClickListener(null);
+                                        ImageView ad_delete = (ImageView) view.findViewById(R.id.ad_delete);
+                                        ad_delete.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                adDelete();
+                                            }
+                                        });
+                                        ll_ad_full.addView(view);
+                                    }
 
-                                @Override
-                                public void onNativeAdLoadFails() {
-                                    showToast(getString(R.string.load_fails));
-                                    adDelete();
-                                }
-                            });
-                        }
+                                    @Override
+                                    public void onNativeAdLoadFails() {
+                                        showToast(getString(R.string.load_fails));
+                                        adDelete();
+                                    }
+                                });
+                            }
 
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
 
-                        }
+                            }
 
-                        @Override
-                        public void onAnimationStart(Animation animation) {
+                            @Override
+                            public void onAnimationStart(Animation animation) {
 
-                        }
-                    });*/
+                            }
+                        });
+                    }
 
                     break;
                 case R.id.main_circle:
@@ -756,27 +768,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
     };
 
-    Runnable runnable_pus = new Runnable() {
-        @Override
-        public void run() {
-            if (onPause) {
-                if (load_rotate != null) {
-                    load_rotate.removeAllListeners();
-                    load_rotate.cancel();
-                }
-                libao_load.setVisibility(View.GONE);
-                handler.removeCallbacks(runnable_load);
-            } else {
-                handler.postDelayed(this, 500);
-            }
-        }
-    };
     Runnable runnable_load = new Runnable() {
         @Override
         public void run() {
             AndroidSdk.showFullAd("loading_full");
-            handler.removeCallbacks(runnable_pus);
-            libao_load.setVisibility(View.GONE);
+
+            if (libao_load != null) {
+                libao_load.setVisibility(View.GONE);
+            }
         }
     };
 
@@ -822,7 +821,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         AndroidSdk.onResumeWithoutTransition(this);
         handler.postDelayed(runnable1, 500);
-        AndroidSdk.loadFullAd("loading_full");
+        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
     }
 
     Runnable runnable1 = new Runnable() {
@@ -857,14 +856,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 load_rotate.cancel();
             }
             handler.removeCallbacks(runnable_load);
-            handler.removeCallbacks(runnable_pus);
             return;
         }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
             if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd("loading_full");
+                AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
             }
             showExitDialog();
         }
@@ -894,10 +892,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     }
 
     public static View getNativeAd(String tag, @LayoutRes int layout) {
-        if (!AndroidSdk.hasNativeAd(tag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+        if (!AndroidSdk.hasNativeAd(tag)) {
             return null;
         }
-        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, AndroidSdk.NATIVE_AD_TYPE_ALL, layout, null);
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, layout, null);
         if (nativeView == null) {
             return null;
         }
@@ -922,8 +920,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.VISIBLE);
             }
-        } else {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         }
         exit_queren.setOnClickListener(new View.OnClickListener() {
             @Override

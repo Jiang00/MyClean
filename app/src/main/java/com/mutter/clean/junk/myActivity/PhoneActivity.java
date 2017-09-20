@@ -186,7 +186,7 @@ public class PhoneActivity extends BaseActivity {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
                 }
             }, 1000);
         } else {

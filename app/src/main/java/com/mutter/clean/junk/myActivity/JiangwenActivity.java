@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.mutter.clean.junk.R;
 import com.mutter.clean.junk.service.NotificationService;
+import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.junk.util.Constant;
 import com.mutter.clean.junk.myview.FlakeView;
@@ -76,7 +77,7 @@ public class JiangwenActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
         BadgerCount.setCount(this);
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +112,7 @@ public class JiangwenActivity extends BaseActivity {
                 cooling_fl.setVisibility(View.INVISIBLE);
                 cooling_xuehua.clearAnimation();
                 if (PreData.getDB(JiangwenActivity.this, Constant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
                 }
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);

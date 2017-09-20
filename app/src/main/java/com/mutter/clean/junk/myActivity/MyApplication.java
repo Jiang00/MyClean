@@ -10,6 +10,7 @@ import android.text.TextUtils;
 
 import com.android.client.AndroidSdk;
 import com.mutter.clean.core.CleanManager;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.notifi.NotificationMonitorService;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
@@ -62,7 +63,7 @@ public class MyApplication extends Application {
             Intent intent1 = new Intent(this, FloatService.class);
             startService(intent1);
         }
-
+        BadgerCount.setCount(this);
         //启动通知兰清理
         if (Util.isNotificationListenEnabled(this) && PreData.getDB(this, Constant.KEY_NOTIFI, false)) {
             startService(new Intent(this, NotificationMonitorService.class));

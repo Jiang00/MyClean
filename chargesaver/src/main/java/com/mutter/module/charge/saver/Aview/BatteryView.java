@@ -97,7 +97,7 @@ public class BatteryView extends FrameLayout {
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
 
     private void showNativeAD() {
-        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad, null);
+        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad_2, null);
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(VISIBLE);
@@ -241,9 +241,7 @@ public class BatteryView extends FrameLayout {
 //            initShell();
 
             updateTime();
-            Log.e("charging_ad", "==1");
-//            showNativeAD();
-            Log.e("charging_ad", "==2");
+            showNativeAD();
             halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 1.3f);
             setOnTouchListener(new OnTouchListener() {
                 @Override
