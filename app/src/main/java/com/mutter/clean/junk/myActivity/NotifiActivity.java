@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.mutter.clean.core.CleanManager;
 import com.mutter.clean.junk.util.AdUtil;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.notifi.NotificationCallBack;
 import com.mutter.clean.notifi.NotificationInfo;
 import com.mutter.clean.notifi.NotificationMonitorService;
@@ -111,7 +112,8 @@ public class NotifiActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        PreData.putDB(this, Constant.HONG_NOTIFI, false);
+        BadgerCount.setCount(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
 

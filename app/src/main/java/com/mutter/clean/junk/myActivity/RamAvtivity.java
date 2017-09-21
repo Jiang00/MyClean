@@ -84,6 +84,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
+        PreData.putDB(this, Constant.HONG_RAM, false);
         BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
         ramPresenter = new RamPresenter(this, this);

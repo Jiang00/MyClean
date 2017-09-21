@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.util.MemoryManager;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
@@ -80,6 +81,8 @@ public class PhoneActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_message);
+        PreData.putDB(this, Constant.HONG_MESSAGE, false);
+        BadgerCount.setCount(this);
         myHandler = new Handler();
         loadAd();
         title_name.setText(R.string.main_msg_title);

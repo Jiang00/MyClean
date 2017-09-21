@@ -98,6 +98,7 @@ public class CleanActivity extends BaseActivity implements JunkView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk);
+        PreData.putDB(this, Constant.HONG_JUNK, false);
         BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
         myHandler = new Handler();

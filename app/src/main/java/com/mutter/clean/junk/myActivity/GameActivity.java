@@ -36,6 +36,7 @@ import com.mutter.clean.core.CleanManager;
 import com.mutter.clean.db.CleanDBHelper;
 import com.mutter.clean.entity.JunkInfo;
 import com.mutter.clean.gboost.GameBooster;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.util.LoadManager;
 import com.mutter.clean.util.MemoryManager;
 import com.mutter.clean.util.PreData;
@@ -111,6 +112,8 @@ public class GameActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_gboost);
+        PreData.putDB(this, Constant.HONG_GBOOST, false);
+        BadgerCount.setCount(this);
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         mHandler = new Handler();
         pm = getPackageManager();

@@ -603,22 +603,18 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.main_sd_air_button:
                     AdUtil.track("主页面", "点击sd球进入垃圾清理页面", "", 1);
                     mainPresenter.jumpToActivity(CleanActivity.class, 1);
-                    PreData.putDB(MainActivity.this, Constant.HONG_JUNK, false);
                     break;
                 case R.id.main_ram_air_button:
                     AdUtil.track("主页面", "点击ram球进入内存加速页面", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
-                    PreData.putDB(MainActivity.this, Constant.HONG_RAM, false);
                     break;
                 case R.id.main_junk_button:
                     AdUtil.track("主页面", "点击垃圾清理按钮", "", 1);
                     mainPresenter.jumpToActivity(CleanActivity.class, 1);
-                    PreData.putDB(MainActivity.this, Constant.HONG_JUNK, false);
                     break;
                 case R.id.main_ram_button:
                     AdUtil.track("主页面", "点击ram清理按钮", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
-                    PreData.putDB(MainActivity.this, Constant.HONG_RAM, false);
                     break;
                 case R.id.main_manager_button:
                     AdUtil.track("主页面", "点击应用管理按钮", "", 1);
@@ -630,7 +626,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     bundle1.putString("from", "main");
                     bundle1.putInt("wendu", temp);
                     mainPresenter.jumpToActivity(JiangwenActivity.class, bundle1, 1);
-                    PreData.putDB(MainActivity.this, Constant.HONG_COOLING, false);
                     break;
                 case R.id.lot_family:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
@@ -782,8 +777,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Constant.SETTING_RESUIL) {
-            initSideData();
-            adapter.notifyDataSetChanged();
+
         } else if (resultCode == Constant.COOLING_RESUIL) {
             int wendu = data.getIntExtra("wendu", 0);
             temp -= wendu;
@@ -799,7 +793,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         } else if (resultCode == Constant.POWER_RESUIL) {
 
         }
-
+        initSideData();
+        adapter.notifyDataSetChanged();
     }
 
     @Override

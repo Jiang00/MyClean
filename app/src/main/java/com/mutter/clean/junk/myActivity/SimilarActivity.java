@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 import com.mutter.clean.imageclean.ImageHelper;
 import com.mutter.clean.imageclean.ImageInfo;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -130,7 +131,9 @@ public class SimilarActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_picture);
-        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
+        PreData.putDB(this, Constant.HONG_PHOTO, false);
+        BadgerCount.setCount(this);
+        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);
         title_right.setImageResource(R.mipmap.picture_right);

@@ -265,42 +265,34 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             }
         } else if (position == JUNK) {
             AdUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
-            PreData.putDB(context, Constant.HONG_JUNK, false);
             Intent intent2 = new Intent(context, CleanActivity.class);
             ((Activity) context).startActivityForResult(intent2, 1);
         } else if (position == RAM) {
-            PreData.putDB(context, Constant.HONG_RAM, false);
             AdUtil.track("侧边栏", "点击进入ram页面", "", 1);
             Intent intent3 = new Intent(context, RamAvtivity.class);
             ((Activity) context).startActivityForResult(intent3, 1);
         } else if (position == BATTERY_COOLING) {
-            PreData.putDB(context, Constant.HONG_COOLING, false);
+
             AdUtil.track("侧边栏", "点击进入电池降温", "", 1);
             Intent intent = new Intent(context, JiangwenActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == MANAGER) {
-            PreData.putDB(context, Constant.HONG_MANAGER, false);
+
             AdUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
-            BadgerCount.setCount(context);
             Intent intent4 = new Intent(context, UserAppActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
-            PreData.putDB(context, Constant.HONG_FILE, false);
-            BadgerCount.setCount(context);
             AdUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
             PreData.putDB(context, Constant.FILE_CLEAN, true);
             Intent intent5 = new Intent(context, FileManaActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == POWER) {
-            PreData.putDB(context, Constant.HONG_DEEP, false);
-            BadgerCount.setCount(context);
             PreData.putDB(context, Constant.DEEP_CLEAN, true);
             AdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, PowerActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == NOTIFI) {
-            PreData.putDB(context, Constant.HONG_NOTIFI, false);
-            BadgerCount.setCount(context);
+
             AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
             if (!Util.isNotificationListenEnabled(context) || !PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
@@ -311,22 +303,19 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 ((Activity) context).startActivityForResult(intent6, 1);
             }
         } else if (position == PICTURE) {
-            PreData.putDB(context, Constant.HONG_PHOTO, false);
-            BadgerCount.setCount(context);
+
             AdUtil.track("侧边栏", "点击进入相似图片", "", 1);
             PreData.putDB(context, Constant.PHOTO_CLEAN, true);
             Intent intent = new Intent(context, SimilarActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == GBOOST) {
-            PreData.putDB(context, Constant.HONG_GBOOST, false);
-            BadgerCount.setCount(context);
+
             AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
             PreData.putDB(context, Constant.GBOOST_CLEAN, true);
             Intent intent = new Intent(context, GameActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == MESSAGE) {
-            PreData.putDB(context, Constant.HONG_MESSAGE, false);
-            BadgerCount.setCount(context);
+
             AdUtil.track("侧边栏", "点击进入硬件信息", "", 1);
             Intent intent = new Intent(context, PhoneActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);

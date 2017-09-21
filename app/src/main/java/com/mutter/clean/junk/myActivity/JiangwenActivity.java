@@ -77,6 +77,7 @@ public class JiangwenActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
+        PreData.putDB(this, Constant.HONG_COOLING, false);
         AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
         BadgerCount.setCount(this);
         title_left.setOnClickListener(new View.OnClickListener() {

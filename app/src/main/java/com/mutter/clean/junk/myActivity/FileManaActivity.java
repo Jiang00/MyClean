@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.mutter.clean.filemanager.FileCategoryHelper;
 import com.mutter.clean.filemanager.Util;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.mutter.clean.junk.R;
@@ -84,6 +85,8 @@ public class FileManaActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file);
+        PreData.putDB(this, Constant.HONG_FILE, false);
+        BadgerCount.setCount(this);
         title_name.setText(R.string.side_file);
         fileHelper = new FileCategoryHelper(this);
         mHandler = new Handler();
