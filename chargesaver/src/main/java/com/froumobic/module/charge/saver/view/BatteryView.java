@@ -97,7 +97,7 @@ public class BatteryView extends FrameLayout {
     private void showNativeAD() {
         try {
             adView = AndroidSdk.peekNativeAdViewWithLayout(Constants.TAG_CHARGING,
-                    AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.native_ad,
+                    R.layout.native_ad,
                     null);
         } catch (Exception e) {
         }
@@ -110,6 +110,12 @@ public class BatteryView extends FrameLayout {
                 viewGroup.removeAllViews();
             }
             adLayout.removeAllViews();
+            FrameLayout ad_image = (FrameLayout) adView.findViewWithTag("ad_image");
+            if (ad_image != null) {
+                View child = ad_image.getChildAt(0);
+                if (child != null && child instanceof ImageView)
+                    ((ImageView) child).setScaleType(ImageView.ScaleType.FIT_CENTER);
+            }
             adLayout.addView(adView);
         }
         adLayout.setOnTouchListener(new OnTouchListener() {
@@ -167,24 +173,24 @@ public class BatteryView extends FrameLayout {
         currentLevel.setText(mContext.getString(R.string.charging_1) + curLevel + "%");
         final int le = curLevel % 100;
 
-        if (water != null && !water.isAnimating()) {
-            initWater();
-            water.playAnimation();
-            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    progress = (int) (animation.getAnimatedFraction() * 100);
-                    if (le == 0) {
-                        if (progress == 99) {
-                            progress = 100;
-                            water.pauseAnimation();
-                        }
-                    } else if (progress == le) {
-                        water.pauseAnimation();
-                    }
-                }
-            });
-        }
+//        if (water != null && !water.isAnimating()) {
+//            initWater();
+//            water.playAnimation();
+//            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                @Override
+//                public void onAnimationUpdate(ValueAnimator animation) {
+//                    progress = (int) (animation.getAnimatedFraction() * 100);
+//                    if (le == 0) {
+//                        if (progress == 99) {
+//                            progress = 100;
+//                            water.pauseAnimation();
+//                        }
+//                    } else if (progress == le) {
+//                        water.pauseAnimation();
+//                    }
+//                }
+//            });
+//        }
 
 
         int leftChargeTime = entry.getLeftTime();
@@ -242,7 +248,7 @@ public class BatteryView extends FrameLayout {
             initViews();
             isBindView = true;
 
-            initShell();
+//            initShell();
 
             updateTime();
 //native ad

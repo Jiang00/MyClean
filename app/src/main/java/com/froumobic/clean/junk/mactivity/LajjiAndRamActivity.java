@@ -69,7 +69,7 @@ public class LajjiAndRamActivity extends MBaseActivity implements JunkRamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk_ram);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT_FULL,null);
         myHandler = new Handler();
         junkPresenter = new JunkRamPresenter(this, this);
         junkPresenter.init();

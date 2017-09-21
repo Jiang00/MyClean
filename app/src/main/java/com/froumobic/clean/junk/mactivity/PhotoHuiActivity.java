@@ -209,7 +209,7 @@ public class PhotoHuiActivity extends MBaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.RECYCLEBIN, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(AdUtil.DEFAULT_FULL);
         } else {
             addAd();
         }

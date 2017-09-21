@@ -1,8 +1,4 @@
-package com.froumobic.module.charge.saver.view;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+package com.froumobic.clean.junk.mview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,9 +9,13 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import com.froumobic.module.charge.saver.R;
+import com.froumobic.clean.junk.R;
 
-public class BubbleLayout extends View {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class CoolongView extends View {
 
     private List<Bubble> bubbles = new ArrayList<Bubble>();
     private Random random = new Random();//生成随机数
@@ -25,23 +25,23 @@ public class BubbleLayout extends View {
     private Bitmap bitmap = null;
     private Bitmap dstBitmap;
 
-    public BubbleLayout(Context context) {
+    public CoolongView(Context context) {
         super(context);
         init();
     }
 
-    public BubbleLayout(Context context, AttributeSet attrs) {
+    public CoolongView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public BubbleLayout(Context context, AttributeSet attrs, int defStyle) {
+    public CoolongView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
 
     private void init() {
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.frou_bubble);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_0);
     }
 
     public void destroy() {
@@ -88,19 +88,16 @@ public class BubbleLayout extends View {
                         while (radius == 0) {
                             radius = random.nextInt(30);
                         }
-                        float speedY = random.nextFloat() * 5;
-                        while (speedY < 1) {
-                            speedY = random.nextFloat() * 5;
-                        }
-                        float scale = random.nextFloat() * 2;
-                        while (scale <= 0.5) {
-                            scale = random.nextFloat() * 2;
+                        float speedY = random.nextFloat() * 5 + 2;
+                        float scale = random.nextFloat() ;
+                        while (scale <= 0.3) {
+                            scale = random.nextFloat();
                         }
                         bubble.setScale(scale);
                         bubble.setRadius(radius);
                         bubble.setSpeedY(speedY);
                         bubble.setX(random.nextInt(width));
-                        bubble.setY(height);
+                        bubble.setY(0);
 
                         float speedX = random.nextFloat() - 0.5f;
                         while (speedX == 0) {
@@ -125,7 +122,7 @@ public class BubbleLayout extends View {
                         }
                         bubbles.add(bubble);
                         try {
-                            Thread.sleep(random.nextInt(6) * 500);
+                            Thread.sleep(random.nextInt(2) * 200 + 100);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -142,7 +139,7 @@ public class BubbleLayout extends View {
         //依次绘制气泡
         for (Bubble bubble : list) {
             //碰到上边界从数组中移除
-            if (bubble.getY() - bubble.getSpeedY() <= 0) {
+            if (bubble.getY() + bubble.getSpeedY() >= height) {
                 bubbles.remove(bubble);
             } else if (bubble.getX() - bubble.getRadius() <= 0) {//碰到左边界从数组中移除
                 bubbles.remove(bubble);
@@ -157,7 +154,7 @@ public class BubbleLayout extends View {
                 } else {
                     bubble.setX(bubble.getX() + bubble.getSpeedX());
                 }
-                bubble.setY(bubble.getY() - bubble.getSpeedY());
+                bubble.setY(bubble.getY() + bubble.getSpeedY());
 
                 bubbles.set(i, bubble);
 //				canvas.drawCircle(bubble.getX(), bubble.getY(), bubble.getRadius(), paint);

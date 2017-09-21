@@ -101,7 +101,7 @@ public class AppActivity extends MBaseActivity implements AppManagerView {
     @Override
     public void loadFullAd() {
         if (PreData.getDB(this, Constant.FULL_MANAGER, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(AdUtil.DEFAULT_FULL);
         } else {
             nativeView1 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             nativeView2 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);

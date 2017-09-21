@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,7 +20,7 @@ import com.froumobic.module.charge.saver.R;
 import com.froumobic.module.charge.saver.entry.BatteryEntry;
 import com.froumobic.module.charge.saver.view.BatteryView;
 
-public class ChargeActivity extends Activity {
+public class ChargeActivity extends AppCompatActivity {
 
 
     private BatteryView batteryView;
@@ -91,7 +92,6 @@ public class ChargeActivity extends Activity {
     protected void onResume() {
 //        MopubAdUtil.loadad(MopubAdUtil.BATTERY_NATIVE);
         super.onResume();
-
     }
 
     @Override

@@ -17,36 +17,62 @@
             android:layout_height="10dp" />
 
         <include layout="@layout/layout_title" />
+
+        <RelativeLayout
+            android:id="@+id/cooling_fl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d161"
+                android:background="@mipmap/cooling_1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d161"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/cooling_1"
+                android:rotationY="180" />
+
+            <FrameLayout
+                android:id="@+id/zhuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/d141">
+
+                <ImageView
+                    android:layout_width="@dimen/d141"
+                    android:layout_height="@dimen/d141"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/cooling_2" />
+
+                <ImageView
+                    android:id="@+id/cooling_xuehua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/cooling_3" />
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/zhuan"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/d18"
+                android:src="@mipmap/cooling_4" />
+        </RelativeLayout>
+
     </LinearLayout>
 
 
-    <FrameLayout
-        android:id="@+id/cooling_fl"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d333"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/d50">
-
-
-        <ImageView
-            android:layout_width="@dimen/d112"
-            android:layout_height="@dimen/d112"
-            android:layout_gravity="center"
-            android:src="@drawable/shape_baihuan" />
-
-        <ImageView
-            android:id="@+id/cooling_xuehua"
-            android:layout_width="@dimen/d100"
-            android:layout_height="@dimen/d100"
-            android:layout_gravity="center"
-            android:src="@mipmap/cooling_1" />
-    </FrameLayout>
-
-    <LinearLayout
+    <com.froumobic.clean.junk.mview.CoolongView
         android:id="@+id/cooling_piao"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" />
+        android:layout_height="match_parent" />
 
     <FrameLayout
         android:id="@+id/fl_lot_cooling"

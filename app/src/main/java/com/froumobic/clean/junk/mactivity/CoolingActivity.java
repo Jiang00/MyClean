@@ -1,5 +1,7 @@
 package com.froumobic.clean.junk.mactivity;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +13,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.froumobic.clean.junk.R;
+import com.froumobic.clean.junk.mview.CoolongView;
+import com.froumobic.clean.junk.util.AdUtil;
 import com.froumobic.clean.junk.util.Constant;
 import com.froumobic.clean.junk.mview.FlakeView;
 import com.android.clean.util.PreData;
@@ -30,34 +35,25 @@ public class CoolingActivity extends MBaseActivity {
     private static final int FLAKE_NUM = 5;
     FrameLayout title_left;
     TextView title_name;
-    LinearLayout cooling_piao;
+    CoolongView cooling_piao;
     ImageView cooling_xuehua;
     FrameLayout fl_lot_cooling;
-    FrameLayout cooling_fl;
+    RelativeLayout cooling_fl;
 
-    private FlakeView flakeView;
     private Handler mHandler = new Handler();
-    private Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            if (flakeView != null) {
-                flakeView.addFlakes(FLAKE_NUM);
-            }
-        }
-    };
     private Random random;
-    private Animation rotate_zheng;
     private Animation suo;
     private int time;
+    private ObjectAnimator objectAnimator;
 
     @Override
     protected void findId() {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
-        cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
+        cooling_piao = (CoolongView) findViewById(R.id.cooling_piao);
         cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
-        cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
+        cooling_fl = (RelativeLayout) findViewById(R.id.cooling_fl);
         fl_lot_cooling = (FrameLayout) findViewById(R.id.fl_lot_cooling);
     }
 
@@ -72,7 +68,7 @@ public class CoolingActivity extends MBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT_FULL,null);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,20 +78,48 @@ public class CoolingActivity extends MBaseActivity {
         });
         title_name.setText(R.string.main_cooling_name);
 
-        rotate_zheng = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         mHandler = new Handler();
-        cooling_xuehua.startAnimation(rotate_zheng);
+        objectAnimator = ObjectAnimator.ofFloat(cooling_xuehua, View.ROTATION, 0, 3600);
+        objectAnimator.setDuration(3600);
+        objectAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+        objectAnimator.start();
         startCoolingAni();
+        objectAnimator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (PreData.getDB(CoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
+                    AndroidSdk.showFullAd(AdUtil.DEFAULT_FULL);
+                }
+                Bundle bundle = new Bundle();
+                bundle.putInt("wendu", time);
+                bundle.putString("from", "cooling");
+                jumpToActivity(SuccessActivity.class, bundle, 1);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
 
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
                 cooling_fl.setVisibility(View.INVISIBLE);
-                cooling_xuehua.clearAnimation();
+                objectAnimator.cancel();
                 if (PreData.getDB(CoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(AdUtil.DEFAULT_FULL);
                 }
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);
@@ -120,49 +144,36 @@ public class CoolingActivity extends MBaseActivity {
         random = new Random();
         time = random.nextInt(5) + 1;
 //        cooling_wendu.setText(time + "℃");
-        final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 20);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int value = (int) animation.getAnimatedValue();
-                if (value == 20) {
-                    cooling_fl.startAnimation(suo);
-                    hideSnow();
-                }
-            }
-        });
-        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        valueAnimator.setDuration(3000);
-        valueAnimator.start();
+//        final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 20);
+//        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            @Override
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                int value = (int) animation.getAnimatedValue();
+//                if (value == 20) {
+//                    cooling_fl.startAnimation(suo);
+//
+//                }
+//            }
+//        });
+//        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+//        valueAnimator.setDuration(3000);
+//        valueAnimator.start();
 
     }
 
-
-    private void hideSnow() {
-        if (flakeView != null) {
-            flakeView.subtractFlakes(FLAKE_NUM);
-            flakeView.pause();
-            flakeView = null;
-            mHandler.removeCallbacks(runnable);
-        }
-        if (cooling_piao != null) {
-            cooling_piao.removeAllViews();
-            cooling_piao.setVisibility(View.GONE);
-        }
-    }
 
     @Override
     protected void onResume() {
         super.onResume();
-        flakeView = new FlakeView(this);
-        cooling_piao.addView(flakeView);
-        mHandler.post(runnable);
+        cooling_piao.reStart();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        hideSnow();
+        if (cooling_piao != null) {
+            cooling_piao.pause();
+        }
     }
 
     @Override
@@ -177,10 +188,10 @@ public class CoolingActivity extends MBaseActivity {
 
     @Override
     protected void onDestroy() {
-        if (mHandler != null && runnable != null) {
-            mHandler.removeCallbacks(runnable);
-        }
         super.onDestroy();
+        if (cooling_piao != null) {
+            cooling_piao.destroy();
+        }
     }
 
 

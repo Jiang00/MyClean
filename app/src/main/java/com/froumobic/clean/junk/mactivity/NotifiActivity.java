@@ -25,6 +25,7 @@ import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.froumobic.clean.junk.R;
 import com.froumobic.clean.junk.adapter.NotifiAdapter;
+import com.froumobic.clean.junk.util.AdUtil;
 import com.froumobic.clean.junk.util.Constant;
 
 import java.util.ArrayList;
@@ -122,7 +123,7 @@ public class NotifiActivity extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT_FULL,null);
         findId();
         startService(new Intent(this, NotificationMonitorService.class));
         title_name.setText(R.string.side_notifi);

@@ -268,7 +268,7 @@ public class SuccessActivity extends MBaseActivity {
         @Override
         public void run() {
             if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                AndroidSdk.showFullAd(AdUtil.DEFAULT_FULL);
             }
             startSecondAnimation();
         }

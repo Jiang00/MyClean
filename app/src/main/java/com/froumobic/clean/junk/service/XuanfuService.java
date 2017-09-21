@@ -106,7 +106,7 @@ public class XuanfuService extends Service {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(XuanfuService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(XuanfuService.this, NotificationService.class);
-                            intent.putExtra("from","gboost");
+                            intent.putExtra("from", "gboost");
                             startService(intent);
                         }
                     }

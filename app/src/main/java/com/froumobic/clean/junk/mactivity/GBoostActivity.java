@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -60,6 +61,8 @@ public class GBoostActivity extends MBaseActivity {
     LinearLayout ll_add_game;
     FrameLayout add_left;
     ListView list_game;
+    ImageView gboost_add_game;
+    Button junk_button_clean;
 
 
     private ArrayList<String> list;
@@ -95,6 +98,8 @@ public class GBoostActivity extends MBaseActivity {
         ll_add_game = (LinearLayout) findViewById(R.id.ll_add_game);
         add_left = (FrameLayout) findViewById(R.id.add_left);
         list_game = (ListView) findViewById(R.id.list_game);
+        gboost_add_game = (ImageView) findViewById(R.id.gboost_add_game);
+        junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
     }
 
     @Override
@@ -111,6 +116,8 @@ public class GBoostActivity extends MBaseActivity {
 
         add_right.setOnClickListener(clickListener);
         clear.setOnClickListener(clickListener);
+        gboost_add_game.setOnClickListener(clickListener);
+        junk_button_clean.setOnClickListener(clickListener);
         gboost_add = new ArrayList<>();
         listEdit = new ArrayList<>();
         initList();
@@ -137,9 +144,9 @@ public class GBoostActivity extends MBaseActivity {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        list.add(0, getString(R.string.gboost_7));
+//                        list.add(0, getString(R.string.gboost_7));
                         Log.e("jfy", list.size() + "==");
-                        gboost_recyc.setLayoutManager(new GridLayoutManager(GBoostActivity.this, 2));
+                        gboost_recyc.setLayoutManager(new GridLayoutManager(GBoostActivity.this, 4));
                         gboost_recyc.setAdapter(adapter = new MyAdapter());
 
                     }
@@ -166,32 +173,27 @@ public class GBoostActivity extends MBaseActivity {
 
         @Override
         public void onBindViewHolder(final MyViewHolder holder, final int position) {
-            if (position == 0) {
-                holder.add.setVisibility(View.VISIBLE);
-                holder.app.setVisibility(View.GONE);
-            } else {
-                holder.gboost_item_icon.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(position)));
-                holder.gboost_item_name.setText(LoadManager.getInstance(GBoostActivity.this).getAppLabel(list.get(position)));
-            }
+            holder.gboost_item_icon.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(position)));
+            holder.gboost_item_name.setText(LoadManager.getInstance(GBoostActivity.this).getAppLabel(list.get(position)));
             holder.gboost_item_c.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (position == 0) {
-                        AdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
-                        ll_add_game.setVisibility(View.VISIBLE);
-                        whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
-                        list_game.setAdapter(whiteListAdapter);
-                        initData();
-                    } else {
-                        try {
-                            AdUtil.track("游戏加速页面", "点击启动游戏", list.get(position), 1);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("from", "GBoost");
-                            bundle.putString("packageName", list.get(position));
-                            jumpToActivity(DeepActivity.class, bundle);
-                        } catch (Exception e) {
-                        }
+//                    if (position == 0) {
+//                        AdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
+//                        ll_add_game.setVisibility(View.VISIBLE);
+//                        whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
+//                        list_game.setAdapter(whiteListAdapter);
+//                        initData();
+//                    } else {
+                    try {
+                        AdUtil.track("游戏加速页面", "点击启动游戏", list.get(position), 1);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("from", "GBoost");
+                        bundle.putString("packageName", list.get(position));
+                        jumpToActivity(DeepActivity.class, bundle);
+                    } catch (Exception e) {
                     }
+//                    }
                 }
             });
 
@@ -203,7 +205,7 @@ public class GBoostActivity extends MBaseActivity {
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder {
-            LinearLayout app, add;
+            LinearLayout app;
             ImageView gboost_item_icon;
             TextView gboost_item_name;
             FrameLayout gboost_item_c;
@@ -213,7 +215,6 @@ public class GBoostActivity extends MBaseActivity {
                 gboost_item_icon = (ImageView) view.findViewById(R.id.gboost_item_icon);
                 gboost_item_c = (FrameLayout) view.findViewById(R.id.gboost_item_c);
                 app = (LinearLayout) view.findViewById(R.id.app);
-                add = (LinearLayout) view.findViewById(R.id.add);
                 gboost_item_name = (TextView) view.findViewById(R.id.gboost_item_name);
             }
         }
@@ -236,6 +237,19 @@ public class GBoostActivity extends MBaseActivity {
                     break;
                 case R.id.clear:
                     toggleEditAnimation();
+                    break;
+                case R.id.gboost_add_game:
+                    AdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
+                    ll_add_game.setVisibility(View.VISIBLE);
+                    whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
+                    list_game.setAdapter(whiteListAdapter);
+                    initData();
+                    break;
+                case R.id.junk_button_clean:
+                    AdUtil.track("游戏加速页面", "点击加速", "", 1);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("from", "GBoost");
+                    jumpToActivity(DeepActivity.class, bundle);
                     break;
             }
         }
@@ -327,7 +341,8 @@ public class GBoostActivity extends MBaseActivity {
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
                 "com.froumobic.clean.junk.mactivity.GBoostActivity"));
         String title = GBoostActivity.this.getString(R.string.gboost_0);
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+        if (true) {
+//        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
             ShortCutUtils.addShortcut(GBoostActivity.this, shortcutIntent, title, false, bitmap);
             return;

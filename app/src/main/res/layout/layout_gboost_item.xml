@@ -7,81 +7,64 @@
 
     <LinearLayout
         android:id="@+id/app"
-        android:layout_width="@dimen/d154"
-        android:layout_height="@dimen/d67"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/d5"
-        android:layout_marginLeft="@dimen/d8"
-        android:layout_marginRight="@dimen/d8"
-        android:layout_marginTop="@dimen/d5"
-        android:background="@drawable/shape_ad"
-        android:orientation="horizontal">
+        android:layout_marginLeft="@dimen/d10"
+        android:layout_marginRight="@dimen/d10"
+        android:layout_marginTop="@dimen/d20"
+        android:background="@color/white_100"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/gboost_item_icon"
-            android:layout_width="@dimen/d43"
-            android:layout_height="@dimen/d43"
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/d12" />
+            android:layout_marginLeft="@dimen/d10"
+            android:layout_marginRight="@dimen/d10" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/gboost_item_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d12"
-                android:layout_marginTop="@dimen/d10"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="aaaa"
-                android:textColor="#525252"
-                android:textSize="@dimen/s14"
-                app:typeface="ljh_1.TTF" />
-
-            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_marginBottom="@dimen/d10"
-                android:layout_marginRight="@dimen/d10"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="@string/gboost_jiasu"
-                android:textColor="#31cf62"
-                android:textSize="@dimen/s13"
-                app:typeface="ljh_1.TTF" />
-        </FrameLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/add"
-        android:layout_width="@dimen/d154"
-        android:layout_height="@dimen/d67"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/d4"
-        android:layout_marginLeft="@dimen/d16"
-        android:layout_marginRight="@dimen/d16"
-        android:layout_marginTop="@dimen/d4"
-        android:background="@drawable/shape_ad"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <ImageView
-            android:layout_width="@dimen/d33"
-            android:layout_height="@dimen/d33"
-            android:src="@mipmap/gboost_add" />
 
         <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+            android:id="@+id/gboost_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d5"
-            android:text="@string/gboost_7"
-            android:textColor="#c8c8c8"
-            android:textSize="@dimen/s8" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d12"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="aaaa"
+            android:textColor="#8a8b8f"
+            android:textSize="@dimen/s12"
+            app:typeface="ljh_1.TTF" />
     </LinearLayout>
+
+    <!-- <LinearLayout
+         android:id="@+id/add"
+         android:layout_width="@dimen/d154"
+         android:layout_height="@dimen/d67"
+         android:layout_gravity="center"
+         android:layout_marginBottom="@dimen/d4"
+         android:layout_marginLeft="@dimen/d16"
+         android:layout_marginRight="@dimen/d16"
+         android:layout_marginTop="@dimen/d4"
+         android:background="@drawable/shape_ad"
+         android:gravity="center"
+         android:orientation="vertical"
+         android:visibility="gone">
+
+         <ImageView
+             android:layout_width="@dimen/d33"
+             android:layout_height="@dimen/d33"
+             android:src="@mipmap/gboost_add" />
+
+         <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/d5"
+             android:text="@string/gboost_7"
+             android:textColor="#c8c8c8"
+             android:textSize="@dimen/s8" />
+     </LinearLayout>-->
 </FrameLayout>

@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.LayoutRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
@@ -45,6 +46,7 @@ import com.android.clean.entity.JunkInfo;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
+import com.android.client.AdListener;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.android.ui.demo.UiManager;
@@ -131,9 +133,9 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private String TAG_MAIN = "main";
     private String TAG_HUA = "hua";
     private String TAG_SIDE = "side";
-    private String TAG_START_FULL = "start_native";
-    private String TAG_EXIT_FULL = "exit_native";
-    private String TAG_FULL_PULL = "pull_full";
+    private String TAG_START_FULL = "frau_start_native";
+    private String TAG_EXIT_FULL = "frau_exit_native";
+    private String TAG_FULL_PULL = "clean_native";
     private String LOAD_FULL = "loading_full";
 
     private Handler handler = new Handler();
@@ -239,11 +241,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
         View adView = AdUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
         if (adView != null) {
-            ViewGroup.LayoutParams layout_ad = view_ad.getLayoutParams();
-            if (adView.getHeight() == Util.dp2px(250)) {
-                layout_ad.height = Util.dp2px(250);
-            }
-            view_ad.setLayoutParams(layout_ad);
             view_ad.addView(adView);
             view_ad.setGravity(Gravity.CENTER);
             arrayList.add(viewpager_2);
@@ -713,7 +710,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd(LOAD_FULL);
         } else {
-            View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_exit);
+            View nativeView_full = getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_exit);
             if (ll_ad_loading != null && nativeView_full != null) {
                 ll_ad_loading.removeAllViews();
                 ll_ad_loading.addView(nativeView_full);
@@ -736,6 +733,30 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
             }
         }
+    }
+
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd(tag)) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+            FrameLayout ad_image = (FrameLayout) nativeView.findViewWithTag("ad_image");
+            if (ad_image != null) {
+                View child = ad_image.getChildAt(0);
+                if (child != null && child instanceof ImageView)
+                    ((ImageView) child).setScaleType(ImageView.ScaleType.FIT_CENTER);
+            }
+        }
+        return nativeView;
     }
 
     Runnable fullAdRunnale = new Runnable() {
@@ -762,6 +783,12 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                 public void onNativeAdLoadSuccess(View view) {
                     main_pull_refresh.loadmoreFinish(PullToRefreshLayout.SUCCEED);
                     main_scroll_view.setAdSuccess(true);
+                    FrameLayout ad_image = (FrameLayout) view.findViewWithTag("ad_image");
+                    if (ad_image != null) {
+                        View child = ad_image.getChildAt(0);
+                        if (child != null && child instanceof ImageView)
+                            ((ImageView) child).setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    }
                     if (ad_native_2 != null) {
                         ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
                         layout_ad.height = main_scroll_view.getMeasuredHeight();
@@ -825,12 +852,18 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                 case R.id.lot_family:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
                     if (PreData.getDB(MainActivity.this, Constant.FULL_START, 0) == 1) {
-
-                        AndroidSdk.loadFullAd(LOAD_FULL);
+                        AndroidSdk.loadFullAd(LOAD_FULL, new AdListener() {
+                            @Override
+                            public void onAdClosed() {
+                                super.onAdClosed();
+                                if (full_loading != null) {
+                                    full_loading.pause();
+                                    full_loading.setVisibility(View.GONE);
+                                }
+                            }
+                        });
                         full_loading.setVisibility(View.VISIBLE);
                         full_loading.reStart();
-
-                        handler.post(runnable_pus);
                         handler.postDelayed(runnable_load, 4500);
                     } else {
                         Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
@@ -844,6 +877,12 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                                 AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_exit, new ClientNativeAd.NativeAdLoadListener() {
                                     @Override
                                     public void onNativeAdLoadSuccess(View view) {
+                                        FrameLayout ad_image = (FrameLayout) view.findViewWithTag("ad_image");
+                                        if (ad_image != null) {
+                                            View child = ad_image.getChildAt(0);
+                                            if (child != null && child instanceof ImageView)
+                                                ((ImageView) child).setScaleType(ImageView.ScaleType.FIT_CENTER);
+                                        }
                                         ImageView ad_delete = (ImageView) findViewById(R.id.ad_delete);
                                         ad_delete.setOnClickListener(new View.OnClickListener() {
                                             @Override
@@ -938,25 +977,10 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         }
     };
 
-    Runnable runnable_pus = new Runnable() {
-        @Override
-        public void run() {
-            if (onPause) {
-                if (full_loading != null) {
-                    full_loading.pause();
-                    full_loading.setVisibility(View.GONE);
-                }
-                handler.removeCallbacks(runnable_load);
-            } else {
-                handler.postDelayed(this, 500);
-            }
-        }
-    };
     Runnable runnable_load = new Runnable() {
         @Override
         public void run() {
             AndroidSdk.showFullAd(LOAD_FULL);
-            handler.removeCallbacks(runnable_pus);
             if (full_loading != null) {
                 full_loading.pause();
                 full_loading.setVisibility(View.GONE);
@@ -1054,7 +1078,9 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-
+        if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
+            AndroidSdk.loadFullAd("frau_exit_full", null);
+        }
 //        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
 //        rotateAnimation.setDuration(2000);
 //        rotateAnimation.setRepeatCount(-1);
@@ -1068,7 +1094,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         super.onDestroy();
         if (handler != null) {
             handler.removeCallbacks(runnable_load);
-            handler.removeCallbacks(runnable_pus);
         }
         if (full_loading != null) {
             full_loading.pause();
@@ -1092,7 +1117,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             full_loading.pause();
             full_loading.setVisibility(View.GONE);
             handler.removeCallbacks(runnable_load);
-            handler.removeCallbacks(runnable_pus);
             return;
         }
         if (main_battery.getVisibility() == View.VISIBLE) {
@@ -1107,7 +1131,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
             if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd("exit_full");
+                AndroidSdk.showFullAd("frau_exit_full");
             }
             showExitDialog();
         }
@@ -1144,7 +1168,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 0) {
             int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
             if (true) {
-                View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
+                View nativeExit = getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
                 if (nativeExit != null) {
                     ll_ad_exit.addView(nativeExit);
                     ll_ad_exit.setVisibility(View.VISIBLE);

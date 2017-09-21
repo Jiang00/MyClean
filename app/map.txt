@@ -28095,7 +28095,6 @@ com.android.clean.util.Util -> com.android.clean.d.e:
     251:289:void doStartApplicationWithPackageName(android.content.Context,java.lang.String) -> a
     292:295:int getMemory(android.content.Context) -> a
     299:318:void deleteFile(java.lang.String) -> a
-    339:347:android.graphics.Bitmap getViewBitmap(android.view.View) -> a
     352:364:java.lang.String getProcessName(android.content.Context) -> b
     369:383:boolean isNotificationListenEnabled(android.content.Context) -> c
     388:412:boolean isAccessibilitySettingsOn(android.content.Context) -> d
@@ -28103,17 +28102,18 @@ com.android.clean.util.Util -> com.android.clean.d.e:
     442:459:boolean checkDeviceHasNavigationBar(android.content.Context) -> e
     524:542:java.lang.String readFileFromAssets(android.content.Context,java.lang.String) -> b
 com.android.client.AdListener -> com.android.client.AdListener:
-    void onReceiveReward(boolean,int,java.lang.String) -> onReceiveReward
-    void onFullAdClosed(java.lang.String) -> onFullAdClosed
-    void onFullAdClicked(java.lang.String) -> onFullAdClicked
-    void onVideoAdClosed(java.lang.String) -> onVideoAdClosed
-    void onBannerAdClicked(java.lang.String) -> onBannerAdClicked
-    void onCrossAdClicked(java.lang.String) -> onCrossAdClicked
+    8:8:void <init>() -> <init>
+    11:12:void onAdShow() -> onAdShow
+    16:17:void onAdClosed() -> onAdClosed
+    21:22:void onAdClicked() -> onAdClicked
+    26:27:void onAdShowFails() -> onAdShowFails
+    31:32:void onAdReward() -> onAdReward
+    35:36:void onAdLoadSuccess() -> onAdLoadSuccess
+    39:40:void onAdLoadFails() -> onAdLoadFails
 com.android.client.AndroidSdk -> com.android.client.AndroidSdk:
     android.content.Context context -> context
     com.android.client.AndroidSdk$Builder builder -> builder
-    com.android.client.PaymentResultListener paymentResultListener -> paymentResultListener
-    com.android.client.AdListener rewardAdListener -> rewardAdListener
+    com.android.client.PaymentSystemListener paymentResultListener -> paymentResultListener
     java.lang.ref.WeakReference activityWeakReference -> activityWeakReference
     com.android.client.UserCenterListener userCenterListener -> userCenterListener
     int POS_LEFT_TOP -> POS_LEFT_TOP
@@ -28132,9 +28132,6 @@ com.android.client.AndroidSdk -> com.android.client.AndroidSdk:
     double BACK_HOME_AD_TIME -> BACK_HOME_AD_TIME
     boolean canShowBackHomeAd -> canShowBackHomeAd
     boolean hasRewardAd -> hasRewardAd
-    int NATIVE_AD_TYPE_OUR -> NATIVE_AD_TYPE_OUR
-    int NATIVE_AD_TYPE_ALL -> NATIVE_AD_TYPE_ALL
-    int NATIVE_AD_TYPE_THIRD -> NATIVE_AD_TYPE_THIRD
     boolean hasNative -> hasNative
     int HIDE_BEHAVIOR_AUTO_HIDE -> HIDE_BEHAVIOR_AUTO_HIDE
     int HIDE_BEHAVIOR_HIDDEN -> HIDE_BEHAVIOR_HIDDEN
@@ -28154,219 +28151,213 @@ com.android.client.AndroidSdk -> com.android.client.AndroidSdk:
     int CONFIG_KEY_PACKAGE_NAME -> CONFIG_KEY_PACKAGE_NAME
     com.android.client.DummyConfig config -> config
     42:42:void <init>() -> <init>
-    92:141:void onCreate(android.app.Activity,com.android.client.AndroidSdk$Builder) -> onCreate
-    144:146:void setRewardAdListener(com.android.client.AdListener) -> setRewardAdListener
-    149:150:void onCreate(android.app.Activity) -> onCreate
-    153:153:boolean valid() -> valid
-    157:164:void onCreate(android.content.Context) -> onCreate
-    167:168:void showFullAdAsActivity(java.lang.String) -> showFullAdAsActivity
-    172:172:void onStart() -> onStart
-    175:175:void onStop() -> onStop
-    178:183:void onPause() -> onPause
-    186:193:void onResume(android.app.Activity) -> onResume
-    196:198:void onResumeWithoutTransition(android.app.Activity) -> onResumeWithoutTransition
-    201:201:void onDestroy() -> onDestroy
-    204:204:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    207:207:boolean isNetworkConnected() -> isNetworkConnected
-    219:227:void showBanner(int) -> showBanner
-    230:238:void showBanner(java.lang.String,int) -> showBanner
-    241:252:void closeBanner() -> closeBanner
-    255:256:void setBackHomeAd(java.lang.String) -> setBackHomeAd
-    266:306:int[] calculatePopWindowPos(android.view.View,int) -> calculatePopWindowPos
-    313:355:void _showBanner(java.lang.String,int) -> _showBanner
-    366:369:void moreGame() -> moreGame
-    372:375:void loadFullAd(java.lang.String) -> loadFullAd
-    378:387:void showFullAd(java.lang.String) -> showFullAd
-    392:465:void _showInterstitialDlg(java.lang.String) -> _showInterstitialDlg
-    468:537:void showRewardAd(java.lang.String,int) -> showRewardAd
-    540:549:void pauseActivity() -> pauseActivity
-    552:561:void resumeActivity() -> resumeActivity
-    565:566:void showRewardAd(int) -> showRewardAd
-    570:571:boolean hasRewardAd() -> hasRewardAd
-    575:575:boolean hasRewardAd(java.lang.String) -> hasRewardAd
-    585:586:boolean hasNativeAd(java.lang.String,int) -> hasNativeAd
-    590:590:int getDefaultNativeLayoutId(boolean) -> getDefaultNativeLayoutId
-    594:597:android.view.View peekNativeAdView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdView
-    601:661:android.view.View peekNativeAdViewWithLayout(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdViewWithLayout
-    671:674:android.view.View peekNativeAdScrollView(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdScrollView
-    680:683:android.view.View peekNativeAdScrollView(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollView
-    689:689:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
-    696:699:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
-    703:725:void showNativeAdScrollView(java.lang.String,int,int) -> showNativeAdScrollView
-    734:750:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
-    760:772:void closeNativeAd(java.lang.String) -> closeNativeAd
-    780:782:void clickNativeAd(java.lang.String) -> clickNativeAd
-    790:791:void clickUrl(java.lang.String) -> clickUrl
-    801:811:void loadNativeAd(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdLoadListener) -> loadNativeAd
-    821:826:void reLoadNativeAd(java.lang.String,android.view.View,com.android.client.ClientNativeAd$NativeAdLoadListener) -> reLoadNativeAd
-    829:843:void hideNativeAdScrollView(java.lang.String) -> hideNativeAdScrollView
-    846:849:void destroyNativeAdView(java.lang.String,android.view.View) -> destroyNativeAdView
-    852:855:void track(java.lang.String,java.lang.String,java.lang.String,int) -> track
-    858:861:void track(java.lang.String,java.lang.String) -> track
-    864:867:void track(java.lang.String) -> track
-    872:910:void pay(int) -> pay
-    915:926:void query(int) -> query
-    929:932:void share() -> share
-    935:938:void rateUs() -> rateUs
-    941:949:void toast(java.lang.String) -> toast
-    952:952:java.lang.String getExtraData() -> getExtraData
-    956:985:void onQuit() -> onQuit
-    990:993:void login() -> login
-    996:998:void logout() -> logout
-    1001:1002:boolean isLogin() -> isLogin
-    1006:1008:void invite() -> invite
-    1011:1015:void challenge(java.lang.String,java.lang.String) -> challenge
-    1018:1021:java.lang.String me() -> me
-    1025:1035:java.lang.String friends() -> friends
-    1039:1041:void like() -> like
-    1125:1125:void showNativeBanner(java.lang.String,int,int) -> showNativeBanner
-    1128:1128:void hideNativeBanner(java.lang.String) -> hideNativeBanner
-    1137:1137:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
-    1141:1156:void cacheUrl(int,java.lang.String) -> cacheUrl
-    1178:1210:java.lang.String getConfig(int) -> getConfig
-    1215:1233:java.lang.String getConfig(java.lang.String,int) -> getConfig
-    1238:1250:void alert(java.lang.String,java.lang.String) -> alert
-    1253:1256:void onKill(android.app.Activity) -> onKill
-    1264:1267:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
-    1270:1273:void UM_onEvent(java.lang.String) -> UM_onEvent
-    1276:1279:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
-    1282:1286:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
-    1296:1299:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
-    1307:1310:void UM_onPageStart(java.lang.String) -> UM_onPageStart
-    1318:1321:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
-    1329:1332:void UM_startLevel(java.lang.String) -> UM_startLevel
-    1340:1343:void UM_failLevel(java.lang.String) -> UM_failLevel
-    1351:1354:void UM_finishLevel(java.lang.String) -> UM_finishLevel
-    1376:1379:void UM_pay(double,java.lang.String,int,double) -> UM_pay
-    1389:1392:void UM_buy(java.lang.String,int,double) -> UM_buy
-    1402:1405:void UM_use(java.lang.String,int,double) -> UM_use
-    1416:1419:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
+    79:127:void onCreate(android.app.Activity,com.android.client.AndroidSdk$Builder) -> onCreate
+    130:131:void onCreate(android.app.Activity) -> onCreate
+    134:134:boolean valid() -> valid
+    138:145:void onCreate(android.content.Context) -> onCreate
+    149:149:void onStart() -> onStart
+    152:152:void onStop() -> onStop
+    155:160:void onPause() -> onPause
+    163:170:void onResume(android.app.Activity) -> onResume
+    173:175:void onResumeWithoutTransition(android.app.Activity) -> onResumeWithoutTransition
+    178:178:void onDestroy() -> onDestroy
+    181:181:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    184:184:boolean isNetworkConnected() -> isNetworkConnected
+    196:204:void showBanner(java.lang.String,int) -> showBanner
+    207:218:void closeBanner(java.lang.String) -> closeBanner
+    221:222:void setBackHomeAd(java.lang.String) -> setBackHomeAd
+    232:272:int[] calculatePopWindowPos(android.view.View,int) -> calculatePopWindowPos
+    279:319:void _showBanner(java.lang.String,int) -> _showBanner
+    330:333:void moreGame() -> moreGame
+    336:346:void loadFullAd(java.lang.String,com.android.client.AdListener) -> loadFullAd
+    349:362:void showFullAd(java.lang.String,com.android.client.AdListener) -> showFullAd
+    365:366:void showFullAd(java.lang.String) -> showFullAd
+    371:444:void _showInterstitialDlg(java.lang.String,com.android.client.AdListener) -> _showInterstitialDlg
+    447:516:void showRewardAd(java.lang.String,com.android.client.AdListener) -> showRewardAd
+    519:528:void pauseActivity() -> pauseActivity
+    531:540:void resumeActivity() -> resumeActivity
+    545:546:boolean hasRewardAd(java.lang.String) -> hasRewardAd
+    552:553:boolean hasNativeAd(java.lang.String) -> hasNativeAd
+    557:557:int getDefaultNativeLayoutId(boolean) -> getDefaultNativeLayoutId
+    561:564:android.view.View peekNativeAdView(java.lang.String,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdView
+    568:628:android.view.View peekNativeAdViewWithLayout(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdViewWithLayout
+    638:641:android.view.View peekNativeAdScrollView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdScrollView
+    647:650:android.view.View peekNativeAdScrollView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollView
+    656:656:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
+    663:666:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
+    670:692:void showNativeAdScrollView(java.lang.String,int,int) -> showNativeAdScrollView
+    695:695:java.lang.String getPrices() -> getPrices
+    705:721:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
+    731:743:void closeNativeAd(java.lang.String) -> closeNativeAd
+    751:753:void clickNativeAd(java.lang.String) -> clickNativeAd
+    761:762:void clickUrl(java.lang.String) -> clickUrl
+    772:782:void loadNativeAd(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdLoadListener) -> loadNativeAd
+    792:797:void reLoadNativeAd(java.lang.String,android.view.View,com.android.client.ClientNativeAd$NativeAdLoadListener) -> reLoadNativeAd
+    800:814:void hideNativeAdScrollView(java.lang.String) -> hideNativeAdScrollView
+    817:820:void destroyNativeAdView(java.lang.String,android.view.View) -> destroyNativeAdView
+    823:826:void track(java.lang.String,java.lang.String,java.lang.String,int) -> track
+    829:832:void track(java.lang.String,java.lang.String) -> track
+    835:838:void track(java.lang.String) -> track
+    843:881:void pay(int,com.android.client.PaymentSystemListener) -> pay
+    884:885:void pay(int) -> pay
+    890:901:void query(int,com.android.client.PaymentSystemListener) -> query
+    904:905:void query(int) -> query
+    908:911:void share() -> share
+    914:917:void rateUs() -> rateUs
+    920:928:void toast(java.lang.String) -> toast
+    931:931:java.lang.String getExtraData() -> getExtraData
+    935:964:void onQuit() -> onQuit
+    969:973:void login() -> login
+    976:978:void logout() -> logout
+    981:982:boolean isLogin() -> isLogin
+    986:988:void invite() -> invite
+    991:995:void challenge(java.lang.String,java.lang.String) -> challenge
+    998:1001:java.lang.String me() -> me
+    1005:1015:java.lang.String friends() -> friends
+    1019:1021:void like() -> like
+    1024:1024:void showNativeBanner(java.lang.String,int,int) -> showNativeBanner
+    1027:1027:void hideNativeBanner(java.lang.String) -> hideNativeBanner
+    1036:1036:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
+    1040:1055:void cacheUrl(int,java.lang.String) -> cacheUrl
+    1077:1109:java.lang.String getConfig(int) -> getConfig
+    1114:1132:java.lang.String getConfig(java.lang.String,int) -> getConfig
+    1137:1149:void alert(java.lang.String,java.lang.String) -> alert
+    1152:1155:void onKill(android.app.Activity) -> onKill
+    1163:1166:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
+    1169:1172:void UM_onEvent(java.lang.String) -> UM_onEvent
+    1175:1178:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
+    1181:1185:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
+    1195:1198:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
+    1206:1209:void UM_onPageStart(java.lang.String) -> UM_onPageStart
+    1217:1220:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
+    1228:1231:void UM_startLevel(java.lang.String) -> UM_startLevel
+    1239:1242:void UM_failLevel(java.lang.String) -> UM_failLevel
+    1250:1253:void UM_finishLevel(java.lang.String) -> UM_finishLevel
+    1275:1278:void UM_pay(double,java.lang.String,int,double) -> UM_pay
+    1288:1291:void UM_buy(java.lang.String,int,double) -> UM_buy
+    1301:1304:void UM_use(java.lang.String,int,double) -> UM_use
+    1315:1318:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
     42:42:void access$000(java.lang.String,int) -> access$000
     42:42:double access$102(double) -> access$102
-    42:42:void access$200(java.lang.String) -> access$200
+    42:42:void access$200(java.lang.String,com.android.client.AdListener) -> access$200
     42:42:void access$300() -> access$300
     42:42:void access$400() -> access$400
     42:42:boolean access$500() -> access$500
-    362:363:void <clinit>() -> <clinit>
+    326:327:void <clinit>() -> <clinit>
 com.android.client.AndroidSdk$1 -> com.android.client.AndroidSdk$1:
+    java.lang.String val$tag -> val$tag
     int val$pos -> val$pos
-    220:220:void <init>(int) -> <init>
-    223:224:void run() -> run
+    197:197:void <init>(java.lang.String,int) -> <init>
+    200:201:void run() -> run
 com.android.client.AndroidSdk$10 -> com.android.client.AndroidSdk$10:
-    com.android.client.ClientNativeAd$NativeAdClickListener val$listener -> val$listener
-    639:639:void <init>(com.android.client.ClientNativeAd$NativeAdClickListener) -> <init>
-    642:646:void onClick(android.view.View) -> onClick
-com.android.client.AndroidSdk$11 -> com.android.client.AndroidSdk$11:
     java.lang.String val$tag -> val$tag
     int val$yPercent -> val$yPercent
-    704:704:void <init>(java.lang.String,int) -> <init>
-    707:722:void run() -> run
+    671:671:void <init>(java.lang.String,int) -> <init>
+    674:689:void run() -> run
+com.android.client.AndroidSdk$11 -> com.android.client.AndroidSdk$11:
+    java.lang.String val$tag -> val$tag
+    706:706:void <init>(java.lang.String) -> <init>
+    709:717:void run() -> run
 com.android.client.AndroidSdk$12 -> com.android.client.AndroidSdk$12:
     java.lang.String val$tag -> val$tag
-    735:735:void <init>(java.lang.String) -> <init>
-    738:746:void run() -> run
+    732:732:void <init>(java.lang.String) -> <init>
+    735:740:void run() -> run
 com.android.client.AndroidSdk$13 -> com.android.client.AndroidSdk$13:
     java.lang.String val$tag -> val$tag
-    761:761:void <init>(java.lang.String) -> <init>
-    764:769:void run() -> run
+    801:801:void <init>(java.lang.String) -> <init>
+    804:811:void run() -> run
 com.android.client.AndroidSdk$14 -> com.android.client.AndroidSdk$14:
-    java.lang.String val$tag -> val$tag
-    830:830:void <init>(java.lang.String) -> <init>
-    833:840:void run() -> run
-com.android.client.AndroidSdk$15 -> com.android.client.AndroidSdk$15:
     int val$bill -> val$bill
-    872:872:void <init>(int) -> <init>
-    875:908:void run() -> run
-com.android.client.AndroidSdk$15$1 -> com.android.client.AndroidSdk$15$1:
-    com.android.client.AndroidSdk$15 this$0 -> this$0
-    900:900:void <init>(com.android.client.AndroidSdk$15) -> <init>
-    903:906:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$15$2 -> com.android.client.AndroidSdk$15$2:
-    com.android.client.AndroidSdk$15 this$0 -> this$0
-    888:888:void <init>(com.android.client.AndroidSdk$15) -> <init>
-    893:896:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$15$3 -> com.android.client.AndroidSdk$15$3:
-    com.android.client.AndroidSdk$15 this$0 -> this$0
-    879:879:void <init>(com.android.client.AndroidSdk$15) -> <init>
-    882:885:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$16 -> com.android.client.AndroidSdk$16:
+    com.android.client.PaymentSystemListener val$paymentListener -> val$paymentListener
+    843:843:void <init>(int,com.android.client.PaymentSystemListener) -> <init>
+    846:879:void run() -> run
+com.android.client.AndroidSdk$14$1 -> com.android.client.AndroidSdk$14$1:
+    com.android.client.AndroidSdk$14 this$0 -> this$0
+    871:871:void <init>(com.android.client.AndroidSdk$14) -> <init>
+    874:877:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$14$2 -> com.android.client.AndroidSdk$14$2:
+    com.android.client.AndroidSdk$14 this$0 -> this$0
+    859:859:void <init>(com.android.client.AndroidSdk$14) -> <init>
+    864:867:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$14$3 -> com.android.client.AndroidSdk$14$3:
+    com.android.client.AndroidSdk$14 this$0 -> this$0
+    850:850:void <init>(com.android.client.AndroidSdk$14) -> <init>
+    853:856:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$15 -> com.android.client.AndroidSdk$15:
     java.lang.String val$msg -> val$msg
-    942:942:void <init>(java.lang.String) -> <init>
-    945:946:void run() -> run
+    921:921:void <init>(java.lang.String) -> <init>
+    924:925:void run() -> run
+com.android.client.AndroidSdk$16 -> com.android.client.AndroidSdk$16:
+    935:935:void <init>() -> <init>
+    939:962:void run() -> run
+com.android.client.AndroidSdk$16$1 -> com.android.client.AndroidSdk$16$1:
+    com.android.client.AndroidSdk$16 this$0 -> this$0
+    951:951:void <init>(com.android.client.AndroidSdk$16) -> <init>
+    955:956:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$16$2 -> com.android.client.AndroidSdk$16$2:
+    com.android.client.AndroidSdk$16 this$0 -> this$0
+    943:943:void <init>(com.android.client.AndroidSdk$16) -> <init>
+    947:948:void onClick(android.content.DialogInterface,int) -> onClick
 com.android.client.AndroidSdk$17 -> com.android.client.AndroidSdk$17:
-    956:956:void <init>() -> <init>
-    960:983:void run() -> run
-com.android.client.AndroidSdk$17$1 -> com.android.client.AndroidSdk$17$1:
-    com.android.client.AndroidSdk$17 this$0 -> this$0
-    972:972:void <init>(com.android.client.AndroidSdk$17) -> <init>
-    976:977:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$17$2 -> com.android.client.AndroidSdk$17$2:
-    com.android.client.AndroidSdk$17 this$0 -> this$0
-    964:964:void <init>(com.android.client.AndroidSdk$17) -> <init>
-    968:969:void onClick(android.content.DialogInterface,int) -> onClick
+    1040:1040:void <init>() -> <init>
+    1043:1046:void onSuccess(int,java.lang.String) -> onSuccess
+    1050:1053:void onFailure(int) -> onFailure
 com.android.client.AndroidSdk$18 -> com.android.client.AndroidSdk$18:
-    1141:1141:void <init>() -> <init>
-    1144:1147:void onSuccess(int,java.lang.String) -> onSuccess
-    1151:1154:void onFailure(int) -> onFailure
-com.android.client.AndroidSdk$19 -> com.android.client.AndroidSdk$19:
     java.lang.String val$title -> val$title
     java.lang.String val$message -> val$message
-    1238:1238:void <init>(java.lang.String,java.lang.String) -> <init>
-    1241:1248:void run() -> run
+    1137:1137:void <init>(java.lang.String,java.lang.String) -> <init>
+    1140:1147:void run() -> run
 com.android.client.AndroidSdk$2 -> com.android.client.AndroidSdk$2:
-    java.lang.String val$tag -> val$tag
-    int val$pos -> val$pos
-    231:231:void <init>(java.lang.String,int) -> <init>
-    234:235:void run() -> run
+    209:209:void <init>() -> <init>
+    212:215:void run() -> run
 com.android.client.AndroidSdk$3 -> com.android.client.AndroidSdk$3:
-    243:243:void <init>() -> <init>
-    246:249:void run() -> run
+    300:300:void <init>() -> <init>
+    304:304:void onClick(android.view.View) -> onClick
 com.android.client.AndroidSdk$4 -> com.android.client.AndroidSdk$4:
     java.lang.String val$tag -> val$tag
-    334:334:void <init>(java.lang.String) -> <init>
-    337:340:void onClick(android.view.View) -> onClick
+    com.android.client.AdListener val$listener -> val$listener
+    350:350:void <init>(java.lang.String,com.android.client.AdListener) -> <init>
+    353:355:void run() -> run
 com.android.client.AndroidSdk$5 -> com.android.client.AndroidSdk$5:
-    java.lang.String val$tag -> val$tag
-    379:379:void <init>(java.lang.String) -> <init>
-    382:384:void run() -> run
+    com.android.client.AdListener val$listener -> val$listener
+    378:378:void <init>(com.android.client.AdListener) -> <init>
+    381:385:void onClick(android.view.View) -> onClick
 com.android.client.AndroidSdk$6 -> com.android.client.AndroidSdk$6:
-    java.lang.String val$pos -> val$pos
-    399:399:void <init>(java.lang.String) -> <init>
-    402:406:void onClick(android.view.View) -> onClick
-com.android.client.AndroidSdk$7 -> com.android.client.AndroidSdk$7:
-    java.lang.String val$pos -> val$pos
+    com.android.client.AdListener val$listener -> val$listener
     android.app.Dialog val$dlg -> val$dlg
-    443:443:void <init>(java.lang.String,android.app.Dialog) -> <init>
-    447:451:void onClick(android.view.View) -> onClick
+    422:422:void <init>(com.android.client.AdListener,android.app.Dialog) -> <init>
+    426:430:void onClick(android.view.View) -> onClick
+com.android.client.AndroidSdk$7 -> com.android.client.AndroidSdk$7:
+    433:433:void <init>() -> <init>
+    436:437:void onCancel(android.content.DialogInterface) -> onCancel
 com.android.client.AndroidSdk$8 -> com.android.client.AndroidSdk$8:
-    454:454:void <init>() -> <init>
-    457:458:void onCancel(android.content.DialogInterface) -> onCancel
-com.android.client.AndroidSdk$9 -> com.android.client.AndroidSdk$9:
     java.lang.String val$tag -> val$tag
-    int val$rewardId -> val$rewardId
-    470:470:void <init>(java.lang.String,int) -> <init>
-    474:534:void run() -> run
-com.android.client.AndroidSdk$9$1 -> com.android.client.AndroidSdk$9$1:
+    com.android.client.AdListener val$listener -> val$listener
+    449:449:void <init>(java.lang.String,com.android.client.AdListener) -> <init>
+    453:513:void run() -> run
+com.android.client.AndroidSdk$8$1 -> com.android.client.AndroidSdk$8$1:
     android.app.AlertDialog val$dialog -> val$dialog
-    com.android.client.AndroidSdk$9 this$0 -> this$0
-    510:510:void <init>(com.android.client.AndroidSdk$9,android.app.AlertDialog) -> <init>
-    514:518:void onClick(android.view.View) -> onClick
-com.android.client.AndroidSdk$9$2 -> com.android.client.AndroidSdk$9$2:
-    com.android.client.AndroidSdk$9 this$0 -> this$0
-    520:520:void <init>(com.android.client.AndroidSdk$9) -> <init>
-    523:527:void onCancel(android.content.DialogInterface) -> onCancel
+    com.android.client.AndroidSdk$8 this$0 -> this$0
+    489:489:void <init>(com.android.client.AndroidSdk$8,android.app.AlertDialog) -> <init>
+    493:497:void onClick(android.view.View) -> onClick
+com.android.client.AndroidSdk$8$2 -> com.android.client.AndroidSdk$8$2:
+    com.android.client.AndroidSdk$8 this$0 -> this$0
+    499:499:void <init>(com.android.client.AndroidSdk$8) -> <init>
+    502:506:void onCancel(android.content.DialogInterface) -> onCancel
+com.android.client.AndroidSdk$9 -> com.android.client.AndroidSdk$9:
+    com.android.client.ClientNativeAd$NativeAdClickListener val$listener -> val$listener
+    606:606:void <init>(com.android.client.ClientNativeAd$NativeAdClickListener) -> <init>
+    609:613:void onClick(android.view.View) -> onClick
 com.android.client.AndroidSdk$Builder -> com.android.client.AndroidSdk$Builder:
-    com.android.client.AdListener rewardAdListener -> rewardAdListener
-    com.android.client.PaymentResultListener paymentResultListener -> paymentResultListener
+    com.android.client.PaymentSystemListener paymentResultListener -> paymentResultListener
     com.android.client.UserCenterListener userCenterListener -> userCenterListener
     com.android.client.UrlListener urlListener -> urlListener
     com.android.client.SdkResultListener sdkResultListener -> sdkResultListener
     45:45:void <init>() -> <init>
-    54:55:com.android.client.AndroidSdk$Builder setRewardAdListener(com.android.client.AdListener) -> setRewardAdListener
-    59:60:com.android.client.AndroidSdk$Builder setPaymentResultListener(com.android.client.PaymentResultListener) -> setPaymentResultListener
-    64:65:com.android.client.AndroidSdk$Builder setUserCenterListener(com.android.client.UserCenterListener) -> setUserCenterListener
-    69:70:com.android.client.AndroidSdk$Builder setUrlListener(com.android.client.UrlListener) -> setUrlListener
-    74:75:com.android.client.AndroidSdk$Builder setSdkResultListener(com.android.client.SdkResultListener) -> setSdkResultListener
+    52:53:com.android.client.AndroidSdk$Builder setPaymentListener(com.android.client.PaymentSystemListener) -> setPaymentListener
+    57:58:com.android.client.AndroidSdk$Builder setUserCenterListener(com.android.client.UserCenterListener) -> setUserCenterListener
+    62:63:com.android.client.AndroidSdk$Builder setUrlListener(com.android.client.UrlListener) -> setUrlListener
+    67:68:com.android.client.AndroidSdk$Builder setSdkResultListener(com.android.client.SdkResultListener) -> setSdkResultListener
 com.android.client.BuildConfig -> com.android.client.BuildConfig:
     boolean DEBUG -> DEBUG
     java.lang.String APPLICATION_ID -> APPLICATION_ID
@@ -28390,113 +28381,128 @@ com.android.client.Cocos -> com.android.client.Cocos:
     int AD_FULL -> AD_FULL
     int AD_VIDEO -> AD_VIDEO
     int AD_BANNER -> AD_BANNER
-    int AD_CROSS -> AD_CROSS
     int SNS_RESULT_LOGIN -> SNS_RESULT_LOGIN
     int SNS_RESULT_INVITE -> SNS_RESULT_INVITE
     int SNS_RESULT_CHALLENGE -> SNS_RESULT_CHALLENGE
     int SNS_RESULT_LIKE -> SNS_RESULT_LIKE
+    int SNS_RESULT_FRIENDS -> SNS_RESULT_FRIENDS
     13:13:void <init>() -> <init>
     void rr(boolean,int,java.lang.String) -> rr
     void awc(int,java.lang.String) -> awc
     void awd(int,java.lang.String) -> awd
+    void sns(int,boolean,int) -> sns
+    void lar(java.lang.String,boolean) -> lar
     void pr(int,int) -> pr
     void pv() -> pv
-    void sns(int,boolean,int) -> sns
     void sr(int,boolean,java.lang.String) -> sr
     void url(int,boolean,java.lang.String) -> url
     void lb(boolean,boolean,java.lang.String,java.lang.String) -> lb
-    63:198:void onCreate(android.app.Activity) -> onCreate
-    201:202:void onStart() -> onStart
-    205:206:void onStop() -> onStop
-    209:210:void onPause() -> onPause
-    213:214:void onResume(android.app.Activity) -> onResume
-    217:218:void onDestroy() -> onDestroy
-    221:222:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    225:226:void showBanner(int) -> showBanner
-    229:230:void showBanner(java.lang.String,int) -> showBanner
-    233:234:void closeBanner() -> closeBanner
-    237:238:void showFullAd(java.lang.String) -> showFullAd
-    241:242:void showRewardAd(int) -> showRewardAd
-    245:245:boolean hasRewardAd() -> hasRewardAd
-    249:250:void showRewardAd(java.lang.String,int) -> showRewardAd
-    253:253:boolean hasRewardAd(java.lang.String) -> hasRewardAd
-    257:258:void pay(int) -> pay
-    261:262:void query(int) -> query
-    265:266:void share() -> share
-    269:270:void rate() -> rate
-    273:274:void moreGame() -> moreGame
-    277:278:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
-    281:282:void track(java.lang.String,java.lang.String) -> track
-    285:286:void track(java.lang.String) -> track
-    289:290:void showNative(java.lang.String,int) -> showNative
-    293:294:void hideNative(java.lang.String) -> hideNative
-    297:297:boolean hasNative(java.lang.String) -> hasNative
-    301:301:java.lang.String getExtraData() -> getExtraData
-    305:306:void onQuit() -> onQuit
-    309:310:void login() -> login
-    313:314:void logout() -> logout
-    317:317:boolean isLogin() -> isLogin
-    321:322:void invite() -> invite
-    325:326:void challenge(java.lang.String,java.lang.String) -> challenge
-    329:329:java.lang.String me() -> me
-    333:333:java.lang.String friends() -> friends
-    337:338:void like() -> like
-    341:341:boolean isNetworkConnected() -> isNetworkConnected
-    383:383:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
-    386:387:void clickUrl(java.lang.String) -> clickUrl
-    390:391:void cacheUrl(int,java.lang.String) -> cacheUrl
-    394:394:java.lang.String getConfig(int) -> getConfig
-    398:398:java.lang.String getConfig(java.lang.String,int) -> getConfig
-    402:403:void alert(java.lang.String,java.lang.String) -> alert
-    406:406:boolean hasApp(java.lang.String) -> hasApp
-    410:411:void launchApp(java.lang.String) -> launchApp
-    414:415:void getApp(java.lang.String) -> getApp
-    418:418:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
-    421:422:void closeNativeAd(java.lang.String) -> closeNativeAd
-    424:425:void clickNativeAd(java.lang.String) -> clickNativeAd
-    432:433:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
-    439:440:void UM_onEvent(java.lang.String) -> UM_onEvent
-    443:444:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
-    447:448:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
-    458:459:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
-    467:468:void UM_onPageStart(java.lang.String) -> UM_onPageStart
-    476:477:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
-    485:486:void UM_startLevel(java.lang.String) -> UM_startLevel
-    494:495:void UM_failLevel(java.lang.String) -> UM_failLevel
-    503:504:void UM_finishLevel(java.lang.String) -> UM_finishLevel
-    515:516:void UM_pay(double,java.lang.String,int,double) -> UM_pay
-    526:527:void UM_buy(java.lang.String,int,double) -> UM_buy
-    537:538:void UM_use(java.lang.String,int,double) -> UM_use
-    549:550:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
+    57:136:void onCreate(android.app.Activity) -> onCreate
+    139:140:void onStart() -> onStart
+    143:144:void onStop() -> onStop
+    147:148:void onPause() -> onPause
+    151:152:void onResume(android.app.Activity) -> onResume
+    155:156:void onDestroy() -> onDestroy
+    159:160:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    163:164:void showBanner(int) -> showBanner
+    167:168:void showBanner(java.lang.String,int) -> showBanner
+    171:172:void closeBanner() -> closeBanner
+    175:176:void closeBanner(java.lang.String) -> closeBanner
+    179:190:void showFullAd(java.lang.String) -> showFullAd
+    193:194:void showRewardAd(int) -> showRewardAd
+    197:197:boolean hasRewardAd() -> hasRewardAd
+    201:217:void showRewardAd(java.lang.String,int) -> showRewardAd
+    220:220:boolean hasRewardAd(java.lang.String) -> hasRewardAd
+    224:225:void pay(int) -> pay
+    228:229:void query(int) -> query
+    232:232:java.lang.String getPrices() -> getPrices
+    236:237:void share() -> share
+    240:241:void rate() -> rate
+    244:245:void moreGame() -> moreGame
+    248:249:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
+    252:253:void track(java.lang.String,java.lang.String) -> track
+    256:257:void track(java.lang.String) -> track
+    260:261:void showNative(java.lang.String,int) -> showNative
+    264:265:void hideNative(java.lang.String) -> hideNative
+    268:268:boolean hasNative(java.lang.String) -> hasNative
+    272:272:java.lang.String getExtraData() -> getExtraData
+    276:277:void onQuit() -> onQuit
+    280:281:void login() -> login
+    284:285:void logout() -> logout
+    288:288:boolean isLogin() -> isLogin
+    292:293:void invite() -> invite
+    296:297:void challenge(java.lang.String,java.lang.String) -> challenge
+    300:300:java.lang.String me() -> me
+    304:304:java.lang.String friends() -> friends
+    308:309:void like() -> like
+    312:312:boolean isNetworkConnected() -> isNetworkConnected
+    322:322:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
+    325:326:void clickUrl(java.lang.String) -> clickUrl
+    329:330:void cacheUrl(int,java.lang.String) -> cacheUrl
+    333:333:java.lang.String getConfig(int) -> getConfig
+    337:337:java.lang.String getConfig(java.lang.String,int) -> getConfig
+    341:342:void alert(java.lang.String,java.lang.String) -> alert
+    345:345:boolean hasApp(java.lang.String) -> hasApp
+    349:350:void launchApp(java.lang.String) -> launchApp
+    353:354:void getApp(java.lang.String) -> getApp
+    357:357:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
+    360:361:void closeNativeAd(java.lang.String) -> closeNativeAd
+    363:364:void clickNativeAd(java.lang.String) -> clickNativeAd
+    367:378:void loadFullAd(java.lang.String) -> loadFullAd
+    386:387:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
+    393:394:void UM_onEvent(java.lang.String) -> UM_onEvent
+    397:398:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
+    401:402:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
+    412:413:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
+    421:422:void UM_onPageStart(java.lang.String) -> UM_onPageStart
+    430:431:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
+    439:440:void UM_startLevel(java.lang.String) -> UM_startLevel
+    448:449:void UM_failLevel(java.lang.String) -> UM_failLevel
+    457:458:void UM_finishLevel(java.lang.String) -> UM_finishLevel
+    469:470:void UM_pay(double,java.lang.String,int,double) -> UM_pay
+    480:481:void UM_buy(java.lang.String,int,double) -> UM_buy
+    491:492:void UM_use(java.lang.String,int,double) -> UM_use
+    503:504:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
 com.android.client.Cocos$1 -> com.android.client.Cocos$1:
-    176:176:void <init>() -> <init>
-    179:180:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
-    184:185:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
-    189:190:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
-    194:195:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
+    109:109:void <init>() -> <init>
+    112:113:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
+    117:118:void onReceiveFriends(java.lang.String) -> onReceiveFriends
+    122:123:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
+    127:128:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
+    132:133:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
 com.android.client.Cocos$2 -> com.android.client.Cocos$2:
-    145:145:void <init>() -> <init>
-    148:149:void onReceiveReward(boolean,int,java.lang.String) -> onReceiveReward
-    153:154:void onFullAdClosed(java.lang.String) -> onFullAdClosed
-    158:159:void onFullAdClicked(java.lang.String) -> onFullAdClicked
-    163:164:void onVideoAdClosed(java.lang.String) -> onVideoAdClosed
-    168:169:void onBannerAdClicked(java.lang.String) -> onBannerAdClicked
-    173:174:void onCrossAdClicked(java.lang.String) -> onCrossAdClicked
+    99:99:void <init>() -> <init>
+    102:103:void onSuccess(int,java.lang.String) -> onSuccess
+    107:108:void onFailure(int) -> onFailure
 com.android.client.Cocos$3 -> com.android.client.Cocos$3:
-    135:135:void <init>() -> <init>
-    138:139:void onSuccess(int,java.lang.String) -> onSuccess
-    143:144:void onFailure(int) -> onFailure
+    74:74:void <init>() -> <init>
+    77:78:void onPaymentSuccess(int) -> onPaymentSuccess
+    82:83:void onPaymentFail(int) -> onPaymentFail
+    87:88:void onPaymentSystemValid() -> onPaymentSystemValid
+    92:93:void onPaymentCanceled(int) -> onPaymentCanceled
+    98:98:void onPaymentSystemError(int,java.lang.String) -> onPaymentSystemError
 com.android.client.Cocos$4 -> com.android.client.Cocos$4:
-    115:115:void <init>() -> <init>
-    118:119:void onPaymentSuccess(int) -> onPaymentSuccess
-    123:124:void onPaymentFail(int) -> onPaymentFail
-    128:129:void onPaymentSystemValid() -> onPaymentSystemValid
-    133:134:void onPaymentCanceled(int) -> onPaymentCanceled
+    59:59:void <init>() -> <init>
+    63:63:void onInitialized() -> onInitialized
+    68:68:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
+    73:73:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
 com.android.client.Cocos$5 -> com.android.client.Cocos$5:
-    100:100:void <init>() -> <init>
-    104:104:void onInitialized() -> onInitialized
-    109:109:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
-    114:114:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
+    java.lang.String val$tag -> val$tag
+    179:179:void <init>(java.lang.String) -> <init>
+    182:183:void onAdClosed() -> onAdClosed
+    187:188:void onAdClicked() -> onAdClicked
+com.android.client.Cocos$6 -> com.android.client.Cocos$6:
+    int val$id -> val$id
+    java.lang.String val$tag -> val$tag
+    201:201:void <init>(int,java.lang.String) -> <init>
+    204:205:void onAdReward() -> onAdReward
+    209:210:void onAdShowFails() -> onAdShowFails
+    214:215:void onAdClosed() -> onAdClosed
+com.android.client.Cocos$7 -> com.android.client.Cocos$7:
+    java.lang.String val$tag -> val$tag
+    367:367:void <init>(java.lang.String) -> <init>
+    370:371:void onAdLoadSuccess() -> onAdLoadSuccess
+    375:376:void onAdLoadFails() -> onAdLoadFails
 com.android.client.DummyConfig -> com.android.client.DummyConfig:
     java.lang.String v_api -> v_api
     java.lang.String appId -> appId
@@ -28504,11 +28510,14 @@ com.android.client.DummyConfig -> com.android.client.DummyConfig:
     java.lang.String data -> data
     11:27:void <init>() -> <init>
 com.android.client.LeaderBoardListener -> com.android.client.LeaderBoardListener:
-com.android.client.PaymentResultListener -> com.android.client.PaymentResultListener:
-    void onPaymentSuccess(int) -> onPaymentSuccess
-    void onPaymentFail(int) -> onPaymentFail
-    void onPaymentSystemValid() -> onPaymentSystemValid
-    void onPaymentCanceled(int) -> onPaymentCanceled
+com.android.client.PaymentSystemListener -> com.android.client.PaymentSystemListener:
+    8:8:void <init>() -> <init>
+    11:12:void onPaymentSuccess(int) -> onPaymentSuccess
+    15:16:void onPaymentFail(int) -> onPaymentFail
+    19:20:void onPaymentCanceled(int) -> onPaymentCanceled
+    23:24:void onReceiveBillPrices(java.lang.String) -> onReceiveBillPrices
+    27:28:void onPaymentSystemValid() -> onPaymentSystemValid
+    31:32:void onPaymentSystemError(int,java.lang.String) -> onPaymentSystemError
 com.android.client.R -> com.android.client.R:
     9:9:void <init>() -> <init>
 com.android.client.R$string -> com.android.client.R$string:
@@ -28524,127 +28533,140 @@ com.android.client.Unity -> com.android.client.Unity:
     java.lang.String TRUE -> TRUE
     java.lang.String FALSE -> FALSE
     17:17:void <init>() -> <init>
-    30:184:void onCreate(android.app.Activity) -> onCreate
-    187:188:void sendMessage(java.lang.String,java.lang.String) -> sendMessage
-    191:199:void onStart() -> onStart
-    202:210:void onStop() -> onStop
-    213:221:void onPause() -> onPause
-    224:234:void onResume() -> onResume
-    237:245:void onDestroy() -> onDestroy
-    248:256:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    259:260:void showBanner(java.lang.String,int) -> showBanner
-    263:264:void showBanner(int) -> showBanner
-    267:268:void closeBanner() -> closeBanner
-    271:272:void showFullAd(java.lang.String) -> showFullAd
-    275:276:void showRewardAd(int) -> showRewardAd
-    279:279:boolean hasRewardAd() -> hasRewardAd
-    283:284:void showRewardAd(java.lang.String,int) -> showRewardAd
-    287:287:boolean hasRewardAd(java.lang.String) -> hasRewardAd
-    291:294:void pay(int) -> pay
-    297:298:void query(int) -> query
-    301:302:void share() -> share
-    305:306:void rate() -> rate
-    309:310:void moreGame() -> moreGame
-    313:314:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
-    317:318:void showNative(java.lang.String,int) -> showNative
-    321:322:void hideNative(java.lang.String) -> hideNative
-    325:325:boolean hasNative(java.lang.String) -> hasNative
-    329:329:java.lang.String getExtraData() -> getExtraData
-    333:334:void onQuit() -> onQuit
-    337:340:void login() -> login
-    343:344:void logout() -> logout
-    347:347:boolean isLogin() -> isLogin
-    351:354:void invite() -> invite
-    357:360:void challenge(java.lang.String,java.lang.String) -> challenge
-    363:363:java.lang.String me() -> me
-    367:367:java.lang.String friends() -> friends
-    371:374:void like() -> like
-    377:377:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
-    380:381:void closeNativeAd(java.lang.String) -> closeNativeAd
-    383:384:void clickNativeAd(java.lang.String) -> clickNativeAd
-    387:387:boolean isNetworkConnected() -> isNetworkConnected
-    428:428:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
-    432:433:void cacheUrl(int,java.lang.String) -> cacheUrl
-    436:436:java.lang.String getConfig(int) -> getConfig
-    440:440:boolean hasApp(java.lang.String) -> hasApp
-    444:445:void launchApp(java.lang.String) -> launchApp
-    448:449:void getApp(java.lang.String) -> getApp
-    452:453:void alert(java.lang.String,java.lang.String) -> alert
-    456:457:void toast(java.lang.String) -> toast
-    460:460:java.lang.String getConfig(java.lang.String,int) -> getConfig
-    464:465:void onKill(android.app.Activity) -> onKill
-    472:473:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
-    476:477:void UM_onEvent(java.lang.String) -> UM_onEvent
-    480:481:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
-    484:485:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
-    495:496:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
-    504:505:void UM_onPageStart(java.lang.String) -> UM_onPageStart
-    513:514:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
-    522:523:void UM_startLevel(java.lang.String) -> UM_startLevel
-    531:532:void UM_failLevel(java.lang.String) -> UM_failLevel
-    540:541:void UM_finishLevel(java.lang.String) -> UM_finishLevel
-    563:564:void UM_pay(double,java.lang.String,int,double) -> UM_pay
-    574:575:void UM_buy(java.lang.String,int,double) -> UM_buy
-    585:586:void UM_use(java.lang.String,int,double) -> UM_use
-    597:598:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
+    24:114:void onCreate(android.app.Activity) -> onCreate
+    117:118:void sendMessage(java.lang.String,java.lang.String) -> sendMessage
+    121:129:void onStart() -> onStart
+    132:140:void onStop() -> onStop
+    143:151:void onPause() -> onPause
+    154:164:void onResume() -> onResume
+    167:175:void onDestroy() -> onDestroy
+    178:186:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    189:190:void showBanner(java.lang.String,int) -> showBanner
+    193:194:void showBanner(int) -> showBanner
+    197:198:void closeBanner() -> closeBanner
+    201:202:void closeBanner(java.lang.String) -> closeBanner
+    205:216:void showFullAd(java.lang.String) -> showFullAd
+    219:220:void showRewardAd(int) -> showRewardAd
+    223:223:boolean hasRewardAd() -> hasRewardAd
+    227:243:void showRewardAd(java.lang.String,int) -> showRewardAd
+    246:246:boolean hasRewardAd(java.lang.String) -> hasRewardAd
+    250:251:void pay(int) -> pay
+    254:255:void query(int) -> query
+    258:259:void share() -> share
+    262:263:void rate() -> rate
+    266:267:void moreGame() -> moreGame
+    270:271:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
+    274:275:void showNative(java.lang.String,int) -> showNative
+    278:279:void hideNative(java.lang.String) -> hideNative
+    282:282:boolean hasNative(java.lang.String) -> hasNative
+    286:286:java.lang.String getExtraData() -> getExtraData
+    290:291:void onQuit() -> onQuit
+    294:297:void login() -> login
+    300:301:void logout() -> logout
+    304:304:boolean isLogin() -> isLogin
+    308:311:void invite() -> invite
+    314:317:void challenge(java.lang.String,java.lang.String) -> challenge
+    320:320:java.lang.String me() -> me
+    324:324:java.lang.String friends() -> friends
+    328:331:void like() -> like
+    334:345:void loadFullAd(java.lang.String) -> loadFullAd
+    348:348:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
+    351:352:void closeNativeAd(java.lang.String) -> closeNativeAd
+    354:355:void clickNativeAd(java.lang.String) -> clickNativeAd
+    358:358:boolean isNetworkConnected() -> isNetworkConnected
+    368:368:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
+    372:373:void cacheUrl(int,java.lang.String) -> cacheUrl
+    376:376:java.lang.String getConfig(int) -> getConfig
+    380:380:boolean hasApp(java.lang.String) -> hasApp
+    384:385:void launchApp(java.lang.String) -> launchApp
+    388:389:void getApp(java.lang.String) -> getApp
+    392:393:void alert(java.lang.String,java.lang.String) -> alert
+    396:397:void toast(java.lang.String) -> toast
+    400:400:java.lang.String getConfig(java.lang.String,int) -> getConfig
+    404:404:java.lang.String getPrices() -> getPrices
+    408:409:void onKill(android.app.Activity) -> onKill
+    416:417:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
+    420:421:void UM_onEvent(java.lang.String) -> UM_onEvent
+    424:425:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
+    428:429:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
+    439:440:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
+    448:449:void UM_onPageStart(java.lang.String) -> UM_onPageStart
+    457:458:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
+    466:467:void UM_startLevel(java.lang.String) -> UM_startLevel
+    475:476:void UM_failLevel(java.lang.String) -> UM_failLevel
+    484:485:void UM_finishLevel(java.lang.String) -> UM_finishLevel
+    507:508:void UM_pay(double,java.lang.String,int,double) -> UM_pay
+    518:519:void UM_buy(java.lang.String,int,double) -> UM_buy
+    529:530:void UM_use(java.lang.String,int,double) -> UM_use
+    541:542:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
 com.android.client.Unity$1 -> com.android.client.Unity$1:
-    31:31:void <init>() -> <init>
-    34:181:void run() -> run
+    25:25:void <init>() -> <init>
+    28:111:void run() -> run
 com.android.client.Unity$1$1 -> com.android.client.Unity$1$1:
     com.android.client.Unity$1 this$0 -> this$0
-    157:157:void <init>(com.android.client.Unity$1) -> <init>
-    160:161:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
-    165:166:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
-    170:171:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
-    175:176:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
+    82:82:void <init>(com.android.client.Unity$1) -> <init>
+    85:86:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
+    90:91:void onReceiveFriends(java.lang.String) -> onReceiveFriends
+    95:96:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
+    100:101:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
+    105:106:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
 com.android.client.Unity$1$2 -> com.android.client.Unity$1$2:
     com.android.client.Unity$1 this$0 -> this$0
-    126:126:void <init>(com.android.client.Unity$1) -> <init>
-    129:130:void onReceiveReward(boolean,int,java.lang.String) -> onReceiveReward
-    134:135:void onFullAdClosed(java.lang.String) -> onFullAdClosed
-    139:140:void onFullAdClicked(java.lang.String) -> onFullAdClicked
-    144:145:void onVideoAdClosed(java.lang.String) -> onVideoAdClosed
-    149:150:void onBannerAdClicked(java.lang.String) -> onBannerAdClicked
-    154:155:void onCrossAdClicked(java.lang.String) -> onCrossAdClicked
+    72:72:void <init>(com.android.client.Unity$1) -> <init>
+    75:76:void onSuccess(int,java.lang.String) -> onSuccess
+    80:81:void onFailure(int) -> onFailure
 com.android.client.Unity$1$3 -> com.android.client.Unity$1$3:
     com.android.client.Unity$1 this$0 -> this$0
-    116:116:void <init>(com.android.client.Unity$1) -> <init>
-    119:120:void onSuccess(int,java.lang.String) -> onSuccess
-    124:125:void onFailure(int) -> onFailure
+    47:47:void <init>(com.android.client.Unity$1) -> <init>
+    50:51:void onPaymentSuccess(int) -> onPaymentSuccess
+    55:56:void onPaymentFail(int) -> onPaymentFail
+    60:61:void onPaymentSystemValid() -> onPaymentSystemValid
+    65:66:void onPaymentCanceled(int) -> onPaymentCanceled
+    70:71:void onPaymentSystemError(int,java.lang.String) -> onPaymentSystemError
 com.android.client.Unity$1$4 -> com.android.client.Unity$1$4:
     com.android.client.Unity$1 this$0 -> this$0
-    96:96:void <init>(com.android.client.Unity$1) -> <init>
-    99:100:void onPaymentSuccess(int) -> onPaymentSuccess
-    104:105:void onPaymentFail(int) -> onPaymentFail
-    109:110:void onPaymentSystemValid() -> onPaymentSystemValid
-    114:115:void onPaymentCanceled(int) -> onPaymentCanceled
-com.android.client.Unity$1$5 -> com.android.client.Unity$1$5:
-    com.android.client.Unity$1 this$0 -> this$0
-    81:81:void <init>(com.android.client.Unity$1) -> <init>
-    84:85:void onInitialized() -> onInitialized
-    89:90:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
-    94:95:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
+    32:32:void <init>(com.android.client.Unity$1) -> <init>
+    35:36:void onInitialized() -> onInitialized
+    40:41:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
+    45:46:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
+com.android.client.Unity$10 -> com.android.client.Unity$10:
+    java.lang.String val$tag -> val$tag
+    334:334:void <init>(java.lang.String) -> <init>
+    337:338:void onAdLoadSuccess() -> onAdLoadSuccess
+    342:343:void onAdLoadFails() -> onAdLoadFails
 com.android.client.Unity$2 -> com.android.client.Unity$2:
-    192:192:void <init>() -> <init>
-    195:196:void run() -> run
+    122:122:void <init>() -> <init>
+    125:126:void run() -> run
 com.android.client.Unity$3 -> com.android.client.Unity$3:
-    203:203:void <init>() -> <init>
-    206:207:void run() -> run
+    133:133:void <init>() -> <init>
+    136:137:void run() -> run
 com.android.client.Unity$4 -> com.android.client.Unity$4:
-    214:214:void <init>() -> <init>
-    217:218:void run() -> run
+    144:144:void <init>() -> <init>
+    147:148:void run() -> run
 com.android.client.Unity$5 -> com.android.client.Unity$5:
-    226:226:void <init>() -> <init>
-    229:230:void run() -> run
+    156:156:void <init>() -> <init>
+    159:160:void run() -> run
 com.android.client.Unity$6 -> com.android.client.Unity$6:
-    238:238:void <init>() -> <init>
-    241:242:void run() -> run
+    168:168:void <init>() -> <init>
+    171:172:void run() -> run
 com.android.client.Unity$7 -> com.android.client.Unity$7:
     int val$requestCode -> val$requestCode
     int val$resultCode -> val$resultCode
     android.content.Intent val$data -> val$data
-    249:249:void <init>(int,int,android.content.Intent) -> <init>
-    252:253:void run() -> run
+    179:179:void <init>(int,int,android.content.Intent) -> <init>
+    182:183:void run() -> run
+com.android.client.Unity$8 -> com.android.client.Unity$8:
+    java.lang.String val$tag -> val$tag
+    205:205:void <init>(java.lang.String) -> <init>
+    208:209:void onAdClosed() -> onAdClosed
+    213:214:void onAdClicked() -> onAdClicked
+com.android.client.Unity$9 -> com.android.client.Unity$9:
+    int val$id -> val$id
+    java.lang.String val$tag -> val$tag
+    227:227:void <init>(int,java.lang.String) -> <init>
+    230:231:void onAdReward() -> onAdReward
+    235:236:void onAdShowFails() -> onAdShowFails
+    240:241:void onAdClosed() -> onAdClosed
 com.android.client.Unity3dPlayerActivity -> com.android.client.Unity3dPlayerActivity:
     int TYPE_LIKE -> TYPE_LIKE
     int TYPE_CHALLENGE -> TYPE_CHALLENGE
@@ -28658,6 +28680,7 @@ com.android.client.UrlListener -> com.android.client.UrlListener:
     void onFailure(int) -> onFailure
 com.android.client.UserCenterListener -> com.android.client.UserCenterListener:
     void onReceiveLoginResult(boolean) -> onReceiveLoginResult
+    void onReceiveFriends(java.lang.String) -> onReceiveFriends
     void onReceiveInviteResult(boolean) -> onReceiveInviteResult
     void onReceiveChallengeResult(int) -> onReceiveChallengeResult
     void onReceiveLikeResult(boolean) -> onReceiveLikeResult
@@ -32536,49 +32559,43 @@ com.froumobic.clean.junk.mactivity.AppActivity$MyReceiver -> com.froumobic.clean
 com.froumobic.clean.junk.mactivity.CoolingActivity -> com.froumobic.clean.junk.mactivity.CoolingActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
-    android.widget.LinearLayout cooling_piao -> c
+    com.froumobic.clean.junk.mview.CoolongView cooling_piao -> c
     android.widget.ImageView cooling_xuehua -> d
     android.widget.FrameLayout fl_lot_cooling -> e
-    android.widget.FrameLayout cooling_fl -> f
-    com.froumobic.clean.junk.mview.FlakeView flakeView -> g
-    android.os.Handler mHandler -> h
-    java.lang.Runnable runnable -> i
-    java.util.Random random -> j
-    android.view.animation.Animation rotate_zheng -> k
-    android.view.animation.Animation suo -> l
-    int time -> m
-    29:40:void <init>() -> <init>
-    55:62:void findId() -> a
-    66:69:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    73:117:void onCreate(android.os.Bundle) -> onCreate
-    120:138:void startCoolingAni() -> b
-    142:152:void hideSnow() -> c
-    156:160:void onResume() -> onResume
-    164:166:void onPause() -> onPause
-    170:176:void onBackPressed() -> onBackPressed
-    180:184:void onDestroy() -> onDestroy
-    29:29:com.froumobic.clean.junk.mview.FlakeView access$000(com.froumobic.clean.junk.mactivity.CoolingActivity) -> a
-    29:29:int access$100(com.froumobic.clean.junk.mactivity.CoolingActivity) -> b
-    29:29:android.view.animation.Animation access$200(com.froumobic.clean.junk.mactivity.CoolingActivity) -> c
-    29:29:void access$300(com.froumobic.clean.junk.mactivity.CoolingActivity) -> d
+    android.widget.RelativeLayout cooling_fl -> f
+    android.os.Handler mHandler -> g
+    java.util.Random random -> h
+    android.view.animation.Animation suo -> i
+    int time -> j
+    android.animation.ObjectAnimator objectAnimator -> k
+    34:43:void <init>() -> <init>
+    51:58:void findId() -> a
+    62:65:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    69:141:void onCreate(android.os.Bundle) -> onCreate
+    144:162:void startCoolingAni() -> b
+    167:169:void onResume() -> onResume
+    173:177:void onPause() -> onPause
+    181:187:void onBackPressed() -> onBackPressed
+    191:195:void onDestroy() -> onDestroy
+    34:34:int access$000(com.froumobic.clean.junk.mactivity.CoolingActivity) -> a
+    34:34:android.animation.ObjectAnimator access$100(com.froumobic.clean.junk.mactivity.CoolingActivity) -> b
 com.froumobic.clean.junk.mactivity.CoolingActivity$1 -> com.froumobic.clean.junk.mactivity.CoolingActivity$1:
     com.froumobic.clean.junk.mactivity.CoolingActivity this$0 -> a
-    40:40:void <init>(com.froumobic.clean.junk.mactivity.CoolingActivity) -> <init>
-    43:46:void run() -> run
+    73:73:void <init>(com.froumobic.clean.junk.mactivity.CoolingActivity) -> <init>
+    76:77:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.CoolingActivity$2 -> com.froumobic.clean.junk.mactivity.CoolingActivity$2:
     com.froumobic.clean.junk.mactivity.CoolingActivity this$0 -> a
-    77:77:void <init>(com.froumobic.clean.junk.mactivity.CoolingActivity) -> <init>
-    80:81:void onClick(android.view.View) -> onClick
+    88:88:void <init>(com.froumobic.clean.junk.mactivity.CoolingActivity) -> <init>
+    92:92:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    96:103:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    108:108:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    113:113:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.froumobic.clean.junk.mactivity.CoolingActivity$3 -> com.froumobic.clean.junk.mactivity.CoolingActivity$3:
     com.froumobic.clean.junk.mactivity.CoolingActivity this$0 -> a
-    92:92:void <init>(com.froumobic.clean.junk.mactivity.CoolingActivity) -> <init>
-    95:105:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    110:110:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    115:115:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.froumobic.clean.junk.mactivity.CoolingActivity$4 -> com.froumobic.clean.junk.mactivity.CoolingActivity$4:
-    com.froumobic.clean.junk.mactivity.CoolingActivity this$0 -> a
-    124:124:void <init>(com.froumobic.clean.junk.mactivity.CoolingActivity) -> <init>
-    127:132:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    116:116:void <init>(com.froumobic.clean.junk.mactivity.CoolingActivity) -> <init>
+    119:129:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    134:134:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    139:139:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.froumobic.clean.junk.mactivity.DeepActivity -> com.froumobic.clean.junk.mactivity.DeepActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -32912,94 +32929,95 @@ com.froumobic.clean.junk.mactivity.GBoostActivity -> com.froumobic.clean.junk.ma
     android.widget.LinearLayout ll_add_game -> g
     android.widget.FrameLayout add_left -> h
     android.widget.ListView list_game -> i
-    java.util.ArrayList list -> k
-    android.os.Handler mHandler -> l
-    com.froumobic.clean.junk.adapter.AddGameAdapter whiteListAdapter -> m
-    com.froumobic.clean.junk.mactivity.MyApplication cleanApplication -> n
-    boolean search -> o
-    java.util.List gboost_add -> p
-    java.util.List listEdit -> q
-    com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter adapter -> r
-    android.view.View$OnClickListener clickListener -> j
-    51:222:void <init>() -> <init>
-    87:98:void findId() -> a
-    102:117:void onCreate(android.os.Bundle) -> onCreate
-    121:150:void addData() -> b
-    153:155:void initList() -> c
-    245:299:void toggleEditAnimation() -> d
-    304:305:void onResume() -> onResume
-    309:316:void onBackPressed() -> onBackPressed
-    319:365:void shortGame(boolean) -> a
-    368:383:void initData() -> e
-    386:395:void upData(java.lang.String) -> b
-    399:401:void onDestroy() -> onDestroy
-    405:406:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    51:51:java.util.ArrayList access$000(com.froumobic.clean.junk.mactivity.GBoostActivity) -> a
-    51:51:void access$100(com.froumobic.clean.junk.mactivity.GBoostActivity,boolean) -> a
-    51:51:android.os.Handler access$200(com.froumobic.clean.junk.mactivity.GBoostActivity) -> b
-    51:51:com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter access$302(com.froumobic.clean.junk.mactivity.GBoostActivity,com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter) -> a
-    51:51:com.froumobic.clean.junk.adapter.AddGameAdapter access$402(com.froumobic.clean.junk.mactivity.GBoostActivity,com.froumobic.clean.junk.adapter.AddGameAdapter) -> a
-    51:51:com.froumobic.clean.junk.adapter.AddGameAdapter access$400(com.froumobic.clean.junk.mactivity.GBoostActivity) -> c
-    51:51:void access$500(com.froumobic.clean.junk.mactivity.GBoostActivity) -> d
-    51:51:com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter access$300(com.froumobic.clean.junk.mactivity.GBoostActivity) -> e
-    51:51:void access$600(com.froumobic.clean.junk.mactivity.GBoostActivity) -> f
-    51:51:boolean access$700(com.froumobic.clean.junk.mactivity.GBoostActivity) -> g
-    51:51:boolean access$702(com.froumobic.clean.junk.mactivity.GBoostActivity,boolean) -> b
-    51:51:void access$800(com.froumobic.clean.junk.mactivity.GBoostActivity,java.lang.String) -> a
+    android.widget.ImageView gboost_add_game -> j
+    android.widget.Button junk_button_clean -> k
+    java.util.ArrayList list -> m
+    android.os.Handler mHandler -> n
+    com.froumobic.clean.junk.adapter.AddGameAdapter whiteListAdapter -> o
+    com.froumobic.clean.junk.mactivity.MyApplication cleanApplication -> p
+    boolean search -> q
+    java.util.List gboost_add -> r
+    java.util.List listEdit -> s
+    com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter adapter -> t
+    android.view.View$OnClickListener clickListener -> l
+    52:223:void <init>() -> <init>
+    90:103:void findId() -> a
+    107:124:void onCreate(android.os.Bundle) -> onCreate
+    128:157:void addData() -> b
+    160:162:void initList() -> c
+    259:313:void toggleEditAnimation() -> d
+    318:319:void onResume() -> onResume
+    323:330:void onBackPressed() -> onBackPressed
+    333:348:void shortGame(boolean) -> a
+    383:398:void initData() -> e
+    401:410:void upData(java.lang.String) -> b
+    414:416:void onDestroy() -> onDestroy
+    420:421:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    52:52:java.util.ArrayList access$000(com.froumobic.clean.junk.mactivity.GBoostActivity) -> a
+    52:52:void access$100(com.froumobic.clean.junk.mactivity.GBoostActivity,boolean) -> a
+    52:52:android.os.Handler access$200(com.froumobic.clean.junk.mactivity.GBoostActivity) -> b
+    52:52:com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter access$302(com.froumobic.clean.junk.mactivity.GBoostActivity,com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter) -> a
+    52:52:com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter access$300(com.froumobic.clean.junk.mactivity.GBoostActivity) -> c
+    52:52:void access$400(com.froumobic.clean.junk.mactivity.GBoostActivity) -> d
+    52:52:com.froumobic.clean.junk.adapter.AddGameAdapter access$502(com.froumobic.clean.junk.mactivity.GBoostActivity,com.froumobic.clean.junk.adapter.AddGameAdapter) -> a
+    52:52:com.froumobic.clean.junk.adapter.AddGameAdapter access$500(com.froumobic.clean.junk.mactivity.GBoostActivity) -> e
+    52:52:void access$600(com.froumobic.clean.junk.mactivity.GBoostActivity) -> f
+    52:52:boolean access$700(com.froumobic.clean.junk.mactivity.GBoostActivity) -> g
+    52:52:boolean access$702(com.froumobic.clean.junk.mactivity.GBoostActivity,boolean) -> b
+    52:52:void access$800(com.froumobic.clean.junk.mactivity.GBoostActivity,java.lang.String) -> a
 com.froumobic.clean.junk.mactivity.GBoostActivity$1 -> com.froumobic.clean.junk.mactivity.GBoostActivity$1:
     com.froumobic.clean.junk.mactivity.GBoostActivity this$0 -> a
-    66:66:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity) -> <init>
-    69:76:void handleMessage(android.os.Message) -> handleMessage
+    69:69:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity) -> <init>
+    72:79:void handleMessage(android.os.Message) -> handleMessage
 com.froumobic.clean.junk.mactivity.GBoostActivity$2 -> com.froumobic.clean.junk.mactivity.GBoostActivity$2:
     com.froumobic.clean.junk.mactivity.GBoostActivity this$0 -> a
-    121:121:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity) -> <init>
-    124:147:void run() -> run
+    128:128:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity) -> <init>
+    131:154:void run() -> run
 com.froumobic.clean.junk.mactivity.GBoostActivity$2$1 -> com.froumobic.clean.junk.mactivity.GBoostActivity$2$1:
     com.froumobic.clean.junk.mactivity.GBoostActivity$2 this$1 -> a
-    137:137:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity$2) -> <init>
-    140:145:void run() -> run
+    144:144:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity$2) -> <init>
+    148:152:void run() -> run
 com.froumobic.clean.junk.mactivity.GBoostActivity$3 -> com.froumobic.clean.junk.mactivity.GBoostActivity$3:
     com.froumobic.clean.junk.mactivity.GBoostActivity this$0 -> a
-    222:222:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity) -> <init>
-    225:241:void onClick(android.view.View) -> onClick
+    223:223:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity) -> <init>
+    226:255:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.GBoostActivity$4 -> com.froumobic.clean.junk.mactivity.GBoostActivity$4:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.froumobic.clean.junk.mactivity.GBoostActivity this$0 -> d
-    265:265:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    268:296:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    279:279:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    282:310:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.froumobic.clean.junk.mactivity.GBoostActivity$4$1 -> com.froumobic.clean.junk.mactivity.GBoostActivity$4$1:
     com.froumobic.clean.junk.mactivity.GBoostActivity$4 this$1 -> a
-    276:276:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity$4) -> <init>
-    279:280:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    285:285:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    290:290:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    290:290:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity$4) -> <init>
+    293:294:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    299:299:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    304:304:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.froumobic.clean.junk.mactivity.GBoostActivity$5 -> com.froumobic.clean.junk.mactivity.GBoostActivity$5:
     com.froumobic.clean.junk.mactivity.GBoostActivity this$0 -> a
-    319:319:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity) -> <init>
-    322:323:void run() -> run
+    333:333:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity) -> <init>
+    336:337:void run() -> run
 com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter -> com.froumobic.clean.junk.mactivity.GBoostActivity$a:
     com.froumobic.clean.junk.mactivity.GBoostActivity this$0 -> a
-    157:157:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity) -> <init>
-    161:164:com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    169:198:void onBindViewHolder(com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter$MyViewHolder,int) -> a
-    202:202:int getItemCount() -> getItemCount
-    157:157:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    157:157:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    164:164:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity) -> <init>
+    168:171:com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    176:200:void onBindViewHolder(com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter$MyViewHolder,int) -> a
+    204:204:int getItemCount() -> getItemCount
+    164:164:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    164:164:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter$1 -> com.froumobic.clean.junk.mactivity.GBoostActivity$a$1:
     int val$position -> a
     com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter this$1 -> b
-    176:176:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter,int) -> <init>
-    179:195:void onClick(android.view.View) -> onClick
+    178:178:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter,int) -> <init>
+    189:197:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter$MyViewHolder -> com.froumobic.clean.junk.mactivity.GBoostActivity$a$a:
     android.widget.LinearLayout app -> a
-    android.widget.LinearLayout add -> b
-    android.widget.ImageView gboost_item_icon -> c
-    android.widget.TextView gboost_item_name -> d
-    android.widget.FrameLayout gboost_item_c -> e
-    com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter this$1 -> f
-    211:218:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter,android.view.View) -> <init>
+    android.widget.ImageView gboost_item_icon -> b
+    android.widget.TextView gboost_item_name -> c
+    android.widget.FrameLayout gboost_item_c -> d
+    com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter this$1 -> e
+    213:219:void <init>(com.froumobic.clean.junk.mactivity.GBoostActivity$MyAdapter,android.view.View) -> <init>
 com.froumobic.clean.junk.mactivity.LajiActivity -> com.froumobic.clean.junk.mactivity.LajiActivity:
     com.froumobic.clean.junk.mview.MyScrollView junk_scroll -> a
     android.widget.FrameLayout title_left -> b
@@ -33521,208 +33539,208 @@ com.froumobic.clean.junk.mactivity.MainActivity -> com.froumobic.clean.junk.mact
     android.widget.ImageView libao_2 -> au
     android.widget.ImageView libao_3 -> av
     android.support.v4.view.PagerAdapter pagerAdapter -> aw
-    java.lang.String TAG_MAIN -> aD
-    java.lang.String TAG_HUA -> aE
-    java.lang.String TAG_SIDE -> aF
-    java.lang.String TAG_START_FULL -> aG
-    java.lang.String TAG_EXIT_FULL -> aH
-    java.lang.String TAG_FULL_PULL -> aI
-    java.lang.String LOAD_FULL -> aJ
-    android.os.Handler handler -> aK
-    com.froumobic.clean.junk.presenter.MainPresenter mainPresenter -> aL
-    com.froumobic.clean.junk.adapter.MSideAdapter adapter -> aM
-    int temp -> aN
-    android.support.v4.view.ViewPager viewpager -> aO
+    java.lang.String TAG_MAIN -> aC
+    java.lang.String TAG_HUA -> aD
+    java.lang.String TAG_SIDE -> aE
+    java.lang.String TAG_START_FULL -> aF
+    java.lang.String TAG_EXIT_FULL -> aG
+    java.lang.String TAG_FULL_PULL -> aH
+    java.lang.String LOAD_FULL -> aI
+    android.os.Handler handler -> aJ
+    com.froumobic.clean.junk.presenter.MainPresenter mainPresenter -> aK
+    com.froumobic.clean.junk.adapter.MSideAdapter adapter -> aL
+    int temp -> aM
+    android.support.v4.view.ViewPager viewpager -> aN
     com.rd.PageIndicatorView pageindicatorview -> ax
-    android.view.View viewpager_3 -> aP
-    android.support.v7.app.AlertDialog dialog -> aQ
-    java.util.ArrayList arrayList -> aR
-    android.animation.AnimatorSet animatorSet -> aS
-    com.froumobic.clean.junk.mview.LoadingTime ad_loading -> aT
+    android.view.View viewpager_3 -> aO
+    android.support.v7.app.AlertDialog dialog -> aP
+    java.util.ArrayList arrayList -> aQ
+    android.animation.AnimatorSet animatorSet -> aR
+    com.froumobic.clean.junk.mview.LoadingTime ad_loading -> aS
     java.lang.Runnable fullAdRunnale -> ay
     com.froumobic.clean.junk.mview.PullToRefreshLayout$OnRefreshListener refreshListener -> az
     android.view.View$OnClickListener onClickListener -> aA
-    java.lang.Runnable runnable_pus -> aB
-    java.lang.Runnable runnable_load -> aC
-    80:955:void <init>() -> <init>
-    155:216:void findId() -> a
-    220:405:void onCreate(android.os.Bundle) -> onCreate
-    408:456:void tuiguangButton(java.lang.String) -> b
-    461:484:void startFenshu(int,boolean) -> a
-    487:492:void setColorAnimation(android.view.View,int,int) -> a
-    495:524:void setColor(int,boolean) -> b
-    529:556:void onClick() -> c
-    561:587:void initSd(int,long) -> a
-    591:607:void initRam(int) -> b
-    611:619:void initCpu(int) -> c
-    622:640:void initSideData() -> d
-    644:644:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
-    648:655:void setRotateGone() -> e
-    659:660:void openDrawer() -> f
-    671:739:void loadFullAd() -> b
-    969:1035:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    1039:1043:void onRestart() -> onRestart
-    1047:1051:void onPause() -> onPause
-    1055:1064:void onResume() -> onResume
-    1068:1080:void onDestroy() -> onDestroy
-    1083:1114:void onBackPressed() -> onBackPressed
-    1117:1137:void adDelete() -> g
-    1140:1217:void showExitDialog() -> h
-    1222:1222:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    1226:1226:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    1230:1230:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    1235:1235:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    80:80:com.froumobic.clean.junk.presenter.MainPresenter access$000(com.froumobic.clean.junk.mactivity.MainActivity) -> a
-    80:80:java.util.ArrayList access$100(com.froumobic.clean.junk.mactivity.MainActivity) -> b
-    80:80:android.support.v4.view.ViewPager access$200(com.froumobic.clean.junk.mactivity.MainActivity) -> c
-    80:80:void access$300(com.froumobic.clean.junk.mactivity.MainActivity,int,boolean) -> a
-    80:80:android.os.Handler access$400(com.froumobic.clean.junk.mactivity.MainActivity) -> d
-    80:80:void access$500(com.froumobic.clean.junk.mactivity.MainActivity) -> e
-    80:80:java.lang.String access$600(com.froumobic.clean.junk.mactivity.MainActivity) -> f
-    80:80:int access$700(com.froumobic.clean.junk.mactivity.MainActivity) -> g
-    80:80:java.lang.String access$800(com.froumobic.clean.junk.mactivity.MainActivity) -> h
-    80:80:java.lang.String access$900(com.froumobic.clean.junk.mactivity.MainActivity) -> i
-    80:80:com.froumobic.clean.junk.adapter.MSideAdapter access$1000(com.froumobic.clean.junk.mactivity.MainActivity) -> j
-    80:80:android.support.v7.app.AlertDialog access$1100(com.froumobic.clean.junk.mactivity.MainActivity) -> k
+    java.lang.Runnable runnable_load -> aB
+    82:980:void <init>() -> <init>
+    157:218:void findId() -> a
+    222:402:void onCreate(android.os.Bundle) -> onCreate
+    405:453:void tuiguangButton(java.lang.String) -> b
+    458:481:void startFenshu(int,boolean) -> a
+    484:489:void setColorAnimation(android.view.View,int,int) -> a
+    492:521:void setColor(int,boolean) -> b
+    526:553:void onClick() -> c
+    558:584:void initSd(int,long) -> a
+    588:604:void initRam(int) -> b
+    608:616:void initCpu(int) -> c
+    619:637:void initSideData() -> d
+    641:641:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
+    645:652:void setRotateGone() -> e
+    656:657:void openDrawer() -> f
+    668:736:void loadFullAd() -> b
+    739:759:android.view.View getNativeAdView(java.lang.String,int) -> a
+    993:1059:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    1063:1067:void onRestart() -> onRestart
+    1071:1075:void onPause() -> onPause
+    1079:1090:void onResume() -> onResume
+    1094:1105:void onDestroy() -> onDestroy
+    1108:1138:void onBackPressed() -> onBackPressed
+    1141:1161:void adDelete() -> g
+    1164:1241:void showExitDialog() -> h
+    1246:1246:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    1250:1250:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    1254:1254:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    1259:1259:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    82:82:com.froumobic.clean.junk.presenter.MainPresenter access$000(com.froumobic.clean.junk.mactivity.MainActivity) -> a
+    82:82:java.util.ArrayList access$100(com.froumobic.clean.junk.mactivity.MainActivity) -> b
+    82:82:android.support.v4.view.ViewPager access$200(com.froumobic.clean.junk.mactivity.MainActivity) -> c
+    82:82:void access$300(com.froumobic.clean.junk.mactivity.MainActivity,int,boolean) -> a
+    82:82:android.os.Handler access$400(com.froumobic.clean.junk.mactivity.MainActivity) -> d
+    82:82:void access$500(com.froumobic.clean.junk.mactivity.MainActivity) -> e
+    82:82:java.lang.String access$600(com.froumobic.clean.junk.mactivity.MainActivity) -> f
+    82:82:int access$700(com.froumobic.clean.junk.mactivity.MainActivity) -> g
+    82:82:java.lang.String access$800(com.froumobic.clean.junk.mactivity.MainActivity) -> h
+    82:82:java.lang.String access$900(com.froumobic.clean.junk.mactivity.MainActivity) -> i
+    82:82:com.froumobic.clean.junk.adapter.MSideAdapter access$1000(com.froumobic.clean.junk.mactivity.MainActivity) -> j
+    82:82:android.support.v7.app.AlertDialog access$1100(com.froumobic.clean.junk.mactivity.MainActivity) -> k
 com.froumobic.clean.junk.mactivity.MainActivity$1 -> com.froumobic.clean.junk.mactivity.MainActivity$1:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    268:268:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    271:273:void onClick(android.view.View) -> onClick
+    265:265:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    268:270:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$10 -> com.froumobic.clean.junk.mactivity.MainActivity$2:
     int val$percent -> a
     boolean val$isRestart -> b
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> c
-    477:477:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int,boolean) -> <init>
-    480:481:void run() -> run
+    474:474:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int,boolean) -> <init>
+    477:478:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$11 -> com.froumobic.clean.junk.mactivity.MainActivity$3:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    547:547:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    550:553:void onScrollChanged(com.froumobic.clean.junk.mview.MyScrollView,int,int,int,int) -> a
+    544:544:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    547:550:void onScrollChanged(com.froumobic.clean.junk.mview.MyScrollView,int,int,int,int) -> a
 com.froumobic.clean.junk.mactivity.MainActivity$12 -> com.froumobic.clean.junk.mactivity.MainActivity$4:
     int val$percent -> a
     long val$sd_kongxian -> b
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> c
-    561:561:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int,long) -> <init>
-    564:584:void run() -> run
+    558:558:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int,long) -> <init>
+    561:581:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$13 -> com.froumobic.clean.junk.mactivity.MainActivity$5:
     int val$percent -> a
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> b
-    591:591:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int) -> <init>
-    594:604:void run() -> run
+    588:588:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int) -> <init>
+    591:601:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$14 -> com.froumobic.clean.junk.mactivity.MainActivity$6:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    648:648:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    651:652:void run() -> run
+    645:645:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    648:649:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$16 -> com.froumobic.clean.junk.mactivity.MainActivity$7:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    722:722:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    725:727:void onClick(android.view.View) -> onClick
+    719:719:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    722:724:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$17 -> com.froumobic.clean.junk.mactivity.MainActivity$8:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    730:730:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    733:734:void progressUpdate() -> a
+    727:727:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    730:731:void progressUpdate() -> a
 com.froumobic.clean.junk.mactivity.MainActivity$18 -> com.froumobic.clean.junk.mactivity.MainActivity$9:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    741:741:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    744:745:void run() -> run
+    762:762:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    765:766:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$19 -> com.froumobic.clean.junk.mactivity.MainActivity$10:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    749:749:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    754:754:void onRefresh(com.froumobic.clean.junk.mview.PullToRefreshLayout) -> a
-    759:783:void onLoadMore(com.froumobic.clean.junk.mview.PullToRefreshLayout) -> b
+    770:770:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    775:775:void onRefresh(com.froumobic.clean.junk.mview.PullToRefreshLayout) -> a
+    780:810:void onLoadMore(com.froumobic.clean.junk.mview.PullToRefreshLayout) -> b
 com.froumobic.clean.junk.mactivity.MainActivity$19$1 -> com.froumobic.clean.junk.mactivity.MainActivity$10$1:
     com.froumobic.clean.junk.mactivity.MainActivity$19 this$1 -> a
-    760:760:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$19) -> <init>
-    763:776:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    780:781:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    781:781:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$19) -> <init>
+    784:803:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    807:808:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.froumobic.clean.junk.mactivity.MainActivity$2 -> com.froumobic.clean.junk.mactivity.MainActivity$11:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    311:311:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    314:314:int getCount() -> getCount
-    320:321:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    331:334:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    338:338:int getItemPosition(java.lang.Object) -> getItemPosition
-    343:343:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    308:308:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    311:311:int getCount() -> getCount
+    317:318:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    328:331:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    335:335:int getItemPosition(java.lang.Object) -> getItemPosition
+    340:340:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.froumobic.clean.junk.mactivity.MainActivity$20 -> com.froumobic.clean.junk.mactivity.MainActivity$12:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    788:788:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    792:938:void onClick(android.view.View) -> onClick
+    815:815:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    819:977:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$20$1 -> com.froumobic.clean.junk.mactivity.MainActivity$12$1:
     com.froumobic.clean.junk.mactivity.MainActivity$20 this$1 -> a
-    841:841:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$20) -> <init>
-    844:865:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    870:870:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    875:875:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.froumobic.clean.junk.mactivity.MainActivity$20$1$1 -> com.froumobic.clean.junk.mactivity.MainActivity$12$1$1:
-    com.froumobic.clean.junk.mactivity.MainActivity$20$1 this$2 -> a
-    844:844:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$20$1) -> <init>
-    847:856:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    860:863:void onNativeAdLoadFails() -> onNativeAdLoadFails
-com.froumobic.clean.junk.mactivity.MainActivity$20$1$1$1 -> com.froumobic.clean.junk.mactivity.MainActivity$12$1$1$1:
-    com.froumobic.clean.junk.mactivity.MainActivity$20$1$1 this$3 -> a
-    848:848:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$20$1$1) -> <init>
-    851:852:void onClick(android.view.View) -> onClick
+    855:855:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$20) -> <init>
+    858:863:void onAdClosed() -> onAdClosed
+com.froumobic.clean.junk.mactivity.MainActivity$20$2 -> com.froumobic.clean.junk.mactivity.MainActivity$12$2:
+    com.froumobic.clean.junk.mactivity.MainActivity$20 this$1 -> a
+    874:874:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$20) -> <init>
+    877:904:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    909:909:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    914:914:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.froumobic.clean.junk.mactivity.MainActivity$20$2$1 -> com.froumobic.clean.junk.mactivity.MainActivity$12$2$1:
+    com.froumobic.clean.junk.mactivity.MainActivity$20$2 this$2 -> a
+    877:877:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$20$2) -> <init>
+    880:895:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    899:902:void onNativeAdLoadFails() -> onNativeAdLoadFails
+com.froumobic.clean.junk.mactivity.MainActivity$20$2$1$1 -> com.froumobic.clean.junk.mactivity.MainActivity$12$2$1$1:
+    com.froumobic.clean.junk.mactivity.MainActivity$20$2$1 this$3 -> a
+    887:887:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$20$2$1) -> <init>
+    890:891:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$21 -> com.froumobic.clean.junk.mactivity.MainActivity$13:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    941:941:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    944:953:void run() -> run
+    980:980:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    983:988:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$22 -> com.froumobic.clean.junk.mactivity.MainActivity$14:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    955:955:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    958:964:void run() -> run
+    993:993:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    996:997:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$23 -> com.froumobic.clean.junk.mactivity.MainActivity$15:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    969:969:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    972:973:void run() -> run
-com.froumobic.clean.junk.mactivity.MainActivity$24 -> com.froumobic.clean.junk.mactivity.MainActivity$16:
+    1152:1152:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    1155:1157:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
+com.froumobic.clean.junk.mactivity.MainActivity$25 -> com.froumobic.clean.junk.mactivity.MainActivity$16:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    1128:1128:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    1131:1133:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
+    1203:1203:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    1206:1208:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$26 -> com.froumobic.clean.junk.mactivity.MainActivity$17:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    1179:1179:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    1182:1184:void onClick(android.view.View) -> onClick
-com.froumobic.clean.junk.mactivity.MainActivity$27 -> com.froumobic.clean.junk.mactivity.MainActivity$18:
+    1210:1210:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    1213:1214:void onClick(android.view.View) -> onClick
+com.froumobic.clean.junk.mactivity.MainActivity$3 -> com.froumobic.clean.junk.mactivity.MainActivity$18:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    1186:1186:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    1189:1190:void onClick(android.view.View) -> onClick
-com.froumobic.clean.junk.mactivity.MainActivity$3 -> com.froumobic.clean.junk.mactivity.MainActivity$19:
+    347:347:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    350:351:void run() -> run
+com.froumobic.clean.junk.mactivity.MainActivity$4 -> com.froumobic.clean.junk.mactivity.MainActivity$19:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    350:350:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    353:354:void run() -> run
-com.froumobic.clean.junk.mactivity.MainActivity$4 -> com.froumobic.clean.junk.mactivity.MainActivity$20:
-    com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    356:356:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    359:360:void run() -> run
-com.froumobic.clean.junk.mactivity.MainActivity$5 -> com.froumobic.clean.junk.mactivity.MainActivity$21:
+    353:353:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    356:357:void run() -> run
+com.froumobic.clean.junk.mactivity.MainActivity$5 -> com.froumobic.clean.junk.mactivity.MainActivity$20:
     java.util.ArrayList val$crossItems -> a
     int val$tuiguang_1 -> b
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> c
-    421:421:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,java.util.ArrayList,int) -> <init>
-    424:427:void onClick(android.view.View) -> onClick
-com.froumobic.clean.junk.mactivity.MainActivity$6 -> com.froumobic.clean.junk.mactivity.MainActivity$22:
+    418:418:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,java.util.ArrayList,int) -> <init>
+    421:424:void onClick(android.view.View) -> onClick
+com.froumobic.clean.junk.mactivity.MainActivity$6 -> com.froumobic.clean.junk.mactivity.MainActivity$21:
     java.util.ArrayList val$crossItems -> a
     int val$finalTuiguang_ -> b
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> c
-    430:430:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,java.util.ArrayList,int) -> <init>
-    433:436:void onClick(android.view.View) -> onClick
-com.froumobic.clean.junk.mactivity.MainActivity$7 -> com.froumobic.clean.junk.mactivity.MainActivity$23:
+    427:427:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,java.util.ArrayList,int) -> <init>
+    430:433:void onClick(android.view.View) -> onClick
+com.froumobic.clean.junk.mactivity.MainActivity$7 -> com.froumobic.clean.junk.mactivity.MainActivity$22:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    441:441:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    444:446:void onClick(android.view.View) -> onClick
-com.froumobic.clean.junk.mactivity.MainActivity$8 -> com.froumobic.clean.junk.mactivity.MainActivity$24:
+    438:438:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    441:443:void onClick(android.view.View) -> onClick
+com.froumobic.clean.junk.mactivity.MainActivity$8 -> com.froumobic.clean.junk.mactivity.MainActivity$23:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    448:448:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    451:453:void onClick(android.view.View) -> onClick
-com.froumobic.clean.junk.mactivity.MainActivity$9 -> com.froumobic.clean.junk.mactivity.MainActivity$25:
+    445:445:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    448:450:void onClick(android.view.View) -> onClick
+com.froumobic.clean.junk.mactivity.MainActivity$9 -> com.froumobic.clean.junk.mactivity.MainActivity$24:
     int val$percent -> a
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> b
-    466:466:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int) -> <init>
-    469:475:void progressUpdate(int) -> a
-com.froumobic.clean.junk.mactivity.MainActivity$9$1 -> com.froumobic.clean.junk.mactivity.MainActivity$25$1:
+    463:463:void <init>(com.froumobic.clean.junk.mactivity.MainActivity,int) -> <init>
+    466:472:void progressUpdate(int) -> a
+com.froumobic.clean.junk.mactivity.MainActivity$9$1 -> com.froumobic.clean.junk.mactivity.MainActivity$24$1:
     com.froumobic.clean.junk.mactivity.MainActivity$9 this$1 -> a
-    469:469:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$9) -> <init>
-    472:473:void run() -> run
+    466:466:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$9) -> <init>
+    469:470:void run() -> run
 com.froumobic.clean.junk.mactivity.MessageActivity -> com.froumobic.clean.junk.mactivity.MessageActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -33798,41 +33816,41 @@ com.froumobic.clean.junk.mactivity.NotifiActivity -> com.froumobic.clean.junk.ma
     com.froumobic.clean.junk.adapter.NotifiAdapter adapter -> j
     com.android.clean.notification.NotificationCallBack notificationCallBack -> h
     android.view.View$OnClickListener nOnClickListener -> i
-    37:182:void <init>() -> <init>
-    49:54:int getStatusHeight(android.app.Activity) -> a
-    58:69:void findId() -> a
-    72:81:void setTranslucentStatus(boolean) -> a
-    85:98:void setHideVirtualKey(android.view.Window) -> a
-    101:108:void full() -> b
-    112:137:void onCreate(android.os.Bundle) -> onCreate
-    162:180:void setListener() -> c
-    209:212:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    215:217:void jumpToActivity(java.lang.Class,int) -> a
-    222:226:void onBackPressed() -> onBackPressed
-    230:232:void onDestroy() -> onDestroy
-    236:241:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    37:37:com.froumobic.clean.junk.adapter.NotifiAdapter access$000(com.froumobic.clean.junk.mactivity.NotifiActivity) -> a
+    38:183:void <init>() -> <init>
+    50:55:int getStatusHeight(android.app.Activity) -> a
+    59:70:void findId() -> a
+    73:82:void setTranslucentStatus(boolean) -> a
+    86:99:void setHideVirtualKey(android.view.Window) -> a
+    102:109:void full() -> b
+    113:138:void onCreate(android.os.Bundle) -> onCreate
+    163:181:void setListener() -> c
+    210:213:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
+    216:218:void jumpToActivity(java.lang.Class,int) -> a
+    223:227:void onBackPressed() -> onBackPressed
+    231:233:void onDestroy() -> onDestroy
+    237:242:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    38:38:com.froumobic.clean.junk.adapter.NotifiAdapter access$000(com.froumobic.clean.junk.mactivity.NotifiActivity) -> a
 com.froumobic.clean.junk.mactivity.NotifiActivity$1 -> com.froumobic.clean.junk.mactivity.NotifiActivity$1:
     com.froumobic.clean.junk.mactivity.NotifiActivity this$0 -> a
-    102:102:void <init>(com.froumobic.clean.junk.mactivity.NotifiActivity) -> <init>
-    105:106:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+    103:103:void <init>(com.froumobic.clean.junk.mactivity.NotifiActivity) -> <init>
+    106:107:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.froumobic.clean.junk.mactivity.NotifiActivity$2 -> com.froumobic.clean.junk.mactivity.NotifiActivity$2:
     com.froumobic.clean.junk.mactivity.NotifiActivity this$0 -> a
-    140:140:void <init>(com.froumobic.clean.junk.mactivity.NotifiActivity) -> <init>
-    143:157:void notificationChanged(java.util.ArrayList) -> a
+    141:141:void <init>(com.froumobic.clean.junk.mactivity.NotifiActivity) -> <init>
+    144:158:void notificationChanged(java.util.ArrayList) -> a
 com.froumobic.clean.junk.mactivity.NotifiActivity$2$1 -> com.froumobic.clean.junk.mactivity.NotifiActivity$2$1:
     java.util.ArrayList val$notificationList -> a
     com.froumobic.clean.junk.mactivity.NotifiActivity$2 this$1 -> b
-    143:143:void <init>(com.froumobic.clean.junk.mactivity.NotifiActivity$2,java.util.ArrayList) -> <init>
-    146:155:void run() -> run
+    144:144:void <init>(com.froumobic.clean.junk.mactivity.NotifiActivity$2,java.util.ArrayList) -> <init>
+    147:156:void run() -> run
 com.froumobic.clean.junk.mactivity.NotifiActivity$3 -> com.froumobic.clean.junk.mactivity.NotifiActivity$3:
     com.froumobic.clean.junk.mactivity.NotifiActivity this$0 -> a
-    172:172:void <init>(com.froumobic.clean.junk.mactivity.NotifiActivity) -> <init>
-    175:178:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    173:173:void <init>(com.froumobic.clean.junk.mactivity.NotifiActivity) -> <init>
+    176:179:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.froumobic.clean.junk.mactivity.NotifiActivity$4 -> com.froumobic.clean.junk.mactivity.NotifiActivity$4:
     com.froumobic.clean.junk.mactivity.NotifiActivity this$0 -> a
-    182:182:void <init>(com.froumobic.clean.junk.mactivity.NotifiActivity) -> <init>
-    185:199:void onClick(android.view.View) -> onClick
+    183:183:void <init>(com.froumobic.clean.junk.mactivity.NotifiActivity) -> <init>
+    186:200:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.NotifiAnimaActivity -> com.froumobic.clean.junk.mactivity.NotifiAnimaActivity:
     com.sample.lottie.LottieAnimationView notifi_info_lot -> a
     android.widget.Button notifi_info_text -> b
@@ -34575,6 +34593,93 @@ com.froumobic.clean.junk.mactivity.XuanfuActivity$5 -> com.froumobic.clean.junk.
     207:208:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
     213:213:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
     218:218:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.froumobic.clean.junk.mview.AdFramelayout -> com.froumobic.clean.junk.mview.AdFramelayout:
+    boolean mMeasureAllChildren -> a
+    int mForegroundPaddingLeft -> b
+    int mForegroundPaddingTop -> c
+    int mForegroundPaddingRight -> d
+    int mForegroundPaddingBottom -> e
+    android.graphics.Rect mSelfBounds -> f
+    android.graphics.Rect mOverlayBounds -> g
+    java.util.ArrayList mMatchParentChildren -> h
+    83:84:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    87:88:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    58:102:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
+    113:135:void setForegroundGravity(int) -> setForegroundGravity
+    139:139:int getPaddingLeftWithForeground() -> getPaddingLeftWithForeground
+    144:144:int getPaddingRightWithForeground() -> getPaddingRightWithForeground
+    149:149:int getPaddingTopWithForeground() -> getPaddingTopWithForeground
+    154:154:int getPaddingBottomWithForeground() -> getPaddingBottomWithForeground
+    164:249:void onMeasure(int,int) -> onMeasure
+    256:257:void onLayout(boolean,int,int,int,int) -> onLayout
+    261:322:void layoutChildren(int,int,int,int,boolean) -> layoutChildren
+    334:335:void setMeasureAllChildren(boolean) -> setMeasureAllChildren
+    349:349:boolean getConsiderGoneChildrenWhenMeasuring() -> getConsiderGoneChildrenWhenMeasuring
+    359:359:boolean getMeasureAllChildren() -> getMeasureAllChildren
+    365:365:boolean shouldDelayChildPressedState() -> shouldDelayChildPressedState
+    373:373:boolean checkLayoutParams(android.view.ViewGroup$LayoutParams) -> checkLayoutParams
+    378:378:android.view.ViewGroup$LayoutParams generateLayoutParams(android.view.ViewGroup$LayoutParams) -> generateLayoutParams
+    383:383:java.lang.CharSequence getAccessibilityClassName() -> getAccessibilityClassName
+    391:398:void encodeProperties(android.view.ViewHierarchyEncoder) -> encodeProperties
+com.froumobic.clean.junk.mview.AdFramelayout$LayoutParams -> com.froumobic.clean.junk.mview.AdFramelayout$LayoutParams:
+    int gravity -> a
+    415:426:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    415:456:void <init>(android.view.ViewGroup$LayoutParams) -> <init>
+com.froumobic.clean.junk.mview.CoolongView -> com.froumobic.clean.junk.mview.CoolongView:
+    java.util.List bubbles -> a
+    java.util.Random random -> b
+    int width -> c
+    int height -> d
+    boolean starting -> e
+    boolean thread -> f
+    android.graphics.Bitmap bitmap -> g
+    android.graphics.Bitmap dstBitmap -> h
+    20:31:void <init>(android.content.Context) -> <init>
+    20:36:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    20:41:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    44:45:void init() -> d
+    48:56:void destroy() -> a
+    59:60:void setParticleBitmap(android.graphics.Bitmap) -> setParticleBitmap
+    63:67:void pause() -> b
+    70:73:void reStart() -> c
+    77:171:void onDraw(android.graphics.Canvas) -> onDraw
+    18:18:boolean access$000(com.froumobic.clean.junk.mview.CoolongView) -> a
+    18:18:boolean access$100(com.froumobic.clean.junk.mview.CoolongView) -> b
+    18:18:java.util.Random access$300(com.froumobic.clean.junk.mview.CoolongView) -> c
+    18:18:int access$400(com.froumobic.clean.junk.mview.CoolongView) -> d
+    18:18:android.graphics.Bitmap access$500(com.froumobic.clean.junk.mview.CoolongView) -> e
+    18:18:android.graphics.Bitmap access$602(com.froumobic.clean.junk.mview.CoolongView,android.graphics.Bitmap) -> a
+    18:18:android.graphics.Bitmap access$600(com.froumobic.clean.junk.mview.CoolongView) -> f
+    18:18:java.util.List access$700(com.froumobic.clean.junk.mview.CoolongView) -> g
+com.froumobic.clean.junk.mview.CoolongView$1 -> com.froumobic.clean.junk.mview.CoolongView$1:
+    com.froumobic.clean.junk.mview.CoolongView this$0 -> a
+    82:82:void <init>(com.froumobic.clean.junk.mview.CoolongView) -> <init>
+    84:130:void run() -> run
+com.froumobic.clean.junk.mview.CoolongView$Bubble -> com.froumobic.clean.junk.mview.CoolongView$a:
+    float radius -> b
+    float speedY -> c
+    float speedX -> d
+    float x -> e
+    float y -> f
+    float scale -> g
+    android.graphics.Bitmap bitmap -> h
+    com.froumobic.clean.junk.mview.CoolongView this$0 -> a
+    174:188:void <init>(com.froumobic.clean.junk.mview.CoolongView) -> <init>
+    191:191:android.graphics.Bitmap getBitmap() -> a
+    195:196:void setBitmap(android.graphics.Bitmap) -> a
+    199:199:float getRadius() -> b
+    203:204:void setRadius(float) -> a
+    207:208:void setScale(float) -> b
+    211:211:float getScale() -> c
+    215:215:float getX() -> d
+    219:220:void setX(float) -> c
+    223:223:float getY() -> e
+    227:228:void setY(float) -> d
+    231:231:float getSpeedY() -> f
+    235:236:void setSpeedY(float) -> e
+    239:239:float getSpeedX() -> g
+    243:244:void setSpeedX(float) -> f
+    174:174:void <init>(com.froumobic.clean.junk.mview.CoolongView,com.froumobic.clean.junk.mview.CoolongView$1) -> <init>
 com.froumobic.clean.junk.mview.CustomRoundCpu -> com.froumobic.clean.junk.mview.CustomRoundCpu:
     android.content.Context context -> d
     android.graphics.Paint circlePoint -> e
@@ -34699,23 +34804,15 @@ com.froumobic.clean.junk.mview.FlakeView -> com.froumobic.clean.junk.mview.Flake
     long startTime -> i
     long prevTime -> j
     int frames -> k
-    android.graphics.Paint textPaint -> l
-    float fps -> m
-    android.graphics.Matrix m -> n
-    java.lang.String fpsString -> o
-    java.lang.String numFlakesString -> p
-    44:100:void <init>(android.content.Context) -> <init>
+    float fps -> l
+    android.graphics.Matrix m -> m
+    java.lang.String fpsString -> n
+    java.lang.String numFlakesString -> o
     103:106:int getNumFlakes() -> getNumFlakes
     110:112:void setNumFlakes(int) -> setNumFlakes
     118:133:void addFlakes(int) -> a
-    140:148:void subtractFlakes(int) -> b
     152:164:void onSizeChanged(int,int,int,int) -> onSizeChanged
     168:193:void onDraw(android.graphics.Canvas) -> onDraw
-    198:203:void pause() -> a
-com.froumobic.clean.junk.mview.FlakeView$1 -> com.froumobic.clean.junk.mview.FlakeView$1:
-    com.froumobic.clean.junk.mview.FlakeView this$0 -> a
-    78:78:void <init>(com.froumobic.clean.junk.mview.FlakeView) -> <init>
-    82:96:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.froumobic.clean.junk.mview.FloatStateView -> com.froumobic.clean.junk.mview.FloatStateView:
     int width -> a
     int height -> b
@@ -35297,8 +35394,8 @@ com.froumobic.clean.junk.service.XuanfuService$3 -> com.froumobic.clean.junk.ser
     133:133:void <init>(com.froumobic.clean.junk.service.XuanfuService) -> <init>
     139:147:void onGlobalLayout() -> onGlobalLayout
 com.froumobic.clean.junk.util.AdUtil -> com.froumobic.clean.junk.d.a:
-    19:21:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
-    24:44:android.view.View getNativeAdView(java.lang.String,int) -> a
+    23:25:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
+    28:49:android.view.View getNativeAdView(java.lang.String,int) -> a
 com.froumobic.clean.junk.util.CameraUtils -> com.froumobic.clean.junk.d.b:
     17:25:int HasBackCamera() -> a
     29:37:int HasFrontCamera() -> b
@@ -35356,7 +35453,6 @@ com.froumobic.clean.junk.util.PhoneManager -> com.froumobic.clean.junk.d.f:
 com.froumobic.clean.junk.util.ShortCutUtils -> com.froumobic.clean.junk.d.g:
     30:61:void addShortcut(android.app.Activity) -> a
     93:103:void addShortcut(android.app.Activity,android.content.Intent,java.lang.String,boolean,android.graphics.Bitmap) -> a
-    106:112:void removeShortcut(android.content.Context,android.content.Intent,java.lang.String) -> a
 com.froumobic.clean.junk.util.SwitchControl -> com.froumobic.clean.junk.d.h:
     android.hardware.Camera camera -> a
     87:97:void setMobileData(android.content.Context,boolean) -> a
@@ -35416,21 +35512,21 @@ com.froumobic.module.charge.saver.ChargeActivity -> com.froumobic.module.charge.
     com.froumobic.module.charge.saver.view.BatteryView batteryView -> a
     com.froumobic.module.charge.saver.entry.BatteryEntry entry -> b
     android.content.BroadcastReceiver mReceiver -> c
-    22:118:void <init>() -> <init>
-    31:33:void onUserLeaveHint() -> onUserLeaveHint
-    38:40:void onBackPressed() -> onBackPressed
-    45:58:void hideBottomUIMenu() -> a
-    62:73:void doBar() -> b
-    78:88:void onCreate(android.os.Bundle) -> onCreate
-    93:95:void onResume() -> onResume
+    23:118:void <init>() -> <init>
+    32:34:void onUserLeaveHint() -> onUserLeaveHint
+    39:41:void onBackPressed() -> onBackPressed
+    46:59:void hideBottomUIMenu() -> a
+    63:74:void doBar() -> b
+    79:89:void onCreate(android.os.Bundle) -> onCreate
+    94:95:void onResume() -> onResume
     99:102:void onPause() -> onPause
     108:116:void onDestroy() -> onDestroy
     138:147:void batteryChange(android.content.Intent) -> a
-    22:22:com.froumobic.module.charge.saver.view.BatteryView access$000(com.froumobic.module.charge.saver.ChargeActivity) -> a
+    23:23:com.froumobic.module.charge.saver.view.BatteryView access$000(com.froumobic.module.charge.saver.ChargeActivity) -> a
 com.froumobic.module.charge.saver.ChargeActivity$1 -> com.froumobic.module.charge.saver.ChargeActivity$1:
     com.froumobic.module.charge.saver.ChargeActivity this$0 -> a
-    64:64:void <init>(com.froumobic.module.charge.saver.ChargeActivity) -> <init>
-    67:69:void onUnlock() -> a
+    65:65:void <init>(com.froumobic.module.charge.saver.ChargeActivity) -> <init>
+    68:70:void onUnlock() -> a
 com.froumobic.module.charge.saver.ChargeActivity$2 -> com.froumobic.module.charge.saver.ChargeActivity$2:
     com.froumobic.module.charge.saver.ChargeActivity this$0 -> a
     118:118:void <init>(com.froumobic.module.charge.saver.ChargeActivity) -> <init>
@@ -35680,10 +35776,12 @@ com.froumobic.module.charge.saver.R$layout -> com.froumobic.module.charge.saver.
 com.froumobic.module.charge.saver.R$mipmap -> com.froumobic.module.charge.saver.a$d:
     int ad -> ad
     int ad_right -> ad_right
+    int ad_tu -> ad_tu
     int battery_inner_icon -> battery_inner_icon
     int battery_more -> battery_more
     int battery_setting_checkbox_close -> battery_setting_checkbox_close
     int battery_setting_checkbox_open -> battery_setting_checkbox_open
+    int charging_back -> charging_back
     int frou_bubble -> frou_bubble
     int qiqiu1 -> qiqiu1
     int qiqiu2 -> qiqiu2
@@ -36318,7 +36416,7 @@ com.froumobic.module.charge.saver.R$styleable -> com.froumobic.module.charge.sav
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1534:2115:void <clinit>() -> <clinit>
+    1536:2117:void <clinit>() -> <clinit>
 com.froumobic.module.charge.saver.Util.ADRequest -> com.froumobic.module.charge.saver.Util.a:
     16:17:void showFullAD() -> a
 com.froumobic.module.charge.saver.Util.Utils -> com.froumobic.module.charge.saver.Util.b:
@@ -36409,38 +36507,38 @@ com.froumobic.module.charge.saver.service.BatteryService -> com.froumobic.module
     java.lang.Runnable batteryChangeRunnable -> i
     android.content.BroadcastReceiver mReceiver -> b
     com.froumobic.module.charge.saver.view.BatteryView$UnlockListener horUnlock -> c
-    30:193:void <init>() -> <init>
-    70:74:boolean isScreenOn() -> a
-    97:101:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    105:111:void batteryChange(android.content.Intent) -> a
-    116:116:android.os.IBinder onBind(android.content.Intent) -> onBind
-    121:129:void onCreate() -> onCreate
-    133:140:void onDestroy() -> onDestroy
-    143:191:void showChargeView() -> b
-    30:30:boolean access$000(com.froumobic.module.charge.saver.service.BatteryService) -> a
-    30:30:void access$100(com.froumobic.module.charge.saver.service.BatteryService) -> b
-    30:30:com.froumobic.module.charge.saver.Util.WidgetContainer access$200(com.froumobic.module.charge.saver.service.BatteryService) -> c
-    30:30:com.froumobic.module.charge.saver.view.BatteryView access$300(com.froumobic.module.charge.saver.service.BatteryService) -> d
-    30:30:java.lang.Runnable access$400(com.froumobic.module.charge.saver.service.BatteryService) -> e
-    30:30:android.os.Handler access$500(com.froumobic.module.charge.saver.service.BatteryService) -> f
-    30:30:com.froumobic.module.charge.saver.Util.WidgetContainer access$202(com.froumobic.module.charge.saver.service.BatteryService,com.froumobic.module.charge.saver.Util.WidgetContainer) -> a
-    30:30:com.froumobic.module.charge.saver.view.BatteryView access$302(com.froumobic.module.charge.saver.service.BatteryService,com.froumobic.module.charge.saver.view.BatteryView) -> a
+    31:201:void <init>() -> <init>
+    71:75:boolean isScreenOn() -> a
+    98:102:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    106:112:void batteryChange(android.content.Intent) -> a
+    117:117:android.os.IBinder onBind(android.content.Intent) -> onBind
+    122:130:void onCreate() -> onCreate
+    134:141:void onDestroy() -> onDestroy
+    144:199:void showChargeView() -> b
+    31:31:boolean access$000(com.froumobic.module.charge.saver.service.BatteryService) -> a
+    31:31:void access$100(com.froumobic.module.charge.saver.service.BatteryService) -> b
+    31:31:com.froumobic.module.charge.saver.Util.WidgetContainer access$200(com.froumobic.module.charge.saver.service.BatteryService) -> c
+    31:31:com.froumobic.module.charge.saver.view.BatteryView access$300(com.froumobic.module.charge.saver.service.BatteryService) -> d
+    31:31:java.lang.Runnable access$400(com.froumobic.module.charge.saver.service.BatteryService) -> e
+    31:31:android.os.Handler access$500(com.froumobic.module.charge.saver.service.BatteryService) -> f
+    31:31:com.froumobic.module.charge.saver.Util.WidgetContainer access$202(com.froumobic.module.charge.saver.service.BatteryService,com.froumobic.module.charge.saver.Util.WidgetContainer) -> a
+    31:31:com.froumobic.module.charge.saver.view.BatteryView access$302(com.froumobic.module.charge.saver.service.BatteryService,com.froumobic.module.charge.saver.view.BatteryView) -> a
 com.froumobic.module.charge.saver.service.BatteryService$1 -> com.froumobic.module.charge.saver.service.BatteryService$1:
     com.froumobic.module.charge.saver.service.BatteryService this$0 -> a
-    42:42:void <init>(com.froumobic.module.charge.saver.service.BatteryService) -> <init>
-    45:53:void run() -> run
+    43:43:void <init>(com.froumobic.module.charge.saver.service.BatteryService) -> <init>
+    46:54:void run() -> run
 com.froumobic.module.charge.saver.service.BatteryService$2 -> com.froumobic.module.charge.saver.service.BatteryService$2:
     com.froumobic.module.charge.saver.service.BatteryService this$0 -> a
-    56:56:void <init>(com.froumobic.module.charge.saver.service.BatteryService) -> <init>
-    62:65:void run() -> run
+    57:57:void <init>(com.froumobic.module.charge.saver.service.BatteryService) -> <init>
+    63:66:void run() -> run
 com.froumobic.module.charge.saver.service.BatteryService$3 -> com.froumobic.module.charge.saver.service.BatteryService$3:
     com.froumobic.module.charge.saver.service.BatteryService this$0 -> a
-    78:78:void <init>(com.froumobic.module.charge.saver.service.BatteryService) -> <init>
-    81:92:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    79:79:void <init>(com.froumobic.module.charge.saver.service.BatteryService) -> <init>
+    82:93:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.froumobic.module.charge.saver.service.BatteryService$4 -> com.froumobic.module.charge.saver.service.BatteryService$4:
     com.froumobic.module.charge.saver.service.BatteryService this$0 -> a
-    193:193:void <init>(com.froumobic.module.charge.saver.service.BatteryService) -> <init>
-    196:202:void onUnlock() -> a
+    201:201:void <init>(com.froumobic.module.charge.saver.service.BatteryService) -> <init>
+    204:210:void onUnlock() -> a
 com.froumobic.module.charge.saver.view.BatteryView -> com.froumobic.module.charge.saver.view.BatteryView:
     android.content.Context mContext -> a
     android.view.GestureDetector detector -> b
@@ -36470,67 +36568,57 @@ com.froumobic.module.charge.saver.view.BatteryView -> com.froumobic.module.charg
     android.content.BroadcastReceiver timerUpdateReceiver -> z
     android.content.IntentFilter mIntentFilter -> A
     int progress -> B
-    41:160:void <init>(android.content.Context) -> <init>
-    41:160:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    41:160:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    41:166:void <init>(android.content.Context) -> <init>
+    41:166:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    41:166:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     85:86:void setUnlockListener(com.froumobic.module.charge.saver.view.BatteryView$UnlockListener) -> setUnlockListener
-    99:141:void showNativeAD() -> f
-    144:158:void updateTime() -> a
-    163:201:void bind(com.froumobic.module.charge.saver.entry.BatteryEntry) -> a
-    211:221:void initShell() -> g
-    225:235:void initWater() -> h
-    240:343:void onFinishInflate() -> onFinishInflate
-    346:363:void initViews() -> i
-    366:369:void pauseBubble() -> b
-    372:375:void reStartBubble() -> c
-    379:386:void onAttachedToWindow() -> onAttachedToWindow
-    390:415:void onDetachedFromWindow() -> onDetachedFromWindow
-    418:422:int analysisJson(org.json.JSONObject) -> a
-    427:434:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    437:439:void registerTimeUpdateReceiver() -> d
-    442:444:void unregisterTimeUpdateReceiver() -> e
+    99:147:void showNativeAD() -> f
+    150:164:void updateTime() -> a
+    169:207:void bind(com.froumobic.module.charge.saver.entry.BatteryEntry) -> a
+    246:349:void onFinishInflate() -> onFinishInflate
+    352:369:void initViews() -> g
+    372:375:void pauseBubble() -> b
+    378:381:void reStartBubble() -> c
+    385:392:void onAttachedToWindow() -> onAttachedToWindow
+    396:421:void onDetachedFromWindow() -> onDetachedFromWindow
+    424:428:int analysisJson(org.json.JSONObject) -> a
+    433:440:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    443:445:void registerTimeUpdateReceiver() -> d
+    448:450:void unregisterTimeUpdateReceiver() -> e
     36:36:android.view.GestureDetector access$000(com.froumobic.module.charge.saver.view.BatteryView) -> a
     36:36:int access$100(com.froumobic.module.charge.saver.view.BatteryView) -> b
     36:36:com.froumobic.module.charge.saver.view.BatteryView$UnlockListener access$200(com.froumobic.module.charge.saver.view.BatteryView) -> c
-    36:36:int access$302(com.froumobic.module.charge.saver.view.BatteryView,int) -> a
-    36:36:int access$300(com.froumobic.module.charge.saver.view.BatteryView) -> d
-    36:36:com.sample.lottie.LottieAnimationView access$400(com.froumobic.module.charge.saver.view.BatteryView) -> e
-    36:36:android.widget.LinearLayout access$500(com.froumobic.module.charge.saver.view.BatteryView) -> f
-    36:36:float access$600(com.froumobic.module.charge.saver.view.BatteryView) -> g
-    36:36:com.froumobic.module.charge.saver.view.BatteryView access$700(com.froumobic.module.charge.saver.view.BatteryView) -> h
-    36:36:float access$602(com.froumobic.module.charge.saver.view.BatteryView,float) -> a
-    36:36:android.content.Context access$800(com.froumobic.module.charge.saver.view.BatteryView) -> i
-    36:36:android.widget.CheckBox access$900(com.froumobic.module.charge.saver.view.BatteryView) -> j
+    36:36:android.widget.LinearLayout access$300(com.froumobic.module.charge.saver.view.BatteryView) -> d
+    36:36:float access$400(com.froumobic.module.charge.saver.view.BatteryView) -> e
+    36:36:com.froumobic.module.charge.saver.view.BatteryView access$500(com.froumobic.module.charge.saver.view.BatteryView) -> f
+    36:36:float access$402(com.froumobic.module.charge.saver.view.BatteryView,float) -> a
+    36:36:android.content.Context access$600(com.froumobic.module.charge.saver.view.BatteryView) -> g
+    36:36:android.widget.CheckBox access$700(com.froumobic.module.charge.saver.view.BatteryView) -> h
 com.froumobic.module.charge.saver.view.BatteryView$1 -> com.froumobic.module.charge.saver.view.BatteryView$1:
     com.froumobic.module.charge.saver.view.BatteryView this$0 -> a
     88:88:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
     91:92:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.froumobic.module.charge.saver.view.BatteryView$2 -> com.froumobic.module.charge.saver.view.BatteryView$2:
     com.froumobic.module.charge.saver.view.BatteryView this$0 -> a
-    115:115:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
-    118:138:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    121:121:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
+    124:144:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.froumobic.module.charge.saver.view.BatteryView$3 -> com.froumobic.module.charge.saver.view.BatteryView$3:
-    int val$le -> a
-    com.froumobic.module.charge.saver.view.BatteryView this$0 -> b
-    173:173:void <init>(com.froumobic.module.charge.saver.view.BatteryView,int) -> <init>
-    176:185:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    com.froumobic.module.charge.saver.view.BatteryView this$0 -> a
+    258:258:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
+    261:277:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.froumobic.module.charge.saver.view.BatteryView$4 -> com.froumobic.module.charge.saver.view.BatteryView$4:
     com.froumobic.module.charge.saver.view.BatteryView this$0 -> a
-    252:252:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
-    255:271:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    280:280:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
+    283:287:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    292:300:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.froumobic.module.charge.saver.view.BatteryView$5 -> com.froumobic.module.charge.saver.view.BatteryView$5:
     com.froumobic.module.charge.saver.view.BatteryView this$0 -> a
-    274:274:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
-    277:281:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    286:294:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    311:311:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
+    314:317:void onClick(android.view.View) -> onClick
 com.froumobic.module.charge.saver.view.BatteryView$6 -> com.froumobic.module.charge.saver.view.BatteryView$6:
     com.froumobic.module.charge.saver.view.BatteryView this$0 -> a
-    305:305:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
-    308:311:void onClick(android.view.View) -> onClick
-com.froumobic.module.charge.saver.view.BatteryView$7 -> com.froumobic.module.charge.saver.view.BatteryView$7:
-    com.froumobic.module.charge.saver.view.BatteryView this$0 -> a
-    323:323:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
-    326:340:void onClick(android.view.View) -> onClick
+    329:329:void <init>(com.froumobic.module.charge.saver.view.BatteryView) -> <init>
+    332:346:void onClick(android.view.View) -> onClick
 com.froumobic.module.charge.saver.view.BatteryView$UnlockListener -> com.froumobic.module.charge.saver.view.BatteryView$a:
     void onUnlock() -> a
 com.froumobic.module.charge.saver.view.BubbleLayout -> com.froumobic.module.charge.saver.view.BubbleLayout:

@@ -187,7 +187,7 @@ public class FileActivity extends MBaseActivity {
     private void initAd() {
 
         if (PreData.getDB(this, Constant.FULL_FILE, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(AdUtil.DEFAULT_FULL);
         } else {
             int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
             if (a == 1) {

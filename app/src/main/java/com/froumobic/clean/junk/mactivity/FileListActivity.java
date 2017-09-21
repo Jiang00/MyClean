@@ -86,7 +86,7 @@ public class FileListActivity extends MBaseActivity {
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(AdUtil.DEFAULT_FULL);
                 }
             }, 1000);
         } else {
@@ -97,7 +97,7 @@ public class FileListActivity extends MBaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT_FULL,null);
         name = getIntent().getStringExtra("name");
         nameId = getIntent().getIntExtra("nameId", 0);
         if (name == null) {

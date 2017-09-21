@@ -1,6 +1,7 @@
 package com.froumobic.module.charge.saver.service;
 
 import android.annotation.TargetApi;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -148,8 +149,15 @@ public class BatteryService extends Service {
             if (entry == null || !entry.isCharging()) {
                 return;
             }
-            Intent intent = new Intent(this, ChargeActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            Intent intent = new Intent(this, ChargeActivity.class);
+//            getApplicationContext().startActivity(intent);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            try {
+                pendingIntent.send();
+            } catch (PendingIntent.CanceledException e) {
+                e.printStackTrace();
+            }
             return;
         }
 

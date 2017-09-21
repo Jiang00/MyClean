@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f4f7fd"
+    android:background="@color/white_100"
     android:orientation="vertical">
 
     <LinearLayout
@@ -25,47 +25,76 @@
             <include layout="@layout/layout_title" />
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="@dimen/d40"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d36"
-                android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d16"
+                android:src="@mipmap/gboost_side" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:src="@mipmap/gboost_1" />
+            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d10"
+                android:layout_weight="1"
+                android:text="@string/gboost_1"
+                android:textColor="#b341434a"
+                android:textSize="@dimen/s15"
+                app:typeface="ljh_1.TTF" />
 
-                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d10"
-                    android:text="@string/gboost_1"
-                    android:textColor="#b341434a"
-                    android:textSize="@dimen/s15"
-                    app:typeface="ljh_1.TTF" />
-            </LinearLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/gboost_recyc"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginRight="@dimen/d8"
-                    android:overScrollMode="never" />
-            </FrameLayout>
+            <ImageView
+                android:id="@+id/gboost_add_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/d10"
+                android:padding="@dimen/d6"
+                android:src="@mipmap/gboost_add" />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/B1" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/gboost_recyc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/d20"
+                android:layout_marginRight="@dimen/d20"
+                android:overScrollMode="never" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56"
+            android:layout_gravity="bottom">
+
+            <Button
+                android:id="@+id/junk_button_clean"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d56"
+                android:layout_centerInParent="true"
+                android:background="@color/A1"
+                android:text="@string/ram_button"
+                android:textAllCaps="false"
+                android:textColor="@color/A8"
+                android:textSize="@dimen/s20"
+                android:visibility="visible" />
+        </RelativeLayout>
 
     </LinearLayout>
 

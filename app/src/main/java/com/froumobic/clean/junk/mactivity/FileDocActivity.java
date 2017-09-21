@@ -84,7 +84,7 @@ public class FileDocActivity extends MBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file_doc);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT_FULL,null);
         title_name.setText(R.string.file_txt);
         loadAd();
         setListenet();
@@ -108,7 +108,7 @@ public class FileDocActivity extends MBaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FILE_2, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(AdUtil.DEFAULT_FULL);
         } else {
             addAd();
         }

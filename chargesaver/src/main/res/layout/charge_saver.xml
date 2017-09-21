@@ -167,7 +167,7 @@
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom">
 
@@ -190,7 +190,7 @@
                 <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/battery_level"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/d18"
                     android:gravity="center"
@@ -199,6 +199,27 @@
                     android:textSize="@dimen/s16"
                     app:typeface="Roboto-Light.ttf" />
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d18"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/charging_back" />
+
+                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/unlock"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s20"
+                        app:typeface="Roboto-Light.ttf" />
+                </LinearLayout>
 
                 <ImageView
                     android:layout_width="@dimen/d24"

@@ -74,7 +74,7 @@ public class DeepActivity extends MBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT_FULL,null);
         mHandler = new Handler();
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", false));
         initData();
