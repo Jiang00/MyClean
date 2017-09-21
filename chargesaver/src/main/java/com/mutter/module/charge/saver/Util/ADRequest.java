@@ -20,7 +20,7 @@ public class ADRequest {
         View adView = null;
         if (AndroidSdk.hasNativeAd(adTag)) {
             adView = AndroidSdk.peekNativeAdViewWithLayout(adTag,
-                    R.layout.native_ad_2,
+                    layoutID,
                     new ClientNativeAd.NativeAdClickListener() {
                         @Override
                         public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
