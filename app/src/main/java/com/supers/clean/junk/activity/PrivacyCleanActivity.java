@@ -2,7 +2,9 @@ package com.supers.clean.junk.activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -72,6 +74,7 @@ public class PrivacyCleanActivity extends BaseActivity implements View.OnClickLi
     private int strangeSmsCheckCount = 0;
     private int dismissCallCheckCount = 0;
     private int strangeCallCheckCount = 0;
+    private String defaultName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -323,11 +326,26 @@ public class PrivacyCleanActivity extends BaseActivity implements View.OnClickLi
                     privacyClean.cleanCut();
                 }
 
-                deleteCheckedSms();
-
                 deleteCheckedCall();
 
-                goToSuccessPage();
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    final String myPackageName = getPackageName();
+                    defaultName = Telephony.Sms.getDefaultSmsPackage(PrivacyCleanActivity.this);
+                    if (!Telephony.Sms.getDefaultSmsPackage(PrivacyCleanActivity.this).equals(myPackageName)) {
+                        Intent intent = new Intent(Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT);
+                        intent.putExtra(Telephony.Sms.Intents.EXTRA_PACKAGE_NAME, myPackageName);
+                        startActivityForResult(intent, 101);
+                    } else {
+                        deleteCheckedSms();
+//                        startAnimation
+                        goToSuccessPage();
+                    }
+                } else {
+                    deleteCheckedSms();
+//                    startAnimation
+                    goToSuccessPage();
+                }
 
                 dialog.dismiss();
             }
@@ -531,5 +549,23 @@ public class PrivacyCleanActivity extends BaseActivity implements View.OnClickLi
         }
 
         clean.setText(getString(R.string.junk_button) + "( " + checkNum + " )");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 101) {
+            deleteCheckedSms();
+            if (Telephony.Sms.getDefaultSmsPackage(PrivacyCleanActivity.this).equals(getPackageName())) {
+                Intent intent = new Intent(Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT);
+                intent.putExtra(Telephony.Sms.Intents.EXTRA_PACKAGE_NAME, defaultName);
+                startActivityForResult(intent, 102);
+            } else {
+//                startAnimation();
+                goToSuccessPage();
+            }
+        } else if (requestCode == 102) {
+//            startAnimation();
+            goToSuccessPage();
+        }
     }
 }

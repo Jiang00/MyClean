@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_100"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d24"
+        android:background="@color/A1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d56"
+        android:background="@color/A1">
+
+        <FrameLayout
+            android:id="@+id/title_left"
+            android:layout_width="@dimen/d72"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/title_icon"
+                android:layout_width="@dimen/d40"
+                android:layout_height="@dimen/d40"
+                android:layout_gravity="center"
+                android:padding="@dimen/d8"
+                android:src="@mipmap/tilte_left" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/title_left"
+            android:text="@string/call_2"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s18" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/null_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/d16"
+            android:text="@string/call_1"
+            android:textColor="@color/A9"
+            android:textSize="@dimen/s16"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="?android:attr/progressBarStyleInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:indeterminateTint="@color/A1"
+            android:indeterminateTintMode="src_atop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/call_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/A8" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

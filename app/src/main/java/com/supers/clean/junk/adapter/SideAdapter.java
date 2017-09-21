@@ -21,6 +21,7 @@ import com.android.theme.internal.data.Theme;
 import com.eos.eshop.ShopMaster;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
+import com.fraumobi.call.activity.CallActivity;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.FileActivity;
@@ -52,8 +53,9 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static final int MANAGER = idx++;
     private static final int FILE = idx++;
     private static final int POWER = idx++;
+    private static final int CALL = idx++;
     private static final int WIFI = idx++;
-//    private static final int LAG_SETTING = idx++;
+    //    private static final int LAG_SETTING = idx++;
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
     private static final int GBOOST = idx++;
@@ -215,6 +217,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             PreData.putDB(context, Constant.DEEP_CLEAN, true);
             AdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, PowerActivity.class);
+            ((Activity) context).startActivityForResult(intent5, 1);
+        } else if (position == CALL) {
+            AdUtil.track("侧边栏", "点击进入骚扰拦截页面", "", 1);
+            Intent intent5 = new Intent(context, CallActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == NOTIFI) {
             AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);

@@ -160,7 +160,7 @@ public class PrivacyActivity extends BaseActivity {
                         break;
                     case CALL_MESSAGE:
                         int callCount = 0;
-                        
+
                         for (CallEntity smsEntity : dissmissCallEntities) {
                             if (smsEntity.isChecked) {
                                 callCount += smsEntity.idList.size();

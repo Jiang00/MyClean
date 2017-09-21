@@ -18,6 +18,7 @@ import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
+import com.fraumobi.call.service.PhoneService;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.service.AutoService;
 import com.supers.clean.junk.service.FloatService;
@@ -86,7 +87,8 @@ public class MyApplication extends App {
         Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.loading_icon);
 
         CleanManager.getInstance(this).startLoad();
-
+//
+        startService(new Intent(this, PhoneService.class));
 
         if (PreData.getDB(this, Constant.FlOAT_SWITCH, true)) {
             Intent intent1 = new Intent(this, FloatService.class);

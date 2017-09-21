@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contactRootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_100"
+    android:orientation="vertical"
+    android:paddingRight="@dimen/d16">
+
+    <TextView
+        android:id="@+id/catalog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_100"
+        android:paddingLeft="@dimen/d16"
+        android:textSize="@dimen/s16" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#f1f1f1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d56">
+
+        <ImageView
+            android:id="@+id/contact_head_icon"
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
+            android:scaleType="center"
+            android:src="@mipmap/call_icon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/contact_head_icon"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/contact_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="name"
+                android:textColor="@color/black_87"
+                android:textSize="@dimen/s14" />
+
+            <TextView
+                android:id="@+id/contact_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d5"
+                android:text="number"
+                android:textColor="@color/black_54"
+                android:textSize="@dimen/s11" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/contactCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/d8"
+            android:scaleType="center"
+            android:src="@mipmap/no_checked" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#f1f1f1" />
+</LinearLayout>

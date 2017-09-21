@@ -35149,6 +35149,7 @@ com.eos.module.charge.saver.R$color -> com.eos.module.charge.saver.a$b:
     int A4 -> A4
     int A5 -> A5
     int A6 -> A6
+    int A6_54 -> A6_54
     int A6_87 -> A6_87
     int A7 -> A7
     int A8 -> A8
@@ -35178,12 +35179,16 @@ com.eos.module.charge.saver.R$color -> com.eos.module.charge.saver.a$b:
     int abc_secondary_text_material_light -> abc_secondary_text_material_light
     int accent_material_dark -> accent_material_dark
     int accent_material_light -> accent_material_light
+    int app_color_first -> app_color_first
+    int app_color_second -> app_color_second
+    int app_color_third -> app_color_third
     int app_pro -> app_pro
     int background_floating_material_dark -> background_floating_material_dark
     int background_floating_material_light -> background_floating_material_light
     int background_material_dark -> background_material_dark
     int background_material_light -> background_material_light
     int black_100 -> black_100
+    int black_20 -> black_20
     int black_35 -> black_35
     int black_50 -> black_50
     int black_54 -> black_54
@@ -35197,6 +35202,9 @@ com.eos.module.charge.saver.R$color -> com.eos.module.charge.saver.a$b:
     int bright_foreground_material_light -> bright_foreground_material_light
     int button_material_dark -> button_material_dark
     int button_material_light -> button_material_light
+    int colorAccent -> colorAccent
+    int colorPrimary -> colorPrimary
+    int colorPrimaryDark -> colorPrimaryDark
     int design_fab_shadow_end_color -> design_fab_shadow_end_color
     int design_fab_shadow_mid_color -> design_fab_shadow_mid_color
     int design_fab_shadow_start_color -> design_fab_shadow_start_color
@@ -35229,6 +35237,12 @@ com.eos.module.charge.saver.R$color -> com.eos.module.charge.saver.a$b:
     int hint_foreground_material_dark -> hint_foreground_material_dark
     int hint_foreground_material_light -> hint_foreground_material_light
     int list_progress_green -> list_progress_green
+    int load_1 -> load_1
+    int load_2 -> load_2
+    int load_3 -> load_3
+    int load_4 -> load_4
+    int load_5 -> load_5
+    int load_6 -> load_6
     int main_back -> main_back
     int main_circle_backg -> main_circle_backg
     int main_circle_first -> main_circle_first
@@ -35627,6 +35641,13 @@ com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$f:
     int appbar_scrolling_view_behavior -> appbar_scrolling_view_behavior
     int battery_jiance -> battery_jiance
     int bottom_sheet_behavior -> bottom_sheet_behavior
+    int call_1 -> call_1
+    int call_2 -> call_2
+    int call_add_jilu -> call_add_jilu
+    int call_add_shou -> call_add_shou
+    int call_add_tongxunlu -> call_add_tongxunlu
+    int call_lanjie -> call_lanjie
+    int call_shanchu -> call_shanchu
     int character_counter_pattern -> character_counter_pattern
     int charge_screen_save -> charge_screen_save
     int charging_on_left -> charging_on_left
@@ -36256,7 +36277,7 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$g:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1708:2289:void <clinit>() -> <clinit>
+    1730:2311:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.ADRequest -> com.eos.module.charge.saver.Util.a:
     16:16:void <init>() -> <init>
     19:20:void showFullAD() -> a
@@ -38133,6 +38154,868 @@ com.eos.ui.demo.view.CustomTextView -> com.eos.ui.demo.view.CustomTextView:
     17:29:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     32:39:void obtainAttributes(android.util.AttributeSet) -> a
     42:48:void setTypeface(java.lang.String) -> setTypeface
+com.fraumobi.call.Utils.Util -> com.fraumobi.call.a.a:
+    37:40:boolean isChinese() -> a
+    44:47:boolean isEnglish() -> b
+    56:71:void writeData(android.content.Context,java.lang.String,java.lang.Object) -> a
+    74:81:java.lang.Object readData(android.content.Context,java.lang.String,java.lang.Object) -> b
+    103:127:java.lang.String resetPhoneNum(java.lang.String) -> a
+    131:137:java.lang.String resetPhoneNumber(java.lang.String) -> b
+com.fraumobi.call.activity.BaseActivity -> com.fraumobi.call.activity.BaseActivity:
+    java.lang.String tuiguang -> a
+    boolean onPause -> b
+    boolean onDestroyed -> c
+    boolean onResume -> d
+    android.content.BroadcastReceiver mBroadcastReceiver -> e
+    36:48:void <init>() -> <init>
+    75:79:java.util.Locale getSystemLanguage() -> a
+    85:100:void onCreate(android.os.Bundle) -> onCreate
+    124:124:void languageChange() -> b
+    129:141:void changeAppLanguage(java.lang.String) -> a
+    145:148:void onResume() -> onResume
+    152:155:void onPause() -> onPause
+    159:163:void onDestroy() -> onDestroy
+    167:169:void setContentView(int) -> setContentView
+    173:173:void findId() -> c
+    228:237:void setTranslucentStatus(boolean) -> a
+    240:247:void full() -> d
+    251:264:void setHideVirtualKey(android.view.Window) -> a
+    36:36:void access$000(com.fraumobi.call.activity.BaseActivity,java.lang.String) -> a
+com.fraumobi.call.activity.BaseActivity$1 -> com.fraumobi.call.activity.BaseActivity$1:
+    com.fraumobi.call.activity.BaseActivity this$0 -> a
+    48:48:void <init>(com.fraumobi.call.activity.BaseActivity) -> <init>
+    51:70:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.fraumobi.call.activity.BaseActivity$2 -> com.fraumobi.call.activity.BaseActivity$2:
+    com.fraumobi.call.activity.BaseActivity this$0 -> a
+    241:241:void <init>(com.fraumobi.call.activity.BaseActivity) -> <init>
+    244:245:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+com.fraumobi.call.activity.CallActivity -> com.fraumobi.call.activity.CallActivity:
+    java.util.ArrayList contactsList -> e
+    android.widget.ListView call_list -> f
+    android.widget.TextView call_delete -> g
+    android.widget.TextView null_call -> h
+    android.widget.FrameLayout title_left -> i
+    android.widget.ImageView title_setting -> j
+    android.widget.LinearLayout add_check -> k
+    android.widget.FrameLayout add_check_fl -> l
+    android.widget.TextView check_tongxun -> m
+    android.widget.TextView check_jilu -> n
+    android.widget.TextView check_shou -> o
+    android.widget.ImageView title_checked -> p
+    com.fraumobi.call.adapter.CallAdapter adapter -> q
+    java.util.ArrayList blockList -> s
+    android.view.View$OnClickListener clickListener -> r
+    java.lang.Runnable fetcherContactsRunnable -> t
+    43:200:void <init>() -> <init>
+    60:71:void findId() -> c
+    75:99:void onCreate(android.os.Bundle) -> onCreate
+    102:113:void updateTitle() -> e
+    168:178:void initData() -> f
+    182:186:void getBlockListData() -> g
+    190:194:void deleteBlockListItemFromTable(com.fraumobi.call.entries.RejectInfo) -> a
+    197:198:void startFetcherContacts() -> d
+    208:222:void startReadContacts() -> h
+    43:43:void access$000(com.fraumobi.call.activity.CallActivity) -> a
+    43:43:java.util.ArrayList access$100(com.fraumobi.call.activity.CallActivity) -> b
+    43:43:void access$200(com.fraumobi.call.activity.CallActivity,com.fraumobi.call.entries.RejectInfo) -> a
+    43:43:void access$300(com.fraumobi.call.activity.CallActivity) -> c
+com.fraumobi.call.activity.CallActivity$1 -> com.fraumobi.call.activity.CallActivity$1:
+    com.fraumobi.call.activity.CallActivity this$0 -> a
+    90:90:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
+    93:96:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.fraumobi.call.activity.CallActivity$2 -> com.fraumobi.call.activity.CallActivity$2:
+    com.fraumobi.call.activity.CallActivity this$0 -> a
+    115:115:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
+    118:164:void onClick(android.view.View) -> onClick
+com.fraumobi.call.activity.CallActivity$3 -> com.fraumobi.call.activity.CallActivity$3:
+    com.fraumobi.call.activity.CallActivity this$0 -> a
+    200:200:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
+    203:204:void run() -> run
+com.fraumobi.call.activity.CallName2Activity -> com.fraumobi.call.activity.CallName2Activity:
+    com.fraumobi.call.adapter.CallAdapter adapter -> e
+    android.widget.ListView call_list -> f
+    android.widget.FrameLayout title_left -> g
+    android.widget.ProgressBar progressbar -> h
+    android.widget.TextView null_call -> i
+    android.view.View$OnClickListener clickListener -> j
+    29:83:void <init>() -> <init>
+    39:43:void findId() -> c
+    47:55:void onCreate(android.os.Bundle) -> onCreate
+    58:77:void initData() -> e
+    80:81:void setClick() -> f
+    95:144:java.util.ArrayList queryCall() -> d
+com.fraumobi.call.activity.CallName2Activity$1 -> com.fraumobi.call.activity.CallName2Activity$1:
+    com.fraumobi.call.activity.CallName2Activity this$0 -> a
+    58:58:void <init>(com.fraumobi.call.activity.CallName2Activity) -> <init>
+    61:75:void run() -> run
+com.fraumobi.call.activity.CallName2Activity$1$1 -> com.fraumobi.call.activity.CallName2Activity$1$1:
+    java.util.ArrayList val$call_list -> a
+    com.fraumobi.call.activity.CallName2Activity$1 this$1 -> b
+    62:62:void <init>(com.fraumobi.call.activity.CallName2Activity$1,java.util.ArrayList) -> <init>
+    65:72:void run() -> run
+com.fraumobi.call.activity.CallName2Activity$2 -> com.fraumobi.call.activity.CallName2Activity$2:
+    com.fraumobi.call.activity.CallName2Activity this$0 -> a
+    83:83:void <init>(com.fraumobi.call.activity.CallName2Activity) -> <init>
+    86:90:void onClick(android.view.View) -> onClick
+com.fraumobi.call.activity.CallNameActivity -> com.fraumobi.call.activity.CallNameActivity:
+    android.support.v7.widget.RecyclerView mRecyclerView -> e
+    android.widget.FrameLayout title_left -> f
+    com.fraumobi.call.tools.sort.SideBar sideBar -> g
+    java.util.ArrayList allContactList -> h
+    com.fraumobi.call.adapter.BlockObjectListAdapter blockObjectListAdapter -> i
+    30:30:void <init>() -> <init>
+    39:42:void findId() -> c
+    46:58:void onCreate(android.os.Bundle) -> onCreate
+    61:78:void getBlockObjectListData() -> d
+    82:91:void onSelectStr(int,java.lang.String) -> a
+    96:96:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    101:101:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    106:106:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+com.fraumobi.call.activity.CallNameActivity$1 -> com.fraumobi.call.activity.CallNameActivity$1:
+    com.fraumobi.call.activity.CallNameActivity this$0 -> a
+    49:49:void <init>(com.fraumobi.call.activity.CallNameActivity) -> <init>
+    52:53:void onClick(android.view.View) -> onClick
+com.fraumobi.call.adapter.BlockObjectListAdapter -> com.fraumobi.call.b.a:
+    android.content.Context mContext -> a
+    java.util.ArrayList allContactList -> b
+    java.util.ArrayList selectedList -> c
+    30:34:void <init>(android.content.Context,java.util.ArrayList,java.util.ArrayList) -> <init>
+    43:44:com.fraumobi.call.adapter.BlockObjectListAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    49:84:void onBindViewHolder(com.fraumobi.call.adapter.BlockObjectListAdapter$MyViewHolder,int) -> a
+    88:88:int getItemCount() -> getItemCount
+    109:116:void addItemToTableBlock(com.fraumobi.call.entries.Contact) -> a
+    119:123:void deleteItemToTableBlock(com.fraumobi.call.entries.Contact) -> b
+    126:132:int getPositionForSection(java.lang.String) -> a
+    24:24:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    24:24:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    24:24:java.util.ArrayList access$000(com.fraumobi.call.adapter.BlockObjectListAdapter) -> a
+    24:24:void access$100(com.fraumobi.call.adapter.BlockObjectListAdapter,com.fraumobi.call.entries.Contact) -> a
+    24:24:void access$200(com.fraumobi.call.adapter.BlockObjectListAdapter,com.fraumobi.call.entries.Contact) -> b
+com.fraumobi.call.adapter.BlockObjectListAdapter$1 -> com.fraumobi.call.b.a$1:
+    com.fraumobi.call.entries.Contact val$contact -> a
+    com.fraumobi.call.adapter.BlockObjectListAdapter$MyViewHolder val$holder -> b
+    com.fraumobi.call.adapter.BlockObjectListAdapter this$0 -> c
+    70:70:void <init>(com.fraumobi.call.adapter.BlockObjectListAdapter,com.fraumobi.call.entries.Contact,com.fraumobi.call.adapter.BlockObjectListAdapter$MyViewHolder) -> <init>
+    73:82:void onClick(android.view.View) -> onClick
+com.fraumobi.call.adapter.BlockObjectListAdapter$MyViewHolder -> com.fraumobi.call.b.a$a:
+    android.widget.ImageView headIcon -> a
+    android.widget.TextView name -> b
+    android.widget.TextView phoneNum -> c
+    android.widget.ImageView checkBox -> d
+    android.widget.TextView catalog -> e
+    com.fraumobi.call.adapter.BlockObjectListAdapter this$0 -> f
+    98:105:void <init>(com.fraumobi.call.adapter.BlockObjectListAdapter,android.view.View) -> <init>
+com.fraumobi.call.adapter.CallAdapter -> com.fraumobi.call.b.b:
+    19:20:void <init>(android.content.Context) -> <init>
+    24:50:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.fraumobi.call.adapter.CallAdapter$ViewHolder -> com.fraumobi.call.b.b$a:
+    android.widget.ImageView icon -> a
+    android.widget.TextView time -> b
+    android.widget.ImageView checkBox -> c
+    android.widget.TextView name -> d
+    com.fraumobi.call.adapter.CallAdapter this$0 -> e
+    53:53:void <init>(com.fraumobi.call.adapter.CallAdapter) -> <init>
+com.fraumobi.call.adapter.MybaseAdapter -> com.fraumobi.call.b.c:
+    java.util.List list -> a
+    android.content.Context context -> b
+    android.view.LayoutInflater inflater -> c
+    21:26:void <init>(android.content.Context) -> <init>
+    29:29:java.util.List getData() -> a
+    45:46:void addDataList(java.util.List) -> a
+    61:62:void upList(java.util.List) -> b
+    74:74:int getCount() -> getCount
+    80:80:java.lang.Object getItem(int) -> getItem
+    86:86:long getItemId(int) -> getItemId
+com.fraumobi.call.database.Database -> com.fraumobi.call.c.a:
+    com.fraumobi.call.database.Database instance -> a
+    40:43:com.fraumobi.call.database.Database getInstance(android.content.Context) -> a
+    47:48:void <init>(android.content.Context) -> <init>
+    52:52:void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    55:73:boolean tableIsExist(android.database.sqlite.SQLiteDatabase,java.lang.String) -> a
+    93:96:void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+    101:104:void onDowngrade(android.database.sqlite.SQLiteDatabase,int,int) -> onDowngrade
+    111:115:void createTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String) -> b
+    119:133:void insertDataIntoTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.Contact) -> a
+    136:154:java.util.ArrayList getDataFromTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String) -> c
+    159:163:void deleteDataFromTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.Contact) -> b
+    193:198:void createTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String) -> d
+    202:213:void insertDataToTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.RejectInfo) -> a
+    216:234:java.util.ArrayList getDataFromTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String) -> e
+    239:243:void deleteDataFromTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.RejectInfo) -> b
+    37:37:void <clinit>() -> <clinit>
+com.fraumobi.call.entries.Contact -> com.fraumobi.call.d.a:
+    java.lang.String _id -> a
+    java.lang.String name -> b
+    java.lang.String phoneNum -> c
+    java.lang.String nameToPinYin -> d
+    java.lang.String firstLetter -> e
+    boolean isChinese -> f
+    boolean isEnglish -> g
+    21:27:void <init>() -> <init>
+    21:48:void <init>(java.lang.String,java.lang.String,java.lang.String,boolean,boolean) -> <init>
+    51:51:java.lang.String getFirstLetter() -> a
+    55:55:java.lang.String getNameInPinYin() -> b
+    60:60:java.lang.String toString() -> toString
+    65:70:int compareTo(com.fraumobi.call.entries.Contact) -> a
+    14:14:int compareTo(java.lang.Object) -> compareTo
+com.fraumobi.call.entries.RejectInfo -> com.fraumobi.call.d.b:
+    java.lang.String name -> a
+    java.lang.String phoneNum -> b
+    java.lang.String date -> c
+    java.lang.String direct -> d
+    boolean isChecked -> e
+    15:20:void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> <init>
+    24:24:java.lang.String toString() -> toString
+com.fraumobi.call.receiver.BoostReceiver -> com.fraumobi.call.receiver.BoostReceiver:
+    14:14:void <init>() -> <init>
+    17:18:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.fraumobi.call.record.R -> com.fraumobi.call.e.a:
+com.fraumobi.call.record.R$id -> com.fraumobi.call.e.a$a:
+    int action0 -> action0
+    int action_bar -> action_bar
+    int action_bar_activity_content -> action_bar_activity_content
+    int action_bar_container -> action_bar_container
+    int action_bar_root -> action_bar_root
+    int action_bar_spinner -> action_bar_spinner
+    int action_bar_subtitle -> action_bar_subtitle
+    int action_bar_title -> action_bar_title
+    int action_context_bar -> action_context_bar
+    int action_divider -> action_divider
+    int action_menu_divider -> action_menu_divider
+    int action_menu_presenter -> action_menu_presenter
+    int action_mode_bar -> action_mode_bar
+    int action_mode_bar_stub -> action_mode_bar_stub
+    int action_mode_close_button -> action_mode_close_button
+    int activity_chooser_view_content -> activity_chooser_view_content
+    int add_check -> add_check
+    int add_check_fl -> add_check_fl
+    int alertTitle -> alertTitle
+    int always -> always
+    int beginning -> beginning
+    int blockObjectList -> blockObjectList
+    int buttonPanel -> buttonPanel
+    int call_check -> call_check
+    int call_delete -> call_delete
+    int call_icon -> call_icon
+    int call_list -> call_list
+    int call_name -> call_name
+    int call_time -> call_time
+    int cancel_action -> cancel_action
+    int catalog -> catalog
+    int check_jilu -> check_jilu
+    int check_shou -> check_shou
+    int check_tongxun -> check_tongxun
+    int checkbox -> checkbox
+    int chronometer -> chronometer
+    int collapseActionView -> collapseActionView
+    int contactCheckBox -> contactCheckBox
+    int contactRootView -> contactRootView
+    int contact_head_icon -> contact_head_icon
+    int contact_name -> contact_name
+    int contact_number -> contact_number
+    int contacts_side_bar -> contacts_side_bar
+    int contentPanel -> contentPanel
+    int custom -> custom
+    int customPanel -> customPanel
+    int decor_content_parent -> decor_content_parent
+    int default_activity_button -> default_activity_button
+    int disableHome -> disableHome
+    int edit_query -> edit_query
+    int end -> end
+    int end_padder -> end_padder
+    int expand_activities_button -> expand_activities_button
+    int expanded_menu -> expanded_menu
+    int home -> home
+    int homeAsUp -> homeAsUp
+    int icon -> icon
+    int ifRoom -> ifRoom
+    int image -> image
+    int info -> info
+    int item_touch_helper_previous_elevation -> item_touch_helper_previous_elevation
+    int line1 -> line1
+    int line3 -> line3
+    int listMode -> listMode
+    int list_item -> list_item
+    int media_actions -> media_actions
+    int middle -> middle
+    int multiply -> multiply
+    int never -> never
+    int none -> none
+    int normal -> normal
+    int null_call -> null_call
+    int parentPanel -> parentPanel
+    int progress_circular -> progress_circular
+    int progress_horizontal -> progress_horizontal
+    int progressbar -> progressbar
+    int radio -> radio
+    int rl -> rl
+    int screen -> screen
+    int scrollIndicatorDown -> scrollIndicatorDown
+    int scrollIndicatorUp -> scrollIndicatorUp
+    int scrollView -> scrollView
+    int search_badge -> search_badge
+    int search_bar -> search_bar
+    int search_button -> search_button
+    int search_close_btn -> search_close_btn
+    int search_edit_frame -> search_edit_frame
+    int search_go_btn -> search_go_btn
+    int search_mag_icon -> search_mag_icon
+    int search_plate -> search_plate
+    int search_src_text -> search_src_text
+    int search_voice_btn -> search_voice_btn
+    int select_dialog_listview -> select_dialog_listview
+    int shortcut -> shortcut
+    int showCustom -> showCustom
+    int showHome -> showHome
+    int showTitle -> showTitle
+    int spacer -> spacer
+    int split_action_bar -> split_action_bar
+    int src_atop -> src_atop
+    int src_in -> src_in
+    int src_over -> src_over
+    int status_bar_latest_event_content -> status_bar_latest_event_content
+    int submit_area -> submit_area
+    int tabMode -> tabMode
+    int text -> text
+    int text2 -> text2
+    int textSpacerNoButtons -> textSpacerNoButtons
+    int time -> time
+    int title -> title
+    int title_checked -> title_checked
+    int title_icon -> title_icon
+    int title_left -> title_left
+    int title_name -> title_name
+    int title_setting -> title_setting
+    int title_template -> title_template
+    int topPanel -> topPanel
+    int up -> up
+    int useLogo -> useLogo
+    int withText -> withText
+    int wrap_content -> wrap_content
+com.fraumobi.call.record.R$layout -> com.fraumobi.call.e.a$b:
+    int abc_action_bar_title_item -> abc_action_bar_title_item
+    int abc_action_bar_up_container -> abc_action_bar_up_container
+    int abc_action_bar_view_list_nav_layout -> abc_action_bar_view_list_nav_layout
+    int abc_action_menu_item_layout -> abc_action_menu_item_layout
+    int abc_action_menu_layout -> abc_action_menu_layout
+    int abc_action_mode_bar -> abc_action_mode_bar
+    int abc_action_mode_close_item_material -> abc_action_mode_close_item_material
+    int abc_activity_chooser_view -> abc_activity_chooser_view
+    int abc_activity_chooser_view_list_item -> abc_activity_chooser_view_list_item
+    int abc_alert_dialog_button_bar_material -> abc_alert_dialog_button_bar_material
+    int abc_alert_dialog_material -> abc_alert_dialog_material
+    int abc_dialog_title_material -> abc_dialog_title_material
+    int abc_expanded_menu_layout -> abc_expanded_menu_layout
+    int abc_list_menu_item_checkbox -> abc_list_menu_item_checkbox
+    int abc_list_menu_item_icon -> abc_list_menu_item_icon
+    int abc_list_menu_item_layout -> abc_list_menu_item_layout
+    int abc_list_menu_item_radio -> abc_list_menu_item_radio
+    int abc_popup_menu_item_layout -> abc_popup_menu_item_layout
+    int abc_screen_content_include -> abc_screen_content_include
+    int abc_screen_simple -> abc_screen_simple
+    int abc_screen_simple_overlay_action_mode -> abc_screen_simple_overlay_action_mode
+    int abc_screen_toolbar -> abc_screen_toolbar
+    int abc_search_dropdown_item_icons_2line -> abc_search_dropdown_item_icons_2line
+    int abc_search_view -> abc_search_view
+    int abc_select_dialog_material -> abc_select_dialog_material
+    int layout_call -> layout_call
+    int layout_call_item -> layout_call_item
+    int layout_call_jil -> layout_call_jil
+    int layout_call_name -> layout_call_name
+    int layout_contacts_item -> layout_contacts_item
+    int notification_media_action -> notification_media_action
+    int notification_media_cancel_action -> notification_media_cancel_action
+    int notification_template_big_media -> notification_template_big_media
+    int notification_template_big_media_narrow -> notification_template_big_media_narrow
+    int notification_template_lines -> notification_template_lines
+    int notification_template_media -> notification_template_media
+    int notification_template_part_chronometer -> notification_template_part_chronometer
+    int notification_template_part_time -> notification_template_part_time
+    int select_dialog_item_material -> select_dialog_item_material
+    int select_dialog_multichoice_material -> select_dialog_multichoice_material
+    int select_dialog_singlechoice_material -> select_dialog_singlechoice_material
+    int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
+com.fraumobi.call.record.R$mipmap -> com.fraumobi.call.e.a$c:
+    int call_check_all -> call_check_all
+    int call_icon -> call_icon
+    int call_setting -> call_setting
+    int checked -> checked
+    int no_checked -> no_checked
+    int tilte_left -> tilte_left
+com.fraumobi.call.record.R$styleable -> com.fraumobi.call.e.a$d:
+    int[] ActionBar -> ActionBar
+    int[] ActionBarLayout -> ActionBarLayout
+    int ActionBarLayout_android_layout_gravity -> ActionBarLayout_android_layout_gravity
+    int ActionBar_background -> ActionBar_background
+    int ActionBar_backgroundSplit -> ActionBar_backgroundSplit
+    int ActionBar_backgroundStacked -> ActionBar_backgroundStacked
+    int ActionBar_contentInsetEnd -> ActionBar_contentInsetEnd
+    int ActionBar_contentInsetLeft -> ActionBar_contentInsetLeft
+    int ActionBar_contentInsetRight -> ActionBar_contentInsetRight
+    int ActionBar_contentInsetStart -> ActionBar_contentInsetStart
+    int ActionBar_customNavigationLayout -> ActionBar_customNavigationLayout
+    int ActionBar_displayOptions -> ActionBar_displayOptions
+    int ActionBar_divider -> ActionBar_divider
+    int ActionBar_elevation -> ActionBar_elevation
+    int ActionBar_height -> ActionBar_height
+    int ActionBar_hideOnContentScroll -> ActionBar_hideOnContentScroll
+    int ActionBar_homeAsUpIndicator -> ActionBar_homeAsUpIndicator
+    int ActionBar_homeLayout -> ActionBar_homeLayout
+    int ActionBar_icon -> ActionBar_icon
+    int ActionBar_indeterminateProgressStyle -> ActionBar_indeterminateProgressStyle
+    int ActionBar_itemPadding -> ActionBar_itemPadding
+    int ActionBar_logo -> ActionBar_logo
+    int ActionBar_navigationMode -> ActionBar_navigationMode
+    int ActionBar_popupTheme -> ActionBar_popupTheme
+    int ActionBar_progressBarPadding -> ActionBar_progressBarPadding
+    int ActionBar_progressBarStyle -> ActionBar_progressBarStyle
+    int ActionBar_subtitle -> ActionBar_subtitle
+    int ActionBar_subtitleTextStyle -> ActionBar_subtitleTextStyle
+    int ActionBar_title -> ActionBar_title
+    int ActionBar_titleTextStyle -> ActionBar_titleTextStyle
+    int[] ActionMenuItemView -> ActionMenuItemView
+    int ActionMenuItemView_android_minWidth -> ActionMenuItemView_android_minWidth
+    int[] ActionMenuView -> ActionMenuView
+    int[] ActionMode -> ActionMode
+    int ActionMode_background -> ActionMode_background
+    int ActionMode_backgroundSplit -> ActionMode_backgroundSplit
+    int ActionMode_closeItemLayout -> ActionMode_closeItemLayout
+    int ActionMode_height -> ActionMode_height
+    int ActionMode_subtitleTextStyle -> ActionMode_subtitleTextStyle
+    int ActionMode_titleTextStyle -> ActionMode_titleTextStyle
+    int[] ActivityChooserView -> ActivityChooserView
+    int ActivityChooserView_expandActivityOverflowButtonDrawable -> ActivityChooserView_expandActivityOverflowButtonDrawable
+    int ActivityChooserView_initialActivityCount -> ActivityChooserView_initialActivityCount
+    int[] AlertDialog -> AlertDialog
+    int AlertDialog_android_layout -> AlertDialog_android_layout
+    int AlertDialog_buttonPanelSideLayout -> AlertDialog_buttonPanelSideLayout
+    int AlertDialog_listItemLayout -> AlertDialog_listItemLayout
+    int AlertDialog_listLayout -> AlertDialog_listLayout
+    int AlertDialog_multiChoiceItemLayout -> AlertDialog_multiChoiceItemLayout
+    int AlertDialog_singleChoiceItemLayout -> AlertDialog_singleChoiceItemLayout
+    int[] AppCompatImageView -> AppCompatImageView
+    int AppCompatImageView_android_src -> AppCompatImageView_android_src
+    int AppCompatImageView_srcCompat -> AppCompatImageView_srcCompat
+    int[] AppCompatTextView -> AppCompatTextView
+    int AppCompatTextView_android_textAppearance -> AppCompatTextView_android_textAppearance
+    int AppCompatTextView_textAllCaps -> AppCompatTextView_textAllCaps
+    int[] AppCompatTheme -> AppCompatTheme
+    int AppCompatTheme_actionBarDivider -> AppCompatTheme_actionBarDivider
+    int AppCompatTheme_actionBarItemBackground -> AppCompatTheme_actionBarItemBackground
+    int AppCompatTheme_actionBarPopupTheme -> AppCompatTheme_actionBarPopupTheme
+    int AppCompatTheme_actionBarSize -> AppCompatTheme_actionBarSize
+    int AppCompatTheme_actionBarSplitStyle -> AppCompatTheme_actionBarSplitStyle
+    int AppCompatTheme_actionBarStyle -> AppCompatTheme_actionBarStyle
+    int AppCompatTheme_actionBarTabBarStyle -> AppCompatTheme_actionBarTabBarStyle
+    int AppCompatTheme_actionBarTabStyle -> AppCompatTheme_actionBarTabStyle
+    int AppCompatTheme_actionBarTabTextStyle -> AppCompatTheme_actionBarTabTextStyle
+    int AppCompatTheme_actionBarTheme -> AppCompatTheme_actionBarTheme
+    int AppCompatTheme_actionBarWidgetTheme -> AppCompatTheme_actionBarWidgetTheme
+    int AppCompatTheme_actionButtonStyle -> AppCompatTheme_actionButtonStyle
+    int AppCompatTheme_actionDropDownStyle -> AppCompatTheme_actionDropDownStyle
+    int AppCompatTheme_actionMenuTextAppearance -> AppCompatTheme_actionMenuTextAppearance
+    int AppCompatTheme_actionMenuTextColor -> AppCompatTheme_actionMenuTextColor
+    int AppCompatTheme_actionModeBackground -> AppCompatTheme_actionModeBackground
+    int AppCompatTheme_actionModeCloseButtonStyle -> AppCompatTheme_actionModeCloseButtonStyle
+    int AppCompatTheme_actionModeCloseDrawable -> AppCompatTheme_actionModeCloseDrawable
+    int AppCompatTheme_actionModeCopyDrawable -> AppCompatTheme_actionModeCopyDrawable
+    int AppCompatTheme_actionModeCutDrawable -> AppCompatTheme_actionModeCutDrawable
+    int AppCompatTheme_actionModeFindDrawable -> AppCompatTheme_actionModeFindDrawable
+    int AppCompatTheme_actionModePasteDrawable -> AppCompatTheme_actionModePasteDrawable
+    int AppCompatTheme_actionModePopupWindowStyle -> AppCompatTheme_actionModePopupWindowStyle
+    int AppCompatTheme_actionModeSelectAllDrawable -> AppCompatTheme_actionModeSelectAllDrawable
+    int AppCompatTheme_actionModeShareDrawable -> AppCompatTheme_actionModeShareDrawable
+    int AppCompatTheme_actionModeSplitBackground -> AppCompatTheme_actionModeSplitBackground
+    int AppCompatTheme_actionModeStyle -> AppCompatTheme_actionModeStyle
+    int AppCompatTheme_actionModeWebSearchDrawable -> AppCompatTheme_actionModeWebSearchDrawable
+    int AppCompatTheme_actionOverflowButtonStyle -> AppCompatTheme_actionOverflowButtonStyle
+    int AppCompatTheme_actionOverflowMenuStyle -> AppCompatTheme_actionOverflowMenuStyle
+    int AppCompatTheme_activityChooserViewStyle -> AppCompatTheme_activityChooserViewStyle
+    int AppCompatTheme_alertDialogButtonGroupStyle -> AppCompatTheme_alertDialogButtonGroupStyle
+    int AppCompatTheme_alertDialogCenterButtons -> AppCompatTheme_alertDialogCenterButtons
+    int AppCompatTheme_alertDialogStyle -> AppCompatTheme_alertDialogStyle
+    int AppCompatTheme_alertDialogTheme -> AppCompatTheme_alertDialogTheme
+    int AppCompatTheme_android_windowAnimationStyle -> AppCompatTheme_android_windowAnimationStyle
+    int AppCompatTheme_android_windowIsFloating -> AppCompatTheme_android_windowIsFloating
+    int AppCompatTheme_autoCompleteTextViewStyle -> AppCompatTheme_autoCompleteTextViewStyle
+    int AppCompatTheme_borderlessButtonStyle -> AppCompatTheme_borderlessButtonStyle
+    int AppCompatTheme_buttonBarButtonStyle -> AppCompatTheme_buttonBarButtonStyle
+    int AppCompatTheme_buttonBarNegativeButtonStyle -> AppCompatTheme_buttonBarNegativeButtonStyle
+    int AppCompatTheme_buttonBarNeutralButtonStyle -> AppCompatTheme_buttonBarNeutralButtonStyle
+    int AppCompatTheme_buttonBarPositiveButtonStyle -> AppCompatTheme_buttonBarPositiveButtonStyle
+    int AppCompatTheme_buttonBarStyle -> AppCompatTheme_buttonBarStyle
+    int AppCompatTheme_buttonStyle -> AppCompatTheme_buttonStyle
+    int AppCompatTheme_buttonStyleSmall -> AppCompatTheme_buttonStyleSmall
+    int AppCompatTheme_checkboxStyle -> AppCompatTheme_checkboxStyle
+    int AppCompatTheme_checkedTextViewStyle -> AppCompatTheme_checkedTextViewStyle
+    int AppCompatTheme_colorAccent -> AppCompatTheme_colorAccent
+    int AppCompatTheme_colorButtonNormal -> AppCompatTheme_colorButtonNormal
+    int AppCompatTheme_colorControlActivated -> AppCompatTheme_colorControlActivated
+    int AppCompatTheme_colorControlHighlight -> AppCompatTheme_colorControlHighlight
+    int AppCompatTheme_colorControlNormal -> AppCompatTheme_colorControlNormal
+    int AppCompatTheme_colorPrimary -> AppCompatTheme_colorPrimary
+    int AppCompatTheme_colorPrimaryDark -> AppCompatTheme_colorPrimaryDark
+    int AppCompatTheme_colorSwitchThumbNormal -> AppCompatTheme_colorSwitchThumbNormal
+    int AppCompatTheme_controlBackground -> AppCompatTheme_controlBackground
+    int AppCompatTheme_dialogPreferredPadding -> AppCompatTheme_dialogPreferredPadding
+    int AppCompatTheme_dialogTheme -> AppCompatTheme_dialogTheme
+    int AppCompatTheme_dividerHorizontal -> AppCompatTheme_dividerHorizontal
+    int AppCompatTheme_dividerVertical -> AppCompatTheme_dividerVertical
+    int AppCompatTheme_dropDownListViewStyle -> AppCompatTheme_dropDownListViewStyle
+    int AppCompatTheme_dropdownListPreferredItemHeight -> AppCompatTheme_dropdownListPreferredItemHeight
+    int AppCompatTheme_editTextBackground -> AppCompatTheme_editTextBackground
+    int AppCompatTheme_editTextColor -> AppCompatTheme_editTextColor
+    int AppCompatTheme_editTextStyle -> AppCompatTheme_editTextStyle
+    int AppCompatTheme_homeAsUpIndicator -> AppCompatTheme_homeAsUpIndicator
+    int AppCompatTheme_imageButtonStyle -> AppCompatTheme_imageButtonStyle
+    int AppCompatTheme_listChoiceBackgroundIndicator -> AppCompatTheme_listChoiceBackgroundIndicator
+    int AppCompatTheme_listDividerAlertDialog -> AppCompatTheme_listDividerAlertDialog
+    int AppCompatTheme_listPopupWindowStyle -> AppCompatTheme_listPopupWindowStyle
+    int AppCompatTheme_listPreferredItemHeight -> AppCompatTheme_listPreferredItemHeight
+    int AppCompatTheme_listPreferredItemHeightLarge -> AppCompatTheme_listPreferredItemHeightLarge
+    int AppCompatTheme_listPreferredItemHeightSmall -> AppCompatTheme_listPreferredItemHeightSmall
+    int AppCompatTheme_listPreferredItemPaddingLeft -> AppCompatTheme_listPreferredItemPaddingLeft
+    int AppCompatTheme_listPreferredItemPaddingRight -> AppCompatTheme_listPreferredItemPaddingRight
+    int AppCompatTheme_panelBackground -> AppCompatTheme_panelBackground
+    int AppCompatTheme_panelMenuListTheme -> AppCompatTheme_panelMenuListTheme
+    int AppCompatTheme_panelMenuListWidth -> AppCompatTheme_panelMenuListWidth
+    int AppCompatTheme_popupMenuStyle -> AppCompatTheme_popupMenuStyle
+    int AppCompatTheme_popupWindowStyle -> AppCompatTheme_popupWindowStyle
+    int AppCompatTheme_radioButtonStyle -> AppCompatTheme_radioButtonStyle
+    int AppCompatTheme_ratingBarStyle -> AppCompatTheme_ratingBarStyle
+    int AppCompatTheme_ratingBarStyleIndicator -> AppCompatTheme_ratingBarStyleIndicator
+    int AppCompatTheme_ratingBarStyleSmall -> AppCompatTheme_ratingBarStyleSmall
+    int AppCompatTheme_searchViewStyle -> AppCompatTheme_searchViewStyle
+    int AppCompatTheme_seekBarStyle -> AppCompatTheme_seekBarStyle
+    int AppCompatTheme_selectableItemBackground -> AppCompatTheme_selectableItemBackground
+    int AppCompatTheme_selectableItemBackgroundBorderless -> AppCompatTheme_selectableItemBackgroundBorderless
+    int AppCompatTheme_spinnerDropDownItemStyle -> AppCompatTheme_spinnerDropDownItemStyle
+    int AppCompatTheme_spinnerStyle -> AppCompatTheme_spinnerStyle
+    int AppCompatTheme_switchStyle -> AppCompatTheme_switchStyle
+    int AppCompatTheme_textAppearanceLargePopupMenu -> AppCompatTheme_textAppearanceLargePopupMenu
+    int AppCompatTheme_textAppearanceListItem -> AppCompatTheme_textAppearanceListItem
+    int AppCompatTheme_textAppearanceListItemSmall -> AppCompatTheme_textAppearanceListItemSmall
+    int AppCompatTheme_textAppearanceSearchResultSubtitle -> AppCompatTheme_textAppearanceSearchResultSubtitle
+    int AppCompatTheme_textAppearanceSearchResultTitle -> AppCompatTheme_textAppearanceSearchResultTitle
+    int AppCompatTheme_textAppearanceSmallPopupMenu -> AppCompatTheme_textAppearanceSmallPopupMenu
+    int AppCompatTheme_textColorAlertDialogListItem -> AppCompatTheme_textColorAlertDialogListItem
+    int AppCompatTheme_textColorSearchUrl -> AppCompatTheme_textColorSearchUrl
+    int AppCompatTheme_toolbarNavigationButtonStyle -> AppCompatTheme_toolbarNavigationButtonStyle
+    int AppCompatTheme_toolbarStyle -> AppCompatTheme_toolbarStyle
+    int AppCompatTheme_windowActionBar -> AppCompatTheme_windowActionBar
+    int AppCompatTheme_windowActionBarOverlay -> AppCompatTheme_windowActionBarOverlay
+    int AppCompatTheme_windowActionModeOverlay -> AppCompatTheme_windowActionModeOverlay
+    int AppCompatTheme_windowFixedHeightMajor -> AppCompatTheme_windowFixedHeightMajor
+    int AppCompatTheme_windowFixedHeightMinor -> AppCompatTheme_windowFixedHeightMinor
+    int AppCompatTheme_windowFixedWidthMajor -> AppCompatTheme_windowFixedWidthMajor
+    int AppCompatTheme_windowFixedWidthMinor -> AppCompatTheme_windowFixedWidthMinor
+    int AppCompatTheme_windowMinWidthMajor -> AppCompatTheme_windowMinWidthMajor
+    int AppCompatTheme_windowMinWidthMinor -> AppCompatTheme_windowMinWidthMinor
+    int AppCompatTheme_windowNoTitle -> AppCompatTheme_windowNoTitle
+    int[] ButtonBarLayout -> ButtonBarLayout
+    int ButtonBarLayout_allowStacking -> ButtonBarLayout_allowStacking
+    int[] CompoundButton -> CompoundButton
+    int CompoundButton_android_button -> CompoundButton_android_button
+    int CompoundButton_buttonTint -> CompoundButton_buttonTint
+    int CompoundButton_buttonTintMode -> CompoundButton_buttonTintMode
+    int[] DrawerArrowToggle -> DrawerArrowToggle
+    int DrawerArrowToggle_arrowHeadLength -> DrawerArrowToggle_arrowHeadLength
+    int DrawerArrowToggle_arrowShaftLength -> DrawerArrowToggle_arrowShaftLength
+    int DrawerArrowToggle_barLength -> DrawerArrowToggle_barLength
+    int DrawerArrowToggle_color -> DrawerArrowToggle_color
+    int DrawerArrowToggle_drawableSize -> DrawerArrowToggle_drawableSize
+    int DrawerArrowToggle_gapBetweenBars -> DrawerArrowToggle_gapBetweenBars
+    int DrawerArrowToggle_spinBars -> DrawerArrowToggle_spinBars
+    int DrawerArrowToggle_thickness -> DrawerArrowToggle_thickness
+    int[] LinearLayoutCompat -> LinearLayoutCompat
+    int[] LinearLayoutCompat_Layout -> LinearLayoutCompat_Layout
+    int LinearLayoutCompat_Layout_android_layout_gravity -> LinearLayoutCompat_Layout_android_layout_gravity
+    int LinearLayoutCompat_Layout_android_layout_height -> LinearLayoutCompat_Layout_android_layout_height
+    int LinearLayoutCompat_Layout_android_layout_weight -> LinearLayoutCompat_Layout_android_layout_weight
+    int LinearLayoutCompat_Layout_android_layout_width -> LinearLayoutCompat_Layout_android_layout_width
+    int LinearLayoutCompat_android_baselineAligned -> LinearLayoutCompat_android_baselineAligned
+    int LinearLayoutCompat_android_baselineAlignedChildIndex -> LinearLayoutCompat_android_baselineAlignedChildIndex
+    int LinearLayoutCompat_android_gravity -> LinearLayoutCompat_android_gravity
+    int LinearLayoutCompat_android_orientation -> LinearLayoutCompat_android_orientation
+    int LinearLayoutCompat_android_weightSum -> LinearLayoutCompat_android_weightSum
+    int LinearLayoutCompat_divider -> LinearLayoutCompat_divider
+    int LinearLayoutCompat_dividerPadding -> LinearLayoutCompat_dividerPadding
+    int LinearLayoutCompat_measureWithLargestChild -> LinearLayoutCompat_measureWithLargestChild
+    int LinearLayoutCompat_showDividers -> LinearLayoutCompat_showDividers
+    int[] ListPopupWindow -> ListPopupWindow
+    int ListPopupWindow_android_dropDownHorizontalOffset -> ListPopupWindow_android_dropDownHorizontalOffset
+    int ListPopupWindow_android_dropDownVerticalOffset -> ListPopupWindow_android_dropDownVerticalOffset
+    int[] MenuGroup -> MenuGroup
+    int MenuGroup_android_checkableBehavior -> MenuGroup_android_checkableBehavior
+    int MenuGroup_android_enabled -> MenuGroup_android_enabled
+    int MenuGroup_android_id -> MenuGroup_android_id
+    int MenuGroup_android_menuCategory -> MenuGroup_android_menuCategory
+    int MenuGroup_android_orderInCategory -> MenuGroup_android_orderInCategory
+    int MenuGroup_android_visible -> MenuGroup_android_visible
+    int[] MenuItem -> MenuItem
+    int MenuItem_actionLayout -> MenuItem_actionLayout
+    int MenuItem_actionProviderClass -> MenuItem_actionProviderClass
+    int MenuItem_actionViewClass -> MenuItem_actionViewClass
+    int MenuItem_android_alphabeticShortcut -> MenuItem_android_alphabeticShortcut
+    int MenuItem_android_checkable -> MenuItem_android_checkable
+    int MenuItem_android_checked -> MenuItem_android_checked
+    int MenuItem_android_enabled -> MenuItem_android_enabled
+    int MenuItem_android_icon -> MenuItem_android_icon
+    int MenuItem_android_id -> MenuItem_android_id
+    int MenuItem_android_menuCategory -> MenuItem_android_menuCategory
+    int MenuItem_android_numericShortcut -> MenuItem_android_numericShortcut
+    int MenuItem_android_onClick -> MenuItem_android_onClick
+    int MenuItem_android_orderInCategory -> MenuItem_android_orderInCategory
+    int MenuItem_android_title -> MenuItem_android_title
+    int MenuItem_android_titleCondensed -> MenuItem_android_titleCondensed
+    int MenuItem_android_visible -> MenuItem_android_visible
+    int MenuItem_showAsAction -> MenuItem_showAsAction
+    int[] MenuView -> MenuView
+    int MenuView_android_headerBackground -> MenuView_android_headerBackground
+    int MenuView_android_horizontalDivider -> MenuView_android_horizontalDivider
+    int MenuView_android_itemBackground -> MenuView_android_itemBackground
+    int MenuView_android_itemIconDisabledAlpha -> MenuView_android_itemIconDisabledAlpha
+    int MenuView_android_itemTextAppearance -> MenuView_android_itemTextAppearance
+    int MenuView_android_verticalDivider -> MenuView_android_verticalDivider
+    int MenuView_android_windowAnimationStyle -> MenuView_android_windowAnimationStyle
+    int MenuView_preserveIconSpacing -> MenuView_preserveIconSpacing
+    int[] PopupWindow -> PopupWindow
+    int[] PopupWindowBackgroundState -> PopupWindowBackgroundState
+    int PopupWindowBackgroundState_state_above_anchor -> PopupWindowBackgroundState_state_above_anchor
+    int PopupWindow_android_popupBackground -> PopupWindow_android_popupBackground
+    int PopupWindow_overlapAnchor -> PopupWindow_overlapAnchor
+    int[] RecyclerView -> RecyclerView
+    int RecyclerView_android_orientation -> RecyclerView_android_orientation
+    int RecyclerView_layoutManager -> RecyclerView_layoutManager
+    int RecyclerView_reverseLayout -> RecyclerView_reverseLayout
+    int RecyclerView_spanCount -> RecyclerView_spanCount
+    int RecyclerView_stackFromEnd -> RecyclerView_stackFromEnd
+    int[] SearchView -> SearchView
+    int SearchView_android_focusable -> SearchView_android_focusable
+    int SearchView_android_imeOptions -> SearchView_android_imeOptions
+    int SearchView_android_inputType -> SearchView_android_inputType
+    int SearchView_android_maxWidth -> SearchView_android_maxWidth
+    int SearchView_closeIcon -> SearchView_closeIcon
+    int SearchView_commitIcon -> SearchView_commitIcon
+    int SearchView_defaultQueryHint -> SearchView_defaultQueryHint
+    int SearchView_goIcon -> SearchView_goIcon
+    int SearchView_iconifiedByDefault -> SearchView_iconifiedByDefault
+    int SearchView_layout -> SearchView_layout
+    int SearchView_queryBackground -> SearchView_queryBackground
+    int SearchView_queryHint -> SearchView_queryHint
+    int SearchView_searchHintIcon -> SearchView_searchHintIcon
+    int SearchView_searchIcon -> SearchView_searchIcon
+    int SearchView_submitBackground -> SearchView_submitBackground
+    int SearchView_suggestionRowLayout -> SearchView_suggestionRowLayout
+    int SearchView_voiceIcon -> SearchView_voiceIcon
+    int[] Spinner -> Spinner
+    int Spinner_android_dropDownWidth -> Spinner_android_dropDownWidth
+    int Spinner_android_entries -> Spinner_android_entries
+    int Spinner_android_popupBackground -> Spinner_android_popupBackground
+    int Spinner_android_prompt -> Spinner_android_prompt
+    int Spinner_popupTheme -> Spinner_popupTheme
+    int[] Style_SideBar -> Style_SideBar
+    int Style_SideBar_scaleItemCount -> Style_SideBar_scaleItemCount
+    int Style_SideBar_scaleSize -> Style_SideBar_scaleSize
+    int Style_SideBar_scaleWidth -> Style_SideBar_scaleWidth
+    int[] SwitchCompat -> SwitchCompat
+    int SwitchCompat_android_textOff -> SwitchCompat_android_textOff
+    int SwitchCompat_android_textOn -> SwitchCompat_android_textOn
+    int SwitchCompat_android_thumb -> SwitchCompat_android_thumb
+    int SwitchCompat_showText -> SwitchCompat_showText
+    int SwitchCompat_splitTrack -> SwitchCompat_splitTrack
+    int SwitchCompat_switchMinWidth -> SwitchCompat_switchMinWidth
+    int SwitchCompat_switchPadding -> SwitchCompat_switchPadding
+    int SwitchCompat_switchTextAppearance -> SwitchCompat_switchTextAppearance
+    int SwitchCompat_thumbTextPadding -> SwitchCompat_thumbTextPadding
+    int SwitchCompat_track -> SwitchCompat_track
+    int[] TextAppearance -> TextAppearance
+    int TextAppearance_android_shadowColor -> TextAppearance_android_shadowColor
+    int TextAppearance_android_shadowDx -> TextAppearance_android_shadowDx
+    int TextAppearance_android_shadowDy -> TextAppearance_android_shadowDy
+    int TextAppearance_android_shadowRadius -> TextAppearance_android_shadowRadius
+    int TextAppearance_android_textColor -> TextAppearance_android_textColor
+    int TextAppearance_android_textSize -> TextAppearance_android_textSize
+    int TextAppearance_android_textStyle -> TextAppearance_android_textStyle
+    int TextAppearance_android_typeface -> TextAppearance_android_typeface
+    int TextAppearance_textAllCaps -> TextAppearance_textAllCaps
+    int[] Toolbar -> Toolbar
+    int Toolbar_android_gravity -> Toolbar_android_gravity
+    int Toolbar_android_minHeight -> Toolbar_android_minHeight
+    int Toolbar_collapseContentDescription -> Toolbar_collapseContentDescription
+    int Toolbar_collapseIcon -> Toolbar_collapseIcon
+    int Toolbar_contentInsetEnd -> Toolbar_contentInsetEnd
+    int Toolbar_contentInsetLeft -> Toolbar_contentInsetLeft
+    int Toolbar_contentInsetRight -> Toolbar_contentInsetRight
+    int Toolbar_contentInsetStart -> Toolbar_contentInsetStart
+    int Toolbar_logo -> Toolbar_logo
+    int Toolbar_logoDescription -> Toolbar_logoDescription
+    int Toolbar_maxButtonHeight -> Toolbar_maxButtonHeight
+    int Toolbar_navigationContentDescription -> Toolbar_navigationContentDescription
+    int Toolbar_navigationIcon -> Toolbar_navigationIcon
+    int Toolbar_popupTheme -> Toolbar_popupTheme
+    int Toolbar_subtitle -> Toolbar_subtitle
+    int Toolbar_subtitleTextAppearance -> Toolbar_subtitleTextAppearance
+    int Toolbar_subtitleTextColor -> Toolbar_subtitleTextColor
+    int Toolbar_title -> Toolbar_title
+    int Toolbar_titleMarginBottom -> Toolbar_titleMarginBottom
+    int Toolbar_titleMarginEnd -> Toolbar_titleMarginEnd
+    int Toolbar_titleMarginStart -> Toolbar_titleMarginStart
+    int Toolbar_titleMarginTop -> Toolbar_titleMarginTop
+    int Toolbar_titleMargins -> Toolbar_titleMargins
+    int Toolbar_titleTextAppearance -> Toolbar_titleTextAppearance
+    int Toolbar_titleTextColor -> Toolbar_titleTextColor
+    int[] View -> View
+    int[] ViewBackgroundHelper -> ViewBackgroundHelper
+    int ViewBackgroundHelper_android_background -> ViewBackgroundHelper_android_background
+    int ViewBackgroundHelper_backgroundTint -> ViewBackgroundHelper_backgroundTint
+    int ViewBackgroundHelper_backgroundTintMode -> ViewBackgroundHelper_backgroundTintMode
+    int[] ViewStubCompat -> ViewStubCompat
+    int ViewStubCompat_android_id -> ViewStubCompat_android_id
+    int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
+    int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
+    int View_android_focusable -> View_android_focusable
+    int View_android_theme -> View_android_theme
+    int View_paddingEnd -> View_paddingEnd
+    int View_paddingStart -> View_paddingStart
+    int View_theme -> View_theme
+    1219:1546:void <clinit>() -> <clinit>
+com.fraumobi.call.service.PhoneService -> com.fraumobi.call.service.PhoneService:
+    android.content.Context mContext -> a
+    android.content.Intent mIntent -> b
+    android.os.Handler mHandler -> c
+    java.lang.String currentNumber -> d
+    boolean isOuting -> e
+    android.content.BroadcastReceiver mReceiver -> f
+    java.lang.Runnable run_start -> g
+    48:110:void <init>() -> <init>
+    52:52:android.os.IBinder onBind(android.content.Intent) -> onBind
+    57:63:void onCreate() -> onCreate
+    67:68:void onDestroy() -> onDestroy
+    73:73:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    77:80:java.lang.String getDirect(boolean) -> a
+    145:169:void getInterception(java.lang.String) -> b
+    172:188:void endCall(com.fraumobi.call.database.Database,android.database.sqlite.SQLiteDatabase,com.fraumobi.call.entries.Contact,java.lang.String) -> a
+    192:220:void stopCall(java.lang.String) -> a
+    224:245:void deleteLastCallLog(java.lang.String) -> c
+    48:48:android.content.Context access$002(com.fraumobi.call.service.PhoneService,android.content.Context) -> a
+    48:48:android.content.Intent access$102(com.fraumobi.call.service.PhoneService,android.content.Intent) -> a
+    48:48:java.lang.String access$202(com.fraumobi.call.service.PhoneService,java.lang.String) -> a
+    48:48:boolean access$302(com.fraumobi.call.service.PhoneService,boolean) -> a
+    48:48:java.lang.Runnable access$400(com.fraumobi.call.service.PhoneService) -> a
+    48:48:android.os.Handler access$500(com.fraumobi.call.service.PhoneService) -> b
+    48:48:android.content.Context access$000(com.fraumobi.call.service.PhoneService) -> c
+    48:48:java.lang.String access$200(com.fraumobi.call.service.PhoneService) -> d
+    48:48:android.content.Intent access$100(com.fraumobi.call.service.PhoneService) -> e
+    48:48:void access$600(com.fraumobi.call.service.PhoneService,java.lang.String) -> b
+    48:48:void access$700(com.fraumobi.call.service.PhoneService,java.lang.String) -> c
+com.fraumobi.call.service.PhoneService$1 -> com.fraumobi.call.service.PhoneService$1:
+    com.fraumobi.call.service.PhoneService this$0 -> a
+    95:95:void <init>(com.fraumobi.call.service.PhoneService) -> <init>
+    98:107:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.fraumobi.call.service.PhoneService$2 -> com.fraumobi.call.service.PhoneService$2:
+    com.fraumobi.call.service.PhoneService this$0 -> a
+    110:110:void <init>(com.fraumobi.call.service.PhoneService) -> <init>
+    113:140:void run() -> run
+com.fraumobi.call.service.PhoneService$3 -> com.fraumobi.call.service.PhoneService$3:
+    java.lang.String val$phoneNum -> a
+    com.fraumobi.call.service.PhoneService this$0 -> b
+    199:199:void <init>(com.fraumobi.call.service.PhoneService,java.lang.String) -> <init>
+    202:203:void run() -> run
+com.fraumobi.call.tools.ACache -> com.fraumobi.call.tools.a:
+    java.util.Map mInstanceMap -> a
+    com.fraumobi.call.tools.ACache$ACacheManager mCache -> b
+    48:48:com.fraumobi.call.tools.ACache get(android.content.Context) -> a
+    52:53:com.fraumobi.call.tools.ACache get(android.content.Context,java.lang.String) -> a
+    67:72:com.fraumobi.call.tools.ACache get(java.io.File,long,int) -> a
+    76:76:java.lang.String myPid() -> a
+    79:85:void <init>(java.io.File,long,int) -> <init>
+    278:296:void put(java.lang.String,byte[]) -> a
+    309:310:void put(java.lang.String,byte[],int) -> a
+    319:346:byte[] getAsBinary(java.lang.String) -> a
+    362:363:void put(java.lang.String,java.io.Serializable) -> a
+    376:396:void put(java.lang.String,java.io.Serializable,int) -> a
+    405:432:java.lang.Object getAsObject(java.lang.String) -> b
+    540:540:boolean remove(java.lang.String) -> c
+    44:44:void <clinit>() -> <clinit>
+com.fraumobi.call.tools.ACache$1 -> com.fraumobi.call.tools.a$1:
+com.fraumobi.call.tools.ACache$ACacheManager -> com.fraumobi.call.tools.a$a:
+    java.util.concurrent.atomic.AtomicLong cacheSize -> c
+    java.util.concurrent.atomic.AtomicInteger cacheCount -> d
+    long sizeLimit -> e
+    int countLimit -> f
+    java.util.Map lastUsageDates -> g
+    java.io.File cacheDir -> a
+    com.fraumobi.call.tools.ACache this$0 -> b
+    560:571:void <init>(com.fraumobi.call.tools.ACache,java.io.File,long,int) -> <init>
+    577:595:void calculateCacheSizeAndCacheCount() -> a
+    598:618:void put(java.io.File) -> a
+    621:626:java.io.File get(java.lang.String) -> a
+    630:630:java.io.File newFile(java.lang.String) -> b
+    634:635:boolean remove(java.lang.String) -> c
+    655:681:long removeNext() -> b
+    685:685:long calculateSize(java.io.File) -> b
+    555:555:void <init>(com.fraumobi.call.tools.ACache,java.io.File,long,int,com.fraumobi.call.tools.ACache$1) -> <init>
+    555:555:java.io.File access$100(com.fraumobi.call.tools.ACache$ACacheManager,java.lang.String) -> a
+    555:555:void access$200(com.fraumobi.call.tools.ACache$ACacheManager,java.io.File) -> a
+    555:555:java.io.File access$400(com.fraumobi.call.tools.ACache$ACacheManager,java.lang.String) -> b
+    555:555:boolean access$1400(com.fraumobi.call.tools.ACache$ACacheManager,java.lang.String) -> c
+    555:555:long access$1600(com.fraumobi.call.tools.ACache$ACacheManager,java.io.File) -> b
+    555:555:java.util.Map access$1700(com.fraumobi.call.tools.ACache$ACacheManager) -> a
+    555:555:java.util.concurrent.atomic.AtomicLong access$1800(com.fraumobi.call.tools.ACache$ACacheManager) -> b
+    555:555:java.util.concurrent.atomic.AtomicInteger access$1900(com.fraumobi.call.tools.ACache$ACacheManager) -> c
+com.fraumobi.call.tools.ACache$ACacheManager$1 -> com.fraumobi.call.tools.a$a$1:
+    com.fraumobi.call.tools.ACache$ACacheManager this$1 -> a
+    577:577:void <init>(com.fraumobi.call.tools.ACache$ACacheManager) -> <init>
+    580:593:void run() -> run
+com.fraumobi.call.tools.ACache$Utils -> com.fraumobi.call.tools.a$b:
+    713:726:boolean isDue(byte[]) -> c
+    734:738:byte[] newByteArrayWithDateInfo(int,byte[]) -> b
+    750:754:byte[] clearDateInfo(byte[]) -> d
+    758:759:boolean hasDateInfo(byte[]) -> e
+    763:769:java.lang.String[] getDateInfoFromDate(byte[]) -> f
+    773:778:int indexOf(byte[],char) -> a
+    782:788:byte[] copyOfRange(byte[],int,int) -> a
+    794:798:java.lang.String createDateInfo(int) -> a
+    694:694:byte[] access$700(int,byte[]) -> a
+    694:694:boolean access$800(byte[]) -> a
+    694:694:byte[] access$900(byte[]) -> b
+com.fraumobi.call.tools.ContactTool -> com.fraumobi.call.tools.b:
+    22:63:java.util.ArrayList getAllContacts(android.content.ContentResolver,boolean,com.fraumobi.call.database.Database,android.database.sqlite.SQLiteDatabase,com.fraumobi.call.tools.ACache) -> a
+com.fraumobi.call.tools.sort.Cn2Spell -> com.fraumobi.call.tools.sort.a:
+    java.lang.StringBuffer sb -> a
+    58:74:java.lang.String getPinYin(java.lang.String) -> a
+    13:13:void <clinit>() -> <clinit>
+com.fraumobi.call.tools.sort.SideBar -> com.fraumobi.call.tools.sort.SideBar:
+    java.lang.String[] letters -> b
+    android.graphics.Paint textPaint -> c
+    android.graphics.Paint bigTextPaint -> d
+    android.graphics.Paint scaleTextPaint -> e
+    android.graphics.Canvas canvas -> f
+    int itemH -> g
+    int w -> h
+    int h -> i
+    float singleTextH -> a
+    float scaleWidth -> j
+    float eventY -> k
+    int scaleSize -> l
+    int scaleItemCount -> m
+    com.fraumobi.call.tools.sort.SideBar$ISideBarSelectCallBack callBack -> n
+    48:49:void <init>(android.content.Context) -> <init>
+    52:53:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    14:58:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    61:80:void init(android.util.AttributeSet) -> a
+    83:85:void setDataResource(java.lang.String[]) -> setDataResource
+    88:89:void setOnStrSelectCallBack(com.fraumobi.call.tools.sort.SideBar$ISideBarSelectCallBack) -> setOnStrSelectCallBack
+    97:99:void setScaleSize(int) -> setScaleSize
+    107:109:void setScaleItemCount(int) -> setScaleItemCount
+    112:113:int dp(int) -> a
+    118:142:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    148:150:void onDraw(android.graphics.Canvas) -> onDraw
+    153:171:void DrawView(float) -> a
+    177:208:void drawLetters(float,int) -> a
+com.fraumobi.call.tools.sort.SideBar$ISideBarSelectCallBack -> com.fraumobi.call.tools.sort.SideBar$a:
+    void onSelectStr(int,java.lang.String) -> a
 com.github.mikephil.charting.animation.ChartAnimator -> com.github.mikephil.charting.animation.a:
     android.animation.ValueAnimator$AnimatorUpdateListener mListener -> c
     float mPhaseY -> a
@@ -42674,6 +43557,7 @@ com.privacy.lock.R$color -> com.privacy.lock.a$c:
     int A4 -> A4
     int A5 -> A5
     int A6 -> A6
+    int A6_54 -> A6_54
     int A6_87 -> A6_87
     int A7 -> A7
     int A8 -> A8
@@ -42703,6 +43587,9 @@ com.privacy.lock.R$color -> com.privacy.lock.a$c:
     int abc_secondary_text_material_light -> abc_secondary_text_material_light
     int accent_material_dark -> accent_material_dark
     int accent_material_light -> accent_material_light
+    int app_color_first -> app_color_first
+    int app_color_second -> app_color_second
+    int app_color_third -> app_color_third
     int app_list_choose_press_bac -> app_list_choose_press_bac
     int app_pro -> app_pro
     int background_floating_material_dark -> background_floating_material_dark
@@ -42710,6 +43597,7 @@ com.privacy.lock.R$color -> com.privacy.lock.a$c:
     int background_material_dark -> background_material_dark
     int background_material_light -> background_material_light
     int black_100 -> black_100
+    int black_20 -> black_20
     int black_35 -> black_35
     int black_50 -> black_50
     int black_54 -> black_54
@@ -42723,6 +43611,9 @@ com.privacy.lock.R$color -> com.privacy.lock.a$c:
     int bright_foreground_material_light -> bright_foreground_material_light
     int button_material_dark -> button_material_dark
     int button_material_light -> button_material_light
+    int colorAccent -> colorAccent
+    int colorPrimary -> colorPrimary
+    int colorPrimaryDark -> colorPrimaryDark
     int design_fab_shadow_end_color -> design_fab_shadow_end_color
     int design_fab_shadow_mid_color -> design_fab_shadow_mid_color
     int design_fab_shadow_start_color -> design_fab_shadow_start_color
@@ -42756,6 +43647,12 @@ com.privacy.lock.R$color -> com.privacy.lock.a$c:
     int hint_foreground_material_light -> hint_foreground_material_light
     int leadr_color -> leadr_color
     int list_progress_green -> list_progress_green
+    int load_1 -> load_1
+    int load_2 -> load_2
+    int load_3 -> load_3
+    int load_4 -> load_4
+    int load_5 -> load_5
+    int load_6 -> load_6
     int main_back -> main_back
     int main_circle_backg -> main_circle_backg
     int main_circle_first -> main_circle_first
@@ -43166,6 +44063,7 @@ com.privacy.lock.R$drawable -> com.privacy.lock.a$d:
     int shop_remove -> shop_remove
     int shop_selected -> shop_selected
     int shop_wallpaper_apply -> shop_wallpaper_apply
+    int translate -> translate
 com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int BOTTOM_LEFT -> BOTTOM_LEFT
     int BOTTOM_RIGHT -> BOTTOM_RIGHT
@@ -43650,6 +44548,13 @@ com.privacy.lock.R$string -> com.privacy.lock.a$h:
     int appbar_scrolling_view_behavior -> appbar_scrolling_view_behavior
     int battery_jiance -> battery_jiance
     int bottom_sheet_behavior -> bottom_sheet_behavior
+    int call_1 -> call_1
+    int call_2 -> call_2
+    int call_add_jilu -> call_add_jilu
+    int call_add_shou -> call_add_shou
+    int call_add_tongxunlu -> call_add_tongxunlu
+    int call_lanjie -> call_lanjie
+    int call_shanchu -> call_shanchu
     int character_counter_pattern -> character_counter_pattern
     int charge_screen_save -> charge_screen_save
     int charging_on_left -> charging_on_left
@@ -47406,6 +48311,10 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int Spinner_android_popupBackground -> Spinner_android_popupBackground
     int Spinner_android_prompt -> Spinner_android_prompt
     int Spinner_popupTheme -> Spinner_popupTheme
+    int[] Style_SideBar -> Style_SideBar
+    int Style_SideBar_scaleItemCount -> Style_SideBar_scaleItemCount
+    int Style_SideBar_scaleSize -> Style_SideBar_scaleSize
+    int Style_SideBar_scaleWidth -> Style_SideBar_scaleWidth
     int[] SwitchCompat -> SwitchCompat
     int SwitchCompat_android_textOff -> SwitchCompat_android_textOff
     int SwitchCompat_android_textOn -> SwitchCompat_android_textOn
@@ -47511,7 +48420,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6445:15506:void <clinit>() -> <clinit>
+    6507:15629:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -48697,7 +49606,7 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     java.lang.Runnable runnable_load -> aA
     android.animation.ValueAnimator colorAnim -> ba
     java.lang.Runnable runnable_color -> aB
-    81:1204:void <init>() -> <init>
+    81:1205:void <init>() -> <init>
     165:222:void findId() -> a
     228:230:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
     234:430:void onCreate(android.os.Bundle) -> onCreate
@@ -48710,25 +49619,25 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     690:730:void initSd(int,java.lang.String,long) -> a
     734:756:void initRam(int,java.lang.String) -> a
     760:764:void initGuard(int,android.view.animation.RotateAnimation) -> a
-    768:791:void initSideData() -> f
-    795:796:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
-    800:801:void setRotateGone() -> g
-    805:806:void openDrawer() -> h
-    810:813:void closeDrawer() -> i
-    817:878:void loadFullAd() -> e
-    1220:1261:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    1265:1269:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    1273:1276:void onRestart() -> onRestart
-    1280:1289:void onPause() -> onPause
-    1293:1307:void onResume() -> onResume
-    1311:1333:void onDestroy() -> onDestroy
-    1336:1365:void onBackPressed() -> onBackPressed
-    1368:1388:void adDelete() -> l
-    1391:1440:void showExitDialog() -> m
-    1445:1445:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    1449:1454:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    1458:1463:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    1468:1468:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    768:792:void initSideData() -> f
+    796:797:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
+    801:802:void setRotateGone() -> g
+    806:807:void openDrawer() -> h
+    811:814:void closeDrawer() -> i
+    818:879:void loadFullAd() -> e
+    1221:1262:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    1266:1270:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    1274:1277:void onRestart() -> onRestart
+    1281:1290:void onPause() -> onPause
+    1294:1308:void onResume() -> onResume
+    1312:1334:void onDestroy() -> onDestroy
+    1337:1366:void onBackPressed() -> onBackPressed
+    1369:1389:void adDelete() -> l
+    1392:1441:void showExitDialog() -> m
+    1446:1446:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    1450:1455:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    1459:1464:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    1469:1469:void onDrawerStateChanged(int) -> onDrawerStateChanged
     81:81:com.supers.clean.junk.presenter.MainPresenter access$000(com.supers.clean.junk.activity.MainActivity) -> a
     81:81:java.util.ArrayList access$100(com.supers.clean.junk.activity.MainActivity) -> b
     81:81:android.support.v4.view.ViewPager access$200(com.supers.clean.junk.activity.MainActivity) -> c
@@ -48792,25 +49701,25 @@ com.supers.clean.junk.activity.MainActivity$15$1 -> com.supers.clean.junk.activi
 com.supers.clean.junk.activity.MainActivity$16 -> com.supers.clean.junk.activity.MainActivity$8:
     com.supers.clean.junk.customeview.LoadTime val$ad_loading -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    859:859:void <init>(com.supers.clean.junk.activity.MainActivity,com.supers.clean.junk.customeview.LoadTime) -> <init>
-    862:865:void onClick(android.view.View) -> onClick
+    860:860:void <init>(com.supers.clean.junk.activity.MainActivity,com.supers.clean.junk.customeview.LoadTime) -> <init>
+    863:866:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$17 -> com.supers.clean.junk.activity.MainActivity$9:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    868:868:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    871:872:void progressUpdate() -> a
+    869:869:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    872:873:void progressUpdate() -> a
 com.supers.clean.junk.activity.MainActivity$18 -> com.supers.clean.junk.activity.MainActivity$10:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    880:880:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    883:884:void run() -> run
+    881:881:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    884:885:void run() -> run
 com.supers.clean.junk.activity.MainActivity$19 -> com.supers.clean.junk.activity.MainActivity$11:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    888:888:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    892:892:void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
-    897:905:void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
+    889:889:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    893:893:void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
+    898:906:void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
 com.supers.clean.junk.activity.MainActivity$19$1 -> com.supers.clean.junk.activity.MainActivity$11$1:
     com.supers.clean.junk.activity.MainActivity$19 this$1 -> a
-    898:898:void <init>(com.supers.clean.junk.activity.MainActivity$19) -> <init>
-    901:903:void run() -> run
+    899:899:void <init>(com.supers.clean.junk.activity.MainActivity$19) -> <init>
+    902:904:void run() -> run
 com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$12:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
     366:366:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
@@ -48821,38 +49730,38 @@ com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.
     393:393:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.supers.clean.junk.activity.MainActivity$20 -> com.supers.clean.junk.activity.MainActivity$13:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    921:921:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    925:1174:void onClick(android.view.View) -> onClick
+    922:922:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    926:1175:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$20$1 -> com.supers.clean.junk.activity.MainActivity$13$1:
     com.supers.clean.junk.activity.MainActivity$20 this$1 -> a
-    1032:1032:void <init>(com.supers.clean.junk.activity.MainActivity$20) -> <init>
-    1035:1037:void onAdLoadSuccess() -> onAdLoadSuccess
-    1041:1043:void onAdLoadFails() -> onAdLoadFails
-    1047:1049:void onAdClosed() -> onAdClosed
+    1033:1033:void <init>(com.supers.clean.junk.activity.MainActivity$20) -> <init>
+    1036:1038:void onAdLoadSuccess() -> onAdLoadSuccess
+    1042:1044:void onAdLoadFails() -> onAdLoadFails
+    1048:1050:void onAdClosed() -> onAdClosed
 com.supers.clean.junk.activity.MainActivity$21 -> com.supers.clean.junk.activity.MainActivity$14:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1176:1176:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1180:1201:void run() -> run
+    1177:1177:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1181:1202:void run() -> run
 com.supers.clean.junk.activity.MainActivity$21$1 -> com.supers.clean.junk.activity.MainActivity$14$1:
     com.supers.clean.junk.activity.MainActivity$21 this$1 -> a
-    1182:1182:void <init>(com.supers.clean.junk.activity.MainActivity$21) -> <init>
-    1185:1186:void run() -> run
+    1183:1183:void <init>(com.supers.clean.junk.activity.MainActivity$21) -> <init>
+    1186:1187:void run() -> run
 com.supers.clean.junk.activity.MainActivity$22 -> com.supers.clean.junk.activity.MainActivity$15:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1204:1204:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1207:1215:void run() -> run
+    1205:1205:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1208:1216:void run() -> run
 com.supers.clean.junk.activity.MainActivity$23 -> com.supers.clean.junk.activity.MainActivity$16:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1379:1379:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1382:1384:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
+    1380:1380:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1383:1385:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
 com.supers.clean.junk.activity.MainActivity$24 -> com.supers.clean.junk.activity.MainActivity$17:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1402:1402:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1405:1407:void onClick(android.view.View) -> onClick
+    1403:1403:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1406:1408:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$25 -> com.supers.clean.junk.activity.MainActivity$18:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1409:1409:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1412:1413:void onClick(android.view.View) -> onClick
+    1410:1410:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1413:1414:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$3 -> com.supers.clean.junk.activity.MainActivity$19:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
     400:400:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
@@ -49028,12 +49937,12 @@ com.supers.clean.junk.activity.MessageActivity$4 -> com.supers.clean.junk.activi
     170:170:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
     173:174:void run() -> run
 com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.MyApplication:
-    32:32:void <init>() -> <init>
-    36:39:void attachBaseContext(android.content.Context) -> attachBaseContext
-    43:55:void changeAppLanguage(java.lang.String) -> a
-    59:65:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
-    69:129:void onCreate() -> onCreate
-    134:135:void onTerminate() -> onTerminate
+    33:33:void <init>() -> <init>
+    37:40:void attachBaseContext(android.content.Context) -> attachBaseContext
+    44:56:void changeAppLanguage(java.lang.String) -> a
+    60:66:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    70:131:void onCreate() -> onCreate
+    136:137:void onTerminate() -> onTerminate
 com.supers.clean.junk.activity.NetMonitor -> com.supers.clean.junk.activity.NetMonitor:
     android.net.wifi.WifiManager mWifiManager -> d
     android.net.wifi.WifiInfo mWifiInfo -> e
@@ -49710,32 +50619,35 @@ com.supers.clean.junk.activity.PrivacyCleanActivity -> com.supers.clean.junk.act
     int strangeSmsCheckCount -> Z
     int dismissCallCheckCount -> aa
     int strangeCallCheckCount -> ab
-    26:74:void <init>() -> <init>
-    78:109:void onCreate(android.os.Bundle) -> onCreate
-    113:160:void findId() -> a
-    163:173:void setListViewVisible(android.widget.ListView) -> a
-    177:295:void onClick(android.view.View) -> onClick
-    299:303:void onPause() -> onPause
-    307:341:void showDia(java.lang.String) -> c
-    344:347:void goToSuccessPage() -> f
-    350:374:void deleteCheckedCall() -> g
-    377:401:void deleteCheckedSms() -> h
-    404:417:void itemClick(android.widget.ListView,java.util.ArrayList,int) -> a
-    420:497:void onDataChange(int) -> b
-    500:534:void updateButtonText() -> e
-    26:26:com.supers.clean.junk.privacy.PrivacyClean access$000(com.supers.clean.junk.activity.PrivacyCleanActivity) -> a
-    26:26:void access$100(com.supers.clean.junk.activity.PrivacyCleanActivity) -> b
-    26:26:void access$200(com.supers.clean.junk.activity.PrivacyCleanActivity) -> c
-    26:26:void access$300(com.supers.clean.junk.activity.PrivacyCleanActivity) -> d
-    26:26:android.app.AlertDialog access$400(com.supers.clean.junk.activity.PrivacyCleanActivity) -> e
+    java.lang.String defaultName -> ac
+    28:76:void <init>() -> <init>
+    81:112:void onCreate(android.os.Bundle) -> onCreate
+    116:163:void findId() -> a
+    166:176:void setListViewVisible(android.widget.ListView) -> a
+    180:298:void onClick(android.view.View) -> onClick
+    302:306:void onPause() -> onPause
+    310:359:void showDia(java.lang.String) -> c
+    362:365:void goToSuccessPage() -> f
+    368:392:void deleteCheckedCall() -> g
+    395:419:void deleteCheckedSms() -> h
+    422:435:void itemClick(android.widget.ListView,java.util.ArrayList,int) -> a
+    438:515:void onDataChange(int) -> b
+    518:552:void updateButtonText() -> e
+    556:570:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    28:28:com.supers.clean.junk.privacy.PrivacyClean access$000(com.supers.clean.junk.activity.PrivacyCleanActivity) -> a
+    28:28:void access$100(com.supers.clean.junk.activity.PrivacyCleanActivity) -> b
+    28:28:java.lang.String access$202(com.supers.clean.junk.activity.PrivacyCleanActivity,java.lang.String) -> a
+    28:28:void access$300(com.supers.clean.junk.activity.PrivacyCleanActivity) -> c
+    28:28:void access$400(com.supers.clean.junk.activity.PrivacyCleanActivity) -> d
+    28:28:android.app.AlertDialog access$500(com.supers.clean.junk.activity.PrivacyCleanActivity) -> e
 com.supers.clean.junk.activity.PrivacyCleanActivity$1 -> com.supers.clean.junk.activity.PrivacyCleanActivity$1:
     com.supers.clean.junk.activity.PrivacyCleanActivity this$0 -> a
-    319:319:void <init>(com.supers.clean.junk.activity.PrivacyCleanActivity) -> <init>
-    322:333:void onClick(android.view.View) -> onClick
+    322:322:void <init>(com.supers.clean.junk.activity.PrivacyCleanActivity) -> <init>
+    325:351:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.PrivacyCleanActivity$2 -> com.supers.clean.junk.activity.PrivacyCleanActivity$2:
     com.supers.clean.junk.activity.PrivacyCleanActivity this$0 -> a
-    335:335:void <init>(com.supers.clean.junk.activity.PrivacyCleanActivity) -> <init>
-    338:339:void onClick(android.view.View) -> onClick
+    353:353:void <init>(com.supers.clean.junk.activity.PrivacyCleanActivity) -> <init>
+    356:357:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.RamAvtivity -> com.supers.clean.junk.activity.RamAvtivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -50559,26 +51471,27 @@ com.supers.clean.junk.adapter.SideAdapter -> com.supers.clean.junk.a.m:
     int MANAGER -> k
     int FILE -> l
     int POWER -> m
-    int WIFI -> n
-    int NOTIFI -> o
-    int PICTURE -> p
-    int GBOOST -> q
-    int FAMILY -> r
-    int THEME -> s
-    int SETTING -> t
-    int ROTATE -> u
-    67:68:void <init>(android.content.Context) -> <init>
-    72:159:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    163:265:void onC(int) -> b
-    45:45:void access$000(com.supers.clean.junk.adapter.SideAdapter,int) -> a
-    46:63:void <clinit>() -> <clinit>
+    int CALL -> n
+    int WIFI -> o
+    int NOTIFI -> p
+    int PICTURE -> q
+    int GBOOST -> r
+    int FAMILY -> s
+    int THEME -> t
+    int SETTING -> u
+    int ROTATE -> v
+    69:70:void <init>(android.content.Context) -> <init>
+    74:161:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    165:271:void onC(int) -> b
+    46:46:void access$000(com.supers.clean.junk.adapter.SideAdapter,int) -> a
+    47:65:void <clinit>() -> <clinit>
 com.supers.clean.junk.adapter.SideAdapter$1 -> com.supers.clean.junk.a.m$1:
     com.supers.clean.junk.entity.SideInfo val$info -> a
     com.supers.clean.junk.adapter.SideAdapter$ViewHolder val$holder -> b
     int val$position -> c
     com.supers.clean.junk.adapter.SideAdapter this$0 -> d
-    108:108:void <init>(com.supers.clean.junk.adapter.SideAdapter,com.supers.clean.junk.entity.SideInfo,com.supers.clean.junk.adapter.SideAdapter$ViewHolder,int) -> <init>
-    111:118:void onClick(android.view.View) -> onClick
+    110:110:void <init>(com.supers.clean.junk.adapter.SideAdapter,com.supers.clean.junk.entity.SideInfo,com.supers.clean.junk.adapter.SideAdapter$ViewHolder,int) -> <init>
+    113:120:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.adapter.SideAdapter$ViewHolder -> com.supers.clean.junk.a.m$a:
     android.widget.RelativeLayout rl_item -> a
     android.widget.ImageView checkBox -> b
@@ -50587,7 +51500,7 @@ com.supers.clean.junk.adapter.SideAdapter$ViewHolder -> com.supers.clean.junk.a.
     android.widget.TextView tv_name -> e
     android.view.View side_divide -> f
     com.supers.clean.junk.adapter.SideAdapter this$0 -> g
-    274:274:void <init>(com.supers.clean.junk.adapter.SideAdapter) -> <init>
+    280:280:void <init>(com.supers.clean.junk.adapter.SideAdapter) -> <init>
 com.supers.clean.junk.adapter.WhiteListAdapter -> com.supers.clean.junk.a.n:
     android.widget.Toast toast -> a
     31:32:void <init>(android.content.Context) -> <init>
@@ -55415,6 +56328,85 @@ cz.msebera.android.httpclient.util.VersionInfo -> cz.msebera.android.httpclient.
     159:182:java.lang.String toString() -> toString
     225:252:cz.msebera.android.httpclient.util.VersionInfo loadVersionInfo(java.lang.String,java.lang.ClassLoader) -> a
     268:299:cz.msebera.android.httpclient.util.VersionInfo fromMap(java.lang.String,java.util.Map,java.lang.ClassLoader) -> a
+net.sourceforge.pinyin4j.ChineseToPinyinResource -> a.a.a.a:
+    net.sourceforge.pinyin4j.multipinyin.Trie unicodeToHanyuPinyinTable -> a
+    41:42:void setUnicodeToHanyuPinyinTable(net.sourceforge.pinyin4j.multipinyin.Trie) -> a
+    48:48:net.sourceforge.pinyin4j.multipinyin.Trie getUnicodeToHanyuPinyinTable() -> a
+    35:56:void <init>() -> <init>
+    63:79:void initializeResource() -> c
+    98:99:java.lang.String[] getHanyuPinyinStringArray(char) -> a
+    104:115:java.lang.String[] parsePinyinString(java.lang.String) -> a
+    124:126:boolean isValidRecord(java.lang.String) -> b
+    139:148:java.lang.String getHanyuPinyinRecordFromChar(char) -> b
+    157:157:net.sourceforge.pinyin4j.ChineseToPinyinResource getInstance() -> b
+    31:31:void <init>(net.sourceforge.pinyin4j.ChineseToPinyinResource$1) -> <init>
+net.sourceforge.pinyin4j.ChineseToPinyinResource$1 -> a.a.a.a$1:
+net.sourceforge.pinyin4j.ChineseToPinyinResource$ChineseToPinyinResourceHolder -> a.a.a.a$a:
+    net.sourceforge.pinyin4j.ChineseToPinyinResource theInstance -> a
+    164:164:void <clinit>() -> <clinit>
+net.sourceforge.pinyin4j.PinyinFormatter -> a.a.a.b:
+    41:63:java.lang.String formatHanyuPinyin(java.lang.String,net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat) -> a
+    92:163:java.lang.String convertToneNumber2ToneMark(java.lang.String) -> a
+net.sourceforge.pinyin4j.PinyinHelper -> a.a.a.c:
+    java.lang.String[] ARR_EMPTY -> a
+    82:82:java.lang.String[] toHanyuPinyinStringArray(char,net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat) -> a
+    96:107:java.lang.String[] getFormattedHanyuPinyinStringArray(char,net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat) -> b
+    117:117:java.lang.String[] getUnformattedHanyuPinyinStringArray(char) -> a
+    31:31:void <clinit>() -> <clinit>
+net.sourceforge.pinyin4j.ResourceHelper -> a.a.a.d:
+    26:26:void <init>() -> <init>
+    33:33:java.io.BufferedInputStream getResourceInputStream(java.lang.String) -> a
+net.sourceforge.pinyin4j.format.HanyuPinyinCaseType -> a.a.a.a.a:
+    net.sourceforge.pinyin4j.format.HanyuPinyinCaseType UPPERCASE -> a
+    net.sourceforge.pinyin4j.format.HanyuPinyinCaseType LOWERCASE -> b
+    java.lang.String name -> c
+    70:71:void setName(java.lang.String) -> a
+    76:78:void <init>(java.lang.String) -> <init>
+    51:56:void <clinit>() -> <clinit>
+net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat -> a.a.a.a.b:
+    net.sourceforge.pinyin4j.format.HanyuPinyinVCharType vCharType -> a
+    net.sourceforge.pinyin4j.format.HanyuPinyinCaseType caseType -> b
+    net.sourceforge.pinyin4j.format.HanyuPinyinToneType toneType -> c
+    114:116:void <init>() -> <init>
+    129:132:void restoreDefault() -> a
+    140:140:net.sourceforge.pinyin4j.format.HanyuPinyinCaseType getCaseType() -> b
+    152:153:void setCaseType(net.sourceforge.pinyin4j.format.HanyuPinyinCaseType) -> a
+    161:161:net.sourceforge.pinyin4j.format.HanyuPinyinToneType getToneType() -> c
+    173:174:void setToneType(net.sourceforge.pinyin4j.format.HanyuPinyinToneType) -> a
+    182:182:net.sourceforge.pinyin4j.format.HanyuPinyinVCharType getVCharType() -> d
+net.sourceforge.pinyin4j.format.HanyuPinyinToneType -> a.a.a.a.c:
+    net.sourceforge.pinyin4j.format.HanyuPinyinToneType WITH_TONE_NUMBER -> a
+    net.sourceforge.pinyin4j.format.HanyuPinyinToneType WITHOUT_TONE -> b
+    net.sourceforge.pinyin4j.format.HanyuPinyinToneType WITH_TONE_MARK -> c
+    java.lang.String name -> d
+    87:88:void setName(java.lang.String) -> a
+    90:92:void <init>(java.lang.String) -> <init>
+    60:72:void <clinit>() -> <clinit>
+net.sourceforge.pinyin4j.format.HanyuPinyinVCharType -> a.a.a.a.d:
+    net.sourceforge.pinyin4j.format.HanyuPinyinVCharType WITH_U_AND_COLON -> a
+    net.sourceforge.pinyin4j.format.HanyuPinyinVCharType WITH_V -> b
+    net.sourceforge.pinyin4j.format.HanyuPinyinVCharType WITH_U_UNICODE -> c
+    java.lang.String name -> d
+    86:87:void setName(java.lang.String) -> a
+    92:94:void <init>(java.lang.String) -> <init>
+    60:71:void <clinit>() -> <clinit>
+net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination -> a.a.a.a.a.a:
+    35:36:void <init>(java.lang.String) -> <init>
+net.sourceforge.pinyin4j.multipinyin.MultiPinyinConfig -> a.a.a.b.a:
+    java.lang.String multiPinyinPath -> a
+net.sourceforge.pinyin4j.multipinyin.Trie -> a.a.a.b.b:
+    java.util.Hashtable values -> a
+    java.lang.String pinyin -> b
+    net.sourceforge.pinyin4j.multipinyin.Trie nextTire -> c
+    10:12:void <init>() -> <init>
+    19:19:java.lang.String getPinyin() -> a
+    27:27:net.sourceforge.pinyin4j.multipinyin.Trie getNextTire() -> b
+    31:32:void setNextTire(net.sourceforge.pinyin4j.multipinyin.Trie) -> a
+    41:58:void load(java.io.InputStream) -> a
+    66:114:void loadMultiPinyin(java.io.InputStream) -> b
+    120:127:void loadMultiPinyinExtend() -> c
+    130:130:net.sourceforge.pinyin4j.multipinyin.Trie get(java.lang.String) -> a
+    134:135:void put(java.lang.String,net.sourceforge.pinyin4j.multipinyin.Trie) -> a
 org.byteam.superadapter.IMulItemViewType -> org.a.a.a:
     int getViewTypeCount() -> a
     int getItemViewType(int,java.lang.Object) -> a
