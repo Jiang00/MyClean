@@ -12,14 +12,18 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.fraumobi.call.Utils.Constants;
@@ -55,6 +59,7 @@ public class CallActivity extends BaseActivity {
 
     CallAdapter adapter;
     private ArrayList<RejectInfo> blockList;
+    private AlertDialog dialog;
 
     protected void findId() {
         call_list = (ListView) findViewById(R.id.call_list);
@@ -157,12 +162,39 @@ public class CallActivity extends BaseActivity {
                 startActivity(new Intent(CallActivity.this, CallNameActivity.class));
             } else if (i == R.id.check_jilu) {
                 add_check_fl.setVisibility(View.INVISIBLE);
+                startActivity(new Intent(CallActivity.this, CallName2Activity.class));
             } else if (i == R.id.check_shou) {
                 add_check_fl.setVisibility(View.INVISIBLE);
+
             }
 
         }
     };
+
+    private void dialog() {
+        View view = View.inflate(this, R.layout.dialog_shou, null);
+        dialog = new AlertDialog.Builder(this).create();
+        dialog.show();
+        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.width = dm.widthPixels; //设置宽度
+        lp.height = dm.heightPixels; //设置高度
+        int uiOptions =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                        //布局位于状态栏下方
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                        //隐藏导航栏
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+        if (Build.VERSION.SDK_INT >= 19) {
+            uiOptions |= 0x00001000;
+        } else {
+            uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+        }
+        dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        dialog.getWindow().setAttributes(lp);
+        dialog.getWindow().setContentView(view);
+    }
 
     private void initData() {
         getBlockListData();
@@ -219,24 +251,5 @@ public class CallActivity extends BaseActivity {
         db.close();
         aCache.remove("contacts");
         aCache.put("contacts", contactsList);
-    }
-
-    //添加黑名单
-    private void addItemToTableBlock(Contact contact) {
-        Database database = Database.getInstance(this);
-        SQLiteDatabase db = database.getWritableDatabase();
-        if (!database.tableIsExist(db, Constants.TABLE_BLOCK)) {
-            database.createTableContacts(db, Constants.TABLE_BLOCK);
-        }
-        database.insertDataIntoTableContacts(db, Constants.TABLE_BLOCK, contact);
-        db.close();
-    }
-
-    //    删除白名单
-    private void deleteItemToTableBlock(Contact contact) {
-        Database database = Database.getInstance(this);
-        SQLiteDatabase db = database.getWritableDatabase();
-        database.deleteDataFromTableContacts(db, Constants.TABLE_BLOCK, contact);
-        db.close();
     }
 }

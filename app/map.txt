@@ -38206,15 +38206,15 @@ com.fraumobi.call.activity.CallActivity -> com.fraumobi.call.activity.CallActivi
     java.util.ArrayList blockList -> s
     android.view.View$OnClickListener clickListener -> r
     java.lang.Runnable fetcherContactsRunnable -> t
-    43:200:void <init>() -> <init>
+    43:201:void <init>() -> <init>
     60:71:void findId() -> c
     75:99:void onCreate(android.os.Bundle) -> onCreate
     102:113:void updateTitle() -> e
-    168:178:void initData() -> f
-    182:186:void getBlockListData() -> g
-    190:194:void deleteBlockListItemFromTable(com.fraumobi.call.entries.RejectInfo) -> a
-    197:198:void startFetcherContacts() -> d
-    208:222:void startReadContacts() -> h
+    169:179:void initData() -> f
+    183:187:void getBlockListData() -> g
+    191:195:void deleteBlockListItemFromTable(com.fraumobi.call.entries.RejectInfo) -> a
+    198:199:void startFetcherContacts() -> d
+    209:223:void startReadContacts() -> h
     43:43:void access$000(com.fraumobi.call.activity.CallActivity) -> a
     43:43:java.util.ArrayList access$100(com.fraumobi.call.activity.CallActivity) -> b
     43:43:void access$200(com.fraumobi.call.activity.CallActivity,com.fraumobi.call.entries.RejectInfo) -> a
@@ -38226,37 +38226,38 @@ com.fraumobi.call.activity.CallActivity$1 -> com.fraumobi.call.activity.CallActi
 com.fraumobi.call.activity.CallActivity$2 -> com.fraumobi.call.activity.CallActivity$2:
     com.fraumobi.call.activity.CallActivity this$0 -> a
     115:115:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
-    118:164:void onClick(android.view.View) -> onClick
+    118:165:void onClick(android.view.View) -> onClick
 com.fraumobi.call.activity.CallActivity$3 -> com.fraumobi.call.activity.CallActivity$3:
     com.fraumobi.call.activity.CallActivity this$0 -> a
-    200:200:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
-    203:204:void run() -> run
+    201:201:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
+    204:205:void run() -> run
 com.fraumobi.call.activity.CallName2Activity -> com.fraumobi.call.activity.CallName2Activity:
-    com.fraumobi.call.adapter.CallAdapter adapter -> e
+    com.fraumobi.call.adapter.CallJiluAdapter adapter -> e
     android.widget.ListView call_list -> f
     android.widget.FrameLayout title_left -> g
     android.widget.ProgressBar progressbar -> h
     android.widget.TextView null_call -> i
     android.view.View$OnClickListener clickListener -> j
-    29:83:void <init>() -> <init>
-    39:43:void findId() -> c
-    47:55:void onCreate(android.os.Bundle) -> onCreate
-    58:77:void initData() -> e
-    80:81:void setClick() -> f
-    95:144:java.util.ArrayList queryCall() -> d
+    32:100:void <init>() -> <init>
+    42:46:void findId() -> c
+    50:58:void onCreate(android.os.Bundle) -> onCreate
+    61:94:void initData() -> e
+    97:98:void setClick() -> f
+    112:161:java.util.ArrayList queryCall() -> d
 com.fraumobi.call.activity.CallName2Activity$1 -> com.fraumobi.call.activity.CallName2Activity$1:
     com.fraumobi.call.activity.CallName2Activity this$0 -> a
-    58:58:void <init>(com.fraumobi.call.activity.CallName2Activity) -> <init>
-    61:75:void run() -> run
+    61:61:void <init>(com.fraumobi.call.activity.CallName2Activity) -> <init>
+    64:92:void run() -> run
 com.fraumobi.call.activity.CallName2Activity$1$1 -> com.fraumobi.call.activity.CallName2Activity$1$1:
     java.util.ArrayList val$call_list -> a
-    com.fraumobi.call.activity.CallName2Activity$1 this$1 -> b
-    62:62:void <init>(com.fraumobi.call.activity.CallName2Activity$1,java.util.ArrayList) -> <init>
-    65:72:void run() -> run
+    java.util.ArrayList val$tonghuajilu -> b
+    com.fraumobi.call.activity.CallName2Activity$1 this$1 -> c
+    79:79:void <init>(com.fraumobi.call.activity.CallName2Activity$1,java.util.ArrayList,java.util.ArrayList) -> <init>
+    82:89:void run() -> run
 com.fraumobi.call.activity.CallName2Activity$2 -> com.fraumobi.call.activity.CallName2Activity$2:
     com.fraumobi.call.activity.CallName2Activity this$0 -> a
-    83:83:void <init>(com.fraumobi.call.activity.CallName2Activity) -> <init>
-    86:90:void onClick(android.view.View) -> onClick
+    100:100:void <init>(com.fraumobi.call.activity.CallName2Activity) -> <init>
+    103:107:void onClick(android.view.View) -> onClick
 com.fraumobi.call.activity.CallNameActivity -> com.fraumobi.call.activity.CallNameActivity:
     android.support.v7.widget.RecyclerView mRecyclerView -> e
     android.widget.FrameLayout title_left -> f
@@ -38306,19 +38307,42 @@ com.fraumobi.call.adapter.BlockObjectListAdapter$MyViewHolder -> com.fraumobi.ca
     com.fraumobi.call.adapter.BlockObjectListAdapter this$0 -> f
     98:105:void <init>(com.fraumobi.call.adapter.BlockObjectListAdapter,android.view.View) -> <init>
 com.fraumobi.call.adapter.CallAdapter -> com.fraumobi.call.b.b:
-    19:20:void <init>(android.content.Context) -> <init>
-    24:50:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    java.util.ArrayList idList -> a
+    26:35:void <init>(android.content.Context) -> <init>
+    39:70:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.fraumobi.call.adapter.CallAdapter$ViewHolder -> com.fraumobi.call.b.b$a:
     android.widget.ImageView icon -> a
     android.widget.TextView time -> b
     android.widget.ImageView checkBox -> c
     android.widget.TextView name -> d
     com.fraumobi.call.adapter.CallAdapter this$0 -> e
-    53:53:void <init>(com.fraumobi.call.adapter.CallAdapter) -> <init>
-com.fraumobi.call.adapter.MybaseAdapter -> com.fraumobi.call.b.c:
-    java.util.List list -> a
-    android.content.Context context -> b
-    android.view.LayoutInflater inflater -> c
+    73:73:void <init>(com.fraumobi.call.adapter.CallAdapter) -> <init>
+com.fraumobi.call.adapter.CallJiluAdapter -> com.fraumobi.call.b.c:
+    java.util.ArrayList allContactList -> e
+    java.util.ArrayList idList -> a
+    30:40:void <init>(android.content.Context) -> <init>
+    44:89:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    93:115:void addItemToTableBlock(com.fraumobi.call.entries.RejectInfo) -> a
+    118:136:void deleteItemToTableBlock(com.fraumobi.call.entries.RejectInfo) -> b
+    25:25:void access$000(com.fraumobi.call.adapter.CallJiluAdapter,com.fraumobi.call.entries.RejectInfo) -> a
+    25:25:void access$100(com.fraumobi.call.adapter.CallJiluAdapter,com.fraumobi.call.entries.RejectInfo) -> b
+com.fraumobi.call.adapter.CallJiluAdapter$1 -> com.fraumobi.call.b.c$1:
+    com.fraumobi.call.entries.RejectInfo val$info -> a
+    com.fraumobi.call.adapter.CallJiluAdapter$ViewHolder val$holder -> b
+    com.fraumobi.call.adapter.CallJiluAdapter this$0 -> c
+    75:75:void <init>(com.fraumobi.call.adapter.CallJiluAdapter,com.fraumobi.call.entries.RejectInfo,com.fraumobi.call.adapter.CallJiluAdapter$ViewHolder) -> <init>
+    78:87:void onClick(android.view.View) -> onClick
+com.fraumobi.call.adapter.CallJiluAdapter$ViewHolder -> com.fraumobi.call.b.c$a:
+    android.widget.ImageView icon -> a
+    android.widget.TextView time -> b
+    android.widget.ImageView checkBox -> c
+    android.widget.TextView name -> d
+    com.fraumobi.call.adapter.CallJiluAdapter this$0 -> e
+    138:138:void <init>(com.fraumobi.call.adapter.CallJiluAdapter) -> <init>
+com.fraumobi.call.adapter.MybaseAdapter -> com.fraumobi.call.b.d:
+    java.util.List list -> b
+    android.content.Context context -> c
+    android.view.LayoutInflater inflater -> d
     21:26:void <init>(android.content.Context) -> <init>
     29:29:java.util.List getData() -> a
     45:46:void addDataList(java.util.List) -> a
@@ -38335,13 +38359,13 @@ com.fraumobi.call.database.Database -> com.fraumobi.call.c.a:
     93:96:void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
     101:104:void onDowngrade(android.database.sqlite.SQLiteDatabase,int,int) -> onDowngrade
     111:115:void createTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String) -> b
-    119:133:void insertDataIntoTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.Contact) -> a
-    136:154:java.util.ArrayList getDataFromTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String) -> c
-    159:163:void deleteDataFromTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.Contact) -> b
-    193:198:void createTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String) -> d
-    202:213:void insertDataToTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.RejectInfo) -> a
-    216:234:java.util.ArrayList getDataFromTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String) -> e
-    239:243:void deleteDataFromTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.RejectInfo) -> b
+    119:130:void insertDataIntoTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.Contact) -> a
+    133:151:java.util.ArrayList getDataFromTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String) -> c
+    156:160:void deleteDataFromTableContacts(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.Contact) -> b
+    190:195:void createTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String) -> d
+    199:210:void insertDataToTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.RejectInfo) -> a
+    213:231:java.util.ArrayList getDataFromTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String) -> e
+    236:240:void deleteDataFromTableReject(android.database.sqlite.SQLiteDatabase,java.lang.String,com.fraumobi.call.entries.RejectInfo) -> b
     37:37:void <clinit>() -> <clinit>
 com.fraumobi.call.entries.Contact -> com.fraumobi.call.d.a:
     java.lang.String _id -> a
@@ -48420,7 +48444,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6507:15629:void <clinit>() -> <clinit>
+    6513:15635:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b

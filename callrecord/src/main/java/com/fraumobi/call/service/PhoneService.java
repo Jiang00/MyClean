@@ -115,7 +115,7 @@ public class PhoneService extends Service {
             if (currentNumber == null) {
                 String inComing = mIntent.getStringExtra(tm.EXTRA_INCOMING_NUMBER);
                 if (!TextUtils.isEmpty(inComing)) {
-                    currentNumber = inComing;
+                    currentNumber = inComing.replace(" ", "");
                     isOuting = false;
                 }
             }

@@ -121,14 +121,11 @@ public class Database extends SQLiteOpenHelper {
             stat.bindString(1, contact._id);
             stat.bindString(2, contact.name);
             stat.bindString(3, contact.phoneNum);
-            try {
-                stat.executeInsert();
-                Log.e("call", contact.phoneNum + "==");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            stat.executeInsert();
+            Log.e("call", contact.phoneNum + "==");
         } catch (Exception E) {
             E.printStackTrace();
+            Log.e("call", E.toString() + "==");
         }
     }
 

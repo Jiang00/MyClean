@@ -29,7 +29,7 @@ public class Contact implements Serializable, Comparable<Contact> {
     public Contact(String _id, String name, String phoneNum, boolean isChinese, boolean isEnglish) {
         this._id = _id;
         this.name = name;
-        this.phoneNum = phoneNum;
+        this.phoneNum = phoneNum.replace(" ", "");
         this.isChinese = isChinese;
         this.isEnglish = isEnglish;
         if (isChinese) {

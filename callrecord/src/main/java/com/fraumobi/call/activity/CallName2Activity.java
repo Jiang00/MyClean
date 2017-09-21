@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.provider.CallLog;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ListView;
@@ -14,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.fraumobi.call.adapter.CallAdapter;
+import com.fraumobi.call.adapter.CallJiluAdapter;
 import com.fraumobi.call.entries.RejectInfo;
 import com.fraumobi.call.record.R;
 
@@ -29,7 +32,7 @@ import java.util.Date;
 public class CallName2Activity extends BaseActivity {
 
 
-    CallAdapter adapter;
+    CallJiluAdapter adapter;
     ListView call_list;
     FrameLayout title_left;
     ProgressBar progressbar;
@@ -48,7 +51,7 @@ public class CallName2Activity extends BaseActivity {
         setContentView(R.layout.layout_call_jil);
         findId();
         setClick();
-        adapter = new CallAdapter(this);
+        adapter = new CallJiluAdapter(this);
         call_list.setAdapter(adapter);
         initData();
 
@@ -58,15 +61,29 @@ public class CallName2Activity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                final ArrayList<RejectInfo> tonghuajilu = new ArrayList<>();
                 final ArrayList<RejectInfo> call_list = queryCall();
+                for (RejectInfo callEntity : call_list) {
+                    boolean isHaveSameAddress = false;
+                    for (int i = 0; i < tonghuajilu.size(); i++) {
+                        RejectInfo callEn = tonghuajilu.get(i);
+                        if (TextUtils.equals(callEntity.phoneNum, callEn.phoneNum)) {
+                            isHaveSameAddress = true;
+                            break;
+                        }
+                    }
+                    if (!isHaveSameAddress) {
+                        tonghuajilu.add(callEntity);
+                    }
+                }
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         progressbar.setVisibility(View.GONE);
-                        if (null == call_list || call_list.size() == 0) {
+                        if (null == call_list || tonghuajilu.size() == 0) {
                             null_call.setVisibility(View.VISIBLE);
                         } else {
-                            adapter.addDataList(call_list);
+                            adapter.addDataList(tonghuajilu);
                             adapter.notifyDataSetChanged();
                         }
                     }
@@ -131,7 +148,7 @@ public class CallName2Activity extends BaseActivity {
                /* if (Integer.parseInt(callType) == (CallLog.Calls.MISSED_TYPE)) {*/
                 //textView.setText(callType+"|"+callDate+"|"+callNumber+"|");
 //只是以最简单ListView显示联系人的一些数据----适配器的如何配置可查看http://blog.csdn.net/cl18652469346/article/details/52237637
-                RejectInfo callEntity = new RejectInfo(callName, callNumber, callDate, "in");
+                RejectInfo callEntity = new RejectInfo(callName, callNumber.replace(" ", ""), callDate, "in");
                 callEntities.add(callEntity);
                 /*}*/
             }
