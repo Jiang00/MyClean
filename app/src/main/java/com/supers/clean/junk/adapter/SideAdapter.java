@@ -34,6 +34,7 @@ import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.NotifiInfoActivity;
 import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.activity.PowerActivity;
+import com.supers.clean.junk.activity.PrivacyActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SettingActivity;
 import com.supers.clean.junk.entity.SideInfo;
@@ -54,6 +55,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static final int FILE = idx++;
     private static final int POWER = idx++;
     private static final int CALL = idx++;
+    private static final int PRIVARY = idx++;
     private static final int WIFI = idx++;
     //    private static final int LAG_SETTING = idx++;
     private static final int NOTIFI = idx++;
@@ -221,6 +223,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == CALL) {
             AdUtil.track("侧边栏", "点击进入骚扰拦截页面", "", 1);
             Intent intent5 = new Intent(context, CallActivity.class);
+            ((Activity) context).startActivityForResult(intent5, 1);
+        } else if (position == PRIVARY) {
+            AdUtil.track("侧边栏", "点击进入隐私清理页面", "", 1);
+            Intent intent5 = new Intent(context, PrivacyActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == NOTIFI) {
             AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);

@@ -3,6 +3,7 @@ package com.fraumobi.call.activity;
 import android.Manifest;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,15 +11,19 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.CallLog;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,6 +54,7 @@ public class CallActivity extends BaseActivity {
     protected ArrayList<Contact> contactsList;
     ListView call_list;
     TextView call_delete;
+    TextView call_restore;
     TextView null_call;
     FrameLayout title_left;
     ImageView title_setting;
@@ -64,6 +70,7 @@ public class CallActivity extends BaseActivity {
     protected void findId() {
         call_list = (ListView) findViewById(R.id.call_list);
         call_delete = (TextView) findViewById(R.id.call_delete);
+        call_restore = (TextView) findViewById(R.id.call_restore);
         null_call = (TextView) findViewById(R.id.null_call);
         title_setting = (ImageView) findViewById(R.id.title_setting);
         add_check = (LinearLayout) findViewById(R.id.add_check);
@@ -85,6 +92,7 @@ public class CallActivity extends BaseActivity {
         call_list.setAdapter(adapter);
         initData();
         call_delete.setOnClickListener(clickListener);
+        call_restore.setOnClickListener(clickListener);
         title_setting.setOnClickListener(clickListener);
         title_left.setOnClickListener(clickListener);
         title_checked.setOnClickListener(clickListener);
@@ -111,9 +119,9 @@ public class CallActivity extends BaseActivity {
             }
         }
         if (isAll) {
-            title_checked.setAlpha(1f);
+            title_checked.setImageResource(R.mipmap.call_check_all);
         } else {
-            title_checked.setAlpha(0.54f);
+            title_checked.setImageResource(R.mipmap.call_check_all_2);
         }
     }
 
@@ -143,6 +151,22 @@ public class CallActivity extends BaseActivity {
                     }
                     adapter.notifyDataSetChanged();
 //                    startActivity(new Intent(CallActivity.this, SuccessActivity.class));
+                    startActivity(new Intent("eos.successactivity"));
+                    finish();
+                }
+            } else if (i == R.id.call_restore) {
+                List<RejectInfo> data = adapter.getData();
+                if (data != null) {
+                    for (RejectInfo info : data) {
+                        if (info.isChecked) {
+                            blockList.remove(info);
+                            deleteBlockListItemFromTable(info);
+                            insertCallLog(info);
+                        }
+                    }
+                    adapter.notifyDataSetChanged();
+//                    startActivity(new Intent(CallActivity.this, SuccessActivity.class));
+                    startActivity(new Intent("eos.successactivity"));
                     finish();
                 }
             } else if (i == R.id.title_left) {
@@ -153,7 +177,8 @@ public class CallActivity extends BaseActivity {
                         info.isChecked = true;
                     }
                     adapter.notifyDataSetChanged();
-                    title_checked.setAlpha(1f);
+                    title_checked.setImageResource(R.mipmap.call_check_all);
+
                 }
             } else if (i == R.id.add_check_fl) {
                 add_check_fl.setVisibility(View.INVISIBLE);
@@ -165,7 +190,7 @@ public class CallActivity extends BaseActivity {
                 startActivity(new Intent(CallActivity.this, CallName2Activity.class));
             } else if (i == R.id.check_shou) {
                 add_check_fl.setVisibility(View.INVISIBLE);
-
+                dialog();
             }
 
         }
@@ -173,35 +198,70 @@ public class CallActivity extends BaseActivity {
 
     private void dialog() {
         View view = View.inflate(this, R.layout.dialog_shou, null);
-        dialog = new AlertDialog.Builder(this).create();
+        final EditText name = (EditText) view.findViewById(R.id.name);
+        final EditText num = (EditText) view.findViewById(R.id.num);
+        TextView ok = (TextView) view.findViewById(R.id.ok);
+        TextView cancel = (TextView) view.findViewById(R.id.cancel);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String call_name = name.getText().toString();
+                final String call_num = num.getText().toString();
+                if (null != call_num && call_num.length() != 0) {
+                    ContactTool.addContact(CallActivity.this, call_name, call_num);
+                }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        startReadContacts();
+                        for (Contact info : contactsList) {
+                            if (TextUtils.equals(info.phoneNum, call_num.replace(" ", ""))) {
+                                addItemToTableBlock(info);
+                                break;
+                            }
+                        }
+                    }
+                }).start();
+                dialog.dismiss();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog = new AlertDialog.Builder(this, R.style.dialog).create();
+        dialog.setView(view);
         dialog.show();
-        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
-        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = dm.widthPixels; //设置宽度
-        lp.height = dm.heightPixels; //设置高度
-        int uiOptions =
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                        //布局位于状态栏下方
-                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                        //隐藏导航栏
-                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-        if (Build.VERSION.SDK_INT >= 19) {
-            uiOptions |= 0x00001000;
-        } else {
-            uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
-        }
-        dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
-        dialog.getWindow().setAttributes(lp);
-        dialog.getWindow().setContentView(view);
+//        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
+//        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+//        lp.width = dm.widthPixels; //设置宽度
+//        lp.height = dm.heightPixels; //设置高度
+//        int uiOptions =
+//                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+//                        //布局位于状态栏下方
+//                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+//                        //隐藏导航栏
+//                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+//                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+//        if (Build.VERSION.SDK_INT >= 19) {
+//            uiOptions |= 0x00001000;
+//        } else {
+//            uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+//        }
+//        dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+//        dialog.getWindow().setAttributes(lp);
+//        dialog.getWindow().setContentView(view);
     }
 
     private void initData() {
         getBlockListData();
         if (blockList == null || blockList.size() == 0) {
             call_delete.setVisibility(View.GONE);
+            call_restore.setVisibility(View.GONE);
             null_call.setVisibility(View.VISIBLE);
-            title_checked.setAlpha(0.54f);
+            title_checked.setImageResource(R.mipmap.call_check_all_2);
         } else {
             adapter.upList(blockList);
             adapter.notifyDataSetChanged();
@@ -223,6 +283,26 @@ public class CallActivity extends BaseActivity {
         SQLiteDatabase db = database.getWritableDatabase();
         database.deleteDataFromTableReject(db, Constants.TABLE_INTERCEPTION, info);
         db.close();
+    }
+
+    //    添加通话记录
+    private void insertCallLog(RejectInfo info) {
+        // TODO Auto-generated method stub
+        ContentValues values = new ContentValues();
+        values.put(CallLog.Calls.NUMBER, info.phoneNum);
+        long time = System.currentTimeMillis();
+        try {
+            time = Long.parseLong(info.date);
+        } catch (Exception e) {
+        }
+        values.put(CallLog.Calls.DATE, time);
+        values.put(CallLog.Calls.DURATION, 0);
+        values.put(CallLog.Calls.TYPE, 3);//未接
+        values.put(CallLog.Calls.CACHED_NAME, info.name);//未接
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        getContentResolver().insert(CallLog.Calls.CONTENT_URI, values);
     }
 
     protected void startFetcherContacts() {
@@ -251,5 +331,15 @@ public class CallActivity extends BaseActivity {
         db.close();
         aCache.remove("contacts");
         aCache.put("contacts", contactsList);
+    }
+
+    private void addItemToTableBlock(Contact info) {
+        Database database = Database.getInstance(this);
+        SQLiteDatabase db = database.getWritableDatabase();
+        if (!database.tableIsExist(db, Constants.TABLE_BLOCK)) {
+            database.createTableContacts(db, Constants.TABLE_BLOCK);
+        }
+        database.insertDataIntoTableContacts(db, Constants.TABLE_BLOCK, info);
+        db.close();
     }
 }

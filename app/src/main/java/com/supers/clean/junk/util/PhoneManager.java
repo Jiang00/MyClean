@@ -188,30 +188,9 @@ public class PhoneManager {
      * 设备CPU类型名称 (品牌？)
      */
     public String getPhoneCPUName() {
-        return Build.CPU_ABI;
+        return Build.CPU_ABI2;
     }
 
-    // 获取CPU名字
-
-    public static String getCpuName() {
-        try {
-            FileReader fr = new FileReader("/proc/cpuinfo");
-            BufferedReader br = new BufferedReader(fr);
-            String text = br.readLine();
-            String[] array = text.split(":\\s+", 2);
-            for (int i = 0; i < array.length; i++) {
-
-            }
-
-            return array[1];
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     /**
      * 设备品牌(moto?)
@@ -304,7 +283,7 @@ public class PhoneManager {
      */
     public String getPhoneCpuName() {
         try {
-            FileReader fr = new FileReader("/proc/cpuinfo");
+            FileReader fr = new FileReader("cat/proc/cpuinfo");
             BufferedReader br = new BufferedReader(fr);
             String text = br.readLine();
             String[] array = text.split(":\\s+", 2);
@@ -315,6 +294,31 @@ public class PhoneManager {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * 获取CPU型号
+     *
+     * @return
+     */
+    public String getCpuName() {
+
+        String str1 = "/proc/cpuinfo";
+        String str2 = "";
+
+        try {
+            FileReader fr = new FileReader(str1);
+            BufferedReader localBufferedReader = new BufferedReader(fr);
+            while ((str2 = localBufferedReader.readLine()) != null) {
+                if (str2.contains("Hardware")) {
+                    return str2.split(":")[1];
+                }
+            }
+            localBufferedReader.close();
+        } catch (IOException e) {
+        }
+        return null;
+
     }
 
     /**

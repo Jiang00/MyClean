@@ -99,7 +99,7 @@ public class CallJiluAdapter extends MybaseAdapter<RejectInfo> {
         if (allContactList != null) {
             for (Contact i : allContactList) {
 
-                if (TextUtils.equals(info.phoneNum, i.phoneNum)) {
+                if (TextUtils.equals(info.phoneNum, i.phoneNum) && TextUtils.equals(info.name, i.name)) {
                     database.insertDataIntoTableContacts(db, Constants.TABLE_BLOCK, i);
                     isAdd = true;
                     break;
@@ -108,7 +108,7 @@ public class CallJiluAdapter extends MybaseAdapter<RejectInfo> {
         }
         if (!isAdd) {
             Contact contact = new Contact(info.phoneNum, info.name == null ? "" : info.name, info.phoneNum, false, false);
-            Log.e("name_con", info.phoneNum + "==2");
+
             database.insertDataIntoTableContacts(db, Constants.TABLE_BLOCK, contact);
         }
         db.close();
@@ -120,7 +120,7 @@ public class CallJiluAdapter extends MybaseAdapter<RejectInfo> {
         boolean isAdd = false;
         if (allContactList != null) {
             for (Contact i : allContactList) {
-                if (TextUtils.equals(info.phoneNum, i.phoneNum)) {
+                if (TextUtils.equals(info.phoneNum, i.phoneNum) && TextUtils.equals(info.name, i.name)) {
                     database.deleteDataFromTableContacts(db, Constants.TABLE_BLOCK, i);
                     isAdd = true;
                     break;

@@ -35643,9 +35643,15 @@ com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$f:
     int bottom_sheet_behavior -> bottom_sheet_behavior
     int call_1 -> call_1
     int call_2 -> call_2
+    int call_3 -> call_3
+    int call_4 -> call_4
+    int call_5 -> call_5
+    int call_6 -> call_6
+    int call_7 -> call_7
     int call_add_jilu -> call_add_jilu
     int call_add_shou -> call_add_shou
     int call_add_tongxunlu -> call_add_tongxunlu
+    int call_huanyuan -> call_huanyuan
     int call_lanjie -> call_lanjie
     int call_shanchu -> call_shanchu
     int character_counter_pattern -> character_counter_pattern
@@ -35666,6 +35672,32 @@ com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$f:
     int game -> game
     int internet -> internet
     int main_status_unconnect -> main_status_unconnect
+    int message_1 -> message_1
+    int message_10 -> message_10
+    int message_11 -> message_11
+    int message_12 -> message_12
+    int message_13 -> message_13
+    int message_14 -> message_14
+    int message_15 -> message_15
+    int message_16 -> message_16
+    int message_17 -> message_17
+    int message_18 -> message_18
+    int message_19 -> message_19
+    int message_2 -> message_2
+    int message_20 -> message_20
+    int message_21 -> message_21
+    int message_22 -> message_22
+    int message_23 -> message_23
+    int message_24 -> message_24
+    int message_25 -> message_25
+    int message_26 -> message_26
+    int message_3 -> message_3
+    int message_4 -> message_4
+    int message_5 -> message_5
+    int message_6 -> message_6
+    int message_7 -> message_7
+    int message_8 -> message_8
+    int message_9 -> message_9
     int noapprun -> noapprun
     int ram -> ram
     int security_power_mode_des_description -> security_power_mode_des_description
@@ -36277,7 +36309,7 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$g:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1730:2311:void <clinit>() -> <clinit>
+    1762:2343:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.ADRequest -> com.eos.module.charge.saver.Util.a:
     16:16:void <init>() -> <init>
     19:20:void showFullAD() -> a
@@ -38193,44 +38225,68 @@ com.fraumobi.call.activity.CallActivity -> com.fraumobi.call.activity.CallActivi
     java.util.ArrayList contactsList -> e
     android.widget.ListView call_list -> f
     android.widget.TextView call_delete -> g
-    android.widget.TextView null_call -> h
-    android.widget.FrameLayout title_left -> i
-    android.widget.ImageView title_setting -> j
-    android.widget.LinearLayout add_check -> k
-    android.widget.FrameLayout add_check_fl -> l
-    android.widget.TextView check_tongxun -> m
-    android.widget.TextView check_jilu -> n
-    android.widget.TextView check_shou -> o
-    android.widget.ImageView title_checked -> p
-    com.fraumobi.call.adapter.CallAdapter adapter -> q
-    java.util.ArrayList blockList -> s
-    android.view.View$OnClickListener clickListener -> r
-    java.lang.Runnable fetcherContactsRunnable -> t
-    43:201:void <init>() -> <init>
-    60:71:void findId() -> c
-    75:99:void onCreate(android.os.Bundle) -> onCreate
-    102:113:void updateTitle() -> e
-    169:179:void initData() -> f
-    183:187:void getBlockListData() -> g
-    191:195:void deleteBlockListItemFromTable(com.fraumobi.call.entries.RejectInfo) -> a
-    198:199:void startFetcherContacts() -> d
-    209:223:void startReadContacts() -> h
-    43:43:void access$000(com.fraumobi.call.activity.CallActivity) -> a
-    43:43:java.util.ArrayList access$100(com.fraumobi.call.activity.CallActivity) -> b
-    43:43:void access$200(com.fraumobi.call.activity.CallActivity,com.fraumobi.call.entries.RejectInfo) -> a
-    43:43:void access$300(com.fraumobi.call.activity.CallActivity) -> c
+    android.widget.TextView call_restore -> h
+    android.widget.TextView null_call -> i
+    android.widget.FrameLayout title_left -> j
+    android.widget.ImageView title_setting -> k
+    android.widget.LinearLayout add_check -> l
+    android.widget.FrameLayout add_check_fl -> m
+    android.widget.TextView check_tongxun -> n
+    android.widget.TextView check_jilu -> o
+    android.widget.TextView check_shou -> p
+    android.widget.ImageView title_checked -> q
+    com.fraumobi.call.adapter.CallAdapter adapter -> r
+    java.util.ArrayList blockList -> t
+    android.support.v7.app.AlertDialog dialog -> u
+    android.view.View$OnClickListener clickListener -> s
+    java.lang.Runnable fetcherContactsRunnable -> v
+    52:312:void <init>() -> <init>
+    71:83:void findId() -> c
+    87:112:void onCreate(android.os.Bundle) -> onCreate
+    115:126:void updateTitle() -> e
+    200:256:void dialog() -> f
+    259:270:void initData() -> g
+    274:278:void getBlockListData() -> h
+    282:286:void deleteBlockListItemFromTable(com.fraumobi.call.entries.RejectInfo) -> a
+    291:306:void insertCallLog(com.fraumobi.call.entries.RejectInfo) -> b
+    309:310:void startFetcherContacts() -> d
+    320:334:void startReadContacts() -> i
+    337:344:void addItemToTableBlock(com.fraumobi.call.entries.Contact) -> a
+    52:52:void access$000(com.fraumobi.call.activity.CallActivity) -> a
+    52:52:java.util.ArrayList access$100(com.fraumobi.call.activity.CallActivity) -> b
+    52:52:void access$200(com.fraumobi.call.activity.CallActivity,com.fraumobi.call.entries.RejectInfo) -> a
+    52:52:void access$300(com.fraumobi.call.activity.CallActivity,com.fraumobi.call.entries.RejectInfo) -> b
+    52:52:void access$400(com.fraumobi.call.activity.CallActivity) -> c
+    52:52:void access$500(com.fraumobi.call.activity.CallActivity) -> d
+    52:52:void access$600(com.fraumobi.call.activity.CallActivity,com.fraumobi.call.entries.Contact) -> a
+    52:52:android.support.v7.app.AlertDialog access$700(com.fraumobi.call.activity.CallActivity) -> e
 com.fraumobi.call.activity.CallActivity$1 -> com.fraumobi.call.activity.CallActivity$1:
     com.fraumobi.call.activity.CallActivity this$0 -> a
-    90:90:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
-    93:96:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    103:103:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
+    106:109:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.fraumobi.call.activity.CallActivity$2 -> com.fraumobi.call.activity.CallActivity$2:
     com.fraumobi.call.activity.CallActivity this$0 -> a
-    115:115:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
-    118:165:void onClick(android.view.View) -> onClick
+    128:128:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
+    131:196:void onClick(android.view.View) -> onClick
 com.fraumobi.call.activity.CallActivity$3 -> com.fraumobi.call.activity.CallActivity$3:
+    android.widget.EditText val$name -> a
+    android.widget.EditText val$num -> b
+    com.fraumobi.call.activity.CallActivity this$0 -> c
+    205:205:void <init>(com.fraumobi.call.activity.CallActivity,android.widget.EditText,android.widget.EditText) -> <init>
+    208:226:void onClick(android.view.View) -> onClick
+com.fraumobi.call.activity.CallActivity$3$1 -> com.fraumobi.call.activity.CallActivity$3$1:
+    java.lang.String val$call_num -> a
+    com.fraumobi.call.activity.CallActivity$3 this$1 -> b
+    213:213:void <init>(com.fraumobi.call.activity.CallActivity$3,java.lang.String) -> <init>
+    216:223:void run() -> run
+com.fraumobi.call.activity.CallActivity$4 -> com.fraumobi.call.activity.CallActivity$4:
     com.fraumobi.call.activity.CallActivity this$0 -> a
-    201:201:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
-    204:205:void run() -> run
+    228:228:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
+    231:232:void onClick(android.view.View) -> onClick
+com.fraumobi.call.activity.CallActivity$5 -> com.fraumobi.call.activity.CallActivity$5:
+    com.fraumobi.call.activity.CallActivity this$0 -> a
+    312:312:void <init>(com.fraumobi.call.activity.CallActivity) -> <init>
+    315:316:void run() -> run
 com.fraumobi.call.activity.CallName2Activity -> com.fraumobi.call.activity.CallName2Activity:
     com.fraumobi.call.adapter.CallJiluAdapter adapter -> e
     android.widget.ListView call_list -> f
@@ -38423,7 +38479,9 @@ com.fraumobi.call.record.R$id -> com.fraumobi.call.e.a$a:
     int call_icon -> call_icon
     int call_list -> call_list
     int call_name -> call_name
+    int call_restore -> call_restore
     int call_time -> call_time
+    int cancel -> cancel
     int cancel_action -> cancel_action
     int catalog -> catalog
     int check_jilu -> check_jilu
@@ -38463,10 +38521,13 @@ com.fraumobi.call.record.R$id -> com.fraumobi.call.e.a$a:
     int media_actions -> media_actions
     int middle -> middle
     int multiply -> multiply
+    int name -> name
     int never -> never
     int none -> none
     int normal -> normal
     int null_call -> null_call
+    int num -> num
+    int ok -> ok
     int parentPanel -> parentPanel
     int progress_circular -> progress_circular
     int progress_horizontal -> progress_horizontal
@@ -38542,6 +38603,7 @@ com.fraumobi.call.record.R$layout -> com.fraumobi.call.e.a$b:
     int abc_search_dropdown_item_icons_2line -> abc_search_dropdown_item_icons_2line
     int abc_search_view -> abc_search_view
     int abc_select_dialog_material -> abc_select_dialog_material
+    int dialog_shou -> dialog_shou
     int layout_call -> layout_call
     int layout_call_item -> layout_call_item
     int layout_call_jil -> layout_call_jil
@@ -38561,12 +38623,336 @@ com.fraumobi.call.record.R$layout -> com.fraumobi.call.e.a$b:
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
 com.fraumobi.call.record.R$mipmap -> com.fraumobi.call.e.a$c:
     int call_check_all -> call_check_all
+    int call_check_all_2 -> call_check_all_2
     int call_icon -> call_icon
     int call_setting -> call_setting
     int checked -> checked
     int no_checked -> no_checked
+    int null_lanjie -> null_lanjie
     int tilte_left -> tilte_left
-com.fraumobi.call.record.R$styleable -> com.fraumobi.call.e.a$d:
+com.fraumobi.call.record.R$style -> com.fraumobi.call.e.a$d:
+    int AlertDialog_AppCompat -> AlertDialog_AppCompat
+    int AlertDialog_AppCompat_Light -> AlertDialog_AppCompat_Light
+    int Animation_AppCompat_Dialog -> Animation_AppCompat_Dialog
+    int Animation_AppCompat_DropDownUp -> Animation_AppCompat_DropDownUp
+    int Base_AlertDialog_AppCompat -> Base_AlertDialog_AppCompat
+    int Base_AlertDialog_AppCompat_Light -> Base_AlertDialog_AppCompat_Light
+    int Base_Animation_AppCompat_Dialog -> Base_Animation_AppCompat_Dialog
+    int Base_Animation_AppCompat_DropDownUp -> Base_Animation_AppCompat_DropDownUp
+    int Base_DialogWindowTitleBackground_AppCompat -> Base_DialogWindowTitleBackground_AppCompat
+    int Base_DialogWindowTitle_AppCompat -> Base_DialogWindowTitle_AppCompat
+    int Base_TextAppearance_AppCompat -> Base_TextAppearance_AppCompat
+    int Base_TextAppearance_AppCompat_Body1 -> Base_TextAppearance_AppCompat_Body1
+    int Base_TextAppearance_AppCompat_Body2 -> Base_TextAppearance_AppCompat_Body2
+    int Base_TextAppearance_AppCompat_Button -> Base_TextAppearance_AppCompat_Button
+    int Base_TextAppearance_AppCompat_Caption -> Base_TextAppearance_AppCompat_Caption
+    int Base_TextAppearance_AppCompat_Display1 -> Base_TextAppearance_AppCompat_Display1
+    int Base_TextAppearance_AppCompat_Display2 -> Base_TextAppearance_AppCompat_Display2
+    int Base_TextAppearance_AppCompat_Display3 -> Base_TextAppearance_AppCompat_Display3
+    int Base_TextAppearance_AppCompat_Display4 -> Base_TextAppearance_AppCompat_Display4
+    int Base_TextAppearance_AppCompat_Headline -> Base_TextAppearance_AppCompat_Headline
+    int Base_TextAppearance_AppCompat_Inverse -> Base_TextAppearance_AppCompat_Inverse
+    int Base_TextAppearance_AppCompat_Large -> Base_TextAppearance_AppCompat_Large
+    int Base_TextAppearance_AppCompat_Large_Inverse -> Base_TextAppearance_AppCompat_Large_Inverse
+    int Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large -> Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large
+    int Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small -> Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small
+    int Base_TextAppearance_AppCompat_Medium -> Base_TextAppearance_AppCompat_Medium
+    int Base_TextAppearance_AppCompat_Medium_Inverse -> Base_TextAppearance_AppCompat_Medium_Inverse
+    int Base_TextAppearance_AppCompat_Menu -> Base_TextAppearance_AppCompat_Menu
+    int Base_TextAppearance_AppCompat_SearchResult -> Base_TextAppearance_AppCompat_SearchResult
+    int Base_TextAppearance_AppCompat_SearchResult_Subtitle -> Base_TextAppearance_AppCompat_SearchResult_Subtitle
+    int Base_TextAppearance_AppCompat_SearchResult_Title -> Base_TextAppearance_AppCompat_SearchResult_Title
+    int Base_TextAppearance_AppCompat_Small -> Base_TextAppearance_AppCompat_Small
+    int Base_TextAppearance_AppCompat_Small_Inverse -> Base_TextAppearance_AppCompat_Small_Inverse
+    int Base_TextAppearance_AppCompat_Subhead -> Base_TextAppearance_AppCompat_Subhead
+    int Base_TextAppearance_AppCompat_Subhead_Inverse -> Base_TextAppearance_AppCompat_Subhead_Inverse
+    int Base_TextAppearance_AppCompat_Title -> Base_TextAppearance_AppCompat_Title
+    int Base_TextAppearance_AppCompat_Title_Inverse -> Base_TextAppearance_AppCompat_Title_Inverse
+    int Base_TextAppearance_AppCompat_Widget_ActionBar_Menu -> Base_TextAppearance_AppCompat_Widget_ActionBar_Menu
+    int Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle -> Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle
+    int Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse -> Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse
+    int Base_TextAppearance_AppCompat_Widget_ActionBar_Title -> Base_TextAppearance_AppCompat_Widget_ActionBar_Title
+    int Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse -> Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse
+    int Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle -> Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle
+    int Base_TextAppearance_AppCompat_Widget_ActionMode_Title -> Base_TextAppearance_AppCompat_Widget_ActionMode_Title
+    int Base_TextAppearance_AppCompat_Widget_Button -> Base_TextAppearance_AppCompat_Widget_Button
+    int Base_TextAppearance_AppCompat_Widget_Button_Inverse -> Base_TextAppearance_AppCompat_Widget_Button_Inverse
+    int Base_TextAppearance_AppCompat_Widget_DropDownItem -> Base_TextAppearance_AppCompat_Widget_DropDownItem
+    int Base_TextAppearance_AppCompat_Widget_PopupMenu_Large -> Base_TextAppearance_AppCompat_Widget_PopupMenu_Large
+    int Base_TextAppearance_AppCompat_Widget_PopupMenu_Small -> Base_TextAppearance_AppCompat_Widget_PopupMenu_Small
+    int Base_TextAppearance_AppCompat_Widget_Switch -> Base_TextAppearance_AppCompat_Widget_Switch
+    int Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem -> Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem
+    int Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item -> Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item
+    int Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle -> Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle
+    int Base_TextAppearance_Widget_AppCompat_Toolbar_Title -> Base_TextAppearance_Widget_AppCompat_Toolbar_Title
+    int Base_ThemeOverlay_AppCompat -> Base_ThemeOverlay_AppCompat
+    int Base_ThemeOverlay_AppCompat_ActionBar -> Base_ThemeOverlay_AppCompat_ActionBar
+    int Base_ThemeOverlay_AppCompat_Dark -> Base_ThemeOverlay_AppCompat_Dark
+    int Base_ThemeOverlay_AppCompat_Dark_ActionBar -> Base_ThemeOverlay_AppCompat_Dark_ActionBar
+    int Base_ThemeOverlay_AppCompat_Light -> Base_ThemeOverlay_AppCompat_Light
+    int Base_Theme_AppCompat -> Base_Theme_AppCompat
+    int Base_Theme_AppCompat_CompactMenu -> Base_Theme_AppCompat_CompactMenu
+    int Base_Theme_AppCompat_Dialog -> Base_Theme_AppCompat_Dialog
+    int Base_Theme_AppCompat_DialogWhenLarge -> Base_Theme_AppCompat_DialogWhenLarge
+    int Base_Theme_AppCompat_Dialog_Alert -> Base_Theme_AppCompat_Dialog_Alert
+    int Base_Theme_AppCompat_Dialog_FixedSize -> Base_Theme_AppCompat_Dialog_FixedSize
+    int Base_Theme_AppCompat_Dialog_MinWidth -> Base_Theme_AppCompat_Dialog_MinWidth
+    int Base_Theme_AppCompat_Light -> Base_Theme_AppCompat_Light
+    int Base_Theme_AppCompat_Light_DarkActionBar -> Base_Theme_AppCompat_Light_DarkActionBar
+    int Base_Theme_AppCompat_Light_Dialog -> Base_Theme_AppCompat_Light_Dialog
+    int Base_Theme_AppCompat_Light_DialogWhenLarge -> Base_Theme_AppCompat_Light_DialogWhenLarge
+    int Base_Theme_AppCompat_Light_Dialog_Alert -> Base_Theme_AppCompat_Light_Dialog_Alert
+    int Base_Theme_AppCompat_Light_Dialog_FixedSize -> Base_Theme_AppCompat_Light_Dialog_FixedSize
+    int Base_Theme_AppCompat_Light_Dialog_MinWidth -> Base_Theme_AppCompat_Light_Dialog_MinWidth
+    int Base_V11_Theme_AppCompat_Dialog -> Base_V11_Theme_AppCompat_Dialog
+    int Base_V11_Theme_AppCompat_Light_Dialog -> Base_V11_Theme_AppCompat_Light_Dialog
+    int Base_V12_Widget_AppCompat_AutoCompleteTextView -> Base_V12_Widget_AppCompat_AutoCompleteTextView
+    int Base_V12_Widget_AppCompat_EditText -> Base_V12_Widget_AppCompat_EditText
+    int Base_V21_Theme_AppCompat -> Base_V21_Theme_AppCompat
+    int Base_V21_Theme_AppCompat_Dialog -> Base_V21_Theme_AppCompat_Dialog
+    int Base_V21_Theme_AppCompat_Light -> Base_V21_Theme_AppCompat_Light
+    int Base_V21_Theme_AppCompat_Light_Dialog -> Base_V21_Theme_AppCompat_Light_Dialog
+    int Base_V22_Theme_AppCompat -> Base_V22_Theme_AppCompat
+    int Base_V22_Theme_AppCompat_Light -> Base_V22_Theme_AppCompat_Light
+    int Base_V23_Theme_AppCompat -> Base_V23_Theme_AppCompat
+    int Base_V23_Theme_AppCompat_Light -> Base_V23_Theme_AppCompat_Light
+    int Base_V7_Theme_AppCompat -> Base_V7_Theme_AppCompat
+    int Base_V7_Theme_AppCompat_Dialog -> Base_V7_Theme_AppCompat_Dialog
+    int Base_V7_Theme_AppCompat_Light -> Base_V7_Theme_AppCompat_Light
+    int Base_V7_Theme_AppCompat_Light_Dialog -> Base_V7_Theme_AppCompat_Light_Dialog
+    int Base_V7_Widget_AppCompat_AutoCompleteTextView -> Base_V7_Widget_AppCompat_AutoCompleteTextView
+    int Base_V7_Widget_AppCompat_EditText -> Base_V7_Widget_AppCompat_EditText
+    int Base_Widget_AppCompat_ActionBar -> Base_Widget_AppCompat_ActionBar
+    int Base_Widget_AppCompat_ActionBar_Solid -> Base_Widget_AppCompat_ActionBar_Solid
+    int Base_Widget_AppCompat_ActionBar_TabBar -> Base_Widget_AppCompat_ActionBar_TabBar
+    int Base_Widget_AppCompat_ActionBar_TabText -> Base_Widget_AppCompat_ActionBar_TabText
+    int Base_Widget_AppCompat_ActionBar_TabView -> Base_Widget_AppCompat_ActionBar_TabView
+    int Base_Widget_AppCompat_ActionButton -> Base_Widget_AppCompat_ActionButton
+    int Base_Widget_AppCompat_ActionButton_CloseMode -> Base_Widget_AppCompat_ActionButton_CloseMode
+    int Base_Widget_AppCompat_ActionButton_Overflow -> Base_Widget_AppCompat_ActionButton_Overflow
+    int Base_Widget_AppCompat_ActionMode -> Base_Widget_AppCompat_ActionMode
+    int Base_Widget_AppCompat_ActivityChooserView -> Base_Widget_AppCompat_ActivityChooserView
+    int Base_Widget_AppCompat_AutoCompleteTextView -> Base_Widget_AppCompat_AutoCompleteTextView
+    int Base_Widget_AppCompat_Button -> Base_Widget_AppCompat_Button
+    int Base_Widget_AppCompat_ButtonBar -> Base_Widget_AppCompat_ButtonBar
+    int Base_Widget_AppCompat_ButtonBar_AlertDialog -> Base_Widget_AppCompat_ButtonBar_AlertDialog
+    int Base_Widget_AppCompat_Button_Borderless -> Base_Widget_AppCompat_Button_Borderless
+    int Base_Widget_AppCompat_Button_Borderless_Colored -> Base_Widget_AppCompat_Button_Borderless_Colored
+    int Base_Widget_AppCompat_Button_ButtonBar_AlertDialog -> Base_Widget_AppCompat_Button_ButtonBar_AlertDialog
+    int Base_Widget_AppCompat_Button_Colored -> Base_Widget_AppCompat_Button_Colored
+    int Base_Widget_AppCompat_Button_Small -> Base_Widget_AppCompat_Button_Small
+    int Base_Widget_AppCompat_CompoundButton_CheckBox -> Base_Widget_AppCompat_CompoundButton_CheckBox
+    int Base_Widget_AppCompat_CompoundButton_RadioButton -> Base_Widget_AppCompat_CompoundButton_RadioButton
+    int Base_Widget_AppCompat_CompoundButton_Switch -> Base_Widget_AppCompat_CompoundButton_Switch
+    int Base_Widget_AppCompat_DrawerArrowToggle -> Base_Widget_AppCompat_DrawerArrowToggle
+    int Base_Widget_AppCompat_DrawerArrowToggle_Common -> Base_Widget_AppCompat_DrawerArrowToggle_Common
+    int Base_Widget_AppCompat_DropDownItem_Spinner -> Base_Widget_AppCompat_DropDownItem_Spinner
+    int Base_Widget_AppCompat_EditText -> Base_Widget_AppCompat_EditText
+    int Base_Widget_AppCompat_ImageButton -> Base_Widget_AppCompat_ImageButton
+    int Base_Widget_AppCompat_Light_ActionBar -> Base_Widget_AppCompat_Light_ActionBar
+    int Base_Widget_AppCompat_Light_ActionBar_Solid -> Base_Widget_AppCompat_Light_ActionBar_Solid
+    int Base_Widget_AppCompat_Light_ActionBar_TabBar -> Base_Widget_AppCompat_Light_ActionBar_TabBar
+    int Base_Widget_AppCompat_Light_ActionBar_TabText -> Base_Widget_AppCompat_Light_ActionBar_TabText
+    int Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse -> Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse
+    int Base_Widget_AppCompat_Light_ActionBar_TabView -> Base_Widget_AppCompat_Light_ActionBar_TabView
+    int Base_Widget_AppCompat_Light_PopupMenu -> Base_Widget_AppCompat_Light_PopupMenu
+    int Base_Widget_AppCompat_Light_PopupMenu_Overflow -> Base_Widget_AppCompat_Light_PopupMenu_Overflow
+    int Base_Widget_AppCompat_ListPopupWindow -> Base_Widget_AppCompat_ListPopupWindow
+    int Base_Widget_AppCompat_ListView -> Base_Widget_AppCompat_ListView
+    int Base_Widget_AppCompat_ListView_DropDown -> Base_Widget_AppCompat_ListView_DropDown
+    int Base_Widget_AppCompat_ListView_Menu -> Base_Widget_AppCompat_ListView_Menu
+    int Base_Widget_AppCompat_PopupMenu -> Base_Widget_AppCompat_PopupMenu
+    int Base_Widget_AppCompat_PopupMenu_Overflow -> Base_Widget_AppCompat_PopupMenu_Overflow
+    int Base_Widget_AppCompat_PopupWindow -> Base_Widget_AppCompat_PopupWindow
+    int Base_Widget_AppCompat_ProgressBar -> Base_Widget_AppCompat_ProgressBar
+    int Base_Widget_AppCompat_ProgressBar_Horizontal -> Base_Widget_AppCompat_ProgressBar_Horizontal
+    int Base_Widget_AppCompat_RatingBar -> Base_Widget_AppCompat_RatingBar
+    int Base_Widget_AppCompat_RatingBar_Indicator -> Base_Widget_AppCompat_RatingBar_Indicator
+    int Base_Widget_AppCompat_RatingBar_Small -> Base_Widget_AppCompat_RatingBar_Small
+    int Base_Widget_AppCompat_SearchView -> Base_Widget_AppCompat_SearchView
+    int Base_Widget_AppCompat_SearchView_ActionBar -> Base_Widget_AppCompat_SearchView_ActionBar
+    int Base_Widget_AppCompat_SeekBar -> Base_Widget_AppCompat_SeekBar
+    int Base_Widget_AppCompat_Spinner -> Base_Widget_AppCompat_Spinner
+    int Base_Widget_AppCompat_Spinner_Underlined -> Base_Widget_AppCompat_Spinner_Underlined
+    int Base_Widget_AppCompat_TextView_SpinnerItem -> Base_Widget_AppCompat_TextView_SpinnerItem
+    int Base_Widget_AppCompat_Toolbar -> Base_Widget_AppCompat_Toolbar
+    int Base_Widget_AppCompat_Toolbar_Button_Navigation -> Base_Widget_AppCompat_Toolbar_Button_Navigation
+    int MyEditText -> MyEditText
+    int Platform_AppCompat -> Platform_AppCompat
+    int Platform_AppCompat_Light -> Platform_AppCompat_Light
+    int Platform_ThemeOverlay_AppCompat -> Platform_ThemeOverlay_AppCompat
+    int Platform_ThemeOverlay_AppCompat_Dark -> Platform_ThemeOverlay_AppCompat_Dark
+    int Platform_ThemeOverlay_AppCompat_Light -> Platform_ThemeOverlay_AppCompat_Light
+    int Platform_V11_AppCompat -> Platform_V11_AppCompat
+    int Platform_V11_AppCompat_Light -> Platform_V11_AppCompat_Light
+    int Platform_V14_AppCompat -> Platform_V14_AppCompat
+    int Platform_V14_AppCompat_Light -> Platform_V14_AppCompat_Light
+    int Platform_Widget_AppCompat_Spinner -> Platform_Widget_AppCompat_Spinner
+    int RtlOverlay_DialogWindowTitle_AppCompat -> RtlOverlay_DialogWindowTitle_AppCompat
+    int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem -> RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
+    int RtlOverlay_Widget_AppCompat_DialogTitle_Icon -> RtlOverlay_Widget_AppCompat_DialogTitle_Icon
+    int RtlOverlay_Widget_AppCompat_PopupMenuItem -> RtlOverlay_Widget_AppCompat_PopupMenuItem
+    int RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup -> RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup
+    int RtlOverlay_Widget_AppCompat_PopupMenuItem_Text -> RtlOverlay_Widget_AppCompat_PopupMenuItem_Text
+    int RtlOverlay_Widget_AppCompat_SearchView_MagIcon -> RtlOverlay_Widget_AppCompat_SearchView_MagIcon
+    int RtlOverlay_Widget_AppCompat_Search_DropDown -> RtlOverlay_Widget_AppCompat_Search_DropDown
+    int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 -> RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1
+    int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 -> RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2
+    int RtlOverlay_Widget_AppCompat_Search_DropDown_Query -> RtlOverlay_Widget_AppCompat_Search_DropDown_Query
+    int RtlOverlay_Widget_AppCompat_Search_DropDown_Text -> RtlOverlay_Widget_AppCompat_Search_DropDown_Text
+    int RtlUnderlay_Widget_AppCompat_ActionButton -> RtlUnderlay_Widget_AppCompat_ActionButton
+    int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow -> RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
+    int TextAppearance_AppCompat -> TextAppearance_AppCompat
+    int TextAppearance_AppCompat_Body1 -> TextAppearance_AppCompat_Body1
+    int TextAppearance_AppCompat_Body2 -> TextAppearance_AppCompat_Body2
+    int TextAppearance_AppCompat_Button -> TextAppearance_AppCompat_Button
+    int TextAppearance_AppCompat_Caption -> TextAppearance_AppCompat_Caption
+    int TextAppearance_AppCompat_Display1 -> TextAppearance_AppCompat_Display1
+    int TextAppearance_AppCompat_Display2 -> TextAppearance_AppCompat_Display2
+    int TextAppearance_AppCompat_Display3 -> TextAppearance_AppCompat_Display3
+    int TextAppearance_AppCompat_Display4 -> TextAppearance_AppCompat_Display4
+    int TextAppearance_AppCompat_Headline -> TextAppearance_AppCompat_Headline
+    int TextAppearance_AppCompat_Inverse -> TextAppearance_AppCompat_Inverse
+    int TextAppearance_AppCompat_Large -> TextAppearance_AppCompat_Large
+    int TextAppearance_AppCompat_Large_Inverse -> TextAppearance_AppCompat_Large_Inverse
+    int TextAppearance_AppCompat_Light_SearchResult_Subtitle -> TextAppearance_AppCompat_Light_SearchResult_Subtitle
+    int TextAppearance_AppCompat_Light_SearchResult_Title -> TextAppearance_AppCompat_Light_SearchResult_Title
+    int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large -> TextAppearance_AppCompat_Light_Widget_PopupMenu_Large
+    int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small -> TextAppearance_AppCompat_Light_Widget_PopupMenu_Small
+    int TextAppearance_AppCompat_Medium -> TextAppearance_AppCompat_Medium
+    int TextAppearance_AppCompat_Medium_Inverse -> TextAppearance_AppCompat_Medium_Inverse
+    int TextAppearance_AppCompat_Menu -> TextAppearance_AppCompat_Menu
+    int TextAppearance_AppCompat_SearchResult_Subtitle -> TextAppearance_AppCompat_SearchResult_Subtitle
+    int TextAppearance_AppCompat_SearchResult_Title -> TextAppearance_AppCompat_SearchResult_Title
+    int TextAppearance_AppCompat_Small -> TextAppearance_AppCompat_Small
+    int TextAppearance_AppCompat_Small_Inverse -> TextAppearance_AppCompat_Small_Inverse
+    int TextAppearance_AppCompat_Subhead -> TextAppearance_AppCompat_Subhead
+    int TextAppearance_AppCompat_Subhead_Inverse -> TextAppearance_AppCompat_Subhead_Inverse
+    int TextAppearance_AppCompat_Title -> TextAppearance_AppCompat_Title
+    int TextAppearance_AppCompat_Title_Inverse -> TextAppearance_AppCompat_Title_Inverse
+    int TextAppearance_AppCompat_Widget_ActionBar_Menu -> TextAppearance_AppCompat_Widget_ActionBar_Menu
+    int TextAppearance_AppCompat_Widget_ActionBar_Subtitle -> TextAppearance_AppCompat_Widget_ActionBar_Subtitle
+    int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse -> TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse
+    int TextAppearance_AppCompat_Widget_ActionBar_Title -> TextAppearance_AppCompat_Widget_ActionBar_Title
+    int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse -> TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse
+    int TextAppearance_AppCompat_Widget_ActionMode_Subtitle -> TextAppearance_AppCompat_Widget_ActionMode_Subtitle
+    int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse -> TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse
+    int TextAppearance_AppCompat_Widget_ActionMode_Title -> TextAppearance_AppCompat_Widget_ActionMode_Title
+    int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse -> TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse
+    int TextAppearance_AppCompat_Widget_Button -> TextAppearance_AppCompat_Widget_Button
+    int TextAppearance_AppCompat_Widget_Button_Inverse -> TextAppearance_AppCompat_Widget_Button_Inverse
+    int TextAppearance_AppCompat_Widget_DropDownItem -> TextAppearance_AppCompat_Widget_DropDownItem
+    int TextAppearance_AppCompat_Widget_PopupMenu_Large -> TextAppearance_AppCompat_Widget_PopupMenu_Large
+    int TextAppearance_AppCompat_Widget_PopupMenu_Small -> TextAppearance_AppCompat_Widget_PopupMenu_Small
+    int TextAppearance_AppCompat_Widget_Switch -> TextAppearance_AppCompat_Widget_Switch
+    int TextAppearance_AppCompat_Widget_TextView_SpinnerItem -> TextAppearance_AppCompat_Widget_TextView_SpinnerItem
+    int TextAppearance_StatusBar_EventContent -> TextAppearance_StatusBar_EventContent
+    int TextAppearance_StatusBar_EventContent_Info -> TextAppearance_StatusBar_EventContent_Info
+    int TextAppearance_StatusBar_EventContent_Line2 -> TextAppearance_StatusBar_EventContent_Line2
+    int TextAppearance_StatusBar_EventContent_Time -> TextAppearance_StatusBar_EventContent_Time
+    int TextAppearance_StatusBar_EventContent_Title -> TextAppearance_StatusBar_EventContent_Title
+    int TextAppearance_Widget_AppCompat_ExpandedMenu_Item -> TextAppearance_Widget_AppCompat_ExpandedMenu_Item
+    int TextAppearance_Widget_AppCompat_Toolbar_Subtitle -> TextAppearance_Widget_AppCompat_Toolbar_Subtitle
+    int TextAppearance_Widget_AppCompat_Toolbar_Title -> TextAppearance_Widget_AppCompat_Toolbar_Title
+    int ThemeOverlay_AppCompat -> ThemeOverlay_AppCompat
+    int ThemeOverlay_AppCompat_ActionBar -> ThemeOverlay_AppCompat_ActionBar
+    int ThemeOverlay_AppCompat_Dark -> ThemeOverlay_AppCompat_Dark
+    int ThemeOverlay_AppCompat_Dark_ActionBar -> ThemeOverlay_AppCompat_Dark_ActionBar
+    int ThemeOverlay_AppCompat_Light -> ThemeOverlay_AppCompat_Light
+    int Theme_AppCompat -> Theme_AppCompat
+    int Theme_AppCompat_CompactMenu -> Theme_AppCompat_CompactMenu
+    int Theme_AppCompat_DayNight -> Theme_AppCompat_DayNight
+    int Theme_AppCompat_DayNight_DarkActionBar -> Theme_AppCompat_DayNight_DarkActionBar
+    int Theme_AppCompat_DayNight_Dialog -> Theme_AppCompat_DayNight_Dialog
+    int Theme_AppCompat_DayNight_DialogWhenLarge -> Theme_AppCompat_DayNight_DialogWhenLarge
+    int Theme_AppCompat_DayNight_Dialog_Alert -> Theme_AppCompat_DayNight_Dialog_Alert
+    int Theme_AppCompat_DayNight_Dialog_MinWidth -> Theme_AppCompat_DayNight_Dialog_MinWidth
+    int Theme_AppCompat_DayNight_NoActionBar -> Theme_AppCompat_DayNight_NoActionBar
+    int Theme_AppCompat_Dialog -> Theme_AppCompat_Dialog
+    int Theme_AppCompat_DialogWhenLarge -> Theme_AppCompat_DialogWhenLarge
+    int Theme_AppCompat_Dialog_Alert -> Theme_AppCompat_Dialog_Alert
+    int Theme_AppCompat_Dialog_MinWidth -> Theme_AppCompat_Dialog_MinWidth
+    int Theme_AppCompat_Light -> Theme_AppCompat_Light
+    int Theme_AppCompat_Light_DarkActionBar -> Theme_AppCompat_Light_DarkActionBar
+    int Theme_AppCompat_Light_Dialog -> Theme_AppCompat_Light_Dialog
+    int Theme_AppCompat_Light_DialogWhenLarge -> Theme_AppCompat_Light_DialogWhenLarge
+    int Theme_AppCompat_Light_Dialog_Alert -> Theme_AppCompat_Light_Dialog_Alert
+    int Theme_AppCompat_Light_Dialog_MinWidth -> Theme_AppCompat_Light_Dialog_MinWidth
+    int Theme_AppCompat_Light_NoActionBar -> Theme_AppCompat_Light_NoActionBar
+    int Theme_AppCompat_NoActionBar -> Theme_AppCompat_NoActionBar
+    int Widget_AppCompat_ActionBar -> Widget_AppCompat_ActionBar
+    int Widget_AppCompat_ActionBar_Solid -> Widget_AppCompat_ActionBar_Solid
+    int Widget_AppCompat_ActionBar_TabBar -> Widget_AppCompat_ActionBar_TabBar
+    int Widget_AppCompat_ActionBar_TabText -> Widget_AppCompat_ActionBar_TabText
+    int Widget_AppCompat_ActionBar_TabView -> Widget_AppCompat_ActionBar_TabView
+    int Widget_AppCompat_ActionButton -> Widget_AppCompat_ActionButton
+    int Widget_AppCompat_ActionButton_CloseMode -> Widget_AppCompat_ActionButton_CloseMode
+    int Widget_AppCompat_ActionButton_Overflow -> Widget_AppCompat_ActionButton_Overflow
+    int Widget_AppCompat_ActionMode -> Widget_AppCompat_ActionMode
+    int Widget_AppCompat_ActivityChooserView -> Widget_AppCompat_ActivityChooserView
+    int Widget_AppCompat_AutoCompleteTextView -> Widget_AppCompat_AutoCompleteTextView
+    int Widget_AppCompat_Button -> Widget_AppCompat_Button
+    int Widget_AppCompat_ButtonBar -> Widget_AppCompat_ButtonBar
+    int Widget_AppCompat_ButtonBar_AlertDialog -> Widget_AppCompat_ButtonBar_AlertDialog
+    int Widget_AppCompat_Button_Borderless -> Widget_AppCompat_Button_Borderless
+    int Widget_AppCompat_Button_Borderless_Colored -> Widget_AppCompat_Button_Borderless_Colored
+    int Widget_AppCompat_Button_ButtonBar_AlertDialog -> Widget_AppCompat_Button_ButtonBar_AlertDialog
+    int Widget_AppCompat_Button_Colored -> Widget_AppCompat_Button_Colored
+    int Widget_AppCompat_Button_Small -> Widget_AppCompat_Button_Small
+    int Widget_AppCompat_CompoundButton_CheckBox -> Widget_AppCompat_CompoundButton_CheckBox
+    int Widget_AppCompat_CompoundButton_RadioButton -> Widget_AppCompat_CompoundButton_RadioButton
+    int Widget_AppCompat_CompoundButton_Switch -> Widget_AppCompat_CompoundButton_Switch
+    int Widget_AppCompat_DrawerArrowToggle -> Widget_AppCompat_DrawerArrowToggle
+    int Widget_AppCompat_DropDownItem_Spinner -> Widget_AppCompat_DropDownItem_Spinner
+    int Widget_AppCompat_EditText -> Widget_AppCompat_EditText
+    int Widget_AppCompat_ImageButton -> Widget_AppCompat_ImageButton
+    int Widget_AppCompat_Light_ActionBar -> Widget_AppCompat_Light_ActionBar
+    int Widget_AppCompat_Light_ActionBar_Solid -> Widget_AppCompat_Light_ActionBar_Solid
+    int Widget_AppCompat_Light_ActionBar_Solid_Inverse -> Widget_AppCompat_Light_ActionBar_Solid_Inverse
+    int Widget_AppCompat_Light_ActionBar_TabBar -> Widget_AppCompat_Light_ActionBar_TabBar
+    int Widget_AppCompat_Light_ActionBar_TabBar_Inverse -> Widget_AppCompat_Light_ActionBar_TabBar_Inverse
+    int Widget_AppCompat_Light_ActionBar_TabText -> Widget_AppCompat_Light_ActionBar_TabText
+    int Widget_AppCompat_Light_ActionBar_TabText_Inverse -> Widget_AppCompat_Light_ActionBar_TabText_Inverse
+    int Widget_AppCompat_Light_ActionBar_TabView -> Widget_AppCompat_Light_ActionBar_TabView
+    int Widget_AppCompat_Light_ActionBar_TabView_Inverse -> Widget_AppCompat_Light_ActionBar_TabView_Inverse
+    int Widget_AppCompat_Light_ActionButton -> Widget_AppCompat_Light_ActionButton
+    int Widget_AppCompat_Light_ActionButton_CloseMode -> Widget_AppCompat_Light_ActionButton_CloseMode
+    int Widget_AppCompat_Light_ActionButton_Overflow -> Widget_AppCompat_Light_ActionButton_Overflow
+    int Widget_AppCompat_Light_ActionMode_Inverse -> Widget_AppCompat_Light_ActionMode_Inverse
+    int Widget_AppCompat_Light_ActivityChooserView -> Widget_AppCompat_Light_ActivityChooserView
+    int Widget_AppCompat_Light_AutoCompleteTextView -> Widget_AppCompat_Light_AutoCompleteTextView
+    int Widget_AppCompat_Light_DropDownItem_Spinner -> Widget_AppCompat_Light_DropDownItem_Spinner
+    int Widget_AppCompat_Light_ListPopupWindow -> Widget_AppCompat_Light_ListPopupWindow
+    int Widget_AppCompat_Light_ListView_DropDown -> Widget_AppCompat_Light_ListView_DropDown
+    int Widget_AppCompat_Light_PopupMenu -> Widget_AppCompat_Light_PopupMenu
+    int Widget_AppCompat_Light_PopupMenu_Overflow -> Widget_AppCompat_Light_PopupMenu_Overflow
+    int Widget_AppCompat_Light_SearchView -> Widget_AppCompat_Light_SearchView
+    int Widget_AppCompat_Light_Spinner_DropDown_ActionBar -> Widget_AppCompat_Light_Spinner_DropDown_ActionBar
+    int Widget_AppCompat_ListPopupWindow -> Widget_AppCompat_ListPopupWindow
+    int Widget_AppCompat_ListView -> Widget_AppCompat_ListView
+    int Widget_AppCompat_ListView_DropDown -> Widget_AppCompat_ListView_DropDown
+    int Widget_AppCompat_ListView_Menu -> Widget_AppCompat_ListView_Menu
+    int Widget_AppCompat_PopupMenu -> Widget_AppCompat_PopupMenu
+    int Widget_AppCompat_PopupMenu_Overflow -> Widget_AppCompat_PopupMenu_Overflow
+    int Widget_AppCompat_PopupWindow -> Widget_AppCompat_PopupWindow
+    int Widget_AppCompat_ProgressBar -> Widget_AppCompat_ProgressBar
+    int Widget_AppCompat_ProgressBar_Horizontal -> Widget_AppCompat_ProgressBar_Horizontal
+    int Widget_AppCompat_RatingBar -> Widget_AppCompat_RatingBar
+    int Widget_AppCompat_RatingBar_Indicator -> Widget_AppCompat_RatingBar_Indicator
+    int Widget_AppCompat_RatingBar_Small -> Widget_AppCompat_RatingBar_Small
+    int Widget_AppCompat_SearchView -> Widget_AppCompat_SearchView
+    int Widget_AppCompat_SearchView_ActionBar -> Widget_AppCompat_SearchView_ActionBar
+    int Widget_AppCompat_SeekBar -> Widget_AppCompat_SeekBar
+    int Widget_AppCompat_Spinner -> Widget_AppCompat_Spinner
+    int Widget_AppCompat_Spinner_DropDown -> Widget_AppCompat_Spinner_DropDown
+    int Widget_AppCompat_Spinner_DropDown_ActionBar -> Widget_AppCompat_Spinner_DropDown_ActionBar
+    int Widget_AppCompat_Spinner_Underlined -> Widget_AppCompat_Spinner_Underlined
+    int Widget_AppCompat_TextView_SpinnerItem -> Widget_AppCompat_TextView_SpinnerItem
+    int Widget_AppCompat_Toolbar -> Widget_AppCompat_Toolbar
+    int Widget_AppCompat_Toolbar_Button_Navigation -> Widget_AppCompat_Toolbar_Button_Navigation
+    int cleanTheme -> cleanTheme
+    int dialog -> dialog
+com.fraumobi.call.record.R$styleable -> com.fraumobi.call.e.a$e:
     int[] ActionBar -> ActionBar
     int[] ActionBarLayout -> ActionBarLayout
     int ActionBarLayout_android_layout_gravity -> ActionBarLayout_android_layout_gravity
@@ -38903,7 +39289,7 @@ com.fraumobi.call.record.R$styleable -> com.fraumobi.call.e.a$d:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1219:1546:void <clinit>() -> <clinit>
+    1262:1589:void <clinit>() -> <clinit>
 com.fraumobi.call.service.PhoneService -> com.fraumobi.call.service.PhoneService:
     android.content.Context mContext -> a
     android.content.Intent mIntent -> b
@@ -39005,7 +39391,8 @@ com.fraumobi.call.tools.ACache$Utils -> com.fraumobi.call.tools.a$b:
     694:694:boolean access$800(byte[]) -> a
     694:694:byte[] access$900(byte[]) -> b
 com.fraumobi.call.tools.ContactTool -> com.fraumobi.call.tools.b:
-    22:63:java.util.ArrayList getAllContacts(android.content.ContentResolver,boolean,com.fraumobi.call.database.Database,android.database.sqlite.SQLiteDatabase,com.fraumobi.call.tools.ACache) -> a
+    27:68:java.util.ArrayList getAllContacts(android.content.ContentResolver,boolean,com.fraumobi.call.database.Database,android.database.sqlite.SQLiteDatabase,com.fraumobi.call.tools.ACache) -> a
+    74:101:void addContact(android.content.Context,java.lang.String,java.lang.String) -> a
 com.fraumobi.call.tools.sort.Cn2Spell -> com.fraumobi.call.tools.sort.a:
     java.lang.StringBuffer sb -> a
     58:74:java.lang.String getPinYin(java.lang.String) -> a
@@ -44574,9 +44961,15 @@ com.privacy.lock.R$string -> com.privacy.lock.a$h:
     int bottom_sheet_behavior -> bottom_sheet_behavior
     int call_1 -> call_1
     int call_2 -> call_2
+    int call_3 -> call_3
+    int call_4 -> call_4
+    int call_5 -> call_5
+    int call_6 -> call_6
+    int call_7 -> call_7
     int call_add_jilu -> call_add_jilu
     int call_add_shou -> call_add_shou
     int call_add_tongxunlu -> call_add_tongxunlu
+    int call_huanyuan -> call_huanyuan
     int call_lanjie -> call_lanjie
     int call_shanchu -> call_shanchu
     int character_counter_pattern -> character_counter_pattern
@@ -44598,6 +44991,32 @@ com.privacy.lock.R$string -> com.privacy.lock.a$h:
     int game -> game
     int internet -> internet
     int main_status_unconnect -> main_status_unconnect
+    int message_1 -> message_1
+    int message_10 -> message_10
+    int message_11 -> message_11
+    int message_12 -> message_12
+    int message_13 -> message_13
+    int message_14 -> message_14
+    int message_15 -> message_15
+    int message_16 -> message_16
+    int message_17 -> message_17
+    int message_18 -> message_18
+    int message_19 -> message_19
+    int message_2 -> message_2
+    int message_20 -> message_20
+    int message_21 -> message_21
+    int message_22 -> message_22
+    int message_23 -> message_23
+    int message_24 -> message_24
+    int message_25 -> message_25
+    int message_26 -> message_26
+    int message_3 -> message_3
+    int message_4 -> message_4
+    int message_5 -> message_5
+    int message_6 -> message_6
+    int message_7 -> message_7
+    int message_8 -> message_8
+    int message_9 -> message_9
     int noapprun -> noapprun
     int ram -> ram
     int security_app_encourage -> security_app_encourage
@@ -48444,7 +48863,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6513:15635:void <clinit>() -> <clinit>
+    6573:15695:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -49630,7 +50049,7 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     java.lang.Runnable runnable_load -> aA
     android.animation.ValueAnimator colorAnim -> ba
     java.lang.Runnable runnable_color -> aB
-    81:1205:void <init>() -> <init>
+    81:1206:void <init>() -> <init>
     165:222:void findId() -> a
     228:230:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
     234:430:void onCreate(android.os.Bundle) -> onCreate
@@ -49643,25 +50062,25 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     690:730:void initSd(int,java.lang.String,long) -> a
     734:756:void initRam(int,java.lang.String) -> a
     760:764:void initGuard(int,android.view.animation.RotateAnimation) -> a
-    768:792:void initSideData() -> f
-    796:797:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
-    801:802:void setRotateGone() -> g
-    806:807:void openDrawer() -> h
-    811:814:void closeDrawer() -> i
-    818:879:void loadFullAd() -> e
-    1221:1262:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    1266:1270:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    1274:1277:void onRestart() -> onRestart
-    1281:1290:void onPause() -> onPause
-    1294:1308:void onResume() -> onResume
-    1312:1334:void onDestroy() -> onDestroy
-    1337:1366:void onBackPressed() -> onBackPressed
-    1369:1389:void adDelete() -> l
-    1392:1441:void showExitDialog() -> m
-    1446:1446:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    1450:1455:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    1459:1464:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    1469:1469:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    768:793:void initSideData() -> f
+    797:798:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
+    802:803:void setRotateGone() -> g
+    807:808:void openDrawer() -> h
+    812:815:void closeDrawer() -> i
+    819:880:void loadFullAd() -> e
+    1222:1263:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    1267:1271:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    1275:1278:void onRestart() -> onRestart
+    1282:1291:void onPause() -> onPause
+    1295:1309:void onResume() -> onResume
+    1313:1335:void onDestroy() -> onDestroy
+    1338:1367:void onBackPressed() -> onBackPressed
+    1370:1390:void adDelete() -> l
+    1393:1442:void showExitDialog() -> m
+    1447:1447:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    1451:1456:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    1460:1465:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    1470:1470:void onDrawerStateChanged(int) -> onDrawerStateChanged
     81:81:com.supers.clean.junk.presenter.MainPresenter access$000(com.supers.clean.junk.activity.MainActivity) -> a
     81:81:java.util.ArrayList access$100(com.supers.clean.junk.activity.MainActivity) -> b
     81:81:android.support.v4.view.ViewPager access$200(com.supers.clean.junk.activity.MainActivity) -> c
@@ -49725,25 +50144,25 @@ com.supers.clean.junk.activity.MainActivity$15$1 -> com.supers.clean.junk.activi
 com.supers.clean.junk.activity.MainActivity$16 -> com.supers.clean.junk.activity.MainActivity$8:
     com.supers.clean.junk.customeview.LoadTime val$ad_loading -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    860:860:void <init>(com.supers.clean.junk.activity.MainActivity,com.supers.clean.junk.customeview.LoadTime) -> <init>
-    863:866:void onClick(android.view.View) -> onClick
+    861:861:void <init>(com.supers.clean.junk.activity.MainActivity,com.supers.clean.junk.customeview.LoadTime) -> <init>
+    864:867:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$17 -> com.supers.clean.junk.activity.MainActivity$9:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    869:869:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    872:873:void progressUpdate() -> a
+    870:870:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    873:874:void progressUpdate() -> a
 com.supers.clean.junk.activity.MainActivity$18 -> com.supers.clean.junk.activity.MainActivity$10:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    881:881:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    884:885:void run() -> run
+    882:882:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    885:886:void run() -> run
 com.supers.clean.junk.activity.MainActivity$19 -> com.supers.clean.junk.activity.MainActivity$11:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    889:889:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    893:893:void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
-    898:906:void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
+    890:890:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    894:894:void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
+    899:907:void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
 com.supers.clean.junk.activity.MainActivity$19$1 -> com.supers.clean.junk.activity.MainActivity$11$1:
     com.supers.clean.junk.activity.MainActivity$19 this$1 -> a
-    899:899:void <init>(com.supers.clean.junk.activity.MainActivity$19) -> <init>
-    902:904:void run() -> run
+    900:900:void <init>(com.supers.clean.junk.activity.MainActivity$19) -> <init>
+    903:905:void run() -> run
 com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$12:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
     366:366:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
@@ -49754,38 +50173,38 @@ com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.
     393:393:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.supers.clean.junk.activity.MainActivity$20 -> com.supers.clean.junk.activity.MainActivity$13:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    922:922:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    926:1175:void onClick(android.view.View) -> onClick
+    923:923:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    927:1176:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$20$1 -> com.supers.clean.junk.activity.MainActivity$13$1:
     com.supers.clean.junk.activity.MainActivity$20 this$1 -> a
-    1033:1033:void <init>(com.supers.clean.junk.activity.MainActivity$20) -> <init>
-    1036:1038:void onAdLoadSuccess() -> onAdLoadSuccess
-    1042:1044:void onAdLoadFails() -> onAdLoadFails
-    1048:1050:void onAdClosed() -> onAdClosed
+    1034:1034:void <init>(com.supers.clean.junk.activity.MainActivity$20) -> <init>
+    1037:1039:void onAdLoadSuccess() -> onAdLoadSuccess
+    1043:1045:void onAdLoadFails() -> onAdLoadFails
+    1049:1051:void onAdClosed() -> onAdClosed
 com.supers.clean.junk.activity.MainActivity$21 -> com.supers.clean.junk.activity.MainActivity$14:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1177:1177:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1181:1202:void run() -> run
+    1178:1178:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1182:1203:void run() -> run
 com.supers.clean.junk.activity.MainActivity$21$1 -> com.supers.clean.junk.activity.MainActivity$14$1:
     com.supers.clean.junk.activity.MainActivity$21 this$1 -> a
-    1183:1183:void <init>(com.supers.clean.junk.activity.MainActivity$21) -> <init>
-    1186:1187:void run() -> run
+    1184:1184:void <init>(com.supers.clean.junk.activity.MainActivity$21) -> <init>
+    1187:1188:void run() -> run
 com.supers.clean.junk.activity.MainActivity$22 -> com.supers.clean.junk.activity.MainActivity$15:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1205:1205:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1208:1216:void run() -> run
+    1206:1206:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1209:1217:void run() -> run
 com.supers.clean.junk.activity.MainActivity$23 -> com.supers.clean.junk.activity.MainActivity$16:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1380:1380:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1383:1385:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
+    1381:1381:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1384:1386:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
 com.supers.clean.junk.activity.MainActivity$24 -> com.supers.clean.junk.activity.MainActivity$17:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1403:1403:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1406:1408:void onClick(android.view.View) -> onClick
+    1404:1404:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1407:1409:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$25 -> com.supers.clean.junk.activity.MainActivity$18:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1410:1410:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1413:1414:void onClick(android.view.View) -> onClick
+    1411:1411:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1414:1415:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$3 -> com.supers.clean.junk.activity.MainActivity$19:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
     400:400:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
@@ -49913,53 +50332,100 @@ com.supers.clean.junk.activity.MessageActivity -> com.supers.clean.junk.activity
     android.widget.TextView message_imei -> q
     android.widget.TextView message_ram -> r
     android.widget.TextView message_sd -> s
-    android.widget.LinearLayout ll_ad -> t
-    android.widget.FrameLayout fl_lot_message -> u
-    com.sample.lottie.LottieAnimationView lot_message -> v
-    android.telephony.TelephonyManager telManager -> w
-    java.lang.String TAG_MESSAGE -> x
-    android.os.Handler myHandler -> y
-    39:49:void <init>() -> <init>
-    54:70:void findId() -> a
-    74:139:void onCreate(android.os.Bundle) -> onCreate
-    143:166:void tuiGuang() -> d
-    169:180:void loadAd() -> g
-    183:194:void addAd() -> h
-    197:202:boolean isW() -> i
-    207:211:java.lang.String getResolution() -> e
-    219:223:java.lang.String getPhoneIMEI() -> f
-    229:234:void onResume() -> onResume
-    238:242:void onPause() -> onPause
-    39:39:boolean access$000(com.supers.clean.junk.activity.MessageActivity) -> a
+    android.widget.TextView message_cpu_1 -> t
+    android.widget.TextView message_cpu_2 -> u
+    android.widget.TextView message_cpu_3 -> v
+    android.widget.TextView message_battery_1 -> w
+    android.widget.TextView message_battery_2 -> x
+    android.widget.TextView message_battery_3 -> y
+    android.widget.TextView message_battery_4 -> z
+    android.widget.TextView message_battery_5 -> A
+    android.widget.TextView message_acc -> B
+    android.widget.TextView message_temp -> C
+    android.widget.TextView message_gyr -> D
+    android.widget.TextView message_light -> E
+    android.widget.TextView message_field -> F
+    android.widget.TextView message_pressure -> G
+    android.widget.TextView message_proxi -> H
+    android.widget.TextView message_humi -> I
+    android.widget.TextView message_orienation -> J
+    android.widget.TextView message_gravity -> K
+    android.widget.TextView message_line_acc -> L
+    android.widget.TextView message_rotate -> M
+    android.widget.TextView message_button_cpu -> N
+    android.widget.TextView message_button_cooling -> O
+    android.widget.TextView message_button_ram -> P
+    android.widget.LinearLayout ll_ad -> Q
+    android.widget.FrameLayout fl_lot_message -> R
+    com.sample.lottie.LottieAnimationView lot_message -> S
+    android.telephony.TelephonyManager telManager -> U
+    java.lang.String TAG_MESSAGE -> V
+    android.os.Handler myHandler -> W
+    int batteryCapacity -> X
+    android.content.BroadcastReceiver mReceiver -> T
+    52:304:void <init>() -> <init>
+    73:112:void findId() -> a
+    116:186:void onCreate(android.os.Bundle) -> onCreate
+    189:207:void initListener() -> g
+    210:289:void initSensor() -> h
+    292:302:void initBattery() -> i
+    321:327:void setData() -> j
+    331:354:void tuiGuang() -> d
+    357:368:void loadAd() -> k
+    371:382:void addAd() -> l
+    385:390:boolean isW() -> m
+    395:399:java.lang.String getResolution() -> e
+    407:411:java.lang.String getPhoneIMEI() -> f
+    417:422:void onResume() -> onResume
+    426:430:void onPause() -> onPause
+    434:436:void onDestroy() -> onDestroy
+    52:52:boolean access$000(com.supers.clean.junk.activity.MessageActivity) -> a
+    52:52:int access$100(com.supers.clean.junk.activity.MessageActivity) -> b
 com.supers.clean.junk.activity.MessageActivity$1 -> com.supers.clean.junk.activity.MessageActivity$1:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    79:79:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    82:83:void onClick(android.view.View) -> onClick
+    121:121:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    124:125:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MessageActivity$2 -> com.supers.clean.junk.activity.MessageActivity$2:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    99:99:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    102:129:void run() -> run
+    141:141:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    144:171:void run() -> run
 com.supers.clean.junk.activity.MessageActivity$2$1 -> com.supers.clean.junk.activity.MessageActivity$2$1:
     double val$q_w -> a
     double val$h_w -> b
     com.supers.clean.junk.activity.MessageActivity$2 this$1 -> c
-    109:109:void <init>(com.supers.clean.junk.activity.MessageActivity$2,double,double) -> <init>
-    112:114:void run() -> run
+    151:151:void <init>(com.supers.clean.junk.activity.MessageActivity$2,double,double) -> <init>
+    154:156:void run() -> run
 com.supers.clean.junk.activity.MessageActivity$2$2 -> com.supers.clean.junk.activity.MessageActivity$2$2:
     java.lang.String val$q -> a
     java.lang.String val$h -> b
     com.supers.clean.junk.activity.MessageActivity$2 this$1 -> c
-    120:120:void <init>(com.supers.clean.junk.activity.MessageActivity$2,java.lang.String,java.lang.String) -> <init>
-    123:125:void run() -> run
+    162:162:void <init>(com.supers.clean.junk.activity.MessageActivity$2,java.lang.String,java.lang.String) -> <init>
+    165:167:void run() -> run
 com.supers.clean.junk.activity.MessageActivity$3 -> com.supers.clean.junk.activity.MessageActivity$3:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    144:144:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    148:148:void onClick(android.view.View) -> onClick
-    152:164:void onLoadView(android.view.View) -> a
+    189:189:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    192:193:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MessageActivity$4 -> com.supers.clean.junk.activity.MessageActivity$4:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    170:170:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    173:174:void run() -> run
+    195:195:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    198:199:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.MessageActivity$5 -> com.supers.clean.junk.activity.MessageActivity$5:
+    com.supers.clean.junk.activity.MessageActivity this$0 -> a
+    201:201:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    204:205:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.MessageActivity$6 -> com.supers.clean.junk.activity.MessageActivity$6:
+    com.supers.clean.junk.activity.MessageActivity this$0 -> a
+    304:304:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    307:317:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.supers.clean.junk.activity.MessageActivity$7 -> com.supers.clean.junk.activity.MessageActivity$7:
+    com.supers.clean.junk.activity.MessageActivity this$0 -> a
+    332:332:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    336:336:void onClick(android.view.View) -> onClick
+    340:352:void onLoadView(android.view.View) -> a
+com.supers.clean.junk.activity.MessageActivity$8 -> com.supers.clean.junk.activity.MessageActivity$8:
+    com.supers.clean.junk.activity.MessageActivity this$0 -> a
+    358:358:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    361:362:void run() -> run
 com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.MyApplication:
     33:33:void <init>() -> <init>
     37:40:void attachBaseContext(android.content.Context) -> attachBaseContext
@@ -50775,32 +51241,32 @@ com.supers.clean.junk.activity.SettingActivity -> com.supers.clean.junk.activity
     android.os.Handler myHandler -> M
     com.sample.lottie.LottieAnimationView lot_setting -> N
     android.view.View$OnClickListener onClickListener -> J
-    38:233:void <init>() -> <init>
-    55:87:void findId() -> a
-    91:113:void onCreate(android.os.Bundle) -> onCreate
-    117:121:void onResume() -> onResume
-    125:129:void onPause() -> onPause
-    132:155:void tuiGuang() -> d
-    158:172:void addAd() -> e
-    175:210:void initData() -> f
-    213:230:void initListener() -> g
-    405:417:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    421:423:void onBackPressed() -> onBackPressed
-    38:38:com.sample.lottie.LottieAnimationView access$002(com.supers.clean.junk.activity.SettingActivity,com.sample.lottie.LottieAnimationView) -> a
-    38:38:com.sample.lottie.LottieAnimationView access$000(com.supers.clean.junk.activity.SettingActivity) -> a
+    39:235:void <init>() -> <init>
+    56:89:void findId() -> a
+    93:115:void onCreate(android.os.Bundle) -> onCreate
+    119:123:void onResume() -> onResume
+    127:131:void onPause() -> onPause
+    134:157:void tuiGuang() -> d
+    160:174:void addAd() -> e
+    177:212:void initData() -> f
+    215:232:void initListener() -> g
+    412:424:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    428:430:void onBackPressed() -> onBackPressed
+    39:39:com.sample.lottie.LottieAnimationView access$002(com.supers.clean.junk.activity.SettingActivity,com.sample.lottie.LottieAnimationView) -> a
+    39:39:com.sample.lottie.LottieAnimationView access$000(com.supers.clean.junk.activity.SettingActivity) -> a
 com.supers.clean.junk.activity.SettingActivity$1 -> com.supers.clean.junk.activity.SettingActivity$1:
     com.supers.clean.junk.activity.SettingActivity this$0 -> a
-    100:100:void <init>(com.supers.clean.junk.activity.SettingActivity) -> <init>
-    103:104:void run() -> run
+    102:102:void <init>(com.supers.clean.junk.activity.SettingActivity) -> <init>
+    105:106:void run() -> run
 com.supers.clean.junk.activity.SettingActivity$2 -> com.supers.clean.junk.activity.SettingActivity$2:
     com.supers.clean.junk.activity.SettingActivity this$0 -> a
-    133:133:void <init>(com.supers.clean.junk.activity.SettingActivity) -> <init>
-    137:137:void onClick(android.view.View) -> onClick
-    141:153:void onLoadView(android.view.View) -> a
+    135:135:void <init>(com.supers.clean.junk.activity.SettingActivity) -> <init>
+    139:139:void onClick(android.view.View) -> onClick
+    143:155:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.SettingActivity$3 -> com.supers.clean.junk.activity.SettingActivity$3:
     com.supers.clean.junk.activity.SettingActivity this$0 -> a
-    233:233:void <init>(com.supers.clean.junk.activity.SettingActivity) -> <init>
-    236:400:void onClick(android.view.View) -> onClick
+    235:235:void <init>(com.supers.clean.junk.activity.SettingActivity) -> <init>
+    238:407:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.ShortCutActivity -> com.supers.clean.junk.activity.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.LinearLayout ll_ad -> b
@@ -51496,26 +51962,27 @@ com.supers.clean.junk.adapter.SideAdapter -> com.supers.clean.junk.a.m:
     int FILE -> l
     int POWER -> m
     int CALL -> n
-    int WIFI -> o
-    int NOTIFI -> p
-    int PICTURE -> q
-    int GBOOST -> r
-    int FAMILY -> s
-    int THEME -> t
-    int SETTING -> u
-    int ROTATE -> v
-    69:70:void <init>(android.content.Context) -> <init>
-    74:161:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    165:271:void onC(int) -> b
-    46:46:void access$000(com.supers.clean.junk.adapter.SideAdapter,int) -> a
-    47:65:void <clinit>() -> <clinit>
+    int PRIVARY -> o
+    int WIFI -> p
+    int NOTIFI -> q
+    int PICTURE -> r
+    int GBOOST -> s
+    int FAMILY -> t
+    int THEME -> u
+    int SETTING -> v
+    int ROTATE -> w
+    71:72:void <init>(android.content.Context) -> <init>
+    76:163:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    167:277:void onC(int) -> b
+    47:47:void access$000(com.supers.clean.junk.adapter.SideAdapter,int) -> a
+    48:67:void <clinit>() -> <clinit>
 com.supers.clean.junk.adapter.SideAdapter$1 -> com.supers.clean.junk.a.m$1:
     com.supers.clean.junk.entity.SideInfo val$info -> a
     com.supers.clean.junk.adapter.SideAdapter$ViewHolder val$holder -> b
     int val$position -> c
     com.supers.clean.junk.adapter.SideAdapter this$0 -> d
-    110:110:void <init>(com.supers.clean.junk.adapter.SideAdapter,com.supers.clean.junk.entity.SideInfo,com.supers.clean.junk.adapter.SideAdapter$ViewHolder,int) -> <init>
-    113:120:void onClick(android.view.View) -> onClick
+    112:112:void <init>(com.supers.clean.junk.adapter.SideAdapter,com.supers.clean.junk.entity.SideInfo,com.supers.clean.junk.adapter.SideAdapter$ViewHolder,int) -> <init>
+    115:122:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.adapter.SideAdapter$ViewHolder -> com.supers.clean.junk.a.m$a:
     android.widget.RelativeLayout rl_item -> a
     android.widget.ImageView checkBox -> b
@@ -51524,7 +51991,7 @@ com.supers.clean.junk.adapter.SideAdapter$ViewHolder -> com.supers.clean.junk.a.
     android.widget.TextView tv_name -> e
     android.view.View side_divide -> f
     com.supers.clean.junk.adapter.SideAdapter this$0 -> g
-    280:280:void <init>(com.supers.clean.junk.adapter.SideAdapter) -> <init>
+    286:286:void <init>(com.supers.clean.junk.adapter.SideAdapter) -> <init>
 com.supers.clean.junk.adapter.WhiteListAdapter -> com.supers.clean.junk.a.n:
     android.widget.Toast toast -> a
     31:32:void <init>(android.content.Context) -> <init>
@@ -52869,7 +53336,15 @@ com.supers.clean.junk.util.PhoneManager -> com.supers.clean.junk.b.g:
     54:57:com.supers.clean.junk.util.PhoneManager getPhoneManage(android.content.Context) -> a
     113:120:java.lang.String getPhoneNetworkType() -> a
     125:128:boolean isOnline(android.net.NetworkInfo) -> a
-    382:391:boolean isRoot() -> b
+    221:237:java.lang.String getPhoneCpuMaxFreq() -> b
+    244:260:java.lang.String getPhoneCpuMinFreq() -> c
+    306:320:java.lang.String getCpuName() -> d
+    337:342:int getPhoneCpuNumber() -> e
+    386:395:boolean isRoot() -> f
+com.supers.clean.junk.util.PhoneManager$1CpuFilter -> com.supers.clean.junk.b.g$a:
+    com.supers.clean.junk.util.PhoneManager this$0 -> a
+    328:328:void <init>(com.supers.clean.junk.util.PhoneManager) -> <init>
+    330:333:boolean accept(java.io.File) -> accept
 com.supers.clean.junk.util.ShortCutUtils -> com.supers.clean.junk.b.h:
     31:62:void addShortcut(android.app.Activity) -> a
     96:106:void addShortcut(android.app.Activity,android.content.Intent,java.lang.String,boolean,android.graphics.Bitmap) -> a

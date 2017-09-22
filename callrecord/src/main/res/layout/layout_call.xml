@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_100"
+    android:background="#f1f1f1"
     android:orientation="vertical">
 
     <View
@@ -14,16 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/null_call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/d16"
-            android:text="@string/call_lanjie"
-            android:textColor="@color/A9"
-            android:textSize="@dimen/s16"
-            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,27 +79,50 @@
                 android:id="@+id/call_list"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@color/A8" />
+                android:layout_weight="1" />
 
-            <FrameLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d56"
+                android:layout_height="@dimen/d50"
+                android:background="#f1f1f1"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/call_restore"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/call_huanyuan"
+                    android:background="@color/white_100"
+                    android:textColor="@color/black_54"
+                    android:textSize="@dimen/d17" />
+
+                <TextView
                     android:id="@+id/call_delete"
-                    android:layout_width="@dimen/d168"
-                    android:layout_height="@dimen/d40"
-                    android:layout_gravity="center"
-                    android:background="@drawable/shape_butto"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#f04f4f"
                     android:gravity="center"
                     android:text="@string/call_shanchu"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s16" />
-            </FrameLayout>
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/d17" />
+            </LinearLayout>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/null_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/d16"
+            android:drawableTop="@mipmap/null_lanjie"
+            android:text="@string/call_1"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black_20"
+            android:textSize="@dimen/s16"
+            android:visibility="gone" />
         <FrameLayout
             android:id="@+id/add_check_fl"
             android:layout_width="match_parent"

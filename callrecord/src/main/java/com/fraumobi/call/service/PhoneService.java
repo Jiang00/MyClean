@@ -244,27 +244,7 @@ public class PhoneService extends Service {
         }
     }
 
-    //    添加通话记录
-    private void insertCallLog() {
-        // TODO Auto-generated method stub
-        ContentValues values = new ContentValues();
-        values.put(CallLog.Calls.NUMBER, "18119607326");
-        values.put(CallLog.Calls.DATE, System.currentTimeMillis());
-        values.put(CallLog.Calls.DURATION, 0);
-        values.put(CallLog.Calls.TYPE, 3);//未接
-        values.put(CallLog.Calls.CACHED_NAME, "Q");//未接
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        getContentResolver().insert(CallLog.Calls.CONTENT_URI, values);
-    }
+
 
 
 }

@@ -21,6 +21,7 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
+import com.fraumobi.call.activity.CallActivity;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.service.AutoService;
@@ -83,6 +84,7 @@ public class SettingActivity extends BaseActivity {
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
         fl_lot_setting = (FrameLayout) findViewById(R.id.fl_lot_setting);
         findViewById(R.id.setting_privacy).setOnClickListener(onClickListener);
+        findViewById(R.id.setting_call).setOnClickListener(onClickListener);
         findViewById(R.id.setting_language).setOnClickListener(onClickListener);
     }
 
@@ -388,6 +390,11 @@ public class SettingActivity extends BaseActivity {
                     AdUtil.track("设置页面", "隐私清理", "", 1);
                     Intent privacyIntent = new Intent(SettingActivity.this, PrivacyActivity.class);
                     startActivity(privacyIntent);
+                    break;
+                case R.id.setting_call:
+                    AdUtil.track("设置页面", "骚扰拦截", "", 1);
+                    Intent callIntent = new Intent(SettingActivity.this, CallActivity.class);
+                    startActivity(callIntent);
                     break;
                 case R.id.setting_language:
                     AdUtil.track("设置页面", "语言", "", 1);

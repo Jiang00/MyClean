@@ -139,7 +139,12 @@
         <activity
             android:name=".activity.SuccessActivity"
             android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="eos.successactivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.WhiteListAvtivity"
             android:screenOrientation="portrait" />
