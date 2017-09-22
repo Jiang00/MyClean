@@ -27680,31 +27680,31 @@ com.android.clean.core.CleanManager -> com.android.clean.core.a:
     526:546:void clearSystemCache() -> c
     550:553:void remuveSystemCache(com.android.clean.entity.JunkInfo) -> a
     556:573:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    578:594:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
-    597:604:void clearNotificationInfo() -> d
-    607:617:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
-    620:626:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
-    630:630:long getCacheSize() -> e
-    638:638:long getApkSize() -> f
-    642:642:long getUnloadSize() -> g
-    646:646:long getLogSize() -> h
-    650:650:long getDataSize() -> i
-    654:654:long getRamSize() -> j
-    658:658:java.util.ArrayList getAppRamList() -> k
-    662:662:java.util.ArrayList getUninstallResiduals() -> l
-    666:666:java.util.ArrayList getAppCaches() -> m
-    670:670:java.util.ArrayList getSystemCaches() -> n
-    674:674:java.util.ArrayList getAppList() -> o
-    678:678:java.util.ArrayList getApkFiles() -> p
-    682:682:java.util.ArrayList getLogFiles() -> q
-    687:695:void removeRam(com.android.clean.entity.JunkInfo) -> b
-    698:703:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> c
-    706:710:void clearRam() -> r
-    713:718:void removeAppCache(com.android.clean.entity.JunkInfo) -> d
-    721:725:void removeAppList(com.android.clean.entity.JunkInfo) -> e
-    728:733:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> f
-    736:741:void removeApkFiles(com.android.clean.entity.JunkInfo) -> g
-    744:749:void removeAppLog(com.android.clean.entity.JunkInfo) -> h
+    578:597:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
+    600:610:void clearNotificationInfo() -> d
+    613:623:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
+    626:635:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
+    639:639:long getCacheSize() -> e
+    647:647:long getApkSize() -> f
+    651:651:long getUnloadSize() -> g
+    655:655:long getLogSize() -> h
+    659:659:long getDataSize() -> i
+    663:663:long getRamSize() -> j
+    667:667:java.util.ArrayList getAppRamList() -> k
+    671:671:java.util.ArrayList getUninstallResiduals() -> l
+    675:675:java.util.ArrayList getAppCaches() -> m
+    679:679:java.util.ArrayList getSystemCaches() -> n
+    683:683:java.util.ArrayList getAppList() -> o
+    687:687:java.util.ArrayList getApkFiles() -> p
+    691:691:java.util.ArrayList getLogFiles() -> q
+    696:704:void removeRam(com.android.clean.entity.JunkInfo) -> b
+    707:712:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> c
+    715:719:void clearRam() -> r
+    722:727:void removeAppCache(com.android.clean.entity.JunkInfo) -> d
+    730:734:void removeAppList(com.android.clean.entity.JunkInfo) -> e
+    737:742:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> f
+    745:750:void removeApkFiles(com.android.clean.entity.JunkInfo) -> g
+    753:758:void removeAppLog(com.android.clean.entity.JunkInfo) -> h
     61:61:void access$000(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.android.clean.core.CleanManager$1 -> com.android.clean.core.a$1:
     com.android.clean.core.CleanManager this$0 -> a
@@ -38226,7 +38226,7 @@ com.fraumobi.call.activity.CallActivity -> com.fraumobi.call.activity.CallActivi
     android.widget.ListView call_list -> f
     android.widget.TextView call_delete -> g
     android.widget.TextView call_restore -> h
-    android.widget.TextView null_call -> i
+    android.widget.LinearLayout null_call -> i
     android.widget.FrameLayout title_left -> j
     android.widget.ImageView title_setting -> k
     android.widget.LinearLayout add_check -> l
@@ -38292,28 +38292,28 @@ com.fraumobi.call.activity.CallName2Activity -> com.fraumobi.call.activity.CallN
     android.widget.ListView call_list -> f
     android.widget.FrameLayout title_left -> g
     android.widget.ProgressBar progressbar -> h
-    android.widget.TextView null_call -> i
+    android.widget.LinearLayout null_call -> i
     android.view.View$OnClickListener clickListener -> j
-    32:100:void <init>() -> <init>
-    42:46:void findId() -> c
-    50:58:void onCreate(android.os.Bundle) -> onCreate
-    61:94:void initData() -> e
-    97:98:void setClick() -> f
-    112:161:java.util.ArrayList queryCall() -> d
+    33:101:void <init>() -> <init>
+    43:47:void findId() -> c
+    51:59:void onCreate(android.os.Bundle) -> onCreate
+    62:95:void initData() -> e
+    98:99:void setClick() -> f
+    113:162:java.util.ArrayList queryCall() -> d
 com.fraumobi.call.activity.CallName2Activity$1 -> com.fraumobi.call.activity.CallName2Activity$1:
     com.fraumobi.call.activity.CallName2Activity this$0 -> a
-    61:61:void <init>(com.fraumobi.call.activity.CallName2Activity) -> <init>
-    64:92:void run() -> run
+    62:62:void <init>(com.fraumobi.call.activity.CallName2Activity) -> <init>
+    65:93:void run() -> run
 com.fraumobi.call.activity.CallName2Activity$1$1 -> com.fraumobi.call.activity.CallName2Activity$1$1:
     java.util.ArrayList val$call_list -> a
     java.util.ArrayList val$tonghuajilu -> b
     com.fraumobi.call.activity.CallName2Activity$1 this$1 -> c
-    79:79:void <init>(com.fraumobi.call.activity.CallName2Activity$1,java.util.ArrayList,java.util.ArrayList) -> <init>
-    82:89:void run() -> run
+    80:80:void <init>(com.fraumobi.call.activity.CallName2Activity$1,java.util.ArrayList,java.util.ArrayList) -> <init>
+    83:90:void run() -> run
 com.fraumobi.call.activity.CallName2Activity$2 -> com.fraumobi.call.activity.CallName2Activity$2:
     com.fraumobi.call.activity.CallName2Activity this$0 -> a
-    100:100:void <init>(com.fraumobi.call.activity.CallName2Activity) -> <init>
-    103:107:void onClick(android.view.View) -> onClick
+    101:101:void <init>(com.fraumobi.call.activity.CallName2Activity) -> <init>
+    104:108:void onClick(android.view.View) -> onClick
 com.fraumobi.call.activity.CallNameActivity -> com.fraumobi.call.activity.CallNameActivity:
     android.support.v7.widget.RecyclerView mRecyclerView -> e
     android.widget.FrameLayout title_left -> f
