@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -36,13 +37,13 @@ public class CallName2Activity extends BaseActivity {
     ListView call_list;
     FrameLayout title_left;
     ProgressBar progressbar;
-    TextView null_call;
+    LinearLayout null_call;
 
     protected void findId() {
         call_list = (ListView) findViewById(R.id.call_list);
         title_left = (FrameLayout) findViewById(R.id.title_left);
         progressbar = (ProgressBar) findViewById(R.id.progressbar);
-        null_call = (TextView) findViewById(R.id.null_call);
+        null_call = (LinearLayout) findViewById(R.id.null_call);
     }
 
     @Override
