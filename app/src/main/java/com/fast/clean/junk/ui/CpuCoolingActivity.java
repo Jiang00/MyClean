@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.AdUtil;
+import com.fast.clean.junk.util.BadgerCount;
 import com.fast.clean.junk.util.Constant;
 import com.fast.clean.junk.myview.FlakeView;
 import com.fast.clean.mutil.PreData;
@@ -68,6 +69,8 @@ public class CpuCoolingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
+        PreData.putDB(this, Constant.HONG_COOLING, false);
+        BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
 
         title_left.setOnClickListener(new View.OnClickListener() {

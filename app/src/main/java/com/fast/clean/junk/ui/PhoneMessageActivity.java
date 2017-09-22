@@ -16,6 +16,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.fast.clean.junk.util.BadgerCount;
 import com.fast.clean.mutil.MemoryManager;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
@@ -35,7 +36,7 @@ import java.util.Locale;
 
 public class PhoneMessageActivity extends BaseActivity {
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
-    message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
+            message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     FrameLayout title_left;
     TextView title_name;
     private TelephonyManager telManager;
@@ -67,7 +68,10 @@ public class PhoneMessageActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.layout_message);
+        PreData.putDB(this, Constant.HONG_MESSAGE, false);
+        BadgerCount.setCount(this);
         myHandler = new Handler();
         loadAd();
         title_name.setText(R.string.main_msg_title);
@@ -142,6 +146,7 @@ public class PhoneMessageActivity extends BaseActivity {
         else
             return false;
     }
+
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_MESSAGE, 0) == 1) {
             myHandler.postDelayed(new Runnable() {

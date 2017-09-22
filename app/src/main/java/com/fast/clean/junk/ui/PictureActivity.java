@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.fast.clean.junk.util.BadgerCount;
 import com.fast.clean.xsimilarimage.ImageHelper;
 import com.fast.clean.xsimilarimage.ImageInfo;
 import com.fast.clean.mutil.PreData;
@@ -144,6 +145,8 @@ public class PictureActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_picture);
+        PreData.putDB(this, Constant.HONG_PHOTO, false);
+        BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);

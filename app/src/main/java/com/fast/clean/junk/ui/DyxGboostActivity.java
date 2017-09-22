@@ -30,6 +30,7 @@ import android.widget.TextView;
 
 import com.fast.clean.core.CleanManager;
 import com.fast.clean.db.CleanDBHelper;
+import com.fast.clean.junk.util.BadgerCount;
 import com.fast.clean.mgboost.GameBooster;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
@@ -128,6 +129,8 @@ public class DyxGboostActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_gboost);
+        PreData.putDB(this, Constant.HONG_GBOOST, false);
+        BadgerCount.setCount(this);
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         mHandler = new Handler();
 

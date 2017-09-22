@@ -84,6 +84,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LinearLayout tuiguang_main;
     FrameLayout loading_full;
     Rock full_ani;
+    ImageView menu_hong;
 
     GifBox lot_ad;
     ListViewForScrollView side_listView;
@@ -165,6 +166,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         tuiguang_main = (LinearLayout) findViewById(R.id.tuiguang_main);
         loading_full = (FrameLayout) findViewById(R.id.loading_full);
         full_ani = (Rock) findViewById(R.id.full_ani);
+        menu_hong = (ImageView) findViewById(R.id.menu_hong);
     }
 
     @Override
@@ -174,7 +176,17 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
+            PreData.putDB(this, Constant.HONG_NOTIFI, false);
         }
+        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) ||
+                PreData.getDB(this, Constant.HONG_NOTIFI, true) ||
+                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
+                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
+            menu_hong.setVisibility(View.VISIBLE);
+        } else {
+            menu_hong.setVisibility(View.GONE);
+        }
+
         full_ani.stopAni();
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
@@ -971,6 +983,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     public void onDrawerClosed(View drawerView) {
         Log.e(TAG, "onDrawerClosed");
+//         PreData.getDB(this, Constant.HONG_COOLING, true) || PreData.getDB(this, Constant.HONG_MESSAGE, true) ||
+        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) ||
+                PreData.getDB(this, Constant.HONG_NOTIFI, true) ||
+                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
+                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
+            menu_hong.setVisibility(View.VISIBLE);
+        } else {
+            menu_hong.setVisibility(View.GONE);
+        }
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 
 import com.fast.clean.core.CleanManager;
+import com.fast.clean.junk.util.BadgerCount;
 import com.fast.clean.notification.MyNotificationMonitorService;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
@@ -68,7 +69,7 @@ public class MyApplication extends Application {
             Intent intent1 = new Intent(this, MyFloatService.class);
             startService(intent1);
         }
-
+        BadgerCount.setCount(this);
         //启动通知兰清理
         if (Util.isNotificationListenEnabled(this) && PreData.getDB(this, Constant.KEY_NOTIFI, false)) {
             startService(new Intent(this, MyNotificationMonitorService.class));

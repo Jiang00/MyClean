@@ -25,6 +25,7 @@ import android.widget.TextView;
 
 import com.fast.clean.core.CleanManager;
 import com.fast.clean.deepclean.MyAccessibilityService;
+import com.fast.clean.junk.util.BadgerCount;
 import com.fast.clean.mutil.LoadManager;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
@@ -74,6 +75,8 @@ public class PowerActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
+        PreData.putDB(this, Constant.HONG_DEEP, false);
+        BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         mHandler = new Handler();
         startService(new Intent(this, MyAccessibilityService.class).putExtra("isDis", false));

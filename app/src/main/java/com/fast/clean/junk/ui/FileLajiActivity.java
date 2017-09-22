@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.fast.clean.junk.util.BadgerCount;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
@@ -96,6 +97,8 @@ public class FileLajiActivity extends BaseActivity implements JunkView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk);
+        PreData.putDB(this, Constant.HONG_JUNK, false);
+        BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);

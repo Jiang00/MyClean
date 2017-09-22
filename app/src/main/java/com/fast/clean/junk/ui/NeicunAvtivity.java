@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.fast.clean.junk.util.BadgerCount;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
@@ -70,6 +71,8 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
+        PreData.putDB(this, Constant.HONG_RAM, false);
+        BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();

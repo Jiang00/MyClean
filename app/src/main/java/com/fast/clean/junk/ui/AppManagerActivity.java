@@ -28,6 +28,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.fast.clean.entity.JunkInfo;
+import com.fast.clean.junk.util.BadgerCount;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
@@ -84,6 +85,8 @@ public class AppManagerActivity extends BaseActivity implements AppManagerView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_manager);
+        PreData.putDB(this, Constant.HONG_MANAGER, false);
+        BadgerCount.setCount(this);
         myHandler = new Handler();
         managerPresenter = new ManagerPresenter(this, this);
 

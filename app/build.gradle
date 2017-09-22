@@ -80,7 +80,7 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             // 更改最终apk命名
-            String appName = project.name
+            String appName = NAME
             String vCode = variant.versionCode
             String vName = variant.versionName
             String buildTypeName = variant.buildType.name
@@ -211,6 +211,7 @@ dependencies {
     compile 'com.core:empty:5.0.6'
     compile project(path:':Penguin')
     compile project(path:':UId')
+    compile project(path:':ShortcutBadger')
 //    compile files('libs/gson-2.2.3.jar')
     compile project(':clean')
     compile 'com.achtapps:keepalive:1.0.6'
@@ -219,4 +220,5 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    compile project(path: ':ShortcutBadger')
 }
