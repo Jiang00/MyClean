@@ -20,12 +20,12 @@ public class BadgerCount {
         if (PreData.getDB(context, Constant.HONG_JUNK, true)) {
             badger++;
         }
-        if (PreData.getDB(context, Constant.HONG_COOLING, true)) {
-            badger++;
-        }
-        if (PreData.getDB(context, Constant.HONG_MESSAGE, true)) {
-            badger++;
-        }
+//        if (PreData.getDB(context, Constant.HONG_COOLING, true)) {
+//            badger++;
+//        }
+//        if (PreData.getDB(context, Constant.HONG_MESSAGE, true)) {
+//            badger++;
+//        }
         if (PreData.getDB(context, Constant.HONG_NOTIFI, true)) {
             badger++;
         }
