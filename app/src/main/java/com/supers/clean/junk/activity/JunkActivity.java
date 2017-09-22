@@ -23,6 +23,7 @@ import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.AdUtil;
+import com.supers.clean.junk.util.BadgerCount;
 import com.supers.clean.junk.view.JunkView;
 import com.supers.clean.junk.adapter.JunkAdapter;
 import com.android.clean.entity.JunkInfo;
@@ -103,6 +104,8 @@ public class JunkActivity extends BaseActivity implements JunkView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk);
+        PreData.putDB(this, Constant.HONG_JUNK, false);
+        BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);

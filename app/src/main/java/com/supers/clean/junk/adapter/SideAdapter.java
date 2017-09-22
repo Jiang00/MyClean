@@ -84,6 +84,8 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                     .findViewById(R.id.iv_check);
             holder.lot_family = (LottieAnimationView) convertView
                     .findViewById(R.id.lot_family);
+            holder.iv_hong = (ImageView) convertView
+                    .findViewById(R.id.iv_hong);
             holder.iv_le = (ImageView) convertView
                     .findViewById(R.id.iv_le);
             holder.tv_name = (TextView) convertView
@@ -118,6 +120,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 } else {
                     holder.checkBox.setImageResource(R.mipmap.side_check_normal);
                 }
+                holder.iv_hong.setVisibility(View.GONE);
                 onC(position);
             }
         });
@@ -141,9 +144,11 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
 //        });
         if (position == BATTERY || position == FLOAT || position == DETECT) {
             holder.checkBox.setVisibility(View.VISIBLE);
+            holder.iv_hong.setVisibility(View.GONE);
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
+        hongV(holder, position);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             if (position == NOTIFI) {
                 holder.rl_item.setVisibility(View.GONE);
@@ -161,6 +166,86 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             holder.side_divide.setVisibility(View.GONE);
         }
         return convertView;
+    }
+
+    private void hongV(ViewHolder holder, int position) {
+        if (position == JUNK) {
+            if (PreData.getDB(context, Constant.HONG_JUNK, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == RAM) {
+            if (PreData.getDB(context, Constant.HONG_RAM, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == MANAGER) {
+            if (PreData.getDB(context, Constant.HONG_MANAGER, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == FILE) {
+            if (PreData.getDB(context, Constant.HONG_FILE, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == CALL) {
+            if (PreData.getDB(context, Constant.HONG_CALL, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == WIFI) {
+            if (PreData.getDB(context, Constant.HONG_NET, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == PRIVARY) {
+            if (PreData.getDB(context, Constant.HONG_PRI, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == POWER) {
+            if (PreData.getDB(context, Constant.HONG_DEEP, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == NOTIFI) {
+            if (PreData.getDB(context, Constant.HONG_NOTIFI, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == PICTURE) {
+            if (PreData.getDB(context, Constant.HONG_PHOTO, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
+        if (position == GBOOST) {
+            if (PreData.getDB(context, Constant.HONG_GBOOST, true)) {
+                holder.iv_hong.setVisibility(View.VISIBLE);
+            } else {
+                holder.iv_hong.setVisibility(View.GONE);
+            }
+        }
     }
 
     private void onC(int position) {
@@ -287,6 +372,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         RelativeLayout rl_item;
         ImageView checkBox;
         ImageView iv_le;
+        ImageView iv_hong;
         LottieAnimationView lot_family;
         TextView tv_name;
         View side_divide;

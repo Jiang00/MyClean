@@ -17,8 +17,8 @@
             android:id="@+id/lot_family"
             android:layout_width="@dimen/d30"
             android:layout_height="@dimen/d30"
-            android:layout_marginLeft="@dimen/d13"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/d13" />
 
         <ImageView
             android:id="@+id/iv_le"
@@ -39,6 +39,16 @@
         android:textColor="@color/B2"
         android:textSize="@dimen/s13"
         app:typeface="eos_clean.otf" />
+
+    <ImageView
+        android:id="@+id/iv_hong"
+        android:layout_width="@dimen/d8"
+        android:layout_height="@dimen/d8"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_toRightOf="@id/tv_name"
+        android:src="@drawable/shape_a2"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/iv_check"

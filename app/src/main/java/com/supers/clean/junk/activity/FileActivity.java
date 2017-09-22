@@ -16,6 +16,8 @@ import com.supers.clean.junk.customeview.FileRoundView;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.util.AdUtil;
 import com.android.clean.util.Constant;
+import com.supers.clean.junk.util.BadgerCount;
+
 /**
  * Created by Ivy on 2017/4/20.
  */
@@ -71,6 +73,8 @@ public class FileActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file);
+        PreData.putDB(this, Constant.HONG_FILE, false);
+        BadgerCount.setCount(this);
         title_name.setText(R.string.side_file);
         fileHelper = new FileCategoryHelper(this);
         mHandler = new Handler();

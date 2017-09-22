@@ -38,6 +38,7 @@ import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.AdUtil;
+import com.supers.clean.junk.util.BadgerCount;
 import com.supers.clean.junk.view.AppManagerView;
 import com.android.clean.util.Constant;
 import com.supers.clean.junk.adapter.ManagerAdapter;
@@ -91,6 +92,8 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_manager);
+        PreData.putDB(this, Constant.HONG_MANAGER, false);
+        BadgerCount.setCount(this);
         myHandler = new Handler();
         managerPresenter = new ManagerPresenter(this, this);
 

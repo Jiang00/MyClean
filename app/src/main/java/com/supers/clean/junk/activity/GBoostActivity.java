@@ -34,6 +34,7 @@ import com.android.clean.gboost.GameBooster;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.clean.util.LoadManager;
+import com.fraumobi.call.Utils.BadgerCount;
 import com.rd.PageIndicatorView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.AddGameAdapter;
@@ -129,6 +130,8 @@ public class GBoostActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_gboost);
+        PreData.putDB(this, Constant.HONG_GBOOST, false);
+        BadgerCount.setCount(this);
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         mHandler = new Handler();
         cleanApplication = (MyApplication) getApplication();

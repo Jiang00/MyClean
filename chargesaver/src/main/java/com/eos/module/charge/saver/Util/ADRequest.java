@@ -23,7 +23,7 @@ public class ADRequest {
         View adView = null;
         if (AndroidSdk.hasNativeAd(adTag)) {
             adView = AndroidSdk.peekNativeAdViewWithLayout(adTag,
-                     R.layout.native_ad,
+                    R.layout.native_ad,
                     new ClientNativeAd.NativeAdClickListener() {
                         @Override
                         public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
@@ -51,7 +51,7 @@ public class ADRequest {
                         ((ViewGroup) ad_title).getChildAt(i).setClickable(false);
                     }
                 }
-                View ad_subtitle = adView.findViewWithTag("ad_subtitle");
+                View ad_subtitle = adView.findViewWithTag("ad_desc");
                 ad_subtitle.setClickable(false);
                 ad_subtitle.setOnClickListener(null);
                 if (ad_subtitle instanceof ViewGroup) {

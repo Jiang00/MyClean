@@ -35,6 +35,7 @@ import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.AdUtil;
 import com.android.clean.util.Constant;
+import com.supers.clean.junk.util.BadgerCount;
 
 import java.util.ArrayList;
 
@@ -75,6 +76,8 @@ public class PowerActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
+        PreData.putDB(this, Constant.HONG_DEEP, false);
+        BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         mHandler = new Handler();
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", false));

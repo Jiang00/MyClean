@@ -41,6 +41,7 @@ import com.supers.clean.junk.activity.TranslateActivity;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.util.AdUtil;
 import com.android.clean.util.Constant;
+import com.supers.clean.junk.util.BadgerCount;
 import com.supers.clean.junk.util.CpuTempReader;
 import com.supers.clean.junk.util.PhoneManager;
 import com.android.clean.util.PreData;
@@ -307,6 +308,8 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
+                    BadgerCount.setCount(NotificationService.this);
                 }
                 return;
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_RAM, true)) {
@@ -318,6 +321,8 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
+                    BadgerCount.setCount(NotificationService.this);
                 }
                 return;
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_RAM, true)) {
@@ -329,6 +334,8 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
+                    BadgerCount.setCount(NotificationService.this);
                 }
                 return;
             }
@@ -342,6 +349,8 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_COOLING, true);
+                    BadgerCount.setCount(NotificationService.this);
                 }
                 return;
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_COOLING, true)) {
@@ -353,6 +362,8 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_COOLING, true);
+                    BadgerCount.setCount(NotificationService.this);
                 }
                 return;
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_COOLING, true)) {
@@ -364,6 +375,8 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_COOLING, true);
+                    BadgerCount.setCount(NotificationService.this);
                 }
                 return;
             }
@@ -380,6 +393,8 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_JUNK, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_JUNK, true);
+                    BadgerCount.setCount(NotificationService.this);
                 }
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_JUNK, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_JUNK, true);
@@ -390,6 +405,8 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_JUNK, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_JUNK, true);
+                    BadgerCount.setCount(NotificationService.this);
                 }
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_JUNK, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_JUNK, true);
@@ -400,6 +417,8 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_JUNK, true);
+                    BadgerCount.setCount(NotificationService.this);
                 }
             }
             long clean_two_day = PreData.getDB(NotificationService.this, Constant.KEY_CLEAN_TIME, 0l);

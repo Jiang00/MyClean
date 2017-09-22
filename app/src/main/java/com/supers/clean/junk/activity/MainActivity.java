@@ -125,6 +125,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     ImageView lot_family;
     FrameLayout load_loading;
     ImageView load_1, load_2, load_3, load_4, load_5, load_6;
+    ImageView menu_hong;
 
     LottieAnimationView lot_side;
     LinearLayout main_battery;
@@ -218,6 +219,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         load_4 = (ImageView) findViewById(R.id.load_4);
         load_5 = (ImageView) findViewById(R.id.load_5);
         load_6 = (ImageView) findViewById(R.id.load_6);
+        menu_hong = (ImageView) findViewById(R.id.menu_hong);
         main_battery = (LinearLayout) findViewById(R.id.main_battery);
     }
 
@@ -260,6 +262,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
+            PreData.putDB(this, Constant.HONG_NOTIFI, false);
+        }
+        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) || PreData.getDB(this, Constant.HONG_NET, true) ||
+                PreData.getDB(this, Constant.HONG_NOTIFI, true) || PreData.getDB(this, Constant.HONG_CALL, true) || PreData.getDB(this, Constant.HONG_PRI, true) ||
+                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
+                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
+            menu_hong.setVisibility(View.VISIBLE);
+        } else {
+            menu_hong.setVisibility(View.GONE);
         }
         tuiGuang();
         arrayList = new ArrayList<>();
@@ -674,7 +685,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         main_msg_cpu_percent.setText(String.valueOf(progress) + "℃");
                         if (main_cooling_h.getVisibility() == View.INVISIBLE) {
                             main_cooling_h.setText(String.valueOf(temp) + "℃");
-                            main_cooling_h.setVisibility(View.VISIBLE);
+                            if (PreData.getDB(MainActivity.this, Constant.HONG_COOLING, true)) {
+                                main_cooling_h.setVisibility(View.VISIBLE);
+                            }
                         }
                     }
                 });
@@ -721,7 +734,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                             CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
                     if (junk_size > 0) {
                         main_junk_h.setText(Util.convertStorage(junk_size, true));
-                        main_junk_h.setVisibility(View.VISIBLE);
+                        if (PreData.getDB(MainActivity.this, Constant.HONG_JUNK, true)) {
+                            main_junk_h.setVisibility(View.VISIBLE);
+                        }
                     }
                 }
             }
@@ -745,7 +760,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                             long ram_size = CleanManager.getInstance(MainActivity.this).getRamSize();
                             if (ram_size > 0) {
                                 main_ram_h.setText(Util.convertStorage(ram_size, true));
-                                main_ram_h.setVisibility(View.VISIBLE);
+                                if (PreData.getDB(MainActivity.this, Constant.HONG_RAM, true)) {
+                                    main_ram_h.setVisibility(View.VISIBLE);
+                                }
                             }
                         }
                     }
@@ -1220,8 +1237,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Constant.SETTING_RESUIL) {
-            initSideData();
-            adapter.notifyDataSetChanged();
+
         } else if (resultCode == Constant.COOLING_RESUIL) {
             int wendu = data.getIntExtra("wendu", 0);
             temp -= wendu;
@@ -1259,7 +1275,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         } else if (requestCode == Constant.LANGUAGE_RESUIL) {
             recreate();
         }
-
+        initSideData();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -1461,6 +1478,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         Log.e(TAG, "onDrawerClosed");
         if (lot_side != null) {
             lot_side.pauseAnimation();
+        }
+        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) || PreData.getDB(this, Constant.HONG_NET, true) ||
+                PreData.getDB(this, Constant.HONG_NOTIFI, true) || PreData.getDB(this, Constant.HONG_CALL, true) || PreData.getDB(this, Constant.HONG_PRI, true) ||
+                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
+                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
+            menu_hong.setVisibility(View.VISIBLE);
+        } else {
+            menu_hong.setVisibility(View.GONE);
         }
     }
 

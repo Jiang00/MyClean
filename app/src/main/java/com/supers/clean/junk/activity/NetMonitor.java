@@ -29,8 +29,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
+import com.android.clean.util.Constant;
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
+import com.fraumobi.call.Utils.BadgerCount;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.wifi.RunAppInfo;
 import com.supers.clean.junk.wifi.RunAppManager;
@@ -64,6 +67,8 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_netmonitor);
+        PreData.putDB(this, Constant.HONG_NET, false);
+        BadgerCount.setCount(this);
         mContext = this;
         findId();
 

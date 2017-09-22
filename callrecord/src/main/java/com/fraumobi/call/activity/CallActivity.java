@@ -31,6 +31,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.clean.util.Constant;
+import com.android.clean.util.PreData;
+import com.fraumobi.call.Utils.BadgerCount;
 import com.fraumobi.call.Utils.Constants;
 import com.fraumobi.call.Utils.Util;
 import com.fraumobi.call.adapter.CallAdapter;
@@ -86,6 +89,8 @@ public class CallActivity extends BaseActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_call);
+        PreData.putDB(this, Constant.HONG_CALL, false);
+        BadgerCount.setCount(this);
         findId();
         startFetcherContacts();
         adapter = new CallAdapter(this);

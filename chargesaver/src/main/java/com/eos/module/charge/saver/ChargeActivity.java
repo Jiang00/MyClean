@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.entry.BatteryEntry;
 import com.eos.module.charge.saver.view.BatteryView;
 import com.eos.module.charge.saver.view.DuckView;
@@ -25,6 +26,7 @@ public class ChargeActivity extends Activity {
     private DuckView duckView;
     private BatteryEntry entry;
     private boolean isBar;
+    private long start_time;
 
     @Override
     protected void onUserLeaveHint() {
@@ -106,7 +108,8 @@ public class ChargeActivity extends Activity {
             isBar = false;
             doDuck();
         }
-
+        start_time = System.currentTimeMillis();
+        AndroidSdk.track("充电屏保", "展示", "", 1);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -131,6 +134,10 @@ public class ChargeActivity extends Activity {
     protected void onDestroy() {
         batteryView = null;
         duckView = null;
+        if (start_time != 0 && System.currentTimeMillis() - start_time > 3 * 1000) {
+            AndroidSdk.track("充电屏保", "超过3秒展示", "", 1);
+        }
+
         super.onDestroy();
         try {
             unregisterReceiver(mReceiver);

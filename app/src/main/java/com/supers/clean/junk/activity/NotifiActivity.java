@@ -21,6 +21,7 @@ import com.android.clean.notification.NotificationCallBack;
 import com.android.clean.notification.NotificationInfo;
 import com.android.clean.notification.NotificationMonitorService;
 import com.android.client.AndroidSdk;
+import com.fraumobi.call.Utils.BadgerCount;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.NotifiAdapter;
 import com.supers.clean.junk.customeview.DeleteListView;
@@ -113,7 +114,8 @@ public class NotifiActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        PreData.putDB(this, Constant.HONG_NOTIFI, false);
+        BadgerCount.setCount(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
 

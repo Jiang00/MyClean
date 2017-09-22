@@ -32,6 +32,7 @@ import com.android.clean.similarimage.ImageInfo;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
+import com.fraumobi.call.Utils.BadgerCount;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RecycleViewAdapter;
 import com.android.clean.similarimage.RecyclerDbHelper;
@@ -135,6 +136,8 @@ public class PictureActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_picture);
+        PreData.putDB(this, Constant.HONG_PHOTO, false);
+        BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);

@@ -24,6 +24,7 @@ import com.supers.clean.junk.service.AutoService;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
 import com.android.clean.util.Constant;
+import com.supers.clean.junk.util.BadgerCount;
 
 import java.util.Locale;
 
@@ -98,7 +99,7 @@ public class MyApplication extends App {
             Intent intent = new Intent(this, AutoService.class);
             startService(intent);
         }
-
+        BadgerCount.setCount(this);
         //启动通知兰清理
         if (Util.isNotificationListenEnabled(this) && PreData.getDB(this, Constant.KEY_NOTIFI, false)) {
             startService(new Intent(this, NotificationMonitorService.class));

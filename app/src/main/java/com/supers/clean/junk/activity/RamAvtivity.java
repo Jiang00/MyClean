@@ -25,6 +25,7 @@ import com.supers.clean.junk.adapter.RamAdapter;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
 import com.supers.clean.junk.util.AdUtil;
+import com.supers.clean.junk.util.BadgerCount;
 import com.supers.clean.junk.view.RamView;
 import com.android.clean.util.Constant;
 
@@ -70,6 +71,8 @@ public class RamAvtivity extends BaseActivity implements RamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
+        PreData.putDB(this, Constant.HONG_RAM, false);
+        BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();
