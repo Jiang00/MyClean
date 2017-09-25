@@ -59,6 +59,12 @@ public class MainPresenter extends BasePresenter<MainView> {
         PreData.putDB(context, Constant.IS_ROTATE, true);
         setRotateGone();
     }
+
+    public void deleteRotate() {
+        PreData.putDB(context, Constant.IS_ROTATE_MAIN, true);
+        setRotateGone();
+    }
+
     public void init() {
         iView.loadFullAd();
         new Thread(new Runnable() {
@@ -100,7 +106,7 @@ public class MainPresenter extends BasePresenter<MainView> {
     }
 
     public void setRotateGone() {
-        if (PreData.getDB(context, Constant.IS_ROTATE, false)) {
+        if (PreData.getDB(context, Constant.IS_ROTATE, false) || PreData.getDB(context, Constant.IS_ROTATE_MAIN, false)) {
             iView.setRotateGone();
         }
     }

@@ -724,7 +724,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_rotate_cha:
                     AdUtil.track("主页面", "点击好评good按钮", "", 1);
-                    mainPresenter.clickRotate(false);
+                    mainPresenter.deleteRotate();
                     break;
                 case R.id.main_power_button:
                     AdUtil.track("主页面", "点击进入深度清理", "", 1);
