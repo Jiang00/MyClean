@@ -241,11 +241,12 @@ public class SuccessActivity extends BaseActivity {
 
             @Override
             public void duogouSc() {
+                success_drawhook.setListener(null);
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
                     AndroidSdk.showFullAd(AdUtil.DEFAULT);
                 }
                 startSecondAnimation();
-                success_drawhook.setListener(null);
+
             }
         });
         if (PreData.getDB(this, Constant.IS_ROTATE, false) || PreData.getDB(this, Constant.IS_ROTATE_SUCC, false)) {
@@ -677,6 +678,14 @@ public class SuccessActivity extends BaseActivity {
         AndroidSdk.onResumeWithoutTransition(this);
         if (lot_success != null) {
             lot_success.playAnimation();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (success_drawhook != null) {
+            success_drawhook.setListener(null);
         }
     }
 

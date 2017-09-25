@@ -135,7 +135,12 @@ public class DrawHookView extends View {
                     }
                     if (!stop) {
                         setProgress(i);
+                    } else {
+                        return;
                     }
+                }
+                if (drawHookListener != null) {
+                    drawHookListener.duogouSc();
                 }
             }
         }).start();
