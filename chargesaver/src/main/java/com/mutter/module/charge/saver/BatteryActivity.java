@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.client.AndroidSdk;
 import com.mutter.module.charge.saver.entry.BatteryEntry;
 import com.mutter.module.charge.saver.Aview.BatteryView;
 
@@ -22,6 +23,7 @@ public class BatteryActivity extends Activity {
 
     private BatteryView batteryView;
     private BatteryEntry entry;
+    private long time;
 
     @Override
     protected void onUserLeaveHint() {
@@ -77,6 +79,8 @@ public class BatteryActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.e("battery", "onCreate");
+        time = System.currentTimeMillis();
+        AndroidSdk.track("充电屏保", "展示", "", 1);
         hideBottomUIMenu();
         doBar();
 
@@ -104,6 +108,9 @@ public class BatteryActivity extends Activity {
     protected void onDestroy() {
         batteryView = null;
         Log.e("battery", "onDestroy");
+        if (time != 0 && System.currentTimeMillis() - time > 3 * 1000) {
+            AndroidSdk.track("充电屏保", "超3秒展示", "", 1);
+        }
         super.onDestroy();
         try {
             unregisterReceiver(mReceiver);

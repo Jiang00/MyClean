@@ -816,7 +816,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         AndroidSdk.onResumeWithoutTransition(this);
         handler.postDelayed(runnable1, 500);
-        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
+        AndroidSdk.loadFullAd("mutter_exit_full", null);
     }
 
     Runnable runnable1 = new Runnable() {
@@ -857,7 +857,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
             if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
+                AndroidSdk.showFullAd("mutter_exit_full");
             }
             showExitDialog();
         }
