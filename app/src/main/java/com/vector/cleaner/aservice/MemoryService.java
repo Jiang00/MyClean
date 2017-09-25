@@ -57,7 +57,7 @@ public class MemoryService extends Service {
         if (myHandler == null) {
             myHandler = new Handler();
         }
-        manager = FloatMemoryManager.getInstance(MemoryService.this);
+
         if (pm == null)
             pm = getPackageManager();
         if (am == null)
@@ -118,7 +118,7 @@ public class MemoryService extends Service {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(MemoryService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(MemoryService.this, NotificationService.class);
-                            intent.putExtra("from","gboost");
+                            intent.putExtra("from", "gboost");
                             startService(intent);
                         }
                     }
@@ -132,6 +132,7 @@ public class MemoryService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        manager = FloatMemoryManager.getInstance(MemoryService.this);
         mana = (WindowManager) MemoryService.this.getSystemService(Context.WINDOW_SERVICE);
         createFullScreenCheckView();
 

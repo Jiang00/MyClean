@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.vector.cleaner.myview.FlakeView;
+import com.vector.cleaner.utils.AdUtil;
 import com.vector.cleaner.utils.Constant;
 import com.vector.cleaner.R;
 import com.vector.mcleaner.mutil.PreData;
@@ -69,7 +70,7 @@ public class BatteryCoolingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +96,7 @@ public class BatteryCoolingActivity extends BaseActivity {
                 rotationY.cancel();
                 cooling_xuehua.clearAnimation();
                 if (PreData.getDB(BatteryCoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
                 }
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);

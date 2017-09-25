@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.LayoutRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -82,7 +83,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     private String TAG_START_FULL = "vector_start_native";
     private String TAG_EXIT_FULL = "vector_exit_native";
-    private String TAG_FULL_PULL = "pull_full";
+    private String TAG_FULL_PULL = "clean_native";
     private String TAG_MAIN = "vector_main";
     private String TAG_SIDE = "vector_side";
     private String TAG_REFRESH = "drag";
@@ -352,6 +353,23 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
     }
 
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd(tag)) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag,  layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+        }
+        return nativeView;
+    }
+
     @Override
     public void loadFullAd() {
         if (PreData.getDB(this, Constant.FULL_MAIN, 0) == 1) {
@@ -390,7 +408,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             AndroidSdk.showFullAd(LOADING_FULL);
 
         } else {
-            View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
+            View nativeView_full = getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
@@ -579,7 +597,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.lot_ad:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
                     if (PreData.getDB(MainActivity.this, Constant.FULL_START, 0) == 1) {
-                        AndroidSdk.loadFullAd(LOADING_FULL);
+                        AndroidSdk.loadFullAd(LOADING_FULL,null);
                         full_load.setVisibility(View.VISIBLE);
                         animatorSet = new AnimatorSet();
                         time = 3;
@@ -587,9 +605,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         full_text.setScaleX(1);
                         full_text.setScaleY(1);
                         final ObjectAnimator animator_x = ObjectAnimator.ofFloat(full_text, View.SCALE_X, 0, 1);
-                        animator_x.setRepeatCount(3);
+                        animator_x.setRepeatCount(2);
                         animator_y = ObjectAnimator.ofFloat(full_text, View.SCALE_Y, 0, 1);
-                        animator_y.setRepeatCount(3);
+                        animator_y.setRepeatCount(2);
                         animatorSet.play(animator_x).with(animator_y);
                         animatorSet.setDuration(1000);
                         animatorSet.start();
@@ -609,7 +627,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                             @Override
                             public void onAnimationRepeat(Animator animation) {
                                 time--;
-                                if (time >= 0) {
+                                if (time > 0) {
                                     full_text.setText(time + "");
                                 }
                             }
@@ -784,7 +802,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-            AndroidSdk.loadFullAd("vector_exit_full");
+            AndroidSdk.loadFullAd("vector_exit_full",null);
         }
         Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
     }
@@ -879,7 +897,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 0) {
-            View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
+            View nativeExit = getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.VISIBLE);

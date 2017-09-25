@@ -56,7 +56,7 @@ public class LoadingActivity extends BaseActivity {
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2000);
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.loadFullAd("loading_full");
+            AndroidSdk.loadFullAd("loading_full",null);
         }
     }
 

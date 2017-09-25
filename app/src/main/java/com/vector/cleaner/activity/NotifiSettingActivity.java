@@ -59,7 +59,7 @@ public class NotifiSettingActivity extends BaseActivity {
         title_right.setVisibility(View.VISIBLE);
         notifi_button_rl.setVisibility(View.GONE);
         if (PreData.getDB(this, Constant.KEY_NOTIFI, true)) {
-            title_right.setImageResource(R.mipmap.notifi_check);
+            title_right.setImageResource(R.mipmap.notifi_kai);
             view_set.setVisibility(View.GONE);
         } else {
             title_right.setImageResource(R.mipmap.side_check_normal);
@@ -97,7 +97,7 @@ public class NotifiSettingActivity extends BaseActivity {
                         view_set.setVisibility(View.VISIBLE);
                     } else {
                         PreData.putDB(NotifiSettingActivity.this, Constant.KEY_NOTIFI, true);
-                        title_right.setImageResource(R.mipmap.side_check_passed);
+                        title_right.setImageResource(R.mipmap.notifi_kai);
                         view_set.setVisibility(View.GONE);
                     }
                     break;

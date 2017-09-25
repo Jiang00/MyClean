@@ -208,7 +208,7 @@ public class SuccessActivity extends BaseActivity {
         if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
             success_dong.setVisibility(View.INVISIBLE);
             if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                AndroidSdk.showFullAd(AdUtil.DEFAULT);
             }
             startSecondAnimation();
         } else {
@@ -219,7 +219,7 @@ public class SuccessActivity extends BaseActivity {
 //            @Override
 //            public void duogouSc() {
 //                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-//                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
 //                }
 //                startSecondAnimation();
 //                success_drawhook.setListener(null);
@@ -410,7 +410,7 @@ public class SuccessActivity extends BaseActivity {
             public void onAnimationEnd(Animator animation) {
                 Log.e("adadad", "succe====");
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
                 }
                 startSecondAnimation();
             }
