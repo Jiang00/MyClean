@@ -75,7 +75,7 @@ public class FileListActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         name = getIntent().getStringExtra("name");
         nameId = getIntent().getIntExtra("nameId", 0);
         if (name == null) {
@@ -242,10 +242,7 @@ public class FileListActivity extends BaseActivity {
                     public void run() {
                         super.run();
                         for (FileInfo info : deleteList) {
-                            boolean deleteSuce = FileUtils.deleteFile(FileListActivity.this, info.path);
-                            if (!deleteSuce) {
-                                android.util.Log.e(TAG, "delete fail --" + info.path);
-                            }
+                            FileUtils.deleteFile(FileListActivity.this, info.path);
                         }
                     }
                 }.start();
