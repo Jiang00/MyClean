@@ -184,7 +184,7 @@ public class NotificationService extends Service {
         remoteView_1 = new RemoteViews(getPackageName(),
                 R.layout.layout_notification);
         int memory = Util.getMemory(this);
-        paint_1.setColor(ContextCompat.getColor(this, R.color.A14));
+        paint_1.setColor(ContextCompat.getColor(this, R.color.white_50));
         Canvas canvas = getCanvas();
         canvas.drawArc(oval, 0, 360, false, paint_1);
         if (memory > 70) {
@@ -267,7 +267,7 @@ public class NotificationService extends Service {
                 }
                 Log.e("notifi", "cpuTemp=" + cpuTemp);
                 remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
-                paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A14));
+                paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_50));
                 Canvas canvas = getCanvas();
                 canvas.drawArc(oval, 0, 360, false, paint_1);
                 if (memory > 70) {

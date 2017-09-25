@@ -357,7 +357,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (!AndroidSdk.hasNativeAd(tag)) {
             return null;
         }
-        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag,  layout, null);
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, layout, null);
         if (nativeView == null) {
             return null;
         }
@@ -597,7 +597,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.lot_ad:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
                     if (PreData.getDB(MainActivity.this, Constant.FULL_START, 0) == 1) {
-                        AndroidSdk.loadFullAd(LOADING_FULL,null);
+                        AndroidSdk.loadFullAd(LOADING_FULL, null);
                         full_load.setVisibility(View.VISIBLE);
                         animatorSet = new AnimatorSet();
                         time = 3;
@@ -802,7 +802,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-            AndroidSdk.loadFullAd("vector_exit_full",null);
+            AndroidSdk.loadFullAd("vector_exit_full", null);
         }
         Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
     }
