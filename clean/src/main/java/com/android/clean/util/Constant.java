@@ -28,6 +28,8 @@ public class Constant {
     public static final String IS_ACTION_BAR = "IS_ACTION_BAR";//是否含有导航栏
 
     public static final String IS_ROTATE = "IS_ROTATE";//是否评价
+    public static final String IS_ROTATE_MAIN = "IS_ROTATE_MAIN";//是否评价
+    public static final String IS_ROTATE_SUCC = "IS_ROTATE_SUCC";//是否评价
 
     public static final String FlOAT_SWITCH = "FlOAT_SWITCH";//悬浮球
 

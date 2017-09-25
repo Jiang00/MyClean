@@ -248,7 +248,7 @@ public class SuccessActivity extends BaseActivity {
                 success_drawhook.setListener(null);
             }
         });
-        if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
+        if (PreData.getDB(this, Constant.IS_ROTATE, false) || PreData.getDB(this, Constant.IS_ROTATE_SUCC, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
 
@@ -569,8 +569,11 @@ public class SuccessActivity extends BaseActivity {
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_rotate_bad:
-                case R.id.rotate_delete:
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
+                    main_rotate_all.setVisibility(View.GONE);
+                    break;
+                case R.id.rotate_delete:
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE_SUCC, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
