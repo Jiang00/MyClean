@@ -48,7 +48,7 @@ public class ADUtileRequest {
                         ((ViewGroup) ad_title).getChildAt(i).setClickable(false);
                     }
                 }
-                View ad_subtitle = adView.findViewWithTag("ad_subtitle");
+                View ad_subtitle = adView.findViewWithTag("ad_desc");
                 ad_subtitle.setClickable(false);
                 ad_subtitle.setOnClickListener(null);
                 if (ad_subtitle instanceof ViewGroup) {
