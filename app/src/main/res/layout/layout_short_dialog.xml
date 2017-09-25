@@ -13,37 +13,41 @@
         android:background="@drawable/shape_ad"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/d65"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="@dimen/d36"
-                android:layout_height="@dimen/d36"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d16"
-                android:src="@mipmap/short_5" />
-
             <TextView
+                android:id="@+id/aa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d24"
+                android:layout_centerVertical="true"
                 android:text="@string/short_cut_1"
-                android:textColor="@color/A2"
-                android:textSize="@dimen/s18" />
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s16" />
 
             <TextView
                 android:id="@+id/short_clean_szie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d5"
+                android:layout_alignBaseline="@id/aa"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d2"
+                android:layout_toRightOf="@id/aa"
                 android:text="100MB"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s18" />
-        </LinearLayout>
+                android:textColor="@color/A9"
+                android:textSize="@dimen/s20" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_toRightOf="@id/short_clean_szie"
+                android:src="@mipmap/short_5" />
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/ll_ad"

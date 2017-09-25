@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.GridView;
@@ -47,6 +48,7 @@ public class BoostGoodGameActivity extends BaseActivity {
     LinearLayout ll_add_game;
     FrameLayout add_left;
     ListView list_game;
+    Button junk_button_clean;
     EditText search_edit_text;
     private JiaBoostGoodGameAdapter whiteListAdapter;
     private boolean search;
@@ -131,6 +133,7 @@ public class BoostGoodGameActivity extends BaseActivity {
 
         title_left.setOnClickListener(clickListener);
         add_left.setOnClickListener(clickListener);
+        junk_button_clean.setOnClickListener(clickListener);
         title_name.setText(R.string.gboost_0);
 
         gboost_add = new ArrayList<>();
@@ -174,6 +177,7 @@ public class BoostGoodGameActivity extends BaseActivity {
         list_game = (ListView) findViewById(R.id.list_game);
         gboost_item_textview = (TextView) findViewById(R.id.gboost_item_textview);
         game_size = (TextView) findViewById(R.id.game_size);
+        junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -188,6 +192,11 @@ public class BoostGoodGameActivity extends BaseActivity {
                     break;
                 case R.id.title_left:
                     onBackPressed();
+                    break;
+                case R.id.junk_button_clean:
+                    Bundle bundle = new Bundle();
+                    bundle.putString("from", "GBoost");
+                    jumpToActivity(BoostDeepingActivity.class, bundle);
                     break;
             }
         }

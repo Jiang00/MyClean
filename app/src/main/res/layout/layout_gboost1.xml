@@ -60,7 +60,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
                 <GridView
                     android:id="@+id/gboost_gridview"
@@ -76,6 +77,25 @@
                     android:scrollbars="none"
                     android:verticalSpacing="@dimen/d8" />
             </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d56"
+                android:layout_gravity="bottom"
+                android:background="@color/A5">
+
+                <TextView
+                    android:id="@+id/junk_button_clean"
+                    android:layout_width="@dimen/d333"
+                    android:layout_height="@dimen/d43"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/main_haoping"
+                    android:gravity="center"
+                    android:text="@string/short_cut"
+                    android:textColor="@color/A5"
+                    android:textSize="@dimen/s16"
+                    android:visibility="visible" />
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 
