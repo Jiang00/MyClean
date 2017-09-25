@@ -34,6 +34,7 @@ import android.widget.TextView;
 import com.android.client.AdListener;
 import com.mutter.clean.core.CleanManager;
 import com.mutter.clean.junk.myview.LoadingTime;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -215,6 +216,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         } else {
             menu_hong.setVisibility(View.GONE);
         }
+        BadgerCount.setCount(this);
 
         arrayList = new ArrayList<>();
         View view = LayoutInflater.from(this).inflate(R.layout.main_kuai_4, null);
