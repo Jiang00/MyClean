@@ -86,6 +86,8 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                     .findViewById(R.id.lot_family);
             holder.iv_hong = (ImageView) convertView
                     .findViewById(R.id.iv_hong);
+            holder.side_ad = (ImageView) convertView
+                    .findViewById(R.id.side_ad);
             holder.iv_le = (ImageView) convertView
                     .findViewById(R.id.iv_le);
             holder.tv_name = (TextView) convertView
@@ -102,8 +104,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             holder.lot_family.setAnimation("box.json");
             holder.lot_family.loop(true);
             holder.lot_family.playAnimation();
+            holder.side_ad.setVisibility(View.VISIBLE);
         } else {
             holder.lot_family.setVisibility(View.GONE);
+            holder.side_ad.setVisibility(View.GONE);
             holder.iv_le.setImageResource(info.drawableId);
         }
         if (info.isCheck) {
@@ -373,6 +377,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         ImageView checkBox;
         ImageView iv_le;
         ImageView iv_hong;
+        ImageView side_ad;
         LottieAnimationView lot_family;
         TextView tv_name;
         View side_divide;

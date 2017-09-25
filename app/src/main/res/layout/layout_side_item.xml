@@ -9,8 +9,8 @@
 
     <RelativeLayout
         android:id="@+id/rl"
-        android:layout_width="72dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/d72"
+        android:layout_height="@dimen/d48"
         android:orientation="horizontal">
 
         <com.sample.lottie.LottieAnimationView
@@ -58,6 +58,14 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
         android:src="@mipmap/side_check_normal" />
+
+    <ImageView
+        android:id="@+id/side_ad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/d30"
+        android:src="@mipmap/side_ad" />
 
     <View
         android:id="@+id/side_divide"

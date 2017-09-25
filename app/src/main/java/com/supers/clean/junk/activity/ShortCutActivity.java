@@ -148,6 +148,7 @@ public class ShortCutActivity extends BaseActivity {
 
     private void show_text() {
         if (count == 2) {
+            ischeck = true;
             count = 0;
             dialog = new Dialog(ShortCutActivity.this, R.style.add_dialog);
             dialog.show();
@@ -163,12 +164,17 @@ public class ShortCutActivity extends BaseActivity {
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @Override
                 public void onDismiss(DialogInterface dialog) {
+                    if (ischeck) {
+                        PreData.putDB(ShortCutActivity.this, Constant.AUTO_KAIGUAN, true);
+                    } else {
+                        PreData.putDB(ShortCutActivity.this, Constant.AUTO_KAIGUAN, false);
+                    }
                     ShortCutActivity.this.finish();
                 }
             });
 
             if (TextUtils.equals("auto", getIntent().getStringExtra("from"))) {
-                ischeck = true;
+
                 View view = getLayoutInflater().inflate(R.layout.layout_auto, null);
                 ImageView auto_cha = (ImageView) view.findViewById(R.id.auto_cha);
                 final ImageView auto_check = (ImageView) view.findViewById(R.id.auto_check);
@@ -251,6 +257,8 @@ public class ShortCutActivity extends BaseActivity {
                         public void onClick(View v) {
                             if (ischeck) {
                                 PreData.putDB(ShortCutActivity.this, Constant.AUTO_KAIGUAN, true);
+                            } else {
+                                PreData.putDB(ShortCutActivity.this, Constant.AUTO_KAIGUAN, false);
                             }
                             dialog.dismiss();
                         }
