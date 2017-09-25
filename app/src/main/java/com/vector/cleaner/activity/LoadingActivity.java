@@ -55,6 +55,9 @@ public class LoadingActivity extends BaseActivity {
         rotationY.start();
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2000);
+        if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
+            AndroidSdk.loadFullAd("loading_full");
+        }
     }
 
     Runnable runnable1 = new Runnable() {

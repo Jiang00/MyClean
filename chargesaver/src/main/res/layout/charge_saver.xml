@@ -114,11 +114,13 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="@dimen/d168"
-            android:layout_gravity="center_horizontal|bottom">
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/d27">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/d15"
                 android:orientation="vertical">
 
@@ -169,27 +171,23 @@
                 android:id="@+id/battery_slide"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginBottom="@dimen/bottom_8"
+                android:layout_gravity="bottom|center_horizontal"
                 android:gravity="center"
-
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/d8"
-                android:visibility="gone">
+                android:orientation="horizontal">
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="@string/unlock"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s13"
+                    android:textColor="@color/white_50"
+                    android:textSize="@dimen/s15"
                     app:typeface="Roboto-Light.ttf" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d5"
                     android:src="@mipmap/unlock" />
             </LinearLayout>
         </FrameLayout>

@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.vector.cleaner.myview.Gou;
 import com.vector.mcleaner.manager.CleanManager;
 import com.vector.mcleaner.entity.JunkInfo;
 import com.vector.mcleaner.mutil.LoadManager;
@@ -56,13 +57,12 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_file_button;
     TextView success_clean_size;
     //    DrawHookView success_drawhook;
-    ImageView success_huojian;
     SlowScrollView scrollView;
     LinearLayout success_title;
     LinearLayout main_picture_button;
     TextView main_rotate_bad;
     //    ImageView delete;
-    ImageView success_progress;
+    Gou success_gou;
     FrameLayout success_dong;
     LinearLayout ll_ad_xiao;
     ImageView power_icon;
@@ -91,7 +91,6 @@ public class SuccessActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
 //        success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
-        success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_rotate_cha = (ImageView) findViewById(R.id.main_rotate_cha);
@@ -109,7 +108,7 @@ public class SuccessActivity extends BaseActivity {
 //        delete = (ImageView) findViewById(R.id.delete);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
-        success_progress = (ImageView) findViewById(R.id.success_progress);
+        success_gou = (Gou) findViewById(R.id.success_gou);
         success_dong = (FrameLayout) findViewById(R.id.success_dong);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
@@ -282,12 +281,12 @@ public class SuccessActivity extends BaseActivity {
     }
 
     private void initAnimation() {
-        myHandler.post(new Runnable() {
+        myHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 startFirstAnimation();
             }
-        });
+        }, 500);
     }
 
     private void addAd() {
@@ -381,19 +380,27 @@ public class SuccessActivity extends BaseActivity {
 //    }
 
     public void startFirstAnimation() {
-//        rotate_set = AnimationUtils.loadAnimation(this, R.anim.set_success);
-//        success_progress.startAnimation(rotate_set);
+        success_gou.startAni();
+        success_gou.setGouListener(new Gou.GouListener() {
+            @Override
+            public void animaEnd() {
+                success_gou.setGouListener(null);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        set.start();
+                    }
+                });
+            }
+        });
         set = new AnimatorSet();
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(success_dong, "scaleX", 1, 0f);
         scaleX.setDuration(600);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(success_dong, "scaleY", 1, 0f);
         scaleY.setDuration(600);
-        ObjectAnimator rotate = ObjectAnimator.ofFloat(success_progress, "rotation", 0f, 360f);
-        rotate.setDuration(600);
-        rotate.setRepeatCount(4);
         set.setInterpolator(new LinearInterpolator());
-        set.play(scaleX).with(scaleY).after(rotate);
-        set.start();
+        set.play(scaleX).with(scaleY);
+
         set.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationCancel(Animator animation) {
@@ -578,6 +585,15 @@ public class SuccessActivity extends BaseActivity {
         if (set != null) {
             set.removeAllListeners();
             set.cancel();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (success_gou != null) {
+            success_gou.setGouListener(null);
+            success_gou.stopAnima();
         }
     }
 

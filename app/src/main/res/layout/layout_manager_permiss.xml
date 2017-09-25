@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,33 +9,21 @@
         android:id="@+id/manager_permision"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/d30"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="@dimen/d50"
-            android:layout_height="@dimen/d50"
-            android:layout_marginLeft="@dimen/d26"
-            android:src="@mipmap/icon" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d18"
+            android:gravity="center"
             android:orientation="vertical">
 
-            <com.vector.module.mView.CustomerTypefaceTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/premiss_1"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s16" />
 
             <com.vector.module.mView.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/d16"
-                android:layout_marginTop="@dimen/d1"
                 android:text="@string/premiss_2"
                 android:textColor="@color/A9"
                 android:textSize="@dimen/s12" />
@@ -54,4 +42,4 @@
         </LinearLayout>
 
     </LinearLayout>
-</LinearLayout>
+</FrameLayout>
