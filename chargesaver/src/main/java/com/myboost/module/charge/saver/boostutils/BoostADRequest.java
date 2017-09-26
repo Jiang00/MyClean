@@ -13,14 +13,14 @@ import com.myboost.module.charge.saver.R;
 public class BoostADRequest {
 
     public static void showFullAD() {
-        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.showFullAd("clean_full");
     }
 
     public View showCustomNativeAD(String adTag, int layoutID, final ICustomNativeADClicked adClick) {
         View adView = null;
-        if (AndroidSdk.hasNativeAd(adTag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+        if (AndroidSdk.hasNativeAd(adTag)) {
             adView = AndroidSdk.peekNativeAdViewWithLayout(adTag,
-                    AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.native_ad,
+                   R.layout.native_ad,
                     new ClientNativeAd.NativeAdClickListener() {
                         @Override
                         public void onNativeAdClicked(ClientNativeAd clientNativeAd) {

@@ -23,6 +23,7 @@ import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 import com.myboost.junk.customadapterboost.NotifiBoostAdapter;
 import com.myboost.junk.boosttools.BoostMyConstant;
 
@@ -97,7 +98,7 @@ public class BoostNotifingActivity extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL,null);
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, MyServiceNotificationMonitor.class));

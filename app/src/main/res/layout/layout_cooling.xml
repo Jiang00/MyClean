@@ -19,54 +19,29 @@
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/cooling_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/d80"
-        android:background="@drawable/gradient_beijing">
+        android:background="@drawable/gradient_beijing"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/cooling_dianyuan"
-            android:layout_width="@dimen/d230"
-            android:layout_height="@dimen/d230"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/d80"
-            android:src="@mipmap/cooling_1" />
-
-        <ImageView
-            android:layout_width="@dimen/d230"
-            android:layout_height="@dimen/d230"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/d80"
-            android:src="@mipmap/cooling_4" />
-
-        <ImageView
-            android:id="@+id/cooling_dianyuan1"
-            android:layout_width="@dimen/d230"
-            android:layout_height="@dimen/d230"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/d80"
-            android:src="@mipmap/cooling_2" />
-
-        <ImageView
-            android:id="@+id/cooling_ke"
-            android:layout_width="@dimen/d230"
-            android:layout_height="@dimen/d230"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/d80"
-            android:src="@mipmap/cooling_3" />
+        <com.myboost.junk.customviewboost.Cooling2View
+            android:id="@+id/cooling_2"
+            android:layout_width="@dimen/d67"
+            android:layout_height="@dimen/d146"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d192" />
 
         <LinearLayout
             android:id="@+id/cooling_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/cooling_ke"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/d18"
             android:orientation="vertical"
-            android:visibility="invisible">
+            android:visibility="gone">
             <!-- android:visibility="invisible"-->
 
             <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
@@ -87,5 +62,11 @@
                 android:textColor="@color/B3"
                 android:textSize="@dimen/s24" />
         </LinearLayout>
-    </RelativeLayout>
+
+    </LinearLayout>
+
+    <com.myboost.junk.customviewboost.CoolongView
+        android:id="@+id/cooling_xue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>

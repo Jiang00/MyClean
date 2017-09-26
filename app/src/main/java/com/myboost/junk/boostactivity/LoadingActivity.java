@@ -130,6 +130,9 @@ public class LoadingActivity extends BaseActivity {
         Log.e(TAG, "=====time1===" + (endTime2 - endTime1));
         loading_tv1 = (TextView) findViewById(R.id.loading_tv1);
         loading_tv2 = (TextView) findViewById(R.id.loading_tv2);
+        if (PreData.getDB(this, BoostMyConstant.FULL_START, 0) == 1) {
+            AndroidSdk.loadFullAd("loading_full",null);
+        }
         myHandler = new Handler();
         if (PreData.getDB(this, BoostMyConstant.ROOT_TRAK, true)) {
             SetAdUtilPrivacy.track("是否获取root权限", PhonesManager.isRoot() == true ? "是" : "否", "", 1);

@@ -48,7 +48,7 @@ public class BoostGoodGameActivity extends BaseActivity {
     LinearLayout ll_add_game;
     FrameLayout add_left;
     ListView list_game;
-    Button junk_button_clean;
+    TextView junk_button_clean;
     EditText search_edit_text;
     private JiaBoostGoodGameAdapter whiteListAdapter;
     private boolean search;
@@ -177,7 +177,7 @@ public class BoostGoodGameActivity extends BaseActivity {
         list_game = (ListView) findViewById(R.id.list_game);
         gboost_item_textview = (TextView) findViewById(R.id.gboost_item_textview);
         game_size = (TextView) findViewById(R.id.game_size);
-        junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
+        junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {

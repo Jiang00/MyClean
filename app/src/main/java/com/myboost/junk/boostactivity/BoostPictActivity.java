@@ -88,14 +88,6 @@ public class BoostPictActivity extends BaseActivity {
                         picture_other.setVisibility(View.VISIBLE);
                         picture_button.setVisibility(View.GONE);
                         picture_lin.setVisibility(View.GONE);
-                        picture_other.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                SetAdUtilPrivacy.track("相似图片页面", "点击检测其他垃圾", "", 1);
-                                jumpTo(BoostRubbishActivity.class);
-                                onBackPressed();
-                            }
-                        });
                     } else {
                         Animation animation1 = AnimationUtils.loadAnimation(BoostPictActivity.this, R.anim.translate_notifi);
                         picture_button.startAnimation(animation1);
@@ -137,7 +129,7 @@ public class BoostPictActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, BoostMyConstant.PICTURE, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(SetAdUtilPrivacy.DEFAULT_FULL);
         }
     }
 
@@ -268,7 +260,7 @@ public class BoostPictActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_picture);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL, null);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);
         title_right.setImageResource(R.mipmap.picture_right);

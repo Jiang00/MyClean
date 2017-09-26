@@ -174,11 +174,11 @@ public class NotificationServiceBoost extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (intent != null &&  TextUtils.equals("notification",intent.getStringExtra("from"))) {
+        if (intent != null && TextUtils.equals("notification", intent.getStringExtra("from"))) {
             onstart();
         }
 
-        if (intent != null &&TextUtils.equals("gboost",intent.getStringExtra("from"))) {
+        if (intent != null && TextUtils.equals("gboost", intent.getStringExtra("from"))) {
             tonghzi_gboost();
             mNotifyManager.notify(101, notification_gboost);
         }

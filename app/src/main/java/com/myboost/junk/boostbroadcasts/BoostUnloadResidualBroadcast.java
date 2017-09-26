@@ -27,7 +27,7 @@ public class BoostUnloadResidualBroadcast extends BroadcastReceiver {
         if (!PreData.getDB(context, BoostMyConstant.UNLOAD_SWITCH, true)) {
             return;
         }
-        if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {
+        if (intent.getAction().equals(Intent.ACTION_PACKAGE_FULLY_REMOVED)) {
             String packageName = intent.getData().getSchemeSpecificPart();
             context.startActivity(new Intent(context, UnloadingResidualActivityBoost.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("packageName", packageName));
         }

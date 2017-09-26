@@ -168,7 +168,7 @@ public class BoostAllAppsActivity extends BaseActivity implements CustomAllAppVi
     @Override
     public void loadFullAd() {
         if (PreData.getDB(this, BoostMyConstant.FULL_MANAGER, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(SetAdUtilPrivacy.DEFAULT_FULL);
         } else {
             nativeView1 = SetAdUtilPrivacy.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             nativeView2 = SetAdUtilPrivacy.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);

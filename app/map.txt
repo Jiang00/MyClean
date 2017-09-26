@@ -27628,17 +27628,18 @@ com.android.async.QueuedExecutor -> com.android.async.QueuedExecutor:
     58:74:void run() -> run
     77:79:void cleanUp() -> a
 com.android.client.AdListener -> com.android.client.AdListener:
-    void onReceiveReward(boolean,int,java.lang.String) -> onReceiveReward
-    void onFullAdClosed(java.lang.String) -> onFullAdClosed
-    void onFullAdClicked(java.lang.String) -> onFullAdClicked
-    void onVideoAdClosed(java.lang.String) -> onVideoAdClosed
-    void onBannerAdClicked(java.lang.String) -> onBannerAdClicked
-    void onCrossAdClicked(java.lang.String) -> onCrossAdClicked
+    8:8:void <init>() -> <init>
+    11:12:void onAdShow() -> onAdShow
+    16:17:void onAdClosed() -> onAdClosed
+    21:22:void onAdClicked() -> onAdClicked
+    26:27:void onAdShowFails() -> onAdShowFails
+    31:32:void onAdReward() -> onAdReward
+    35:36:void onAdLoadSuccess() -> onAdLoadSuccess
+    39:40:void onAdLoadFails() -> onAdLoadFails
 com.android.client.AndroidSdk -> com.android.client.AndroidSdk:
     android.content.Context context -> context
     com.android.client.AndroidSdk$Builder builder -> builder
-    com.android.client.PaymentResultListener paymentResultListener -> paymentResultListener
-    com.android.client.AdListener rewardAdListener -> rewardAdListener
+    com.android.client.PaymentSystemListener paymentResultListener -> paymentResultListener
     java.lang.ref.WeakReference activityWeakReference -> activityWeakReference
     com.android.client.UserCenterListener userCenterListener -> userCenterListener
     int POS_LEFT_TOP -> POS_LEFT_TOP
@@ -27657,9 +27658,6 @@ com.android.client.AndroidSdk -> com.android.client.AndroidSdk:
     double BACK_HOME_AD_TIME -> BACK_HOME_AD_TIME
     boolean canShowBackHomeAd -> canShowBackHomeAd
     boolean hasRewardAd -> hasRewardAd
-    int NATIVE_AD_TYPE_OUR -> NATIVE_AD_TYPE_OUR
-    int NATIVE_AD_TYPE_ALL -> NATIVE_AD_TYPE_ALL
-    int NATIVE_AD_TYPE_THIRD -> NATIVE_AD_TYPE_THIRD
     boolean hasNative -> hasNative
     int HIDE_BEHAVIOR_AUTO_HIDE -> HIDE_BEHAVIOR_AUTO_HIDE
     int HIDE_BEHAVIOR_HIDDEN -> HIDE_BEHAVIOR_HIDDEN
@@ -27679,219 +27677,213 @@ com.android.client.AndroidSdk -> com.android.client.AndroidSdk:
     int CONFIG_KEY_PACKAGE_NAME -> CONFIG_KEY_PACKAGE_NAME
     com.android.client.DummyConfig config -> config
     42:42:void <init>() -> <init>
-    92:141:void onCreate(android.app.Activity,com.android.client.AndroidSdk$Builder) -> onCreate
-    144:146:void setRewardAdListener(com.android.client.AdListener) -> setRewardAdListener
-    149:150:void onCreate(android.app.Activity) -> onCreate
-    153:153:boolean valid() -> valid
-    157:164:void onCreate(android.content.Context) -> onCreate
-    167:168:void showFullAdAsActivity(java.lang.String) -> showFullAdAsActivity
-    172:172:void onStart() -> onStart
-    175:175:void onStop() -> onStop
-    178:183:void onPause() -> onPause
-    186:193:void onResume(android.app.Activity) -> onResume
-    196:198:void onResumeWithoutTransition(android.app.Activity) -> onResumeWithoutTransition
-    201:201:void onDestroy() -> onDestroy
-    204:204:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    207:207:boolean isNetworkConnected() -> isNetworkConnected
-    219:227:void showBanner(int) -> showBanner
-    230:238:void showBanner(java.lang.String,int) -> showBanner
-    241:252:void closeBanner() -> closeBanner
-    255:256:void setBackHomeAd(java.lang.String) -> setBackHomeAd
-    266:306:int[] calculatePopWindowPos(android.view.View,int) -> calculatePopWindowPos
-    313:355:void _showBanner(java.lang.String,int) -> _showBanner
-    366:369:void moreGame() -> moreGame
-    372:375:void loadFullAd(java.lang.String) -> loadFullAd
-    378:387:void showFullAd(java.lang.String) -> showFullAd
-    392:465:void _showInterstitialDlg(java.lang.String) -> _showInterstitialDlg
-    468:537:void showRewardAd(java.lang.String,int) -> showRewardAd
-    540:549:void pauseActivity() -> pauseActivity
-    552:561:void resumeActivity() -> resumeActivity
-    565:566:void showRewardAd(int) -> showRewardAd
-    570:571:boolean hasRewardAd() -> hasRewardAd
-    575:575:boolean hasRewardAd(java.lang.String) -> hasRewardAd
-    585:586:boolean hasNativeAd(java.lang.String,int) -> hasNativeAd
-    590:590:int getDefaultNativeLayoutId(boolean) -> getDefaultNativeLayoutId
-    594:597:android.view.View peekNativeAdView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdView
-    601:661:android.view.View peekNativeAdViewWithLayout(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdViewWithLayout
-    671:674:android.view.View peekNativeAdScrollView(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdScrollView
-    680:683:android.view.View peekNativeAdScrollView(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollView
-    689:689:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
-    696:699:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
-    703:725:void showNativeAdScrollView(java.lang.String,int,int) -> showNativeAdScrollView
-    734:750:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
-    760:772:void closeNativeAd(java.lang.String) -> closeNativeAd
-    780:782:void clickNativeAd(java.lang.String) -> clickNativeAd
-    790:791:void clickUrl(java.lang.String) -> clickUrl
-    801:811:void loadNativeAd(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdLoadListener) -> loadNativeAd
-    821:826:void reLoadNativeAd(java.lang.String,android.view.View,com.android.client.ClientNativeAd$NativeAdLoadListener) -> reLoadNativeAd
-    829:843:void hideNativeAdScrollView(java.lang.String) -> hideNativeAdScrollView
-    846:849:void destroyNativeAdView(java.lang.String,android.view.View) -> destroyNativeAdView
-    852:855:void track(java.lang.String,java.lang.String,java.lang.String,int) -> track
-    858:861:void track(java.lang.String,java.lang.String) -> track
-    864:867:void track(java.lang.String) -> track
-    872:910:void pay(int) -> pay
-    915:926:void query(int) -> query
-    929:932:void share() -> share
-    935:938:void rateUs() -> rateUs
-    941:949:void toast(java.lang.String) -> toast
-    952:952:java.lang.String getExtraData() -> getExtraData
-    956:985:void onQuit() -> onQuit
-    990:993:void login() -> login
-    996:998:void logout() -> logout
-    1001:1002:boolean isLogin() -> isLogin
-    1006:1008:void invite() -> invite
-    1011:1015:void challenge(java.lang.String,java.lang.String) -> challenge
-    1018:1021:java.lang.String me() -> me
-    1025:1035:java.lang.String friends() -> friends
-    1039:1041:void like() -> like
-    1125:1125:void showNativeBanner(java.lang.String,int,int) -> showNativeBanner
-    1128:1128:void hideNativeBanner(java.lang.String) -> hideNativeBanner
-    1137:1137:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
-    1141:1156:void cacheUrl(int,java.lang.String) -> cacheUrl
-    1178:1210:java.lang.String getConfig(int) -> getConfig
-    1215:1233:java.lang.String getConfig(java.lang.String,int) -> getConfig
-    1238:1250:void alert(java.lang.String,java.lang.String) -> alert
-    1253:1256:void onKill(android.app.Activity) -> onKill
-    1264:1267:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
-    1270:1273:void UM_onEvent(java.lang.String) -> UM_onEvent
-    1276:1279:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
-    1282:1286:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
-    1296:1299:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
-    1307:1310:void UM_onPageStart(java.lang.String) -> UM_onPageStart
-    1318:1321:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
-    1329:1332:void UM_startLevel(java.lang.String) -> UM_startLevel
-    1340:1343:void UM_failLevel(java.lang.String) -> UM_failLevel
-    1351:1354:void UM_finishLevel(java.lang.String) -> UM_finishLevel
-    1376:1379:void UM_pay(double,java.lang.String,int,double) -> UM_pay
-    1389:1392:void UM_buy(java.lang.String,int,double) -> UM_buy
-    1402:1405:void UM_use(java.lang.String,int,double) -> UM_use
-    1416:1419:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
+    79:127:void onCreate(android.app.Activity,com.android.client.AndroidSdk$Builder) -> onCreate
+    130:131:void onCreate(android.app.Activity) -> onCreate
+    134:134:boolean valid() -> valid
+    138:145:void onCreate(android.content.Context) -> onCreate
+    149:149:void onStart() -> onStart
+    152:152:void onStop() -> onStop
+    155:160:void onPause() -> onPause
+    163:170:void onResume(android.app.Activity) -> onResume
+    173:175:void onResumeWithoutTransition(android.app.Activity) -> onResumeWithoutTransition
+    178:178:void onDestroy() -> onDestroy
+    181:181:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    184:184:boolean isNetworkConnected() -> isNetworkConnected
+    196:204:void showBanner(java.lang.String,int) -> showBanner
+    207:218:void closeBanner(java.lang.String) -> closeBanner
+    221:222:void setBackHomeAd(java.lang.String) -> setBackHomeAd
+    232:272:int[] calculatePopWindowPos(android.view.View,int) -> calculatePopWindowPos
+    279:319:void _showBanner(java.lang.String,int) -> _showBanner
+    330:333:void moreGame() -> moreGame
+    336:346:void loadFullAd(java.lang.String,com.android.client.AdListener) -> loadFullAd
+    349:362:void showFullAd(java.lang.String,com.android.client.AdListener) -> showFullAd
+    365:366:void showFullAd(java.lang.String) -> showFullAd
+    371:444:void _showInterstitialDlg(java.lang.String,com.android.client.AdListener) -> _showInterstitialDlg
+    447:516:void showRewardAd(java.lang.String,com.android.client.AdListener) -> showRewardAd
+    519:528:void pauseActivity() -> pauseActivity
+    531:540:void resumeActivity() -> resumeActivity
+    545:546:boolean hasRewardAd(java.lang.String) -> hasRewardAd
+    552:553:boolean hasNativeAd(java.lang.String) -> hasNativeAd
+    557:557:int getDefaultNativeLayoutId(boolean) -> getDefaultNativeLayoutId
+    561:564:android.view.View peekNativeAdView(java.lang.String,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdView
+    568:628:android.view.View peekNativeAdViewWithLayout(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdViewWithLayout
+    638:641:android.view.View peekNativeAdScrollView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdScrollView
+    647:650:android.view.View peekNativeAdScrollView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollView
+    656:656:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
+    663:666:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
+    670:692:void showNativeAdScrollView(java.lang.String,int,int) -> showNativeAdScrollView
+    695:695:java.lang.String getPrices() -> getPrices
+    705:721:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
+    731:743:void closeNativeAd(java.lang.String) -> closeNativeAd
+    751:753:void clickNativeAd(java.lang.String) -> clickNativeAd
+    761:762:void clickUrl(java.lang.String) -> clickUrl
+    772:782:void loadNativeAd(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdLoadListener) -> loadNativeAd
+    792:797:void reLoadNativeAd(java.lang.String,android.view.View,com.android.client.ClientNativeAd$NativeAdLoadListener) -> reLoadNativeAd
+    800:814:void hideNativeAdScrollView(java.lang.String) -> hideNativeAdScrollView
+    817:820:void destroyNativeAdView(java.lang.String,android.view.View) -> destroyNativeAdView
+    823:826:void track(java.lang.String,java.lang.String,java.lang.String,int) -> track
+    829:832:void track(java.lang.String,java.lang.String) -> track
+    835:838:void track(java.lang.String) -> track
+    843:881:void pay(int,com.android.client.PaymentSystemListener) -> pay
+    884:885:void pay(int) -> pay
+    890:901:void query(int,com.android.client.PaymentSystemListener) -> query
+    904:905:void query(int) -> query
+    908:911:void share() -> share
+    914:917:void rateUs() -> rateUs
+    920:928:void toast(java.lang.String) -> toast
+    931:931:java.lang.String getExtraData() -> getExtraData
+    935:964:void onQuit() -> onQuit
+    969:973:void login() -> login
+    976:978:void logout() -> logout
+    981:982:boolean isLogin() -> isLogin
+    986:988:void invite() -> invite
+    991:995:void challenge(java.lang.String,java.lang.String) -> challenge
+    998:1001:java.lang.String me() -> me
+    1005:1015:java.lang.String friends() -> friends
+    1019:1021:void like() -> like
+    1024:1024:void showNativeBanner(java.lang.String,int,int) -> showNativeBanner
+    1027:1027:void hideNativeBanner(java.lang.String) -> hideNativeBanner
+    1036:1036:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
+    1040:1055:void cacheUrl(int,java.lang.String) -> cacheUrl
+    1077:1109:java.lang.String getConfig(int) -> getConfig
+    1114:1132:java.lang.String getConfig(java.lang.String,int) -> getConfig
+    1137:1149:void alert(java.lang.String,java.lang.String) -> alert
+    1152:1155:void onKill(android.app.Activity) -> onKill
+    1163:1166:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
+    1169:1172:void UM_onEvent(java.lang.String) -> UM_onEvent
+    1175:1178:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
+    1181:1185:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
+    1195:1198:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
+    1206:1209:void UM_onPageStart(java.lang.String) -> UM_onPageStart
+    1217:1220:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
+    1228:1231:void UM_startLevel(java.lang.String) -> UM_startLevel
+    1239:1242:void UM_failLevel(java.lang.String) -> UM_failLevel
+    1250:1253:void UM_finishLevel(java.lang.String) -> UM_finishLevel
+    1275:1278:void UM_pay(double,java.lang.String,int,double) -> UM_pay
+    1288:1291:void UM_buy(java.lang.String,int,double) -> UM_buy
+    1301:1304:void UM_use(java.lang.String,int,double) -> UM_use
+    1315:1318:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
     42:42:void access$000(java.lang.String,int) -> access$000
     42:42:double access$102(double) -> access$102
-    42:42:void access$200(java.lang.String) -> access$200
+    42:42:void access$200(java.lang.String,com.android.client.AdListener) -> access$200
     42:42:void access$300() -> access$300
     42:42:void access$400() -> access$400
     42:42:boolean access$500() -> access$500
-    362:363:void <clinit>() -> <clinit>
+    326:327:void <clinit>() -> <clinit>
 com.android.client.AndroidSdk$1 -> com.android.client.AndroidSdk$1:
+    java.lang.String val$tag -> val$tag
     int val$pos -> val$pos
-    220:220:void <init>(int) -> <init>
-    223:224:void run() -> run
+    197:197:void <init>(java.lang.String,int) -> <init>
+    200:201:void run() -> run
 com.android.client.AndroidSdk$10 -> com.android.client.AndroidSdk$10:
-    com.android.client.ClientNativeAd$NativeAdClickListener val$listener -> val$listener
-    639:639:void <init>(com.android.client.ClientNativeAd$NativeAdClickListener) -> <init>
-    642:646:void onClick(android.view.View) -> onClick
-com.android.client.AndroidSdk$11 -> com.android.client.AndroidSdk$11:
     java.lang.String val$tag -> val$tag
     int val$yPercent -> val$yPercent
-    704:704:void <init>(java.lang.String,int) -> <init>
-    707:722:void run() -> run
+    671:671:void <init>(java.lang.String,int) -> <init>
+    674:689:void run() -> run
+com.android.client.AndroidSdk$11 -> com.android.client.AndroidSdk$11:
+    java.lang.String val$tag -> val$tag
+    706:706:void <init>(java.lang.String) -> <init>
+    709:717:void run() -> run
 com.android.client.AndroidSdk$12 -> com.android.client.AndroidSdk$12:
     java.lang.String val$tag -> val$tag
-    735:735:void <init>(java.lang.String) -> <init>
-    738:746:void run() -> run
+    732:732:void <init>(java.lang.String) -> <init>
+    735:740:void run() -> run
 com.android.client.AndroidSdk$13 -> com.android.client.AndroidSdk$13:
     java.lang.String val$tag -> val$tag
-    761:761:void <init>(java.lang.String) -> <init>
-    764:769:void run() -> run
+    801:801:void <init>(java.lang.String) -> <init>
+    804:811:void run() -> run
 com.android.client.AndroidSdk$14 -> com.android.client.AndroidSdk$14:
-    java.lang.String val$tag -> val$tag
-    830:830:void <init>(java.lang.String) -> <init>
-    833:840:void run() -> run
-com.android.client.AndroidSdk$15 -> com.android.client.AndroidSdk$15:
     int val$bill -> val$bill
-    872:872:void <init>(int) -> <init>
-    875:908:void run() -> run
-com.android.client.AndroidSdk$15$1 -> com.android.client.AndroidSdk$15$1:
-    com.android.client.AndroidSdk$15 this$0 -> this$0
-    900:900:void <init>(com.android.client.AndroidSdk$15) -> <init>
-    903:906:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$15$2 -> com.android.client.AndroidSdk$15$2:
-    com.android.client.AndroidSdk$15 this$0 -> this$0
-    888:888:void <init>(com.android.client.AndroidSdk$15) -> <init>
-    893:896:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$15$3 -> com.android.client.AndroidSdk$15$3:
-    com.android.client.AndroidSdk$15 this$0 -> this$0
-    879:879:void <init>(com.android.client.AndroidSdk$15) -> <init>
-    882:885:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$16 -> com.android.client.AndroidSdk$16:
+    com.android.client.PaymentSystemListener val$paymentListener -> val$paymentListener
+    843:843:void <init>(int,com.android.client.PaymentSystemListener) -> <init>
+    846:879:void run() -> run
+com.android.client.AndroidSdk$14$1 -> com.android.client.AndroidSdk$14$1:
+    com.android.client.AndroidSdk$14 this$0 -> this$0
+    871:871:void <init>(com.android.client.AndroidSdk$14) -> <init>
+    874:877:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$14$2 -> com.android.client.AndroidSdk$14$2:
+    com.android.client.AndroidSdk$14 this$0 -> this$0
+    859:859:void <init>(com.android.client.AndroidSdk$14) -> <init>
+    864:867:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$14$3 -> com.android.client.AndroidSdk$14$3:
+    com.android.client.AndroidSdk$14 this$0 -> this$0
+    850:850:void <init>(com.android.client.AndroidSdk$14) -> <init>
+    853:856:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$15 -> com.android.client.AndroidSdk$15:
     java.lang.String val$msg -> val$msg
-    942:942:void <init>(java.lang.String) -> <init>
-    945:946:void run() -> run
+    921:921:void <init>(java.lang.String) -> <init>
+    924:925:void run() -> run
+com.android.client.AndroidSdk$16 -> com.android.client.AndroidSdk$16:
+    935:935:void <init>() -> <init>
+    939:962:void run() -> run
+com.android.client.AndroidSdk$16$1 -> com.android.client.AndroidSdk$16$1:
+    com.android.client.AndroidSdk$16 this$0 -> this$0
+    951:951:void <init>(com.android.client.AndroidSdk$16) -> <init>
+    955:956:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$16$2 -> com.android.client.AndroidSdk$16$2:
+    com.android.client.AndroidSdk$16 this$0 -> this$0
+    943:943:void <init>(com.android.client.AndroidSdk$16) -> <init>
+    947:948:void onClick(android.content.DialogInterface,int) -> onClick
 com.android.client.AndroidSdk$17 -> com.android.client.AndroidSdk$17:
-    956:956:void <init>() -> <init>
-    960:983:void run() -> run
-com.android.client.AndroidSdk$17$1 -> com.android.client.AndroidSdk$17$1:
-    com.android.client.AndroidSdk$17 this$0 -> this$0
-    972:972:void <init>(com.android.client.AndroidSdk$17) -> <init>
-    976:977:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$17$2 -> com.android.client.AndroidSdk$17$2:
-    com.android.client.AndroidSdk$17 this$0 -> this$0
-    964:964:void <init>(com.android.client.AndroidSdk$17) -> <init>
-    968:969:void onClick(android.content.DialogInterface,int) -> onClick
+    1040:1040:void <init>() -> <init>
+    1043:1046:void onSuccess(int,java.lang.String) -> onSuccess
+    1050:1053:void onFailure(int) -> onFailure
 com.android.client.AndroidSdk$18 -> com.android.client.AndroidSdk$18:
-    1141:1141:void <init>() -> <init>
-    1144:1147:void onSuccess(int,java.lang.String) -> onSuccess
-    1151:1154:void onFailure(int) -> onFailure
-com.android.client.AndroidSdk$19 -> com.android.client.AndroidSdk$19:
     java.lang.String val$title -> val$title
     java.lang.String val$message -> val$message
-    1238:1238:void <init>(java.lang.String,java.lang.String) -> <init>
-    1241:1248:void run() -> run
+    1137:1137:void <init>(java.lang.String,java.lang.String) -> <init>
+    1140:1147:void run() -> run
 com.android.client.AndroidSdk$2 -> com.android.client.AndroidSdk$2:
-    java.lang.String val$tag -> val$tag
-    int val$pos -> val$pos
-    231:231:void <init>(java.lang.String,int) -> <init>
-    234:235:void run() -> run
+    209:209:void <init>() -> <init>
+    212:215:void run() -> run
 com.android.client.AndroidSdk$3 -> com.android.client.AndroidSdk$3:
-    243:243:void <init>() -> <init>
-    246:249:void run() -> run
+    300:300:void <init>() -> <init>
+    304:304:void onClick(android.view.View) -> onClick
 com.android.client.AndroidSdk$4 -> com.android.client.AndroidSdk$4:
     java.lang.String val$tag -> val$tag
-    334:334:void <init>(java.lang.String) -> <init>
-    337:340:void onClick(android.view.View) -> onClick
+    com.android.client.AdListener val$listener -> val$listener
+    350:350:void <init>(java.lang.String,com.android.client.AdListener) -> <init>
+    353:355:void run() -> run
 com.android.client.AndroidSdk$5 -> com.android.client.AndroidSdk$5:
-    java.lang.String val$tag -> val$tag
-    379:379:void <init>(java.lang.String) -> <init>
-    382:384:void run() -> run
+    com.android.client.AdListener val$listener -> val$listener
+    378:378:void <init>(com.android.client.AdListener) -> <init>
+    381:385:void onClick(android.view.View) -> onClick
 com.android.client.AndroidSdk$6 -> com.android.client.AndroidSdk$6:
-    java.lang.String val$pos -> val$pos
-    399:399:void <init>(java.lang.String) -> <init>
-    402:406:void onClick(android.view.View) -> onClick
-com.android.client.AndroidSdk$7 -> com.android.client.AndroidSdk$7:
-    java.lang.String val$pos -> val$pos
+    com.android.client.AdListener val$listener -> val$listener
     android.app.Dialog val$dlg -> val$dlg
-    443:443:void <init>(java.lang.String,android.app.Dialog) -> <init>
-    447:451:void onClick(android.view.View) -> onClick
+    422:422:void <init>(com.android.client.AdListener,android.app.Dialog) -> <init>
+    426:430:void onClick(android.view.View) -> onClick
+com.android.client.AndroidSdk$7 -> com.android.client.AndroidSdk$7:
+    433:433:void <init>() -> <init>
+    436:437:void onCancel(android.content.DialogInterface) -> onCancel
 com.android.client.AndroidSdk$8 -> com.android.client.AndroidSdk$8:
-    454:454:void <init>() -> <init>
-    457:458:void onCancel(android.content.DialogInterface) -> onCancel
-com.android.client.AndroidSdk$9 -> com.android.client.AndroidSdk$9:
     java.lang.String val$tag -> val$tag
-    int val$rewardId -> val$rewardId
-    470:470:void <init>(java.lang.String,int) -> <init>
-    474:534:void run() -> run
-com.android.client.AndroidSdk$9$1 -> com.android.client.AndroidSdk$9$1:
+    com.android.client.AdListener val$listener -> val$listener
+    449:449:void <init>(java.lang.String,com.android.client.AdListener) -> <init>
+    453:513:void run() -> run
+com.android.client.AndroidSdk$8$1 -> com.android.client.AndroidSdk$8$1:
     android.app.AlertDialog val$dialog -> val$dialog
-    com.android.client.AndroidSdk$9 this$0 -> this$0
-    510:510:void <init>(com.android.client.AndroidSdk$9,android.app.AlertDialog) -> <init>
-    514:518:void onClick(android.view.View) -> onClick
-com.android.client.AndroidSdk$9$2 -> com.android.client.AndroidSdk$9$2:
-    com.android.client.AndroidSdk$9 this$0 -> this$0
-    520:520:void <init>(com.android.client.AndroidSdk$9) -> <init>
-    523:527:void onCancel(android.content.DialogInterface) -> onCancel
+    com.android.client.AndroidSdk$8 this$0 -> this$0
+    489:489:void <init>(com.android.client.AndroidSdk$8,android.app.AlertDialog) -> <init>
+    493:497:void onClick(android.view.View) -> onClick
+com.android.client.AndroidSdk$8$2 -> com.android.client.AndroidSdk$8$2:
+    com.android.client.AndroidSdk$8 this$0 -> this$0
+    499:499:void <init>(com.android.client.AndroidSdk$8) -> <init>
+    502:506:void onCancel(android.content.DialogInterface) -> onCancel
+com.android.client.AndroidSdk$9 -> com.android.client.AndroidSdk$9:
+    com.android.client.ClientNativeAd$NativeAdClickListener val$listener -> val$listener
+    606:606:void <init>(com.android.client.ClientNativeAd$NativeAdClickListener) -> <init>
+    609:613:void onClick(android.view.View) -> onClick
 com.android.client.AndroidSdk$Builder -> com.android.client.AndroidSdk$Builder:
-    com.android.client.AdListener rewardAdListener -> rewardAdListener
-    com.android.client.PaymentResultListener paymentResultListener -> paymentResultListener
+    com.android.client.PaymentSystemListener paymentResultListener -> paymentResultListener
     com.android.client.UserCenterListener userCenterListener -> userCenterListener
     com.android.client.UrlListener urlListener -> urlListener
     com.android.client.SdkResultListener sdkResultListener -> sdkResultListener
     45:45:void <init>() -> <init>
-    54:55:com.android.client.AndroidSdk$Builder setRewardAdListener(com.android.client.AdListener) -> setRewardAdListener
-    59:60:com.android.client.AndroidSdk$Builder setPaymentResultListener(com.android.client.PaymentResultListener) -> setPaymentResultListener
-    64:65:com.android.client.AndroidSdk$Builder setUserCenterListener(com.android.client.UserCenterListener) -> setUserCenterListener
-    69:70:com.android.client.AndroidSdk$Builder setUrlListener(com.android.client.UrlListener) -> setUrlListener
-    74:75:com.android.client.AndroidSdk$Builder setSdkResultListener(com.android.client.SdkResultListener) -> setSdkResultListener
+    52:53:com.android.client.AndroidSdk$Builder setPaymentListener(com.android.client.PaymentSystemListener) -> setPaymentListener
+    57:58:com.android.client.AndroidSdk$Builder setUserCenterListener(com.android.client.UserCenterListener) -> setUserCenterListener
+    62:63:com.android.client.AndroidSdk$Builder setUrlListener(com.android.client.UrlListener) -> setUrlListener
+    67:68:com.android.client.AndroidSdk$Builder setSdkResultListener(com.android.client.SdkResultListener) -> setSdkResultListener
 com.android.client.BuildConfig -> com.android.client.BuildConfig:
     boolean DEBUG -> DEBUG
     java.lang.String APPLICATION_ID -> APPLICATION_ID
@@ -27915,113 +27907,128 @@ com.android.client.Cocos -> com.android.client.Cocos:
     int AD_FULL -> AD_FULL
     int AD_VIDEO -> AD_VIDEO
     int AD_BANNER -> AD_BANNER
-    int AD_CROSS -> AD_CROSS
     int SNS_RESULT_LOGIN -> SNS_RESULT_LOGIN
     int SNS_RESULT_INVITE -> SNS_RESULT_INVITE
     int SNS_RESULT_CHALLENGE -> SNS_RESULT_CHALLENGE
     int SNS_RESULT_LIKE -> SNS_RESULT_LIKE
+    int SNS_RESULT_FRIENDS -> SNS_RESULT_FRIENDS
     13:13:void <init>() -> <init>
     void rr(boolean,int,java.lang.String) -> rr
     void awc(int,java.lang.String) -> awc
     void awd(int,java.lang.String) -> awd
+    void sns(int,boolean,int) -> sns
+    void lar(java.lang.String,boolean) -> lar
     void pr(int,int) -> pr
     void pv() -> pv
-    void sns(int,boolean,int) -> sns
     void sr(int,boolean,java.lang.String) -> sr
     void url(int,boolean,java.lang.String) -> url
     void lb(boolean,boolean,java.lang.String,java.lang.String) -> lb
-    63:198:void onCreate(android.app.Activity) -> onCreate
-    201:202:void onStart() -> onStart
-    205:206:void onStop() -> onStop
-    209:210:void onPause() -> onPause
-    213:214:void onResume(android.app.Activity) -> onResume
-    217:218:void onDestroy() -> onDestroy
-    221:222:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    225:226:void showBanner(int) -> showBanner
-    229:230:void showBanner(java.lang.String,int) -> showBanner
-    233:234:void closeBanner() -> closeBanner
-    237:238:void showFullAd(java.lang.String) -> showFullAd
-    241:242:void showRewardAd(int) -> showRewardAd
-    245:245:boolean hasRewardAd() -> hasRewardAd
-    249:250:void showRewardAd(java.lang.String,int) -> showRewardAd
-    253:253:boolean hasRewardAd(java.lang.String) -> hasRewardAd
-    257:258:void pay(int) -> pay
-    261:262:void query(int) -> query
-    265:266:void share() -> share
-    269:270:void rate() -> rate
-    273:274:void moreGame() -> moreGame
-    277:278:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
-    281:282:void track(java.lang.String,java.lang.String) -> track
-    285:286:void track(java.lang.String) -> track
-    289:290:void showNative(java.lang.String,int) -> showNative
-    293:294:void hideNative(java.lang.String) -> hideNative
-    297:297:boolean hasNative(java.lang.String) -> hasNative
-    301:301:java.lang.String getExtraData() -> getExtraData
-    305:306:void onQuit() -> onQuit
-    309:310:void login() -> login
-    313:314:void logout() -> logout
-    317:317:boolean isLogin() -> isLogin
-    321:322:void invite() -> invite
-    325:326:void challenge(java.lang.String,java.lang.String) -> challenge
-    329:329:java.lang.String me() -> me
-    333:333:java.lang.String friends() -> friends
-    337:338:void like() -> like
-    341:341:boolean isNetworkConnected() -> isNetworkConnected
-    383:383:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
-    386:387:void clickUrl(java.lang.String) -> clickUrl
-    390:391:void cacheUrl(int,java.lang.String) -> cacheUrl
-    394:394:java.lang.String getConfig(int) -> getConfig
-    398:398:java.lang.String getConfig(java.lang.String,int) -> getConfig
-    402:403:void alert(java.lang.String,java.lang.String) -> alert
-    406:406:boolean hasApp(java.lang.String) -> hasApp
-    410:411:void launchApp(java.lang.String) -> launchApp
-    414:415:void getApp(java.lang.String) -> getApp
-    418:418:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
-    421:422:void closeNativeAd(java.lang.String) -> closeNativeAd
-    424:425:void clickNativeAd(java.lang.String) -> clickNativeAd
-    432:433:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
-    439:440:void UM_onEvent(java.lang.String) -> UM_onEvent
-    443:444:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
-    447:448:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
-    458:459:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
-    467:468:void UM_onPageStart(java.lang.String) -> UM_onPageStart
-    476:477:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
-    485:486:void UM_startLevel(java.lang.String) -> UM_startLevel
-    494:495:void UM_failLevel(java.lang.String) -> UM_failLevel
-    503:504:void UM_finishLevel(java.lang.String) -> UM_finishLevel
-    515:516:void UM_pay(double,java.lang.String,int,double) -> UM_pay
-    526:527:void UM_buy(java.lang.String,int,double) -> UM_buy
-    537:538:void UM_use(java.lang.String,int,double) -> UM_use
-    549:550:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
+    57:136:void onCreate(android.app.Activity) -> onCreate
+    139:140:void onStart() -> onStart
+    143:144:void onStop() -> onStop
+    147:148:void onPause() -> onPause
+    151:152:void onResume(android.app.Activity) -> onResume
+    155:156:void onDestroy() -> onDestroy
+    159:160:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    163:164:void showBanner(int) -> showBanner
+    167:168:void showBanner(java.lang.String,int) -> showBanner
+    171:172:void closeBanner() -> closeBanner
+    175:176:void closeBanner(java.lang.String) -> closeBanner
+    179:190:void showFullAd(java.lang.String) -> showFullAd
+    193:194:void showRewardAd(int) -> showRewardAd
+    197:197:boolean hasRewardAd() -> hasRewardAd
+    201:217:void showRewardAd(java.lang.String,int) -> showRewardAd
+    220:220:boolean hasRewardAd(java.lang.String) -> hasRewardAd
+    224:225:void pay(int) -> pay
+    228:229:void query(int) -> query
+    232:232:java.lang.String getPrices() -> getPrices
+    236:237:void share() -> share
+    240:241:void rate() -> rate
+    244:245:void moreGame() -> moreGame
+    248:249:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
+    252:253:void track(java.lang.String,java.lang.String) -> track
+    256:257:void track(java.lang.String) -> track
+    260:261:void showNative(java.lang.String,int) -> showNative
+    264:265:void hideNative(java.lang.String) -> hideNative
+    268:268:boolean hasNative(java.lang.String) -> hasNative
+    272:272:java.lang.String getExtraData() -> getExtraData
+    276:277:void onQuit() -> onQuit
+    280:281:void login() -> login
+    284:285:void logout() -> logout
+    288:288:boolean isLogin() -> isLogin
+    292:293:void invite() -> invite
+    296:297:void challenge(java.lang.String,java.lang.String) -> challenge
+    300:300:java.lang.String me() -> me
+    304:304:java.lang.String friends() -> friends
+    308:309:void like() -> like
+    312:312:boolean isNetworkConnected() -> isNetworkConnected
+    322:322:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
+    325:326:void clickUrl(java.lang.String) -> clickUrl
+    329:330:void cacheUrl(int,java.lang.String) -> cacheUrl
+    333:333:java.lang.String getConfig(int) -> getConfig
+    337:337:java.lang.String getConfig(java.lang.String,int) -> getConfig
+    341:342:void alert(java.lang.String,java.lang.String) -> alert
+    345:345:boolean hasApp(java.lang.String) -> hasApp
+    349:350:void launchApp(java.lang.String) -> launchApp
+    353:354:void getApp(java.lang.String) -> getApp
+    357:357:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
+    360:361:void closeNativeAd(java.lang.String) -> closeNativeAd
+    363:364:void clickNativeAd(java.lang.String) -> clickNativeAd
+    367:378:void loadFullAd(java.lang.String) -> loadFullAd
+    386:387:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
+    393:394:void UM_onEvent(java.lang.String) -> UM_onEvent
+    397:398:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
+    401:402:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
+    412:413:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
+    421:422:void UM_onPageStart(java.lang.String) -> UM_onPageStart
+    430:431:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
+    439:440:void UM_startLevel(java.lang.String) -> UM_startLevel
+    448:449:void UM_failLevel(java.lang.String) -> UM_failLevel
+    457:458:void UM_finishLevel(java.lang.String) -> UM_finishLevel
+    469:470:void UM_pay(double,java.lang.String,int,double) -> UM_pay
+    480:481:void UM_buy(java.lang.String,int,double) -> UM_buy
+    491:492:void UM_use(java.lang.String,int,double) -> UM_use
+    503:504:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
 com.android.client.Cocos$1 -> com.android.client.Cocos$1:
-    176:176:void <init>() -> <init>
-    179:180:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
-    184:185:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
-    189:190:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
-    194:195:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
+    109:109:void <init>() -> <init>
+    112:113:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
+    117:118:void onReceiveFriends(java.lang.String) -> onReceiveFriends
+    122:123:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
+    127:128:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
+    132:133:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
 com.android.client.Cocos$2 -> com.android.client.Cocos$2:
-    145:145:void <init>() -> <init>
-    148:149:void onReceiveReward(boolean,int,java.lang.String) -> onReceiveReward
-    153:154:void onFullAdClosed(java.lang.String) -> onFullAdClosed
-    158:159:void onFullAdClicked(java.lang.String) -> onFullAdClicked
-    163:164:void onVideoAdClosed(java.lang.String) -> onVideoAdClosed
-    168:169:void onBannerAdClicked(java.lang.String) -> onBannerAdClicked
-    173:174:void onCrossAdClicked(java.lang.String) -> onCrossAdClicked
+    99:99:void <init>() -> <init>
+    102:103:void onSuccess(int,java.lang.String) -> onSuccess
+    107:108:void onFailure(int) -> onFailure
 com.android.client.Cocos$3 -> com.android.client.Cocos$3:
-    135:135:void <init>() -> <init>
-    138:139:void onSuccess(int,java.lang.String) -> onSuccess
-    143:144:void onFailure(int) -> onFailure
+    74:74:void <init>() -> <init>
+    77:78:void onPaymentSuccess(int) -> onPaymentSuccess
+    82:83:void onPaymentFail(int) -> onPaymentFail
+    87:88:void onPaymentSystemValid() -> onPaymentSystemValid
+    92:93:void onPaymentCanceled(int) -> onPaymentCanceled
+    98:98:void onPaymentSystemError(int,java.lang.String) -> onPaymentSystemError
 com.android.client.Cocos$4 -> com.android.client.Cocos$4:
-    115:115:void <init>() -> <init>
-    118:119:void onPaymentSuccess(int) -> onPaymentSuccess
-    123:124:void onPaymentFail(int) -> onPaymentFail
-    128:129:void onPaymentSystemValid() -> onPaymentSystemValid
-    133:134:void onPaymentCanceled(int) -> onPaymentCanceled
+    59:59:void <init>() -> <init>
+    63:63:void onInitialized() -> onInitialized
+    68:68:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
+    73:73:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
 com.android.client.Cocos$5 -> com.android.client.Cocos$5:
-    100:100:void <init>() -> <init>
-    104:104:void onInitialized() -> onInitialized
-    109:109:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
-    114:114:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
+    java.lang.String val$tag -> val$tag
+    179:179:void <init>(java.lang.String) -> <init>
+    182:183:void onAdClosed() -> onAdClosed
+    187:188:void onAdClicked() -> onAdClicked
+com.android.client.Cocos$6 -> com.android.client.Cocos$6:
+    int val$id -> val$id
+    java.lang.String val$tag -> val$tag
+    201:201:void <init>(int,java.lang.String) -> <init>
+    204:205:void onAdReward() -> onAdReward
+    209:210:void onAdShowFails() -> onAdShowFails
+    214:215:void onAdClosed() -> onAdClosed
+com.android.client.Cocos$7 -> com.android.client.Cocos$7:
+    java.lang.String val$tag -> val$tag
+    367:367:void <init>(java.lang.String) -> <init>
+    370:371:void onAdLoadSuccess() -> onAdLoadSuccess
+    375:376:void onAdLoadFails() -> onAdLoadFails
 com.android.client.DummyConfig -> com.android.client.DummyConfig:
     java.lang.String v_api -> v_api
     java.lang.String appId -> appId
@@ -28029,11 +28036,14 @@ com.android.client.DummyConfig -> com.android.client.DummyConfig:
     java.lang.String data -> data
     11:27:void <init>() -> <init>
 com.android.client.LeaderBoardListener -> com.android.client.LeaderBoardListener:
-com.android.client.PaymentResultListener -> com.android.client.PaymentResultListener:
-    void onPaymentSuccess(int) -> onPaymentSuccess
-    void onPaymentFail(int) -> onPaymentFail
-    void onPaymentSystemValid() -> onPaymentSystemValid
-    void onPaymentCanceled(int) -> onPaymentCanceled
+com.android.client.PaymentSystemListener -> com.android.client.PaymentSystemListener:
+    8:8:void <init>() -> <init>
+    11:12:void onPaymentSuccess(int) -> onPaymentSuccess
+    15:16:void onPaymentFail(int) -> onPaymentFail
+    19:20:void onPaymentCanceled(int) -> onPaymentCanceled
+    23:24:void onReceiveBillPrices(java.lang.String) -> onReceiveBillPrices
+    27:28:void onPaymentSystemValid() -> onPaymentSystemValid
+    31:32:void onPaymentSystemError(int,java.lang.String) -> onPaymentSystemError
 com.android.client.R -> com.android.client.R:
     9:9:void <init>() -> <init>
 com.android.client.R$string -> com.android.client.R$string:
@@ -28049,127 +28059,140 @@ com.android.client.Unity -> com.android.client.Unity:
     java.lang.String TRUE -> TRUE
     java.lang.String FALSE -> FALSE
     17:17:void <init>() -> <init>
-    30:184:void onCreate(android.app.Activity) -> onCreate
-    187:188:void sendMessage(java.lang.String,java.lang.String) -> sendMessage
-    191:199:void onStart() -> onStart
-    202:210:void onStop() -> onStop
-    213:221:void onPause() -> onPause
-    224:234:void onResume() -> onResume
-    237:245:void onDestroy() -> onDestroy
-    248:256:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    259:260:void showBanner(java.lang.String,int) -> showBanner
-    263:264:void showBanner(int) -> showBanner
-    267:268:void closeBanner() -> closeBanner
-    271:272:void showFullAd(java.lang.String) -> showFullAd
-    275:276:void showRewardAd(int) -> showRewardAd
-    279:279:boolean hasRewardAd() -> hasRewardAd
-    283:284:void showRewardAd(java.lang.String,int) -> showRewardAd
-    287:287:boolean hasRewardAd(java.lang.String) -> hasRewardAd
-    291:294:void pay(int) -> pay
-    297:298:void query(int) -> query
-    301:302:void share() -> share
-    305:306:void rate() -> rate
-    309:310:void moreGame() -> moreGame
-    313:314:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
-    317:318:void showNative(java.lang.String,int) -> showNative
-    321:322:void hideNative(java.lang.String) -> hideNative
-    325:325:boolean hasNative(java.lang.String) -> hasNative
-    329:329:java.lang.String getExtraData() -> getExtraData
-    333:334:void onQuit() -> onQuit
-    337:340:void login() -> login
-    343:344:void logout() -> logout
-    347:347:boolean isLogin() -> isLogin
-    351:354:void invite() -> invite
-    357:360:void challenge(java.lang.String,java.lang.String) -> challenge
-    363:363:java.lang.String me() -> me
-    367:367:java.lang.String friends() -> friends
-    371:374:void like() -> like
-    377:377:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
-    380:381:void closeNativeAd(java.lang.String) -> closeNativeAd
-    383:384:void clickNativeAd(java.lang.String) -> clickNativeAd
-    387:387:boolean isNetworkConnected() -> isNetworkConnected
-    428:428:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
-    432:433:void cacheUrl(int,java.lang.String) -> cacheUrl
-    436:436:java.lang.String getConfig(int) -> getConfig
-    440:440:boolean hasApp(java.lang.String) -> hasApp
-    444:445:void launchApp(java.lang.String) -> launchApp
-    448:449:void getApp(java.lang.String) -> getApp
-    452:453:void alert(java.lang.String,java.lang.String) -> alert
-    456:457:void toast(java.lang.String) -> toast
-    460:460:java.lang.String getConfig(java.lang.String,int) -> getConfig
-    464:465:void onKill(android.app.Activity) -> onKill
-    472:473:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
-    476:477:void UM_onEvent(java.lang.String) -> UM_onEvent
-    480:481:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
-    484:485:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
-    495:496:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
-    504:505:void UM_onPageStart(java.lang.String) -> UM_onPageStart
-    513:514:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
-    522:523:void UM_startLevel(java.lang.String) -> UM_startLevel
-    531:532:void UM_failLevel(java.lang.String) -> UM_failLevel
-    540:541:void UM_finishLevel(java.lang.String) -> UM_finishLevel
-    563:564:void UM_pay(double,java.lang.String,int,double) -> UM_pay
-    574:575:void UM_buy(java.lang.String,int,double) -> UM_buy
-    585:586:void UM_use(java.lang.String,int,double) -> UM_use
-    597:598:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
+    24:114:void onCreate(android.app.Activity) -> onCreate
+    117:118:void sendMessage(java.lang.String,java.lang.String) -> sendMessage
+    121:129:void onStart() -> onStart
+    132:140:void onStop() -> onStop
+    143:151:void onPause() -> onPause
+    154:164:void onResume() -> onResume
+    167:175:void onDestroy() -> onDestroy
+    178:186:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    189:190:void showBanner(java.lang.String,int) -> showBanner
+    193:194:void showBanner(int) -> showBanner
+    197:198:void closeBanner() -> closeBanner
+    201:202:void closeBanner(java.lang.String) -> closeBanner
+    205:216:void showFullAd(java.lang.String) -> showFullAd
+    219:220:void showRewardAd(int) -> showRewardAd
+    223:223:boolean hasRewardAd() -> hasRewardAd
+    227:243:void showRewardAd(java.lang.String,int) -> showRewardAd
+    246:246:boolean hasRewardAd(java.lang.String) -> hasRewardAd
+    250:251:void pay(int) -> pay
+    254:255:void query(int) -> query
+    258:259:void share() -> share
+    262:263:void rate() -> rate
+    266:267:void moreGame() -> moreGame
+    270:271:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
+    274:275:void showNative(java.lang.String,int) -> showNative
+    278:279:void hideNative(java.lang.String) -> hideNative
+    282:282:boolean hasNative(java.lang.String) -> hasNative
+    286:286:java.lang.String getExtraData() -> getExtraData
+    290:291:void onQuit() -> onQuit
+    294:297:void login() -> login
+    300:301:void logout() -> logout
+    304:304:boolean isLogin() -> isLogin
+    308:311:void invite() -> invite
+    314:317:void challenge(java.lang.String,java.lang.String) -> challenge
+    320:320:java.lang.String me() -> me
+    324:324:java.lang.String friends() -> friends
+    328:331:void like() -> like
+    334:345:void loadFullAd(java.lang.String) -> loadFullAd
+    348:348:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
+    351:352:void closeNativeAd(java.lang.String) -> closeNativeAd
+    354:355:void clickNativeAd(java.lang.String) -> clickNativeAd
+    358:358:boolean isNetworkConnected() -> isNetworkConnected
+    368:368:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
+    372:373:void cacheUrl(int,java.lang.String) -> cacheUrl
+    376:376:java.lang.String getConfig(int) -> getConfig
+    380:380:boolean hasApp(java.lang.String) -> hasApp
+    384:385:void launchApp(java.lang.String) -> launchApp
+    388:389:void getApp(java.lang.String) -> getApp
+    392:393:void alert(java.lang.String,java.lang.String) -> alert
+    396:397:void toast(java.lang.String) -> toast
+    400:400:java.lang.String getConfig(java.lang.String,int) -> getConfig
+    404:404:java.lang.String getPrices() -> getPrices
+    408:409:void onKill(android.app.Activity) -> onKill
+    416:417:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
+    420:421:void UM_onEvent(java.lang.String) -> UM_onEvent
+    424:425:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
+    428:429:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
+    439:440:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
+    448:449:void UM_onPageStart(java.lang.String) -> UM_onPageStart
+    457:458:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
+    466:467:void UM_startLevel(java.lang.String) -> UM_startLevel
+    475:476:void UM_failLevel(java.lang.String) -> UM_failLevel
+    484:485:void UM_finishLevel(java.lang.String) -> UM_finishLevel
+    507:508:void UM_pay(double,java.lang.String,int,double) -> UM_pay
+    518:519:void UM_buy(java.lang.String,int,double) -> UM_buy
+    529:530:void UM_use(java.lang.String,int,double) -> UM_use
+    541:542:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
 com.android.client.Unity$1 -> com.android.client.Unity$1:
-    31:31:void <init>() -> <init>
-    34:181:void run() -> run
+    25:25:void <init>() -> <init>
+    28:111:void run() -> run
 com.android.client.Unity$1$1 -> com.android.client.Unity$1$1:
     com.android.client.Unity$1 this$0 -> this$0
-    157:157:void <init>(com.android.client.Unity$1) -> <init>
-    160:161:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
-    165:166:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
-    170:171:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
-    175:176:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
+    82:82:void <init>(com.android.client.Unity$1) -> <init>
+    85:86:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
+    90:91:void onReceiveFriends(java.lang.String) -> onReceiveFriends
+    95:96:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
+    100:101:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
+    105:106:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
 com.android.client.Unity$1$2 -> com.android.client.Unity$1$2:
     com.android.client.Unity$1 this$0 -> this$0
-    126:126:void <init>(com.android.client.Unity$1) -> <init>
-    129:130:void onReceiveReward(boolean,int,java.lang.String) -> onReceiveReward
-    134:135:void onFullAdClosed(java.lang.String) -> onFullAdClosed
-    139:140:void onFullAdClicked(java.lang.String) -> onFullAdClicked
-    144:145:void onVideoAdClosed(java.lang.String) -> onVideoAdClosed
-    149:150:void onBannerAdClicked(java.lang.String) -> onBannerAdClicked
-    154:155:void onCrossAdClicked(java.lang.String) -> onCrossAdClicked
+    72:72:void <init>(com.android.client.Unity$1) -> <init>
+    75:76:void onSuccess(int,java.lang.String) -> onSuccess
+    80:81:void onFailure(int) -> onFailure
 com.android.client.Unity$1$3 -> com.android.client.Unity$1$3:
     com.android.client.Unity$1 this$0 -> this$0
-    116:116:void <init>(com.android.client.Unity$1) -> <init>
-    119:120:void onSuccess(int,java.lang.String) -> onSuccess
-    124:125:void onFailure(int) -> onFailure
+    47:47:void <init>(com.android.client.Unity$1) -> <init>
+    50:51:void onPaymentSuccess(int) -> onPaymentSuccess
+    55:56:void onPaymentFail(int) -> onPaymentFail
+    60:61:void onPaymentSystemValid() -> onPaymentSystemValid
+    65:66:void onPaymentCanceled(int) -> onPaymentCanceled
+    70:71:void onPaymentSystemError(int,java.lang.String) -> onPaymentSystemError
 com.android.client.Unity$1$4 -> com.android.client.Unity$1$4:
     com.android.client.Unity$1 this$0 -> this$0
-    96:96:void <init>(com.android.client.Unity$1) -> <init>
-    99:100:void onPaymentSuccess(int) -> onPaymentSuccess
-    104:105:void onPaymentFail(int) -> onPaymentFail
-    109:110:void onPaymentSystemValid() -> onPaymentSystemValid
-    114:115:void onPaymentCanceled(int) -> onPaymentCanceled
-com.android.client.Unity$1$5 -> com.android.client.Unity$1$5:
-    com.android.client.Unity$1 this$0 -> this$0
-    81:81:void <init>(com.android.client.Unity$1) -> <init>
-    84:85:void onInitialized() -> onInitialized
-    89:90:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
-    94:95:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
+    32:32:void <init>(com.android.client.Unity$1) -> <init>
+    35:36:void onInitialized() -> onInitialized
+    40:41:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
+    45:46:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
+com.android.client.Unity$10 -> com.android.client.Unity$10:
+    java.lang.String val$tag -> val$tag
+    334:334:void <init>(java.lang.String) -> <init>
+    337:338:void onAdLoadSuccess() -> onAdLoadSuccess
+    342:343:void onAdLoadFails() -> onAdLoadFails
 com.android.client.Unity$2 -> com.android.client.Unity$2:
-    192:192:void <init>() -> <init>
-    195:196:void run() -> run
+    122:122:void <init>() -> <init>
+    125:126:void run() -> run
 com.android.client.Unity$3 -> com.android.client.Unity$3:
-    203:203:void <init>() -> <init>
-    206:207:void run() -> run
+    133:133:void <init>() -> <init>
+    136:137:void run() -> run
 com.android.client.Unity$4 -> com.android.client.Unity$4:
-    214:214:void <init>() -> <init>
-    217:218:void run() -> run
+    144:144:void <init>() -> <init>
+    147:148:void run() -> run
 com.android.client.Unity$5 -> com.android.client.Unity$5:
-    226:226:void <init>() -> <init>
-    229:230:void run() -> run
+    156:156:void <init>() -> <init>
+    159:160:void run() -> run
 com.android.client.Unity$6 -> com.android.client.Unity$6:
-    238:238:void <init>() -> <init>
-    241:242:void run() -> run
+    168:168:void <init>() -> <init>
+    171:172:void run() -> run
 com.android.client.Unity$7 -> com.android.client.Unity$7:
     int val$requestCode -> val$requestCode
     int val$resultCode -> val$resultCode
     android.content.Intent val$data -> val$data
-    249:249:void <init>(int,int,android.content.Intent) -> <init>
-    252:253:void run() -> run
+    179:179:void <init>(int,int,android.content.Intent) -> <init>
+    182:183:void run() -> run
+com.android.client.Unity$8 -> com.android.client.Unity$8:
+    java.lang.String val$tag -> val$tag
+    205:205:void <init>(java.lang.String) -> <init>
+    208:209:void onAdClosed() -> onAdClosed
+    213:214:void onAdClicked() -> onAdClicked
+com.android.client.Unity$9 -> com.android.client.Unity$9:
+    int val$id -> val$id
+    java.lang.String val$tag -> val$tag
+    227:227:void <init>(int,java.lang.String) -> <init>
+    230:231:void onAdReward() -> onAdReward
+    235:236:void onAdShowFails() -> onAdShowFails
+    240:241:void onAdClosed() -> onAdClosed
 com.android.client.Unity3dPlayerActivity -> com.android.client.Unity3dPlayerActivity:
     int TYPE_LIKE -> TYPE_LIKE
     int TYPE_CHALLENGE -> TYPE_CHALLENGE
@@ -28183,6 +28206,7 @@ com.android.client.UrlListener -> com.android.client.UrlListener:
     void onFailure(int) -> onFailure
 com.android.client.UserCenterListener -> com.android.client.UserCenterListener:
     void onReceiveLoginResult(boolean) -> onReceiveLoginResult
+    void onReceiveFriends(java.lang.String) -> onReceiveFriends
     void onReceiveInviteResult(boolean) -> onReceiveInviteResult
     void onReceiveChallengeResult(int) -> onReceiveChallengeResult
     void onReceiveLikeResult(boolean) -> onReceiveLikeResult
@@ -32266,55 +32290,37 @@ com.myboost.junk.boostactivity.BaseActivity$1 -> com.myboost.junk.boostactivity.
     150:150:void <init>(com.myboost.junk.boostactivity.BaseActivity) -> <init>
     153:154:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.myboost.junk.boostactivity.BatteriesActivityBoost -> com.myboost.junk.boostactivity.BatteriesActivityBoost:
-    android.widget.ImageView cooling_dianyuan -> e
-    android.widget.ImageView cooling_dianyuan1 -> f
-    android.widget.LinearLayout cooling_text -> g
+    android.widget.LinearLayout cooling_text -> e
+    com.myboost.junk.customviewboost.CoolongView cooling_xue -> f
+    com.myboost.junk.customviewboost.Cooling2View cooling_2 -> g
     android.widget.TextView cooling_wendu -> h
     android.widget.FrameLayout title_left -> i
     java.util.Random random -> n
     android.widget.TextView title_name -> j
     android.view.animation.Animation rotate_zheng -> o
-    android.widget.RelativeLayout cooling_fl -> k
+    android.os.Handler handler -> k
+    android.widget.LinearLayout cooling_fl -> l
     int time -> p
-    android.animation.ObjectAnimator animator1 -> l
-    android.animation.ObjectAnimator animator2 -> m
     android.view.animation.Animation suo -> q
-    30:30:void <init>() -> <init>
-    46:92:void onCreate(android.os.Bundle) -> onCreate
-    96:98:void onPause() -> onPause
-    102:110:void findId() -> a
-    113:166:void startCoolingAni() -> b
-    170:171:void onResume() -> onResume
-    175:181:void onBackPressed() -> onBackPressed
-    185:188:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    191:197:void hideSnow() -> c
-    201:202:void onDestroy() -> onDestroy
-    30:30:int access$000(com.myboost.junk.boostactivity.BatteriesActivityBoost) -> a
+    java.lang.Runnable runnable -> m
+    33:96:void <init>() -> <init>
+    50:94:void onCreate(android.os.Bundle) -> onCreate
+    105:107:void onPause() -> onPause
+    111:119:void findId() -> a
+    122:131:void startCoolingAni() -> b
+    135:137:void onResume() -> onResume
+    141:147:void onBackPressed() -> onBackPressed
+    151:154:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    159:162:void onDestroy() -> onDestroy
+    33:33:void access$000(com.myboost.junk.boostactivity.BatteriesActivityBoost) -> a
 com.myboost.junk.boostactivity.BatteriesActivityBoost$1 -> com.myboost.junk.boostactivity.BatteriesActivityBoost$1:
     com.myboost.junk.boostactivity.BatteriesActivityBoost this$0 -> a
-    50:50:void <init>(com.myboost.junk.boostactivity.BatteriesActivityBoost) -> <init>
-    53:54:void onClick(android.view.View) -> onClick
+    54:54:void <init>(com.myboost.junk.boostactivity.BatteriesActivityBoost) -> <init>
+    57:58:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BatteriesActivityBoost$2 -> com.myboost.junk.boostactivity.BatteriesActivityBoost$2:
-    int val$wendu -> a
-    com.myboost.junk.boostactivity.BatteriesActivityBoost this$0 -> b
-    69:69:void <init>(com.myboost.junk.boostactivity.BatteriesActivityBoost,int) -> <init>
-    73:90:void run() -> run
-com.myboost.junk.boostactivity.BatteriesActivityBoost$2$1 -> com.myboost.junk.boostactivity.BatteriesActivityBoost$2$1:
-    int val$finalI -> a
-    com.myboost.junk.boostactivity.BatteriesActivityBoost$2 this$1 -> b
-    78:78:void <init>(com.myboost.junk.boostactivity.BatteriesActivityBoost$2,int) -> <init>
-    81:82:void run() -> run
-com.myboost.junk.boostactivity.BatteriesActivityBoost$3 -> com.myboost.junk.boostactivity.BatteriesActivityBoost$3:
     com.myboost.junk.boostactivity.BatteriesActivityBoost this$0 -> a
-    127:127:void <init>(com.myboost.junk.boostactivity.BatteriesActivityBoost) -> <init>
-    130:133:void run() -> run
-com.myboost.junk.boostactivity.BatteriesActivityBoost$4 -> com.myboost.junk.boostactivity.BatteriesActivityBoost$4:
-    com.myboost.junk.boostactivity.BatteriesActivityBoost this$0 -> a
-    135:135:void <init>(com.myboost.junk.boostactivity.BatteriesActivityBoost) -> <init>
-    139:139:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-    143:154:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    159:159:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    164:164:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    96:96:void <init>(com.myboost.junk.boostactivity.BatteriesActivityBoost) -> <init>
+    99:100:void run() -> run
 com.myboost.junk.boostactivity.BoostAllAppsActivity -> com.myboost.junk.boostactivity.BoostAllAppsActivity:
     java.lang.String TAG_MANAGER -> q
     android.os.Handler myHandler -> e
@@ -32685,71 +32691,72 @@ com.myboost.junk.boostactivity.BoostFileManagerActivity$2 -> com.myboost.junk.bo
     134:134:void <init>(com.myboost.junk.boostactivity.BoostFileManagerActivity) -> <init>
     137:195:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostGoodGameActivity -> com.myboost.junk.boostactivity.BoostGoodGameActivity:
-    com.myboost.junk.customviewboost.BoostGridViewAdAdapter gridViewAdAdapter -> o
-    java.util.ArrayList list -> p
-    java.util.List gboost_add -> q
-    java.util.List listEdit -> r
+    com.myboost.junk.customviewboost.BoostGridViewAdAdapter gridViewAdAdapter -> p
+    java.util.ArrayList list -> q
+    java.util.List gboost_add -> r
+    java.util.List listEdit -> s
     android.widget.LinearLayout ll_add_game -> e
     android.widget.FrameLayout add_left -> f
     android.widget.ListView list_game -> g
-    android.widget.EditText search_edit_text -> h
-    com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter whiteListAdapter -> s
-    boolean search -> t
-    android.widget.TextView gboost_item_textview -> i
-    android.widget.TextView game_size -> j
-    android.widget.FrameLayout title_left -> k
-    android.widget.TextView title_name -> l
-    android.widget.GridView gboost_gridview -> m
-    android.os.Handler mHandler -> u
-    android.view.View$OnClickListener clickListener -> n
-    42:179:void <init>() -> <init>
-    71:119:void addData() -> b
-    122:124:void initList() -> c
-    128:163:void onCreate(android.os.Bundle) -> onCreate
-    167:177:void findId() -> a
-    198:208:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
-    213:217:void onResume() -> onResume
-    221:229:void shortGame1(boolean) -> a
-    233:239:void onBackPressed() -> onBackPressed
-    242:257:void initData() -> d
-    260:268:void upData(java.lang.String) -> b
-    272:273:void onDestroy() -> onDestroy
-    277:278:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    42:42:java.util.ArrayList access$000(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> a
-    42:42:void access$100(com.myboost.junk.boostactivity.BoostGoodGameActivity,boolean) -> a
-    42:42:android.os.Handler access$200(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> b
-    42:42:com.myboost.junk.customviewboost.BoostGridViewAdAdapter access$302(com.myboost.junk.boostactivity.BoostGoodGameActivity,com.myboost.junk.customviewboost.BoostGridViewAdAdapter) -> a
-    42:42:com.myboost.junk.customviewboost.BoostGridViewAdAdapter access$300(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> c
-    42:42:com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter access$402(com.myboost.junk.boostactivity.BoostGoodGameActivity,com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter) -> a
-    42:42:com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter access$400(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> d
-    42:42:void access$500(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> e
-    42:42:void access$600(com.myboost.junk.boostactivity.BoostGoodGameActivity,java.lang.String) -> a
+    android.widget.TextView junk_button_clean -> h
+    android.widget.EditText search_edit_text -> i
+    com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter whiteListAdapter -> t
+    boolean search -> u
+    android.widget.TextView gboost_item_textview -> j
+    android.widget.TextView game_size -> k
+    android.widget.FrameLayout title_left -> l
+    android.widget.TextView title_name -> m
+    android.widget.GridView gboost_gridview -> n
+    android.os.Handler mHandler -> v
+    android.view.View$OnClickListener clickListener -> o
+    43:183:void <init>() -> <init>
+    73:121:void addData() -> b
+    124:126:void initList() -> c
+    130:166:void onCreate(android.os.Bundle) -> onCreate
+    170:181:void findId() -> a
+    207:217:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    222:226:void onResume() -> onResume
+    230:238:void shortGame1(boolean) -> a
+    242:248:void onBackPressed() -> onBackPressed
+    251:266:void initData() -> d
+    269:277:void upData(java.lang.String) -> b
+    281:282:void onDestroy() -> onDestroy
+    286:287:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    43:43:java.util.ArrayList access$000(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> a
+    43:43:void access$100(com.myboost.junk.boostactivity.BoostGoodGameActivity,boolean) -> a
+    43:43:android.os.Handler access$200(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> b
+    43:43:com.myboost.junk.customviewboost.BoostGridViewAdAdapter access$302(com.myboost.junk.boostactivity.BoostGoodGameActivity,com.myboost.junk.customviewboost.BoostGridViewAdAdapter) -> a
+    43:43:com.myboost.junk.customviewboost.BoostGridViewAdAdapter access$300(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> c
+    43:43:com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter access$402(com.myboost.junk.boostactivity.BoostGoodGameActivity,com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter) -> a
+    43:43:com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter access$400(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> d
+    43:43:void access$500(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> e
+    43:43:void access$600(com.myboost.junk.boostactivity.BoostGoodGameActivity,java.lang.String) -> a
 com.myboost.junk.boostactivity.BoostGoodGameActivity$1 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$1:
     com.myboost.junk.boostactivity.BoostGoodGameActivity this$0 -> a
-    59:59:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
-    62:67:void handleMessage(android.os.Message) -> handleMessage
+    61:61:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
+    64:69:void handleMessage(android.os.Message) -> handleMessage
 com.myboost.junk.boostactivity.BoostGoodGameActivity$2 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$2:
     com.myboost.junk.boostactivity.BoostGoodGameActivity this$0 -> a
-    71:71:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
-    74:117:void run() -> run
+    73:73:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
+    76:119:void run() -> run
 com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1:
     com.myboost.junk.boostactivity.BoostGoodGameActivity$2 this$1 -> a
-    87:87:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity$2) -> <init>
-    90:115:void run() -> run
+    89:89:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity$2) -> <init>
+    92:117:void run() -> run
 com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1$1 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1$1:
     com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1 this$2 -> a
-    94:94:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1) -> <init>
-    97:113:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    96:96:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1) -> <init>
+    99:115:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.myboost.junk.boostactivity.BoostGoodGameActivity$3 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$3:
     com.myboost.junk.boostactivity.BoostGoodGameActivity this$0 -> a
-    145:145:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
-    148:149:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    154:154:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    159:159:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    148:148:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
+    151:152:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    157:157:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    162:162:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.myboost.junk.boostactivity.BoostGoodGameActivity$4 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$4:
     com.myboost.junk.boostactivity.BoostGoodGameActivity this$0 -> a
-    179:179:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
-    182:193:void onClick(android.view.View) -> onClick
+    183:183:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
+    186:202:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostIgnoresAvtivity -> com.myboost.junk.boostactivity.BoostIgnoresAvtivity:
     com.myboost.junk.customadapterboost.IgnoreListViewAdapter adapter -> e
     android.widget.TextView white_wu -> f
@@ -32782,47 +32789,43 @@ com.myboost.junk.boostactivity.BoostNotifingActivity -> com.myboost.junk.boostac
     android.widget.ListView list_si -> g
     com.myboost.clean.cleannotification.NotificationCallBack notificationCallBack -> h
     android.view.View$OnClickListener nOnClickListener -> i
-    35:169:void <init>() -> <init>
-    47:54:void full() -> b
-    58:71:void setHideVirtualKey(android.view.Window) -> a
-    74:83:void setTranslucentStatus(boolean) -> a
-    87:113:void onCreate(android.os.Bundle) -> onCreate
-    116:121:int getStatusHeight(android.app.Activity) -> a
-    125:136:void findId() -> a
-    156:167:void setListener() -> c
-    191:193:void jumpToActivity(java.lang.Class,int) -> a
-    198:202:void onBackPressed() -> onBackPressed
-    210:213:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    217:219:void onDestroy() -> onDestroy
-    223:228:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    35:35:com.myboost.junk.customadapterboost.NotifiBoostAdapter access$000(com.myboost.junk.boostactivity.BoostNotifingActivity) -> a
+    36:170:void <init>() -> <init>
+    48:55:void full() -> b
+    59:72:void setHideVirtualKey(android.view.Window) -> a
+    75:84:void setTranslucentStatus(boolean) -> a
+    88:114:void onCreate(android.os.Bundle) -> onCreate
+    117:122:int getStatusHeight(android.app.Activity) -> a
+    126:137:void findId() -> a
+    157:168:void setListener() -> c
+    192:194:void jumpToActivity(java.lang.Class,int) -> a
+    199:203:void onBackPressed() -> onBackPressed
+    211:214:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
+    218:220:void onDestroy() -> onDestroy
+    224:229:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    36:36:com.myboost.junk.customadapterboost.NotifiBoostAdapter access$000(com.myboost.junk.boostactivity.BoostNotifingActivity) -> a
 com.myboost.junk.boostactivity.BoostNotifingActivity$1 -> com.myboost.junk.boostactivity.BoostNotifingActivity$1:
     com.myboost.junk.boostactivity.BoostNotifingActivity this$0 -> a
-    48:48:void <init>(com.myboost.junk.boostactivity.BoostNotifingActivity) -> <init>
-    51:52:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+    49:49:void <init>(com.myboost.junk.boostactivity.BoostNotifingActivity) -> <init>
+    52:53:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.myboost.junk.boostactivity.BoostNotifingActivity$2 -> com.myboost.junk.boostactivity.BoostNotifingActivity$2:
     com.myboost.junk.boostactivity.BoostNotifingActivity this$0 -> a
-    138:138:void <init>(com.myboost.junk.boostactivity.BoostNotifingActivity) -> <init>
-    142:151:void notificationChanged(java.util.ArrayList) -> a
+    139:139:void <init>(com.myboost.junk.boostactivity.BoostNotifingActivity) -> <init>
+    143:152:void notificationChanged(java.util.ArrayList) -> a
 com.myboost.junk.boostactivity.BoostNotifingActivity$3 -> com.myboost.junk.boostactivity.BoostNotifingActivity$3:
     com.myboost.junk.boostactivity.BoostNotifingActivity this$0 -> a
-    159:159:void <init>(com.myboost.junk.boostactivity.BoostNotifingActivity) -> <init>
-    162:165:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    160:160:void <init>(com.myboost.junk.boostactivity.BoostNotifingActivity) -> <init>
+    163:166:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.myboost.junk.boostactivity.BoostNotifingActivity$4 -> com.myboost.junk.boostactivity.BoostNotifingActivity$4:
     com.myboost.junk.boostactivity.BoostNotifingActivity this$0 -> a
-    169:169:void <init>(com.myboost.junk.boostactivity.BoostNotifingActivity) -> <init>
-    172:186:void onClick(android.view.View) -> onClick
+    170:170:void <init>(com.myboost.junk.boostactivity.BoostNotifingActivity) -> <init>
+    173:187:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostPermissingActivity -> com.myboost.junk.boostactivity.BoostPermissingActivity:
     13:13:void <init>() -> <init>
-    16:31:void onCreate(android.os.Bundle) -> onCreate
+    16:25:void onCreate(android.os.Bundle) -> onCreate
 com.myboost.junk.boostactivity.BoostPermissingActivity$1 -> com.myboost.junk.boostactivity.BoostPermissingActivity$1:
     com.myboost.junk.boostactivity.BoostPermissingActivity this$0 -> a
     19:19:void <init>(com.myboost.junk.boostactivity.BoostPermissingActivity) -> <init>
     22:23:void onClick(android.view.View) -> onClick
-com.myboost.junk.boostactivity.BoostPermissingActivity$2 -> com.myboost.junk.boostactivity.BoostPermissingActivity$2:
-    com.myboost.junk.boostactivity.BoostPermissingActivity this$0 -> a
-    25:25:void <init>(com.myboost.junk.boostactivity.BoostPermissingActivity) -> <init>
-    28:29:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostPhonesMessageActivity -> com.myboost.junk.boostactivity.BoostPhonesMessageActivity:
     java.lang.String TAG_MESSAGE -> t
     android.widget.TextView title_name -> e
@@ -32906,18 +32909,18 @@ com.myboost.junk.boostactivity.BoostPictActivity -> com.myboost.junk.boostactivi
     java.util.ArrayList allList -> z
     android.os.Handler mHandler -> A
     android.view.View$OnClickListener clickListener -> B
-    46:367:void <init>() -> <init>
-    116:136:void findId() -> a
-    139:142:void loadAd() -> c
-    145:258:void bigPicture(java.util.ArrayList) -> a
-    261:265:void clickListen() -> d
-    269:288:void onCreate(android.os.Bundle) -> onCreate
-    292:365:void initData() -> e
-    401:404:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    407:504:void deleteDialog(java.util.ArrayList) -> c
-    508:515:void onBackPressed() -> onBackPressed
-    518:520:void showBigPic(java.util.ArrayList) -> b
-    524:539:void updateUi() -> b
+    46:359:void <init>() -> <init>
+    108:128:void findId() -> a
+    131:134:void loadAd() -> c
+    137:250:void bigPicture(java.util.ArrayList) -> a
+    253:257:void clickListen() -> d
+    261:280:void onCreate(android.os.Bundle) -> onCreate
+    284:357:void initData() -> e
+    393:396:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    399:496:void deleteDialog(java.util.ArrayList) -> c
+    500:507:void onBackPressed() -> onBackPressed
+    510:512:void showBigPic(java.util.ArrayList) -> b
+    516:531:void updateUi() -> b
     46:46:com.myboost.junk.customadapterboost.RecycleViewAdapter access$000(com.myboost.junk.boostactivity.BoostPictActivity) -> a
     46:46:java.util.ArrayList access$100(com.myboost.junk.boostactivity.BoostPictActivity) -> b
     46:46:android.support.v4.view.PagerAdapter access$200(com.myboost.junk.boostactivity.BoostPictActivity) -> c
@@ -32928,15 +32931,11 @@ com.myboost.junk.boostactivity.BoostPictActivity -> com.myboost.junk.boostactivi
 com.myboost.junk.boostactivity.BoostPictActivity$1 -> com.myboost.junk.boostactivity.BoostPictActivity$1:
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> a
     77:77:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
-    80:110:void handleMessage(android.os.Message) -> handleMessage
-com.myboost.junk.boostactivity.BoostPictActivity$1$1 -> com.myboost.junk.boostactivity.BoostPictActivity$1$1:
-    com.myboost.junk.boostactivity.BoostPictActivity$1 this$1 -> a
-    91:91:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$1) -> <init>
-    94:97:void onClick(android.view.View) -> onClick
+    80:102:void handleMessage(android.os.Message) -> handleMessage
 com.myboost.junk.boostactivity.BoostPictActivity$10 -> com.myboost.junk.boostactivity.BoostPictActivity$2:
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> a
-    415:415:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
-    418:420:void onClick(android.view.View) -> onClick
+    407:407:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
+    410:412:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostPictActivity$11 -> com.myboost.junk.boostactivity.BoostPictActivity$3:
     android.widget.TextView val$ok -> a
     android.widget.TextView val$cancle -> b
@@ -32944,85 +32943,85 @@ com.myboost.junk.boostactivity.BoostPictActivity$11 -> com.myboost.junk.boostact
     int val$deleteSize -> d
     android.widget.TextView val$count -> e
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> f
-    422:422:void <init>(com.myboost.junk.boostactivity.BoostPictActivity,android.widget.TextView,android.widget.TextView,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
-    425:481:void onClick(android.view.View) -> onClick
+    414:414:void <init>(com.myboost.junk.boostactivity.BoostPictActivity,android.widget.TextView,android.widget.TextView,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
+    417:473:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostPictActivity$11$1 -> com.myboost.junk.boostactivity.BoostPictActivity$3$1:
     int num -> a
     com.myboost.junk.boostactivity.BoostPictActivity$11 this$1 -> b
-    429:430:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$11) -> <init>
-    434:441:void deleteItemCallback(long) -> a
-    445:479:void deleteSuccessCallback(java.util.ArrayList) -> a
+    421:422:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$11) -> <init>
+    426:433:void deleteItemCallback(long) -> a
+    437:471:void deleteSuccessCallback(java.util.ArrayList) -> a
 com.myboost.junk.boostactivity.BoostPictActivity$11$1$1 -> com.myboost.junk.boostactivity.BoostPictActivity$3$1$1:
     com.myboost.junk.boostactivity.BoostPictActivity$11$1 this$2 -> a
-    434:434:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$11$1) -> <init>
-    437:439:void run() -> run
+    426:426:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$11$1) -> <init>
+    429:431:void run() -> run
 com.myboost.junk.boostactivity.BoostPictActivity$11$1$2 -> com.myboost.junk.boostactivity.BoostPictActivity$3$1$2:
     java.util.ArrayList val$list -> a
     com.myboost.junk.boostactivity.BoostPictActivity$11$1 this$2 -> b
-    446:446:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$11$1,java.util.ArrayList) -> <init>
-    449:477:void run() -> run
+    438:438:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$11$1,java.util.ArrayList) -> <init>
+    441:469:void run() -> run
 com.myboost.junk.boostactivity.BoostPictActivity$11$1$2$1 -> com.myboost.junk.boostactivity.BoostPictActivity$3$1$2$1:
     com.myboost.junk.boostactivity.BoostPictActivity$11$1$2 this$3 -> a
-    463:463:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$11$1$2) -> <init>
-    466:469:void onClick(android.view.View) -> onClick
+    455:455:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$11$1$2) -> <init>
+    458:461:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostPictActivity$2 -> com.myboost.junk.boostactivity.BoostPictActivity$4:
     java.util.ArrayList val$list -> a
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> b
-    151:151:void <init>(com.myboost.junk.boostactivity.BoostPictActivity,java.util.ArrayList) -> <init>
-    154:162:void onClick(android.view.View) -> onClick
+    143:143:void <init>(com.myboost.junk.boostactivity.BoostPictActivity,java.util.ArrayList) -> <init>
+    146:154:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostPictActivity$3 -> com.myboost.junk.boostactivity.BoostPictActivity$5:
     java.util.ArrayList val$list -> a
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> b
-    165:165:void <init>(com.myboost.junk.boostactivity.BoostPictActivity,java.util.ArrayList) -> <init>
-    168:181:void onClick(android.view.View) -> onClick
+    157:157:void <init>(com.myboost.junk.boostactivity.BoostPictActivity,java.util.ArrayList) -> <init>
+    160:173:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostPictActivity$4 -> com.myboost.junk.boostactivity.BoostPictActivity$6:
     java.util.ArrayList val$list -> a
     int val$finalI -> b
     android.widget.ImageView val$icon -> c
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> d
-    188:188:void <init>(com.myboost.junk.boostactivity.BoostPictActivity,java.util.ArrayList,int,android.widget.ImageView) -> <init>
-    192:200:void run() -> run
+    180:180:void <init>(com.myboost.junk.boostactivity.BoostPictActivity,java.util.ArrayList,int,android.widget.ImageView) -> <init>
+    184:192:void run() -> run
 com.myboost.junk.boostactivity.BoostPictActivity$4$1 -> com.myboost.junk.boostactivity.BoostPictActivity$6$1:
     android.graphics.Bitmap val$bitma -> a
     com.myboost.junk.boostactivity.BoostPictActivity$4 this$1 -> b
-    194:194:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$4,android.graphics.Bitmap) -> <init>
-    197:198:void run() -> run
+    186:186:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$4,android.graphics.Bitmap) -> <init>
+    189:190:void run() -> run
 com.myboost.junk.boostactivity.BoostPictActivity$5 -> com.myboost.junk.boostactivity.BoostPictActivity$7:
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> a
-    206:206:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
-    209:209:int getCount() -> getCount
-    214:215:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    220:223:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    227:227:int getItemPosition(java.lang.Object) -> getItemPosition
-    232:232:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    198:198:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
+    201:201:int getCount() -> getCount
+    206:207:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    212:215:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    219:219:int getItemPosition(java.lang.Object) -> getItemPosition
+    224:224:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.myboost.junk.boostactivity.BoostPictActivity$6 -> com.myboost.junk.boostactivity.BoostPictActivity$8:
     java.util.ArrayList val$list -> a
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> b
-    235:235:void <init>(com.myboost.junk.boostactivity.BoostPictActivity,java.util.ArrayList) -> <init>
-    238:238:void onPageScrolled(int,float,int) -> onPageScrolled
-    242:252:void onPageSelected(int) -> onPageSelected
-    256:256:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    227:227:void <init>(com.myboost.junk.boostactivity.BoostPictActivity,java.util.ArrayList) -> <init>
+    230:230:void onPageScrolled(int,float,int) -> onPageScrolled
+    234:244:void onPageSelected(int) -> onPageSelected
+    248:248:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.myboost.junk.boostactivity.BoostPictActivity$7 -> com.myboost.junk.boostactivity.BoostPictActivity$9:
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> a
-    281:281:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
-    284:285:void run() -> run
+    273:273:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
+    276:277:void run() -> run
 com.myboost.junk.boostactivity.BoostPictActivity$8 -> com.myboost.junk.boostactivity.BoostPictActivity$10:
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> a
-    292:292:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
-    295:296:void startQuery() -> a
-    300:315:void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
-    319:325:void startAsyncPic(int,java.util.ArrayList) -> a
-    330:330:void endAsyncPic(int,java.util.ArrayList) -> b
-    334:361:void haveQuerySimilarPic(int,java.util.ArrayList,java.util.ArrayList,long) -> a
+    284:284:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
+    287:288:void startQuery() -> a
+    292:307:void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
+    311:317:void startAsyncPic(int,java.util.ArrayList) -> a
+    322:322:void endAsyncPic(int,java.util.ArrayList) -> b
+    326:353:void haveQuerySimilarPic(int,java.util.ArrayList,java.util.ArrayList,long) -> a
 com.myboost.junk.boostactivity.BoostPictActivity$8$1 -> com.myboost.junk.boostactivity.BoostPictActivity$10$1:
     java.util.ArrayList val$totalSimilarImage -> a
     com.myboost.junk.boostactivity.BoostPictActivity$8 this$1 -> b
-    334:334:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$8,java.util.ArrayList) -> <init>
-    337:359:void run() -> run
+    326:326:void <init>(com.myboost.junk.boostactivity.BoostPictActivity$8,java.util.ArrayList) -> <init>
+    329:351:void run() -> run
 com.myboost.junk.boostactivity.BoostPictActivity$9 -> com.myboost.junk.boostactivity.BoostPictActivity$11:
     com.myboost.junk.boostactivity.BoostPictActivity this$0 -> a
-    367:367:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
-    370:395:void onClick(android.view.View) -> onClick
+    359:359:void <init>(com.myboost.junk.boostactivity.BoostPictActivity) -> <init>
+    362:387:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostRubbishActivity -> com.myboost.junk.boostactivity.BoostRubbishActivity:
     boolean color1 -> Y
     boolean color2 -> Z
@@ -33514,35 +33513,35 @@ com.myboost.junk.boostactivity.LoadingActivity -> com.myboost.junk.boostactivity
     java.lang.Runnable runnable1 -> k
     29:42:void <init>() -> <init>
     39:40:void findId() -> a
-    125:178:void onCreate(android.os.Bundle) -> onCreate
-    182:183:void onBackPressed() -> onBackPressed
-    187:189:void onDestroy() -> onDestroy
-    193:198:void onResume() -> onResume
-    203:207:void onStop() -> onStop
+    125:181:void onCreate(android.os.Bundle) -> onCreate
+    185:186:void onBackPressed() -> onBackPressed
+    190:192:void onDestroy() -> onDestroy
+    196:201:void onResume() -> onResume
+    206:210:void onStop() -> onStop
 com.myboost.junk.boostactivity.LoadingActivity$1 -> com.myboost.junk.boostactivity.LoadingActivity$1:
     com.myboost.junk.boostactivity.LoadingActivity this$0 -> a
     42:42:void <init>(com.myboost.junk.boostactivity.LoadingActivity) -> <init>
     47:120:void run() -> run
 com.myboost.junk.boostactivity.LoadingActivity$2 -> com.myboost.junk.boostactivity.LoadingActivity$2:
     com.myboost.junk.boostactivity.LoadingActivity this$0 -> a
-    149:149:void <init>(com.myboost.junk.boostactivity.LoadingActivity) -> <init>
-    153:153:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-    157:164:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    169:169:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    174:174:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    152:152:void <init>(com.myboost.junk.boostactivity.LoadingActivity) -> <init>
+    156:156:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    160:167:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    172:172:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    177:177:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
 com.myboost.junk.boostactivity.MainActivity -> com.myboost.junk.boostactivity.MainActivity:
-    java.lang.String TAG_START_FULL -> af
-    java.lang.String TAG_EXIT_FULL -> ag
-    java.lang.String TAG_FULL_PULL -> ah
-    java.lang.String TAG_MAIN -> ai
-    java.lang.String TAG_SIDE -> aj
-    java.lang.String TAG_REFRESH -> ak
+    java.lang.String TAG_START_FULL -> ar
+    java.lang.String TAG_EXIT_FULL -> as
+    java.lang.String TAG_FULL_PULL -> at
+    java.lang.String TAG_MAIN -> au
+    java.lang.String TAG_SIDE -> av
+    java.lang.String TAG_REFRESH -> aw
     com.myboost.junk.customviewboost.CustomRoundCpuBoost main_custom_cpu -> e
     com.myboost.junk.customviewboost.CustomRoundCpuBoost main_custom_ram -> f
     com.myboost.junk.customviewboost.CustomRoundCpuBoost main_custom_sd -> g
     android.widget.ImageView main_full_time -> h
     com.myboost.junk.customviewboost.MainYuanHuView main_yunahuan -> i
-    com.myboost.junk.customadapterboost.SidebarAdapterBoost adapter -> al
+    com.myboost.junk.customadapterboost.SidebarAdapterBoost adapter -> ax
     android.widget.LinearLayout iv_title_left -> j
     com.myboost.junk.customviewboost.BoostListViewForScrollView side_listView -> k
     android.support.v4.widget.DrawerLayout main_drawer -> l
@@ -33557,161 +33556,207 @@ com.myboost.junk.boostactivity.MainActivity -> com.myboost.junk.boostactivity.Ma
     android.widget.LinearLayout ll_ad_s -> u
     android.widget.RelativeLayout main_junk_button -> v
     android.widget.LinearLayout ll_ad_full -> w
-    android.widget.LinearLayout main_rotate_all -> x
-    java.util.ArrayList startList -> am
-    android.widget.TextView main_fenshu -> y
-    android.widget.ImageView main_point -> z
-    long junk_size -> A
-    android.widget.RelativeLayout main_power_button -> B
-    android.widget.RelativeLayout main_file_button -> C
-    android.widget.RelativeLayout main_notifi_button -> D
-    android.widget.RelativeLayout main_picture_button2 -> E
-    android.widget.RelativeLayout main_picture_button -> F
-    android.widget.RelativeLayout main_ram_button -> G
-    android.widget.LinearLayout main_manager_button -> H
-    android.widget.RelativeLayout main_gboost_button -> I
-    android.widget.TextView main_msg_ram_percent -> J
-    android.widget.TextView main_msg_sd_percent -> K
-    android.widget.TextView main_msg_cpu_percent -> L
-    android.os.Handler handler -> an
-    com.myboost.junk.boostpresenter.PresenterMainBoost mainPresenter -> ao
-    android.widget.TextView main_rotate_good -> M
-    android.widget.TextView main_rotate_bad -> N
-    android.widget.LinearLayout main_battery -> O
-    android.widget.LinearLayout main_clean_lin -> P
-    android.widget.RelativeLayout main_title -> Q
-    android.widget.TextView main_junk_huan -> R
-    int temp -> ap
-    android.support.v7.app.AlertDialog dialog -> aq
-    com.myboost.junk.customviewboost.PullToRefreshLayout main_pull_refresh -> S
-    java.lang.String junkSize -> T
-    com.myboost.junk.customviewboost.YuanHuViewBoost main_msg_ram_yuanhu -> U
-    com.myboost.junk.customviewboost.YuanHuViewBoost main_msg_sd_yuanhu -> V
-    com.myboost.junk.customviewboost.YuanHuViewBoost main_msg_cpu_yuanhu -> W
-    android.widget.ImageView main_rotate_close -> X
-    android.widget.LinearLayout main_msg_button -> Y
-    android.widget.ProgressBar ad_progressbar -> Z
-    com.myboost.junk.customviewboost.PullToRefreshLayout$OnRefreshListener refreshListener -> aa
-    java.lang.Runnable fullAdRunnale -> ab
-    android.view.View$OnClickListener onClickListener -> ac
-    float dushu1 -> ad
-    float mianTemp -> ae
-    62:663:void <init>() -> <init>
-    113:132:void onClick() -> b
-    170:170:void setColor(int,boolean) -> b
-    174:197:void initSideData() -> e
-    201:273:void initQiu(int,boolean) -> a
-    277:297:void onCreate(android.os.Bundle) -> onCreate
-    301:311:void initCpu(int) -> b
-    323:370:void findId() -> a
-    374:375:void openDrawer() -> f
-    386:456:void loadFullAd() -> c
-    460:461:void setRotateGone() -> d
-    581:604:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    608:646:void initSd(int,java.lang.String,long) -> a
-    650:660:void initRam(int,java.lang.String) -> a
-    667:669:void onStart() -> onStart
-    673:676:void onRestart() -> onRestart
-    680:687:void onPause() -> onPause
-    690:696:void initData() -> g
-    701:705:void onResume() -> onResume
-    708:726:void onBackPressed() -> onBackPressed
-    732:732:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    735:756:void adDelete() -> h
-    760:810:void showExitDialog() -> i
-    814:815:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    819:820:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    825:825:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    829:833:void onDestroy() -> onDestroy
-    62:62:java.lang.String access$000(com.myboost.junk.boostactivity.MainActivity) -> a
-    62:62:android.os.Handler access$100(com.myboost.junk.boostactivity.MainActivity) -> b
-    62:62:void access$200(com.myboost.junk.boostactivity.MainActivity) -> c
-    62:62:com.myboost.junk.boostpresenter.PresenterMainBoost access$300(com.myboost.junk.boostactivity.MainActivity) -> d
-    62:62:int access$400(com.myboost.junk.boostactivity.MainActivity) -> e
-    62:62:com.myboost.junk.customadapterboost.SidebarAdapterBoost access$500(com.myboost.junk.boostactivity.MainActivity) -> f
-    62:62:android.support.v7.app.AlertDialog access$600(com.myboost.junk.boostactivity.MainActivity) -> g
+    android.widget.FrameLayout loading_full -> x
+    android.widget.ImageView loading_1 -> y
+    android.widget.ImageView loading_2 -> z
+    android.widget.ImageView loading_3 -> A
+    android.widget.LinearLayout main_rotate_all -> B
+    java.util.ArrayList startList -> ay
+    android.widget.TextView main_fenshu -> C
+    android.widget.ImageView main_point -> D
+    long junk_size -> E
+    android.widget.RelativeLayout main_power_button -> F
+    android.widget.RelativeLayout main_file_button -> G
+    android.widget.RelativeLayout main_notifi_button -> H
+    android.widget.RelativeLayout main_picture_button2 -> I
+    android.widget.RelativeLayout main_picture_button -> J
+    android.widget.RelativeLayout main_ram_button -> K
+    android.widget.LinearLayout main_manager_button -> L
+    android.widget.RelativeLayout main_gboost_button -> M
+    android.widget.TextView main_msg_ram_percent -> N
+    android.widget.TextView main_msg_sd_percent -> O
+    android.widget.TextView main_msg_cpu_percent -> P
+    android.os.Handler handler -> az
+    com.myboost.junk.boostpresenter.PresenterMainBoost mainPresenter -> aA
+    android.widget.TextView main_rotate_good -> Q
+    android.widget.TextView main_rotate_bad -> R
+    android.widget.LinearLayout main_battery -> S
+    android.widget.LinearLayout main_clean_lin -> T
+    android.widget.RelativeLayout main_huan_r -> U
+    android.widget.RelativeLayout main_title -> V
+    android.widget.FrameLayout full_ad -> W
+    android.widget.ImageView full_1 -> X
+    android.widget.ImageView full_2 -> Y
+    android.widget.ImageView full_4 -> Z
+    android.widget.ImageView full_5 -> aa
+    android.widget.TextView main_junk_huan -> ab
+    int temp -> aB
+    android.support.v7.app.AlertDialog dialog -> aC
+    com.myboost.junk.customviewboost.PullToRefreshLayout main_pull_refresh -> ac
+    java.lang.String junkSize -> ad
+    com.myboost.junk.customviewboost.YuanHuViewBoost main_msg_ram_yuanhu -> ae
+    com.myboost.junk.customviewboost.YuanHuViewBoost main_msg_sd_yuanhu -> af
+    com.myboost.junk.customviewboost.YuanHuViewBoost main_msg_cpu_yuanhu -> ag
+    android.widget.ImageView main_rotate_close -> ah
+    android.widget.LinearLayout main_msg_button -> ai
+    android.widget.ProgressBar ad_progressbar -> aj
+    android.animation.AnimatorSet animatorSet -> aD
+    com.myboost.junk.customviewboost.PullToRefreshLayout$OnRefreshListener refreshListener -> ak
+    java.lang.Runnable run_ad -> al
+    java.lang.Runnable fullAdRunnale -> am
+    android.animation.AnimatorSet animator_full -> aE
+    android.view.View$OnClickListener onClickListener -> an
+    java.lang.Runnable runnable_load -> ao
+    float dushu1 -> ap
+    float mianTemp -> aq
+    67:818:void <init>() -> <init>
+    124:145:void onClick() -> b
+    183:183:void setColor(int,boolean) -> b
+    187:210:void initSideData() -> e
+    214:286:void initQiu(int,boolean) -> a
+    290:328:void onCreate(android.os.Bundle) -> onCreate
+    346:356:void initCpu(int) -> b
+    368:425:void findId() -> a
+    429:430:void openDrawer() -> f
+    441:511:void loadFullAd() -> c
+    514:528:android.view.View getNativeAdView(java.lang.String,int) -> a
+    533:534:void setRotateGone() -> d
+    736:759:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    763:801:void initSd(int,java.lang.String,long) -> a
+    805:815:void initRam(int,java.lang.String) -> a
+    822:824:void onStart() -> onStart
+    828:831:void onRestart() -> onRestart
+    835:842:void onPause() -> onPause
+    845:851:void initData() -> g
+    856:863:void onResume() -> onResume
+    866:894:void onBackPressed() -> onBackPressed
+    900:900:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    903:924:void adDelete() -> h
+    928:978:void showExitDialog() -> i
+    982:983:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    987:988:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    993:993:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    997:1007:void onDestroy() -> onDestroy
+    67:67:java.lang.String access$000(com.myboost.junk.boostactivity.MainActivity) -> a
+    67:67:android.animation.AnimatorSet access$100(com.myboost.junk.boostactivity.MainActivity) -> b
+    67:67:android.os.Handler access$200(com.myboost.junk.boostactivity.MainActivity) -> c
+    67:67:void access$300(com.myboost.junk.boostactivity.MainActivity) -> d
+    67:67:com.myboost.junk.boostpresenter.PresenterMainBoost access$400(com.myboost.junk.boostactivity.MainActivity) -> e
+    67:67:int access$500(com.myboost.junk.boostactivity.MainActivity) -> f
+    67:67:com.myboost.junk.customadapterboost.SidebarAdapterBoost access$600(com.myboost.junk.boostactivity.MainActivity) -> g
+    67:67:android.animation.AnimatorSet access$702(com.myboost.junk.boostactivity.MainActivity,android.animation.AnimatorSet) -> a
+    67:67:android.animation.AnimatorSet access$700(com.myboost.junk.boostactivity.MainActivity) -> h
+    67:67:java.lang.String access$800(com.myboost.junk.boostactivity.MainActivity) -> i
+    67:67:android.support.v7.app.AlertDialog access$900(com.myboost.junk.boostactivity.MainActivity) -> j
 com.myboost.junk.boostactivity.MainActivity$1 -> com.myboost.junk.boostactivity.MainActivity$1:
     com.myboost.junk.boostactivity.MainActivity this$0 -> a
-    135:135:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
-    139:139:void onRefresh(com.myboost.junk.customviewboost.PullToRefreshLayout) -> a
-    144:166:void onLoadMore(com.myboost.junk.customviewboost.PullToRefreshLayout) -> b
+    148:148:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
+    152:152:void onRefresh(com.myboost.junk.customviewboost.PullToRefreshLayout) -> a
+    157:179:void onLoadMore(com.myboost.junk.customviewboost.PullToRefreshLayout) -> b
 com.myboost.junk.boostactivity.MainActivity$1$1 -> com.myboost.junk.boostactivity.MainActivity$1$1:
     com.myboost.junk.boostactivity.MainActivity$1 this$1 -> a
-    145:145:void <init>(com.myboost.junk.boostactivity.MainActivity$1) -> <init>
-    148:159:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    163:164:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    158:158:void <init>(com.myboost.junk.boostactivity.MainActivity$1) -> <init>
+    161:172:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    176:177:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.myboost.junk.boostactivity.MainActivity$10 -> com.myboost.junk.boostactivity.MainActivity$2:
-    int val$percent -> a
-    com.myboost.junk.boostactivity.MainActivity this$0 -> b
-    652:652:void <init>(com.myboost.junk.boostactivity.MainActivity,int) -> <init>
-    656:658:void run() -> run
+    com.myboost.junk.boostactivity.MainActivity this$0 -> a
+    723:723:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
+    726:731:void run() -> run
 com.myboost.junk.boostactivity.MainActivity$11 -> com.myboost.junk.boostactivity.MainActivity$3:
-    com.myboost.junk.boostactivity.MainActivity this$0 -> a
-    747:747:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
-    750:752:void onAnimationEnd(com.mingle.widgetprivacy.animation.CRAnimation) -> b
-com.myboost.junk.boostactivity.MainActivity$12 -> com.myboost.junk.boostactivity.MainActivity$4:
-    com.myboost.junk.boostactivity.MainActivity this$0 -> a
-    771:771:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
-    774:776:void onClick(android.view.View) -> onClick
-com.myboost.junk.boostactivity.MainActivity$13 -> com.myboost.junk.boostactivity.MainActivity$5:
-    com.myboost.junk.boostactivity.MainActivity this$0 -> a
-    778:778:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
-    781:782:void onClick(android.view.View) -> onClick
-com.myboost.junk.boostactivity.MainActivity$2 -> com.myboost.junk.boostactivity.MainActivity$6:
-    int val$fenshu -> a
-    com.myboost.junk.boostactivity.MainActivity this$0 -> b
-    203:203:void <init>(com.myboost.junk.boostactivity.MainActivity,int) -> <init>
-    206:250:void scanDushu(float) -> a
-com.myboost.junk.boostactivity.MainActivity$2$1 -> com.myboost.junk.boostactivity.MainActivity$6$1:
-    float val$dushu -> a
-    com.myboost.junk.boostactivity.MainActivity$2 this$1 -> b
-    206:206:void <init>(com.myboost.junk.boostactivity.MainActivity$2,float) -> <init>
-    209:248:void run() -> run
-com.myboost.junk.boostactivity.MainActivity$2$1$1 -> com.myboost.junk.boostactivity.MainActivity$6$1$1:
-    com.myboost.junk.boostactivity.MainActivity$2$1 this$2 -> a
-    224:224:void <init>(com.myboost.junk.boostactivity.MainActivity$2$1) -> <init>
-    227:228:void run() -> run
-com.myboost.junk.boostactivity.MainActivity$2$1$2 -> com.myboost.junk.boostactivity.MainActivity$6$1$2:
-    com.myboost.junk.boostactivity.MainActivity$2$1 this$2 -> a
-    232:232:void <init>(com.myboost.junk.boostactivity.MainActivity$2$1) -> <init>
-    235:236:void run() -> run
-com.myboost.junk.boostactivity.MainActivity$2$1$3 -> com.myboost.junk.boostactivity.MainActivity$6$1$3:
-    com.myboost.junk.boostactivity.MainActivity$2$1 this$2 -> a
-    240:240:void <init>(com.myboost.junk.boostactivity.MainActivity$2$1) -> <init>
-    243:244:void run() -> run
-com.myboost.junk.boostactivity.MainActivity$3 -> com.myboost.junk.boostactivity.MainActivity$7:
-    int val$fenshu -> a
-    com.myboost.junk.boostactivity.MainActivity this$0 -> b
-    252:252:void <init>(com.myboost.junk.boostactivity.MainActivity,int) -> <init>
-    255:271:void run() -> run
-com.myboost.junk.boostactivity.MainActivity$4 -> com.myboost.junk.boostactivity.MainActivity$8:
-    int val$temp -> a
-    com.myboost.junk.boostactivity.MainActivity this$0 -> b
-    303:303:void <init>(com.myboost.junk.boostactivity.MainActivity,int) -> <init>
-    307:309:void run() -> run
-com.myboost.junk.boostactivity.MainActivity$5 -> com.myboost.junk.boostactivity.MainActivity$9:
-    android.view.animation.Animation val$animation -> a
-    com.myboost.junk.boostactivity.MainActivity this$0 -> b
-    399:399:void <init>(com.myboost.junk.boostactivity.MainActivity,android.view.animation.Animation) -> <init>
-    402:403:void run() -> run
-com.myboost.junk.boostactivity.MainActivity$6 -> com.myboost.junk.boostactivity.MainActivity$10:
-    com.myboost.junk.boostactivity.MainActivity this$0 -> a
-    444:444:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
-    447:449:void onClick(android.view.View) -> onClick
-com.myboost.junk.boostactivity.MainActivity$7 -> com.myboost.junk.boostactivity.MainActivity$11:
-    com.myboost.junk.boostactivity.MainActivity this$0 -> a
-    463:463:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
-    466:467:void run() -> run
-com.myboost.junk.boostactivity.MainActivity$8 -> com.myboost.junk.boostactivity.MainActivity$12:
-    com.myboost.junk.boostactivity.MainActivity this$0 -> a
-    472:472:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
-    476:576:void onClick(android.view.View) -> onClick
-com.myboost.junk.boostactivity.MainActivity$9 -> com.myboost.junk.boostactivity.MainActivity$13:
     long val$sd_kongxian -> a
     int val$percent -> b
     com.myboost.junk.boostactivity.MainActivity this$0 -> c
-    612:612:void <init>(com.myboost.junk.boostactivity.MainActivity,long,int) -> <init>
-    616:644:void run() -> run
+    767:767:void <init>(com.myboost.junk.boostactivity.MainActivity,long,int) -> <init>
+    771:799:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$12 -> com.myboost.junk.boostactivity.MainActivity$4:
+    int val$percent -> a
+    com.myboost.junk.boostactivity.MainActivity this$0 -> b
+    807:807:void <init>(com.myboost.junk.boostactivity.MainActivity,int) -> <init>
+    811:813:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$13 -> com.myboost.junk.boostactivity.MainActivity$5:
+    com.myboost.junk.boostactivity.MainActivity this$0 -> a
+    915:915:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
+    918:920:void onAnimationEnd(com.mingle.widgetprivacy.animation.CRAnimation) -> b
+com.myboost.junk.boostactivity.MainActivity$14 -> com.myboost.junk.boostactivity.MainActivity$6:
+    com.myboost.junk.boostactivity.MainActivity this$0 -> a
+    939:939:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
+    942:944:void onClick(android.view.View) -> onClick
+com.myboost.junk.boostactivity.MainActivity$15 -> com.myboost.junk.boostactivity.MainActivity$7:
+    com.myboost.junk.boostactivity.MainActivity this$0 -> a
+    946:946:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
+    949:950:void onClick(android.view.View) -> onClick
+com.myboost.junk.boostactivity.MainActivity$2 -> com.myboost.junk.boostactivity.MainActivity$8:
+    int val$fenshu -> a
+    com.myboost.junk.boostactivity.MainActivity this$0 -> b
+    216:216:void <init>(com.myboost.junk.boostactivity.MainActivity,int) -> <init>
+    219:263:void scanDushu(float) -> a
+com.myboost.junk.boostactivity.MainActivity$2$1 -> com.myboost.junk.boostactivity.MainActivity$8$1:
+    float val$dushu -> a
+    com.myboost.junk.boostactivity.MainActivity$2 this$1 -> b
+    219:219:void <init>(com.myboost.junk.boostactivity.MainActivity$2,float) -> <init>
+    222:261:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$2$1$1 -> com.myboost.junk.boostactivity.MainActivity$8$1$1:
+    com.myboost.junk.boostactivity.MainActivity$2$1 this$2 -> a
+    237:237:void <init>(com.myboost.junk.boostactivity.MainActivity$2$1) -> <init>
+    240:241:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$2$1$2 -> com.myboost.junk.boostactivity.MainActivity$8$1$2:
+    com.myboost.junk.boostactivity.MainActivity$2$1 this$2 -> a
+    245:245:void <init>(com.myboost.junk.boostactivity.MainActivity$2$1) -> <init>
+    248:249:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$2$1$3 -> com.myboost.junk.boostactivity.MainActivity$8$1$3:
+    com.myboost.junk.boostactivity.MainActivity$2$1 this$2 -> a
+    253:253:void <init>(com.myboost.junk.boostactivity.MainActivity$2$1) -> <init>
+    256:257:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$3 -> com.myboost.junk.boostactivity.MainActivity$9:
+    int val$fenshu -> a
+    com.myboost.junk.boostactivity.MainActivity this$0 -> b
+    265:265:void <init>(com.myboost.junk.boostactivity.MainActivity,int) -> <init>
+    268:284:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$4 -> com.myboost.junk.boostactivity.MainActivity$10:
+    com.myboost.junk.boostactivity.MainActivity this$0 -> a
+    330:330:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
+    333:341:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$5 -> com.myboost.junk.boostactivity.MainActivity$11:
+    int val$temp -> a
+    com.myboost.junk.boostactivity.MainActivity this$0 -> b
+    348:348:void <init>(com.myboost.junk.boostactivity.MainActivity,int) -> <init>
+    352:354:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$6 -> com.myboost.junk.boostactivity.MainActivity$12:
+    android.view.animation.Animation val$animation -> a
+    com.myboost.junk.boostactivity.MainActivity this$0 -> b
+    454:454:void <init>(com.myboost.junk.boostactivity.MainActivity,android.view.animation.Animation) -> <init>
+    457:458:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$7 -> com.myboost.junk.boostactivity.MainActivity$13:
+    com.myboost.junk.boostactivity.MainActivity this$0 -> a
+    499:499:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
+    502:504:void onClick(android.view.View) -> onClick
+com.myboost.junk.boostactivity.MainActivity$8 -> com.myboost.junk.boostactivity.MainActivity$14:
+    com.myboost.junk.boostactivity.MainActivity this$0 -> a
+    536:536:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
+    539:540:void run() -> run
+com.myboost.junk.boostactivity.MainActivity$9 -> com.myboost.junk.boostactivity.MainActivity$15:
+    com.myboost.junk.boostactivity.MainActivity this$0 -> a
+    546:546:void <init>(com.myboost.junk.boostactivity.MainActivity) -> <init>
+    551:721:void onClick(android.view.View) -> onClick
+com.myboost.junk.boostactivity.MainActivity$9$1 -> com.myboost.junk.boostactivity.MainActivity$15$1:
+    com.myboost.junk.boostactivity.MainActivity$9 this$1 -> a
+    651:651:void <init>(com.myboost.junk.boostactivity.MainActivity$9) -> <init>
+    655:657:void onAdClosed() -> onAdClosed
+com.myboost.junk.boostactivity.MainActivity$9$2 -> com.myboost.junk.boostactivity.MainActivity$15$2:
+    com.myboost.junk.boostactivity.MainActivity$9 this$1 -> a
+    679:679:void <init>(com.myboost.junk.boostactivity.MainActivity$9) -> <init>
+    682:705:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    710:710:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    715:715:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.myboost.junk.boostactivity.MainActivity$9$2$1 -> com.myboost.junk.boostactivity.MainActivity$15$2$1:
+    com.myboost.junk.boostactivity.MainActivity$9$2 this$2 -> a
+    682:682:void <init>(com.myboost.junk.boostactivity.MainActivity$9$2) -> <init>
+    685:696:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    700:703:void onNativeAdLoadFails() -> onNativeAdLoadFails
+com.myboost.junk.boostactivity.MainActivity$9$2$1$1 -> com.myboost.junk.boostactivity.MainActivity$15$2$1$1:
+    com.myboost.junk.boostactivity.MainActivity$9$2$1 this$3 -> a
+    688:688:void <init>(com.myboost.junk.boostactivity.MainActivity$9$2$1) -> <init>
+    691:692:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.MemoryAvtivityBoost -> com.myboost.junk.boostactivity.MemoryAvtivityBoost:
     boolean color1 -> p
     boolean color2 -> q
@@ -34625,8 +34670,9 @@ com.myboost.junk.boostpresenter.PresenterMainBoost -> com.myboost.junk.b.i:
     74:95:void startFenshu(boolean) -> a
     98:116:void reStart(boolean) -> b
     119:124:void clickRotate(boolean) -> c
-    127:130:void setRotateGone() -> c
-    134:147:void setDrawerLeftEdgeSize(android.support.v4.widget.DrawerLayout,float) -> a
+    127:129:void deleteRotate() -> c
+    132:135:void setRotateGone() -> d
+    139:152:void setDrawerLeftEdgeSize(android.support.v4.widget.DrawerLayout,float) -> a
     23:23:int access$002(com.myboost.junk.boostpresenter.PresenterMainBoost,int) -> a
     23:23:int access$000(com.myboost.junk.boostpresenter.PresenterMainBoost) -> a
 com.myboost.junk.boostpresenter.PresenterMainBoost$1 -> com.myboost.junk.b.i$1:
@@ -34700,8 +34746,8 @@ com.myboost.junk.boosttools.PhonesManager -> com.myboost.junk.c.e:
     139:146:java.lang.String getPhoneNetworkType() -> a
     382:391:boolean isRoot() -> b
 com.myboost.junk.boosttools.SetAdUtilPrivacy -> com.myboost.junk.c.f:
-    19:39:android.view.View getNativeAdView(java.lang.String,int) -> a
-    44:46:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
+    20:34:android.view.View getNativeAdView(java.lang.String,int) -> a
+    39:41:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
 com.myboost.junk.boosttools.ShortCutUtilsBoost -> com.myboost.junk.c.g:
     27:58:void addShortcut(android.app.Activity) -> a
     62:72:void addShortcut(android.app.Activity,android.content.Intent,java.lang.String,boolean,android.graphics.Bitmap) -> a
@@ -35114,6 +35160,86 @@ com.myboost.junk.customviewboost.BoostSlowScrollView -> com.myboost.junk.customv
     50:58:void computeScroll() -> computeScroll
     67:68:void fling(int) -> fling
     74:75:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.myboost.junk.customviewboost.Cooling2View -> com.myboost.junk.customviewboost.Cooling2View:
+    android.graphics.Paint paint_r_wai -> a
+    android.graphics.Paint paint_r_nei -> b
+    android.graphics.Paint paint_l_wai -> c
+    android.graphics.Paint paint_l_nei -> d
+    android.graphics.Paint paint_l_nei_2 -> e
+    int width -> f
+    int height -> g
+    android.content.Context context -> h
+    android.os.Handler handler -> i
+    int praent -> j
+    int cricle_n -> k
+    boolean isRun -> l
+    25:26:void <init>(android.content.Context) -> <init>
+    29:30:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    33:37:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    41:45:void onMeasure(int,int) -> onMeasure
+    48:72:void init() -> c
+    78:79:void pause() -> a
+    82:105:void reStart() -> b
+    109:115:void onDraw(android.graphics.Canvas) -> onDraw
+com.myboost.junk.customviewboost.Cooling2View$1 -> com.myboost.junk.customviewboost.Cooling2View$1:
+    com.myboost.junk.customviewboost.Cooling2View this$0 -> a
+    83:83:void <init>(com.myboost.junk.customviewboost.Cooling2View) -> <init>
+    86:102:void run() -> run
+com.myboost.junk.customviewboost.CoolongView -> com.myboost.junk.customviewboost.CoolongView:
+    java.util.List bubbles -> a
+    java.util.Random random -> b
+    int width -> c
+    int height -> d
+    boolean starting -> e
+    boolean thread -> f
+    android.graphics.Bitmap bitmap -> g
+    android.graphics.Bitmap dstBitmap -> h
+    21:32:void <init>(android.content.Context) -> <init>
+    21:37:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    21:42:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    45:46:void init() -> d
+    49:57:void destroy() -> a
+    60:61:void setParticleBitmap(android.graphics.Bitmap) -> setParticleBitmap
+    64:68:void pause() -> b
+    71:74:void reStart() -> c
+    78:172:void onDraw(android.graphics.Canvas) -> onDraw
+    19:19:boolean access$000(com.myboost.junk.customviewboost.CoolongView) -> a
+    19:19:boolean access$100(com.myboost.junk.customviewboost.CoolongView) -> b
+    19:19:java.util.Random access$300(com.myboost.junk.customviewboost.CoolongView) -> c
+    19:19:int access$400(com.myboost.junk.customviewboost.CoolongView) -> d
+    19:19:android.graphics.Bitmap access$500(com.myboost.junk.customviewboost.CoolongView) -> e
+    19:19:android.graphics.Bitmap access$602(com.myboost.junk.customviewboost.CoolongView,android.graphics.Bitmap) -> a
+    19:19:android.graphics.Bitmap access$600(com.myboost.junk.customviewboost.CoolongView) -> f
+    19:19:java.util.List access$700(com.myboost.junk.customviewboost.CoolongView) -> g
+com.myboost.junk.customviewboost.CoolongView$1 -> com.myboost.junk.customviewboost.CoolongView$1:
+    com.myboost.junk.customviewboost.CoolongView this$0 -> a
+    83:83:void <init>(com.myboost.junk.customviewboost.CoolongView) -> <init>
+    85:131:void run() -> run
+com.myboost.junk.customviewboost.CoolongView$Bubble -> com.myboost.junk.customviewboost.CoolongView$a:
+    float radius -> b
+    float speedY -> c
+    float speedX -> d
+    float x -> e
+    float y -> f
+    float scale -> g
+    android.graphics.Bitmap bitmap -> h
+    com.myboost.junk.customviewboost.CoolongView this$0 -> a
+    175:189:void <init>(com.myboost.junk.customviewboost.CoolongView) -> <init>
+    192:192:android.graphics.Bitmap getBitmap() -> a
+    196:197:void setBitmap(android.graphics.Bitmap) -> a
+    200:200:float getRadius() -> b
+    204:205:void setRadius(float) -> a
+    208:209:void setScale(float) -> b
+    212:212:float getScale() -> c
+    216:216:float getX() -> d
+    220:221:void setX(float) -> c
+    224:224:float getY() -> e
+    228:229:void setY(float) -> d
+    232:232:float getSpeedY() -> f
+    236:237:void setSpeedY(float) -> e
+    240:240:float getSpeedX() -> g
+    244:245:void setSpeedX(float) -> f
+    175:175:void <init>(com.myboost.junk.customviewboost.CoolongView,com.myboost.junk.customviewboost.CoolongView$1) -> <init>
 com.myboost.junk.customviewboost.CustomRoundCpuBoost -> com.myboost.junk.customviewboost.CustomRoundCpuBoost:
     android.content.Context context -> c
     android.graphics.Paint circlePoint -> d
@@ -35392,7 +35518,7 @@ com.myboost.junk.servicesboost.BoostSuspensionBallService -> com.myboost.junk.se
     39:76:void <init>() -> <init>
     49:49:android.os.IBinder onBind(android.content.Intent) -> onBind
     58:73:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    90:94:void onCreate() -> onCreate
+    88:93:void onCreate() -> onCreate
     96:129:void createFullScreenCheckView() -> b
     132:163:void updata() -> c
     166:179:java.util.List getLaunchers() -> a
@@ -35497,26 +35623,27 @@ com.myboost.junk.servicesboost.NotificationServiceBoost$3 -> com.myboost.junk.se
 com.myboost.module.charge.saver.BoostBatteryProtectActivity -> com.myboost.module.charge.saver.BoostBatteryProtectActivity:
     com.myboost.module.charge.saver.protectview.ProtectBatteryView batteryView -> a
     com.myboost.module.charge.saver.entry.BoostBatteryEntry entry -> b
-    android.content.BroadcastReceiver mReceiver -> c
-    20:104:void <init>() -> <init>
-    26:39:void hideBottomUIMenu() -> a
-    43:55:void doBar() -> b
-    60:62:void onUserLeaveHint() -> onUserLeaveHint
-    67:69:void onBackPressed() -> onBackPressed
-    73:92:void onCreate(android.os.Bundle) -> onCreate
-    96:97:void onResume() -> onResume
-    101:102:void onPause() -> onPause
-    129:138:void batteryChange(android.content.Intent) -> a
-    142:149:void onDestroy() -> onDestroy
-    20:20:com.myboost.module.charge.saver.protectview.ProtectBatteryView access$000(com.myboost.module.charge.saver.BoostBatteryProtectActivity) -> a
+    long time -> c
+    android.content.BroadcastReceiver mReceiver -> d
+    21:108:void <init>() -> <init>
+    28:41:void hideBottomUIMenu() -> a
+    45:57:void doBar() -> b
+    62:64:void onUserLeaveHint() -> onUserLeaveHint
+    69:71:void onBackPressed() -> onBackPressed
+    75:96:void onCreate(android.os.Bundle) -> onCreate
+    100:101:void onResume() -> onResume
+    105:106:void onPause() -> onPause
+    133:142:void batteryChange(android.content.Intent) -> a
+    146:156:void onDestroy() -> onDestroy
+    21:21:com.myboost.module.charge.saver.protectview.ProtectBatteryView access$000(com.myboost.module.charge.saver.BoostBatteryProtectActivity) -> a
 com.myboost.module.charge.saver.BoostBatteryProtectActivity$1 -> com.myboost.module.charge.saver.BoostBatteryProtectActivity$1:
     com.myboost.module.charge.saver.BoostBatteryProtectActivity this$0 -> a
-    45:45:void <init>(com.myboost.module.charge.saver.BoostBatteryProtectActivity) -> <init>
-    48:50:void onUnlock() -> a
+    47:47:void <init>(com.myboost.module.charge.saver.BoostBatteryProtectActivity) -> <init>
+    50:52:void onUnlock() -> a
 com.myboost.module.charge.saver.BoostBatteryProtectActivity$2 -> com.myboost.module.charge.saver.BoostBatteryProtectActivity$2:
     com.myboost.module.charge.saver.BoostBatteryProtectActivity this$0 -> a
-    104:104:void <init>(com.myboost.module.charge.saver.BoostBatteryProtectActivity) -> <init>
-    107:125:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    108:108:void <init>(com.myboost.module.charge.saver.BoostBatteryProtectActivity) -> <init>
+    111:129:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.myboost.module.charge.saver.R -> com.myboost.module.charge.saver.a:
 com.myboost.module.charge.saver.R$anim -> com.myboost.module.charge.saver.a$a:
     int abc_fade_in -> abc_fade_in
@@ -35536,7 +35663,102 @@ com.myboost.module.charge.saver.R$anim -> com.myboost.module.charge.saver.a$a:
     int design_fab_out -> design_fab_out
     int design_snackbar_in -> design_snackbar_in
     int design_snackbar_out -> design_snackbar_out
-com.myboost.module.charge.saver.R$dimen -> com.myboost.module.charge.saver.a$b:
+com.myboost.module.charge.saver.R$color -> com.myboost.module.charge.saver.a$b:
+    int A1 -> A1
+    int A2 -> A2
+    int A3 -> A3
+    int B1 -> B1
+    int B2 -> B2
+    int abc_background_cache_hint_selector_material_dark -> abc_background_cache_hint_selector_material_dark
+    int abc_background_cache_hint_selector_material_light -> abc_background_cache_hint_selector_material_light
+    int abc_color_highlight_material -> abc_color_highlight_material
+    int abc_input_method_navigation_guard -> abc_input_method_navigation_guard
+    int abc_primary_text_disable_only_material_dark -> abc_primary_text_disable_only_material_dark
+    int abc_primary_text_disable_only_material_light -> abc_primary_text_disable_only_material_light
+    int abc_primary_text_material_dark -> abc_primary_text_material_dark
+    int abc_primary_text_material_light -> abc_primary_text_material_light
+    int abc_search_url_text -> abc_search_url_text
+    int abc_search_url_text_normal -> abc_search_url_text_normal
+    int abc_search_url_text_pressed -> abc_search_url_text_pressed
+    int abc_search_url_text_selected -> abc_search_url_text_selected
+    int abc_secondary_text_material_dark -> abc_secondary_text_material_dark
+    int abc_secondary_text_material_light -> abc_secondary_text_material_light
+    int accent_material_dark -> accent_material_dark
+    int accent_material_light -> accent_material_light
+    int background_floating_material_dark -> background_floating_material_dark
+    int background_floating_material_light -> background_floating_material_light
+    int background_material_dark -> background_material_dark
+    int background_material_light -> background_material_light
+    int black_100 -> black_100
+    int bright_foreground_disabled_material_dark -> bright_foreground_disabled_material_dark
+    int bright_foreground_disabled_material_light -> bright_foreground_disabled_material_light
+    int bright_foreground_inverse_material_dark -> bright_foreground_inverse_material_dark
+    int bright_foreground_inverse_material_light -> bright_foreground_inverse_material_light
+    int bright_foreground_material_dark -> bright_foreground_material_dark
+    int bright_foreground_material_light -> bright_foreground_material_light
+    int button_material_dark -> button_material_dark
+    int button_material_light -> button_material_light
+    int charg_1 -> charg_1
+    int charg_2 -> charg_2
+    int charg_3 -> charg_3
+    int design_fab_shadow_end_color -> design_fab_shadow_end_color
+    int design_fab_shadow_mid_color -> design_fab_shadow_mid_color
+    int design_fab_shadow_start_color -> design_fab_shadow_start_color
+    int design_fab_stroke_end_inner_color -> design_fab_stroke_end_inner_color
+    int design_fab_stroke_end_outer_color -> design_fab_stroke_end_outer_color
+    int design_fab_stroke_top_inner_color -> design_fab_stroke_top_inner_color
+    int design_fab_stroke_top_outer_color -> design_fab_stroke_top_outer_color
+    int design_snackbar_background_color -> design_snackbar_background_color
+    int design_textinput_error_color_dark -> design_textinput_error_color_dark
+    int design_textinput_error_color_light -> design_textinput_error_color_light
+    int dim_foreground_disabled_material_dark -> dim_foreground_disabled_material_dark
+    int dim_foreground_disabled_material_light -> dim_foreground_disabled_material_light
+    int dim_foreground_material_dark -> dim_foreground_material_dark
+    int dim_foreground_material_light -> dim_foreground_material_light
+    int foreground_material_dark -> foreground_material_dark
+    int foreground_material_light -> foreground_material_light
+    int highlighted_text_material_dark -> highlighted_text_material_dark
+    int highlighted_text_material_light -> highlighted_text_material_light
+    int hint_foreground_material_dark -> hint_foreground_material_dark
+    int hint_foreground_material_light -> hint_foreground_material_light
+    int list_progress_green -> list_progress_green
+    int main_back -> main_back
+    int material_blue_grey_800 -> material_blue_grey_800
+    int material_blue_grey_900 -> material_blue_grey_900
+    int material_blue_grey_950 -> material_blue_grey_950
+    int material_deep_teal_200 -> material_deep_teal_200
+    int material_deep_teal_500 -> material_deep_teal_500
+    int material_grey_100 -> material_grey_100
+    int material_grey_300 -> material_grey_300
+    int material_grey_50 -> material_grey_50
+    int material_grey_600 -> material_grey_600
+    int material_grey_800 -> material_grey_800
+    int material_grey_850 -> material_grey_850
+    int material_grey_900 -> material_grey_900
+    int primary_dark_material_dark -> primary_dark_material_dark
+    int primary_dark_material_light -> primary_dark_material_light
+    int primary_material_dark -> primary_material_dark
+    int primary_material_light -> primary_material_light
+    int primary_text_default_material_dark -> primary_text_default_material_dark
+    int primary_text_default_material_light -> primary_text_default_material_light
+    int primary_text_disabled_material_dark -> primary_text_disabled_material_dark
+    int primary_text_disabled_material_light -> primary_text_disabled_material_light
+    int rect -> rect
+    int ripple_material_dark -> ripple_material_dark
+    int ripple_material_light -> ripple_material_light
+    int secondary_text_default_material_dark -> secondary_text_default_material_dark
+    int secondary_text_default_material_light -> secondary_text_default_material_light
+    int secondary_text_disabled_material_dark -> secondary_text_disabled_material_dark
+    int secondary_text_disabled_material_light -> secondary_text_disabled_material_light
+    int switch_thumb_disabled_material_dark -> switch_thumb_disabled_material_dark
+    int switch_thumb_disabled_material_light -> switch_thumb_disabled_material_light
+    int switch_thumb_material_dark -> switch_thumb_material_dark
+    int switch_thumb_material_light -> switch_thumb_material_light
+    int switch_thumb_normal_material_dark -> switch_thumb_normal_material_dark
+    int switch_thumb_normal_material_light -> switch_thumb_normal_material_light
+    int white_100 -> white_100
+    int white_15 -> white_15
+com.myboost.module.charge.saver.R$dimen -> com.myboost.module.charge.saver.a$c:
     int abc_action_bar_content_inset_material -> abc_action_bar_content_inset_material
     int abc_action_bar_default_height_material -> abc_action_bar_default_height_material
     int abc_action_bar_default_padding_end_material -> abc_action_bar_default_padding_end_material
@@ -35935,7 +36157,7 @@ com.myboost.module.charge.saver.R$dimen -> com.myboost.module.charge.saver.a$b:
     int txt_title -> txt_title
     int txt_top_4 -> txt_top_4
     int week_p -> week_p
-com.myboost.module.charge.saver.R$id -> com.myboost.module.charge.saver.a$c:
+com.myboost.module.charge.saver.R$id -> com.myboost.module.charge.saver.a$d:
     int BOTTOM_LEFT -> BOTTOM_LEFT
     int BOTTOM_RIGHT -> BOTTOM_RIGHT
     int TOP_LEFT -> TOP_LEFT
@@ -35968,7 +36190,6 @@ com.myboost.module.charge.saver.R$id -> com.myboost.module.charge.saver.a$c:
     int battery_charge_time -> battery_charge_time
     int battery_le -> battery_le
     int battery_more -> battery_more
-    int battery_now_battery -> battery_now_battery
     int battery_now_battery_left -> battery_now_battery_left
     int battery_now_battery_left2 -> battery_now_battery_left2
     int battery_now_date -> battery_now_date
@@ -35976,10 +36197,11 @@ com.myboost.module.charge.saver.R$id -> com.myboost.module.charge.saver.a$c:
     int battery_now_time -> battery_now_time
     int battery_now_week -> battery_now_week
     int battery_now_year -> battery_now_year
+    int battery_ram -> battery_ram
     int battery_switch -> battery_switch
     int battery_switch_check -> battery_switch_check
+    int battery_temp -> battery_temp
     int battery_title -> battery_title
-    int batteryview -> batteryview
     int beginning -> beginning
     int bottom -> bottom
     int buttonPanel -> buttonPanel
@@ -36098,7 +36320,7 @@ com.myboost.module.charge.saver.R$id -> com.myboost.module.charge.saver.a$c:
     int withText -> withText
     int wrap -> wrap
     int wrap_content -> wrap_content
-com.myboost.module.charge.saver.R$layout -> com.myboost.module.charge.saver.a$d:
+com.myboost.module.charge.saver.R$layout -> com.myboost.module.charge.saver.a$e:
     int abc_action_bar_title_item -> abc_action_bar_title_item
     int abc_action_bar_up_container -> abc_action_bar_up_container
     int abc_action_bar_view_list_nav_layout -> abc_action_bar_view_list_nav_layout
@@ -36150,14 +36372,15 @@ com.myboost.module.charge.saver.R$layout -> com.myboost.module.charge.saver.a$d:
     int select_dialog_multichoice_material -> select_dialog_multichoice_material
     int select_dialog_singlechoice_material -> select_dialog_singlechoice_material
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
-com.myboost.module.charge.saver.R$mipmap -> com.myboost.module.charge.saver.a$e:
+com.myboost.module.charge.saver.R$mipmap -> com.myboost.module.charge.saver.a$f:
     int battery -> battery
     int battery_bubble -> battery_bubble
     int battery_more -> battery_more
+    int charging_tem -> charging_tem
     int jiantou -> jiantou
     int side_check_normal -> side_check_normal
     int side_check_passed -> side_check_passed
-com.myboost.module.charge.saver.R$styleable -> com.myboost.module.charge.saver.a$f:
+com.myboost.module.charge.saver.R$styleable -> com.myboost.module.charge.saver.a$g:
     int[] ActionBar -> ActionBar
     int[] ActionBarLayout -> ActionBarLayout
     int ActionBarLayout_android_layout_gravity -> ActionBarLayout_android_layout_gravity
@@ -36748,7 +36971,7 @@ com.myboost.module.charge.saver.R$styleable -> com.myboost.module.charge.saver.a
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1599:2180:void <clinit>() -> <clinit>
+    1606:2187:void <clinit>() -> <clinit>
 com.myboost.module.charge.saver.SetADActivityBoost -> com.myboost.module.charge.saver.SetADActivityBoost:
     12:12:void <init>() -> <init>
     15:18:void onResume() -> onResume
@@ -36856,6 +37079,35 @@ com.myboost.module.charge.saver.boostutils.BoostWidgetContainer$IWidgetListener 
     boolean onBackPressed() -> a
     boolean onMenuPressed() -> b
     void onClick() -> c
+com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost -> com.myboost.module.charge.saver.boostutils.c:
+    java.lang.String TAG -> a
+    java.lang.String[] CPU_TEMP_FILE_PATHS -> b
+    9:9:void <init>() -> <init>
+    32:32:boolean checkValueValid(java.lang.Double) -> b
+    117:120:void getCPUTemp(com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$TemperatureResultCallback) -> a
+    9:9:boolean access$000(java.lang.Double) -> a
+    10:12:void <clinit>() -> <clinit>
+com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$1 -> com.myboost.module.charge.saver.boostutils.c$1:
+com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$ResultCpuTemperature -> com.myboost.module.charge.saver.boostutils.c$a:
+    java.lang.String cpuFilePath -> a
+    boolean needDivide1k -> b
+    double temperature -> c
+    122:123:void <init>() -> <init>
+    136:136:double getTemperature() -> a
+com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$TemperatureResultCallback -> com.myboost.module.charge.saver.boostutils.c$b:
+    void callbackResult(com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$ResultCpuTemperature) -> a
+com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$TryGetFilesTask -> com.myboost.module.charge.saver.boostutils.c$c:
+    com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$TemperatureResultCallback callback -> a
+    com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$ResultCpuTemperature cachedResult -> b
+    36:36:void <init>() -> <init>
+    42:43:void setCallback(com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$TemperatureResultCallback) -> a
+    47:101:com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$ResultCpuTemperature doInBackground(java.lang.Void[]) -> a
+    106:109:void onPostExecute(com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$ResultCpuTemperature) -> a
+    36:36:void onPostExecute(java.lang.Object) -> onPostExecute
+    36:36:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    36:36:void <init>(com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$1) -> <init>
+com.myboost.module.charge.saver.boostutils.OneLineReader -> com.myboost.module.charge.saver.boostutils.d:
+    14:38:java.lang.Double getValue(java.lang.String) -> a
 com.myboost.module.charge.saver.entry.BoostBatteryEntry -> com.myboost.module.charge.saver.a.a:
     int status -> a
     int scale -> b
@@ -36888,6 +37140,55 @@ com.myboost.module.charge.saver.entry.LevelStepBoost -> com.myboost.module.charg
     6:6:void <init>() -> <init>
     11:13:void start(int) -> a
     16:25:int update(int) -> b
+com.myboost.module.charge.saver.protectview.AWaterView -> com.myboost.module.charge.saver.protectview.AWaterView:
+    int width -> a
+    int height -> b
+    android.graphics.Paint firstPaint -> k
+    android.graphics.Paint beijingPaint -> l
+    java.lang.String text -> m
+    int pratent -> n
+    android.content.Context context -> c
+    android.graphics.Paint textPaint -> o
+    int textSize -> p
+    float sin_offset_increment_value -> q
+    float sin_offset_increment_value2 -> r
+    android.graphics.Path firstPath -> s
+    int sin_amplitude -> t
+    float sin_cycle -> u
+    float sin_offset -> d
+    float sin_offset2 -> e
+    com.myboost.module.charge.saver.protectview.AWaterView$UpThread upThread -> f
+    boolean isup -> g
+    com.myboost.module.charge.saver.protectview.AWaterView$RunThread runThread -> h
+    boolean isStart -> i
+    com.myboost.module.charge.saver.protectview.AWaterView$FloatWaterListener listener -> j
+    35:36:void <init>(android.content.Context) -> <init>
+    39:40:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    28:165:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    49:54:void onMeasure(int,int) -> onMeasure
+    57:72:void initPaints() -> c
+    75:76:void setTextSize(int) -> setTextSize
+    80:103:void draw(android.graphics.Canvas) -> draw
+    114:127:android.graphics.Path firstPath() -> d
+    131:144:android.graphics.Path firstPath2() -> e
+    151:156:void setPratent(int) -> setPratent
+    159:162:void upDate(int) -> a
+    168:173:void start() -> a
+    176:177:void stop() -> b
+    234:235:void setFloatWaterListener(com.myboost.module.charge.saver.protectview.AWaterView$FloatWaterListener) -> setFloatWaterListener
+    245:251:void init() -> f
+com.myboost.module.charge.saver.protectview.AWaterView$FloatWaterListener -> com.myboost.module.charge.saver.protectview.AWaterView$a:
+    void success() -> a
+    void update(int) -> a
+com.myboost.module.charge.saver.protectview.AWaterView$RunThread -> com.myboost.module.charge.saver.protectview.AWaterView$b:
+    com.myboost.module.charge.saver.protectview.AWaterView this$0 -> a
+    179:179:void <init>(com.myboost.module.charge.saver.protectview.AWaterView) -> <init>
+    182:190:void run() -> run
+com.myboost.module.charge.saver.protectview.AWaterView$UpThread -> com.myboost.module.charge.saver.protectview.AWaterView$c:
+    int p -> a
+    com.myboost.module.charge.saver.protectview.AWaterView this$0 -> b
+    196:198:void <init>(com.myboost.module.charge.saver.protectview.AWaterView,int) -> <init>
+    202:228:void run() -> run
 com.myboost.module.charge.saver.protectview.BoostBatteryView -> com.myboost.module.charge.saver.protectview.BoostBatteryView:
     android.graphics.Paint paint -> a
     android.content.Context context -> b
@@ -36895,12 +37196,10 @@ com.myboost.module.charge.saver.protectview.BoostBatteryView -> com.myboost.modu
     int battery -> d
     int w -> e
     15:23:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    26:30:void init() -> b
+    26:30:void init() -> a
     34:39:void onDraw(android.graphics.Canvas) -> onDraw
     42:44:void setDuShu(int) -> setDuShu
-    47:48:void start(float) -> a
     52:54:void onDetachedFromWindow() -> onDetachedFromWindow
-    57:58:void stop() -> a
 com.myboost.module.charge.saver.protectview.BoostIndicatorView -> com.myboost.module.charge.saver.protectview.BoostIndicatorView:
     int childViewCount -> a
     int mInterval -> b
@@ -36994,90 +37293,162 @@ com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost -> com
     16:28:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     31:38:void obtainAttributes(android.util.AttributeSet) -> a
     41:47:void setTypeface(java.lang.String) -> setTypeface
+com.myboost.module.charge.saver.protectview.MWaterView -> com.myboost.module.charge.saver.protectview.MWaterView:
+    int width -> a
+    int height -> b
+    android.graphics.Paint firstPaint -> k
+    android.graphics.Paint beijingPaint -> l
+    java.lang.String text -> m
+    int pratent -> n
+    android.content.Context context -> c
+    android.graphics.Paint textPaint -> o
+    int textSize -> p
+    float sin_offset_increment_value -> q
+    float sin_offset_increment_value2 -> r
+    android.graphics.Path firstPath -> s
+    int sin_amplitude -> t
+    float sin_cycle -> u
+    float sin_offset -> d
+    float sin_offset2 -> e
+    com.myboost.module.charge.saver.protectview.MWaterView$UpThread upThread -> f
+    boolean isup -> g
+    com.myboost.module.charge.saver.protectview.MWaterView$RunThread runThread -> h
+    boolean isStart -> i
+    com.myboost.module.charge.saver.protectview.MWaterView$FloatWaterListener listener -> j
+    31:32:void <init>(android.content.Context) -> <init>
+    35:36:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    24:161:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    45:50:void onMeasure(int,int) -> onMeasure
+    53:68:void initPaints() -> c
+    71:72:void setTextSize(int) -> setTextSize
+    76:99:void draw(android.graphics.Canvas) -> draw
+    110:123:android.graphics.Path firstPath() -> d
+    127:140:android.graphics.Path firstPath2() -> e
+    147:152:void setPratent(int) -> setPratent
+    155:158:void upDate(int) -> a
+    164:169:void start() -> a
+    172:173:void stop() -> b
+    230:231:void setFloatWaterListener(com.myboost.module.charge.saver.protectview.MWaterView$FloatWaterListener) -> setFloatWaterListener
+    241:247:void init() -> f
+com.myboost.module.charge.saver.protectview.MWaterView$FloatWaterListener -> com.myboost.module.charge.saver.protectview.MWaterView$a:
+    void success() -> a
+    void update(int) -> a
+com.myboost.module.charge.saver.protectview.MWaterView$RunThread -> com.myboost.module.charge.saver.protectview.MWaterView$b:
+    com.myboost.module.charge.saver.protectview.MWaterView this$0 -> a
+    175:175:void <init>(com.myboost.module.charge.saver.protectview.MWaterView) -> <init>
+    178:186:void run() -> run
+com.myboost.module.charge.saver.protectview.MWaterView$UpThread -> com.myboost.module.charge.saver.protectview.MWaterView$c:
+    int p -> a
+    com.myboost.module.charge.saver.protectview.MWaterView this$0 -> b
+    192:194:void <init>(com.myboost.module.charge.saver.protectview.MWaterView,int) -> <init>
+    198:224:void run() -> run
 com.myboost.module.charge.saver.protectview.ProtectBatteryView -> com.myboost.module.charge.saver.protectview.ProtectBatteryView:
-    android.content.Context mContext -> f
-    android.view.GestureDetector detector -> g
-    float distance -> h
-    boolean isBindView -> i
-    boolean isRegisterTimeUpdate -> j
-    android.view.View adView -> k
-    com.myboost.module.charge.saver.protectview.ProtectBatteryView$UnlockListener unlockListener -> l
-    com.myboost.module.charge.saver.protectview.ProtectBatteryView batteryView -> m
-    android.widget.LinearLayout adLayout -> n
-    android.widget.TextView title -> o
-    android.widget.LinearLayout more -> p
-    android.widget.LinearLayout switchLayout -> q
-    android.widget.CheckBox saverSwitch -> r
-    android.widget.TextView time -> s
-    android.widget.TextView date -> t
-    android.widget.TextView battery_now_year -> u
-    android.widget.TextView day -> v
-    android.widget.TextView week -> w
-    android.widget.TextView batteryLeft -> x
-    android.widget.TextView batteryLeft1 -> y
+    android.content.Context mContext -> g
+    android.view.GestureDetector detector -> h
+    float distance -> i
+    boolean isBindView -> j
+    boolean isRegisterTimeUpdate -> k
+    android.view.View adView -> l
+    com.myboost.module.charge.saver.protectview.ProtectBatteryView$UnlockListener unlockListener -> m
+    com.myboost.module.charge.saver.protectview.ProtectBatteryView batteryView -> n
+    android.widget.LinearLayout adLayout -> o
+    android.widget.TextView title -> p
+    android.widget.LinearLayout more -> q
+    android.widget.LinearLayout switchLayout -> r
+    android.widget.CheckBox saverSwitch -> s
+    android.widget.TextView time -> t
+    android.widget.TextView date -> u
+    android.widget.TextView battery_now_year -> v
+    android.widget.TextView day -> w
+    android.widget.TextView week -> x
+    android.widget.TextView batteryLeft -> y
+    android.widget.TextView batteryLeft1 -> z
     android.widget.LinearLayout battery_charge_time -> a
-    android.widget.TextView battery_le -> b
-    com.myboost.module.charge.saver.protectview.BubbleLayoutBoost bubbleLayout -> z
-    com.myboost.module.charge.saver.protectview.BoostBatteryView batteryview -> c
-    int halfWidth -> A
-    android.content.BroadcastReceiver timerUpdateReceiver -> B
-    android.content.IntentFilter mIntentFilter -> C
-    int progress -> D
-    boolean flag -> d
-    int i -> e
-    38:156:void <init>(android.content.Context) -> <init>
-    38:156:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    38:156:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    79:80:void setUnlockListener(com.myboost.module.charge.saver.protectview.ProtectBatteryView$UnlockListener) -> setUnlockListener
-    92:130:void showNativeAD() -> f
-    133:152:void updateTime() -> a
-    159:177:void bind(com.myboost.module.charge.saver.entry.BoostBatteryEntry) -> a
-    185:185:void setCharing(boolean) -> setCharing
-    189:286:void onFinishInflate() -> onFinishInflate
-    289:306:void initViews() -> g
-    309:312:void pauseBubble() -> b
-    315:318:void reStartBubble() -> c
-    322:329:void onAttachedToWindow() -> onAttachedToWindow
-    333:355:void onDetachedFromWindow() -> onDetachedFromWindow
-    358:362:int analysisJson(org.json.JSONObject) -> a
-    367:374:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    377:379:void registerTimeUpdateReceiver() -> d
-    382:384:void unregisterTimeUpdateReceiver() -> e
-    33:33:android.view.GestureDetector access$000(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> a
-    33:33:int access$100(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> b
-    33:33:com.myboost.module.charge.saver.protectview.ProtectBatteryView$UnlockListener access$200(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> c
-    33:33:android.widget.LinearLayout access$300(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> d
-    33:33:android.widget.LinearLayout access$400(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> e
-    33:33:float access$500(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> f
-    33:33:com.myboost.module.charge.saver.protectview.ProtectBatteryView access$600(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> g
-    33:33:float access$502(com.myboost.module.charge.saver.protectview.ProtectBatteryView,float) -> a
-    33:33:android.content.Context access$700(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> h
-    33:33:android.widget.CheckBox access$800(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> i
+    com.myboost.module.charge.saver.protectview.AWaterView battery_le -> b
+    com.myboost.module.charge.saver.protectview.MWaterView battery_ram -> c
+    android.widget.TextView battery_temp -> d
+    com.myboost.module.charge.saver.protectview.BubbleLayoutBoost bubbleLayout -> A
+    int halfWidth -> B
+    int cpuTemp -> C
+    android.content.BroadcastReceiver timerUpdateReceiver -> D
+    android.content.IntentFilter mIntentFilter -> E
+    int progress -> F
+    boolean flag -> e
+    int i -> f
+    44:164:void <init>(android.content.Context) -> <init>
+    44:164:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    44:164:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    87:88:void setUnlockListener(com.myboost.module.charge.saver.protectview.ProtectBatteryView$UnlockListener) -> setUnlockListener
+    100:138:void showNativeAD() -> f
+    141:160:void updateTime() -> a
+    167:170:int getMemory(android.content.Context) -> a
+    177:181:long getPhoneFreeRamMemory(android.content.Context) -> b
+    189:199:long getPhoneTotalRamMemory() -> getPhoneTotalRamMemory
+    203:221:void bind(com.myboost.module.charge.saver.entry.BoostBatteryEntry) -> a
+    229:229:void setCharing(boolean) -> setCharing
+    233:330:void onFinishInflate() -> onFinishInflate
+    333:351:void initViews() -> g
+    354:363:void pauseBubble() -> b
+    366:393:void reStartBubble() -> c
+    397:429:void onAttachedToWindow() -> onAttachedToWindow
+    433:458:void onDetachedFromWindow() -> onDetachedFromWindow
+    461:465:int analysisJson(org.json.JSONObject) -> a
+    470:477:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    480:482:void registerTimeUpdateReceiver() -> d
+    485:487:void unregisterTimeUpdateReceiver() -> e
+    39:39:android.view.GestureDetector access$000(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> a
+    39:39:int access$100(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> b
+    39:39:com.myboost.module.charge.saver.protectview.ProtectBatteryView$UnlockListener access$200(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> c
+    39:39:android.widget.LinearLayout access$300(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> d
+    39:39:android.widget.LinearLayout access$400(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> e
+    39:39:float access$500(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> f
+    39:39:com.myboost.module.charge.saver.protectview.ProtectBatteryView access$600(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> g
+    39:39:float access$502(com.myboost.module.charge.saver.protectview.ProtectBatteryView,float) -> a
+    39:39:android.content.Context access$700(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> h
+    39:39:android.widget.CheckBox access$800(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> i
+    39:39:int access$902(com.myboost.module.charge.saver.protectview.ProtectBatteryView,int) -> a
+    39:39:int access$900(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> j
 com.myboost.module.charge.saver.protectview.ProtectBatteryView$1 -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$1:
     com.myboost.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    82:82:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    85:86:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    90:90:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    93:94:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.myboost.module.charge.saver.protectview.ProtectBatteryView$2 -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$2:
     com.myboost.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    104:104:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    107:127:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    112:112:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    115:135:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.myboost.module.charge.saver.protectview.ProtectBatteryView$3 -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$3:
     com.myboost.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    198:198:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    201:218:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    242:242:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    245:262:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.myboost.module.charge.saver.protectview.ProtectBatteryView$4 -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$4:
     com.myboost.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    221:221:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    224:228:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    234:243:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    265:265:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    268:272:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    278:287:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.myboost.module.charge.saver.protectview.ProtectBatteryView$5 -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$5:
     com.myboost.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    250:250:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    253:257:void onClick(android.view.View) -> onClick
+    294:294:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    297:301:void onClick(android.view.View) -> onClick
 com.myboost.module.charge.saver.protectview.ProtectBatteryView$6 -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$6:
     com.myboost.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    269:269:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    272:283:void onClick(android.view.View) -> onClick
+    313:313:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    316:327:void onClick(android.view.View) -> onClick
+com.myboost.module.charge.saver.protectview.ProtectBatteryView$7 -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$7:
+    com.myboost.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
+    375:375:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    378:391:void callbackResult(com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$ResultCpuTemperature) -> a
+com.myboost.module.charge.saver.protectview.ProtectBatteryView$7$1 -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$7$1:
+    com.myboost.module.charge.saver.protectview.ProtectBatteryView$7 this$1 -> a
+    384:384:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView$7) -> <init>
+    387:388:void run() -> run
+com.myboost.module.charge.saver.protectview.ProtectBatteryView$8 -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$8:
+    com.myboost.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
+    411:411:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    414:427:void callbackResult(com.myboost.module.charge.saver.boostutils.GetCpuTempReaderBoost$ResultCpuTemperature) -> a
+com.myboost.module.charge.saver.protectview.ProtectBatteryView$8$1 -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$8$1:
+    com.myboost.module.charge.saver.protectview.ProtectBatteryView$8 this$1 -> a
+    420:420:void <init>(com.myboost.module.charge.saver.protectview.ProtectBatteryView$8) -> <init>
+    423:424:void run() -> run
 com.myboost.module.charge.saver.protectview.ProtectBatteryView$UnlockListener -> com.myboost.module.charge.saver.protectview.ProtectBatteryView$a:
     void onUnlock() -> a
 com.nineoldandroids.animation.Animator -> com.a.a.a:

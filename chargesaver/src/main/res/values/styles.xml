@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="SettingCheckbox" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/setting_checkbox_selector</item>
     </style>
+
     <style name="CustomTranslate" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
         <item name="android:windowAnimationStyle">@style/animation</item>
         <!--<item name="android:activityCloseExitAnimation">@null</item>-->
     </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/A1</item>
+    </style>
+
+    <style name="Transparent" parent="AppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <!--<item name="android:backgroundDimEnabled">true</item>-->
+    </style>
+
+
     <style name="animation">
         <item name="android:activityOpenEnterAnimation">@null</item>
         <item name="android:activityOpenExitAnimation">@null</item>

@@ -140,7 +140,7 @@ public class FileActivityBoost extends BaseActivity {
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(SetAdUtilPrivacy.DEFAULT_FULL);
                 }
             }, 1000);
         } else {
@@ -167,7 +167,7 @@ public class FileActivityBoost extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL,null);
         name = getIntent().getStringExtra("name");
         nameId = getIntent().getIntExtra("nameId", 0);
         if (name == null) {

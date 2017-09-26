@@ -139,7 +139,7 @@
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Dialog" />
+            android:theme="@style/Transparent" />
         <activity
             android:name="com.myboost.junk.boostactivity.BoostNotifingActivity"
             android:screenOrientation="portrait" />
@@ -192,6 +192,7 @@
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
 
                 <data android:scheme="package" />
             </intent-filter>

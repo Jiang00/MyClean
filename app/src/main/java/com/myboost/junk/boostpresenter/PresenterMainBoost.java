@@ -123,8 +123,13 @@ public class PresenterMainBoost extends BoostPresenterBase<BoostMainView> {
         setRotateGone();
     }
 
+    public void deleteRotate() {
+        PreData.putDB(context, BoostMyConstant.IS_ROTATE_MAIN, true);
+        setRotateGone();
+    }
+
     public void setRotateGone() {
-        if (PreData.getDB(context, BoostMyConstant.IS_ROTATE, false)) {
+        if (PreData.getDB(context, BoostMyConstant.IS_ROTATE, false) || PreData.getDB(context, BoostMyConstant.IS_ROTATE_MAIN, false)) {
             iView.setRotateGone();
         }
     }

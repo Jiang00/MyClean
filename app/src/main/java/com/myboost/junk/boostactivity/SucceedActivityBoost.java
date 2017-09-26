@@ -141,7 +141,7 @@ public class SucceedActivityBoost extends BaseActivity {
             //电池降温跳过动画
             //广告
             if (PreData.getDB(SucceedActivityBoost.this, BoostMyConstant.FULL_SUCCESS, 0) == 1) {
-                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                AndroidSdk.showFullAd(SetAdUtilPrivacy.DEFAULT_FULL);
             }
             //动画结束换内容的
             startSecondAnimation();
@@ -183,7 +183,7 @@ public class SucceedActivityBoost extends BaseActivity {
                                 public void run() {
                                     //广告
                                     if (PreData.getDB(SucceedActivityBoost.this, BoostMyConstant.FULL_SUCCESS, 0) == 1) {
-                                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                                        AndroidSdk.showFullAd(SetAdUtilPrivacy.DEFAULT_FULL);
                                     }
                                     //动画结束换内容的
                                     startSecondAnimation();
@@ -315,7 +315,7 @@ public class SucceedActivityBoost extends BaseActivity {
             main_notifi_button.setVisibility(View.GONE);
         }
 
-        if (PreData.getDB(this, BoostMyConstant.IS_ROTATE, false)) {
+        if (PreData.getDB(this, BoostMyConstant.IS_ROTATE, false) || PreData.getDB(this, BoostMyConstant.IS_ROTATE_SUCCESS, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
 
@@ -453,7 +453,7 @@ public class SucceedActivityBoost extends BaseActivity {
                     break;
                 case R.id.main_rotate_close:
                     SetAdUtilPrivacy.track("完成页面", "点击好评叉号", "", 1);
-                    PreData.putDB(SucceedActivityBoost.this, BoostMyConstant.IS_ROTATE, true);
+                    PreData.putDB(SucceedActivityBoost.this, BoostMyConstant.IS_ROTATE_SUCCESS, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
