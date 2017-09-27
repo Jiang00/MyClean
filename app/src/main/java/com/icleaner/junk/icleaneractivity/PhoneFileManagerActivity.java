@@ -77,7 +77,7 @@ public class PhoneFileManagerActivity extends BaseActivity {
     private void initAd() {
 
         if (PreData.getDB(this, MyConstant.FULL_FILE, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
         } else {
             nativeView = SetAdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {

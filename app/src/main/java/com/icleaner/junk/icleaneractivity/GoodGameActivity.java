@@ -77,6 +77,7 @@ public class GoodGameActivity extends BaseActivity {
     private int width;
     TextView gboost_item_textview;
     GridView gboost_gridview;
+    private ImageView main_aerobee;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -89,6 +90,7 @@ public class GoodGameActivity extends BaseActivity {
             super.handleMessage(msg);
         }
     };
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -110,7 +112,7 @@ public class GoodGameActivity extends BaseActivity {
 //            gboost_power_check.setImageResource(R.mipmap.side_check_normal);
 //        }
 //        gboost_power_check.setOnClickListener(clickListener);
-//        main_aerobee.setOnClickListener(clickListener);
+        main_aerobee.setOnClickListener(clickListener);
         add_right.setOnClickListener(clickListener);
         clear.setOnClickListener(clickListener);
         gboost_add = new ArrayList<>();
@@ -133,7 +135,7 @@ public class GoodGameActivity extends BaseActivity {
 //        gboost_network_size = (TextView) findViewById(R.id.gboost_network_size);
 //        gboost_cpu_szie = (TextView) findViewById(R.id.gboost_cpu_szie);
 //        gboost_power_check = (ImageView) findViewById(R.id.gboost_power_check);
-//        main_aerobee = (ImageView) findViewById(R.id.main_aerobee);
+        main_aerobee = (ImageView) findViewById(R.id.main_aerobee);
         ll_add_game = (LinearLayout) findViewById(R.id.ll_add_game);
         add_left = (FrameLayout) findViewById(R.id.add_left);
         list_game = (ListView) findViewById(R.id.list_game);
@@ -286,12 +288,12 @@ public class GoodGameActivity extends BaseActivity {
                         }
                     }, 1500);
                     break;*/
-                /*case R.id.main_aerobee:
+                case R.id.main_aerobee:
                     SetAdUtil.track("游戏加速页面", "点击一键加速", "", 1);
                     Bundle bundle = new Bundle();
                     bundle.putString("from", "GBoost");
                     jumpToActivity(DeepingActivity.class, bundle, 1);
-                    break;*/
+                    break;
             }
         }
     };
@@ -445,7 +447,7 @@ public class GoodGameActivity extends BaseActivity {
             Intent shortcutIntent = new Intent();
             shortcutIntent.setAction(Intent.ACTION_VIEW);
             shortcutIntent.setComponent(new ComponentName(getPackageName(),
-                    GoodGameActivity.class.getName()));
+                    ShortCutingGboostActivity.class.getCanonicalName()));
             String title = GoodGameActivity.this.getString(R.string.gboost_0);
             PreData.putDB(GoodGameActivity.this, MyConstant.GBOOST_LUN, true);
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.gboost_short);

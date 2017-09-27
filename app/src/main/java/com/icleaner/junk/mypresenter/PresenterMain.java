@@ -123,8 +123,13 @@ public class PresenterMain extends PresenterBase<MainView> {
         setRotateGone();
     }
 
+    public void deleteRotate() {
+        PreData.putDB(context, MyConstant.IS_ROTATE_MAIN, true);
+        setRotateGone();
+    }
+
     public void setRotateGone() {
-        if (PreData.getDB(context, MyConstant.IS_ROTATE, false)) {
+        if (PreData.getDB(context, MyConstant.IS_ROTATE, false) || PreData.getDB(context, MyConstant.IS_ROTATE_MAIN, false)) {
             iView.setRotateGone();
         }
     }

@@ -137,7 +137,7 @@ public class PhoneDocActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file_doc);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL,null);
         title_name.setText(R.string.file_txt);
         loadAd();
         setListenet();
@@ -196,7 +196,7 @@ public class PhoneDocActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, MyConstant.FULL_FILE_2, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
         } else {
             addAd();
         }

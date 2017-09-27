@@ -11,84 +11,68 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/d24"
+        android:layout_marginRight="@dimen/d24"
         android:background="@color/white_100"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
+            android:layout_height="@dimen/d75"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:src="@mipmap/loading_icon" />
+                android:layout_width="@dimen/d36"
+                android:layout_height="@dimen/d36"
+                android:layout_marginLeft="@dimen/d24"
+                android:src="@mipmap/icon" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/d16"
-                android:text="@string/app_name"
-                android:textColor="@color/A1"
-                android:textSize="@dimen/s18" />
+                android:text="@string/exit_msg"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s16" />
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d24"
-            android:layout_marginLeft="@dimen/d24"
-            android:layout_marginTop="@dimen/d20"
-            android:gravity="center"
-            android:text="@string/exit_msg"
-            android:textColor="@color/A1"
-            android:textSize="@dimen/s16" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d8"
+            android:layout_height="@dimen/d52"
+            android:layout_marginTop="@dimen/d10"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/exit_quxiao"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/d36"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:paddingLeft="@dimen/d16"
-                android:paddingRight="@dimen/d16"
                 android:text="@string/exit_quxiao"
-                android:textColor="#801e134b"
+                android:textColor="#59494949"
                 android:textSize="@dimen/s16" />
 
             <TextView
                 android:id="@+id/exit_queren"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/d36"
-                android:layout_gravity="right"
-                android:layout_marginLeft="@dimen/d16"
-                android:layout_marginRight="@dimen/d8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:paddingLeft="@dimen/d16"
-                android:paddingRight="@dimen/d16"
                 android:text="@string/exit_queren"
                 android:textColor="@color/A1"
                 android:textSize="@dimen/s16" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_ad_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_ad_exit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone" />
+
 </LinearLayout>

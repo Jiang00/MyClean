@@ -63,6 +63,7 @@ public class ProtectBatteryView extends FrameLayout {
     private LottieAnimationView water;
 
     private int halfWidth;
+    private BatteryLevelView battery_level_view;
 //    private ImageView shutter;
 
     public interface UnlockListener {
@@ -171,7 +172,7 @@ public class ProtectBatteryView extends FrameLayout {
             currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_1));
         }
         currentLevel.setText(curLevel + "%");
-
+        battery_level_view.setLevel(curLevel);
         if (water != null && !water.isAnimating()) {
             initWater();
             water.playAnimation();
@@ -349,6 +350,7 @@ public class ProtectBatteryView extends FrameLayout {
 //        shutter = (ImageView) findViewById(R.id.battery_shutter);
         bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
         currentLevel = (TextView) findViewById(R.id.battery_level);
+        battery_level_view = (BatteryLevelView) findViewById(R.id.battery_level_view);
         currentLevel_ing = (TextView) findViewById(R.id.currentLevel_ing);
         batteryView = (ProtectBatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);

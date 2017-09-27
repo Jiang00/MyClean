@@ -48,7 +48,7 @@ public class MyApplication extends Application {
 
         if (PreData.getDB(this, MyConstant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, MyNotificationService.class);
-            intent.setAction("notification");
+            intent.putExtra("from", "notification");
             startService(intent);
         }
 

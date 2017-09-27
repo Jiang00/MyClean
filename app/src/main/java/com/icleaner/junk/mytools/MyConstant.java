@@ -15,6 +15,10 @@ public class MyConstant {
 
     public static final String IS_ROTATE = "IS_ROTATE";//是否评价
 
+    public static final String IS_ROTATE_MAIN = "IS_ROTATE_MAIN";//是否评价
+
+    public static final String IS_ROTATE_SUCCESS = "IS_ROTATE_SUCCESS";//是否评价
+
     public static final String FlOAT_SWITCH = "FlOAT_SWITCH";//悬浮球
 
     public static final String TONGZHI_SWITCH = "TONGZHI_SWITCH";//通知开关

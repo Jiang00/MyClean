@@ -165,7 +165,7 @@ public class AllAppsActivity extends BaseActivity implements CustomAllAppView {
     @Override
     public void loadFullAd() {
         if (PreData.getDB(this, MyConstant.FULL_MANAGER, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
         } else {
             nativeView1 = SetAdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             nativeView2 = SetAdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
@@ -249,7 +249,7 @@ public class AllAppsActivity extends BaseActivity implements CustomAllAppView {
         ListView listView_size = (ListView) view_size.findViewById(R.id.file_list);
         ListView listView_time = (ListView) view_time.findViewById(R.id.file_list);
         ListView listView_pinlv = (ListView) view_pinlv.findViewById(R.id.file_list);
-        TextView manager_shouquan = (TextView) view_permiss.findViewById(R.id.manager_shouquan);
+        ImageView manager_shouquan = (ImageView) view_permiss.findViewById(R.id.manager_shouquan);
         ll_ad_size = (LinearLayout) view_size.findViewById(R.id.ll_ad);
         ll_ad_time = (LinearLayout) view_time.findViewById(R.id.ll_ad);
         ll_ad_pinlv = (LinearLayout) view_pinlv.findViewById(R.id.ll_ad);

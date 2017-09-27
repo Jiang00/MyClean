@@ -191,14 +191,14 @@ public class SucceedActivity extends BaseActivity {
             @Override
             public void duogouSc() {
                 if (PreData.getDB(SucceedActivity.this, MyConstant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
                 }
                 success_textview.setVisibility(View.VISIBLE);
                 startSecondAnimation();
                 success_drawhook.setListener(null);
             }
         });
-        if (PreData.getDB(this, MyConstant.IS_ROTATE, false)) {
+        if (PreData.getDB(this, MyConstant.IS_ROTATE, false) || PreData.getDB(this, MyConstant.IS_ROTATE_SUCCESS, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
 
@@ -344,7 +344,7 @@ public class SucceedActivity extends BaseActivity {
                     break;
                 case R.id.rotate_cha:
                     SetAdUtil.track("完成页面", "点击好评叉号", "", 1);
-                    PreData.putDB(SucceedActivity.this, MyConstant.IS_ROTATE, true);
+                    PreData.putDB(SucceedActivity.this, MyConstant.IS_ROTATE_SUCCESS, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:

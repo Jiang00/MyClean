@@ -84,13 +84,13 @@
                     android:textSize="@dimen/s54"
                     app:typeface="ROBOTO-REGULAR.TTF" />
 
-                <ImageView
-                    android:layout_width="@dimen/d129"
-                    android:layout_height="@dimen/d43"
+                <com.icleaner.module.charge.saver.protectview.BatteryLevelView
+                    android:id="@+id/battery_level_view"
+                    android:layout_width="@dimen/d120"
+                    android:layout_height="@dimen/d44"
                     android:layout_marginLeft="@dimen/d27"
                     android:layout_marginTop="@dimen/d15"
-                    android:layout_toRightOf="@id/battery_now_time"
-                    android:src="@mipmap/battery" />
+                    android:layout_toRightOf="@id/battery_now_time" />
                 <!--电池动画-->
                 <com.sample.lottie.LottieAnimationView
                     android:id="@+id/battery_electricity"

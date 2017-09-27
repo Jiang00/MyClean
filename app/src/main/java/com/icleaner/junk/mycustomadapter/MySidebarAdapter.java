@@ -23,6 +23,7 @@ import com.icleaner.junk.icleaneractivity.GoodGameActivity;
 import com.icleaner.junk.icleaneractivity.IgnoresAvtivity;
 import com.icleaner.junk.icleaneractivity.MemoryAvtivity;
 import com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity;
+import com.icleaner.junk.icleaneractivity.PictActivity;
 import com.icleaner.junk.icleaneractivity.RubbishActivity;
 import com.icleaner.junk.icleaneractivity.SetActivity;
 import com.icleaner.junk.mytools.MUtilGp;
@@ -44,6 +45,7 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
     int MANAGER = -1;
     int FILE = -1;
     int GBOOST = -1;
+    int PICTURE = -1;
     int POWER = -1;
     int WHITE = -1;
     int SETTING = -1;
@@ -58,13 +60,16 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
         JUNK = idx++;
         RAM = idx++;
         MANAGER = idx++;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.FILEACTIVITY, 1) != 0) {
+        if (PreData.getDB(context, MyConstant.FILEACTIVITY, 1) != 0) {
             FILE = idx++;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.GOODGAME, 1) != 0) {
+        if (PreData.getDB(context, MyConstant.GOODGAME, 1) != 0) {
             GBOOST = idx++;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.POWERACTIVITY, 1) != 0) {
+        if (PreData.getDB(context, MyConstant.GOODGAME, 1) != 0) {
+            PICTURE = idx++;
+        }
+        if (PreData.getDB(context, MyConstant.POWERACTIVITY, 1) != 0) {
             POWER = idx++;
         }
         WHITE = idx++;
@@ -123,12 +128,12 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
-        if (position == POWER) {
-            holder.side_deep_h.setVisibility(View.VISIBLE);
-            holder.side_deep_h.setText(powerSize);
-        } else {
-            holder.side_deep_h.setVisibility(View.GONE);
-        }
+//        if (position == POWER) {
+//            holder.side_deep_h.setVisibility(View.VISIBLE);
+//            holder.side_deep_h.setText(powerSize);
+//        } else {
+//            holder.side_deep_h.setVisibility(View.GONE);
+//        }
         if (position == BATTERY) {
             holder.side_divide.setVisibility(View.GONE);
         } else {
@@ -182,13 +187,17 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == WHITE) {
             SetAdUtil.track("侧边栏", "点击进入白名单", "", 1);
-            PreData.putDB(context, MyConstant.PHOTO_CLEAN, true);
             Intent intent = new Intent(context, IgnoresAvtivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == GBOOST) {
             SetAdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
             PreData.putDB(context, MyConstant.GBOOST_CLEAN, true);
             Intent intent = new Intent(context, GoodGameActivity.class);
+            ((Activity) context).startActivityForResult(intent, 1);
+        } else if (position == PICTURE) {
+            SetAdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
+            PreData.putDB(context, MyConstant.PICTUREX, true);
+            Intent intent = new Intent(context, PictActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == SETTING) {
             SetAdUtil.track("侧边栏", "点击进入设置页面", "", 1);

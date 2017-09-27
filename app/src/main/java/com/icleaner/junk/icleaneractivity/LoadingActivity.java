@@ -1,11 +1,16 @@
 package com.icleaner.junk.icleaneractivity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.icleaner.clean.utils.MyUtils;
 import com.icleaner.clean.utils.PreData;
@@ -24,12 +29,18 @@ import org.json.JSONObject;
 
 public class LoadingActivity extends BaseActivity {
     Handler myHandler;
+    ImageView loading_icon;
+    TextView loading_text_1, loading_text_2;
+    private AnimatorSet animatorSet;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loading);
+        loading_icon = (ImageView) findViewById(R.id.loading_icon);
+        loading_text_1 = (TextView) findViewById(R.id.loading_text_1);
+        loading_text_2 = (TextView) findViewById(R.id.loading_text_2);
         ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
         if (PreData.getDB(this, MyConstant.ROOT_TRAK, true)) {
@@ -39,6 +50,23 @@ public class LoadingActivity extends BaseActivity {
         }
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2000);
+        if (PreData.getDB(this, MyConstant.FULL_START, 0) == 1) {
+            AndroidSdk.loadFullAd("loading_full",null);
+        }
+        animatorSet = new AnimatorSet();
+        loading_icon.setTranslationX(getResources().getDimensionPixelOffset(R.dimen.d150));
+        loading_text_1.setTranslationX(getResources().getDimensionPixelOffset(R.dimen.d208));
+        loading_text_2.setTranslationX(getResources().getDimensionPixelOffset(R.dimen.d208));
+        ObjectAnimator animator_1 = ObjectAnimator.ofFloat(loading_icon, View.TRANSLATION_X, getResources().getDimensionPixelOffset(R.dimen.d150), 0);
+        animator_1.setDuration(1000);
+        ObjectAnimator animator_2 = ObjectAnimator.ofFloat(loading_text_1, View.TRANSLATION_X, getResources().getDimensionPixelOffset(R.dimen.d208), 0);
+        animator_2.setDuration(800);
+        ObjectAnimator animator_3 = ObjectAnimator.ofFloat(loading_text_2, View.TRANSLATION_X, getResources().getDimensionPixelOffset(R.dimen.d208), 0);
+        animator_3.setDuration(700);
+        animatorSet.play(animator_1);
+        animatorSet.play(animator_2).after(300);
+        animatorSet.play(animator_3).after(600);
+        animatorSet.start();
     }
 
     @Override
@@ -155,6 +183,9 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        if (animatorSet != null) {
+            animatorSet.cancel();
+        }
         myHandler.removeCallbacksAndMessages(null);
         super.onDestroy();
     }

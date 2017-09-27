@@ -62,21 +62,42 @@
                     android:scaleType="center"
                     android:src="@mipmap/main_setting" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <FrameLayout
+                    android:id="@+id/lot_ad"
+                    android:layout_width="@dimen/d40"
+                    android:layout_height="@dimen/d40"
                     android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@id/iv_title_right"
-                    android:orientation="horizontal">
+                    android:layout_toLeftOf="@id/iv_title_right">
 
                     <ImageView
-                        android:id="@+id/lot_ad"
+                        android:id="@+id/box_3"
+                        android:layout_width="@dimen/d24"
+                        android:layout_height="@dimen/d24"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/box_3" />
+
+                    <ImageView
+                        android:id="@+id/box_1"
+                        android:layout_width="@dimen/d24"
+                        android:layout_height="@dimen/d24"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/box_1" />
+
+                    <ImageView
+                        android:id="@+id/box_2"
+                        android:layout_width="@dimen/d24"
+                        android:layout_height="@dimen/d24"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/box_2" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:scaleType="center"
-                        android:src="@mipmap/main_libao" />
-                </LinearLayout>
+                        android:layout_gravity="right"
+                        android:text="AD"
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/s8" />
+                </FrameLayout>
 
             </RelativeLayout>
 
@@ -244,7 +265,9 @@
                                             <LinearLayout
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
-                                                android:layout_centerInParent="true"
+                                                android:layout_alignParentLeft="true"
+                                                android:layout_alignParentStart="true"
+                                                android:layout_alignParentTop="true"
                                                 android:gravity="center"
                                                 android:orientation="vertical">
 
@@ -501,49 +524,65 @@
                             <LinearLayout
                                 android:id="@+id/main_junk_button2"
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="wrap_content"
                                 android:background="?attr/selectableItemBackground"
-                                android:orientation="horizontal"
+                                android:orientation="vertical"
                                 android:visibility="gone">
 
-                                <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/junk_main" />
-
                                 <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="@dimen/d20"
-                                    android:layout_weight="1"
-                                    android:gravity="center_vertical"
-                                    android:orientation="vertical">
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d56"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:orientation="horizontal">
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/main_junk_name"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                    <ImageView
+                                        android:layout_width="@dimen/d36"
+                                        android:layout_height="@dimen/d36"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/d16"
+                                        android:src="@mipmap/junk_main" />
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                        android:layout_width="@dimen/d225"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/success_8"
-                                        android:textColor="@color/A1_50"
-                                        android:textSize="@dimen/s12" />
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="@dimen/d20"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical">
+
+                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/main_junk_name"
+                                            android:textColor="@color/A1"
+                                            android:textSize="@dimen/s14" />
+
+                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            android:layout_width="@dimen/d225"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/d4"
+                                            android:text="@string/success_8"
+                                            android:textColor="@color/A1_50"
+                                            android:textSize="@dimen/s12" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:layout_width="@dimen/d65"
+                                        android:layout_height="@dimen/d26"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginRight="@dimen/d15"
+                                        android:background="@drawable/shape_a4_h"
+                                        android:gravity="center"
+                                        android:text="@string/notification_button"
+                                        android:textColor="@color/A4"
+                                        android:textSize="@dimen/s10" />
                                 </LinearLayout>
-                            </LinearLayout>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:background="@color/B4"
-                                android:visibility="gone" />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:background="@color/A2" />
+                            </LinearLayout>
                             <!--游戏加速-->
                             <LinearLayout
                                 android:id="@+id/main_gboost_button"
@@ -592,6 +631,17 @@
                                             android:textColor="@color/A1_50"
                                             android:textSize="@dimen/s12" />
                                     </LinearLayout>
+
+                                    <TextView
+                                        android:layout_width="@dimen/d65"
+                                        android:layout_height="@dimen/d26"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginRight="@dimen/d15"
+                                        android:background="@drawable/shape_a4_h"
+                                        android:gravity="center"
+                                        android:text="@string/main_button"
+                                        android:textColor="@color/A4"
+                                        android:textSize="@dimen/s10" />
                                 </LinearLayout>
 
                                 <View
@@ -647,6 +697,17 @@
                                             android:textColor="@color/A1_50"
                                             android:textSize="@dimen/s12" />
                                     </LinearLayout>
+
+                                    <TextView
+                                        android:layout_width="@dimen/d65"
+                                        android:layout_height="@dimen/d26"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginRight="@dimen/d15"
+                                        android:background="@drawable/shape_a4_h"
+                                        android:gravity="center"
+                                        android:text="@string/notifi_info_2"
+                                        android:textColor="@color/A4"
+                                        android:textSize="@dimen/s10" />
                                 </LinearLayout>
 
                                 <View
@@ -658,56 +719,71 @@
                             <LinearLayout
                                 android:id="@+id/main_cooling_button2"
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="wrap_content"
                                 android:background="?attr/selectableItemBackground"
-                                android:orientation="horizontal"
+                                android:orientation="vertical"
                                 android:visibility="gone">
 
-                                <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/cooling_main" />
-
                                 <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="@dimen/d20"
-                                    android:layout_weight="1"
-                                    android:gravity="center_vertical"
-                                    android:orientation="vertical">
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d56"
+                                    android:orientation="horizontal">
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                        android:id="@+id/main_msg_cooling"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/main_cooling_name"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                    <ImageView
+                                        android:layout_width="@dimen/d36"
+                                        android:layout_height="@dimen/d36"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/d16"
+                                        android:src="@mipmap/cooling_main" />
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                        android:layout_width="@dimen/d225"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d3"
-                                        android:text="@string/success_10"
-                                        android:textColor="@color/A1_50"
-                                        android:textSize="@dimen/s12" />
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="@dimen/d20"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical">
+
+                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            android:id="@+id/main_msg_cooling"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/main_cooling_name"
+                                            android:textColor="@color/A1"
+                                            android:textSize="@dimen/s14" />
+
+                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            android:layout_width="@dimen/d225"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/d3"
+                                            android:text="@string/success_10"
+                                            android:textColor="@color/A1_50"
+                                            android:textSize="@dimen/s12" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:layout_width="@dimen/d65"
+                                        android:layout_height="@dimen/d26"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginRight="@dimen/d15"
+                                        android:background="@drawable/shape_a4_h"
+                                        android:gravity="center"
+                                        android:text="@string/notifi_jiangwen"
+                                        android:textColor="@color/A4"
+                                        android:textSize="@dimen/s10" />
                                 </LinearLayout>
-                            </LinearLayout>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:background="@color/B4"
-                                android:visibility="gone" />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:background="@color/A2" />
+                            </LinearLayout>
 
                             <!--深度清理-->
                             <LinearLayout
                                 android:id="@+id/main_power_button"
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:background="?attr/selectableItemBackground"
                                 android:orientation="horizontal">
 
@@ -755,15 +831,20 @@
                                             android:textColor="@color/A1_50"
                                             android:textSize="@dimen/s12" />
                                     </LinearLayout>
-
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                        android:layout_width="@dimen/d225"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/power_5"
-                                        android:textColor="@color/A1_50"
-                                        android:textSize="@dimen/s12" />
                                 </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="@dimen/d65"
+                                    android:layout_height="@dimen/d26"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/d15"
+                                    android:background="@drawable/shape_a4_h"
+                                    android:gravity="center"
+                                    android:text="@string/ram_button"
+                                    android:textColor="@color/A4"
+                                    android:textSize="@dimen/s10" />
                             </LinearLayout>
+
                         </LinearLayout>
 
                         <View
@@ -951,5 +1032,13 @@
             android:visibility="gone" />
 
         <include layout="@layout/layout_battery" />
+
+        <com.icleaner.junk.mycustomview.QiqiuLayout
+            android:id="@+id/full_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:visibility="invisible" />
+
     </FrameLayout>
 </LinearLayout>

@@ -19,6 +19,7 @@ import com.icleaner.junk.R;
 import com.icleaner.junk.mytools.MyConstant;
 import com.icleaner.junk.mycustomview.FlakeView;
 import com.icleaner.clean.utils.PreData;
+import com.icleaner.junk.mytools.SetAdUtil;
 
 import java.util.Random;
 
@@ -56,7 +57,7 @@ public class BatteriesActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL,null);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +80,7 @@ public class BatteriesActivity extends BaseActivity {
                 cooling_fl.setVisibility(View.INVISIBLE);
                 cooling_xuehua.clearAnimation();
                 if (PreData.getDB(BatteriesActivity.this, MyConstant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
                 }
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);

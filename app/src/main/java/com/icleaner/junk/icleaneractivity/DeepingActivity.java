@@ -65,7 +65,7 @@ public class DeepingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL, null);
         mHandler = new Handler();
         startService(new Intent(this, MyServiceCustomerAccessibility.class).putExtra("isDis", false));
         initData();
@@ -133,7 +133,7 @@ public class DeepingActivity extends BaseActivity {
                     MyUtils.doStartApplicationWithPackageName(DeepingActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(DeepingActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(DeepingActivity.this, MyNotificationService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
                 } else {
@@ -183,7 +183,7 @@ public class DeepingActivity extends BaseActivity {
                     MyUtils.doStartApplicationWithPackageName(DeepingActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(DeepingActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(DeepingActivity.this, MyNotificationService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
 

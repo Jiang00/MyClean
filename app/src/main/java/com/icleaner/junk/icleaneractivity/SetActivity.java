@@ -57,7 +57,7 @@ public class SetActivity extends BaseActivity {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
                 }
             }, 1000);
         } else {
@@ -187,7 +187,7 @@ public class SetActivity extends BaseActivity {
                         PreData.putDB(SetActivity.this, MyConstant.TONGZHILAN_SWITCH, true);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
                         Intent intent = new Intent(SetActivity.this, MyNotificationService.class);
-                        intent.setAction("notification");
+                        intent.putExtra("from", "notification");
                         startService(intent);
                     }
                     break;

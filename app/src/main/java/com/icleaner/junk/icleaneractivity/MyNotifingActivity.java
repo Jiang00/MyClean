@@ -25,6 +25,7 @@ import com.icleaner.clean.notification.NotificationCallBack;
 import com.icleaner.clean.notification.NotificationInfo;
 import com.icleaner.clean.utils.PreData;
 import com.icleaner.clean.utils.MyUtils;
+import com.icleaner.junk.mytools.SetAdUtil;
 
 import java.util.ArrayList;
 
@@ -110,7 +111,7 @@ public class MyNotifingActivity extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL,null);
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, MyServiceNotificationMonitor.class));

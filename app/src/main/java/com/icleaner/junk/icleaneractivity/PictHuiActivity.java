@@ -63,7 +63,7 @@ public class PictHuiActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, MyConstant.RECYCLEBIN, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
         } else {
             addAd();
         }
