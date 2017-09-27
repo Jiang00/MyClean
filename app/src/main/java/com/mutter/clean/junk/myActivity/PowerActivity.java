@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -53,11 +54,13 @@ public class PowerActivity extends BaseActivity {
     private Button containerView_junk_button_clean;
     Handler mHandler;
     RecyclerView power_recycler;
+    LinearLayout ll_ad;
     private HomeAdapter homeAdapter, containerAdapter;
     private ArrayList<JunkInfo> startList;
     private RecyclerView containerView_recyclerView;
     private PowerWidgetContainer container;
     private int count = 0;
+    private View nativeView;
 
 
     @Override
@@ -68,6 +71,7 @@ public class PowerActivity extends BaseActivity {
         power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         power_check = (ImageView) findViewById(R.id.power_check);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -116,6 +120,19 @@ public class PowerActivity extends BaseActivity {
                 return;
             }
             junk_button_clean.callOnClick();
+        }
+        if (PreData.getDB(this, Constant.FULL_DEEP_NATIVE, 0) == 1) {
+            addAd();
+        }
+    }
+
+    private void addAd() {
+        nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+            ll_ad.setLayoutParams(layout_ad);
+            ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
         }
     }
 

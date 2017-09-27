@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.annotation.LayoutRes;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -216,7 +217,7 @@ public class SuccessActivity extends BaseActivity {
         }
 
         initAnimation();
-        if (PreData.getDB(this, Constant.IS_ROTATE, false)||PreData.getDB(this, Constant.IS_ROTATE_SUCC, false)) {
+        if (PreData.getDB(this, Constant.IS_ROTATE, false) || PreData.getDB(this, Constant.IS_ROTATE_SUCC, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
         addListener();
@@ -230,10 +231,34 @@ public class SuccessActivity extends BaseActivity {
             }, 1000);
 
         }
+        if (PreData.getDB(this, Constant.FULL_SUCCESS_NATIVE, 0) == 1) {
+            native_xiao = getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_6);
+            if (ll_ad_xiao != null && native_xiao != null) {
+                ll_ad_xiao.addView(native_xiao);
+                ll_ad_xiao.setVisibility(View.VISIBLE);
+            }
+        }
         tuiguang(TUIGUAN_SUCCESS_SOFT, true, tuiguang_success);
         tuiguang(TUIGUAN_SUCCESS, false, tuiguang_success);
     }
 
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd("mutter_start_native")) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout("mutter_start_native", layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+        }
+        return nativeView;
+    }
 
     private void addListener() {
         title_left.setOnClickListener(onClickListener);
@@ -286,7 +311,7 @@ public class SuccessActivity extends BaseActivity {
 
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
-        native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_6);
+
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight();
@@ -300,10 +325,7 @@ public class SuccessActivity extends BaseActivity {
                 scrollView.smoothScrollToSlow(2000);
             }
         }
-        if (ll_ad_xiao != null && native_xiao != null) {
-            ll_ad_xiao.addView(native_xiao);
-            ll_ad_xiao.setVisibility(View.VISIBLE);
-        }
+
     }
 
 //    private void addAd() {

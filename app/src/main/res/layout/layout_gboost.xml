@@ -63,7 +63,17 @@
                 android:textColor="@color/A8"
                 android:textSize="@dimen/s12" />
         </LinearLayout>
-
+        <LinearLayout
+            android:id="@+id/ll_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d7"
+            android:layout_marginRight="@dimen/d7"
+            android:layout_marginTop="@dimen/d7"
+            android:background="@drawable/shape_ad"
+            android:elevation="@dimen/d2"
+            android:orientation="vertical"
+            android:visibility="gone" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -229,6 +239,17 @@
             </FrameLayout>
 
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_ad_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d7"
+            android:layout_marginRight="@dimen/d7"
+            android:layout_marginTop="@dimen/d7"
+            android:background="@drawable/shape_ad"
+            android:elevation="@dimen/d2"
+            android:orientation="vertical"
+            android:visibility="gone" />
 
         <ListView
             android:id="@+id/list_game"

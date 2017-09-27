@@ -61,8 +61,8 @@ public class DocFileActivity extends BaseActivity {
     FileAdapter adapter_doc, adapter_txt, adapter_pdf;
     private FileCategoryHelper.FileCategory fc_clean;
     private String TAG_FILE_2 = "mutter_file_2";
-    private View nativeView;
-    private LinearLayout ll_ad;
+    private View nativeView, nativeView_2, nativeView_3;
+    private LinearLayout ll_ad, ll_ad_2, ll_ad_3;
 
     @Override
     protected void findId() {
@@ -81,9 +81,9 @@ public class DocFileActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file_doc);
-        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
         title_name.setText(R.string.file_txt);
-        loadAd();
+
         setListenet();
         if (0 == getIntent().getIntExtra("count", 1)) {
             null_ll.setVisibility(View.VISIBLE);
@@ -100,18 +100,27 @@ public class DocFileActivity extends BaseActivity {
         pdfList = new ArrayList<>();
         viewList = new ArrayList<>();
         initData();
-
+        loadAd();
     }
-
 
 
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        nativeView_2 = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        nativeView_3 = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
             ll_ad.setVisibility(View.VISIBLE);
+        }
+        if (ll_ad_2 != null && nativeView_2 != null) {
+            ll_ad_2.addView(nativeView_2);
+            ll_ad_2.setVisibility(View.VISIBLE);
+        }
+        if (ll_ad_3 != null && nativeView_3 != null) {
+            ll_ad_3.addView(nativeView_3);
+            ll_ad_3.setVisibility(View.VISIBLE);
         }
     }
 
@@ -161,6 +170,7 @@ public class DocFileActivity extends BaseActivity {
             cursorDoc.close();
         }
     }
+
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FILE_2, 0) == 1) {
             AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
@@ -168,6 +178,7 @@ public class DocFileActivity extends BaseActivity {
             addAd();
         }
     }
+
     private void initData() {
         initCur();
         titleList = new ArrayList<>();
@@ -182,6 +193,8 @@ public class DocFileActivity extends BaseActivity {
         view_txt = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         view_pdf = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         ll_ad = (LinearLayout) view_doc.findViewById(R.id.ll_ad);
+        ll_ad_2 = (LinearLayout) view_txt.findViewById(R.id.ll_ad);
+        ll_ad_3 = (LinearLayout) view_pdf.findViewById(R.id.ll_ad);
         initDoc();
         initTxt();
         initPdf();
@@ -226,6 +239,7 @@ public class DocFileActivity extends BaseActivity {
         listView_txt.setAdapter(adapter_txt);
         listView_pdf.setAdapter(adapter_pdf);
     }
+
     private void showDia(final ArrayList<JunkInfo> deleteList) {
         if (deleteList.size() == 0) {
             showToast(getString(R.string.delete));

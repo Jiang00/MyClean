@@ -301,6 +301,9 @@ public class NotificationService extends Service {
                 } else {
                     cpuTemp = 40;
                 }
+                if (cpuTemp==0){
+                    cpuTemp = 40;
+                }
                 Log.e("notifi", "cpuTemp=" + cpuTemp);
                 remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
                 paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_40));

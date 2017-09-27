@@ -107,14 +107,16 @@ public class UserAppActivity extends BaseActivity implements AppManagerView {
                 ll_ad_size.setLayoutParams(layout_ad);
                 ll_ad_size.addView(nativeView1);
                 ll_ad_size.setVisibility(View.VISIBLE);
-            } else {
             }
             if (ll_ad_time != null && nativeView2 != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_time.getLayoutParams();
                 ll_ad_time.setLayoutParams(layout_ad);
                 ll_ad_time.addView(nativeView2);
                 ll_ad_time.setVisibility(View.VISIBLE);
-            } else {
+            }
+            if (ll_ad_pinlv != null && nativeView3 != null) {
+                ll_ad_pinlv.addView(nativeView3);
+                ll_ad_pinlv.setVisibility(View.VISIBLE);
             }
 
         }

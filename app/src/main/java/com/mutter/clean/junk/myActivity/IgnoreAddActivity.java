@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import com.mutter.clean.db.CleanDBHelper;
 import com.mutter.clean.junk.R;
 import com.mutter.clean.junk.myAdapter.WhiteListAdapter;
 import com.mutter.clean.entity.JunkInfo;
+import com.mutter.clean.junk.util.AdUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +42,8 @@ public class IgnoreAddActivity extends BaseActivity {
     private boolean search;
     private List<JunkInfo> white_list, listEdit;
     private List<String> whiteList;
-
+    LinearLayout ll_ad;
+    private View nativeView;
 
     @Override
     protected void findId() {
@@ -51,6 +54,7 @@ public class IgnoreAddActivity extends BaseActivity {
         list_si = (ListView) findViewById(R.id.list_si);
         clear = (ImageButton) findViewById(R.id.clear);
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -67,6 +71,15 @@ public class IgnoreAddActivity extends BaseActivity {
         adapter = new WhiteListAdapter(this);
         list_si.setAdapter(adapter);
         initData();
+        initAd();
+    }
+
+    private void initAd() {
+        nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
+        }
     }
 
     private void initData() {

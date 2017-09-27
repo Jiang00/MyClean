@@ -21,6 +21,18 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/d7"
+        android:layout_marginRight="@dimen/d7"
+        android:layout_marginTop="@dimen/d7"
+        android:background="@drawable/shape_ad"
+        android:elevation="@dimen/d2"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -73,15 +85,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/ll_ad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d7"
-                    android:background="@drawable/shape_ad"
-                    android:elevation="@dimen/d2"
-                    android:orientation="vertical"
-                    android:visibility="gone" />
 
                 <ListView
                     android:id="@+id/file_list"

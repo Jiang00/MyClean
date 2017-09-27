@@ -71,6 +71,16 @@
                     android:src="@mipmap/side_check_passed" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/ll_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d7"
+                android:background="@drawable/shape_ad"
+                android:elevation="@dimen/d2"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/power_recycler"
                 android:layout_width="match_parent"

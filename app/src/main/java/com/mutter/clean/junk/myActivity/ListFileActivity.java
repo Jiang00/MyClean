@@ -75,7 +75,7 @@ public class ListFileActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
         name = getIntent().getStringExtra("name");
         nameId = getIntent().getIntExtra("nameId", 0);
         if (name == null) {
@@ -102,12 +102,7 @@ public class ListFileActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FILE_1, 0) == 1) {
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
-                }
-            }, 1000);
+            AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
         } else {
             addAd();
         }
@@ -116,8 +111,6 @@ public class ListFileActivity extends BaseActivity {
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(Tag_file_1, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
             ll_ad.setVisibility(View.VISIBLE);
         }

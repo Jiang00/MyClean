@@ -65,6 +65,7 @@ public class GameActivity extends BaseActivity {
     ListView list_game;
     private PackageManager pm;
     TextView gboost_short_add;
+    LinearLayout ll_ad, ll_ad_a;
     ImageView gboost_short_iv;
     TextView title_name;
     Button gboost_clean_button;
@@ -89,6 +90,7 @@ public class GameActivity extends BaseActivity {
     private List<JunkInfo> gboost_add, listEdit;
     private int screenWidth;
     private int width;
+    private View nativeView, nativeView_2;
 
     @Override
     protected void findId() {
@@ -106,6 +108,8 @@ public class GameActivity extends BaseActivity {
         list_game = (ListView) findViewById(R.id.list_game);
         gboost_short_iv = (ImageView) findViewById(R.id.gboost_short_iv);
         gboost_short_add = (TextView) findViewById(R.id.gboost_short_add);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ll_ad_a = (LinearLayout) findViewById(R.id.ll_ad_a);
     }
 
     @Override
@@ -130,6 +134,20 @@ public class GameActivity extends BaseActivity {
         gboost_add = new ArrayList<>();
         listEdit = new ArrayList<>();
         initList();
+        initAd();
+    }
+
+    private void initAd() {
+        nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
+        }
+        nativeView_2 = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad_a != null && nativeView_2 != null) {
+            ll_ad_a.addView(nativeView_2);
+            ll_ad_a.setVisibility(View.VISIBLE);
+        }
     }
 
     private void initIcon() {

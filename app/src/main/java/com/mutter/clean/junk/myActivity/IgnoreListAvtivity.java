@@ -2,7 +2,9 @@ package com.mutter.clean.junk.myActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,7 +16,9 @@ import com.mutter.clean.db.CleanDBHelper;
 import com.mutter.clean.junk.R;
 import com.mutter.clean.junk.myAdapter.WhiteListAdapter;
 import com.mutter.clean.entity.JunkInfo;
+import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.junk.util.Constant;
+import com.mutter.clean.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +36,8 @@ public class IgnoreListAvtivity extends BaseActivity {
     private List<String> whiteList;
     ImageView title_right;
     WhiteListAdapter adapter;
+    LinearLayout ll_ad;
+    private View nativeView;
 
 
     @Override
@@ -47,6 +53,15 @@ public class IgnoreListAvtivity extends BaseActivity {
         adapter = new WhiteListAdapter(this);
         listView.setAdapter(adapter);
         initDAta();
+        initAd();
+    }
+
+    private void initAd() {
+        nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
+        }
     }
 
     private void initDAta() {
@@ -96,6 +111,7 @@ public class IgnoreListAvtivity extends BaseActivity {
         title_right = (ImageView) findViewById(R.id.title_right);
         listView = (ListView) findViewById(R.id.list_si);
         white_wu = (LinearLayout) findViewById(R.id.white_wu);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override

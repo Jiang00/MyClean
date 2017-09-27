@@ -85,6 +85,9 @@ public class MainPresenter extends BasePresenter<MainView> {
                         } else {
                             cpuTemp = 40;
                         }
+                        if (cpuTemp == 0) {
+                            cpuTemp = 40;
+                        }
                         iView.initCpu(cpuTemp);
                     }
                 });

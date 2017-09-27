@@ -84,6 +84,12 @@ public class Constant {
 
     public static final String FULL_SUCCESS = "FULL_SUCCESS";
 
+    public static final String FULL_SUCCESS_NATIVE = "FULL_SUCCESS_NATIVE";
+
+    public static final String FULL_DEEP_NATIVE = "FULL_DEEP_NATIVE";
+
+    public static final String FULL_EDIT_NATIVE = "FULL_EDIT_NATIVE";
+
     public static final String FULL_MESSAGE = "FULL_MESSAGE";
 
     public static final String FULL_SETTING = "FULL_SETTING";

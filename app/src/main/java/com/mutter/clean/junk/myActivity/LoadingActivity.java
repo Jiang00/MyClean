@@ -80,7 +80,7 @@ public class LoadingActivity extends BaseActivity {
             }
         });
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.loadFullAd("loading_full",null);
+            AndroidSdk.loadFullAd("loading_full", null);
         }
 
     }
@@ -109,6 +109,15 @@ public class LoadingActivity extends BaseActivity {
             }
             if (jsonObject.has("full_success")) {
                 PreData.putDB(LoadingActivity.this, Constant.FULL_SUCCESS, jsonObject.getInt("full_success"));
+            }
+            if (jsonObject.has("clean_result_native")) {
+                PreData.putDB(LoadingActivity.this, Constant.FULL_SUCCESS_NATIVE, jsonObject.getInt("clean_result_native"));
+            }
+            if (jsonObject.has("show_deepclean_native")) {
+                PreData.putDB(LoadingActivity.this, Constant.FULL_DEEP_NATIVE, jsonObject.getInt("show_deepclean_native"));
+            }
+            if (jsonObject.has("show_exit_native")) {
+                PreData.putDB(LoadingActivity.this, Constant.FULL_EDIT_NATIVE, jsonObject.getInt("show_exit_native"));
             }
             if (jsonObject.has("full_setting")) {
                 PreData.putDB(LoadingActivity.this, Constant.FULL_SETTING, jsonObject.getInt("full_setting"));

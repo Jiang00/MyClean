@@ -63,6 +63,8 @@ public class SimilarActivity extends BaseActivity {
     FrameLayout pager_fl;
     ImageView pic_pager_left;
     ImageView pic_pager_check_iv;
+    LinearLayout ll_ad;
+    View nativeView;
 
     private PagerAdapter pagerAdapter;
     private ImageHelper imageHelper;
@@ -95,6 +97,7 @@ public class SimilarActivity extends BaseActivity {
         pic_pager_title = (TextView) findViewById(R.id.pic_pager_title);
         pic_pager_delete = (LinearLayout) findViewById(R.id.pic_pager_delete);
         pic_pager_check = (LinearLayout) findViewById(R.id.pic_pager_check);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         pic_pager_check_iv = (ImageView) findViewById(R.id.pic_pager_check_iv);
 
     }
@@ -272,6 +275,16 @@ public class SimilarActivity extends BaseActivity {
     private void loadAd() {
         if (PreData.getDB(this, Constant.PICTURE, 0) == 1) {
             AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
+        } else {
+            addAd();
+        }
+    }
+
+    private void addAd() {
+        nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
         }
     }
 
