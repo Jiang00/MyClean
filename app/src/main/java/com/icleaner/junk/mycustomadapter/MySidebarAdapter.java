@@ -196,7 +196,6 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == PICTURE) {
             SetAdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
-            PreData.putDB(context, MyConstant.PICTUREX, true);
             Intent intent = new Intent(context, PictActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == SETTING) {

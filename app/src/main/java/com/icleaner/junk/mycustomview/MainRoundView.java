@@ -85,7 +85,7 @@ public class MainRoundView extends View {
         circlePoint.setColor(context.getResources().getColor(R.color.B3));
         RectF rect = new RectF();
         rect.left = 0 + lineWidth / 2;
-        rect.right = size - lineWidth / 2;
+        rect.right = size - lineWidth ;
         rect.top = 0 + lineWidth / 2;
         rect.bottom = size - lineWidth / 2;
         canvas.save();

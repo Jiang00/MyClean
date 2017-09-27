@@ -8,15 +8,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:padding="@dimen/d15">
-
+        android:layout_centerInParent="true">
 
         <LinearLayout
             android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ad_image"
+            android:layout_margin="@dimen/d14"
             android:orientation="horizontal">
 
             <ImageView
@@ -27,7 +26,8 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/d8"
                 android:layout_marginRight="@dimen/d5"
                 android:layout_weight="1"
@@ -54,13 +54,11 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/ll"
                     android:layout_marginTop="@dimen/d4"
-                    android:ellipsize="end"
-                    android:fontFamily="sans-serif-light"
                     android:lines="2"
                     android:tag="ad_desc"
                     android:textColor="@color/A1_50"
                     android:textSize="@dimen/s11"
-                    tools:text="Your see Your see Your see Your see" />
+                    tools:text="Your see Your see Your see Your dadada YYYYYYYYYdadadasdadssee" />
 
             </LinearLayout>
 
