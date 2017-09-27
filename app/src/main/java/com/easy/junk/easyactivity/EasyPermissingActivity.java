@@ -22,11 +22,5 @@ public class EasyPermissingActivity extends Activity {
                 finish();
             }
         });
-        findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

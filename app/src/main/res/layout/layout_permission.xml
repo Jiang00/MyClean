@@ -20,86 +20,62 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d53"
+                android:layout_height="@dimen/d72"
                 android:background="@drawable/normal_rectangle"
                 android:gravity="center_horizontal|center_vertical">
 
                 <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d14"
                     android:fontFamily="sans-serif"
-                    android:text="@string/permission_1"
+                    android:text="@string/permiss_7"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/s19" />
+                    android:textSize="@dimen/s14" />
             </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/permision_r"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="@dimen/d56"
+                android:background="@color/B3"
+                android:orientation="horizontal">
 
-                <!-- <ImageView
-                     android:layout_width="match_parent"
-                     android:layout_height="@dimen/d208"
-                     android:background="@mipmap/permiss_1" />-->
+                <ImageView
+                    android:id="@+id/aaa"
+                    android:layout_width="@dimen/d40"
+                    android:layout_height="@dimen/d40"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/d14"
+                    android:background="@mipmap/icon" />
 
-                <RelativeLayout
-                    android:id="@+id/permision_r"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d56"
-                    android:layout_marginTop="@dimen/d53"
-                    android:background="@color/B3"
-                    android:orientation="horizontal">
+                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_toRightOf="@id/aaa"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/app_name"
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
 
-                    <ImageView
-                        android:id="@+id/aaa"
-                        android:layout_width="@dimen/d33"
-                        android:layout_height="@dimen/d33"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:background="@mipmap/icon" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/d20"
+                    android:src="@mipmap/permiss_k" />
 
-                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:layout_toRightOf="@id/aaa"
-                        android:fontFamily="sans-serif"
-                        android:text="@string/app_name"
-                        android:textColor="@color/A1"
-                        android:textSize="@dimen/s14" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/d44"
-                        android:src="@mipmap/side_check_passed" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginBottom="@dimen/d3"
-                        android:layout_marginRight="@dimen/d38"
-                        android:background="@mipmap/permiss_2" />
-                </RelativeLayout>
-
-                <Button
-                    android:id="@+id/bt"
-                    android:layout_width="@dimen/d90"
-                    android:layout_height="@dimen/d30"
-                    android:layout_below="@id/permision_r"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="@dimen/d9"
-                    android:layout_marginTop="@dimen/d53"
-                    android:background="@color/A1"
-                    android:text="OK"
-                    android:textColor="@color/A7"
-                    android:textSize="@dimen/s16" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/d38"
+                    android:background="@mipmap/permiss_2" />
             </RelativeLayout>
         </LinearLayout>
     </FrameLayout>
