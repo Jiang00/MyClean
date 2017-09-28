@@ -397,7 +397,8 @@ public class EasyGoodGameActivity extends BaseActivity {
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
                 EasyGoodGameActivity.class.getCanonicalName()));
         String title = EasyGoodGameActivity.this.getString(R.string.gboost_0);
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+//        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+        if (true) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.gboost_short1);
             ShortCutUtils.addShortcut(EasyGoodGameActivity.this, shortcutIntent, title, false, bitmap);
             gboost_short_iv.setImageBitmap(bitmap);

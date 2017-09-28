@@ -62,7 +62,7 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk_ram);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL,null);
         myHandler = new Handler();
         junkPresenter = new EasyLogRamPresenter(this, this);
         junkPresenter.init();

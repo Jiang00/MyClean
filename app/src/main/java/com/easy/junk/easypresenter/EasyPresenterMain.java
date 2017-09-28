@@ -124,8 +124,13 @@ public class EasyPresenterMain extends PresenterBase<MainView> {
         setRotateGone();
     }
 
+    public void deleteRotate() {
+        PreData.putDB(context, EasyConstant.IS_ROTATE_MAIN, true);
+        setRotateGone();
+    }
+
     public void setRotateGone() {
-        if (PreData.getDB(context, EasyConstant.IS_ROTATE, false)) {
+        if (PreData.getDB(context, EasyConstant.IS_ROTATE, false) || PreData.getDB(context, EasyConstant.IS_ROTATE_MAIN, false)) {
             iView.setRotateGone();
         }
     }

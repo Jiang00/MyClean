@@ -65,7 +65,7 @@ public class EasyDeepingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL,null);
         mHandler = new Handler();
         if (MyUtils.isAccessibilitySettingsOn(this)) {
             gboost_power_check.setImageResource(R.mipmap.side_check_passed);

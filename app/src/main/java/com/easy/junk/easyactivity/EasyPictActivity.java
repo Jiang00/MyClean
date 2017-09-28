@@ -118,7 +118,7 @@ public class EasyPictActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_picture);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL, null);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);
         title_right.setImageResource(R.mipmap.picture_right);
@@ -139,7 +139,7 @@ public class EasyPictActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, EasyConstant.PICTURE, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
         }
     }
 
@@ -478,14 +478,14 @@ public class EasyPictActivity extends BaseActivity {
                                     picture_other.setVisibility(View.VISIBLE);
                                     picture_button.setVisibility(View.GONE);
                                     picture_lin.setVisibility(View.GONE);
-                                    picture_other.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            SetAdUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
-                                            jumpTo(EasyRubbishActivity.class);
-                                            onBackPressed();
-                                        }
-                                    });
+//                                    picture_other.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//                                            SetAdUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
+//                                            jumpTo(EasyRubbishActivity.class);
+//                                            onBackPressed();
+//                                        }
+//                                    });
                                 }
                                 Bundle bundle = new Bundle();
                                 bundle.putLong("sizeP", oldSize - allSize);

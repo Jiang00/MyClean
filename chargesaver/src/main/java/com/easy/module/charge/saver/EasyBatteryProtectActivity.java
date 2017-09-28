@@ -14,12 +14,14 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.client.AndroidSdk;
 import com.easy.module.charge.saver.entry.EasyBatteryEntry;
 import com.easy.module.charge.saver.protectview.ProtectBatteryView;
 
 public class EasyBatteryProtectActivity extends Activity {
     private ProtectBatteryView batteryView;
     private EasyBatteryEntry entry;
+    private long time;
 
     private void doBar() {
         try {
@@ -70,6 +72,8 @@ public class EasyBatteryProtectActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hideBottomUIMenu();
+        time = System.currentTimeMillis();
+        AndroidSdk.track("充电屏保", "展示", "", 1);
         String type;
         try {
             type = getIntent().getExtras().getString("type");
@@ -137,6 +141,9 @@ public class EasyBatteryProtectActivity extends Activity {
     @Override
     protected void onDestroy() {
         batteryView = null;
+        if (time != 0 && System.currentTimeMillis() - time > 3 * 1000) {
+            AndroidSdk.track("充电屏保", "超3秒展示", "", 1);
+        }
         super.onDestroy();
         try {
             unregisterReceiver(mReceiver);

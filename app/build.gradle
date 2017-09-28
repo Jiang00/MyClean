@@ -80,7 +80,7 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             // 更改最终apk命名
-            String appName = project.name
+            String appName = NAME
             String vCode = variant.versionCode
             String vName = variant.versionName
             String buildTypeName = variant.buildType.name
@@ -208,7 +208,7 @@ dependencies {
     compile project(path: ':tweenengine')
     compile project(path: ':chargesaver')
     compile project(path: ':baselibrary')
-    compile 'com.core:empty:1.2.7'
+    compile 'com.core:empty:5.0.6'
 //    compile files('libs/gson-2.2.3.jar')
     compile project(':clean')
 //    compile 'com.vatermobi:keepalive:1.0.6'

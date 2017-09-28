@@ -70,7 +70,7 @@ public class EasyUnloadingResidualActivity extends BaseActivity {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
                 }
             }, 1000);
 

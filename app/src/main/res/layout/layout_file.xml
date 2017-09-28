@@ -135,6 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/d8"
             android:layout_marginRight="@dimen/d8"
+            android:layout_marginTop="@dimen/d8"
             android:background="@color/A7"
             android:orientation="vertical">
             <!--apk-->
@@ -215,6 +216,10 @@
                     android:textSize="@dimen/s14" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A17" />
             <!--zip-->
             <LinearLayout
                 android:id="@+id/file_zip_button"
@@ -276,6 +281,10 @@
                     android:textSize="@dimen/s14" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A17" />
             <!--document-->
             <LinearLayout
                 android:id="@+id/file_txt_button"
@@ -355,6 +364,10 @@
                     android:textSize="@dimen/s14" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A17" />
             <!--music-->
             <LinearLayout
                 android:id="@+id/file_music_button"
@@ -435,6 +448,10 @@
                     android:textSize="@dimen/s14" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A17" />
             <!--video-->
             <LinearLayout
                 android:id="@+id/file_video_button"
@@ -516,6 +533,10 @@
                     android:textSize="@dimen/s14" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A17" />
             <!--other-->
             <LinearLayout
                 android:id="@+id/file_other_button"
@@ -598,7 +619,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@color/A17" />
             <!--ad-->
             <LinearLayout
                 android:id="@+id/ll_ad"

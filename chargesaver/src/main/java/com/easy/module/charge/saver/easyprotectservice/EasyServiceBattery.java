@@ -91,7 +91,7 @@ public class EasyServiceBattery extends Service {
                 batteryChange(intent);
                 mHandler.removeCallbacks(batteryChangeRunnable);
                 mHandler.postDelayed(batteryChangeRunnable, MSG_BATTERY_CHANGE_DELAYED);
-            } else if (Intent.ACTION_SCREEN_OFF.equals(action) || Intent.ACTION_SCREEN_ON.equals(action)) {
+            } else if (Intent.ACTION_SCREEN_OFF.equals(action) || Intent.ACTION_POWER_CONNECTED.equals(action)) {
                 mHandler.removeCallbacks(runnable);
                 mHandler.postDelayed(runnable, MSG_SCREEN_ON_DELAYED);
             } else {

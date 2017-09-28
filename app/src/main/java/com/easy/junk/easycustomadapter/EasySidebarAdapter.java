@@ -17,6 +17,7 @@ import com.easy.clean.core.CleanManager;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
+import com.easy.junk.easyactivity.EasyApplicationActivity;
 import com.easy.junk.easyactivity.EasyDeepingActivity;
 import com.easy.junk.easyactivity.EasyPictActivity;
 import com.easy.junk.easyactivity.EasyGoodGameActivity;
@@ -40,6 +41,7 @@ public class EasySidebarAdapter extends EasyBaseAdapter<SideInfo> {
     int FLOAT = -1;
     int RAM = -1;
     int JUNK = -1;
+    int MANAGER = -1;
     int POWER = -1;
     int NOTIFI = -1;
     int PICTURE = -1;
@@ -72,7 +74,8 @@ public class EasySidebarAdapter extends EasyBaseAdapter<SideInfo> {
         FLOAT = idx++;
         RAM = idx++;
         JUNK = idx++;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, EasyConstant.POWERACTIVITY, 1) != 0) {
+        MANAGER = idx++;
+        if (PreData.getDB(context, EasyConstant.POWERACTIVITY, 1) != 0) {
             POWER = idx++;
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, EasyConstant.NOTIFIACTIVITY, 1) != 0) {
@@ -83,7 +86,7 @@ public class EasySidebarAdapter extends EasyBaseAdapter<SideInfo> {
         GBOOST = idx++;
         SETTING = idx++;
         ROTATE = idx++;
-        
+
         long junk_size = CleanManager.getInstance(context).getApkSize() + CleanManager.getInstance(context).getCacheSize() +
                 CleanManager.getInstance(context).getUnloadSize() + CleanManager.getInstance(context).getLogSize() + CleanManager.getInstance(context).getDataSize();
         powerSize = MyUtils.convertStorage(junk_size, true);
@@ -205,6 +208,10 @@ public class EasySidebarAdapter extends EasyBaseAdapter<SideInfo> {
         } else if (position == JUNK) {
             SetAdUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
             Intent intent2 = new Intent(context, EasyRubbishActivity.class);
+            ((Activity) context).startActivityForResult(intent2, 1);
+        } else if (position == MANAGER) {
+            SetAdUtil.track("侧边栏", "点击进入应用管理", "", 1);
+            Intent intent2 = new Intent(context, EasyApplicationActivity.class);
             ((Activity) context).startActivityForResult(intent2, 1);
         } else if (position == RAM) {
             SetAdUtil.track("侧边栏", "点击进入ram页面", "", 1);

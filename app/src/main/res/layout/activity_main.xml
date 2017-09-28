@@ -64,22 +64,21 @@
                     android:scaleType="center"
                     android:src="@mipmap/main_setting" />
                 <!--广告按钮-->
-                <LinearLayout
+                <com.sample.lottie.LottieAnimationView
+                    android:id="@+id/lot_ad"
+                    android:layout_width="@dimen/d33"
+                    android:layout_height="@dimen/d33"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_title_right" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@id/iv_title_right"
-                    android:orientation="horizontal"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:id="@+id/lot_ad"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:scaleType="center"
-                        android:src="@mipmap/main_libao" />
-                </LinearLayout>
+                    android:layout_alignRight="@id/lot_ad"
+                    android:layout_alignTop="@id/lot_ad"
+                    android:text="AD"
+                    android:textColor="@color/white_70"
+                    android:textSize="@dimen/s8" />
             </RelativeLayout>
 
             <com.easy.junk.easycustomview.PullToRefreshLayout
@@ -550,6 +549,10 @@
                                 </LinearLayout>
                             </LinearLayout>
 
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:background="@color/A17" />
                             <!--垃圾清理-->
                             <LinearLayout
                                 android:id="@+id/main_junk_button2"
@@ -596,6 +599,10 @@
                                 </LinearLayout>
                             </LinearLayout>
 
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:background="@color/A17" />
                             <!--通知栏-->
                             <LinearLayout
                                 android:id="@+id/main_notifi_button"
@@ -638,6 +645,10 @@
                                 </LinearLayout>
                             </LinearLayout>
 
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:background="@color/A17" />
                             <!--深度清理-->
                             <LinearLayout
                                 android:id="@+id/main_power_button"
@@ -702,6 +713,11 @@
                                         android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:background="@color/A17" />
                             <!--相似图片-->
                             <LinearLayout
                                 android:id="@+id/main_picture_button2"
@@ -953,5 +969,20 @@
             android:visibility="gone" />
 
         <include layout="@layout/layout_battery" />
+
+        <FrameLayout
+            android:id="@+id/full_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_54"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/full_loading_1"
+                android:layout_width="@dimen/d120"
+                android:layout_height="@dimen/d120"
+                android:layout_gravity="center"
+                android:src="@mipmap/full_1" />
+        </FrameLayout>
     </FrameLayout>
 </LinearLayout>

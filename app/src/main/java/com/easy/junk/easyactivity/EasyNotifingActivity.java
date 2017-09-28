@@ -25,6 +25,7 @@ import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
 import com.easy.junk.easycustomadapter.NotifiAdapter;
 import com.easy.junk.easytools.EasyConstant;
+import com.easy.junk.easytools.SetAdUtil;
 
 import java.util.ArrayList;
 
@@ -57,7 +58,7 @@ public class EasyNotifingActivity extends Activity {
             full();
         }
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL,null);
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, MyServiceNotificationMonitor.class));

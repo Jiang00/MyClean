@@ -207,7 +207,7 @@ public class EasySucceedActivity extends BaseActivity {
             main_notifi_button.setVisibility(View.GONE);
         }
         initAnimation();
-        if (PreData.getDB(this, EasyConstant.IS_ROTATE, false)) {
+        if (PreData.getDB(this, EasyConstant.IS_ROTATE, false) || PreData.getDB(this, EasyConstant.IS_ROTATE_SUCCESS, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
 
@@ -292,7 +292,7 @@ public class EasySucceedActivity extends BaseActivity {
         public void onAnimationEnd(Animator animation) {
             //广告
             if (PreData.getDB(EasySucceedActivity.this, EasyConstant.FULL_SUCCESS, 0) == 1) {
-                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
             }
             //动画结束换内容的
             startSecondAnimation();
@@ -373,7 +373,7 @@ public class EasySucceedActivity extends BaseActivity {
                     break;
                 case R.id.rotate_cha:
                     SetAdUtil.track("完成页面", "点击好评叉号", "", 1);
-                    PreData.putDB(EasySucceedActivity.this, EasyConstant.IS_ROTATE, true);
+                    PreData.putDB(EasySucceedActivity.this, EasyConstant.IS_ROTATE_SUCCESS, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:

@@ -14,6 +14,8 @@ public class EasyConstant {
     public static final String IS_ACTION_BAR = "IS_ACTION_BAR";//是否含有导航栏
 
     public static final String IS_ROTATE = "IS_ROTATE";//是否评价
+    public static final String IS_ROTATE_MAIN = "IS_ROTATE_MAIN";//是否评价
+    public static final String IS_ROTATE_SUCCESS = "IS_ROTATE_SUCCESS";//是否评价
 
     public static final String FlOAT_SWITCH = "FlOAT_SWITCH";//悬浮球
     public static final String UNLOAD_SWITCH = "UNLOAD_SWITCH";//卸载残余

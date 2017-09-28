@@ -12,22 +12,18 @@ import com.easy.junk.BuildConfig;
  */
 
 public class SetAdUtil {
-
+    public static final String DEFAULT_FULL = "clean_full";
 
     public static View getNativeAdView(String tag, @LayoutRes int layout) {
-        if (!AndroidSdk.hasNativeAd(tag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+        if (!AndroidSdk.hasNativeAd("clean_native")) {
             return null;
         }
-        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, AndroidSdk.NATIVE_AD_TYPE_ALL, layout, null);
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout("clean_native", layout, null);
         if (nativeView == null) {
             return null;
         }
 
         if (nativeView != null) {
-//            ViewParent viewParent = nativeView.getParent();
-//            if (viewParent != null && viewParent instanceof ViewGroup) {
-//                ((ViewGroup) viewParent).removeAllViews();
-//            }
             ViewGroup viewParent = (ViewGroup) nativeView.getParent();
             if (viewParent != null) {
                 viewParent.removeAllViews();

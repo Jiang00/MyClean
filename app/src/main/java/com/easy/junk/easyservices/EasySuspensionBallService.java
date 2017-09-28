@@ -67,7 +67,7 @@ public class EasySuspensionBallService extends Service {
         if (myHandler == null) {
             myHandler = new Handler();
         }
-        manager = FloatStateManager.getInstance(EasySuspensionBallService.this);
+
         if (pm == null)
             pm = getPackageManager();
         if (am == null)
@@ -84,6 +84,7 @@ public class EasySuspensionBallService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        manager = FloatStateManager.getInstance(EasySuspensionBallService.this);
         mana = (WindowManager) EasySuspensionBallService.this.getSystemService(Context.WINDOW_SERVICE);
         createFullScreenCheckView();
 

@@ -58,9 +58,8 @@ public class ProtectBatteryView extends FrameLayout {
     private TextView batteryLeft;
     private TextView currentLevel;
     private BubbleLayout bubbleLayout;
-    private LottieAnimationView battery_ke;
-    LottieAnimationView battay_info_lot;
     BatteryView batteryview;
+    CharingView charging_view;
 
     private int halfWidth;
 //    private ImageView shutter;
@@ -168,34 +167,9 @@ public class ProtectBatteryView extends FrameLayout {
         final int le = curLevel % 100;
 //        电量颜色
         currentLevel.setText(curLevel + "%");
-        batteryview.start(curLevel);
-        if (battay_info_lot != null && !battay_info_lot.isAnimating()) {
-            try {
-                battay_info_lot.setImageAssetsFolder(mContext, "theme://images");
-                battay_info_lot.setAnimation(mContext, "theme://particle.json");
-            } catch (Exception e) {
-                if (!battay_info_lot.isAnimating()) {
-                    battay_info_lot.setImageAssetsFolder(null, "images");
-                    battay_info_lot.setAnimation(null, "particle.json");
-                }
-            }
-            battay_info_lot.loop(true);
-            battay_info_lot.setSpeed(1.0f);
-            battay_info_lot.playAnimation();
-        }
-
-        if (battery_ke != null && !battery_ke.isAnimating()) {
-            try {
-                battery_ke.setAnimation(mContext, "theme://battery_ke.json");
-            } catch (Exception e) {
-                if (!battery_ke.isAnimating()) {
-                    battery_ke.setAnimation(null, "battery_ke.json");
-                }
-            }
-            battery_ke.loop(true);
-            battery_ke.setSpeed(1.0f);//调节速度的
-            battery_ke.playAnimation();
-        }
+        batteryview.setLevel(60);
+        charging_view.setLevel(60);
+        charging_view.isCharging(entry.isCharging());
 
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
@@ -340,10 +314,9 @@ public class ProtectBatteryView extends FrameLayout {
         day = (TextView) findViewById(R.id.battery_now_day);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
-        battay_info_lot = (LottieAnimationView) findViewById(R.id.battay_info_lot);
         batteryview = (BatteryView) findViewById(R.id.batteryview);
+        charging_view = (CharingView) findViewById(R.id.charging_view);
 
-        battery_ke = (LottieAnimationView) findViewById(R.id.battery_ke);
     }
 
     public void pauseBubble() {
@@ -385,19 +358,15 @@ public class ProtectBatteryView extends FrameLayout {
             unregisterTimeUpdateReceiver();
         }
 
-        if (battery_ke != null && battery_ke.isAnimating()) {
-            battery_ke.cancelAnimation();
-        }
-
-        if (battay_info_lot != null && battay_info_lot.isAnimating()) {
-            battay_info_lot.cancelAnimation();
-        }
 
         if (bubbleLayout != null) {
             bubbleLayout.destroy();
         }
         if (isBindView) {
             isBindView = false;
+        }
+        if (charging_view != null) {
+            charging_view.dectory();
         }
     }
 

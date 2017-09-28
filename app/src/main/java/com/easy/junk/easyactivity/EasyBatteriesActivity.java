@@ -19,6 +19,7 @@ import com.easy.junk.R;
 import com.easy.junk.easycustomview.EasyBatteryScanView;
 import com.easy.junk.easycustomview.FlakeView;
 import com.easy.junk.easytools.EasyConstant;
+import com.easy.junk.easytools.SetAdUtil;
 
 import java.util.Random;
 
@@ -55,7 +56,7 @@ public class EasyBatteriesActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL,null);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +169,7 @@ public class EasyBatteriesActivity extends BaseActivity {
             @Override
             public void run() {
                 if (PreData.getDB(EasyBatteriesActivity.this, EasyConstant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
                 }
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);

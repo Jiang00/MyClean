@@ -181,7 +181,7 @@ public class EasyApplicationActivity extends BaseActivity implements EasyCustomA
     @Override
     public void loadFullAd() {
         if (PreData.getDB(this, EasyConstant.FULL_MANAGER, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
         } else {
             nativeView1 = SetAdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             nativeView2 = SetAdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
@@ -269,6 +269,13 @@ public class EasyApplicationActivity extends BaseActivity implements EasyCustomA
                     Intent intent = new Intent(
                             Settings.ACTION_USAGE_ACCESS_SETTINGS);
                     startActivityForResult(intent, 100);
+                    myHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent transintent = new Intent(EasyApplicationActivity.this, EasyPermissingActivity.class);
+                            startActivity(transintent);
+                        }
+                    }, 1500);
                     break;
                 case R.id.junk_button_clean:
                     if (doc_view_pager.getCurrentItem() == 0) {

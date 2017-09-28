@@ -1,11 +1,15 @@
 package com.easy.junk.easyactivity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
@@ -24,12 +28,16 @@ import org.json.JSONObject;
 
 public class LoadingActivity extends BaseActivity {
     Handler myHandler;
+    TextView loading_text_1, loading_text_2;
+    private AnimatorSet animatorSet;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loading);
+        loading_text_1 = (TextView) findViewById(R.id.loading_text_1);
+        loading_text_2 = (TextView) findViewById(R.id.loading_text_2);
         ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
         if (PreData.getDB(this, EasyConstant.ROOT_TRAK, true)) {
@@ -39,7 +47,31 @@ public class LoadingActivity extends BaseActivity {
         }
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2000);
+        if (PreData.getDB(this, EasyConstant.FULL_START, 0) == 1) {
+            AndroidSdk.loadFullAd("loading_full", null);
+        }
+        loading_text_1.setVisibility(View.INVISIBLE);
+        loading_text_2.setAlpha(0);
+        animatorSet = new AnimatorSet();
+
+        myHandler.postDelayed(r, 500);
     }
+
+    Runnable r = new Runnable() {
+        @Override
+        public void run() {
+            ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(loading_text_1, View.TRANSLATION_Y, getResources().getDimensionPixelOffset(R.dimen.d20), 0);
+            objectAnimator.setDuration(1000);
+            ObjectAnimator objectAnimator_1 = ObjectAnimator.ofFloat(loading_text_2, View.TRANSLATION_Y, getResources().getDimensionPixelOffset(R.dimen.d20), 0);
+            ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(loading_text_2, View.ALPHA, 0, 1);
+            objectAnimator_1.setDuration(1000);
+            objectAnimator_2.setDuration(1000);
+            animatorSet.play(objectAnimator);
+            animatorSet.play(objectAnimator_1).with(objectAnimator_2).after(500);
+            animatorSet.start();
+            loading_text_1.setVisibility(View.VISIBLE);
+        }
+    };
 
     @Override
     protected void findId() {
@@ -145,7 +177,14 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        myHandler.removeCallbacksAndMessages(null);
+        if (myHandler != null) {
+            myHandler.removeCallbacksAndMessages(null);
+            myHandler.removeCallbacks(runnable1);
+            myHandler.removeCallbacks(r);
+        }
+        if (animatorSet != null) {
+            animatorSet.cancel();
+        }
         super.onDestroy();
     }
 
