@@ -66,6 +66,7 @@ public class PictureActivity extends BaseActivity {
     TextView pic_pager_title;
     LinearLayout pic_pager_delete;
     LinearLayout pic_pager_check;
+    LinearLayout ll_ad;
     ImageView pic_pager_check_iv;
 
     private RecycleViewAdapter adapter;
@@ -99,6 +100,7 @@ public class PictureActivity extends BaseActivity {
         pic_pager_title = (TextView) findViewById(R.id.pic_pager_title);
         pic_pager_delete = (LinearLayout) findViewById(R.id.pic_pager_delete);
         pic_pager_check = (LinearLayout) findViewById(R.id.pic_pager_check);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         pic_pager_check_iv = (ImageView) findViewById(R.id.pic_pager_check_iv);
 
     }
@@ -138,7 +140,7 @@ public class PictureActivity extends BaseActivity {
         setContentView(R.layout.layout_picture);
         PreData.putDB(this, Constant.HONG_PHOTO, false);
         BadgerCount.setCount(this);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);
         title_right.setImageResource(R.mipmap.picture_right);
@@ -160,6 +162,11 @@ public class PictureActivity extends BaseActivity {
     private void loadAd() {
         if (PreData.getDB(this, Constant.PICTURE, 0) == 1) {
             AndroidSdk.showFullAd(AdUtil.DEFAULT);
+        }
+        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && native_xiao != null) {
+            ll_ad.addView(native_xiao);
+            ll_ad.setVisibility(View.VISIBLE);
         }
     }
 

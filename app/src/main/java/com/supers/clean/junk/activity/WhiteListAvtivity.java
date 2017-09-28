@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.WhiteListAdapter;
 import com.android.clean.entity.JunkInfo;
 import com.android.clean.util.Constant;
+import com.supers.clean.junk.util.AdUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,7 @@ public class WhiteListAvtivity extends BaseActivity {
     TextView white_wu;
     List<JunkInfo> white_list;
     private List<String> whiteList;
+    private LinearLayout ll_ad;
 
     @Override
     protected void findId() {
@@ -41,6 +44,7 @@ public class WhiteListAvtivity extends BaseActivity {
         title_right = (ImageView) findViewById(R.id.title_right);
         listView = (ListView) findViewById(R.id.list_si);
         white_wu = (TextView) findViewById(R.id.white_wu);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -55,6 +59,15 @@ public class WhiteListAvtivity extends BaseActivity {
         adapter = new WhiteListAdapter(this);
         listView.setAdapter(adapter);
         initDAta();
+        addAd();
+    }
+
+    private void addAd() {
+        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && native_xiao != null) {
+            ll_ad.addView(native_xiao);
+            ll_ad.setVisibility(View.VISIBLE);
+        }
     }
 
     private void initDAta() {

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.CallLog;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -21,6 +22,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -33,6 +35,7 @@ import android.widget.TextView;
 
 import com.android.clean.util.Constant;
 import com.android.clean.util.PreData;
+import com.android.client.AndroidSdk;
 import com.fraumobi.call.Utils.BadgerCount;
 import com.fraumobi.call.Utils.Constants;
 import com.fraumobi.call.Utils.Util;
@@ -69,6 +72,7 @@ public class CallActivity extends BaseActivity {
     CallAdapter adapter;
     private ArrayList<RejectInfo> blockList;
     private AlertDialog dialog;
+    private LinearLayout ll_ad;
 
     protected void findId() {
         call_list = (ListView) findViewById(R.id.call_list);
@@ -83,6 +87,7 @@ public class CallActivity extends BaseActivity {
         check_tongxun = (TextView) findViewById(R.id.check_tongxun);
         check_jilu = (TextView) findViewById(R.id.check_jilu);
         check_shou = (TextView) findViewById(R.id.check_shou);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -113,7 +118,33 @@ public class CallActivity extends BaseActivity {
                 updateTitle();
             }
         });
+        addAd();
+    }
 
+    private void addAd() {
+        View nativeExit = getNativeAdView(R.layout.native_ad_3);
+        if (nativeExit != null) {
+            ll_ad.addView(nativeExit);
+            ll_ad.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public static View getNativeAdView(@LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd("eos_native")) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout("eos_native", layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+        }
+        return nativeView;
     }
 
     private void updateTitle() {

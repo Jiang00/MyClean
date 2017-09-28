@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -133,14 +134,10 @@ public class ShortCutActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) == 1) {
-        } else {
-            nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
-            if (ll_ad != null && nativeView != null) {
-                ll_ad.addView(nativeView);
-                ll_ad.setVisibility(View.VISIBLE);
-            } else {
-            }
+        nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
         }
     }
 
@@ -174,7 +171,6 @@ public class ShortCutActivity extends BaseActivity {
             });
 
             if (TextUtils.equals("auto", getIntent().getStringExtra("from"))) {
-
                 View view = getLayoutInflater().inflate(R.layout.layout_auto, null);
                 ImageView auto_cha = (ImageView) view.findViewById(R.id.auto_cha);
                 final ImageView auto_check = (ImageView) view.findViewById(R.id.auto_check);
@@ -188,6 +184,7 @@ public class ShortCutActivity extends BaseActivity {
                 TextView auto_battery_size = (TextView) view.findViewById(R.id.auto_battery_size);
                 ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
                 Button auto_ok = (Button) view.findViewById(R.id.auto_ok);
+                loadAd();
                 if (size <= 0) {
                     auto_ram_size.setText(R.string.success_normal);
                 } else {
@@ -217,7 +214,6 @@ public class ShortCutActivity extends BaseActivity {
                     }
                 });
 
-                loadAd();
                 if (PreData.hasDB(this, Constant.AUTO_KAIGUAN)) {
                     auto_is_first.setVisibility(View.GONE);
                     int x = (int) (Math.random() * (10));

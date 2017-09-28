@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
@@ -60,6 +61,7 @@ public class PowerActivity extends BaseActivity {
     private Button containerView_junk_button_clean;
     private PowerWidgetContainer container;
     private int count = 0;
+    private LinearLayout ll_ad;
 
 
     @Override
@@ -70,6 +72,7 @@ public class PowerActivity extends BaseActivity {
         power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
         power_size = (TextView) findViewById(R.id.power_size);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -158,6 +161,15 @@ public class PowerActivity extends BaseActivity {
                 return;
             }
             junk_button_clean.callOnClick();
+        }
+        addAd();
+    }
+
+    private void addAd() {
+        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && native_xiao != null) {
+            ll_ad.addView(native_xiao);
+            ll_ad.setVisibility(View.VISIBLE);
         }
     }
 

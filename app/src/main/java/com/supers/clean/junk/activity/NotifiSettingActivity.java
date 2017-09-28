@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.NotifiSettingAdapter;
 import com.android.clean.entity.JunkInfo;
 import com.android.clean.util.Constant;
+import com.supers.clean.junk.util.AdUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,7 @@ public class NotifiSettingActivity extends BaseActivity {
     MyApplication myApplication;
     ArrayList<JunkInfo> list;
     List<String> isnotifiWhiteList = CleanDBHelper.getInstance(this).getWhiteList(Notification);
+    private LinearLayout ll_ad;
 
     @Override
     protected void findId() {
@@ -47,6 +50,7 @@ public class NotifiSettingActivity extends BaseActivity {
         title_right = (ImageView) findViewById(R.id.title_right);
         view_set = findViewById(R.id.view_set);
         notifi_button_rl = (RelativeLayout) findViewById(R.id.notifi_button_rl);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
 
     }
 
@@ -80,6 +84,15 @@ public class NotifiSettingActivity extends BaseActivity {
         adapter.addDataList(list);
         list_si.setAdapter(adapter);
         setListener();
+        addAd();
+    }
+
+    private void addAd() {
+        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && native_xiao != null) {
+            ll_ad.addView(native_xiao);
+            ll_ad.setVisibility(View.VISIBLE);
+        }
     }
 
     private void setListener() {

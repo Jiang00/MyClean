@@ -107,10 +107,12 @@ public class BaseActivity extends AppCompatActivity {
                 PreData.putDB(this, Constant.FULL_MAIN, data.full_main);
                 PreData.putDB(this, Constant.FULL_START, data.full_start);
                 PreData.putDB(this, Constant.FULL_EXIT, data.full_exit);
+                PreData.putDB(this, Constant.NATIVE_EXIT, data.show_exit_native );
                 PreData.putDB(this, Constant.SKIP_TIME, data.skip_time);
                 PreData.putDB(this, Constant.FULL_MANAGER, data.full_manager);
                 PreData.putDB(this, Constant.FULL_MESSAGE, data.full_message);
                 PreData.putDB(this, Constant.FULL_SUCCESS, data.full_success);
+                PreData.putDB(this, Constant.NATIVE_SUCCESS, data.clean_result_native);
                 PreData.putDB(this, Constant.FULL_SETTING, data.full_setting);
                 PreData.putDB(this, Constant.FULL_UNLOAD, data.full_unload);
                 PreData.putDB(this, Constant.FULL_FLOAT, data.full_float);

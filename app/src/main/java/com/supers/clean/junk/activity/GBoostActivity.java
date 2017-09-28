@@ -103,6 +103,7 @@ public class GBoostActivity extends BaseActivity {
     private List<JunkInfo> gboost_add, listEdit;
     private int screenWidth;
     private int width;
+    private LinearLayout ll_ad;
 
     @Override
     protected void findId() {
@@ -124,6 +125,7 @@ public class GBoostActivity extends BaseActivity {
         add_left = (FrameLayout) findViewById(R.id.add_left);
         list_game = (ListView) findViewById(R.id.list_game);
         add_short = (TextView) findViewById(R.id.add_short);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -156,6 +158,15 @@ public class GBoostActivity extends BaseActivity {
         gboost_add = new ArrayList<>();
         listEdit = new ArrayList<>();
         initList();
+        addAd();
+    }
+
+    private void addAd() {
+        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && native_xiao != null) {
+            ll_ad.addView(native_xiao);
+            ll_ad.setVisibility(View.VISIBLE);
+        }
     }
 
     private void initList() {

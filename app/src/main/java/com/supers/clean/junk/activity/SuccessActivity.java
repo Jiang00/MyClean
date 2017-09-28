@@ -93,7 +93,7 @@ public class SuccessActivity extends BaseActivity {
     private boolean istween;
     private Handler myHandler;
     private String TAG_CLEAN = "eos_success";
-    private String TAG_CLEAN_2 = "eos_success_2";
+    private String TAG_CLEAN_2 = "eos_start_native";
     private String TAG_TITLE = "eos_icon";
     private Animation rotate;
 
@@ -265,12 +265,14 @@ public class SuccessActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
 
         } else {
-            myHandler.postDelayed(new Runnable() {
-                public void run() {
-                    addAd();
-                }
-            }, 1000);
-
+            addAd();
+        }
+        if (PreData.getDB(this, Constant.NATIVE_SUCCESS, 0) == 1) {
+            native_xiao = AdUtil.getNativeAdViewV(TAG_CLEAN_2, R.layout.native_ad_2);
+            if (ll_ad_xiao != null && native_xiao != null) {
+                ll_ad_xiao.addView(native_xiao);
+                ll_ad_xiao.setVisibility(View.VISIBLE);
+            }
         }
     }
 
@@ -358,7 +360,7 @@ public class SuccessActivity extends BaseActivity {
 
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
-        native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight();
@@ -372,10 +374,7 @@ public class SuccessActivity extends BaseActivity {
                 scrollView.smoothScrollToSlow(2000);
             }
         }
-        if (ll_ad_xiao != null && native_xiao != null) {
-            ll_ad_xiao.addView(native_xiao);
-            ll_ad_xiao.setVisibility(View.VISIBLE);
-        }
+
     }
 
 //    private void addAd() {

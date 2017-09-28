@@ -86,6 +86,8 @@ public class Constant {
 
     public static final String FULL_SUCCESS = "FULL_SUCCESS";
 
+    public static final String NATIVE_SUCCESS = "NATIVE_SUCCESS";
+
     public static final String FULL_MESSAGE = "FULL_MESSAGE";
 
     public static final String FULL_SETTING = "FULL_SETTING";
@@ -111,6 +113,7 @@ public class Constant {
     public static final String FULL_START = "FULL_START";
 
     public static final String FULL_EXIT = "FULL_EXIT";
+    public static final String NATIVE_EXIT = "FULL_EXIT";
 
     public static final String SKIP_TIME = "SKIP_TIME";
 

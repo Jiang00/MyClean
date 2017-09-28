@@ -123,7 +123,9 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                 ViewGroup.LayoutParams layout_ad = ll_ad_time.getLayoutParams();
                 ll_ad_time.setLayoutParams(layout_ad);
                 ll_ad_time.addView(nativeView2);
-            } else {
+            }
+            if (ll_ad_pinlv != null && nativeView3 != null) {
+                ll_ad_pinlv.addView(nativeView3);
             }
 
         }

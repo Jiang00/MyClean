@@ -11,10 +11,12 @@ public class JsonData {
     public int full_main;
     public int full_start;
     public int full_exit;
+    public int show_exit_native ;
     public int skip_time;
     public int full_manager;
     public int full_message;
     public int full_success;
+    public int clean_result_native;
     public int full_setting;
     public int full_unload;
     public int full_float;

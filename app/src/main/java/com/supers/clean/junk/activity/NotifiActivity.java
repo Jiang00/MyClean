@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -48,6 +49,7 @@ public class NotifiActivity extends Activity {
 
     private NotifiAdapter adapter;
     private MyApplication myApplication;
+    private LinearLayout ll_ad;
 
     public int getStatusHeight(Activity activity) {
         int result = 0;
@@ -70,6 +72,7 @@ public class NotifiActivity extends Activity {
         white_wu = (TextView) findViewById(R.id.white_wu);
         notifi_button_rl = (RelativeLayout) findViewById(R.id.notifi_button_rl);
         notifi_button_clean = (Button) findViewById(R.id.notifi_button_clean);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     private void setTranslucentStatus(boolean on) {
@@ -139,7 +142,15 @@ public class NotifiActivity extends Activity {
         list_si.setAdapter(adapter);
 
         CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
+        addAd();
+    }
 
+    private void addAd() {
+        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && native_xiao != null) {
+            ll_ad.addView(native_xiao);
+            ll_ad.setVisibility(View.VISIBLE);
+        }
     }
 
 

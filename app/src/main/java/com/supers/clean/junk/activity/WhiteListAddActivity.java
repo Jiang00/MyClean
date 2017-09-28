@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import com.android.clean.db.CleanDBHelper;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.WhiteListAdapter;
 import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.util.AdUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,7 @@ public class WhiteListAddActivity extends BaseActivity {
     private boolean search;
     private List<JunkInfo> white_list, listEdit;
     private List<String> whiteList;
+    private LinearLayout ll_ad;
 
 
     @Override
@@ -51,6 +54,7 @@ public class WhiteListAddActivity extends BaseActivity {
         list_si = (ListView) findViewById(R.id.list_si);
         clear = (ImageButton) findViewById(R.id.clear);
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -67,6 +71,15 @@ public class WhiteListAddActivity extends BaseActivity {
         adapter = new WhiteListAdapter(this);
         list_si.setAdapter(adapter);
         initData();
+        addAd();
+    }
+
+    private void addAd() {
+        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && native_xiao != null) {
+            ll_ad.addView(native_xiao);
+            ll_ad.setVisibility(View.VISIBLE);
+        }
     }
 
     private void initData() {

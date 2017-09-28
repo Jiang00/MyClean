@@ -35,6 +35,7 @@ import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.fraumobi.call.Utils.BadgerCount;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.wifi.RunAppInfo;
 import com.supers.clean.junk.wifi.RunAppManager;
 
@@ -62,6 +63,7 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
     private long lastTotalTxBytes = 0;
     private long lastTimeStamp = 0; // 当前缓存时间
     private MyAdapter mAdapter;
+    LinearLayout ll_ad;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -121,6 +123,15 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
                 finish();
             }
         });
+        addAd();
+    }
+
+    private void addAd() {
+        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && native_xiao != null) {
+            ll_ad.addView(native_xiao);
+            ll_ad.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -129,6 +140,7 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
         ll_netmon_unconnect = (LinearLayout) findViewById(R.id.ll_netmon_unconnect);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         ll_netmon_main = (LinearLayout) findViewById(R.id.ll_netmon_main);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ll_netmon_list = (FrameLayout) findViewById(R.id.ll_netmon_list);
         lv_netmon = (ListView) findViewById(R.id.lv_netmon);
         tv_netmon_ssid = (TextView) findViewById(R.id.tv_netmon_ssid);

@@ -64,8 +64,8 @@ public class FileDocActivity extends BaseActivity {
     private AlertDialog dialog;
     private FileCategoryHelper.FileCategory fc_clean;
     private String TAG_FILE_2 = "eos_file_2";
-    private View nativeView;
-    private LinearLayout ll_ad;
+    private View nativeView1, nativeView2, nativeView3;
+    private LinearLayout ll_ad_1, ll_ad_2, ll_ad_3;
     private LinearLayout null_doc, null_txt, null_pdf;
 
     @Override
@@ -118,11 +118,17 @@ public class FileDocActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
-        if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            ll_ad.setLayoutParams(layout_ad);
-            ll_ad.addView(nativeView);
+        nativeView1 = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        if (ll_ad_1 != null && nativeView1 != null) {
+            ll_ad_1.addView(nativeView1);
+        }
+        nativeView2 = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        if (ll_ad_2 != null && nativeView2 != null) {
+            ll_ad_2.addView(nativeView2);
+        }
+        nativeView3 = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        if (ll_ad_3 != null && nativeView3 != null) {
+            ll_ad_3.addView(nativeView3);
         }
     }
 
@@ -203,7 +209,9 @@ public class FileDocActivity extends BaseActivity {
         view_doc = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         view_txt = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         view_pdf = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
-        ll_ad = (LinearLayout) view_doc.findViewById(R.id.ll_ad);
+        ll_ad_1 = (LinearLayout) view_doc.findViewById(R.id.ll_ad);
+        ll_ad_2 = (LinearLayout) view_txt.findViewById(R.id.ll_ad);
+        ll_ad_3 = (LinearLayout) view_pdf.findViewById(R.id.ll_ad);
         initDoc();
         initTxt();
         initPdf();
