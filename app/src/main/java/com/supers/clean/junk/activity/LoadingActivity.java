@@ -66,17 +66,26 @@ public class LoadingActivity extends BaseActivity {
         } else {
         }
 
-        Animation animation1 = AnimationUtils.loadAnimation(this, R.anim.load_icon);
-        Animation animation2 = AnimationUtils.loadAnimation(this, R.anim.load_name);
-        Animation animation3 = AnimationUtils.loadAnimation(this, R.anim.load_text);
-        load_icon.startAnimation(animation1);
-        load_name.startAnimation(animation2);
-        load_text.startAnimation(animation3);
-        loading_text.setVisibility(View.VISIBLE);
+
         myHandler.removeCallbacks(runnable1);
-        myHandler.postDelayed(runnable1, 2000);
+        myHandler.postDelayed(runnable1, 2500);
+        myHandler.removeCallbacks(runnableAni);
+        myHandler.post(runnableAni);
     }
 
+    Runnable runnableAni = new Runnable() {
+        @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+        @Override
+        public void run() {
+            Animation animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_icon);
+            Animation animation2 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_name);
+            Animation animation3 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_text);
+            load_icon.startAnimation(animation1);
+            load_name.startAnimation(animation2);
+            load_text.startAnimation(animation3);
+            loading_text.setVisibility(View.VISIBLE);
+        }
+    };
     Runnable runnable1 = new Runnable() {
         @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         @Override
@@ -109,6 +118,8 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        myHandler.removeCallbacks(runnable1);
+        myHandler.removeCallbacks(runnableAni);
         myHandler.removeCallbacksAndMessages(null);
         super.onDestroy();
     }

@@ -48,6 +48,6 @@ public class BadgerCount {
         if (PreData.getDB(context, Constant.HONG_GBOOST, true)) {
             badger++;
         }
-        ShortcutBadger.applyCount(context, badger);
+//        ShortcutBadger.applyCount(context, badger);
     }
 }

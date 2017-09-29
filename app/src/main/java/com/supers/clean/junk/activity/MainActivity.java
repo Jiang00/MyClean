@@ -24,9 +24,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.AnticipateInterpolator;
+import android.view.animation.AnticipateOvershootInterpolator;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
@@ -264,14 +268,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             main_notifi_button.setVisibility(View.GONE);
             PreData.putDB(this, Constant.HONG_NOTIFI, false);
         }
-        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) || PreData.getDB(this, Constant.HONG_NET, true) ||
-                PreData.getDB(this, Constant.HONG_NOTIFI, true) || PreData.getDB(this, Constant.HONG_CALL, true) || PreData.getDB(this, Constant.HONG_PRI, true) ||
-                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
-                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
-            menu_hong.setVisibility(View.VISIBLE);
-        } else {
-            menu_hong.setVisibility(View.GONE);
-        }
+        menu_hong.setVisibility(View.GONE);
+//        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) || PreData.getDB(this, Constant.HONG_NET, true) ||
+//                PreData.getDB(this, Constant.HONG_NOTIFI, true) || PreData.getDB(this, Constant.HONG_CALL, true) || PreData.getDB(this, Constant.HONG_PRI, true) ||
+//                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
+//                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
+//            menu_hong.setVisibility(View.VISIBLE);
+//        } else {
+//            menu_hong.setVisibility(View.GONE);
+//        }
         tuiGuang();
         arrayList = new ArrayList<>();
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
@@ -1419,10 +1424,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.NATIVE_EXIT, 0) == 1) {
-            View nativeExit = AdUtil.getNativeAdViewV(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
+            View nativeExit = AdUtil.getNativeAdViewV(TAG_EXIT_FULL, R.layout.native_ad_2);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
-                ll_ad_exit.setVisibility(View.VISIBLE);
+                ll_ad_exit.setVisibility(View.INVISIBLE);
             }
         }
         exit_queren.setOnClickListener(new View.OnClickListener() {
@@ -1438,31 +1443,39 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 dialog.dismiss();
             }
         });
-        dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
+        dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
         dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
         dialog.show();
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
-        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = dm.widthPixels; //设置宽度
-        lp.height = dm.heightPixels; //设置高度
-        if (PreData.getDB(this, Constant.IS_ACTION_BAR, true)) {
-            int uiOptions =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                            //布局位于状态栏下方
-                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                            //隐藏导航栏
-                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-            if (Build.VERSION.SDK_INT >= 19) {
-                uiOptions |= 0x00001000;
-            } else {
-                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
-            }
-            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        if (ll_ad_exit.getVisibility() == View.INVISIBLE) {
+            ObjectAnimator animator = ObjectAnimator.ofFloat(ll_ad_exit, View.TRANSLATION_Y, -getResources().getDimensionPixelOffset(R.dimen.d280), 0);
+            animator.setDuration(600);
+            animator.setInterpolator(new AccelerateDecelerateInterpolator());
+            animator.start();
+            ll_ad_exit.setVisibility(View.VISIBLE);
         }
-        dialog.getWindow().setAttributes(lp);
-        dialog.getWindow().setContentView(view);
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
+//        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+//        lp.width = dm.widthPixels; //设置宽度
+//        lp.height = dm.heightPixels; //设置高度
+//        if (PreData.getDB(this, Constant.IS_ACTION_BAR, true)) {
+//            int uiOptions =
+//                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+//                            //布局位于状态栏下方
+//                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+//                            //隐藏导航栏
+//                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+//                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+//            if (Build.VERSION.SDK_INT >= 19) {
+//                uiOptions |= 0x00001000;
+//            } else {
+//                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+//            }
+//            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+//        }
+//        dialog.getWindow().setAttributes(lp);
+//        dialog.getWindow().setContentView(view);
     }
 
     @Override
@@ -1486,14 +1499,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (lot_side != null) {
             lot_side.pauseAnimation();
         }
-        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) || PreData.getDB(this, Constant.HONG_NET, true) ||
-                PreData.getDB(this, Constant.HONG_NOTIFI, true) || PreData.getDB(this, Constant.HONG_CALL, true) || PreData.getDB(this, Constant.HONG_PRI, true) ||
-                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
-                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
-            menu_hong.setVisibility(View.VISIBLE);
-        } else {
-            menu_hong.setVisibility(View.GONE);
-        }
+//        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) || PreData.getDB(this, Constant.HONG_NET, true) ||
+//                PreData.getDB(this, Constant.HONG_NOTIFI, true) || PreData.getDB(this, Constant.HONG_CALL, true) || PreData.getDB(this, Constant.HONG_PRI, true) ||
+//                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
+//                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
+//            menu_hong.setVisibility(View.VISIBLE);
+//        } else {
+//            menu_hong.setVisibility(View.GONE);
+//        }
     }
 
     @Override
