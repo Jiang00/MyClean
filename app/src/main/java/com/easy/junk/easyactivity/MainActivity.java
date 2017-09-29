@@ -890,31 +890,32 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 dialog.dismiss();
             }
         });
-        dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
+        dialog = new AlertDialog.Builder(this).create();
         dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
         dialog.show();
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
-        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = dm.widthPixels; //设置宽度
-        lp.height = dm.heightPixels; //设置高度
-        if (PreData.getDB(this, EasyConstant.IS_ACTION_BAR, true)) {
-            int uiOptions =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                            //布局位于状态栏下方
-                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                            //隐藏导航栏
-                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-            if (Build.VERSION.SDK_INT >= 19) {
-                uiOptions |= 0x00001000;
-            } else {
-                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
-            }
-            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
-        }
-        dialog.getWindow().setAttributes(lp);
-        dialog.getWindow().setContentView(view);
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
+//        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+//        lp.width = dm.widthPixels; //设置宽度
+//        lp.height = dm.heightPixels; //设置高度
+//        if (PreData.getDB(this, EasyConstant.IS_ACTION_BAR, true)) {
+//            int uiOptions =
+//                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+//                            //布局位于状态栏下方
+//                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+//                            //隐藏导航栏
+//                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+//                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+//            if (Build.VERSION.SDK_INT >= 19) {
+//                uiOptions |= 0x00001000;
+//            } else {
+//                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+//            }
+//            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+//        }
+//        dialog.getWindow().setAttributes(lp);
+//        dialog.getWindow().setContentView(view);
     }
 
     @Override

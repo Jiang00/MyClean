@@ -167,8 +167,8 @@ public class ProtectBatteryView extends FrameLayout {
         final int le = curLevel % 100;
 //        电量颜色
         currentLevel.setText(curLevel + "%");
-        batteryview.setLevel(60);
-        charging_view.setLevel(60);
+        batteryview.setLevel(curLevel);
+        charging_view.setLevel(curLevel);
         charging_view.isCharging(entry.isCharging());
 
         int leftChargeTime = entry.getLeftTime();
