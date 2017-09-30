@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import com.fast.clean.db.CleanDBHelper;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.IgnoreListAdapter;
 import com.fast.clean.entity.JunkInfo;
+import com.fast.clean.junk.util.AdUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +69,15 @@ public class WhiteListAddActivity extends BaseActivity {
         adapter = new IgnoreListAdapter(this);
         list_si.setAdapter(adapter);
         initData();
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     private void initData() {

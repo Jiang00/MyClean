@@ -170,6 +170,11 @@ public class PictureActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.PICTURE, 0) == 1) {
             AndroidSdk.showFullAd(AdUtil.DEFAULT);
         }
+        View nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
 

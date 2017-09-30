@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fast.clean.core.CleanManager;
@@ -144,7 +145,7 @@ public class PowerActivity extends BaseActivity {
                     Util.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PowerActivity.this, NotificationService.class);
-                        intent.putExtra("from","gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
                 } else {
@@ -157,6 +158,15 @@ public class PowerActivity extends BaseActivity {
                 return;
             }
             junk_button_clean.callOnClick();
+        }
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
         }
     }
 
@@ -196,7 +206,7 @@ public class PowerActivity extends BaseActivity {
                     Util.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PowerActivity.this, NotificationService.class);
-                        intent.putExtra("from","gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
 

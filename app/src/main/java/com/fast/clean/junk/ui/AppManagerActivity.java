@@ -102,20 +102,18 @@ public class AppManagerActivity extends BaseActivity implements AppManagerView {
         if (PreData.getDB(this, Constant.FULL_MANAGER, 0) == 1) {
             AndroidSdk.showFullAd(AdUtil.DEFAULT);
         } else {
-            nativeView1 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
-            nativeView2 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             nativeView3 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
+            nativeView2 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
+            nativeView1 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             if (ll_ad_size != null && nativeView1 != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad_size.getLayoutParams();
-                ll_ad_size.setLayoutParams(layout_ad);
                 ll_ad_size.addView(nativeView1);
             } else {
             }
             if (ll_ad_time != null && nativeView2 != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad_time.getLayoutParams();
-                ll_ad_time.setLayoutParams(layout_ad);
                 ll_ad_time.addView(nativeView2);
-            } else {
+            }
+            if (ll_ad_pinlv != null && nativeView3 != null) {
+                ll_ad_pinlv.addView(nativeView3);
             }
 
         }

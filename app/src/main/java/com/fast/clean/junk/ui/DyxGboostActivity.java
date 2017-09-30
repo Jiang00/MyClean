@@ -154,6 +154,15 @@ public class DyxGboostActivity extends BaseActivity {
         gboost_add = new ArrayList<>();
         listEdit = new ArrayList<>();
         initList();
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     private long getCup() {

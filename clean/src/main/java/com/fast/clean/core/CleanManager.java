@@ -547,21 +547,23 @@ public class CleanManager {
 
 
     public Method getPackageSizeInfoMethod(Context context) {
+
         PackageManager pm = context.getPackageManager();
         Method packageSizeInfoMethod = null;
         boolean version = Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR1 && Build.VERSION.SDK_INT <= Build.VERSION_CODES.M;
         try {
-            if (version) {
-                packageSizeInfoMethod = pm.getClass().getMethod(
-                        "getPackageSizeInfo", String.class, int.class, IPackageStatsObserver.class);
-
-            } else {
-                packageSizeInfoMethod = pm.getClass().getMethod(
-                        "getPackageSizeInfo", String.class, IPackageStatsObserver.class);
-            }
+            Class<?> loadClass = context.getClassLoader().loadClass("android.content.pm.PackageManager");
+            packageSizeInfoMethod = loadClass.getDeclaredMethod("getPackageSizeInfo", String.class, int.class, IPackageStatsObserver.class);
+//            if (version) {
+//                packageSizeInfoMethod = pm.getClass().getMethod(
+//                        "getPackageSizeInfo", String.class, int.class, IPackageStatsObserver.class);
+//
+//            } else {
+//                packageSizeInfoMethod = pm.getClass().getMethod(
+//                        "getPackageSizeInfo", String.class, IPackageStatsObserver.class);
+//            }
 
         } catch (Exception e) {
-            com.fast.clean.mutil.Util.log(TAG, "loadSystemCache error mGetPackageSizeInfoMethod=null");
             e.printStackTrace();
         }
         return packageSizeInfoMethod;

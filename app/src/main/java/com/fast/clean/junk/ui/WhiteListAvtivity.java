@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import com.fast.clean.db.CleanDBHelper;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.IgnoreListAdapter;
 import com.fast.clean.entity.JunkInfo;
+import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
 
 import java.util.ArrayList;
@@ -61,6 +63,15 @@ public class WhiteListAvtivity extends BaseActivity {
         adapter = new IgnoreListAdapter(this);
         listView.setAdapter(adapter);
         initDAta();
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     private void initDAta() {

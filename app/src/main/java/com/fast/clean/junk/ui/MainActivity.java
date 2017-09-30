@@ -923,7 +923,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
-        if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 0) {
+        if (PreData.getDB(this, Constant.NATIVE_EXIT, 0) == 1) {
             View nativeExit = getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
