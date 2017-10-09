@@ -28,6 +28,8 @@ import com.supers.clean.junk.util.BadgerCount;
 
 import java.util.Locale;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
+
 /**
  * Created by on 2016/11/29.
  */
@@ -75,7 +77,7 @@ public class MyApplication extends App {
         if (!TextUtils.equals(language, BaseActivity.DEFAULT_SYSTEM_LANGUAGE)) {
             changeAppLanguage(language);
         }
-
+        ShortcutBadger.applyCount(this, 0);
         AndroidSdk.onCreate(this);
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);

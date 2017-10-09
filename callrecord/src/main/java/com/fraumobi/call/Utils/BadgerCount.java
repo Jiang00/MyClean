@@ -5,7 +5,6 @@ import android.content.Context;
 import com.android.clean.util.Constant;
 import com.android.clean.util.PreData;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
 
 
 /**
