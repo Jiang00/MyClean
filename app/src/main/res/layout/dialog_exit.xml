@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_50"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -21,6 +20,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/d20"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -28,7 +28,6 @@
                 <ImageView
                     android:layout_width="@dimen/d36"
                     android:layout_height="@dimen/d36"
-                    android:layout_marginLeft="@dimen/d24"
                     android:src="@mipmap/loading_icon" />
 
                 <TextView
@@ -42,8 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d24"
-                android:layout_marginRight="@dimen/d24"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/d10"
                 android:gravity="center"
                 android:text="@string/exit_msg1"

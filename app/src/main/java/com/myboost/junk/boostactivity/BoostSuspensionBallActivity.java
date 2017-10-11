@@ -226,9 +226,11 @@ public class BoostSuspensionBallActivity extends BaseActivity {
             @Override
             public void run() {
                 isdoudong = false;
-                animSet1.play(animator11).with(animator12);
-                animSet1.setDuration(800);
-                animSet1.start();
+                if (animSet1 != null) {
+                    animSet1.play(animator11).with(animator12);
+                    animSet1.setDuration(800);
+                    animSet1.start();
+                }
                 animSet1AddListener();
             }
         }, 2500);
@@ -254,7 +256,7 @@ public class BoostSuspensionBallActivity extends BaseActivity {
                     myHandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            animator2.pause();
+                            animator2.cancel();
                         }
                     }, 400);
 //                            myHandler.postDelayed(new Runnable() {
@@ -560,7 +562,7 @@ public class BoostSuspensionBallActivity extends BaseActivity {
         isdoudong = false;
         istween = false;
         if (animator2 != null) {
-            animator2.pause();
+            animator2.cancel();
         }
     }
 }

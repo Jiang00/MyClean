@@ -194,7 +194,6 @@ public class LoadingActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        AndroidSdk.onCreate(this);
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2500);
         AndroidSdk.onResumeWithoutTransition(this);
@@ -205,7 +204,7 @@ public class LoadingActivity extends BaseActivity {
     protected void onStop() {
         super.onStop();
         if (animSet != null) {
-            animSet.pause();
+            animSet.cancel();
         }
     }
 }

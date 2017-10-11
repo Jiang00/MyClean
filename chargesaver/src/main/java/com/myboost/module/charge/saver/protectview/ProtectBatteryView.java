@@ -417,7 +417,8 @@ public class ProtectBatteryView extends FrameLayout {
                     cpuTemp = 40;
                 }
                 if (battery_temp != null) {
-                    getHandler().post(new Runnable() {
+
+                    battery_temp.post(new Runnable() {
                         @Override
                         public void run() {
                             battery_temp.setText(cpuTemp + "℃");

@@ -682,7 +682,7 @@ public class MainActivity extends BaseActivity implements BoostMainView, DrawerL
                                 AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
                                     @Override
                                     public void onNativeAdLoadSuccess(View view) {
-                                        LinearLayout loading_text = (LinearLayout) view.findViewById(R.id.loading_text);
+                                        RelativeLayout loading_text = (RelativeLayout) view.findViewById(R.id.loading_text);
                                         loading_text.setOnClickListener(null);
                                         ImageView ad_delete = (ImageView) view.findViewById(R.id.ad_delete);
                                         ad_delete.setOnClickListener(new View.OnClickListener() {
@@ -834,7 +834,7 @@ public class MainActivity extends BaseActivity implements BoostMainView, DrawerL
     protected void onPause() {
         super.onPause();
         if (objectAnimator != null) {
-            objectAnimator.pause();
+            objectAnimator.cancel();
         }
         if (main_yunahuan != null) {
             main_yunahuan.stop();
@@ -951,30 +951,31 @@ public class MainActivity extends BaseActivity implements BoostMainView, DrawerL
         });
         dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
         dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
         dialog.show();
 
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
-        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = dm.widthPixels; //设置宽度
-        lp.height = dm.heightPixels; //设置高度
-        if (PreData.getDB(this, BoostMyConstant.IS_ACTION_BAR, true)) {
-            int uiOptions =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                            //布局位于状态栏下方
-                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                            //隐藏导航栏
-                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-            if (Build.VERSION.SDK_INT >= 19) {
-                uiOptions |= 0x00001000;
-            } else {
-                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
-            }
-            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
-        }
-        dialog.getWindow().setAttributes(lp);
-        dialog.getWindow().setContentView(view);
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
+//        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+//        lp.width = dm.widthPixels; //设置宽度
+//        lp.height = dm.heightPixels; //设置高度
+//        if (PreData.getDB(this, BoostMyConstant.IS_ACTION_BAR, true)) {
+//            int uiOptions =
+//                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+//                            //布局位于状态栏下方
+//                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+//                            //隐藏导航栏
+//                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+//                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+//            if (Build.VERSION.SDK_INT >= 19) {
+//                uiOptions |= 0x00001000;
+//            } else {
+//                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+//            }
+//            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+//        }
+//        dialog.getWindow().setAttributes(lp);
+//        dialog.getWindow().setContentView(view);
     }
 
     @Override

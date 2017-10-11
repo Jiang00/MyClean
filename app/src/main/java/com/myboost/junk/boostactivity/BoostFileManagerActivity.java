@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.myboost.clean.filemanager.PhoneFileCategoryHelper;
 import com.myboost.clean.filemanager.Util;
+import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
 import com.myboost.junk.boostinterfaceview.BoostMainView;
@@ -107,15 +108,7 @@ public class BoostFileManagerActivity extends BaseActivity implements BoostMainV
     @Override
     protected void onResume() {
         super.onResume();
-        String[] arr = size.split("/");
 
-        Double.valueOf(arr[1].substring(0, arr[1].length() - 1));
-        double d = Double.valueOf(arr[0].substring(0, arr[0].length() - 1)) / Double.valueOf(arr[1].substring(0, arr[1].length() - 1)) * 100;
-
-        file_used.setText(new java.text.DecimalFormat("#.00").format(Double.valueOf(arr[1].substring(0, arr[1].length() - 1)) - Double.valueOf(arr[0].substring(0, arr[0].length() - 1)))
-                + arr[1].substring(arr[1].length() - 1, arr[1].length()) + "B");
-        delete_progress.setProgress((int) d);
-        delete_progress.setMax(100);
     }
 
     private void initAd() {
@@ -230,6 +223,9 @@ public class BoostFileManagerActivity extends BaseActivity implements BoostMainV
     @Override
     public void initSd(final int perent, final String size, final long sd_kongxian) {
         this.size = size;
+        file_used.setText(MyUtils.convertStorage(sd_kongxian, true));
+        delete_progress.setProgress((int) perent);
+        delete_progress.setMax(100);
     }
 
     @Override

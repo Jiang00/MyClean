@@ -404,7 +404,11 @@ public class SucceedActivityBoost extends BaseActivity {
             sizeInt = (int) size;
             sizeInt1 = size;
         } else {
-            sizeInt = Integer.parseInt(str[0]);
+            try {
+                sizeInt = Integer.parseInt(str[0]);
+            } catch (Exception e) {
+                sizeInt = (int) size;
+            }
         }
         String strDanWei = MyUtils.convertStorage(size, true);
         if ("M".equals(strDanWei.substring(strDanWei.length() - 1, strDanWei.length()))) {

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.client.AndroidSdk;
 import com.flashcleaning.kpa.DaemonClient;
 import com.flashcleaning.kpa.DaemonConfigurations;
 import com.flashcleaning.kpa.KeepLiveManager;
@@ -35,8 +36,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        AndroidSdk.onCreate(this);
         long startTime = System.currentTimeMillis();
-//        AndroidSdk.onCreate(this);
 
 //        charging
         startService(new Intent(this, ServiceBatteryBoost.class));
@@ -47,7 +48,7 @@ public class MyApplication extends Application {
         CleanManager.getInstance(this).startLoad();
         if (PreData.getDB(this, BoostMyConstant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotificationServiceBoost.class);
-            intent.putExtra("from","notification");//改了
+            intent.putExtra("from", "notification");//改了
             startService(intent);
         }
 
