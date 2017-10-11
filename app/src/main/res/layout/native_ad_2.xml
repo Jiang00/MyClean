@@ -27,7 +27,7 @@
         <FrameLayout
             android:id="@+id/ad_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d125"
+            android:layout_height="@dimen/d133"
             android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
             android:tag="ad_image" />
@@ -71,13 +71,16 @@
                     tools:text="Your see" />
 
                 <TextView
-                    android:id="@+id/ad_subtitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/ll"
                     android:layout_marginTop="@dimen/d4"
-                    android:fontFamily="sans-serif-light"
-                    android:lines="1"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
                     android:tag="ad_desc"
                     android:textColor="#99000000"
                     android:textSize="@dimen/s11"
@@ -85,8 +88,8 @@
             </LinearLayout>
 
             <TextView
-                android:layout_width="@dimen/d46"
-                android:layout_height="@dimen/d26"
+                android:layout_width="@dimen/d61"
+                android:layout_height="@dimen/d33"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="@dimen/d10"
                 android:background="@drawable/main_haoping"

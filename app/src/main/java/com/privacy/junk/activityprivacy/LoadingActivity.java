@@ -85,6 +85,9 @@ public class LoadingActivity extends BaseActivity {
         });
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2500);
+        if (PreData.getDB(this, MyConstantPrivacy.FULL_START, 0) == 1) {
+            AndroidSdk.loadFullAd("loading_full", null);
+        }
     }
 
     @Override
@@ -122,6 +125,12 @@ public class LoadingActivity extends BaseActivity {
                 }
                 if (jsonObject.has("full_exit")) {
                     PreData.putDB(LoadingActivity.this, MyConstantPrivacy.FULL_EXIT, jsonObject.getInt("full_exit"));
+                }
+                if (jsonObject.has("show_exit_native")) {
+                    PreData.putDB(LoadingActivity.this, MyConstantPrivacy.FULL_EXIT_NATIVE, jsonObject.getInt("show_exit_native"));
+                }
+                if (jsonObject.has("clean_result_native")) {
+                    PreData.putDB(LoadingActivity.this, MyConstantPrivacy.FULL_RESUTL, jsonObject.getInt("clean_result_native"));
                 }
                 if (jsonObject.has("skip_time")) {
                     PreData.putDB(LoadingActivity.this, MyConstantPrivacy.SKIP_TIME, jsonObject.getInt("skip_time"));

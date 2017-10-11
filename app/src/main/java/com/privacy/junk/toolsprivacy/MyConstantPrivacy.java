@@ -57,6 +57,8 @@ public class MyConstantPrivacy {
     public static final String FULL_MAIN = "FULL_MAIN";
     public static final String FULL_START = "FULL_START";
     public static final String FULL_EXIT = "FULL_EXIT";
+    public static final String FULL_EXIT_NATIVE = "FULL_EXIT_NATIVE";
+    public static final String FULL_RESUTL = "FULL_RESUTL";
     public static final String SKIP_TIME = "SKIP_TIME";
 
     public static final String FULL_MANAGER = "FULL_MANAGER";

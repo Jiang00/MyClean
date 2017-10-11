@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/white_100</item>
+        <item name="android:windowBackground">@color/A1</item>
     </style>
 
     <style name="Transparent" parent="AppTheme">
@@ -40,7 +40,9 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
-
+    <style name="exit_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
     <style name="My_CheckBox" parent="@android:style/Widget.Material.CompoundButton.CheckBox" tools:targetApi="lollipop">
         <item name="android:colorControlActivated">@color/A1</item>
         <item name="android:colorControlNormal">@color/A10</item>

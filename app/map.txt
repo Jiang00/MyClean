@@ -27628,17 +27628,18 @@ com.android.async.QueuedExecutor -> com.android.async.QueuedExecutor:
     58:74:void run() -> run
     77:79:void cleanUp() -> a
 com.android.client.AdListener -> com.android.client.AdListener:
-    void onReceiveReward(boolean,int) -> onReceiveReward
-    void onFullAdClosed() -> onFullAdClosed
-    void onFullAdClicked() -> onFullAdClicked
-    void onVideoAdClosed() -> onVideoAdClosed
-    void onBannerAdClicked() -> onBannerAdClicked
-    void onCrossAdClicked() -> onCrossAdClicked
+    8:8:void <init>() -> <init>
+    11:12:void onAdShow() -> onAdShow
+    16:17:void onAdClosed() -> onAdClosed
+    21:22:void onAdClicked() -> onAdClicked
+    26:27:void onAdShowFails() -> onAdShowFails
+    31:32:void onAdReward() -> onAdReward
+    35:36:void onAdLoadSuccess() -> onAdLoadSuccess
+    39:40:void onAdLoadFails() -> onAdLoadFails
 com.android.client.AndroidSdk -> com.android.client.AndroidSdk:
     android.content.Context context -> context
     com.android.client.AndroidSdk$Builder builder -> builder
-    com.android.client.PaymentResultListener paymentResultListener -> paymentResultListener
-    com.android.client.AdListener rewardAdListener -> rewardAdListener
+    com.android.client.PaymentSystemListener paymentResultListener -> paymentResultListener
     java.lang.ref.WeakReference activityWeakReference -> activityWeakReference
     com.android.client.UserCenterListener userCenterListener -> userCenterListener
     int POS_LEFT_TOP -> POS_LEFT_TOP
@@ -27654,9 +27655,9 @@ com.android.client.AndroidSdk -> com.android.client.AndroidSdk:
     java.lang.String FULL_TAG_PASS_LEVEL -> FULL_TAG_PASS_LEVEL
     java.lang.String FULL_TAG_EXIT -> FULL_TAG_EXIT
     java.lang.String FULL_TAG_CUSTOM -> FULL_TAG_CUSTOM
-    int NATIVE_AD_TYPE_OUR -> NATIVE_AD_TYPE_OUR
-    int NATIVE_AD_TYPE_ALL -> NATIVE_AD_TYPE_ALL
-    int NATIVE_AD_TYPE_THIRD -> NATIVE_AD_TYPE_THIRD
+    double BACK_HOME_AD_TIME -> BACK_HOME_AD_TIME
+    boolean canShowBackHomeAd -> canShowBackHomeAd
+    boolean hasRewardAd -> hasRewardAd
     boolean hasNative -> hasNative
     int HIDE_BEHAVIOR_AUTO_HIDE -> HIDE_BEHAVIOR_AUTO_HIDE
     int HIDE_BEHAVIOR_HIDDEN -> HIDE_BEHAVIOR_HIDDEN
@@ -27675,200 +27676,214 @@ com.android.client.AndroidSdk -> com.android.client.AndroidSdk:
     int CONFIG_KEY_VERSION_NAME -> CONFIG_KEY_VERSION_NAME
     int CONFIG_KEY_PACKAGE_NAME -> CONFIG_KEY_PACKAGE_NAME
     com.android.client.DummyConfig config -> config
-    41:41:void <init>() -> <init>
-    90:139:void onCreate(android.app.Activity,com.android.client.AndroidSdk$Builder) -> onCreate
-    142:143:void onCreate(android.app.Activity) -> onCreate
-    146:146:boolean valid() -> valid
-    150:157:void onCreate(android.content.Context) -> onCreate
-    161:161:void onStart() -> onStart
-    164:164:void onStop() -> onStop
-    167:167:void onPause() -> onPause
-    170:173:void onResume(android.app.Activity) -> onResume
-    176:178:void onResumeWithoutTransition(android.app.Activity) -> onResumeWithoutTransition
-    181:181:void onDestroy() -> onDestroy
-    184:184:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    187:187:boolean isNetworkConnected() -> isNetworkConnected
-    199:207:void showBanner(int) -> showBanner
-    210:218:void showBanner(java.lang.String,int) -> showBanner
-    221:232:void closeBanner() -> closeBanner
-    242:282:int[] calculatePopWindowPos(android.view.View,int) -> calculatePopWindowPos
-    289:331:void _showBanner(java.lang.String,int) -> _showBanner
-    340:343:void moreGame() -> moreGame
-    346:349:void loadFullAd(java.lang.String) -> loadFullAd
-    352:360:void showFullAd(java.lang.String) -> showFullAd
-    365:438:void _showInterstitialDlg(java.lang.String) -> _showInterstitialDlg
-    441:510:void showRewardAd(java.lang.String,int) -> showRewardAd
-    513:522:void pauseActivity() -> pauseActivity
-    525:534:void resumeActivity() -> resumeActivity
-    538:539:void showRewardAd(int) -> showRewardAd
-    542:542:boolean hasRewardAd() -> hasRewardAd
-    546:546:boolean hasRewardAd(java.lang.String) -> hasRewardAd
-    555:556:boolean hasNativeAd(java.lang.String,int) -> hasNativeAd
-    560:560:int getDefaultNativeLayoutId(boolean) -> getDefaultNativeLayoutId
-    564:567:android.view.View peekNativeAdView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdView
-    571:631:android.view.View peekNativeAdViewWithLayout(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdViewWithLayout
-    641:644:android.view.View peekNativeAdScrollView(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdScrollView
-    650:653:android.view.View peekNativeAdScrollView(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollView
-    659:659:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
-    666:669:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
-    673:695:void showNativeAdScrollView(java.lang.String,int,int) -> showNativeAdScrollView
-    705:715:void loadNativeAd(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdLoadListener) -> loadNativeAd
-    725:730:void reLoadNativeAd(java.lang.String,android.view.View,com.android.client.ClientNativeAd$NativeAdLoadListener) -> reLoadNativeAd
-    733:747:void hideNativeAdScrollView(java.lang.String) -> hideNativeAdScrollView
-    750:753:void destroyNativeAdView(java.lang.String,android.view.View) -> destroyNativeAdView
-    756:759:void track(java.lang.String,java.lang.String,java.lang.String,int) -> track
-    762:765:void track(java.lang.String,java.lang.String) -> track
-    768:771:void track(java.lang.String) -> track
-    776:814:void pay(int) -> pay
-    819:830:void query(int) -> query
-    833:836:void share() -> share
-    839:842:void rateUs() -> rateUs
-    845:853:void toast(java.lang.String) -> toast
-    856:856:java.lang.String getExtraData() -> getExtraData
-    860:889:void onQuit() -> onQuit
-    894:897:void login() -> login
-    900:902:void logout() -> logout
-    905:906:boolean isLogin() -> isLogin
-    910:912:void invite() -> invite
-    915:919:void challenge(java.lang.String,java.lang.String) -> challenge
-    922:925:java.lang.String me() -> me
-    929:939:java.lang.String friends() -> friends
-    943:945:void like() -> like
-    1029:1029:void showNativeBanner(java.lang.String,int,int) -> showNativeBanner
-    1032:1032:void hideNativeBanner(java.lang.String) -> hideNativeBanner
-    1041:1041:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
-    1045:1060:void cacheUrl(int,java.lang.String) -> cacheUrl
-    1082:1114:java.lang.String getConfig(int) -> getConfig
-    1119:1137:java.lang.String getConfig(java.lang.String,int) -> getConfig
-    1142:1154:void alert(java.lang.String,java.lang.String) -> alert
-    1157:1160:void onKill(android.app.Activity) -> onKill
-    1168:1171:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
-    1174:1177:void UM_onEvent(java.lang.String) -> UM_onEvent
-    1180:1183:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
-    1186:1190:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
-    1200:1203:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
-    1211:1214:void UM_onPageStart(java.lang.String) -> UM_onPageStart
-    1222:1225:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
-    1233:1236:void UM_startLevel(java.lang.String) -> UM_startLevel
-    1244:1247:void UM_failLevel(java.lang.String) -> UM_failLevel
-    1255:1258:void UM_finishLevel(java.lang.String) -> UM_finishLevel
-    1280:1283:void UM_pay(double,java.lang.String,int,double) -> UM_pay
-    1293:1296:void UM_buy(java.lang.String,int,double) -> UM_buy
-    1306:1309:void UM_use(java.lang.String,int,double) -> UM_use
-    1320:1323:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
-    41:41:void access$000(java.lang.String,int) -> access$000
-    41:41:void access$100(java.lang.String) -> access$100
-    41:41:void access$200() -> access$200
-    41:41:void access$300() -> access$300
-    41:41:boolean access$400() -> access$400
+    42:42:void <init>() -> <init>
+    79:127:void onCreate(android.app.Activity,com.android.client.AndroidSdk$Builder) -> onCreate
+    130:131:void onCreate(android.app.Activity) -> onCreate
+    134:134:boolean valid() -> valid
+    138:145:void onCreate(android.content.Context) -> onCreate
+    149:149:void onStart() -> onStart
+    152:152:void onStop() -> onStop
+    155:160:void onPause() -> onPause
+    163:170:void onResume(android.app.Activity) -> onResume
+    173:175:void onResumeWithoutTransition(android.app.Activity) -> onResumeWithoutTransition
+    178:178:void onDestroy() -> onDestroy
+    181:181:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    184:184:boolean isNetworkConnected() -> isNetworkConnected
+    196:204:void showBanner(java.lang.String,int) -> showBanner
+    207:218:void closeBanner(java.lang.String) -> closeBanner
+    221:222:void setBackHomeAd(java.lang.String) -> setBackHomeAd
+    232:272:int[] calculatePopWindowPos(android.view.View,int) -> calculatePopWindowPos
+    279:319:void _showBanner(java.lang.String,int) -> _showBanner
+    330:333:void moreGame() -> moreGame
+    336:346:void loadFullAd(java.lang.String,com.android.client.AdListener) -> loadFullAd
+    349:362:void showFullAd(java.lang.String,com.android.client.AdListener) -> showFullAd
+    365:366:void showFullAd(java.lang.String) -> showFullAd
+    371:444:void _showInterstitialDlg(java.lang.String,com.android.client.AdListener) -> _showInterstitialDlg
+    447:516:void showRewardAd(java.lang.String,com.android.client.AdListener) -> showRewardAd
+    519:528:void pauseActivity() -> pauseActivity
+    531:540:void resumeActivity() -> resumeActivity
+    545:546:boolean hasRewardAd(java.lang.String) -> hasRewardAd
+    552:553:boolean hasNativeAd(java.lang.String) -> hasNativeAd
+    557:557:int getDefaultNativeLayoutId(boolean) -> getDefaultNativeLayoutId
+    561:564:android.view.View peekNativeAdView(java.lang.String,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdView
+    568:628:android.view.View peekNativeAdViewWithLayout(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdViewWithLayout
+    638:641:android.view.View peekNativeAdScrollView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener) -> peekNativeAdScrollView
+    647:650:android.view.View peekNativeAdScrollView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollView
+    656:656:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
+    663:666:android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener) -> peekNativeAdScrollViewWithLayout
+    670:692:void showNativeAdScrollView(java.lang.String,int,int) -> showNativeAdScrollView
+    695:695:java.lang.String getPrices() -> getPrices
+    705:721:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
+    731:743:void closeNativeAd(java.lang.String) -> closeNativeAd
+    751:753:void clickNativeAd(java.lang.String) -> clickNativeAd
+    761:762:void clickUrl(java.lang.String) -> clickUrl
+    772:782:void loadNativeAd(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdLoadListener) -> loadNativeAd
+    792:797:void reLoadNativeAd(java.lang.String,android.view.View,com.android.client.ClientNativeAd$NativeAdLoadListener) -> reLoadNativeAd
+    800:814:void hideNativeAdScrollView(java.lang.String) -> hideNativeAdScrollView
+    817:820:void destroyNativeAdView(java.lang.String,android.view.View) -> destroyNativeAdView
+    823:826:void track(java.lang.String,java.lang.String,java.lang.String,int) -> track
+    829:832:void track(java.lang.String,java.lang.String) -> track
+    835:838:void track(java.lang.String) -> track
+    843:881:void pay(int,com.android.client.PaymentSystemListener) -> pay
+    884:885:void pay(int) -> pay
+    890:901:void query(int,com.android.client.PaymentSystemListener) -> query
+    904:905:void query(int) -> query
+    908:911:void share() -> share
+    914:917:void rateUs() -> rateUs
+    920:928:void toast(java.lang.String) -> toast
+    931:931:java.lang.String getExtraData() -> getExtraData
+    935:964:void onQuit() -> onQuit
+    969:973:void login() -> login
+    976:978:void logout() -> logout
+    981:982:boolean isLogin() -> isLogin
+    986:988:void invite() -> invite
+    991:995:void challenge(java.lang.String,java.lang.String) -> challenge
+    998:1001:java.lang.String me() -> me
+    1005:1015:java.lang.String friends() -> friends
+    1019:1021:void like() -> like
+    1024:1024:void showNativeBanner(java.lang.String,int,int) -> showNativeBanner
+    1027:1027:void hideNativeBanner(java.lang.String) -> hideNativeBanner
+    1036:1036:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
+    1040:1055:void cacheUrl(int,java.lang.String) -> cacheUrl
+    1077:1109:java.lang.String getConfig(int) -> getConfig
+    1114:1132:java.lang.String getConfig(java.lang.String,int) -> getConfig
+    1137:1149:void alert(java.lang.String,java.lang.String) -> alert
+    1152:1155:void onKill(android.app.Activity) -> onKill
+    1163:1166:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
+    1169:1172:void UM_onEvent(java.lang.String) -> UM_onEvent
+    1175:1178:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
+    1181:1185:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
+    1195:1198:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
+    1206:1209:void UM_onPageStart(java.lang.String) -> UM_onPageStart
+    1217:1220:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
+    1228:1231:void UM_startLevel(java.lang.String) -> UM_startLevel
+    1239:1242:void UM_failLevel(java.lang.String) -> UM_failLevel
+    1250:1253:void UM_finishLevel(java.lang.String) -> UM_finishLevel
+    1275:1278:void UM_pay(double,java.lang.String,int,double) -> UM_pay
+    1288:1291:void UM_buy(java.lang.String,int,double) -> UM_buy
+    1301:1304:void UM_use(java.lang.String,int,double) -> UM_use
+    1315:1318:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
+    42:42:void access$000(java.lang.String,int) -> access$000
+    42:42:double access$102(double) -> access$102
+    42:42:void access$200(java.lang.String,com.android.client.AdListener) -> access$200
+    42:42:void access$300() -> access$300
+    42:42:void access$400() -> access$400
+    42:42:boolean access$500() -> access$500
+    326:327:void <clinit>() -> <clinit>
 com.android.client.AndroidSdk$1 -> com.android.client.AndroidSdk$1:
+    java.lang.String val$tag -> val$tag
     int val$pos -> val$pos
-    200:200:void <init>(int) -> <init>
-    203:204:void run() -> run
+    197:197:void <init>(java.lang.String,int) -> <init>
+    200:201:void run() -> run
 com.android.client.AndroidSdk$10 -> com.android.client.AndroidSdk$10:
-    com.android.client.ClientNativeAd$NativeAdClickListener val$listener -> val$listener
-    609:609:void <init>(com.android.client.ClientNativeAd$NativeAdClickListener) -> <init>
-    612:616:void onClick(android.view.View) -> onClick
-com.android.client.AndroidSdk$11 -> com.android.client.AndroidSdk$11:
     java.lang.String val$tag -> val$tag
     int val$yPercent -> val$yPercent
-    674:674:void <init>(java.lang.String,int) -> <init>
-    677:692:void run() -> run
+    671:671:void <init>(java.lang.String,int) -> <init>
+    674:689:void run() -> run
+com.android.client.AndroidSdk$11 -> com.android.client.AndroidSdk$11:
+    java.lang.String val$tag -> val$tag
+    706:706:void <init>(java.lang.String) -> <init>
+    709:717:void run() -> run
 com.android.client.AndroidSdk$12 -> com.android.client.AndroidSdk$12:
     java.lang.String val$tag -> val$tag
-    734:734:void <init>(java.lang.String) -> <init>
-    737:744:void run() -> run
+    732:732:void <init>(java.lang.String) -> <init>
+    735:740:void run() -> run
 com.android.client.AndroidSdk$13 -> com.android.client.AndroidSdk$13:
-    int val$bill -> val$bill
-    776:776:void <init>(int) -> <init>
-    779:812:void run() -> run
-com.android.client.AndroidSdk$13$1 -> com.android.client.AndroidSdk$13$1:
-    com.android.client.AndroidSdk$13 this$0 -> this$0
-    804:804:void <init>(com.android.client.AndroidSdk$13) -> <init>
-    807:810:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$13$2 -> com.android.client.AndroidSdk$13$2:
-    com.android.client.AndroidSdk$13 this$0 -> this$0
-    792:792:void <init>(com.android.client.AndroidSdk$13) -> <init>
-    797:800:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$13$3 -> com.android.client.AndroidSdk$13$3:
-    com.android.client.AndroidSdk$13 this$0 -> this$0
-    783:783:void <init>(com.android.client.AndroidSdk$13) -> <init>
-    786:789:void onClick(android.content.DialogInterface,int) -> onClick
+    java.lang.String val$tag -> val$tag
+    801:801:void <init>(java.lang.String) -> <init>
+    804:811:void run() -> run
 com.android.client.AndroidSdk$14 -> com.android.client.AndroidSdk$14:
-    java.lang.String val$msg -> val$msg
-    846:846:void <init>(java.lang.String) -> <init>
-    849:850:void run() -> run
+    int val$bill -> val$bill
+    com.android.client.PaymentSystemListener val$paymentListener -> val$paymentListener
+    843:843:void <init>(int,com.android.client.PaymentSystemListener) -> <init>
+    846:879:void run() -> run
+com.android.client.AndroidSdk$14$1 -> com.android.client.AndroidSdk$14$1:
+    com.android.client.AndroidSdk$14 this$0 -> this$0
+    871:871:void <init>(com.android.client.AndroidSdk$14) -> <init>
+    874:877:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$14$2 -> com.android.client.AndroidSdk$14$2:
+    com.android.client.AndroidSdk$14 this$0 -> this$0
+    859:859:void <init>(com.android.client.AndroidSdk$14) -> <init>
+    864:867:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$14$3 -> com.android.client.AndroidSdk$14$3:
+    com.android.client.AndroidSdk$14 this$0 -> this$0
+    850:850:void <init>(com.android.client.AndroidSdk$14) -> <init>
+    853:856:void onClick(android.content.DialogInterface,int) -> onClick
 com.android.client.AndroidSdk$15 -> com.android.client.AndroidSdk$15:
-    860:860:void <init>() -> <init>
-    864:887:void run() -> run
-com.android.client.AndroidSdk$15$1 -> com.android.client.AndroidSdk$15$1:
-    com.android.client.AndroidSdk$15 this$0 -> this$0
-    876:876:void <init>(com.android.client.AndroidSdk$15) -> <init>
-    880:881:void onClick(android.content.DialogInterface,int) -> onClick
-com.android.client.AndroidSdk$15$2 -> com.android.client.AndroidSdk$15$2:
-    com.android.client.AndroidSdk$15 this$0 -> this$0
-    868:868:void <init>(com.android.client.AndroidSdk$15) -> <init>
-    872:873:void onClick(android.content.DialogInterface,int) -> onClick
+    java.lang.String val$msg -> val$msg
+    921:921:void <init>(java.lang.String) -> <init>
+    924:925:void run() -> run
 com.android.client.AndroidSdk$16 -> com.android.client.AndroidSdk$16:
-    1045:1045:void <init>() -> <init>
-    1048:1051:void onSuccess(int,java.lang.String) -> onSuccess
-    1055:1058:void onFailure(int) -> onFailure
+    935:935:void <init>() -> <init>
+    939:962:void run() -> run
+com.android.client.AndroidSdk$16$1 -> com.android.client.AndroidSdk$16$1:
+    com.android.client.AndroidSdk$16 this$0 -> this$0
+    951:951:void <init>(com.android.client.AndroidSdk$16) -> <init>
+    955:956:void onClick(android.content.DialogInterface,int) -> onClick
+com.android.client.AndroidSdk$16$2 -> com.android.client.AndroidSdk$16$2:
+    com.android.client.AndroidSdk$16 this$0 -> this$0
+    943:943:void <init>(com.android.client.AndroidSdk$16) -> <init>
+    947:948:void onClick(android.content.DialogInterface,int) -> onClick
 com.android.client.AndroidSdk$17 -> com.android.client.AndroidSdk$17:
+    1040:1040:void <init>() -> <init>
+    1043:1046:void onSuccess(int,java.lang.String) -> onSuccess
+    1050:1053:void onFailure(int) -> onFailure
+com.android.client.AndroidSdk$18 -> com.android.client.AndroidSdk$18:
     java.lang.String val$title -> val$title
     java.lang.String val$message -> val$message
-    1142:1142:void <init>(java.lang.String,java.lang.String) -> <init>
-    1145:1152:void run() -> run
+    1137:1137:void <init>(java.lang.String,java.lang.String) -> <init>
+    1140:1147:void run() -> run
 com.android.client.AndroidSdk$2 -> com.android.client.AndroidSdk$2:
-    java.lang.String val$tag -> val$tag
-    int val$pos -> val$pos
-    211:211:void <init>(java.lang.String,int) -> <init>
-    214:215:void run() -> run
+    209:209:void <init>() -> <init>
+    212:215:void run() -> run
 com.android.client.AndroidSdk$3 -> com.android.client.AndroidSdk$3:
-    223:223:void <init>() -> <init>
-    226:229:void run() -> run
+    300:300:void <init>() -> <init>
+    304:304:void onClick(android.view.View) -> onClick
 com.android.client.AndroidSdk$4 -> com.android.client.AndroidSdk$4:
-    310:310:void <init>() -> <init>
-    313:316:void onClick(android.view.View) -> onClick
+    java.lang.String val$tag -> val$tag
+    com.android.client.AdListener val$listener -> val$listener
+    350:350:void <init>(java.lang.String,com.android.client.AdListener) -> <init>
+    353:355:void run() -> run
 com.android.client.AndroidSdk$5 -> com.android.client.AndroidSdk$5:
-    java.lang.String val$tag -> val$tag
-    353:353:void <init>(java.lang.String) -> <init>
-    356:357:void run() -> run
+    com.android.client.AdListener val$listener -> val$listener
+    378:378:void <init>(com.android.client.AdListener) -> <init>
+    381:385:void onClick(android.view.View) -> onClick
 com.android.client.AndroidSdk$6 -> com.android.client.AndroidSdk$6:
-    372:372:void <init>() -> <init>
-    375:379:void onClick(android.view.View) -> onClick
-com.android.client.AndroidSdk$7 -> com.android.client.AndroidSdk$7:
+    com.android.client.AdListener val$listener -> val$listener
     android.app.Dialog val$dlg -> val$dlg
-    416:416:void <init>(android.app.Dialog) -> <init>
-    420:424:void onClick(android.view.View) -> onClick
+    422:422:void <init>(com.android.client.AdListener,android.app.Dialog) -> <init>
+    426:430:void onClick(android.view.View) -> onClick
+com.android.client.AndroidSdk$7 -> com.android.client.AndroidSdk$7:
+    433:433:void <init>() -> <init>
+    436:437:void onCancel(android.content.DialogInterface) -> onCancel
 com.android.client.AndroidSdk$8 -> com.android.client.AndroidSdk$8:
-    427:427:void <init>() -> <init>
-    430:431:void onCancel(android.content.DialogInterface) -> onCancel
-com.android.client.AndroidSdk$9 -> com.android.client.AndroidSdk$9:
     java.lang.String val$tag -> val$tag
-    int val$rewardId -> val$rewardId
-    443:443:void <init>(java.lang.String,int) -> <init>
-    447:507:void run() -> run
-com.android.client.AndroidSdk$9$1 -> com.android.client.AndroidSdk$9$1:
+    com.android.client.AdListener val$listener -> val$listener
+    449:449:void <init>(java.lang.String,com.android.client.AdListener) -> <init>
+    453:513:void run() -> run
+com.android.client.AndroidSdk$8$1 -> com.android.client.AndroidSdk$8$1:
     android.app.AlertDialog val$dialog -> val$dialog
-    com.android.client.AndroidSdk$9 this$0 -> this$0
-    483:483:void <init>(com.android.client.AndroidSdk$9,android.app.AlertDialog) -> <init>
-    487:491:void onClick(android.view.View) -> onClick
-com.android.client.AndroidSdk$9$2 -> com.android.client.AndroidSdk$9$2:
-    com.android.client.AndroidSdk$9 this$0 -> this$0
-    493:493:void <init>(com.android.client.AndroidSdk$9) -> <init>
-    496:500:void onCancel(android.content.DialogInterface) -> onCancel
+    com.android.client.AndroidSdk$8 this$0 -> this$0
+    489:489:void <init>(com.android.client.AndroidSdk$8,android.app.AlertDialog) -> <init>
+    493:497:void onClick(android.view.View) -> onClick
+com.android.client.AndroidSdk$8$2 -> com.android.client.AndroidSdk$8$2:
+    com.android.client.AndroidSdk$8 this$0 -> this$0
+    499:499:void <init>(com.android.client.AndroidSdk$8) -> <init>
+    502:506:void onCancel(android.content.DialogInterface) -> onCancel
+com.android.client.AndroidSdk$9 -> com.android.client.AndroidSdk$9:
+    com.android.client.ClientNativeAd$NativeAdClickListener val$listener -> val$listener
+    606:606:void <init>(com.android.client.ClientNativeAd$NativeAdClickListener) -> <init>
+    609:613:void onClick(android.view.View) -> onClick
 com.android.client.AndroidSdk$Builder -> com.android.client.AndroidSdk$Builder:
-    com.android.client.AdListener rewardAdListener -> rewardAdListener
-    com.android.client.PaymentResultListener paymentResultListener -> paymentResultListener
+    com.android.client.PaymentSystemListener paymentResultListener -> paymentResultListener
     com.android.client.UserCenterListener userCenterListener -> userCenterListener
     com.android.client.UrlListener urlListener -> urlListener
     com.android.client.SdkResultListener sdkResultListener -> sdkResultListener
-    43:43:void <init>() -> <init>
-    52:53:com.android.client.AndroidSdk$Builder setRewardAdListener(com.android.client.AdListener) -> setRewardAdListener
-    57:58:com.android.client.AndroidSdk$Builder setPaymentResultListener(com.android.client.PaymentResultListener) -> setPaymentResultListener
-    62:63:com.android.client.AndroidSdk$Builder setUserCenterListener(com.android.client.UserCenterListener) -> setUserCenterListener
-    67:68:com.android.client.AndroidSdk$Builder setUrlListener(com.android.client.UrlListener) -> setUrlListener
-    72:73:com.android.client.AndroidSdk$Builder setSdkResultListener(com.android.client.SdkResultListener) -> setSdkResultListener
+    45:45:void <init>() -> <init>
+    52:53:com.android.client.AndroidSdk$Builder setPaymentListener(com.android.client.PaymentSystemListener) -> setPaymentListener
+    57:58:com.android.client.AndroidSdk$Builder setUserCenterListener(com.android.client.UserCenterListener) -> setUserCenterListener
+    62:63:com.android.client.AndroidSdk$Builder setUrlListener(com.android.client.UrlListener) -> setUrlListener
+    67:68:com.android.client.AndroidSdk$Builder setSdkResultListener(com.android.client.SdkResultListener) -> setSdkResultListener
 com.android.client.BuildConfig -> com.android.client.BuildConfig:
     boolean DEBUG -> DEBUG
     java.lang.String APPLICATION_ID -> APPLICATION_ID
@@ -27892,109 +27907,128 @@ com.android.client.Cocos -> com.android.client.Cocos:
     int AD_FULL -> AD_FULL
     int AD_VIDEO -> AD_VIDEO
     int AD_BANNER -> AD_BANNER
-    int AD_CROSS -> AD_CROSS
     int SNS_RESULT_LOGIN -> SNS_RESULT_LOGIN
     int SNS_RESULT_INVITE -> SNS_RESULT_INVITE
     int SNS_RESULT_CHALLENGE -> SNS_RESULT_CHALLENGE
     int SNS_RESULT_LIKE -> SNS_RESULT_LIKE
+    int SNS_RESULT_FRIENDS -> SNS_RESULT_FRIENDS
     13:13:void <init>() -> <init>
-    void rr(boolean,int) -> rr
-    void awc(int) -> awc
-    void awd(int) -> awd
+    void rr(boolean,int,java.lang.String) -> rr
+    void awc(int,java.lang.String) -> awc
+    void awd(int,java.lang.String) -> awd
+    void sns(int,boolean,int) -> sns
+    void lar(java.lang.String,boolean) -> lar
     void pr(int,int) -> pr
     void pv() -> pv
-    void sns(int,boolean,int) -> sns
     void sr(int,boolean,java.lang.String) -> sr
     void url(int,boolean,java.lang.String) -> url
     void lb(boolean,boolean,java.lang.String,java.lang.String) -> lb
-    63:198:void onCreate(android.app.Activity) -> onCreate
-    201:202:void onStart() -> onStart
-    205:206:void onStop() -> onStop
-    209:210:void onPause() -> onPause
-    213:214:void onResume(android.app.Activity) -> onResume
-    217:218:void onDestroy() -> onDestroy
-    221:222:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    225:226:void showBanner(int) -> showBanner
-    229:230:void showBanner(java.lang.String,int) -> showBanner
-    233:234:void closeBanner() -> closeBanner
-    237:238:void showFullAd(java.lang.String) -> showFullAd
-    241:242:void showRewardAd(int) -> showRewardAd
-    245:245:boolean hasRewardAd() -> hasRewardAd
-    249:250:void showRewardAd(java.lang.String,int) -> showRewardAd
-    253:253:boolean hasRewardAd(java.lang.String) -> hasRewardAd
-    257:258:void pay(int) -> pay
-    261:262:void query(int) -> query
-    265:266:void share() -> share
-    269:270:void rate() -> rate
-    273:274:void moreGame() -> moreGame
-    277:278:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
-    281:282:void track(java.lang.String,java.lang.String) -> track
-    285:286:void track(java.lang.String) -> track
-    289:290:void showNative(java.lang.String,int) -> showNative
-    293:294:void hideNative(java.lang.String) -> hideNative
-    297:297:boolean hasNative(java.lang.String) -> hasNative
-    301:301:java.lang.String getExtraData() -> getExtraData
-    305:306:void onQuit() -> onQuit
-    309:310:void login() -> login
-    313:314:void logout() -> logout
-    317:317:boolean isLogin() -> isLogin
-    321:322:void invite() -> invite
-    325:326:void challenge(java.lang.String,java.lang.String) -> challenge
-    329:329:java.lang.String me() -> me
-    333:333:java.lang.String friends() -> friends
-    337:338:void like() -> like
-    341:341:boolean isNetworkConnected() -> isNetworkConnected
-    383:383:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
-    387:388:void cacheUrl(int,java.lang.String) -> cacheUrl
-    391:391:java.lang.String getConfig(int) -> getConfig
-    395:395:java.lang.String getConfig(java.lang.String,int) -> getConfig
-    399:400:void alert(java.lang.String,java.lang.String) -> alert
-    403:403:boolean hasApp(java.lang.String) -> hasApp
-    407:408:void launchApp(java.lang.String) -> launchApp
-    411:412:void getApp(java.lang.String) -> getApp
-    420:421:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
-    427:428:void UM_onEvent(java.lang.String) -> UM_onEvent
-    431:432:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
-    435:436:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
-    446:447:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
-    455:456:void UM_onPageStart(java.lang.String) -> UM_onPageStart
-    464:465:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
-    473:474:void UM_startLevel(java.lang.String) -> UM_startLevel
-    482:483:void UM_failLevel(java.lang.String) -> UM_failLevel
-    491:492:void UM_finishLevel(java.lang.String) -> UM_finishLevel
-    503:504:void UM_pay(double,java.lang.String,int,double) -> UM_pay
-    514:515:void UM_buy(java.lang.String,int,double) -> UM_buy
-    525:526:void UM_use(java.lang.String,int,double) -> UM_use
-    537:538:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
+    57:136:void onCreate(android.app.Activity) -> onCreate
+    139:140:void onStart() -> onStart
+    143:144:void onStop() -> onStop
+    147:148:void onPause() -> onPause
+    151:152:void onResume(android.app.Activity) -> onResume
+    155:156:void onDestroy() -> onDestroy
+    159:160:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    163:164:void showBanner(int) -> showBanner
+    167:168:void showBanner(java.lang.String,int) -> showBanner
+    171:172:void closeBanner() -> closeBanner
+    175:176:void closeBanner(java.lang.String) -> closeBanner
+    179:190:void showFullAd(java.lang.String) -> showFullAd
+    193:194:void showRewardAd(int) -> showRewardAd
+    197:197:boolean hasRewardAd() -> hasRewardAd
+    201:217:void showRewardAd(java.lang.String,int) -> showRewardAd
+    220:220:boolean hasRewardAd(java.lang.String) -> hasRewardAd
+    224:225:void pay(int) -> pay
+    228:229:void query(int) -> query
+    232:232:java.lang.String getPrices() -> getPrices
+    236:237:void share() -> share
+    240:241:void rate() -> rate
+    244:245:void moreGame() -> moreGame
+    248:249:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
+    252:253:void track(java.lang.String,java.lang.String) -> track
+    256:257:void track(java.lang.String) -> track
+    260:261:void showNative(java.lang.String,int) -> showNative
+    264:265:void hideNative(java.lang.String) -> hideNative
+    268:268:boolean hasNative(java.lang.String) -> hasNative
+    272:272:java.lang.String getExtraData() -> getExtraData
+    276:277:void onQuit() -> onQuit
+    280:281:void login() -> login
+    284:285:void logout() -> logout
+    288:288:boolean isLogin() -> isLogin
+    292:293:void invite() -> invite
+    296:297:void challenge(java.lang.String,java.lang.String) -> challenge
+    300:300:java.lang.String me() -> me
+    304:304:java.lang.String friends() -> friends
+    308:309:void like() -> like
+    312:312:boolean isNetworkConnected() -> isNetworkConnected
+    322:322:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
+    325:326:void clickUrl(java.lang.String) -> clickUrl
+    329:330:void cacheUrl(int,java.lang.String) -> cacheUrl
+    333:333:java.lang.String getConfig(int) -> getConfig
+    337:337:java.lang.String getConfig(java.lang.String,int) -> getConfig
+    341:342:void alert(java.lang.String,java.lang.String) -> alert
+    345:345:boolean hasApp(java.lang.String) -> hasApp
+    349:350:void launchApp(java.lang.String) -> launchApp
+    353:354:void getApp(java.lang.String) -> getApp
+    357:357:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
+    360:361:void closeNativeAd(java.lang.String) -> closeNativeAd
+    363:364:void clickNativeAd(java.lang.String) -> clickNativeAd
+    367:378:void loadFullAd(java.lang.String) -> loadFullAd
+    386:387:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
+    393:394:void UM_onEvent(java.lang.String) -> UM_onEvent
+    397:398:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
+    401:402:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
+    412:413:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
+    421:422:void UM_onPageStart(java.lang.String) -> UM_onPageStart
+    430:431:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
+    439:440:void UM_startLevel(java.lang.String) -> UM_startLevel
+    448:449:void UM_failLevel(java.lang.String) -> UM_failLevel
+    457:458:void UM_finishLevel(java.lang.String) -> UM_finishLevel
+    469:470:void UM_pay(double,java.lang.String,int,double) -> UM_pay
+    480:481:void UM_buy(java.lang.String,int,double) -> UM_buy
+    491:492:void UM_use(java.lang.String,int,double) -> UM_use
+    503:504:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
 com.android.client.Cocos$1 -> com.android.client.Cocos$1:
-    176:176:void <init>() -> <init>
-    179:180:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
-    184:185:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
-    189:190:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
-    194:195:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
+    109:109:void <init>() -> <init>
+    112:113:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
+    117:118:void onReceiveFriends(java.lang.String) -> onReceiveFriends
+    122:123:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
+    127:128:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
+    132:133:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
 com.android.client.Cocos$2 -> com.android.client.Cocos$2:
-    145:145:void <init>() -> <init>
-    148:149:void onReceiveReward(boolean,int) -> onReceiveReward
-    153:154:void onFullAdClosed() -> onFullAdClosed
-    158:159:void onFullAdClicked() -> onFullAdClicked
-    163:164:void onVideoAdClosed() -> onVideoAdClosed
-    168:169:void onBannerAdClicked() -> onBannerAdClicked
-    173:174:void onCrossAdClicked() -> onCrossAdClicked
+    99:99:void <init>() -> <init>
+    102:103:void onSuccess(int,java.lang.String) -> onSuccess
+    107:108:void onFailure(int) -> onFailure
 com.android.client.Cocos$3 -> com.android.client.Cocos$3:
-    135:135:void <init>() -> <init>
-    138:139:void onSuccess(int,java.lang.String) -> onSuccess
-    143:144:void onFailure(int) -> onFailure
+    74:74:void <init>() -> <init>
+    77:78:void onPaymentSuccess(int) -> onPaymentSuccess
+    82:83:void onPaymentFail(int) -> onPaymentFail
+    87:88:void onPaymentSystemValid() -> onPaymentSystemValid
+    92:93:void onPaymentCanceled(int) -> onPaymentCanceled
+    98:98:void onPaymentSystemError(int,java.lang.String) -> onPaymentSystemError
 com.android.client.Cocos$4 -> com.android.client.Cocos$4:
-    115:115:void <init>() -> <init>
-    118:119:void onPaymentSuccess(int) -> onPaymentSuccess
-    123:124:void onPaymentFail(int) -> onPaymentFail
-    128:129:void onPaymentSystemValid() -> onPaymentSystemValid
-    133:134:void onPaymentCanceled(int) -> onPaymentCanceled
+    59:59:void <init>() -> <init>
+    63:63:void onInitialized() -> onInitialized
+    68:68:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
+    73:73:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
 com.android.client.Cocos$5 -> com.android.client.Cocos$5:
-    100:100:void <init>() -> <init>
-    104:104:void onInitialized() -> onInitialized
-    109:109:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
-    114:114:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
+    java.lang.String val$tag -> val$tag
+    179:179:void <init>(java.lang.String) -> <init>
+    182:183:void onAdClosed() -> onAdClosed
+    187:188:void onAdClicked() -> onAdClicked
+com.android.client.Cocos$6 -> com.android.client.Cocos$6:
+    int val$id -> val$id
+    java.lang.String val$tag -> val$tag
+    201:201:void <init>(int,java.lang.String) -> <init>
+    204:205:void onAdReward() -> onAdReward
+    209:210:void onAdShowFails() -> onAdShowFails
+    214:215:void onAdClosed() -> onAdClosed
+com.android.client.Cocos$7 -> com.android.client.Cocos$7:
+    java.lang.String val$tag -> val$tag
+    367:367:void <init>(java.lang.String) -> <init>
+    370:371:void onAdLoadSuccess() -> onAdLoadSuccess
+    375:376:void onAdLoadFails() -> onAdLoadFails
 com.android.client.DummyConfig -> com.android.client.DummyConfig:
     java.lang.String v_api -> v_api
     java.lang.String appId -> appId
@@ -28002,11 +28036,14 @@ com.android.client.DummyConfig -> com.android.client.DummyConfig:
     java.lang.String data -> data
     11:27:void <init>() -> <init>
 com.android.client.LeaderBoardListener -> com.android.client.LeaderBoardListener:
-com.android.client.PaymentResultListener -> com.android.client.PaymentResultListener:
-    void onPaymentSuccess(int) -> onPaymentSuccess
-    void onPaymentFail(int) -> onPaymentFail
-    void onPaymentSystemValid() -> onPaymentSystemValid
-    void onPaymentCanceled(int) -> onPaymentCanceled
+com.android.client.PaymentSystemListener -> com.android.client.PaymentSystemListener:
+    8:8:void <init>() -> <init>
+    11:12:void onPaymentSuccess(int) -> onPaymentSuccess
+    15:16:void onPaymentFail(int) -> onPaymentFail
+    19:20:void onPaymentCanceled(int) -> onPaymentCanceled
+    23:24:void onReceiveBillPrices(java.lang.String) -> onReceiveBillPrices
+    27:28:void onPaymentSystemValid() -> onPaymentSystemValid
+    31:32:void onPaymentSystemError(int,java.lang.String) -> onPaymentSystemError
 com.android.client.R -> com.android.client.R:
     9:9:void <init>() -> <init>
 com.android.client.R$string -> com.android.client.R$string:
@@ -28022,124 +28059,140 @@ com.android.client.Unity -> com.android.client.Unity:
     java.lang.String TRUE -> TRUE
     java.lang.String FALSE -> FALSE
     17:17:void <init>() -> <init>
-    30:184:void onCreate(android.app.Activity) -> onCreate
-    187:188:void sendMessage(java.lang.String,java.lang.String) -> sendMessage
-    191:199:void onStart() -> onStart
-    202:210:void onStop() -> onStop
-    213:221:void onPause() -> onPause
-    224:234:void onResume() -> onResume
-    237:245:void onDestroy() -> onDestroy
-    248:256:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    259:260:void showBanner(java.lang.String,int) -> showBanner
-    263:264:void showBanner(int) -> showBanner
-    267:268:void closeBanner() -> closeBanner
-    271:272:void showFullAd(java.lang.String) -> showFullAd
-    275:276:void showRewardAd(int) -> showRewardAd
-    279:279:boolean hasRewardAd() -> hasRewardAd
-    283:284:void showRewardAd(java.lang.String,int) -> showRewardAd
-    287:287:boolean hasRewardAd(java.lang.String) -> hasRewardAd
-    291:294:void pay(int) -> pay
-    297:298:void query(int) -> query
-    301:302:void share() -> share
-    305:306:void rate() -> rate
-    309:310:void moreGame() -> moreGame
-    313:314:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
-    317:318:void showNative(java.lang.String,int) -> showNative
-    321:322:void hideNative(java.lang.String) -> hideNative
-    325:325:boolean hasNative(java.lang.String) -> hasNative
-    329:329:java.lang.String getExtraData() -> getExtraData
-    333:334:void onQuit() -> onQuit
-    337:340:void login() -> login
-    343:344:void logout() -> logout
-    347:347:boolean isLogin() -> isLogin
-    351:354:void invite() -> invite
-    357:360:void challenge(java.lang.String,java.lang.String) -> challenge
-    363:363:java.lang.String me() -> me
-    367:367:java.lang.String friends() -> friends
-    371:374:void like() -> like
-    377:377:boolean isNetworkConnected() -> isNetworkConnected
-    418:418:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
-    422:423:void cacheUrl(int,java.lang.String) -> cacheUrl
-    426:426:java.lang.String getConfig(int) -> getConfig
-    430:430:boolean hasApp(java.lang.String) -> hasApp
-    434:435:void launchApp(java.lang.String) -> launchApp
-    438:439:void getApp(java.lang.String) -> getApp
-    442:443:void alert(java.lang.String,java.lang.String) -> alert
-    446:447:void toast(java.lang.String) -> toast
-    450:450:java.lang.String getConfig(java.lang.String,int) -> getConfig
-    454:455:void onKill(android.app.Activity) -> onKill
-    462:463:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
-    466:467:void UM_onEvent(java.lang.String) -> UM_onEvent
-    470:471:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
-    474:475:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
-    485:486:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
-    494:495:void UM_onPageStart(java.lang.String) -> UM_onPageStart
-    503:504:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
-    512:513:void UM_startLevel(java.lang.String) -> UM_startLevel
-    521:522:void UM_failLevel(java.lang.String) -> UM_failLevel
-    530:531:void UM_finishLevel(java.lang.String) -> UM_finishLevel
-    553:554:void UM_pay(double,java.lang.String,int,double) -> UM_pay
-    564:565:void UM_buy(java.lang.String,int,double) -> UM_buy
-    575:576:void UM_use(java.lang.String,int,double) -> UM_use
-    587:588:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
+    24:114:void onCreate(android.app.Activity) -> onCreate
+    117:118:void sendMessage(java.lang.String,java.lang.String) -> sendMessage
+    121:129:void onStart() -> onStart
+    132:140:void onStop() -> onStop
+    143:151:void onPause() -> onPause
+    154:164:void onResume() -> onResume
+    167:175:void onDestroy() -> onDestroy
+    178:186:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    189:190:void showBanner(java.lang.String,int) -> showBanner
+    193:194:void showBanner(int) -> showBanner
+    197:198:void closeBanner() -> closeBanner
+    201:202:void closeBanner(java.lang.String) -> closeBanner
+    205:216:void showFullAd(java.lang.String) -> showFullAd
+    219:220:void showRewardAd(int) -> showRewardAd
+    223:223:boolean hasRewardAd() -> hasRewardAd
+    227:243:void showRewardAd(java.lang.String,int) -> showRewardAd
+    246:246:boolean hasRewardAd(java.lang.String) -> hasRewardAd
+    250:251:void pay(int) -> pay
+    254:255:void query(int) -> query
+    258:259:void share() -> share
+    262:263:void rate() -> rate
+    266:267:void moreGame() -> moreGame
+    270:271:void trackEvent(java.lang.String,java.lang.String,java.lang.String,int) -> trackEvent
+    274:275:void showNative(java.lang.String,int) -> showNative
+    278:279:void hideNative(java.lang.String) -> hideNative
+    282:282:boolean hasNative(java.lang.String) -> hasNative
+    286:286:java.lang.String getExtraData() -> getExtraData
+    290:291:void onQuit() -> onQuit
+    294:297:void login() -> login
+    300:301:void logout() -> logout
+    304:304:boolean isLogin() -> isLogin
+    308:311:void invite() -> invite
+    314:317:void challenge(java.lang.String,java.lang.String) -> challenge
+    320:320:java.lang.String me() -> me
+    324:324:java.lang.String friends() -> friends
+    328:331:void like() -> like
+    334:345:void loadFullAd(java.lang.String) -> loadFullAd
+    348:348:java.lang.String showNativeAd(java.lang.String) -> showNativeAd
+    351:352:void closeNativeAd(java.lang.String) -> closeNativeAd
+    354:355:void clickNativeAd(java.lang.String) -> clickNativeAd
+    358:358:boolean isNetworkConnected() -> isNetworkConnected
+    368:368:java.lang.String cacheUrl(java.lang.String) -> cacheUrl
+    372:373:void cacheUrl(int,java.lang.String) -> cacheUrl
+    376:376:java.lang.String getConfig(int) -> getConfig
+    380:380:boolean hasApp(java.lang.String) -> hasApp
+    384:385:void launchApp(java.lang.String) -> launchApp
+    388:389:void getApp(java.lang.String) -> getApp
+    392:393:void alert(java.lang.String,java.lang.String) -> alert
+    396:397:void toast(java.lang.String) -> toast
+    400:400:java.lang.String getConfig(java.lang.String,int) -> getConfig
+    404:404:java.lang.String getPrices() -> getPrices
+    408:409:void onKill(android.app.Activity) -> onKill
+    416:417:void UM_setPlayerLevel(int) -> UM_setPlayerLevel
+    420:421:void UM_onEvent(java.lang.String) -> UM_onEvent
+    424:425:void UM_onEvent(java.lang.String,java.lang.String) -> UM_onEvent
+    428:429:void UM_onEvent(java.lang.String,java.util.Map) -> UM_onEvent
+    439:440:void UM_onEventValue(java.lang.String,java.util.Map,int) -> UM_onEventValue
+    448:449:void UM_onPageStart(java.lang.String) -> UM_onPageStart
+    457:458:void UM_onPageEnd(java.lang.String) -> UM_onPageEnd
+    466:467:void UM_startLevel(java.lang.String) -> UM_startLevel
+    475:476:void UM_failLevel(java.lang.String) -> UM_failLevel
+    484:485:void UM_finishLevel(java.lang.String) -> UM_finishLevel
+    507:508:void UM_pay(double,java.lang.String,int,double) -> UM_pay
+    518:519:void UM_buy(java.lang.String,int,double) -> UM_buy
+    529:530:void UM_use(java.lang.String,int,double) -> UM_use
+    541:542:void UM_bonus(java.lang.String,int,double,int) -> UM_bonus
 com.android.client.Unity$1 -> com.android.client.Unity$1:
-    31:31:void <init>() -> <init>
-    34:181:void run() -> run
+    25:25:void <init>() -> <init>
+    28:111:void run() -> run
 com.android.client.Unity$1$1 -> com.android.client.Unity$1$1:
     com.android.client.Unity$1 this$0 -> this$0
-    157:157:void <init>(com.android.client.Unity$1) -> <init>
-    160:161:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
-    165:166:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
-    170:171:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
-    175:176:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
+    82:82:void <init>(com.android.client.Unity$1) -> <init>
+    85:86:void onReceiveLoginResult(boolean) -> onReceiveLoginResult
+    90:91:void onReceiveFriends(java.lang.String) -> onReceiveFriends
+    95:96:void onReceiveInviteResult(boolean) -> onReceiveInviteResult
+    100:101:void onReceiveChallengeResult(int) -> onReceiveChallengeResult
+    105:106:void onReceiveLikeResult(boolean) -> onReceiveLikeResult
 com.android.client.Unity$1$2 -> com.android.client.Unity$1$2:
     com.android.client.Unity$1 this$0 -> this$0
-    126:126:void <init>(com.android.client.Unity$1) -> <init>
-    129:130:void onReceiveReward(boolean,int) -> onReceiveReward
-    134:135:void onFullAdClosed() -> onFullAdClosed
-    139:140:void onFullAdClicked() -> onFullAdClicked
-    144:145:void onVideoAdClosed() -> onVideoAdClosed
-    149:150:void onBannerAdClicked() -> onBannerAdClicked
-    154:155:void onCrossAdClicked() -> onCrossAdClicked
+    72:72:void <init>(com.android.client.Unity$1) -> <init>
+    75:76:void onSuccess(int,java.lang.String) -> onSuccess
+    80:81:void onFailure(int) -> onFailure
 com.android.client.Unity$1$3 -> com.android.client.Unity$1$3:
     com.android.client.Unity$1 this$0 -> this$0
-    116:116:void <init>(com.android.client.Unity$1) -> <init>
-    119:120:void onSuccess(int,java.lang.String) -> onSuccess
-    124:125:void onFailure(int) -> onFailure
+    47:47:void <init>(com.android.client.Unity$1) -> <init>
+    50:51:void onPaymentSuccess(int) -> onPaymentSuccess
+    55:56:void onPaymentFail(int) -> onPaymentFail
+    60:61:void onPaymentSystemValid() -> onPaymentSystemValid
+    65:66:void onPaymentCanceled(int) -> onPaymentCanceled
+    70:71:void onPaymentSystemError(int,java.lang.String) -> onPaymentSystemError
 com.android.client.Unity$1$4 -> com.android.client.Unity$1$4:
     com.android.client.Unity$1 this$0 -> this$0
-    96:96:void <init>(com.android.client.Unity$1) -> <init>
-    99:100:void onPaymentSuccess(int) -> onPaymentSuccess
-    104:105:void onPaymentFail(int) -> onPaymentFail
-    109:110:void onPaymentSystemValid() -> onPaymentSystemValid
-    114:115:void onPaymentCanceled(int) -> onPaymentCanceled
-com.android.client.Unity$1$5 -> com.android.client.Unity$1$5:
-    com.android.client.Unity$1 this$0 -> this$0
-    81:81:void <init>(com.android.client.Unity$1) -> <init>
-    84:85:void onInitialized() -> onInitialized
-    89:90:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
-    94:95:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
+    32:32:void <init>(com.android.client.Unity$1) -> <init>
+    35:36:void onInitialized() -> onInitialized
+    40:41:void onReceiveServerExtra(java.lang.String) -> onReceiveServerExtra
+    45:46:void onReceiveNotificationData(java.lang.String) -> onReceiveNotificationData
+com.android.client.Unity$10 -> com.android.client.Unity$10:
+    java.lang.String val$tag -> val$tag
+    334:334:void <init>(java.lang.String) -> <init>
+    337:338:void onAdLoadSuccess() -> onAdLoadSuccess
+    342:343:void onAdLoadFails() -> onAdLoadFails
 com.android.client.Unity$2 -> com.android.client.Unity$2:
-    192:192:void <init>() -> <init>
-    195:196:void run() -> run
+    122:122:void <init>() -> <init>
+    125:126:void run() -> run
 com.android.client.Unity$3 -> com.android.client.Unity$3:
-    203:203:void <init>() -> <init>
-    206:207:void run() -> run
+    133:133:void <init>() -> <init>
+    136:137:void run() -> run
 com.android.client.Unity$4 -> com.android.client.Unity$4:
-    214:214:void <init>() -> <init>
-    217:218:void run() -> run
+    144:144:void <init>() -> <init>
+    147:148:void run() -> run
 com.android.client.Unity$5 -> com.android.client.Unity$5:
-    226:226:void <init>() -> <init>
-    229:230:void run() -> run
+    156:156:void <init>() -> <init>
+    159:160:void run() -> run
 com.android.client.Unity$6 -> com.android.client.Unity$6:
-    238:238:void <init>() -> <init>
-    241:242:void run() -> run
+    168:168:void <init>() -> <init>
+    171:172:void run() -> run
 com.android.client.Unity$7 -> com.android.client.Unity$7:
     int val$requestCode -> val$requestCode
     int val$resultCode -> val$resultCode
     android.content.Intent val$data -> val$data
-    249:249:void <init>(int,int,android.content.Intent) -> <init>
-    252:253:void run() -> run
+    179:179:void <init>(int,int,android.content.Intent) -> <init>
+    182:183:void run() -> run
+com.android.client.Unity$8 -> com.android.client.Unity$8:
+    java.lang.String val$tag -> val$tag
+    205:205:void <init>(java.lang.String) -> <init>
+    208:209:void onAdClosed() -> onAdClosed
+    213:214:void onAdClicked() -> onAdClicked
+com.android.client.Unity$9 -> com.android.client.Unity$9:
+    int val$id -> val$id
+    java.lang.String val$tag -> val$tag
+    227:227:void <init>(int,java.lang.String) -> <init>
+    230:231:void onAdReward() -> onAdReward
+    235:236:void onAdShowFails() -> onAdShowFails
+    240:241:void onAdClosed() -> onAdClosed
 com.android.client.Unity3dPlayerActivity -> com.android.client.Unity3dPlayerActivity:
     int TYPE_LIKE -> TYPE_LIKE
     int TYPE_CHALLENGE -> TYPE_CHALLENGE
@@ -28153,6 +28206,7 @@ com.android.client.UrlListener -> com.android.client.UrlListener:
     void onFailure(int) -> onFailure
 com.android.client.UserCenterListener -> com.android.client.UserCenterListener:
     void onReceiveLoginResult(boolean) -> onReceiveLoginResult
+    void onReceiveFriends(java.lang.String) -> onReceiveFriends
     void onReceiveInviteResult(boolean) -> onReceiveInviteResult
     void onReceiveChallengeResult(int) -> onReceiveChallengeResult
     void onReceiveLikeResult(boolean) -> onReceiveLikeResult
@@ -28171,9 +28225,9 @@ com.android.common.EventBus -> com.android.common.EventBus:
     java.lang.Object LOCK -> d
     boolean working -> e
     com.android.common.EventBus DEFAULT_EVENT_BUS -> f
-    14:26:void <init>() -> <init>
+    14:19:void <init>() -> <init>
     23:23:com.android.common.EventBus bus() -> bus
-    31:44:boolean requireEvent(int) -> requireEvent
+    31:44:boolean hasEvent(int) -> hasEvent
     48:86:void sendEvent(int,java.lang.Object[]) -> sendEvent
     89:102:void register(com.android.common.EventBus$EventListener,int[]) -> register
     105:130:void addPendingEventListeners(java.lang.ref.WeakReference,int[]) -> a
@@ -28223,7 +28277,7 @@ com.android.common.SdkCache -> com.android.common.SdkCache:
     java.lang.String internalRoot -> c
     android.content.Context context -> d
     com.android.async.AsyncExecutor executor -> e
-    25:26:void <init>() -> <init>
+    25:25:void <init>() -> <init>
     35:35:com.android.common.SdkCache cache() -> cache
     44:57:void makeValid(android.content.Context) -> makeValid
     60:69:void makeValid(java.lang.String) -> a
@@ -28285,64 +28339,78 @@ com.android.common.SdkEnv -> com.android.common.SdkEnv:
     java.lang.String signInfo -> signInfo
     java.lang.String source -> e
     int appId -> f
-    java.lang.ref.WeakReference activityWeakReference -> g
+    float dpPercent -> g
+    float widthDp -> h
+    java.lang.ref.WeakReference activityWeakReference -> i
     java.lang.String GOOGLE_PALY_URL -> GOOGLE_PALY_URL
     java.util.UUID uuid -> a
-    java.lang.String[] MNC_NAMES -> h
-    byte MNC_CODE -> i
-    int[] MNC_NUMS -> j
-    java.lang.String[] MNC_CODES -> k
-    39:68:void <init>() -> <init>
-    47:47:com.android.common.SdkEnv env() -> env
-    51:51:android.content.Context context() -> context
-    72:73:void onCreate(android.content.Context,java.lang.String,java.lang.String) -> onCreate
-    76:78:void onCreate(android.app.Activity,java.lang.String,java.lang.String) -> onCreate
-    81:82:void onResume(android.app.Activity) -> onResume
-    86:97:boolean isNetworkConnected() -> isNetworkConnected
-    101:102:android.app.Activity getActivity() -> getActivity
-    107:119:void makeValid(android.content.Context,java.lang.String,java.lang.String) -> a
-    122:154:void reset(android.content.Context) -> reset
-    157:158:void setAppId(int) -> setAppId
-    162:173:java.lang.String getSignInfo() -> getSignInfo
-    178:189:char[] toChars(byte[]) -> a
-    194:203:java.lang.String md5(java.lang.String) -> md5
-    210:225:void openPlayStore(java.lang.String,java.lang.String) -> openPlayStore
-    228:233:void launchPlayStore(android.content.Context,java.lang.String,android.content.Intent) -> a
-    236:242:void launchBrowser(android.content.Context,java.lang.String,android.content.Intent) -> b
-    245:251:java.lang.String getDefaultBrowserPackageName(android.content.Context,android.content.Intent) -> a
-    256:256:boolean isPlayStoreUrl(java.lang.String) -> a
-    261:269:java.lang.String appendReferrer(java.lang.String,java.lang.String) -> a
-    274:278:java.lang.String fixUrl(java.lang.String,java.lang.String) -> b
-    284:287:boolean hasApp(java.lang.String) -> hasApp
-    293:299:void launchApp(java.lang.String) -> launchApp
-    302:302:boolean hasPlayStore() -> hasPlayStore
-    307:311:void launchApp(android.content.Context,android.content.Intent) -> b
-    314:315:void post(java.lang.Runnable) -> post
-    318:319:void postDelay(java.lang.Runnable,int) -> postDelay
-    322:323:void remove(java.lang.Runnable) -> remove
-    327:338:android.app.AlertDialog showDialog(android.app.Activity,android.view.View) -> showDialog
-    343:350:android.app.AlertDialog showCommonDialog(android.app.Activity,android.view.View) -> showCommonDialog
-    355:376:android.app.AlertDialog showDialog(android.content.Context,android.view.View,boolean) -> showDialog
-    380:394:void share(java.lang.String) -> share
-    398:402:void rateUs() -> rateUs
-    412:414:int fixDp(int) -> fixDp
-    418:423:int dp2px(int) -> dp2px
-    428:429:void sendEvent(int,java.lang.Object[]) -> sendEvent
-    432:432:boolean requireEvent(int) -> requireEvent
-    436:437:void registerEvent(com.android.common.EventBus$EventListener,int[]) -> registerEvent
-    440:441:void removeEventListener(com.android.common.EventBus$EventListener) -> removeEventListener
-    444:445:void unregisterEvents(com.android.common.EventBus$EventListener,int[]) -> unregisterEvents
-    454:502:java.lang.String getUUID() -> getUUID
-    506:508:java.lang.String getLangCode() -> getLangCode
-    520:520:java.lang.String getMNCName() -> getMNCName
-    572:626:java.lang.String getCountryCode() -> getCountryCode
-    41:544:void <clinit>() -> <clinit>
+    java.lang.String[] MNC_NAMES -> j
+    byte MNC_CODE -> k
+    int[] MNC_NUMS -> l
+    java.lang.String[] MNC_CODES -> m
+    44:73:void <init>() -> <init>
+    52:52:com.android.common.SdkEnv env() -> env
+    56:56:android.content.Context context() -> context
+    79:79:int scaleDp(int) -> scaleDp
+    83:83:int scaleDp(int,int) -> scaleDp
+    87:87:int scaleDp2Px(int) -> scaleDp2Px
+    91:91:int scaleDp2Px(int,int) -> scaleDp2Px
+    95:96:void onCreate(android.content.Context,java.lang.String,java.lang.String) -> onCreate
+    99:101:void onCreate(android.app.Activity,java.lang.String,java.lang.String) -> onCreate
+    104:105:void onResume(android.app.Activity) -> onResume
+    109:120:boolean isNetworkConnected() -> isNetworkConnected
+    124:125:android.app.Activity getActivity() -> getActivity
+    130:142:void makeValid(android.content.Context,java.lang.String,java.lang.String) -> a
+    145:179:void reset(android.content.Context) -> reset
+    183:193:java.lang.String keyHash() -> a
+    197:198:void setAppId(int) -> setAppId
+    202:213:java.lang.String getSignInfo() -> getSignInfo
+    218:229:char[] toChars(byte[]) -> a
+    234:243:java.lang.String md5(java.lang.String) -> md5
+    250:252:void openBrowser(java.lang.String) -> openBrowser
+    255:270:void openPlayStore(java.lang.String,java.lang.String) -> openPlayStore
+    273:278:void launchPlayStore(android.content.Context,java.lang.String,android.content.Intent) -> a
+    281:287:void launchBrowser(android.content.Context,java.lang.String,android.content.Intent) -> b
+    290:296:java.lang.String getDefaultBrowserPackageName(android.content.Context,android.content.Intent) -> a
+    301:301:boolean isPlayStoreUrl(java.lang.String) -> a
+    306:314:java.lang.String appendReferrer(java.lang.String,java.lang.String) -> a
+    319:323:java.lang.String fixUrl(java.lang.String,java.lang.String) -> b
+    329:332:boolean hasApp(java.lang.String) -> hasApp
+    338:344:void launchApp(java.lang.String) -> launchApp
+    347:347:boolean hasPlayStore() -> hasPlayStore
+    352:356:void launchApp(android.content.Context,android.content.Intent) -> b
+    359:360:void post(java.lang.Runnable) -> post
+    363:364:void postDelay(java.lang.Runnable,int) -> postDelay
+    367:368:void remove(java.lang.Runnable) -> remove
+    372:383:android.app.AlertDialog showDialog(android.app.Activity,android.view.View) -> showDialog
+    388:395:android.app.AlertDialog showCommonDialog(android.app.Activity,android.view.View) -> showCommonDialog
+    400:421:android.app.AlertDialog showDialog(android.content.Context,android.view.View,boolean) -> showDialog
+    425:443:void share(java.lang.String) -> share
+    446:450:boolean validApp(java.lang.String,android.content.Intent) -> a
+    456:460:void rateUs() -> rateUs
+    470:475:int fixDp(int) -> fixDp
+    480:485:int dp2px(int) -> dp2px
+    490:491:void sendEvent(int,java.lang.Object[]) -> sendEvent
+    500:500:boolean requireEvent(int) -> requireEvent
+    504:505:void registerEvent(com.android.common.EventBus$EventListener,int[]) -> registerEvent
+    508:509:void removeEventListener(com.android.common.EventBus$EventListener) -> removeEventListener
+    512:513:void unregisterEvents(com.android.common.EventBus$EventListener,int[]) -> unregisterEvents
+    522:570:java.lang.String getUUID() -> getUUID
+    574:581:void toast(java.lang.String) -> toast
+    584:586:java.lang.String getLangCode() -> getLangCode
+    598:598:java.lang.String getMNCName() -> getMNCName
+    650:704:java.lang.String getCountryCode() -> getCountryCode
+    46:622:void <clinit>() -> <clinit>
+com.android.common.SdkEnv$1 -> com.android.common.SdkEnv$1:
+    java.lang.String val$data -> a
+    575:575:void <init>(java.lang.String) -> <init>
+    578:579:void run() -> run
 com.android.common.SdkLog -> com.android.common.SdkLog:
     boolean LOG -> a
     10:10:void <init>() -> <init>
-    14:23:void setDebug(android.app.Activity) -> setDebug
-    26:29:void log(java.lang.String) -> log
-    32:32:boolean debug() -> debug
+    14:25:void setDebug(android.app.Activity) -> setDebug
+    28:31:void log(java.lang.String) -> log
+    34:34:boolean debug() -> debug
     11:11:void <clinit>() -> <clinit>
 com.android.common.Utils -> com.android.common.Utils:
     int OP_NONE -> OP_NONE
@@ -28401,7 +28469,7 @@ com.android.common.Utils -> com.android.common.Utils:
     230:238:int checkOp(android.content.Context,int) -> a
 com.android.network.HttpClient -> com.android.network.HttpClient:
     javax.net.ssl.HostnameVerifier DO_NOT_VERIFY -> a
-    20:174:void <init>() -> <init>
+    20:20:void <init>() -> <init>
     22:30:java.lang.String makeParams(java.util.HashMap) -> a
     35:42:java.lang.String makeParams(java.lang.String,java.lang.String[]) -> a
     46:79:void get(java.lang.String,int,com.android.network.HttpClient$OnHttpResult,java.lang.String[]) -> get
@@ -31351,8 +31419,8 @@ com.mingle.widgetprivacy.LinearLayout -> com.mingle.widgetprivacy.LinearLayout:
     93:93:android.widget.LinearLayout$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
     98:102:void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
     106:106:android.widget.LinearLayout$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
-    25:25:android.view.ViewGroup$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
     25:25:android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+    25:25:android.view.ViewGroup$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
 com.mingle.widgetprivacy.LinearLayout$SLayoutParams -> com.mingle.widgetprivacy.LinearLayout$a:
     com.mingle.privacyskin.hepler.DefaultViewSkinHelper mSkinHelper -> b
     com.mingle.widgetprivacy.LinearLayout this$0 -> a
@@ -31371,6 +31439,7 @@ com.mingle.widgetprivacy.ListView -> com.mingle.widgetprivacy.ListView:
     71:72:void superDraw(android.graphics.Canvas) -> a
     78:78:com.mingle.widgetprivacy.animation.CRAnimation circularReveal(int,int,float,float) -> a
     83:84:void setSkinStyle(com.mingle.privacyskin.SkinStyle) -> setSkinStyle
+    20:20:void setAdapter(android.widget.Adapter) -> setAdapter
 com.mingle.widgetprivacy.MultiAutoCompleteTextView -> com.mingle.widgetprivacy.MultiAutoCompleteTextView:
     com.mingle.privacycircletreveal.CircleRevealHelper mCircleRevealHelper -> a
     com.mingle.privacyskin.hepler.SkinHelper mSkinHelper -> b
@@ -32197,22 +32266,22 @@ com.privacy.junk.activityprivacy.AllAppsActivityPrivacy -> com.privacy.junk.acti
     android.view.View nativeView3 -> E
     com.privacy.junk.activityprivacy.AllAppsActivityPrivacy$MyReceiver receiver -> F
     android.view.View$OnClickListener onClickListener -> k
-    48:255:void <init>() -> <init>
+    48:253:void <init>() -> <init>
     70:79:void onCreate(android.os.Bundle) -> onCreate
     83:141:void initData(long) -> a
     145:152:void findId() -> a
-    156:175:void loadFullAd() -> b
-    179:181:void onClick() -> c
-    185:196:void updateAdapter(java.util.List,java.util.List,java.util.List) -> a
-    238:239:void onPause() -> onPause
-    242:253:void initList() -> d
-    292:293:void onRestart() -> onRestart
-    297:302:void onResume() -> onResume
-    307:315:boolean isNoSwitch() -> e
-    319:324:boolean isNoOption() -> f
-    329:339:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    343:354:void setCleanDAta(long) -> b
-    358:360:void onDestroy() -> onDestroy
+    156:173:void loadFullAd() -> b
+    177:179:void onClick() -> c
+    183:194:void updateAdapter(java.util.List,java.util.List,java.util.List) -> a
+    236:237:void onPause() -> onPause
+    240:251:void initList() -> d
+    290:291:void onRestart() -> onRestart
+    295:300:void onResume() -> onResume
+    305:313:boolean isNoSwitch() -> e
+    317:322:boolean isNoOption() -> f
+    327:337:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    341:352:void setCleanDAta(long) -> b
+    356:358:void onDestroy() -> onDestroy
     48:48:com.privacy.junk.customadapterprivacy.PrivacyManagerAdapter access$000(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy) -> a
     48:48:com.privacy.junk.customadapterprivacy.PrivacyManagerAdapter access$100(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy) -> b
     48:48:com.privacy.junk.customadapterprivacy.PrivacyManagerAdapter access$200(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy) -> c
@@ -32230,25 +32299,25 @@ com.privacy.junk.activityprivacy.AllAppsActivityPrivacy$2 -> com.privacy.junk.ac
     java.util.List val$listtime -> b
     java.util.List val$listpinlv -> c
     com.privacy.junk.activityprivacy.AllAppsActivityPrivacy this$0 -> d
-    185:185:void <init>(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy,java.util.List,java.util.List,java.util.List) -> <init>
-    188:194:void run() -> run
+    183:183:void <init>(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy,java.util.List,java.util.List,java.util.List) -> <init>
+    186:192:void run() -> run
 com.privacy.junk.activityprivacy.AllAppsActivityPrivacy$3 -> com.privacy.junk.activityprivacy.AllAppsActivityPrivacy$3:
     com.privacy.junk.activityprivacy.AllAppsActivityPrivacy this$0 -> a
-    255:255:void <init>(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy) -> <init>
-    258:277:void onClick(android.view.View) -> onClick
+    253:253:void <init>(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy) -> <init>
+    256:275:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.AllAppsActivityPrivacy$MyPagerAdaptre -> com.privacy.junk.activityprivacy.AllAppsActivityPrivacy$a:
     com.privacy.junk.activityprivacy.AllAppsActivityPrivacy this$0 -> a
-    198:198:void <init>(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy) -> <init>
-    202:202:int getCount() -> getCount
-    208:208:int getItemPosition(java.lang.Object) -> getItemPosition
-    214:215:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    220:220:java.lang.CharSequence getPageTitle(int) -> getPageTitle
-    225:228:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    232:232:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    196:196:void <init>(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy) -> <init>
+    200:200:int getCount() -> getCount
+    206:206:int getItemPosition(java.lang.Object) -> getItemPosition
+    212:213:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    218:218:java.lang.CharSequence getPageTitle(int) -> getPageTitle
+    223:226:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    230:230:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.privacy.junk.activityprivacy.AllAppsActivityPrivacy$MyReceiver -> com.privacy.junk.activityprivacy.AllAppsActivityPrivacy$MyReceiver:
     com.privacy.junk.activityprivacy.AllAppsActivityPrivacy this$0 -> a
-    281:281:void <init>(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy) -> <init>
-    284:286:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    279:279:void <init>(com.privacy.junk.activityprivacy.AllAppsActivityPrivacy) -> <init>
+    282:284:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.privacy.junk.activityprivacy.BaseActivity -> com.privacy.junk.activityprivacy.BaseActivity:
     android.widget.Toast toast -> a
     boolean onDestroyed -> l
@@ -32277,107 +32346,129 @@ com.privacy.junk.activityprivacy.BaseActivity$1 -> com.privacy.junk.activitypriv
     150:150:void <init>(com.privacy.junk.activityprivacy.BaseActivity) -> <init>
     153:154:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.privacy.junk.activityprivacy.DeepingActivityPrivacy -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy:
-    android.support.v7.widget.GridLayoutManager mLayoutManager -> h
+    android.support.v7.widget.GridLayoutManager mLayoutManager -> k
     android.os.Handler mHandler -> a
-    com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter homeAdapter -> i
-    com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter containerAdapter -> j
-    java.util.ArrayList startList -> k
-    android.view.View containerView -> p
-    android.widget.ImageView power_imageview -> q
-    boolean flag -> r
-    com.privacy.junk.activityprivacy.MyApplication cleanApplication -> s
-    int count -> t
-    android.widget.TextView power_size -> b
-    android.support.v7.widget.RecyclerView power_recycler -> c
-    android.widget.TextView junk_button_clean -> d
-    android.widget.FrameLayout title_left -> e
-    android.widget.TextView title_name -> f
-    com.privacy.junk.privacycustomview.DeepWidgetContainerPrivacy container -> u
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> v
-    android.widget.TextView containerView_power_size -> w
-    android.widget.TextView containerView_junk_button_clean -> x
-    java.lang.Runnable runnable -> g
-    42:152:void <init>() -> <init>
-    65:150:void onCreate(android.os.Bundle) -> onCreate
-    199:205:void findId() -> a
-    208:243:void animatorView(android.view.View,int) -> a
-    246:251:void showPackageDetail(java.lang.String) -> b
-    254:266:void setContainer() -> b
-    334:341:void initData() -> c
-    345:347:void onBackPressed() -> onBackPressed
-    351:353:void onPause() -> onPause
-    357:365:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    369:371:void onDestroy() -> onDestroy
-    42:42:boolean access$002(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,boolean) -> a
-    42:42:android.view.View access$102(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,android.view.View) -> a
-    42:42:com.privacy.junk.privacycustomview.DeepWidgetContainerPrivacy access$202(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,com.privacy.junk.privacycustomview.DeepWidgetContainerPrivacy) -> a
-    42:42:android.view.View access$100(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> a
-    42:42:com.privacy.junk.privacycustomview.DeepWidgetContainerPrivacy access$200(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> b
-    42:42:void access$300(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> c
-    42:42:java.util.ArrayList access$400(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> d
-    42:42:int access$508(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> e
-    42:42:void access$600(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,java.lang.String) -> a
-    42:42:android.support.v7.widget.RecyclerView access$700(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> f
-    42:42:void access$800(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,android.view.View,int) -> a
-    42:42:com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter access$900(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> g
-    42:42:int access$500(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> h
-    42:42:android.widget.TextView access$1000(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> i
-    42:42:com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter access$1100(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> j
+    com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter homeAdapter -> p
+    com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter containerAdapter -> q
+    java.util.ArrayList startList -> r
+    android.view.View containerView -> s
+    android.widget.ImageView power_imageview -> t
+    android.widget.LinearLayout view_t -> b
+    android.support.v4.view.ViewPager view_pager -> c
+    boolean flag -> u
+    int count -> v
+    android.widget.TextView power_size -> d
+    android.support.v7.widget.RecyclerView power_recycler -> e
+    android.widget.TextView junk_button_clean -> f
+    android.widget.FrameLayout title_left -> g
+    android.widget.TextView title_name -> h
+    com.privacy.junk.privacycustomview.DeepWidgetContainerPrivacy container -> w
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> x
+    android.widget.TextView containerView_power_size -> y
+    android.widget.TextView containerView_junk_button_clean -> z
+    java.util.ArrayList viewList -> A
+    android.animation.AnimatorSet animatorSet -> B
+    java.lang.Runnable runnable -> i
+    java.lang.Runnable runnable_ad -> j
+    47:406:void <init>() -> <init>
+    73:159:void onCreate(android.os.Bundle) -> onCreate
+    208:216:void findId() -> a
+    219:251:void animatorView(android.view.View,int) -> a
+    254:259:void showPackageDetail(java.lang.String) -> b
+    262:274:void setContainer() -> b
+    342:404:void initData() -> c
+    418:420:void onBackPressed() -> onBackPressed
+    424:425:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    429:431:void onPause() -> onPause
+    435:443:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    447:452:void onDestroy() -> onDestroy
+    47:47:boolean access$002(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,boolean) -> a
+    47:47:android.view.View access$102(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,android.view.View) -> a
+    47:47:com.privacy.junk.privacycustomview.DeepWidgetContainerPrivacy access$202(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,com.privacy.junk.privacycustomview.DeepWidgetContainerPrivacy) -> a
+    47:47:android.view.View access$100(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> a
+    47:47:com.privacy.junk.privacycustomview.DeepWidgetContainerPrivacy access$200(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> b
+    47:47:void access$300(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> c
+    47:47:java.util.ArrayList access$400(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> d
+    47:47:int access$508(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> e
+    47:47:void access$600(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,java.lang.String) -> a
+    47:47:android.support.v7.widget.RecyclerView access$700(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> f
+    47:47:void access$800(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,android.view.View,int) -> a
+    47:47:com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter access$900(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> g
+    47:47:int access$500(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> h
+    47:47:android.widget.TextView access$1000(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> i
+    47:47:com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter access$1100(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> j
+    47:47:java.util.ArrayList access$1200(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> k
+    47:47:android.animation.AnimatorSet access$1300(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> l
 com.privacy.junk.activityprivacy.DeepingActivityPrivacy$1 -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$1:
     com.privacy.junk.activityprivacy.DeepingActivityPrivacy this$0 -> a
-    79:79:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> <init>
-    82:115:void onClick(android.view.View) -> onClick
+    88:88:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> <init>
+    91:124:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.DeepingActivityPrivacy$1$1 -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$1$1:
     com.privacy.junk.activityprivacy.DeepingActivityPrivacy$1 this$1 -> a
-    93:93:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy$1) -> <init>
-    96:98:void run() -> run
+    102:102:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy$1) -> <init>
+    105:107:void run() -> run
 com.privacy.junk.activityprivacy.DeepingActivityPrivacy$2 -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$2:
     com.privacy.junk.activityprivacy.DeepingActivityPrivacy this$0 -> a
-    117:117:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> <init>
-    120:121:void onClick(android.view.View) -> onClick
+    126:126:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> <init>
+    129:130:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.DeepingActivityPrivacy$3 -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$3:
     com.privacy.junk.activityprivacy.DeepingActivityPrivacy this$0 -> a
-    152:152:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> <init>
-    155:194:void run() -> run
+    161:161:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> <init>
+    164:203:void run() -> run
 com.privacy.junk.activityprivacy.DeepingActivityPrivacy$4 -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$4:
     int val$i -> a
     com.privacy.junk.activityprivacy.DeepingActivityPrivacy this$0 -> b
-    216:216:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,int) -> <init>
-    220:220:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    224:230:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    235:235:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    239:239:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    223:223:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,int) -> <init>
+    227:227:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    231:238:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    243:243:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    247:247:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.privacy.junk.activityprivacy.DeepingActivityPrivacy$5 -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$5:
+    com.privacy.junk.activityprivacy.DeepingActivityPrivacy this$0 -> a
+    365:365:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> <init>
+    368:368:int getCount() -> getCount
+    374:375:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    380:383:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    387:387:int getItemPosition(java.lang.Object) -> getItemPosition
+    393:393:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+com.privacy.junk.activityprivacy.DeepingActivityPrivacy$6 -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$6:
+    com.privacy.junk.activityprivacy.DeepingActivityPrivacy this$0 -> a
+    398:398:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> <init>
+    401:402:void run() -> run
+com.privacy.junk.activityprivacy.DeepingActivityPrivacy$7 -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$7:
+    com.privacy.junk.activityprivacy.DeepingActivityPrivacy this$0 -> a
+    406:406:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy) -> <init>
+    409:413:void run() -> run
 com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$a:
     boolean isWidget -> a
     com.privacy.junk.activityprivacy.DeepingActivityPrivacy this$0 -> b
-    271:273:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,boolean) -> <init>
-    277:280:com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    285:304:void onBindViewHolder(com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter$MyViewHolder,int) -> a
-    308:310:void reChangesData(int) -> a
-    314:314:int getItemCount() -> getItemCount
-    268:268:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    268:268:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    279:281:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy,boolean) -> <init>
+    285:288:com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    293:312:void onBindViewHolder(com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter$MyViewHolder,int) -> a
+    316:318:void reChangesData(int) -> a
+    322:322:int getItemCount() -> getItemCount
+    276:276:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    276:276:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter$1 -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$a$1:
     int val$position -> a
     com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter this$1 -> b
-    297:297:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter,int) -> <init>
-    300:302:void onClick(android.view.View) -> onClick
+    305:305:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter,int) -> <init>
+    308:310:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter$MyViewHolder -> com.privacy.junk.activityprivacy.DeepingActivityPrivacy$a$a:
     android.widget.FrameLayout recyc_item -> a
     android.widget.ImageView recyc_icon -> b
     android.widget.ImageView recyc_check -> c
     android.widget.TextView recyc_name -> d
     com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter this$1 -> e
-    323:329:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter,android.view.View) -> <init>
+    331:337:void <init>(com.privacy.junk.activityprivacy.DeepingActivityPrivacy$HomeAdapter,android.view.View) -> <init>
 com.privacy.junk.activityprivacy.DocActivityPrivacy -> com.privacy.junk.activityprivacy.DocActivityPrivacy:
     java.lang.String TAG_FILE_2 -> r
     android.widget.ProgressBar file_progressbar -> a
     android.widget.RelativeLayout file_clean_rl -> b
-    android.view.View nativeView -> s
-    java.util.ArrayList docList -> t
-    java.util.ArrayList txtList -> u
-    java.util.ArrayList pdfList -> v
-    android.os.Handler mHandler -> w
+    java.util.ArrayList docList -> s
+    java.util.ArrayList txtList -> t
+    java.util.ArrayList pdfList -> u
+    android.os.Handler mHandler -> v
     android.widget.TextView file_button_clean -> c
     android.support.v4.view.ViewPager doc_view_pager -> d
     android.widget.FrameLayout title_left -> e
@@ -32387,31 +32478,33 @@ com.privacy.junk.activityprivacy.DocActivityPrivacy -> com.privacy.junk.activity
     com.privacy.junk.customadapterprivacy.PrivacyFileAdapter adapter_doc -> i
     com.privacy.junk.customadapterprivacy.PrivacyFileAdapter adapter_txt -> j
     com.privacy.junk.customadapterprivacy.PrivacyFileAdapter adapter_pdf -> k
-    android.support.v7.app.AlertDialog dialog -> x
+    android.support.v7.app.AlertDialog dialog -> w
     android.widget.TextView title_name -> p
-    com.privacy.clean.filemanager.PhoneFileCategoryHelper fileHelper -> y
-    java.util.ArrayList titleList -> z
-    java.util.ArrayList viewList -> A
-    com.privacy.clean.filemanager.PhoneFileCategoryHelper$FileCategory fc_clean -> B
-    android.view.View view_txt -> C
-    android.view.View view_doc -> D
-    android.view.View view_pdf -> E
-    android.widget.LinearLayout ll_ad -> F
+    com.privacy.clean.filemanager.PhoneFileCategoryHelper fileHelper -> x
+    java.util.ArrayList titleList -> y
+    java.util.ArrayList viewList -> z
+    com.privacy.clean.filemanager.PhoneFileCategoryHelper$FileCategory fc_clean -> A
+    android.view.View view_txt -> B
+    android.view.View view_doc -> C
+    android.view.View view_pdf -> D
+    android.widget.LinearLayout ll_ad1 -> E
+    android.widget.LinearLayout ll_ad2 -> F
+    android.widget.LinearLayout ll_ad3 -> G
     android.view.View$OnClickListener clickListener -> q
-    40:216:void <init>() -> <init>
-    68:90:void onCreate(android.os.Bundle) -> onCreate
-    93:113:void initCur() -> b
-    116:116:void initPdf() -> c
-    119:166:void initData() -> d
-    170:180:void findId() -> a
-    183:189:void initDoc() -> e
-    192:198:void addAd() -> f
-    201:201:void initTxt() -> g
-    204:209:void loadAd() -> h
-    212:214:void setListenet() -> i
-    254:311:void showDia(java.util.ArrayList) -> a
-    314:335:void queryData(com.privacy.clean.filemanager.PhoneFileCategoryHelper$FileCategory,java.util.ArrayList) -> a
-    340:342:void onBackPressed() -> onBackPressed
+    40:223:void <init>() -> <init>
+    67:89:void onCreate(android.os.Bundle) -> onCreate
+    92:112:void initCur() -> b
+    115:115:void initPdf() -> c
+    118:167:void initData() -> d
+    171:181:void findId() -> a
+    184:190:void initDoc() -> e
+    193:205:void addAd() -> f
+    208:208:void initTxt() -> g
+    211:216:void loadAd() -> h
+    219:221:void setListenet() -> i
+    261:318:void showDia(java.util.ArrayList) -> a
+    321:342:void queryData(com.privacy.clean.filemanager.PhoneFileCategoryHelper$FileCategory,java.util.ArrayList) -> a
+    347:349:void onBackPressed() -> onBackPressed
     40:40:java.util.ArrayList access$000(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> a
     40:40:void access$100(com.privacy.junk.activityprivacy.DocActivityPrivacy,com.privacy.clean.filemanager.PhoneFileCategoryHelper$FileCategory,java.util.ArrayList) -> a
     40:40:java.util.ArrayList access$200(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> b
@@ -32425,37 +32518,37 @@ com.privacy.junk.activityprivacy.DocActivityPrivacy -> com.privacy.junk.activity
     40:40:com.privacy.clean.filemanager.PhoneFileCategoryHelper$FileCategory access$700(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> h
 com.privacy.junk.activityprivacy.DocActivityPrivacy$1 -> com.privacy.junk.activityprivacy.DocActivityPrivacy$1:
     com.privacy.junk.activityprivacy.DocActivityPrivacy this$0 -> a
-    93:93:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> <init>
-    96:110:void run() -> run
+    92:92:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> <init>
+    95:109:void run() -> run
 com.privacy.junk.activityprivacy.DocActivityPrivacy$1$1 -> com.privacy.junk.activityprivacy.DocActivityPrivacy$1$1:
     com.privacy.junk.activityprivacy.DocActivityPrivacy$1 this$1 -> a
-    99:99:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy$1) -> <init>
-    101:108:void run() -> run
+    98:98:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy$1) -> <init>
+    100:107:void run() -> run
 com.privacy.junk.activityprivacy.DocActivityPrivacy$2 -> com.privacy.junk.activityprivacy.DocActivityPrivacy$2:
     com.privacy.junk.activityprivacy.DocActivityPrivacy this$0 -> a
-    138:138:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> <init>
-    141:141:int getCount() -> getCount
-    146:147:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    152:152:java.lang.CharSequence getPageTitle(int) -> getPageTitle
-    157:158:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    162:162:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    139:139:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> <init>
+    142:142:int getCount() -> getCount
+    147:148:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    153:153:java.lang.CharSequence getPageTitle(int) -> getPageTitle
+    158:159:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    163:163:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.privacy.junk.activityprivacy.DocActivityPrivacy$3 -> com.privacy.junk.activityprivacy.DocActivityPrivacy$3:
     com.privacy.junk.activityprivacy.DocActivityPrivacy this$0 -> a
-    216:216:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> <init>
-    219:250:void onClick(android.view.View) -> onClick
+    223:223:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> <init>
+    226:257:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.DocActivityPrivacy$4 -> com.privacy.junk.activityprivacy.DocActivityPrivacy$4:
     java.util.ArrayList val$deleteList -> a
     com.privacy.junk.activityprivacy.DocActivityPrivacy this$0 -> b
-    268:268:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy,java.util.ArrayList) -> <init>
-    271:303:void onClick(android.view.View) -> onClick
+    275:275:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy,java.util.ArrayList) -> <init>
+    278:310:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.DocActivityPrivacy$4$1 -> com.privacy.junk.activityprivacy.DocActivityPrivacy$4$1:
     com.privacy.junk.activityprivacy.DocActivityPrivacy$4 this$1 -> a
-    277:277:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy$4) -> <init>
-    280:287:void run() -> run
+    284:284:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy$4) -> <init>
+    287:294:void run() -> run
 com.privacy.junk.activityprivacy.DocActivityPrivacy$5 -> com.privacy.junk.activityprivacy.DocActivityPrivacy$5:
     com.privacy.junk.activityprivacy.DocActivityPrivacy this$0 -> a
-    305:305:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> <init>
-    308:309:void onClick(android.view.View) -> onClick
+    312:312:void <init>(com.privacy.junk.activityprivacy.DocActivityPrivacy) -> <init>
+    315:316:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.FileManagerActivityPrivacy -> com.privacy.junk.activityprivacy.FileManagerActivityPrivacy:
     java.lang.String TAG_FILE -> J
     android.widget.LinearLayout file_apk_button -> a
@@ -32580,23 +32673,24 @@ com.privacy.junk.activityprivacy.GoodGameActivityPrivacy -> com.privacy.junk.act
     android.widget.GridView gboost_gridview -> p
     android.os.Handler mHandler -> C
     android.view.View$OnClickListener clickListener -> q
-    59:221:void <init>() -> <init>
-    99:123:void onCreate(android.os.Bundle) -> onCreate
-    127:140:void findId() -> a
-    143:193:void addData() -> b
-    217:219:void initList() -> c
-    290:301:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
-    305:322:long getCup() -> d
-    326:379:void toggleEditAnimation() -> e
-    382:389:long getNetWork() -> f
-    394:395:long getTotalRxBytes() -> g
-    400:429:void onResume() -> onResume
-    476:485:void shortGame1(boolean) -> a
-    489:495:void onBackPressed() -> onBackPressed
-    498:513:void initData() -> h
-    516:524:void upData(java.lang.String) -> b
-    528:529:void onDestroy() -> onDestroy
-    533:541:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    59:230:void <init>() -> <init>
+    99:124:void onCreate(android.os.Bundle) -> onCreate
+    127:132:void addAd() -> b
+    136:149:void findId() -> a
+    152:202:void addData() -> c
+    226:228:void initList() -> d
+    299:310:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    314:331:long getCup() -> e
+    335:388:void toggleEditAnimation() -> f
+    391:398:long getNetWork() -> g
+    403:404:long getTotalRxBytes() -> h
+    409:438:void onResume() -> onResume
+    485:494:void shortGame1(boolean) -> a
+    498:504:void onBackPressed() -> onBackPressed
+    507:522:void initData() -> i
+    525:533:void upData(java.lang.String) -> b
+    537:538:void onDestroy() -> onDestroy
+    542:550:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     59:59:java.util.ArrayList access$000(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> a
     59:59:android.os.Handler access$100(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> b
     59:59:com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy access$202(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy) -> a
@@ -32617,45 +32711,45 @@ com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$1 -> com.privacy.junk.a
     89:94:void handleMessage(android.os.Message) -> handleMessage
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy this$0 -> a
-    148:148:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
-    151:191:void run() -> run
+    157:157:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
+    160:200:void run() -> run
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2 this$1 -> a
-    159:159:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2) -> <init>
-    162:189:void run() -> run
+    168:168:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2) -> <init>
+    171:198:void run() -> run
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1$1:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1 this$2 -> a
-    166:166:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1) -> <init>
-    169:186:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    175:175:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1) -> <init>
+    178:195:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy this$0 -> a
-    221:221:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
-    224:285:void onClick(android.view.View) -> onClick
+    230:230:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
+    233:294:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3$1:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3 this$1 -> a
-    270:270:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3) -> <init>
-    273:275:void run() -> run
+    279:279:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3) -> <init>
+    282:284:void run() -> run
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy this$0 -> d
-    346:346:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    349:376:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    355:355:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    358:385:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4$1:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4 this$1 -> a
-    357:357:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4) -> <init>
-    360:361:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    366:366:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    371:371:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    366:366:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4) -> <init>
+    369:370:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    375:375:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    380:380:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy this$0 -> a
-    404:404:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
-    407:427:void run() -> run
+    413:413:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
+    416:436:void run() -> run
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5$1:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5 this$1 -> a
-    413:413:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5) -> <init>
-    419:419:void run() -> run
+    422:422:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5) -> <init>
+    428:428:void run() -> run
 com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy -> com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy:
     com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter adapter -> a
     android.widget.TextView white_wu -> b
@@ -32666,16 +32760,17 @@ com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy -> com.privacy.junk.acti
     java.util.List whiteList -> i
     android.widget.FrameLayout title_left -> g
     android.view.View$OnClickListener clickListener -> h
-    25:50:void <init>() -> <init>
-    37:48:void onCreate(android.os.Bundle) -> onCreate
-    67:82:void initDAta() -> b
-    86:92:void findId() -> a
-    96:100:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    104:106:void onBackPressed() -> onBackPressed
+    27:61:void <init>() -> <init>
+    39:51:void onCreate(android.os.Bundle) -> onCreate
+    54:59:void addAd() -> b
+    78:93:void initDAta() -> c
+    97:103:void findId() -> a
+    107:111:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    115:117:void onBackPressed() -> onBackPressed
 com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy$1 -> com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy$1:
     com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy this$0 -> a
-    50:50:void <init>(com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy) -> <init>
-    53:62:void onClick(android.view.View) -> onClick
+    61:61:void <init>(com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy) -> <init>
+    64:73:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.LoadingActivity -> com.privacy.junk.activityprivacy.LoadingActivity:
     android.os.Handler myHandler -> a
     android.widget.TextView loading_tv1 -> b
@@ -32684,13 +32779,13 @@ com.privacy.junk.activityprivacy.LoadingActivity -> com.privacy.junk.activitypri
     android.animation.AnimatorSet animSet2 -> e
     android.animation.ObjectAnimator animator1 -> f
     java.lang.Runnable runnable1 -> g
-    29:95:void <init>() -> <init>
-    38:88:void onCreate(android.os.Bundle) -> onCreate
-    92:93:void findId() -> a
-    184:185:void onBackPressed() -> onBackPressed
-    189:191:void onDestroy() -> onDestroy
-    195:197:void onResume() -> onResume
-    201:205:void onStop() -> onStop
+    29:98:void <init>() -> <init>
+    38:91:void onCreate(android.os.Bundle) -> onCreate
+    95:96:void findId() -> a
+    193:194:void onBackPressed() -> onBackPressed
+    198:200:void onDestroy() -> onDestroy
+    204:206:void onResume() -> onResume
+    210:214:void onStop() -> onStop
 com.privacy.junk.activityprivacy.LoadingActivity$1 -> com.privacy.junk.activityprivacy.LoadingActivity$1:
     com.privacy.junk.activityprivacy.LoadingActivity this$0 -> a
     59:59:void <init>(com.privacy.junk.activityprivacy.LoadingActivity) -> <init>
@@ -32700,15 +32795,15 @@ com.privacy.junk.activityprivacy.LoadingActivity$1 -> com.privacy.junk.activityp
     84:84:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
 com.privacy.junk.activityprivacy.LoadingActivity$2 -> com.privacy.junk.activityprivacy.LoadingActivity$2:
     com.privacy.junk.activityprivacy.LoadingActivity this$0 -> a
-    95:95:void <init>(com.privacy.junk.activityprivacy.LoadingActivity) -> <init>
-    100:178:void run() -> run
+    98:98:void <init>(com.privacy.junk.activityprivacy.LoadingActivity) -> <init>
+    103:187:void run() -> run
 com.privacy.junk.activityprivacy.MainActivity -> com.privacy.junk.activityprivacy.MainActivity:
-    java.lang.String TAG_START_FULL -> ai
-    java.lang.String TAG_EXIT_FULL -> aj
-    java.lang.String TAG_FULL_PULL -> ak
-    java.lang.String TAG_MAIN -> al
-    java.lang.String TAG_SIDE -> am
-    java.lang.String TAG_REFRESH -> an
+    java.lang.String TAG_START_FULL -> an
+    java.lang.String TAG_EXIT_FULL -> ao
+    java.lang.String TAG_FULL_PULL -> ap
+    java.lang.String TAG_MAIN -> aq
+    java.lang.String TAG_SIDE -> ar
+    java.lang.String TAG_REFRESH -> as
     com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu main_custom_cpu -> a
     com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu main_custom_ram -> b
     com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu main_custom_sd -> c
@@ -32740,128 +32835,164 @@ com.privacy.junk.activityprivacy.MainActivity -> com.privacy.junk.activityprivac
     android.widget.LinearLayout main_cooling_button2 -> G
     android.widget.LinearLayout ll_ad_full -> H
     android.widget.LinearLayout main_rotate_all -> I
-    android.widget.TextView main_full_time -> J
-    com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter adapter -> ao
-    android.widget.RelativeLayout main_power_button -> K
-    android.widget.RelativeLayout main_file_button -> L
-    android.widget.RelativeLayout main_notifi_button -> M
-    android.widget.RelativeLayout main_picture_button2 -> N
-    android.widget.RelativeLayout main_gboost_button -> O
-    android.widget.TextView main_msg_ram_percent -> P
-    android.widget.TextView main_msg_sd_percent -> Q
-    android.widget.TextView main_msg_cpu_percent -> R
-    java.util.ArrayList startList -> ap
-    android.widget.TextView main_fenshu -> S
-    android.widget.ImageView main_point -> T
-    long junk_size -> U
-    android.widget.LinearLayout main_battery -> V
-    android.widget.LinearLayout main_clean_lin -> W
-    android.widget.RelativeLayout main_title -> X
-    android.widget.TextView main_junk_huan -> Y
-    int temp -> aq
-    android.support.v7.app.AlertDialog dialog -> ar
-    android.os.Handler handler -> as
-    com.privacy.junk.presenterprivacy.PrivacyPresenterMain mainPresenter -> at
-    android.widget.TextView main_rotate_good -> Z
-    android.widget.TextView main_rotate_bad -> aa
-    android.widget.ImageView main_rotate_close -> ab
-    android.widget.LinearLayout main_msg_button -> ac
-    android.widget.ProgressBar ad_progressbar -> ad
-    com.privacy.junk.privacycustomview.DynamicWavePrivacy mian_water_bottom -> ae
-    int mainFenShu -> af
-    java.lang.Runnable fullAdRunnale -> ag
-    android.view.View$OnClickListener onClickListener -> ah
-    65:435:void <init>() -> <init>
-    117:151:void onCreate(android.os.Bundle) -> onCreate
-    155:176:void initCpu(int) -> b
-    188:244:void findId() -> a
-    248:265:void onClick() -> c
-    268:268:void setColor(int,boolean) -> b
-    272:292:void initSideData() -> e
-    298:332:void initQiu(int,boolean) -> a
-    337:338:void openDrawer() -> f
-    349:419:void loadFullAd() -> b
-    423:424:void setRotateGone() -> d
-    540:563:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    567:593:void initSd(int,java.lang.String,long) -> a
-    597:619:void initRam(int,java.lang.String) -> a
-    623:631:void onStart() -> onStart
-    635:638:void onRestart() -> onRestart
-    642:646:void onPause() -> onPause
-    649:655:void initData() -> h
-    660:668:void onResume() -> onResume
-    671:689:void onBackPressed() -> onBackPressed
-    695:695:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    698:719:void adDelete() -> i
-    723:773:void showExitDialog() -> j
-    777:778:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    782:783:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    788:788:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    792:796:void onDestroy() -> onDestroy
-    799:810:java.lang.String getAnZhuangTime() -> g
-    814:827:int getMonthSpace(java.lang.String,java.lang.String) -> a
-    65:65:android.os.Handler access$000(com.privacy.junk.activityprivacy.MainActivity) -> a
-    65:65:void access$100(com.privacy.junk.activityprivacy.MainActivity) -> b
-    65:65:com.privacy.junk.presenterprivacy.PrivacyPresenterMain access$200(com.privacy.junk.activityprivacy.MainActivity) -> c
-    65:65:int access$300(com.privacy.junk.activityprivacy.MainActivity) -> d
-    65:65:com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter access$400(com.privacy.junk.activityprivacy.MainActivity) -> e
-    65:65:android.support.v7.app.AlertDialog access$500(com.privacy.junk.activityprivacy.MainActivity) -> f
+    com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter adapter -> at
+    android.widget.RelativeLayout main_power_button -> J
+    android.widget.RelativeLayout main_file_button -> K
+    android.widget.RelativeLayout main_notifi_button -> L
+    android.widget.RelativeLayout main_picture_button2 -> M
+    android.widget.RelativeLayout main_gboost_button -> N
+    android.widget.TextView main_msg_ram_percent -> O
+    android.widget.TextView main_msg_sd_percent -> P
+    android.widget.TextView main_msg_cpu_percent -> Q
+    java.util.ArrayList startList -> au
+    android.widget.TextView main_fenshu -> R
+    android.widget.ImageView main_point -> S
+    long junk_size -> T
+    android.widget.LinearLayout main_battery -> U
+    android.widget.LinearLayout main_clean_lin -> V
+    android.widget.RelativeLayout main_title -> W
+    android.widget.TextView main_junk_huan -> X
+    android.widget.FrameLayout lot_family -> Y
+    com.privacy.junk.privacycustomview.QiqiuLayout full_loading -> Z
+    android.widget.ImageView libao_1 -> aa
+    int temp -> av
+    android.support.v7.app.AlertDialog dialog -> aw
+    android.os.Handler handler -> ax
+    com.privacy.junk.presenterprivacy.PrivacyPresenterMain mainPresenter -> ay
+    android.widget.TextView main_rotate_good -> ab
+    android.widget.TextView main_rotate_bad -> ac
+    android.widget.ImageView main_rotate_close -> ad
+    android.widget.LinearLayout main_msg_button -> ae
+    android.widget.ProgressBar ad_progressbar -> af
+    com.privacy.junk.privacycustomview.DynamicWavePrivacy mian_water_bottom -> ag
+    android.graphics.drawable.AnimationDrawable animationDrawable -> az
+    android.animation.AnimatorSet animatorSet -> aA
+    int mainFenShu -> ah
+    java.lang.Runnable runnable_ad -> ai
+    java.lang.Runnable fullAdRunnale -> aj
+    android.view.View$OnClickListener onClickListener -> ak
+    java.lang.Runnable runnable_pus -> al
+    java.lang.Runnable runnable_load -> am
+    72:657:void <init>() -> <init>
+    130:168:void onCreate(android.os.Bundle) -> onCreate
+    172:193:void initCpu(int) -> b
+    205:265:void findId() -> a
+    269:287:void onClick() -> c
+    290:290:void setColor(int,boolean) -> b
+    294:314:void initSideData() -> e
+    320:354:void initQiu(int,boolean) -> a
+    359:360:void openDrawer() -> f
+    371:443:void loadFullAd() -> b
+    446:460:android.view.View getNativeAdView(java.lang.String,int) -> a
+    475:476:void setRotateGone() -> d
+    671:694:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    698:724:void initSd(int,java.lang.String,long) -> a
+    728:750:void initRam(int,java.lang.String) -> a
+    754:762:void onStart() -> onStart
+    766:769:void onRestart() -> onRestart
+    773:777:void onPause() -> onPause
+    780:786:void initData() -> h
+    791:803:void onResume() -> onResume
+    806:831:void onBackPressed() -> onBackPressed
+    837:837:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    840:861:void adDelete() -> i
+    865:917:void showExitDialog() -> j
+    921:922:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    926:927:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    932:932:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    936:940:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    944:962:void onDestroy() -> onDestroy
+    965:976:java.lang.String getAnZhuangTime() -> g
+    980:993:int getMonthSpace(java.lang.String,java.lang.String) -> a
+    72:72:android.os.Handler access$000(com.privacy.junk.activityprivacy.MainActivity) -> a
+    72:72:void access$100(com.privacy.junk.activityprivacy.MainActivity) -> b
+    72:72:android.animation.AnimatorSet access$200(com.privacy.junk.activityprivacy.MainActivity) -> c
+    72:72:com.privacy.junk.presenterprivacy.PrivacyPresenterMain access$300(com.privacy.junk.activityprivacy.MainActivity) -> d
+    72:72:int access$400(com.privacy.junk.activityprivacy.MainActivity) -> e
+    72:72:com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter access$500(com.privacy.junk.activityprivacy.MainActivity) -> f
+    72:72:java.lang.String access$600(com.privacy.junk.activityprivacy.MainActivity) -> g
+    72:72:android.support.v7.app.AlertDialog access$700(com.privacy.junk.activityprivacy.MainActivity) -> h
 com.privacy.junk.activityprivacy.MainActivity$1 -> com.privacy.junk.activityprivacy.MainActivity$1:
     int val$temp -> a
     com.privacy.junk.activityprivacy.MainActivity this$0 -> b
-    157:157:void <init>(com.privacy.junk.activityprivacy.MainActivity,int) -> <init>
-    161:174:void run() -> run
+    174:174:void <init>(com.privacy.junk.activityprivacy.MainActivity,int) -> <init>
+    178:191:void run() -> run
 com.privacy.junk.activityprivacy.MainActivity$10 -> com.privacy.junk.activityprivacy.MainActivity$2:
-    com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    734:734:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    737:739:void onClick(android.view.View) -> onClick
+    java.lang.String[] val$arr -> a
+    com.privacy.junk.activityprivacy.MainActivity this$0 -> b
+    701:701:void <init>(com.privacy.junk.activityprivacy.MainActivity,java.lang.String[]) -> <init>
+    704:722:void run() -> run
 com.privacy.junk.activityprivacy.MainActivity$11 -> com.privacy.junk.activityprivacy.MainActivity$3:
+    java.lang.String[] val$arr -> a
+    com.privacy.junk.activityprivacy.MainActivity this$0 -> b
+    731:731:void <init>(com.privacy.junk.activityprivacy.MainActivity,java.lang.String[]) -> <init>
+    735:748:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$12 -> com.privacy.junk.activityprivacy.MainActivity$4:
     com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    741:741:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    744:745:void onClick(android.view.View) -> onClick
-com.privacy.junk.activityprivacy.MainActivity$2 -> com.privacy.junk.activityprivacy.MainActivity$4:
+    852:852:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    855:857:void onAnimationEnd(com.mingle.widgetprivacy.animation.CRAnimation) -> b
+com.privacy.junk.activityprivacy.MainActivity$13 -> com.privacy.junk.activityprivacy.MainActivity$5:
+    com.privacy.junk.activityprivacy.MainActivity this$0 -> a
+    876:876:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    879:882:void onClick(android.view.View) -> onClick
+com.privacy.junk.activityprivacy.MainActivity$14 -> com.privacy.junk.activityprivacy.MainActivity$6:
+    com.privacy.junk.activityprivacy.MainActivity this$0 -> a
+    884:884:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    887:888:void onClick(android.view.View) -> onClick
+com.privacy.junk.activityprivacy.MainActivity$2 -> com.privacy.junk.activityprivacy.MainActivity$7:
     int val$fenshu -> a
     com.privacy.junk.activityprivacy.MainActivity this$0 -> b
-    299:299:void <init>(com.privacy.junk.activityprivacy.MainActivity,int) -> <init>
-    302:330:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$2$1 -> com.privacy.junk.activityprivacy.MainActivity$4$1:
+    321:321:void <init>(com.privacy.junk.activityprivacy.MainActivity,int) -> <init>
+    324:352:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$2$1 -> com.privacy.junk.activityprivacy.MainActivity$7$1:
     long val$finalI -> a
     com.privacy.junk.activityprivacy.MainActivity$2 this$1 -> b
-    317:317:void <init>(com.privacy.junk.activityprivacy.MainActivity$2,long) -> <init>
-    320:321:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$3 -> com.privacy.junk.activityprivacy.MainActivity$5:
+    339:339:void <init>(com.privacy.junk.activityprivacy.MainActivity$2,long) -> <init>
+    342:343:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$3 -> com.privacy.junk.activityprivacy.MainActivity$8:
     android.view.animation.Animation val$animation -> a
     com.privacy.junk.activityprivacy.MainActivity this$0 -> b
-    362:362:void <init>(com.privacy.junk.activityprivacy.MainActivity,android.view.animation.Animation) -> <init>
-    365:366:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$4 -> com.privacy.junk.activityprivacy.MainActivity$6:
+    379:379:void <init>(com.privacy.junk.activityprivacy.MainActivity,android.view.animation.Animation) -> <init>
+    382:383:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$4 -> com.privacy.junk.activityprivacy.MainActivity$9:
     com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    407:407:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    410:412:void onClick(android.view.View) -> onClick
-com.privacy.junk.activityprivacy.MainActivity$5 -> com.privacy.junk.activityprivacy.MainActivity$7:
+    431:431:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    434:436:void onClick(android.view.View) -> onClick
+com.privacy.junk.activityprivacy.MainActivity$5 -> com.privacy.junk.activityprivacy.MainActivity$10:
     com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    426:426:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    429:430:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$6 -> com.privacy.junk.activityprivacy.MainActivity$8:
+    463:463:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    466:470:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$6 -> com.privacy.junk.activityprivacy.MainActivity$11:
     com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    435:435:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    439:535:void onClick(android.view.View) -> onClick
-com.privacy.junk.activityprivacy.MainActivity$7 -> com.privacy.junk.activityprivacy.MainActivity$9:
-    java.lang.String[] val$arr -> a
-    int val$percent -> b
-    com.privacy.junk.activityprivacy.MainActivity this$0 -> c
-    570:570:void <init>(com.privacy.junk.activityprivacy.MainActivity,java.lang.String[],int) -> <init>
-    573:591:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$8 -> com.privacy.junk.activityprivacy.MainActivity$10:
-    java.lang.String[] val$arr -> a
-    int val$percent -> b
-    com.privacy.junk.activityprivacy.MainActivity this$0 -> c
-    600:600:void <init>(com.privacy.junk.activityprivacy.MainActivity,java.lang.String[],int) -> <init>
-    604:617:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$9 -> com.privacy.junk.activityprivacy.MainActivity$11:
+    478:478:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    481:482:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$7 -> com.privacy.junk.activityprivacy.MainActivity$12:
     com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    710:710:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    713:715:void onAnimationEnd(com.mingle.widgetprivacy.animation.CRAnimation) -> b
+    487:487:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    491:640:void onClick(android.view.View) -> onClick
+com.privacy.junk.activityprivacy.MainActivity$7$1 -> com.privacy.junk.activityprivacy.MainActivity$12$1:
+    com.privacy.junk.activityprivacy.MainActivity$7 this$1 -> a
+    599:599:void <init>(com.privacy.junk.activityprivacy.MainActivity$7) -> <init>
+    602:623:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    628:628:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    633:633:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.privacy.junk.activityprivacy.MainActivity$7$1$1 -> com.privacy.junk.activityprivacy.MainActivity$12$1$1:
+    com.privacy.junk.activityprivacy.MainActivity$7$1 this$2 -> a
+    602:602:void <init>(com.privacy.junk.activityprivacy.MainActivity$7$1) -> <init>
+    605:614:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    618:621:void onNativeAdLoadFails() -> onNativeAdLoadFails
+com.privacy.junk.activityprivacy.MainActivity$7$1$1$1 -> com.privacy.junk.activityprivacy.MainActivity$12$1$1$1:
+    com.privacy.junk.activityprivacy.MainActivity$7$1$1 this$3 -> a
+    606:606:void <init>(com.privacy.junk.activityprivacy.MainActivity$7$1$1) -> <init>
+    609:610:void onClick(android.view.View) -> onClick
+com.privacy.junk.activityprivacy.MainActivity$8 -> com.privacy.junk.activityprivacy.MainActivity$13:
+    com.privacy.junk.activityprivacy.MainActivity this$0 -> a
+    643:643:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    646:655:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$9 -> com.privacy.junk.activityprivacy.MainActivity$14:
+    com.privacy.junk.activityprivacy.MainActivity this$0 -> a
+    657:657:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    660:666:void run() -> run
 com.privacy.junk.activityprivacy.MyApplication -> com.privacy.junk.activityprivacy.MyApplication:
     android.os.HandlerThread mThread -> a
     android.app.ActivityManager am -> b
@@ -32881,36 +33012,36 @@ com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy -> com.privacy.junk.a
     android.widget.ListView list_si -> g
     com.privacy.clean.cleannotification.NotificationCallBack notificationCallBack -> h
     android.view.View$OnClickListener nOnClickListener -> i
-    35:176:void <init>() -> <init>
-    47:52:int getStatusHeight(android.app.Activity) -> a
-    56:67:void findId() -> a
-    70:77:void full() -> b
-    81:94:void setHideVirtualKey(android.view.Window) -> a
-    97:106:void setTranslucentStatus(boolean) -> a
-    110:136:void onCreate(android.os.Bundle) -> onCreate
-    156:174:void setListener() -> c
-    198:200:void jumpToActivity(java.lang.Class,int) -> a
-    205:209:void onBackPressed() -> onBackPressed
-    217:220:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    224:226:void onDestroy() -> onDestroy
-    230:235:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    35:35:com.privacy.junk.customadapterprivacy.NotifiAdapterPrivacy access$000(com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy) -> a
+    36:177:void <init>() -> <init>
+    48:53:int getStatusHeight(android.app.Activity) -> a
+    57:68:void findId() -> a
+    71:78:void full() -> b
+    82:95:void setHideVirtualKey(android.view.Window) -> a
+    98:107:void setTranslucentStatus(boolean) -> a
+    111:137:void onCreate(android.os.Bundle) -> onCreate
+    157:175:void setListener() -> c
+    199:201:void jumpToActivity(java.lang.Class,int) -> a
+    206:210:void onBackPressed() -> onBackPressed
+    218:221:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
+    225:227:void onDestroy() -> onDestroy
+    231:236:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    36:36:com.privacy.junk.customadapterprivacy.NotifiAdapterPrivacy access$000(com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy) -> a
 com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy$1 -> com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy$1:
     com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy this$0 -> a
-    71:71:void <init>(com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy) -> <init>
-    74:75:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+    72:72:void <init>(com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy) -> <init>
+    75:76:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy$2 -> com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy$2:
     com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy this$0 -> a
-    138:138:void <init>(com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy) -> <init>
-    142:151:void notificationChanged(java.util.ArrayList) -> a
+    139:139:void <init>(com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy) -> <init>
+    143:152:void notificationChanged(java.util.ArrayList) -> a
 com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy$3 -> com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy$3:
     com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy this$0 -> a
-    166:166:void <init>(com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy) -> <init>
-    169:172:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    167:167:void <init>(com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy) -> <init>
+    170:173:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy$4 -> com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy$4:
     com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy this$0 -> a
-    176:176:void <init>(com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy) -> <init>
-    179:193:void onClick(android.view.View) -> onClick
+    177:177:void <init>(com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy) -> <init>
+    180:194:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PermissingActivityPrivacy -> com.privacy.junk.activityprivacy.PermissingActivityPrivacy:
     13:13:void <init>() -> <init>
     16:31:void onCreate(android.os.Bundle) -> onCreate
@@ -33006,18 +33137,18 @@ com.privacy.junk.activityprivacy.PictActivityPrivacy -> com.privacy.junk.activit
     android.widget.ImageView pic_pager_check_iv -> A
     android.os.Handler mHandler -> B
     android.view.View$OnClickListener clickListener -> C
-    46:374:void <init>() -> <init>
-    120:123:void loadAd() -> c
-    127:148:void findId() -> a
-    152:171:void onCreate(android.os.Bundle) -> onCreate
-    175:288:void bigPicture(java.util.ArrayList) -> a
-    291:295:void clickListen() -> d
-    299:372:void initData() -> e
-    408:411:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    414:511:void deleteDialog(java.util.ArrayList) -> c
-    515:522:void onBackPressed() -> onBackPressed
-    525:527:void showBigPic(java.util.ArrayList) -> b
-    531:546:void updateUi() -> b
+    46:379:void <init>() -> <init>
+    120:128:void loadAd() -> c
+    132:153:void findId() -> a
+    157:176:void onCreate(android.os.Bundle) -> onCreate
+    180:293:void bigPicture(java.util.ArrayList) -> a
+    296:300:void clickListen() -> d
+    304:377:void initData() -> e
+    413:416:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    419:516:void deleteDialog(java.util.ArrayList) -> c
+    520:527:void onBackPressed() -> onBackPressed
+    530:532:void showBigPic(java.util.ArrayList) -> b
+    536:551:void updateUi() -> b
     46:46:com.privacy.junk.customadapterprivacy.RecycleViewAdapter access$000(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> a
     46:46:void access$100(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> b
     46:46:java.util.ArrayList access$200(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> c
@@ -33035,8 +33166,8 @@ com.privacy.junk.activityprivacy.PictActivityPrivacy$1$1 -> com.privacy.junk.act
     97:100:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PictActivityPrivacy$10 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$2:
     com.privacy.junk.activityprivacy.PictActivityPrivacy this$0 -> a
-    422:422:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
-    425:427:void onClick(android.view.View) -> onClick
+    427:427:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
+    430:432:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PictActivityPrivacy$11 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$3:
     android.widget.TextView val$ok -> a
     android.widget.TextView val$cancle -> b
@@ -33044,85 +33175,85 @@ com.privacy.junk.activityprivacy.PictActivityPrivacy$11 -> com.privacy.junk.acti
     int val$deleteSize -> d
     android.widget.TextView val$count -> e
     com.privacy.junk.activityprivacy.PictActivityPrivacy this$0 -> f
-    429:429:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy,android.widget.TextView,android.widget.TextView,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
-    432:488:void onClick(android.view.View) -> onClick
+    434:434:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy,android.widget.TextView,android.widget.TextView,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
+    437:493:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$3$1:
     int num -> a
     com.privacy.junk.activityprivacy.PictActivityPrivacy$11 this$1 -> b
-    436:437:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$11) -> <init>
-    441:448:void deleteItemCallback(long) -> a
-    452:486:void deleteSuccessCallback(java.util.ArrayList) -> a
+    441:442:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$11) -> <init>
+    446:453:void deleteItemCallback(long) -> a
+    457:491:void deleteSuccessCallback(java.util.ArrayList) -> a
 com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1$1 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$3$1$1:
     com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1 this$2 -> a
-    441:441:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1) -> <init>
-    444:446:void run() -> run
+    446:446:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1) -> <init>
+    449:451:void run() -> run
 com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1$2 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$3$1$2:
     java.util.ArrayList val$list -> a
     com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1 this$2 -> b
-    453:453:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1,java.util.ArrayList) -> <init>
-    456:484:void run() -> run
+    458:458:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1,java.util.ArrayList) -> <init>
+    461:489:void run() -> run
 com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1$2$1 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$3$1$2$1:
     com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1$2 this$3 -> a
-    470:470:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1$2) -> <init>
-    473:476:void onClick(android.view.View) -> onClick
+    475:475:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$11$1$2) -> <init>
+    478:481:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PictActivityPrivacy$2 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$4:
     com.privacy.junk.activityprivacy.PictActivityPrivacy this$0 -> a
-    164:164:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
-    167:168:void run() -> run
+    169:169:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
+    172:173:void run() -> run
 com.privacy.junk.activityprivacy.PictActivityPrivacy$3 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$5:
     java.util.ArrayList val$list -> a
     com.privacy.junk.activityprivacy.PictActivityPrivacy this$0 -> b
-    181:181:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy,java.util.ArrayList) -> <init>
-    184:192:void onClick(android.view.View) -> onClick
+    186:186:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy,java.util.ArrayList) -> <init>
+    189:197:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PictActivityPrivacy$4 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$6:
     java.util.ArrayList val$list -> a
     com.privacy.junk.activityprivacy.PictActivityPrivacy this$0 -> b
-    195:195:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy,java.util.ArrayList) -> <init>
-    198:211:void onClick(android.view.View) -> onClick
+    200:200:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy,java.util.ArrayList) -> <init>
+    203:216:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PictActivityPrivacy$5 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$7:
     java.util.ArrayList val$list -> a
     int val$finalI -> b
     android.widget.ImageView val$icon -> c
     com.privacy.junk.activityprivacy.PictActivityPrivacy this$0 -> d
-    218:218:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy,java.util.ArrayList,int,android.widget.ImageView) -> <init>
-    222:230:void run() -> run
+    223:223:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy,java.util.ArrayList,int,android.widget.ImageView) -> <init>
+    227:235:void run() -> run
 com.privacy.junk.activityprivacy.PictActivityPrivacy$5$1 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$7$1:
     android.graphics.Bitmap val$bitma -> a
     com.privacy.junk.activityprivacy.PictActivityPrivacy$5 this$1 -> b
-    224:224:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$5,android.graphics.Bitmap) -> <init>
-    227:228:void run() -> run
+    229:229:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$5,android.graphics.Bitmap) -> <init>
+    232:233:void run() -> run
 com.privacy.junk.activityprivacy.PictActivityPrivacy$6 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$8:
     com.privacy.junk.activityprivacy.PictActivityPrivacy this$0 -> a
-    236:236:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
-    239:239:int getCount() -> getCount
-    244:245:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    250:253:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    257:257:int getItemPosition(java.lang.Object) -> getItemPosition
-    262:262:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    241:241:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
+    244:244:int getCount() -> getCount
+    249:250:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    255:258:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    262:262:int getItemPosition(java.lang.Object) -> getItemPosition
+    267:267:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.privacy.junk.activityprivacy.PictActivityPrivacy$7 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$9:
     java.util.ArrayList val$list -> a
     com.privacy.junk.activityprivacy.PictActivityPrivacy this$0 -> b
-    265:265:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy,java.util.ArrayList) -> <init>
-    268:268:void onPageScrolled(int,float,int) -> onPageScrolled
-    272:282:void onPageSelected(int) -> onPageSelected
-    286:286:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    270:270:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy,java.util.ArrayList) -> <init>
+    273:273:void onPageScrolled(int,float,int) -> onPageScrolled
+    277:287:void onPageSelected(int) -> onPageSelected
+    291:291:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.privacy.junk.activityprivacy.PictActivityPrivacy$8 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$10:
     com.privacy.junk.activityprivacy.PictActivityPrivacy this$0 -> a
-    299:299:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
-    302:303:void startQuery() -> a
-    307:322:void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
-    326:332:void startAsyncPic(int,java.util.ArrayList) -> a
-    337:337:void endAsyncPic(int,java.util.ArrayList) -> b
-    341:368:void haveQuerySimilarPic(int,java.util.ArrayList,java.util.ArrayList,long) -> a
+    304:304:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
+    307:308:void startQuery() -> a
+    312:327:void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
+    331:337:void startAsyncPic(int,java.util.ArrayList) -> a
+    342:342:void endAsyncPic(int,java.util.ArrayList) -> b
+    346:373:void haveQuerySimilarPic(int,java.util.ArrayList,java.util.ArrayList,long) -> a
 com.privacy.junk.activityprivacy.PictActivityPrivacy$8$1 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$10$1:
     java.util.ArrayList val$totalSimilarImage -> a
     com.privacy.junk.activityprivacy.PictActivityPrivacy$8 this$1 -> b
-    341:341:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$8,java.util.ArrayList) -> <init>
-    344:366:void run() -> run
+    346:346:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy$8,java.util.ArrayList) -> <init>
+    349:371:void run() -> run
 com.privacy.junk.activityprivacy.PictActivityPrivacy$9 -> com.privacy.junk.activityprivacy.PictActivityPrivacy$11:
     com.privacy.junk.activityprivacy.PictActivityPrivacy this$0 -> a
-    374:374:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
-    377:402:void onClick(android.view.View) -> onClick
+    379:379:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
+    382:407:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity:
     android.widget.ImageView cooling_xuehua -> a
     android.widget.ImageView cooling_dianyuan -> b
@@ -33142,58 +33273,58 @@ com.privacy.junk.activityprivacy.PrivacyBatteriesActivity -> com.privacy.junk.ac
     android.view.animation.Animation suo -> t
     android.view.animation.Animation rotate_zheng -> u
     java.lang.Runnable runnable -> v
-    35:54:void <init>() -> <init>
-    65:115:void onCreate(android.os.Bundle) -> onCreate
-    119:130:void findId() -> a
-    134:136:void onPause() -> onPause
-    140:144:void onResume() -> onResume
-    147:185:void startCoolingAni() -> b
-    189:195:void onBackPressed() -> onBackPressed
-    204:213:void applyRotation(int,float,float) -> a
-    253:256:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    259:272:void hideSnow() -> c
-    276:280:void onDestroy() -> onDestroy
-    35:35:com.privacy.junk.privacycustomview.FlakeViewPrivacy access$000(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> a
-    35:35:int access$100(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> b
-    35:35:void access$200(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity,int,float,float) -> a
-    35:35:void access$400(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> c
+    36:55:void <init>() -> <init>
+    66:116:void onCreate(android.os.Bundle) -> onCreate
+    120:131:void findId() -> a
+    135:137:void onPause() -> onPause
+    141:145:void onResume() -> onResume
+    148:186:void startCoolingAni() -> b
+    190:196:void onBackPressed() -> onBackPressed
+    205:214:void applyRotation(int,float,float) -> a
+    254:257:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    260:273:void hideSnow() -> c
+    277:281:void onDestroy() -> onDestroy
+    36:36:com.privacy.junk.privacycustomview.FlakeViewPrivacy access$000(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> a
+    36:36:int access$100(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> b
+    36:36:void access$200(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity,int,float,float) -> a
+    36:36:void access$400(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> c
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$1 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$1:
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> a
-    54:54:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
-    57:60:void run() -> run
+    55:55:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
+    58:61:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$2 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$2:
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> a
-    69:69:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
-    72:73:void onClick(android.view.View) -> onClick
+    70:70:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
+    73:74:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3:
     int val$wendu -> a
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> b
-    92:92:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity,int) -> <init>
-    96:113:void run() -> run
+    93:93:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity,int) -> <init>
+    97:114:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3$1 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3$1:
     int val$finalI -> a
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3 this$1 -> b
-    101:101:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3,int) -> <init>
-    104:105:void run() -> run
+    102:102:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3,int) -> <init>
+    105:106:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$4 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$4:
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> a
-    161:161:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
-    164:170:void run() -> run
+    162:162:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
+    165:171:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$5 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$5:
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> a
-    175:175:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
-    178:183:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    176:176:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
+    179:184:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$DisplayNextView -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$a:
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> a
-    219:220:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
-    223:223:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-    226:244:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    247:247:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    218:218:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity,com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$1) -> <init>
+    220:221:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
+    224:224:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    227:245:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    248:248:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    219:219:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity,com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$1) -> <init>
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$DisplayNextView$1 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$a$1:
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$DisplayNextView this$1 -> a
-    230:230:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$DisplayNextView) -> <init>
-    234:242:void duogouSc() -> a
+    231:231:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$DisplayNextView) -> <init>
+    235:243:void duogouSc() -> a
 com.privacy.junk.activityprivacy.PrivacyFileActivity -> com.privacy.junk.activityprivacy.PrivacyFileActivity:
     java.lang.String Tag_file_1 -> p
     android.widget.ProgressBar file_progressbar -> a
@@ -33280,35 +33411,36 @@ com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity -> com.privacy.junk.a
     boolean search -> k
     java.util.List whiteList -> p
     android.view.View$OnClickListener clickListener -> h
-    31:60:void <init>() -> <init>
-    46:58:void onCreate(android.os.Bundle) -> onCreate
-    79:86:void findId() -> a
-    89:143:void toggleEditAnimation() -> b
-    146:154:void upData(java.lang.String) -> b
-    157:165:void initData() -> c
-    169:171:void onBackPressed() -> onBackPressed
-    31:31:void access$000(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> a
-    31:31:boolean access$100(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> b
-    31:31:void access$200(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> c
-    31:31:boolean access$102(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity,boolean) -> a
-    31:31:void access$300(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity,java.lang.String) -> a
+    32:70:void <init>() -> <init>
+    47:60:void onCreate(android.os.Bundle) -> onCreate
+    63:68:void addAd() -> b
+    89:96:void findId() -> a
+    99:153:void toggleEditAnimation() -> c
+    156:164:void upData(java.lang.String) -> b
+    167:175:void initData() -> d
+    179:181:void onBackPressed() -> onBackPressed
+    32:32:void access$000(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> a
+    32:32:boolean access$100(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> b
+    32:32:void access$200(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> c
+    32:32:boolean access$102(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity,boolean) -> a
+    32:32:void access$300(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity,java.lang.String) -> a
 com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$1 -> com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$1:
     com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity this$0 -> a
-    60:60:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> <init>
-    63:74:void onClick(android.view.View) -> onClick
+    70:70:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> <init>
+    73:84:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2 -> com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity this$0 -> d
-    109:109:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    112:140:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    119:119:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    122:150:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2$1 -> com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2$1:
     com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2 this$1 -> a
-    120:120:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2) -> <init>
-    123:124:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    129:129:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    134:134:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    130:130:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2) -> <init>
+    133:134:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    139:139:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    144:144:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.privacy.junk.activityprivacy.PrivacyMemoryAvtivity -> com.privacy.junk.activityprivacy.PrivacyMemoryAvtivity:
     boolean color1 -> q
     boolean color2 -> r
@@ -33786,18 +33918,20 @@ com.privacy.junk.activityprivacy.PrivacyShortCutingActivity -> com.privacy.junk.
     103:120:long killAll(android.content.Context) -> a
     124:138:void loadAd() -> b
     142:170:void setAnimationThread() -> c
-    173:216:void show_text() -> d
-    240:243:long getAvailMemory(android.app.ActivityManager) -> a
-    248:252:void onStop() -> onStop
-    256:306:void onResume() -> onResume
-    310:311:void onPause() -> onPause
+    173:223:void show_text() -> d
+    227:232:void onBackPressed() -> onBackPressed
+    256:259:long getAvailMemory(android.app.ActivityManager) -> a
+    264:268:void onStop() -> onStop
+    272:322:void onResume() -> onResume
+    326:327:void onPause() -> onPause
     43:43:void access$000(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity,android.content.Context) -> a
     43:43:int access$108(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> a
     43:43:void access$200(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> b
     43:43:boolean access$300(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> c
     43:43:com.twee.module.tweenengine.TweenManager access$400(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> d
-    43:43:android.view.animation.Animation access$600(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> e
-    43:43:boolean access$502(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity,boolean) -> a
+    43:43:android.app.Dialog access$500(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> e
+    43:43:android.view.animation.Animation access$700(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> f
+    43:43:boolean access$602(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity,boolean) -> a
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$1 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$1:
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity this$0 -> a
     83:83:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
@@ -33818,24 +33952,28 @@ com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$2$1 -> com.privacy.j
     154:156:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$3 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$3:
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity this$0 -> a
-    209:209:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
-    212:213:void onDismiss(android.content.DialogInterface) -> onDismiss
-com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$5 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$4:
+    184:184:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
+    187:188:void onClick(android.view.View) -> onClick
+com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$4 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$4:
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity this$0 -> a
-    264:264:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
-    268:268:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    272:273:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    278:278:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    283:283:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    216:216:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
+    219:220:void onDismiss(android.content.DialogInterface) -> onDismiss
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$6 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$5:
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity this$0 -> a
-    287:287:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
-    290:294:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    299:299:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    304:304:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    280:280:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
+    284:284:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    288:289:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    294:294:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    299:299:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$7 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$6:
+    com.privacy.junk.activityprivacy.PrivacyShortCutingActivity this$0 -> a
+    303:303:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
+    306:310:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    315:315:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    320:320:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.privacy.junk.activityprivacy.PrivacySucceedActivity -> com.privacy.junk.activityprivacy.PrivacySucceedActivity:
-    java.lang.String TAG_CLEAN -> K
-    java.lang.String TAG_CLEAN_2 -> L
+    java.lang.String TAG_CLEAN -> J
+    java.lang.String TAG_CLEAN_2 -> K
     android.widget.RelativeLayout main_gboost_button -> a
     android.widget.FrameLayout title_left -> b
     android.widget.TextView main_rotate_good -> c
@@ -33844,117 +33982,102 @@ com.privacy.junk.activityprivacy.PrivacySucceedActivity -> com.privacy.junk.acti
     android.widget.ImageView success_diancirle -> f
     android.widget.ImageView success_diancirle1 -> g
     android.widget.RelativeLayout main_ram_button -> h
-    boolean haveAd -> M
-    boolean animationEnd -> N
-    com.privacy.junk.activityprivacy.MyApplication cleanApplication -> O
+    boolean haveAd -> L
+    boolean animationEnd -> M
+    com.privacy.junk.activityprivacy.MyApplication cleanApplication -> N
     android.widget.RelativeLayout main_junk_button -> i
     android.widget.TextView title_name -> j
     android.widget.ImageView success_jiantou -> k
     com.privacy.junk.privacycustomview.PrivacyMainRoundView mainRoundView -> p
     com.privacy.junk.privacycustomview.PrivacySlowScrollView scrollView -> q
     long endStart -> r
-    android.animation.ObjectAnimator objectAnimator -> s
-    int sizeInt -> t
-    long sizeInt1 -> u
-    com.privacy.junk.privacycustomview.PrivacyDrawHookView success_drawhook -> v
-    boolean isdoudong -> P
-    com.twee.module.tweenengine.TweenManager tweenManager -> Q
-    boolean istween -> R
-    android.os.Handler myHandler -> S
-    android.widget.LinearLayout main_rotate_all -> w
-    android.widget.RelativeLayout main_power_button -> x
-    android.widget.RelativeLayout main_notifi_button -> y
-    android.widget.LinearLayout main_cooling_button -> z
-    android.widget.LinearLayout ad_title -> A
-    android.widget.LinearLayout ll_ad_xiao -> B
-    android.widget.RelativeLayout main_picture_button -> C
-    android.widget.RelativeLayout main_file_button -> D
-    android.widget.TextView success_clean_size -> E
-    android.widget.TextView success_textview -> F
-    android.widget.TextView main_rotate_bad -> G
-    android.widget.ImageView rotate_cha -> H
-    android.widget.LinearLayout ad_native_2 -> I
-    android.view.View nativeView -> T
-    android.view.View native_xiao -> U
-    android.view.View$OnClickListener onClickListener -> J
-    51:493:void <init>() -> <init>
-    97:269:void onCreate(android.os.Bundle) -> onCreate
-    272:291:void addAd() -> c
-    294:311:void shendu() -> d
-    314:426:void startSizeAni(long,java.lang.String) -> a
-    430:465:void findId() -> a
-    468:481:void addListener() -> e
-    484:490:void initAnimation() -> f
-    590:601:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    604:634:void startSecondAnimation() -> g
-    638:640:void onResume() -> onResume
-    643:657:void startFirstAnimation() -> b
-    661:662:void onPause() -> onPause
-    666:668:void onStop() -> onStop
-    672:674:void onBackPressed() -> onBackPressed
-    677:705:void setAnimationThread() -> h
-    51:51:void access$000(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> a
-    51:51:boolean access$102(com.privacy.junk.activityprivacy.PrivacySucceedActivity,boolean) -> a
-    51:51:void access$200(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> b
-    51:51:android.os.Handler access$300(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> c
-    51:51:boolean access$402(com.privacy.junk.activityprivacy.PrivacySucceedActivity,boolean) -> b
-    51:51:boolean access$500(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> d
-    51:51:boolean access$600(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> e
-    51:51:com.twee.module.tweenengine.TweenManager access$700(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> f
+    int sizeInt -> s
+    long sizeInt1 -> t
+    com.privacy.junk.privacycustomview.PrivacyDrawHookView success_drawhook -> u
+    com.twee.module.tweenengine.TweenManager tweenManager -> O
+    boolean istween -> P
+    android.os.Handler myHandler -> Q
+    android.widget.LinearLayout main_rotate_all -> v
+    android.widget.RelativeLayout main_power_button -> w
+    android.widget.RelativeLayout main_notifi_button -> x
+    android.widget.LinearLayout main_cooling_button -> y
+    android.widget.LinearLayout ad_title -> z
+    android.widget.LinearLayout ll_ad_xiao -> A
+    android.widget.RelativeLayout main_picture_button -> B
+    android.widget.RelativeLayout main_file_button -> C
+    android.widget.TextView success_clean_size -> D
+    android.widget.TextView success_textview -> E
+    android.widget.TextView main_rotate_bad -> F
+    android.widget.ImageView rotate_cha -> G
+    android.widget.LinearLayout ad_native_2 -> H
+    android.view.View nativeView -> R
+    android.view.View native_xiao -> S
+    android.view.View$OnClickListener onClickListener -> I
+    52:472:void <init>() -> <init>
+    98:274:void onCreate(android.os.Bundle) -> onCreate
+    277:291:android.view.View getNativeAdView(java.lang.String,int) -> a
+    295:311:void addAd() -> c
+    314:331:void shendu() -> d
+    334:405:void startSizeAni(long,java.lang.String) -> a
+    409:444:void findId() -> a
+    447:460:void addListener() -> e
+    463:469:void initAnimation() -> f
+    569:580:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    583:613:void startSecondAnimation() -> g
+    617:619:void onResume() -> onResume
+    622:636:void startFirstAnimation() -> b
+    640:641:void onPause() -> onPause
+    645:647:void onStop() -> onStop
+    651:653:void onBackPressed() -> onBackPressed
+    656:684:void setAnimationThread() -> h
+    52:52:void access$000(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> a
+    52:52:android.os.Handler access$100(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> b
+    52:52:boolean access$202(com.privacy.junk.activityprivacy.PrivacySucceedActivity,boolean) -> a
+    52:52:boolean access$300(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> c
+    52:52:boolean access$400(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> d
+    52:52:com.twee.module.tweenengine.TweenManager access$500(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> e
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$1:
-    com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    262:262:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    264:265:void run() -> run
-com.privacy.junk.activityprivacy.PrivacySucceedActivity$2 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$2:
     java.lang.String val$cleanName -> a
     long val$size -> b
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> c
-    342:342:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity,java.lang.String,long) -> <init>
-    345:424:void run() -> run
-com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$1:
-    com.privacy.junk.activityprivacy.PrivacySucceedActivity$2 this$1 -> a
-    377:377:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$2) -> <init>
-    380:386:void run() -> run
-com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2:
-    com.privacy.junk.activityprivacy.PrivacySucceedActivity$2 this$1 -> a
-    390:390:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$2) -> <init>
-    394:421:void duogouSc() -> a
-com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2$1:
-    com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2 this$2 -> a
-    409:409:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2) -> <init>
-    413:419:void run() -> run
+    372:372:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity,java.lang.String,long) -> <init>
+    376:403:void duogouSc() -> a
+com.privacy.junk.activityprivacy.PrivacySucceedActivity$1$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$1$1:
+    com.privacy.junk.activityprivacy.PrivacySucceedActivity$1 this$1 -> a
+    389:389:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$1) -> <init>
+    393:399:void run() -> run
+com.privacy.junk.activityprivacy.PrivacySucceedActivity$2 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$2:
+    com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
+    463:463:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    466:467:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$3 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$3:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    484:484:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    487:488:void run() -> run
+    472:472:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    475:564:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$4 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$4:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    493:493:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    496:585:void onClick(android.view.View) -> onClick
+    586:586:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    589:601:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    606:606:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    611:611:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.privacy.junk.activityprivacy.PrivacySucceedActivity$4$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$4$1:
+    com.privacy.junk.activityprivacy.PrivacySucceedActivity$4 this$1 -> a
+    589:589:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$4) -> <init>
+    592:598:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$5 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$5:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    607:607:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    610:622:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    627:627:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    632:632:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.privacy.junk.activityprivacy.PrivacySucceedActivity$5$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$5$1:
-    com.privacy.junk.activityprivacy.PrivacySucceedActivity$5 this$1 -> a
-    610:610:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$5) -> <init>
-    613:619:void run() -> run
+    622:622:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    626:634:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$6 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$6:
-    com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    643:643:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    647:655:void run() -> run
-com.privacy.junk.activityprivacy.PrivacySucceedActivity$7 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$7:
     long lastMillis -> b
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    677:678:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    681:703:void run() -> run
-com.privacy.junk.activityprivacy.PrivacySucceedActivity$7$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$7$1:
+    656:657:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    660:682:void run() -> run
+com.privacy.junk.activityprivacy.PrivacySucceedActivity$6$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$6$1:
     float val$delta -> a
-    com.privacy.junk.activityprivacy.PrivacySucceedActivity$7 this$1 -> b
-    686:686:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$7,float) -> <init>
-    689:691:void run() -> run
+    com.privacy.junk.activityprivacy.PrivacySucceedActivity$6 this$1 -> b
+    665:665:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$6,float) -> <init>
+    668:670:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyUnloadingResidualActivity -> com.privacy.junk.activityprivacy.PrivacyUnloadingResidualActivity:
     java.lang.String TAG_UNLOAD -> j
     android.widget.TextView tv_size -> a
@@ -34983,6 +35106,7 @@ com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy -> com.privacy.j
     17:18:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     22:24:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     31:34:void onMeasure(int,int) -> onMeasure
+    11:11:void setAdapter(android.widget.Adapter) -> setAdapter
 com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu -> com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu:
     android.content.Context context -> c
     android.graphics.Paint circlePoint -> d
@@ -35133,15 +35257,62 @@ com.privacy.junk.privacycustomview.PrivacyYuanHuView -> com.privacy.junk.privacy
     32:44:void init() -> a
     48:64:void onDraw(android.graphics.Canvas) -> onDraw
     67:69:void setDuShu(float) -> setDuShu
-    74:91:void start(float) -> a
     95:98:void onDetachedFromWindow() -> onDetachedFromWindow
     103:104:void setScanCallBack(com.privacy.junk.privacycustomview.PrivacyYuanHuView$DrawYuanHuListener) -> setScanCallBack
-com.privacy.junk.privacycustomview.PrivacyYuanHuView$1 -> com.privacy.junk.privacycustomview.PrivacyYuanHuView$1:
-    float val$dushu1 -> a
-    com.privacy.junk.privacycustomview.PrivacyYuanHuView this$0 -> b
-    74:74:void <init>(com.privacy.junk.privacycustomview.PrivacyYuanHuView,float) -> <init>
-    78:89:void run() -> run
 com.privacy.junk.privacycustomview.PrivacyYuanHuView$DrawYuanHuListener -> com.privacy.junk.privacycustomview.PrivacyYuanHuView$a:
+com.privacy.junk.privacycustomview.QiqiuLayout -> com.privacy.junk.privacycustomview.QiqiuLayout:
+    java.util.List bubbles -> a
+    java.util.Random random -> b
+    int width -> c
+    int height -> d
+    boolean starting -> e
+    boolean thread -> f
+    android.graphics.Bitmap bitmap1 -> g
+    android.graphics.Bitmap dstBitmap -> h
+    20:31:void <init>(android.content.Context) -> <init>
+    20:36:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    20:41:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    44:45:void init() -> d
+    48:56:void destroy() -> a
+    59:60:void setParticleBitmap(android.graphics.Bitmap) -> setParticleBitmap
+    63:67:void pause() -> b
+    70:73:void reStart() -> c
+    77:168:void onDraw(android.graphics.Canvas) -> onDraw
+    18:18:boolean access$000(com.privacy.junk.privacycustomview.QiqiuLayout) -> a
+    18:18:boolean access$100(com.privacy.junk.privacycustomview.QiqiuLayout) -> b
+    18:18:java.util.Random access$300(com.privacy.junk.privacycustomview.QiqiuLayout) -> c
+    18:18:int access$400(com.privacy.junk.privacycustomview.QiqiuLayout) -> d
+    18:18:int access$500(com.privacy.junk.privacycustomview.QiqiuLayout) -> e
+    18:18:android.graphics.Bitmap access$600(com.privacy.junk.privacycustomview.QiqiuLayout) -> f
+    18:18:java.util.List access$700(com.privacy.junk.privacycustomview.QiqiuLayout) -> g
+com.privacy.junk.privacycustomview.QiqiuLayout$1 -> com.privacy.junk.privacycustomview.QiqiuLayout$1:
+    com.privacy.junk.privacycustomview.QiqiuLayout this$0 -> a
+    82:82:void <init>(com.privacy.junk.privacycustomview.QiqiuLayout) -> <init>
+    84:127:void run() -> run
+com.privacy.junk.privacycustomview.QiqiuLayout$Bubble -> com.privacy.junk.privacycustomview.QiqiuLayout$a:
+    float radius -> b
+    float speedY -> c
+    float speedX -> d
+    float x -> e
+    float y -> f
+    float scale -> g
+    android.graphics.Bitmap bitmap -> h
+    com.privacy.junk.privacycustomview.QiqiuLayout this$0 -> a
+    171:185:void <init>(com.privacy.junk.privacycustomview.QiqiuLayout) -> <init>
+    188:188:android.graphics.Bitmap getBitmap() -> a
+    192:193:void setBitmap(android.graphics.Bitmap) -> a
+    196:196:float getRadius() -> b
+    200:201:void setRadius(float) -> a
+    204:205:void setScale(float) -> b
+    212:212:float getX() -> c
+    216:217:void setX(float) -> c
+    220:220:float getY() -> d
+    224:225:void setY(float) -> d
+    228:228:float getSpeedY() -> e
+    232:233:void setSpeedY(float) -> e
+    236:236:float getSpeedX() -> f
+    240:241:void setSpeedX(float) -> f
+    171:171:void <init>(com.privacy.junk.privacycustomview.QiqiuLayout,com.privacy.junk.privacycustomview.QiqiuLayout$1) -> <init>
 com.privacy.junk.privacycustomview.Rotate3d -> com.privacy.junk.privacycustomview.d:
     float mFromDegrees -> a
     float mToDegrees -> b
@@ -35308,7 +35479,7 @@ com.privacy.junk.privacyservices.PrivacySuspensionBallService -> com.privacy.jun
     39:76:void <init>() -> <init>
     49:49:android.os.IBinder onBind(android.content.Intent) -> onBind
     58:73:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    90:94:void onCreate() -> onCreate
+    88:93:void onCreate() -> onCreate
     96:129:void createFullScreenCheckView() -> b
     132:163:void updata() -> c
     166:179:java.util.List getLaunchers() -> a
@@ -35393,8 +35564,8 @@ com.privacy.junk.toolsprivacy.PrivacyUtilGp -> com.privacy.junk.e.g:
     161:168:void launchApp(android.content.Context,java.lang.String,android.content.Intent) -> a
     507:508:void <clinit>() -> <clinit>
 com.privacy.junk.toolsprivacy.SetAdUtilPrivacy -> com.privacy.junk.e.h:
-    19:39:android.view.View getNativeAdView(java.lang.String,int) -> a
-    44:46:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
+    19:33:android.view.View getNativeAdView(java.lang.String,int) -> a
+    38:40:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
 com.privacy.junk.toolsprivacy.SwitchControl -> com.privacy.junk.e.i:
     android.hardware.Camera camera -> a
     87:97:void setMobileData(android.content.Context,boolean) -> a
@@ -35544,6 +35715,7 @@ com.privacy.module.charge.saver.R$color -> com.privacy.module.charge.saver.a$b:
     int switch_thumb_normal_material_dark -> switch_thumb_normal_material_dark
     int switch_thumb_normal_material_light -> switch_thumb_normal_material_light
     int white_100 -> white_100
+    int white_20 -> white_20
 com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$c:
     int abc_action_bar_content_inset_material -> abc_action_bar_content_inset_material
     int abc_action_bar_default_height_material -> abc_action_bar_default_height_material
@@ -35961,7 +36133,6 @@ com.privacy.module.charge.saver.R$id -> com.privacy.module.charge.saver.a$d:
     int battery_ad_layout -> battery_ad_layout
     int battery_bubble_layout -> battery_bubble_layout
     int battery_charge_save -> battery_charge_save
-    int battery_icon -> battery_icon
     int battery_more -> battery_more
     int battery_now_battery -> battery_now_battery
     int battery_now_battery_left -> battery_now_battery_left
@@ -36783,7 +36954,7 @@ com.privacy.module.charge.saver.R$styleable -> com.privacy.module.charge.saver.a
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1586:2167:void <clinit>() -> <clinit>
+    1587:2168:void <clinit>() -> <clinit>
 com.privacy.module.charge.saver.entry.LevelStepPrivacy -> com.privacy.module.charge.saver.a.a:
     int currentLevel -> a
     int lastLevelUpdateTime -> b
@@ -36862,7 +37033,7 @@ com.privacy.module.charge.saver.privacyprotectservice.PrivacyServiceBattery$4 ->
 com.privacy.module.charge.saver.privacyutils.PrivacyADRequest -> com.privacy.module.charge.saver.privacyutils.a:
     13:13:void <init>() -> <init>
     16:17:void showFullAD() -> a
-    20:62:android.view.View showCustomNativeAD(java.lang.String,int,com.privacy.module.charge.saver.privacyutils.PrivacyADRequest$ICustomNativeADClicked) -> a
+    20:64:android.view.View showCustomNativeAD(java.lang.String,com.privacy.module.charge.saver.privacyutils.PrivacyADRequest$ICustomNativeADClicked) -> a
 com.privacy.module.charge.saver.privacyutils.PrivacyADRequest$1 -> com.privacy.module.charge.saver.privacyutils.a$1:
     com.privacy.module.charge.saver.privacyutils.PrivacyADRequest$ICustomNativeADClicked val$adClick -> a
     com.privacy.module.charge.saver.privacyutils.PrivacyADRequest this$0 -> b
@@ -37001,18 +37172,23 @@ com.privacy.module.charge.saver.protectview.IndicatorViewPrivacy$OnPageChangeLis
     void onPageScrollStateChanged(int) -> b
 com.privacy.module.charge.saver.protectview.PrivacyBatteryView -> com.privacy.module.charge.saver.protectview.PrivacyBatteryView:
     android.graphics.Paint paint -> a
-    android.content.Context context -> b
-    boolean isStop -> c
-    int battery -> d
-    android.graphics.Canvas canvas -> e
-    int w -> f
-    16:33:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    27:31:void init() -> b
-    37:42:void onDraw(android.graphics.Canvas) -> onDraw
-    45:47:void setDuShu(int) -> setDuShu
-    50:53:void start(float) -> a
-    57:59:void onDetachedFromWindow() -> onDetachedFromWindow
-    62:63:void stop() -> a
+    android.graphics.Paint paint_di -> b
+    android.graphics.Paint paint_kuang -> c
+    android.content.Context context -> d
+    boolean isStop -> e
+    int battery -> f
+    int radio -> g
+    int line_whith -> h
+    int width -> i
+    int height -> j
+    17:27:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    30:45:void init() -> b
+    49:52:void onMeasure(int,int) -> onMeasure
+    56:63:void onDraw(android.graphics.Canvas) -> onDraw
+    66:68:void setDuShu(int) -> setDuShu
+    71:74:void start(float) -> a
+    78:80:void onDetachedFromWindow() -> onDetachedFromWindow
+    83:84:void stop() -> a
 com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView -> com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView:
     java.lang.String typeface -> a
     android.content.Context mContext -> b
@@ -37030,44 +37206,43 @@ com.privacy.module.charge.saver.protectview.ProtectBatteryView -> com.privacy.mo
     com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener unlockListener -> l
     com.privacy.module.charge.saver.protectview.ProtectBatteryView batteryView -> m
     android.widget.LinearLayout adLayout -> n
-    android.widget.ImageView icon -> o
-    android.widget.TextView title -> p
-    android.widget.LinearLayout more -> q
-    android.widget.LinearLayout switchLayout -> r
-    android.widget.CheckBox saverSwitch -> s
+    android.widget.TextView title -> o
+    android.widget.LinearLayout more -> p
+    android.widget.LinearLayout switchLayout -> q
+    android.widget.CheckBox saverSwitch -> r
     android.widget.ImageView battery_shandian -> a
-    android.widget.TextView time -> t
-    android.widget.TextView date -> u
-    android.widget.TextView day -> v
-    android.widget.TextView week -> w
-    android.widget.TextView batteryLeft -> x
-    com.privacy.module.charge.saver.protectview.BubbleLayoutPrivacy bubbleLayout -> y
+    android.widget.TextView time -> s
+    android.widget.TextView date -> t
+    android.widget.TextView day -> u
+    android.widget.TextView week -> v
+    android.widget.TextView batteryLeft -> w
+    com.privacy.module.charge.saver.protectview.BubbleLayoutPrivacy bubbleLayout -> x
     com.privacy.module.charge.saver.protectview.PrivacyBatteryView batteryview -> b
-    int halfWidth -> z
-    android.content.BroadcastReceiver timerUpdateReceiver -> A
-    android.content.IntentFilter mIntentFilter -> B
-    int progress -> C
+    int halfWidth -> y
+    android.content.BroadcastReceiver timerUpdateReceiver -> z
+    android.content.IntentFilter mIntentFilter -> A
+    int progress -> B
     boolean flag -> c
     int i -> d
     android.os.CountDownTimer cdt -> e
-    40:162:void <init>(android.content.Context) -> <init>
-    40:162:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    40:162:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    87:88:void setUnlockListener(com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener) -> setUnlockListener
-    100:138:void showNativeAD() -> f
-    141:158:void updateTime() -> a
-    166:251:void bind(com.privacy.module.charge.saver.entry.PrivacyBatteryEntry) -> a
-    278:278:void setCharing(boolean) -> setCharing
-    282:394:void onFinishInflate() -> onFinishInflate
-    398:418:void initViews() -> g
-    421:424:void pauseBubble() -> b
-    427:430:void reStartBubble() -> c
-    434:441:void onAttachedToWindow() -> onAttachedToWindow
-    445:470:void onDetachedFromWindow() -> onDetachedFromWindow
-    473:477:int analysisJson(org.json.JSONObject) -> a
-    482:489:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    492:494:void registerTimeUpdateReceiver() -> d
-    497:499:void unregisterTimeUpdateReceiver() -> e
+    40:161:void <init>(android.content.Context) -> <init>
+    40:161:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    40:161:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    86:87:void setUnlockListener(com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener) -> setUnlockListener
+    99:137:void showNativeAD() -> f
+    140:157:void updateTime() -> a
+    165:250:void bind(com.privacy.module.charge.saver.entry.PrivacyBatteryEntry) -> a
+    277:277:void setCharing(boolean) -> setCharing
+    281:393:void onFinishInflate() -> onFinishInflate
+    397:416:void initViews() -> g
+    419:422:void pauseBubble() -> b
+    425:428:void reStartBubble() -> c
+    432:440:void onAttachedToWindow() -> onAttachedToWindow
+    444:469:void onDetachedFromWindow() -> onDetachedFromWindow
+    472:476:int analysisJson(org.json.JSONObject) -> a
+    481:488:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    491:493:void registerTimeUpdateReceiver() -> d
+    496:498:void unregisterTimeUpdateReceiver() -> e
     35:35:android.view.GestureDetector access$000(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> a
     35:35:int access$100(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> b
     35:35:com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener access$200(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> c
@@ -37080,34 +37255,34 @@ com.privacy.module.charge.saver.protectview.ProtectBatteryView -> com.privacy.mo
     35:35:android.widget.CheckBox access$800(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> i
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$1 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$1:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    90:90:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    93:94:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    89:89:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    92:93:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$2 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$2:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    112:112:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    115:135:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    111:111:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    114:134:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$3 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$3:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    173:173:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView,long,long) -> <init>
-    177:177:void onTick(long) -> onTick
-    181:191:void onFinish() -> onFinish
+    172:172:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView,long,long) -> <init>
+    176:176:void onTick(long) -> onTick
+    180:190:void onFinish() -> onFinish
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$4 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$4:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    302:302:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    305:322:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    301:301:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    304:321:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$5 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$5:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    325:325:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    328:332:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    338:347:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    324:324:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    327:331:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    337:346:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$6 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$6:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    358:358:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    361:365:void onClick(android.view.View) -> onClick
+    357:357:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    360:364:void onClick(android.view.View) -> onClick
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$7 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$7:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    377:377:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    380:391:void onClick(android.view.View) -> onClick
+    376:376:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    379:390:void onClick(android.view.View) -> onClick
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$a:
     void onUnlock() -> a
 com.privacy.module.charge.saver.receiverprivacy.BroadcastReceiverStartPrivacy -> com.privacy.module.charge.saver.receiverprivacy.BroadcastReceiverStartPrivacy:

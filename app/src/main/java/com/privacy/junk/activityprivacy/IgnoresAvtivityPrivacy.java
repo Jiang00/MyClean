@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import com.privacy.clean.entity.JunkInfo;
 import com.privacy.junk.R;
 import com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter;
 import com.privacy.junk.toolsprivacy.MyConstantPrivacy;
+import com.privacy.junk.toolsprivacy.SetAdUtilPrivacy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +47,15 @@ public class IgnoresAvtivityPrivacy extends BaseActivity {
         adapter = new IgnoreListViewAdapter(this);
         listView.setAdapter(adapter);
         initDAta();
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = SetAdUtilPrivacy.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {

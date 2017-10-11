@@ -45,7 +45,6 @@ public class ProtectBatteryView extends FrameLayout {
 
     private ProtectBatteryView batteryView;
     private LinearLayout adLayout;
-    private ImageView icon;
     private TextView title;
     private LinearLayout more;
     private LinearLayout switchLayout;
@@ -97,7 +96,7 @@ public class ProtectBatteryView extends FrameLayout {
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
 
     private void showNativeAD() {
-        adView = new PrivacyADRequest().showCustomNativeAD(BatteryConstantsPrivacy.TAG_CHARGING, R.layout.native_ad, null);
+        adView = new PrivacyADRequest().showCustomNativeAD(BatteryConstantsPrivacy.TAG_CHARGING, null);
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(VISIBLE);
@@ -359,7 +358,7 @@ public class ProtectBatteryView extends FrameLayout {
                 @Override
                 public void onClick(View v) {
                     if (switchLayout != null) {
-                        more.setVisibility(View.GONE);
+                        more.setVisibility(View.INVISIBLE);
                         switchLayout.setVisibility(VISIBLE);
                     }
                 }
@@ -402,7 +401,6 @@ public class ProtectBatteryView extends FrameLayout {
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
         adLayout = (LinearLayout) findViewById(R.id.battery_ad_layout);
-        icon = (ImageView) findViewById(R.id.battery_icon);
         title = (TextView) findViewById(R.id.battery_title);
         more = (LinearLayout) findViewById(R.id.battery_more);
         time = (TextView) findViewById(R.id.battery_now_time);
@@ -438,6 +436,7 @@ public class ProtectBatteryView extends FrameLayout {
         if (!isBindView) {
             isBindView = true;
         }
+
     }
 
     @Override

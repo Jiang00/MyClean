@@ -60,7 +60,7 @@ public class RubbishActivityPrivacy extends BaseActivity implements GarbageViewP
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL, null);
         myHandler = new Handler();
         junkPresenter = new LogPresenterPrivacy(this, this);
         junkPresenter.init();

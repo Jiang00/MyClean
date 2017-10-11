@@ -20,6 +20,7 @@ import com.privacy.clean.entity.JunkInfo;
 import com.privacy.clean.privacydb.CleanDBHelper;
 import com.privacy.junk.R;
 import com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter;
+import com.privacy.junk.toolsprivacy.SetAdUtilPrivacy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +56,15 @@ public class PrivacyIgnoresAddActivity extends BaseActivity {
         adapter = new IgnoreListViewAdapter(this);
         list_si.setAdapter(adapter);
         initData();
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = SetAdUtilPrivacy.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {

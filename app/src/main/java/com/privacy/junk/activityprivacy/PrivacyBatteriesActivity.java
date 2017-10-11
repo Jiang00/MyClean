@@ -24,6 +24,7 @@ import com.privacy.junk.privacycustomview.FlakeViewPrivacy;
 import com.privacy.junk.privacycustomview.KuoShan;
 import com.privacy.junk.privacycustomview.Rotate3d;
 import com.privacy.junk.toolsprivacy.MyConstantPrivacy;
+import com.privacy.junk.toolsprivacy.SetAdUtilPrivacy;
 
 import java.util.Random;
 
@@ -64,7 +65,7 @@ public class PrivacyBatteriesActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL,null);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -233,7 +234,7 @@ public class PrivacyBatteriesActivity extends BaseActivity {
                 public void duogouSc() {
                     cooling_drawhookview.setListener(null);
                     if (PreData.getDB(PrivacyBatteriesActivity.this, MyConstantPrivacy.FULL_COOL, 0) == 1) {
-                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                        AndroidSdk.showFullAd(SetAdUtilPrivacy.DEFAULT_FULL);
                     }
                     Bundle bundle = new Bundle();
                     bundle.putInt("wendu", time);

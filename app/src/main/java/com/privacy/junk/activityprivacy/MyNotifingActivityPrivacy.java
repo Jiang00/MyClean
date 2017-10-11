@@ -25,6 +25,7 @@ import com.privacy.clean.utilsprivacy.PreData;
 import com.privacy.junk.R;
 import com.privacy.junk.customadapterprivacy.NotifiAdapterPrivacy;
 import com.privacy.junk.toolsprivacy.MyConstantPrivacy;
+import com.privacy.junk.toolsprivacy.SetAdUtilPrivacy;
 
 import java.util.ArrayList;
 
@@ -120,7 +121,7 @@ public class MyNotifingActivityPrivacy extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL,null);
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, MyServiceNotificationMonitor.class));

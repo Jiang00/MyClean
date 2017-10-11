@@ -74,6 +74,22 @@
                         android:scaleType="center"
                         android:src="@mipmap/main_setting" />
                 </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/lot_family"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/d24"
+                    android:layout_toLeftOf="@id/iv_title_right">
+
+                    <ImageView
+                        android:id="@+id/libao_1"
+                        android:layout_width="@dimen/d27"
+                        android:layout_height="@dimen/d27"
+                        android:layout_gravity="center" />
+
+                </FrameLayout>
             </RelativeLayout>
 
             <com.privacy.junk.privacycustomview.ScrollView
@@ -193,8 +209,10 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/d116"
+                        android:layout_marginBottom="@dimen/d8"
                         android:background="@color/B3"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <LinearLayout
                             android:id="@+id/main_junk_button"
@@ -336,10 +354,6 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d8"
-                        android:background="@color/A7" />
 
                     <!--好评-->
                     <LinearLayout
@@ -1073,5 +1087,12 @@
             android:visibility="gone" />
 
         <include layout="@layout/layout_battery" />
+
+        <com.privacy.junk.privacycustomview.QiqiuLayout
+            android:id="@+id/full_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:visibility="invisible" />
     </FrameLayout>
 </LinearLayout>

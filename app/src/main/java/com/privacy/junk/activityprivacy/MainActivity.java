@@ -1,14 +1,17 @@
 package com.privacy.junk.activityprivacy;
 
+import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.LayoutRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -21,8 +24,10 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -30,6 +35,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.android.client.ClientNativeAd;
 import com.mingle.privacycircletreveal.CircularRevealCompat;
 import com.mingle.widgetprivacy.animation.CRAnimation;
 import com.mingle.widgetprivacy.animation.SimpleAnimListener;
@@ -43,6 +49,7 @@ import com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu;
 import com.privacy.junk.privacycustomview.DynamicWavePrivacy;
 import com.privacy.junk.privacycustomview.KuoShan;
 import com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy;
+import com.privacy.junk.privacycustomview.QiqiuLayout;
 import com.privacy.junk.privacycustomview.ScrollView;
 import com.privacy.junk.privacycustomview.PrivacyYuanHuView;
 import com.privacy.junk.interfaceviewprivacy.MainViewPrivacy;
@@ -89,7 +96,6 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
     LinearLayout main_junk_button, main_ram_button2, main_cooling_button2;
     LinearLayout ll_ad_full;
     LinearLayout main_rotate_all;
-    TextView main_full_time;
     private PrivacySidebarAdapter adapter;
     RelativeLayout main_power_button, main_file_button, main_notifi_button, main_picture_button2;
     RelativeLayout main_gboost_button;
@@ -102,6 +108,11 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
     LinearLayout main_clean_lin;
     RelativeLayout main_title;
     TextView main_junk_huan;
+    FrameLayout lot_family;
+    QiqiuLayout full_loading;
+    ImageView libao_1;
+
+
     private int temp;
     private AlertDialog dialog;
     private Handler handler = new Handler();
@@ -111,6 +122,8 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
     LinearLayout main_msg_button;
     ProgressBar ad_progressbar;
     DynamicWavePrivacy mian_water_bottom;
+    private AnimationDrawable animationDrawable;
+    private AnimatorSet animatorSet;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -148,6 +161,10 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                 , getResources().getDimensionPixelSize(com.privacy.module.charge.saver.R.dimen.d1), 35, 0.3f);//圆扩散
         //守护时间
         main_days.setText(getString(R.string.main_day, getMonthSpace(getAnZhuangTime(), new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date()))));
+
+        animationDrawable = (AnimationDrawable) getResources().getDrawable(R.drawable.zhen);
+        libao_1.setBackgroundDrawable(animationDrawable);
+        full_loading.pause();
     }
 
     @Override
@@ -159,18 +176,18 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
             public void run() {
                 // 设置硬件信息里的CPU温度
                 main_msg_cpu_percent.setText(String.valueOf(temp) + "℃");
-                main_app_percentage.setText(temp + "℃");
-                main_yuanhu3.start(temp * 3.6f);
-                if (temp < 30) {
-                    main_crile3.setImageResource(R.mipmap.main_cpu1);
-                    main_app_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
-                } else if (temp >= 30 && temp < 80) {
-                    main_app_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
-                    main_crile3.setImageResource(R.mipmap.main_cpu2);
-                } else {
-                    main_app_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
-                    main_crile3.setImageResource(R.mipmap.main_cpu3);
-                }
+//                main_app_percentage.setText(temp + "℃");
+//                main_yuanhu3.start(temp * 3.6f);
+//                if (temp < 30) {
+//                    main_crile3.setImageResource(R.mipmap.main_cpu1);
+//                    main_app_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
+//                } else if (temp >= 30 && temp < 80) {
+//                    main_app_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
+//                    main_crile3.setImageResource(R.mipmap.main_cpu2);
+//                } else {
+//                    main_app_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
+//                    main_crile3.setImageResource(R.mipmap.main_cpu3);
+//                }
             }
         });
     }
@@ -241,6 +258,10 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         main_app_percentage = (TextView) findViewById(R.id.main_app_percentage);
         main_days = (TextView) findViewById(R.id.main_days);
 
+        lot_family = (FrameLayout) findViewById(R.id.lot_family);
+        full_loading = (QiqiuLayout) findViewById(R.id.full_loading);
+        libao_1 = (ImageView) findViewById(R.id.libao_1);
+
     }
 
     //初始化监听
@@ -261,6 +282,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         main_picture_button2.setOnClickListener(onClickListener);
         main_clean_lin.setOnClickListener(onClickListener);
         main_ram_button2.setOnClickListener(onClickListener);
+        lot_family.setOnClickListener(onClickListener);
 
     }
 
@@ -350,11 +372,6 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         } else {
             View nativeView = SetAdUtilPrivacy.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == MyUtils.dp2px(250)) {
-                    layout_ad.height = MyUtils.dp2px(250);
-                }
-                ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
                 ll_ad.setGravity(Gravity.CENTER_HORIZONTAL);
                 ll_ad.setVisibility(View.VISIBLE);
@@ -367,7 +384,15 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                 }, 1000);
                 main_scroll_view.setScrollY(0);
 //                main_scroll_view.fullScroll(ScrollView.FOCUS_UP);
-
+                View ad_action = nativeView.findViewWithTag("ad_action");
+                animatorSet = new AnimatorSet();
+                ObjectAnimator animator_1 = ObjectAnimator.ofFloat(ad_action, View.SCALE_X, 1, 1.2f, 0.9f, 1.1f, 1);
+                animator_1.setDuration(800);
+                ObjectAnimator animator_2 = ObjectAnimator.ofFloat(ad_action, View.SCALE_Y, 1, 0.8f, 1.1f, 0.9f, 1);
+                animator_2.setDuration(800);
+                animatorSet.play(animator_1).with(animator_2);
+                animatorSet.setInterpolator(new DecelerateInterpolator());
+                handler.post(runnable_ad);
             } else {
                 ll_ad.setVisibility(View.GONE);
             }
@@ -392,19 +417,18 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         }
 
         if (PreData.getDB(this, MyConstantPrivacy.FULL_START, 0) == 1) {
-            AndroidSdk.showFullAd("cprivacy_start_full");
+            AndroidSdk.showFullAd("loading_full");
         } else {
             //loading页面广告
-            View nativeView_full = SetAdUtilPrivacy.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
+            View nativeView_full = getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
-                nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
-                main_full_time = (TextView) nativeView_full.findViewById(R.id.main_full_time);
+                ImageView ad_delete = (ImageView) nativeView_full.findViewById(R.id.ad_delete);
                 LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
                 loading_text.setOnClickListener(null);
-                main_full_time.setVisibility(View.VISIBLE);
-                main_full_time.setOnClickListener(new View.OnClickListener() {
+                ad_delete.setVisibility(View.VISIBLE);
+                ad_delete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         handler.removeCallbacks(fullAdRunnale);
@@ -417,6 +441,34 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
             }
         }
     }
+
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd(tag)) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+        }
+        return nativeView;
+    }
+
+    Runnable runnable_ad = new Runnable() {
+        @Override
+        public void run() {
+            if (animatorSet != null && !animatorSet.isRunning()) {
+                animatorSet.start();
+            }
+            handler.postDelayed(this, 2000);
+        }
+    };
 
     @Override
     public void setRotateGone() {
@@ -531,6 +583,85 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     main_battery.setVisibility(View.GONE);
                     SetAdUtilPrivacy.track("主界面", "充电屏保引导", "打开", 1);
                     break;
+                case R.id.lot_family:
+                    if (PreData.getDB(MainActivity.this, MyConstantPrivacy.FULL_START, 0) == 1) {
+                        AndroidSdk.loadFullAd("loading_full", null);
+                        full_loading.setVisibility(View.VISIBLE);
+                        full_loading.reStart();
+                        handler.post(runnable_pus);
+                        handler.postDelayed(runnable_load, 4500);
+                    } else {
+                        Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
+                        ll_ad_full.startAnimation(animation);
+                        ll_ad_full.setVisibility(View.VISIBLE);
+                        ad_progressbar.setVisibility(View.VISIBLE);
+                        ll_ad_full.removeAllViews();
+                        animation.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
+                                    @Override
+                                    public void onNativeAdLoadSuccess(View view) {
+                                        ImageView ad_delete = (ImageView) findViewById(R.id.ad_delete);
+                                        ad_delete.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                adDelete();
+                                            }
+                                        });
+                                        ll_ad_full.addView(view);
+                                        ad_progressbar.setVisibility(View.GONE);
+                                    }
+
+                                    @Override
+                                    public void onNativeAdLoadFails() {
+                                        showToast(getString(R.string.load_fails));
+                                        adDelete();
+                                        ad_progressbar.setVisibility(View.GONE);
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+
+                            }
+                        });
+                    }
+
+
+                    break;
+            }
+        }
+    };
+
+    Runnable runnable_pus = new Runnable() {
+        @Override
+        public void run() {
+            if (onPause) {
+                if (full_loading != null) {
+                    full_loading.pause();
+                    full_loading.setVisibility(View.GONE);
+                }
+                handler.removeCallbacks(runnable_load);
+            } else {
+                handler.postDelayed(this, 500);
+            }
+        }
+    };
+    Runnable runnable_load = new Runnable() {
+        @Override
+        public void run() {
+            AndroidSdk.showFullAd("loading_full");
+            handler.removeCallbacks(runnable_pus);
+            if (full_loading != null) {
+                full_loading.pause();
+                full_loading.setVisibility(View.GONE);
             }
         }
     };
@@ -576,18 +707,18 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                 // MyUtils.convertStorage(junk_size, true) true返回的带单位，false不带单位
                 long ramSize = CleanManager.getInstance(MainActivity.this).getRamSize();
                 main_junk_huan.setText(MyUtils.convertStorage(junk_size + ramSize, true) + "B " + getResources().getString(R.string.main_junk_file));
-                main_junk_percentage.setText(percent + "%");
-                main_yuanhu1.start(percent * 3.6f);
-                if (percent < 30) {
-                    main_crile1.setImageResource(R.mipmap.mian_junk3);
-                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
-                } else if (percent >= 30 && percent < 80) {
-                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
-                    main_crile1.setImageResource(R.mipmap.mian_junk1);
-                } else {
-                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
-                    main_crile1.setImageResource(R.mipmap.mian_junk2);
-                }
+//                main_junk_percentage.setText(percent + "%");
+//                main_yuanhu1.start(percent * 3.6f);
+//                if (percent < 30) {
+//                    main_crile1.setImageResource(R.mipmap.mian_junk3);
+//                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
+//                } else if (percent >= 30 && percent < 80) {
+//                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
+//                    main_crile1.setImageResource(R.mipmap.mian_junk1);
+//                } else {
+//                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
+//                    main_crile1.setImageResource(R.mipmap.mian_junk2);
+//                }
             }
         });
     }
@@ -602,18 +733,18 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
             public void run() {
                 // 设置硬件信息里的内存
                 main_msg_ram_percent.setText(arr[1] + "B " + "B");
-                main_ram_percentage.setText(percent + "%");
-                main_yuanhu2.start(percent * 3.6f);
-                if (percent < 30) {
-                    main_crile2.setImageResource(R.mipmap.mian_ram2);
-                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
-                } else if (percent >= 30 && percent < 80) {
-                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
-                    main_crile2.setImageResource(R.mipmap.mian_ram1);
-                } else {
-                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
-                    main_crile2.setImageResource(R.mipmap.mian_ram3);
-                }
+//                main_ram_percentage.setText(percent + "%");
+//                main_yuanhu2.start(percent * 3.6f);
+//                if (percent < 30) {
+//                    main_crile2.setImageResource(R.mipmap.mian_ram2);
+//                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
+//                } else if (percent >= 30 && percent < 80) {
+//                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
+//                    main_crile2.setImageResource(R.mipmap.mian_ram1);
+//                } else {
+//                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
+//                    main_crile2.setImageResource(R.mipmap.mian_ram3);
+//                }
             }
         });
     }
@@ -663,14 +794,25 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
 //        power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         // 充电屏保关闭智能充电，刷新无效果，重新调用 initSideData()可以
 //        adapter.notifyDataSetChanged();
+
         initSideData();
 
+        if (PreData.getDB(this, MyConstantPrivacy.FULL_EXIT, 0) == 1) {
+            AndroidSdk.loadFullAd("cprivacy_exit_full", null);
+        }
     }
 
     public void onBackPressed() {
         if (ll_ad_full.getVisibility() == View.VISIBLE) {
             adDelete();
             handler.removeCallbacks(fullAdRunnale);
+            return;
+        }
+        if (full_loading.getVisibility() == View.VISIBLE) {
+            full_loading.pause();
+            full_loading.setVisibility(View.GONE);
+            handler.removeCallbacks(runnable_load);
+            handler.removeCallbacks(runnable_pus);
             return;
         }
         if (main_battery.getVisibility() == View.VISIBLE) {
@@ -703,9 +845,9 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
             return;
         }
         int[] loc = new int[2];
-//        lot_ad.getLocationOnScreen(loc);
-        CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(loc[0],
-                loc[1], ll_ad_full.getHeight(), 0);
+        lot_family.getLocationOnScreen(loc);
+        CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(loc[0] + lot_family.getWidth() / 2,
+                loc[1] + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
         if (crA != null) {
             crA.addListener(new SimpleAnimListener() {
                 @Override
@@ -724,8 +866,8 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_EXIT, 0) == 0) {
-            View nativeExit = SetAdUtilPrivacy.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_2);
+        if (PreData.getDB(this, MyConstantPrivacy.FULL_EXIT_NATIVE, 0) == 1) {
+            View nativeExit = getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_2);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.VISIBLE);
@@ -735,6 +877,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+
                 finish();
             }
         });
@@ -744,32 +887,33 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                 dialog.dismiss();
             }
         });
-        dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
+        dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
         dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
         dialog.show();
-
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
-        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = dm.widthPixels; //设置宽度
-        lp.height = dm.heightPixels; //设置高度
-        if (PreData.getDB(this, MyConstantPrivacy.IS_ACTION_BAR, true)) {
-            int uiOptions =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                            //布局位于状态栏下方
-                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                            //隐藏导航栏
-                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-            if (Build.VERSION.SDK_INT >= 19) {
-                uiOptions |= 0x00001000;
-            } else {
-                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
-            }
-            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
-        }
-        dialog.getWindow().setAttributes(lp);
-        dialog.getWindow().setContentView(view);
+//
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
+//        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+//        lp.width = dm.widthPixels; //设置宽度
+//        lp.height = dm.heightPixels; //设置高度
+//        if (PreData.getDB(this, MyConstantPrivacy.IS_ACTION_BAR, true)) {
+//            int uiOptions =
+//                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+//                            //布局位于状态栏下方
+//                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+//                            //隐藏导航栏
+//                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+//                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+//            if (Build.VERSION.SDK_INT >= 19) {
+//                uiOptions |= 0x00001000;
+//            } else {
+//                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+//            }
+//            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+//        }
+//        dialog.getWindow().setAttributes(lp);
+//        dialog.getWindow().setContentView(view);
     }
 
     @Override
@@ -788,10 +932,32 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
     }
 
     @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (animationDrawable != null) {
+            animationDrawable.start();
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         if (objectAnimator != null) {
             objectAnimator.pause();
+        }
+        if (animationDrawable != null) {
+            if (animationDrawable.isRunning()) {
+                animationDrawable.stop();
+            }
+        }
+        if (handler != null) {
+            handler.removeCallbacks(runnable_ad);
+            handler.removeCallbacks(runnable_load);
+            handler.removeCallbacks(runnable_pus);
+            if (full_loading != null) {
+                full_loading.pause();
+                full_loading.destroy();
+            }
         }
     }
 

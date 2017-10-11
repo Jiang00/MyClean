@@ -58,7 +58,7 @@ public class PrivacySuspensionBallService extends Service {
         if (myHandler == null) {
             myHandler = new Handler();
         }
-        manager = PrivacyFloatStateManager.getInstance(PrivacySuspensionBallService.this);
+
         if (pm == null)
             pm = getPackageManager();
         if (am == null)
@@ -83,15 +83,15 @@ public class PrivacySuspensionBallService extends Service {
     String runingGboost;
 
 
-
-
     @Override
     public void onCreate() {
         super.onCreate();
+        manager = PrivacyFloatStateManager.getInstance(PrivacySuspensionBallService.this);
         mana = (WindowManager) PrivacySuspensionBallService.this.getSystemService(Context.WINDOW_SERVICE);
         createFullScreenCheckView();
 
     }
+
     private void createFullScreenCheckView() {
         final LayoutParams layoutParams = new LayoutParams();
         layoutParams.type = LayoutParams.TYPE_PHONE;

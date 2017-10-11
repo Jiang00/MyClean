@@ -100,7 +100,7 @@ public class PrivacyRubbishAndRamActivity extends BaseActivity implements Privac
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk_ram);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL, null);
         myHandler = new Handler();
         junkPresenter = new PrivacyLogRamPresenter(this, this);
         junkPresenter.init();

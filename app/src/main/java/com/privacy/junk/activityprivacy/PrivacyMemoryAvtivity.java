@@ -54,7 +54,7 @@ public class PrivacyMemoryAvtivity extends BaseActivity implements CustomRamView
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL,null);
         ramPresenter = new PresenterRamPrivacy(this, this);
         myHandler = new Handler();
         ramPresenter.init();

@@ -13,14 +13,14 @@ import com.privacy.module.charge.saver.R;
 public class PrivacyADRequest {
 
     public static void showFullAD() {
-        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.showFullAd("clean_full");
     }
 
-    public View showCustomNativeAD(String adTag, int layoutID, final ICustomNativeADClicked adClick) {
+    public View showCustomNativeAD(String adTag, final ICustomNativeADClicked adClick) {
         View adView = null;
-        if (AndroidSdk.hasNativeAd(adTag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+        if (AndroidSdk.hasNativeAd(adTag)) {
             adView = AndroidSdk.peekNativeAdViewWithLayout(adTag,
-                    AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.native_ad,
+                    R.layout.native_ad,
                     new ClientNativeAd.NativeAdClickListener() {
                         @Override
                         public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
@@ -48,13 +48,15 @@ public class PrivacyADRequest {
                         ((ViewGroup) ad_title).getChildAt(i).setClickable(false);
                     }
                 }
-                View ad_subtitle = adView.findViewWithTag("ad_subtitle");
-                ad_subtitle.setClickable(false);
-                ad_subtitle.setOnClickListener(null);
-                if (ad_subtitle instanceof ViewGroup) {
-                    final int childCount = ((ViewGroup) ad_subtitle).getChildCount();
-                    for (int i = 0; i < childCount; i++) {
-                        ((ViewGroup) ad_subtitle).getChildAt(i).setClickable(false);
+                View ad_subtitle = adView.findViewWithTag("ad_desc");
+                if (ad_subtitle != null) {
+                    ad_subtitle.setClickable(false);
+                    ad_subtitle.setOnClickListener(null);
+                    if (ad_subtitle instanceof ViewGroup) {
+                        final int childCount = ((ViewGroup) ad_subtitle).getChildCount();
+                        for (int i = 0; i < childCount; i++) {
+                            ((ViewGroup) ad_subtitle).getChildAt(i).setClickable(false);
+                        }
                     }
                 }
             }

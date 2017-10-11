@@ -9,16 +9,21 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -46,8 +51,9 @@ public class DeepingActivityPrivacy extends BaseActivity {
     private ArrayList<JunkInfo> startList;
     private View containerView;
     private ImageView power_imageview;
+    LinearLayout view_t;
+    ViewPager view_pager;
     private boolean flag = false;
-    private MyApplication cleanApplication;
     private int count = 0;
     TextView power_size;
     RecyclerView power_recycler;
@@ -58,13 +64,16 @@ public class DeepingActivityPrivacy extends BaseActivity {
     private RecyclerView containerView_recyclerView;
     private TextView containerView_power_size;
     private TextView containerView_junk_button_clean;
+    private ArrayList<View> viewList;
+    private AnimatorSet animatorSet;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        view_t.setVisibility(View.INVISIBLE);
+        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL, null);
         mHandler = new Handler();
         startService(new Intent(this, MyServiceCustomerAccessibility.class).putExtra("isDis", false));
         initData();
@@ -202,17 +211,15 @@ public class DeepingActivityPrivacy extends BaseActivity {
         power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
         power_size = (TextView) findViewById(R.id.power_size);
         junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
+        view_t = (LinearLayout) findViewById(R.id.view_t);
+        view_pager = (ViewPager) findViewById(R.id.view_pager);
     }
 
     private void animatorView(final View view, final int i) {
+        view.setTranslationX(0);
         AnimatorSet set = new AnimatorSet();
-        View icon = view.findViewById(R.id.recyc_icon);
-//        ObjectAnimator scaleX = ObjectAnimator.ofFloat(icon, "scaleX", 1f, 0f);
-//        ObjectAnimator scaleY = ObjectAnimator.ofFloat(icon, "scaleY", 1f, 0f);
-        ObjectAnimator rotate = ObjectAnimator.ofFloat(icon, "rotation", 0f, 360f);
-        ObjectAnimator translationX = ObjectAnimator.ofFloat(icon, "translationX", 0f, -360f);
-
-        set.setDuration(2000)
+        ObjectAnimator translationX = ObjectAnimator.ofFloat(view, "translationX", 0f, view.getWidth());
+        set.setDuration(1300)
                 .addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationCancel(Animator animation) {
@@ -227,6 +234,7 @@ public class DeepingActivityPrivacy extends BaseActivity {
                         containerAdapter.notifyItemRemoved(i);
                         containerAdapter.reChangesData(i);
                         mHandler.post(runnable);
+
                     }
 
                     @Override
@@ -238,7 +246,7 @@ public class DeepingActivityPrivacy extends BaseActivity {
                     public void onAnimationStart(Animator animation) {
                     }
                 });
-        set.play(translationX).with(rotate);
+        set.play(translationX);
         set.start();
     }
 
@@ -283,7 +291,7 @@ public class DeepingActivityPrivacy extends BaseActivity {
         @Override
         public void onBindViewHolder(MyViewHolder holder, final int position) {
             if (isWidget) {
-                holder.recyc_name.setVisibility(View.GONE);
+//                holder.recyc_name.setVisibility(View.GONE);
                 holder.recyc_check.setVisibility(View.GONE);
             } else {
                 holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.ram_passed : R.mipmap.ram_normal);
@@ -331,19 +339,89 @@ public class DeepingActivityPrivacy extends BaseActivity {
     }
 
     private void initData() {
-        cleanApplication = (MyApplication) getApplication();
         startList = new ArrayList<>();
         for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
             if (info.isSelfBoot) {
                 startList.add(info);
             }
         }
+        viewList = new ArrayList<>();
+        View layout_deep_ad = LayoutInflater.from(this).inflate(R.layout.layout_deep_ad, null);
+        viewList.add(layout_deep_ad);
+        View nativeView = SetAdUtilPrivacy.getNativeAdView("", R.layout.native_ad_2);
+        if (nativeView != null) {
+            viewList.add(nativeView);
+            View ad_action = nativeView.findViewWithTag("ad_action");
+            animatorSet = new AnimatorSet();
+            ObjectAnimator animator_1 = ObjectAnimator.ofFloat(ad_action, View.SCALE_X, 1, 1.2f, 0.9f, 1.1f, 1);
+            animator_1.setDuration(800);
+            ObjectAnimator animator_2 = ObjectAnimator.ofFloat(ad_action, View.SCALE_Y, 1, 0.8f, 1.1f, 0.9f, 1);
+            animator_2.setDuration(800);
+            animatorSet.play(animator_1).with(animator_2);
+            animatorSet.setInterpolator(new DecelerateInterpolator());
+            mHandler.post(runnable_ad);
+            Log.e("adadad", "deepad");
+        }
+        view_pager.setAdapter(new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return viewList.size();
+            }
+
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                container.addView(viewList.get(position), 0);
+                return viewList.get(position);
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                View view = (View) object;
+                container.removeView(view);
+                view = null;
+            }
+
+            @Override
+            public int getItemPosition(Object object) {
+                return POSITION_NONE;
+            }
+
+
+            @Override
+            public boolean isViewFromObject(View arg0, Object arg1) {
+                return arg0 == arg1;
+            }
+
+
+        });
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view_pager.setCurrentItem(1);
+            }
+        }, 2000);
     }
+
+    Runnable runnable_ad = new Runnable() {
+        @Override
+        public void run() {
+            if (animatorSet != null && !animatorSet.isRunning()) {
+                animatorSet.start();
+            }
+            mHandler.postDelayed(this, 2000);
+        }
+    };
 
     @Override
     public void onBackPressed() {
         setResult(MyConstantPrivacy.POWER_RESUIL);
         finish();
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
     }
 
     @Override
@@ -367,6 +445,9 @@ public class DeepingActivityPrivacy extends BaseActivity {
     @Override
     protected void onDestroy() {
         startService(new Intent(this, MyServiceCustomerAccessibility.class).putExtra("isDis", true));
+        if (mHandler != null) {
+            mHandler.removeCallbacks(runnable_ad);
+        }
         super.onDestroy();
     }
 }

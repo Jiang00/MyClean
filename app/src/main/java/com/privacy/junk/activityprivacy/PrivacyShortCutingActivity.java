@@ -176,10 +176,17 @@ public class PrivacyShortCutingActivity extends BaseActivity {
             ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
             loadAd();
             TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
+            TextView success = (TextView) view.findViewById(R.id.success);
             if (size < 0) {
                 size = 0;
             }
             short_clean_szie.setText(MyUtils.convertStorage(size, true));
+            success.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
             dialog = new Dialog(PrivacyShortCutingActivity.this, R.style.add_dialog);
             dialog.show();
             Window window = dialog.getWindow();
@@ -213,6 +220,15 @@ public class PrivacyShortCutingActivity extends BaseActivity {
                 }
             });
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (dialog != null) {
+            dialog.dismiss();
+        }
+        super.onBackPressed();
+
     }
 
     private void startTween() {

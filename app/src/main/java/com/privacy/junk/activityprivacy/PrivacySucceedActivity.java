@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.LayoutRes;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -123,15 +124,7 @@ public class PrivacySucceedActivity extends BaseActivity {
         istween = true;
         setAnimationThread();
         myHandler = new Handler();
-        if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
-            //电池降温跳过动画
-            //广告
-            if (PreData.getDB(PrivacySucceedActivity.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
-                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-            }
-            //动画结束换内容的
-            startSecondAnimation();
-        }
+
         if (getIntent().getStringExtra("name") != null) {
             title_name.setText(getIntent().getStringExtra("name"));
         } else {
@@ -242,7 +235,17 @@ public class PrivacySucceedActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
-        initAnimation();
+        if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+            //电池降温跳过动画
+            //广告
+            if (PreData.getDB(PrivacySucceedActivity.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
+                AndroidSdk.showFullAd(SetAdUtilPrivacy.DEFAULT_FULL);
+            }
+            //动画结束换内容的
+            startSecondAnimation();
+        } else {
+            initAnimation();
+        }
 
         if (PreData.getDB(this, MyConstantPrivacy.IS_ROTATE, false)) {
             main_rotate_all.setVisibility(View.GONE);
@@ -259,18 +262,38 @@ public class PrivacySucceedActivity extends BaseActivity {
         if (PreData.getDB(this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
 
         } else {
-            myHandler.postDelayed(new Runnable() {
-                public void run() {
-                    addAd();
-                }
-            }, 1000);
-
+            addAd();
         }
+        if (PreData.getDB(this, MyConstantPrivacy.FULL_RESUTL, 0) == 1) {
+            native_xiao = getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+            if (ll_ad_xiao != null && native_xiao != null) {
+                ll_ad_xiao.addView(native_xiao);
+                ll_ad_xiao.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd(tag)) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+        }
+        return nativeView;
     }
 
     private void addAd() {
         nativeView = SetAdUtilPrivacy.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
-        native_xiao = SetAdUtilPrivacy.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
@@ -284,10 +307,7 @@ public class PrivacySucceedActivity extends BaseActivity {
                 scrollView.smoothScrollToSlow(2000);
             }
         }
-        if (ll_ad_xiao != null && native_xiao != null) {
-            ll_ad_xiao.addView(native_xiao);
-            ll_ad_xiao.setVisibility(View.VISIBLE);
-        }
+
     }
 
     private void shendu() {
@@ -320,7 +340,11 @@ public class PrivacySucceedActivity extends BaseActivity {
             sizeInt = (int) size;
             sizeInt1 = size;
         } else {
-            sizeInt = Integer.parseInt(str[0]);
+            try {
+                sizeInt = Integer.parseInt(str[0]);
+            } catch (Exception e) {
+                sizeInt = (int) size;
+            }
         }
         String strDanWei = MyUtils.convertStorage(size, true);
         if ("M".equals(strDanWei.substring(strDanWei.length() - 1, strDanWei.length()))) {
@@ -329,100 +353,55 @@ public class PrivacySucceedActivity extends BaseActivity {
             sizeInt = sizeInt * 1024 * 1024;
         }
         success_diancirle1.setVisibility(View.GONE);
-        objectAnimator = ObjectAnimator.ofFloat(success_diancirle, "rotation", 0f, 360f);
-        objectAnimator.setRepeatCount(-1);
-        LinearInterpolator lir = new LinearInterpolator();
-        objectAnimator.setInterpolator(lir);
-        objectAnimator.setDuration(300);
-        objectAnimator.start();
+//        objectAnimator = ObjectAnimator.ofFloat(success_diancirle, "rotation", 0f, 360f);
+//        objectAnimator.setRepeatCount(-1);
+//        LinearInterpolator lir = new LinearInterpolator();
+//        objectAnimator.setInterpolator(lir);
+//        objectAnimator.setDuration(300);
+//        objectAnimator.start();
         success_kuoshan.start(getResources().getDimensionPixelSize(com.privacy.module.charge.saver.R.dimen.d121),
                 getResources().getDimensionPixelSize(com.privacy.module.charge.saver.R.dimen.d82),
                 getResources().getDimensionPixelSize(com.privacy.module.charge.saver.R.dimen.d2), 15, 0.28f);
+        success_diancirle.setVisibility(View.GONE);
+        success_diancirle1.setVisibility(View.VISIBLE);
+        if (clean_size != null && clean_size.getVisibility() == View.VISIBLE) {
+            clean_size.setVisibility(View.GONE);
+        }
+        success_drawhook.setVisibility(View.VISIBLE);
+        success_drawhook.startProgress(500);
+        success_drawhook.setListener(new PrivacyDrawHookView.DrawHookListener() {
 
-        new Thread(new Runnable() {
             @Override
-            public void run() {
-                int time = 100;
-//                for (long i = sizeInt; i > -1; i -= sizeInt / 15) {
-//                    Log.e("dsfsdf", "==============" + i);
-//                    final long finalI = i;
-//                    runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            clean_size.setText(String.valueOf(finalI));
-//                        }
-//                    });
-//                    time -= 5;
-//                    if (time < 30) {
-//                        time = 30;
-//                    }
-//                    try {
-//                        Thread.sleep(time);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                    if (i == 0) {
-//                        endStart = 0;
-//                        i = -1;
-//                    } else if (i < sizeInt / 15) {
-//                        endStart = 0;
-//                        i = -1;
-//                    }
-//
-//                }
-//                if (endStart == 0) {
-                if (objectAnimator != null) {
-                    objectAnimator.pause();
+            public void duogouSc() {
+                success_textview.setVisibility(View.VISIBLE);
+                if (sizeInt1 != 0) {
+                    if ("app".equals(cleanName)) {
+                        success_textview.setText(getResources().getText(R.string.qingli) + " " + getString(R.string.power_1, String.valueOf(size)));
+                    } else if ("picture".equals(cleanName)) {
+                        success_textview.setText(getString(R.string.success_4, size));
+                    } else if ("noti".equals(cleanName)) {
+                        success_textview.setText(getString(R.string.success_6, size));
+                    }
+                } else {
+                    success_textview.setText(getResources().getText(R.string.qingli) + " " + MyUtils.convertStorage(size, true));
                 }
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        success_diancirle.setVisibility(View.GONE);
-                        success_diancirle1.setVisibility(View.VISIBLE);
-                        if (clean_size != null && clean_size.getVisibility() == View.VISIBLE) {
-                            clean_size.setVisibility(View.GONE);
+                if (!TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+                    myHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            //广告
+                            if (PreData.getDB(PrivacySucceedActivity.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
+                                AndroidSdk.showFullAd(SetAdUtilPrivacy.DEFAULT_FULL);
+                            }
+                            //动画结束换内容的
+                            startSecondAnimation();
+                            success_drawhook.setListener(null);
                         }
-                        success_drawhook.setVisibility(View.VISIBLE);
-                    }
-                });
-                isdoudong = false;
-                success_drawhook.startProgress(500);
-                success_drawhook.setListener(new PrivacyDrawHookView.DrawHookListener() {
+                    }, 1000);
+                }
 
-                    @Override
-                    public void duogouSc() {
-                        if (PreData.getDB(PrivacySucceedActivity.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
-                            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                        }
-                        success_textview.setVisibility(View.VISIBLE);
-                        if (sizeInt1 != 0) {
-                            if ("app".equals(cleanName)) {
-                                success_textview.setText(getResources().getText(R.string.qingli) + " " + getString(R.string.power_1, String.valueOf(size)));
-                            } else if ("picture".equals(cleanName)) {
-                                success_textview.setText(getString(R.string.success_4, size));
-                            } else if ("noti".equals(cleanName)) {
-                                success_textview.setText(getString(R.string.success_6, size));
-                            }
-                        } else {
-                            success_textview.setText(getResources().getText(R.string.qingli) + " " + MyUtils.convertStorage(size, true));
-                        }
-                        myHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                //广告
-                                if (PreData.getDB(PrivacySucceedActivity.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
-                                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                                }
-                                //动画结束换内容的
-                                startSecondAnimation();
-                                success_drawhook.setListener(null);
-                            }
-                        }, 1000);
-                    }
-                });
-//                }//
             }
-        }).start();
+        });
     }
 
     @Override
