@@ -76,7 +76,7 @@ public class SuccessingActivity extends BaseActivity {
     private boolean istween;
     private Handler myHandler;
     private String TAG_CLEAN = "bruder_success";//
-    private String TAG_CLEAN_2 = "bruder_success_2";//
+    private String TAG_CLEAN_2 = "bruder_start_native";//
     private Animation rotate;
     RelativeLayout main_gboost_button;
     RelativeLayout main_picture_button;

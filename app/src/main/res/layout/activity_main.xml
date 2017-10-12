@@ -1119,12 +1119,13 @@
                 android:src="@mipmap/ic_launcher"
                 android:visibility="gone" />
         </RelativeLayout>
+
         <com.bruder.clean.myview.BubbleLayout
             android:id="@+id/bubble"
-            android:clickable="true"
-            android:visibility="invisible"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:visibility="invisible" />
 
         <com.mingle.widget.LinearLayout
             android:id="@+id/ll_ad_full"
