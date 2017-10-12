@@ -442,7 +442,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/d72"
                                 android:background="?attr/selectableItemBackground"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:visibility="gone">
 
                                 <ImageView
                                     android:layout_width="@dimen/d40"
@@ -676,6 +677,15 @@
 
                         </LinearLayout>
 
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recyc_tuiguang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/d10"
+                            android:layout_marginLeft="@dimen/d10"
+                            android:layout_marginRight="@dimen/d10"
+                            android:background="@drawable/shape_ad"
+                            android:elevation="@dimen/d2" />
                         <!--广告-->
                         <LinearLayout
                             android:id="@+id/ad_native_2"

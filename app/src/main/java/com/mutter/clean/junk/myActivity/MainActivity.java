@@ -4,15 +4,19 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.LayoutRes;
+import android.support.v4.util.LruCache;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -33,8 +37,12 @@ import android.widget.TextView;
 
 import com.android.client.AdListener;
 import com.mutter.clean.core.CleanManager;
+import com.mutter.clean.imageclean.ImageInfo;
+import com.mutter.clean.imageclean.RecyclerDbHelper;
+import com.mutter.clean.junk.entity.TuiguangInfo;
 import com.mutter.clean.junk.myview.LoadingTime;
 import com.mutter.clean.junk.util.BadgerCount;
+import com.mutter.clean.junk.util.UtilGp;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -55,8 +63,15 @@ import com.mutter.clean.junk.presenter.MainPresenter;
 import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.junk.util.Constant;
 import com.mutter.clean.junk.view.MainView;
+import com.mutter.ui.demo.entry.CrossItem;
+import com.mutter.ui.demo.util.JsonParser;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends BaseActivity implements MainView, DrawerLayout.DrawerListener {
 
@@ -98,6 +113,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     ImageView lot_family;
     FrameLayout ad_delete;
     FrameLayout main_ad;
+    private LoadingTime ad_loading;
+    private RecyclerView recyc_tuiguang;
 
 
     private String TAG_MAIN = "mutter_main";
@@ -126,7 +143,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private ArrayList<View> arrayList;
     private AlertDialog dialogB;
     private ObjectAnimator load_rotate;
-    private LoadingTime ad_loading;
+
 
     @Override
     protected void findId() {
@@ -176,6 +193,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         load_2_2 = (ImageView) findViewById(R.id.load_2_2);
         load_3 = (ImageView) findViewById(R.id.load_3);
         load_4 = (ImageView) findViewById(R.id.load_4);
+        recyc_tuiguang = (RecyclerView) findViewById(R.id.recyc_tuiguang);
     }
 
     @Override
@@ -286,10 +304,50 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         animation.setInterpolator(new LinearInterpolator());
         animation.setFillAfter(true);//动画执行完后是否停留在执行完的状态
         lot_family.startAnimation(animation);
-        tuiguang(TUIGUAN_MAIN_SOFT, true, tuiguang_main);
-        tuiguang(TUIGUAN_MAIN, false, tuiguang_main);
+//        tuiguang(TUIGUAN_MAIN_SOFT, true, tuiguang_main);
+//        tuiguang(TUIGUAN_MAIN, false, tuiguang_main);
         tuiguang(TUIGUAN_SIDE_SOFT, true, tuiguang_side);
         tuiguang(TUIGUAN_SIDE, false, tuiguang_side);
+        ArrayList<TuiguangInfo> tuiguangList = new ArrayList<>();
+        ArrayList<CrossItem> crossItems_soft = JsonParser.getCrossData(this, AndroidSdk.getExtraData(), TUIGUAN_MAIN_SOFT);
+        if (crossItems_soft != null) {
+            for (int i = 0; i < crossItems_soft.size(); i++) {
+                CrossItem item = crossItems_soft.get(i);
+                TuiguangInfo info = new TuiguangInfo();
+                info.action = item.action;
+                info.packageName = item.getPkgName();
+                info.title = item.title;
+                info.url = item.getTagIconUrl();
+                tuiguangList.add(info);
+                AdUtil.track("交叉推广_广告位", "广告位_主界面", "展示" + info.packageName, 1);
+            }
+        }
+        ArrayList<CrossItem> crossItems = JsonParser.getCrossData(this, AndroidSdk.getExtraData(), TUIGUAN_MAIN);
+        if (crossItems != null) {
+            for (int i = 0; i < crossItems.size(); i++) {
+                CrossItem item = crossItems.get(i);
+                TuiguangInfo info = new TuiguangInfo();
+                info.action = item.action;
+                info.packageName = item.getPkgName();
+                info.title = item.title;
+                info.url = item.getTagIconUrl();
+                tuiguangList.add(info);
+                AdUtil.track("交叉推广_广告位", "广告位_主界面", "展示" + info.packageName, 1);
+            }
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) == 1) {
+            TuiguangInfo info = new TuiguangInfo();
+            info.title = getString(R.string.side_notifi);
+            info.drable_id = R.mipmap.tuiguang_notifi;
+            tuiguangList.add(info);
+        }
+        TuiguangInfo info = new TuiguangInfo();
+        info.title = getString(R.string.side_rotate);
+        info.drable_id = R.mipmap.tuiguang_rotate;
+        tuiguangList.add(info);
+        recyc_tuiguang.setLayoutManager(new GridLayoutManager(this, 3));
+        recyc_tuiguang.setAdapter(new HuiAdapter(tuiguangList));
         if (tuiguang_side.getChildCount() == 0) {
             tuiguang_side_title.setVisibility(View.GONE);
         }
@@ -721,11 +779,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.clickRotate(true);
                     break;
                 case R.id.main_rotate_bad:
-                    AdUtil.track("主页面", "点击好评good按钮", "", 1);
+                    AdUtil.track("主页面", "点击好评bad按钮", "", 1);
                     mainPresenter.clickRotate(false);
                     break;
                 case R.id.main_rotate_cha:
-                    AdUtil.track("主页面", "点击好评good按钮", "", 1);
+                    AdUtil.track("主页面", "点击好评cha按钮", "", 1);
                     mainPresenter.deleteRotate();
                     break;
                 case R.id.main_power_button:
@@ -966,4 +1024,79 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void onDrawerStateChanged(int newState) {
 
     }
+
+    class HuiAdapter extends RecyclerView.Adapter<HuiAdapter.HomeViewHolder> {
+        ArrayList<TuiguangInfo> list;
+
+        public HuiAdapter(ArrayList<TuiguangInfo> list) {
+            this.list = list;
+        }
+
+
+        public HuiAdapter.HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            HuiAdapter.HomeViewHolder holder = new HuiAdapter.HomeViewHolder(LayoutInflater.from(
+                    MainActivity.this).inflate(R.layout.layout_tuiguang_item, parent,
+                    false));
+            return holder;
+        }
+
+        @Override
+        public void onBindViewHolder(final HuiAdapter.HomeViewHolder holder, final int position) {
+            final TuiguangInfo info = list.get(position);
+            holder.recyc_name.setText(info.title);
+            if (info.drable_id == -1) {
+                Util.loadImg(MainActivity.this, info.url, R.mipmap.icon, holder.recyc_icon);
+                holder.recycle_item.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        com.mutter.ui.demo.util.Utils.reactionForAction(MainActivity.this, AndroidSdk.getExtraData(), info.packageName, info.action);
+                        AdUtil.track("交叉推广_广告位", "广告位_主界面", "点击" + info.packageName, 1);
+                    }
+                });
+            } else if (info.drable_id == R.mipmap.tuiguang_notifi) {
+                holder.recyc_icon.setImageResource(info.drable_id);
+                holder.recycle_item.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!Util.isNotificationListenEnabled(MainActivity.this) || !PreData.getDB(MainActivity.this, Constant.KEY_NOTIFI, true)) {
+                            Intent intent6 = new Intent(MainActivity.this, NotifiAnimationActivity.class);
+                            startActivityForResult(intent6, 1);
+                        } else {
+                            Intent intent6 = new Intent(MainActivity.this, NotifiActivity.class);
+                            startActivityForResult(intent6, 1);
+                        }
+                    }
+                });
+            } else {
+                holder.recyc_icon.setImageResource(info.drable_id);
+                holder.recycle_item.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AdUtil.track("主页面", "点击方格好评", "", 1);
+                        UtilGp.rate(MainActivity.this);
+                        PreData.putDB(MainActivity.this, Constant.IS_ROTATE, true);
+                    }
+                });
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return this.list.size();
+        }
+
+        class HomeViewHolder extends RecyclerView.ViewHolder {
+            ImageView recyc_icon;
+            TextView recyc_name;
+            LinearLayout recycle_item;
+
+            public HomeViewHolder(View view) {
+                super(view);
+                recycle_item = (LinearLayout) view.findViewById(R.id.recycle_item);
+                recyc_icon = (ImageView) view.findViewById(R.id.recyc_icon);
+                recyc_name = (TextView) view.findViewById(R.id.recyc_name);
+            }
+        }
+    }
+
 }
