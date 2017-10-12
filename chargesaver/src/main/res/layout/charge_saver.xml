@@ -186,16 +186,36 @@
                 android:textSize="@dimen/txt_common" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/battery_ad_layout"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d176"
-            android:layout_marginLeft="@dimen/d16"
-            android:layout_marginRight="@dimen/d16"
-            android:layout_marginTop="@dimen/d15"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" />
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
+            <LinearLayout
+                android:id="@+id/battery_ad_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginRight="@dimen/d16"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/battery_slide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/d39"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/battery_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/unlock" />
+        </LinearLayout>
         <!--  <FrameLayout
               android:layout_width="wrap_content"
               android:layout_height="63dp"
@@ -239,19 +259,5 @@
              android:layout_marginLeft="@dimen/time_top" />
      </LinearLayout>-->
 
-    <LinearLayout
-        android:id="@+id/battery_slide"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/d39"
-        android:gravity="center">
 
-
-        <ImageView
-            android:id="@+id/battery_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/unlock" />
-    </LinearLayout>
 </com.my.bruder.charge.saver.view.BatteringView>

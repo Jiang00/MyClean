@@ -53,7 +53,7 @@ public class LoadingActivity extends BaseActivity {
             DataPre.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
         if (DataPre.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.loadFullAd("loading_full",null);
+            AndroidSdk.loadFullAd("loading_full", null);
         }
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 4000);
