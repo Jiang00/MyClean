@@ -18,6 +18,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -140,7 +141,7 @@ public class PoweringActivity extends BaseActivity {
                     Util.doStartApplicationWithPackageName(PoweringActivity.this, getIntent().getStringExtra("packageName"));
                     if (DataPre.getDB(PoweringActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PoweringActivity.this, NotificationingService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
                 } else {
@@ -192,7 +193,7 @@ public class PoweringActivity extends BaseActivity {
                     Util.doStartApplicationWithPackageName(PoweringActivity.this, getIntent().getStringExtra("packageName"));
                     if (DataPre.getDB(PoweringActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PoweringActivity.this, NotificationingService.class);
-                        intent.setAction("gboost");
+                        intent.putExtra("from", "gboost");
                         startService(intent);
                     }
 
@@ -223,7 +224,13 @@ public class PoweringActivity extends BaseActivity {
         containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
         // 设置item动画
         containerView_recyclerView.setItemAnimator(new DefaultItemAnimator());
+        containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
+        containerView_junk_button_clean.setVisibility(View.GONE);
+        containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
+        // 设置item动画
+        containerView_recyclerView.setItemAnimator(new DefaultItemAnimator());
         mHandler.postDelayed(runnable, 100);
+
     }
 
     private void showPackageDetail(String packageName) {
@@ -235,12 +242,20 @@ public class PoweringActivity extends BaseActivity {
     }
 
     private void animatorView(final View view, final int i) {
-        AnimatorSet set = new AnimatorSet();
-        View icon = view.findViewById(R.id.recyc_icon);
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(icon, "scaleX", 1f, 0f);
+        final AnimatorSet set = new AnimatorSet();
+        View icon = view.findViewById(R.id.recyc_iconf);
+
+        ObjectAnimator translationX = ObjectAnimator.ofFloat(icon, "translationX",
+                0, -getResources().getDimensionPixelSize(R.dimen.d3), 0, getResources().getDimensionPixelSize(R.dimen.d2), 0,
+                0, -getResources().getDimensionPixelSize(R.dimen.d3), 0, getResources().getDimensionPixelSize(R.dimen.d2), 0,
+                0, -getResources().getDimensionPixelSize(R.dimen.d3), 0, getResources().getDimensionPixelSize(R.dimen.d2), 0,
+                0, -getResources().getDimensionPixelSize(R.dimen.d3), 0, getResources().getDimensionPixelSize(R.dimen.d2), 0,
+                0, -getResources().getDimensionPixelSize(R.dimen.d3), 0, getResources().getDimensionPixelSize(R.dimen.d2), 0
+        );
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(icon, "alpha", 1f, 0f);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(icon, "scaleY", 1f, 0f);
-        ObjectAnimator rotate = ObjectAnimator.ofFloat(icon, "rotation", 0f, 360f);
-        set.setDuration(2000)
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(icon, "scaleX", 1f, 0f);
+        set.setDuration(1000)
                 .addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationCancel(Animator animation) {
@@ -265,8 +280,31 @@ public class PoweringActivity extends BaseActivity {
                     public void onAnimationStart(Animator animation) {
                     }
                 });
-        set.play(scaleX).with(scaleY).with(rotate);
-        set.start();
+        set.play(alpha).with(scaleX).with(scaleY);
+        translationX.setDuration(1000);
+        translationX.setInterpolator(new LinearInterpolator());
+        translationX.start();
+        translationX.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                set.start();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 
     private void initData() {

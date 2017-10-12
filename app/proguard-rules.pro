@@ -113,5 +113,6 @@
 -keep class com.sample.lottie.** { *;}
 
 -dontwarn com.squareup.picasso.**
+-keep class com.brudering.kpa.nativ.** { *; }
 
 

@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -18,6 +19,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,9 +27,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.bruder.clean.customeview.FlakeOnShortView;
 import com.bruder.clean.junk.R;
 import com.bruder.clean.util.Constant;
+import com.bruder.clean.util.PreData;
 import com.bruder.clean.util.UtilAd;
 import com.cleaner.util.DataPre;
 import com.cleaner.util.Util;
@@ -45,16 +47,14 @@ public class ShortCutingActivity extends BaseActivity {
     private static final int FLAKE_NUM = 3;
     private View nativeView;
     private String TAG_SHORTCUT = "bruder_shortcut";//
-    private FlakeOnShortView flakeView;
     private Animation suo;
     private Dialog dialog;
     FrameLayout short_backg;
     LinearLayout ll_ad;
-    private boolean isdoudong;
     private long size;
     private int count;
     private Handler myHandler;
-    ImageView short_cut2, short_cut3, short_cut4;
+    ImageView short_cut2;
     RelativeLayout short_cut_beijing;
 
 
@@ -69,12 +69,6 @@ public class ShortCutingActivity extends BaseActivity {
         setAnimationThread();
         suo = AnimationUtils.loadAnimation(this, R.anim.suo_short);
 
-        myHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-//                startTween();
-            }
-        }, 500);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -113,8 +107,6 @@ public class ShortCutingActivity extends BaseActivity {
         short_backg = (FrameLayout) findViewById(R.id.short_backg);
         short_cut_beijing = (RelativeLayout) findViewById(R.id.short_cut_beijing);
         short_cut2 = (ImageView) findViewById(R.id.short_cut2);
-        short_cut3 = (ImageView) findViewById(R.id.short_cut3);
-        short_cut4 = (ImageView) findViewById(R.id.short_cut4);
     }
 
     private void clear(Context context) {
@@ -128,9 +120,16 @@ public class ShortCutingActivity extends BaseActivity {
             ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
             loadAd();
             TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
+            ImageView short_delete = (ImageView) view.findViewById(R.id.short_delete);
             if (size < 0) {
                 size = 0;
             }
+            short_delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
             short_clean_szie.setText(Util.convertStorage(size, true));
             dialog = new Dialog(ShortCutingActivity.this, R.style.add_dialog);
             dialog.show();
@@ -141,6 +140,21 @@ public class ShortCutingActivity extends BaseActivity {
             WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
             lp.width = dm.widthPixels; //设置宽度
             lp.height = dm.heightPixels; //设置高度
+            if (PreData.getDB(this, Constant.IS_ACTION_BAR, true)) {
+                int uiOptions =
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                                //布局位于状态栏下方
+                                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                                //隐藏导航栏
+                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+                if (Build.VERSION.SDK_INT >= 19) {
+                    uiOptions |= 0x00001000;
+                } else {
+                    uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+                }
+                dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+            }
             window.setAttributes(lp);
             window.setContentView(view);
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -211,39 +225,9 @@ public class ShortCutingActivity extends BaseActivity {
         }).start();
     }
 
-    private void startTween() {
-        final float hy = short_cut2.getTop();
-        final float hx = short_cut2.getLeft();
-        isdoudong = true;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (isdoudong) {
-                    int x = (int) (Math.random() * (10)) - 5;
-                    int y = (int) (Math.random() * (10)) - 5;
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    //震动的动画
-//                    Tween.to(short_cut2, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1f, 1)
-//                            .ease(TweenEquations.easeInQuad).delay(0)
-//                            .start(tweenManager);
-                }
-            }
-        }).start();
-
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
-        if (flakeView != null) {
-            flakeView.subtractFlakes(FLAKE_NUM);
-            flakeView.pause();
-            flakeView = null;
-        }
     }
 
     @Override
@@ -258,30 +242,53 @@ public class ShortCutingActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        flakeView = new FlakeOnShortView(this);
-//        short_xian.addView(flakeView);
-        flakeView.setRotation(35);
-        myHandler.post(new Runnable() {
+        final ImageView short_saoba = (ImageView) findViewById(R.id.short_saoba);
+
+        RotateAnimation animation = new RotateAnimation(0f, -10f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);
+        animation.setDuration(750);
+        animation.setRepeatCount(0);
+        short_saoba.startAnimation(animation);
+        animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void run() {
-                try {
-                    flakeView.addFlakes(FLAKE_NUM);
-                } catch (Exception e) {
-                }
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                RotateAnimation animation2 = new RotateAnimation(-10f, 0f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);
+                animation2.setDuration(750);
+                animation2.setRepeatCount(0);
+                short_saoba.startAnimation(animation2);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
             }
         });
-        myHandler.postDelayed(new Runnable() {
+        AnimatorSet set = new AnimatorSet();
+        ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, -359f);
+        set.setDuration(300);
+        set.addListener(new Animator.AnimatorListener() {
             @Override
-            public void run() {
+            public void onAnimationCancel(Animator animation) {
 
-                AnimatorSet set = new AnimatorSet();
-                ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, 360f);
-                ObjectAnimator animator2 = ObjectAnimator.ofFloat(short_cut3, "rotation", 0f, -360f);
-                ObjectAnimator animator3 = ObjectAnimator.ofFloat(short_cut4, "rotation", 0f, 360f);
-                set.setDuration(200);
-                set.addListener(new Animator.AnimatorListener() {
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                AnimatorSet set1 = new AnimatorSet();
+                ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, 359f);
+                set1.setDuration(450);
+                LinearInterpolator lin = new LinearInterpolator();
+                set1.setInterpolator(lin);
+                animator1.setRepeatCount(1);//设置重复次数
+                set1.play(animator1);
+                set1.start();
+                set1.addListener(new Animator.AnimatorListener() {
                     @Override
-                    public void onAnimationCancel(Animator animation) {
+                    public void onAnimationStart(Animator animation) {
 
                     }
 
@@ -289,51 +296,54 @@ public class ShortCutingActivity extends BaseActivity {
                     public void onAnimationEnd(Animator animation) {
                         short_cut_beijing.startAnimation(suo);
                         short_cut2.setVisibility(View.GONE);
-                        short_cut3.setVisibility(View.GONE);
-                        short_cut4.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
                     }
 
                     @Override
                     public void onAnimationRepeat(Animator animation) {
 
                     }
-
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-                });
-                LinearInterpolator lin = new LinearInterpolator();
-                set.setInterpolator(lin);
-                animator2.setRepeatCount(10);//设置重复次数
-                animator1.setRepeatCount(10);//设置重复次数
-                animator3.setRepeatCount(10);//设置重复次数
-                animator2.setDuration(2000);
-                animator1.setDuration(2000);
-                animator3.setDuration(2000);
-                set.play(animator1).with(animator2).with(animator3);
-                set.start();
-                suo.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        short_cut_beijing.setVisibility(View.GONE);
-                        count++;
-                        isdoudong = false;
-                        show_text();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
                 });
             }
-        }, 500);
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
+        LinearInterpolator lin = new LinearInterpolator();
+        set.setInterpolator(lin);
+        animator1.setRepeatCount(2);//设置重复次数
+        set.play(animator1);
+        set.start();
+
+        suo.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                short_cut_beijing.setVisibility(View.GONE);
+                count++;
+                show_text();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+        });
 
     }
 }

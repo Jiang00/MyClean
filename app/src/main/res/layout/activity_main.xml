@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/title_hight"
                 android:background="@color/A1">
@@ -47,30 +47,22 @@
                         android:src="@mipmap/main_menu" />
                 </LinearLayout>
 
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
                 <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/tv_title_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:layout_gravity="center_vertical"
                     android:text="@string/app_name"
                     android:textColor="@color/A0"
                     android:textSize="@dimen/s18" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
                 <LinearLayout
                     android:id="@+id/l_title_right"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center_vertical">
 
                     <ImageView
@@ -79,12 +71,42 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d16"
                         android:layout_marginRight="@dimen/d16"
-                        android:background="?attr/selectableItemBackgroundBorderless"
                         android:scaleType="center"
                         android:src="@mipmap/main_setting" />
                 </LinearLayout>
 
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/l_title_ad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@id/l_title_right"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/main_ad_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="center"
+                        android:src="@mipmap/main_ad" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/lot_ad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:scaleType="center"
+                        android:src="@mipmap/main_ad" />
+                </LinearLayout>
+            </RelativeLayout>
 
             <com.bruder.clean.customeview.PullToMyRefreshLayout
                 android:id="@+id/main_pull_refresh"
@@ -122,49 +144,47 @@
                                 <FrameLayout
                                     android:id="@+id/main_scale_all"
                                     android:layout_width="match_parent"
-                                    android:layout_height="@dimen/main_t"
-                                    android:layout_marginTop="@dimen/d_27">
+                                    android:layout_height="@dimen/main_t">
 
                                     <ImageView
                                         android:id="@+id/clear1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
+                                        android:layout_width="@dimen/d277"
+                                        android:layout_height="@dimen/d277"
+                                        android:layout_gravity="center_horizontal"
                                         android:src="@mipmap/clear1" />
 
                                     <ImageView
                                         android:id="@+id/clear3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
+                                        android:layout_width="@dimen/d277"
+                                        android:layout_height="@dimen/d277"
+                                        android:layout_gravity="center_horizontal"
                                         android:src="@mipmap/clear3" />
 
                                     <ImageView
                                         android:id="@+id/clear2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
+                                        android:layout_width="@dimen/d277"
+                                        android:layout_height="@dimen/d277"
+                                        android:layout_gravity="center_horizontal"
                                         android:src="@mipmap/clear2" />
                                     <!--检测无垃圾-->
                                     <RelativeLayout
                                         android:id="@+id/main_clear_relativeLayout1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
+                                        android:layout_gravity="center_horizontal"
                                         android:visibility="gone">
                                         <!-- android:visibility="gone" -->
                                         <!--完成图片-->
                                         <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="@dimen/d_27"
+                                            android:layout_width="@dimen/d277"
+                                            android:layout_height="@dimen/d277"
                                             android:src="@mipmap/clear4" />
                                         <!--完成提示-->
                                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_centerHorizontal="true"
-                                            android:layout_marginTop="@dimen/d154"
+                                            android:layout_marginTop="@dimen/d183"
                                             android:text="@string/optimum"
                                             android:textColor="@color/A0"
                                             android:textSize="@dimen/s14" />
@@ -174,7 +194,8 @@
                                         android:id="@+id/main_clear_relativeLayout"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_gravity="center">
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/d104">
 
                                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:id="@+id/main_garbage_button"
@@ -218,7 +239,6 @@
                                             android:layout_marginTop="@dimen/d8"
                                             android:background="@mipmap/clear_button"
                                             android:gravity="center"
-                                            android:paddingBottom="@dimen/d3"
                                             android:text="@string/in_detection"
                                             android:textColor="@color/A0"
                                             android:textSize="@dimen/s14" />
@@ -226,7 +246,7 @@
 
                                     <ImageView
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
+                                        android:layout_height="@dimen/d29"
                                         android:layout_gravity="bottom"
                                         android:background="@mipmap/ripple" />
                                 </FrameLayout>
@@ -574,55 +594,6 @@
                                 android:layout_alignParentBottom="true"
                                 android:background="@color/B1" />
                         </RelativeLayout>
-
-                        <!--应用锁-->
-                        <!-- <RelativeLayout
-                             android:layout_width="match_parent"
-                             android:layout_height="@dimen/d72"
-                             android:background="?attr/selectableItemBackground"
-                             android:gravity="center_vertical"
-                             android:orientation="horizontal">
-
-                             <ImageView
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_marginLeft="@dimen/d25"
-                                 android:src="@mipmap/applock" />
-
-                             <LinearLayout
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_marginLeft="@dimen/d72"
-                                 android:orientation="vertical">
-
-                                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                     android:id="@+id/main_msg_picture"
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:text="@string/applock_9"
-                                     android:textColor="@color/A2"
-                                     android:textSize="@dimen/s14" />
-
-                                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginTop="@dimen/d6"
-                                     android:text="为您的隐私保驾护航"
-                                     android:textColor="@color/A3"
-                                     android:textSize="@dimen/s12" />
-                             </LinearLayout>
-
-                             <Button
-                                 android:id="@+id/main_applock_button"
-                                 android:layout_width="@dimen/d79"
-                                 android:layout_height="@dimen/d32"
-                                 android:layout_alignParentRight="true"
-                                 android:layout_marginRight="@dimen/d16"
-                                 android:background="@drawable/shape_button"
-                                 android:text="点击进入"
-                                 android:textColor="@color/A0"
-                                 android:textSize="@dimen/s12" />
-                         </RelativeLayout>-->
 
                         <!--深度清理-->
                         <RelativeLayout
@@ -1030,81 +1001,6 @@
                             android:gravity="center_horizontal"
                             android:orientation="vertical" />
 
-                        <!--守护信息-->
-                        <!-- <FrameLayout
-                             android:id="@+id/main_guard_all"
-                             android:layout_width="match_parent"
-                             android:layout_height="@dimen/d225"
-                             android:background="@color/A10">
-
-                             <ImageView
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_gravity="center_horizontal|bottom"
-                                 android:src="@mipmap/main_guard_1" />
-
-                             <ImageView
-                                 android:id="@+id/main_guard_rotate"
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_gravity="center_horizontal|bottom"
-                                 android:src="@mipmap/main_guard_2" />
-
-                             <RelativeLayout
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_gravity="center"
-                                 android:layout_marginBottom="@dimen/d10"
-                                 android:gravity="center_horizontal">
-
-                                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                     android:id="@+id/main_gurad_app_name"
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:text="@string/app_name"
-                                     android:textColor="@color/B3"
-                                     android:textSize="@dimen/s12"
-                                      />
-
-                                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginLeft="@dimen/d2"
-                                     android:layout_toRightOf="@id/main_gurad_app_name"
-                                     android:text="@string/main_guard_title"
-                                     android:textColor="@color/B3"
-                                     android:textSize="@dimen/s12"
-                                      />
-
-                                 <LinearLayout
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_below="@id/main_gurad_app_name"
-                                     android:layout_centerHorizontal="true"
-                                     android:gravity="center_vertical"
-                                     android:orientation="horizontal">
-
-                                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                         android:id="@+id/main_gurad_num"
-                                         android:layout_width="wrap_content"
-                                         android:layout_height="wrap_content"
-                                         android:text="11"
-                                         android:textColor="@color/B3"
-                                         android:textSize="@dimen/s20"
-                                          />
-
-                                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                         android:layout_width="wrap_content"
-                                         android:layout_height="wrap_content"
-                                         android:layout_toRightOf="@id/main_gurad_app_name"
-                                         android:text="@string/main_guard_unit"
-                                         android:textColor="@color/B3"
-                                         android:textSize="@dimen/s12"
-                                          />
-                                 </LinearLayout>
-                             </RelativeLayout>
-                         </FrameLayout>-->
-
                         <LinearLayout
                             android:id="@+id/ad_native_2"
                             android:layout_width="match_parent"
@@ -1122,15 +1018,120 @@
             </com.bruder.clean.customeview.PullToMyRefreshLayout>
         </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical">
 
-        <!--<com.mingle.widget.LinearLayout-->
-        <!--android:id="@+id/ll_ad_full"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:background="@color/A8"-->
-        <!--android:clickable="true"-->
-        <!--android:orientation="vertical"-->
-        <!--android:visibility="gone" />-->
+            <ImageView
+                android:id="@+id/main_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv1"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv2"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv3"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv4"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv1"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv2"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv3"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/main_iv11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/main_iv4"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone" />
+        </RelativeLayout>
+        <com.bruder.clean.myview.BubbleLayout
+            android:id="@+id/bubble"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.mingle.widget.LinearLayout
+            android:id="@+id/ll_ad_full"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/A0"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:visibility="gone" />
 
 
         <ProgressBar

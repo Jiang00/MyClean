@@ -42,9 +42,9 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
     private boolean color2 = true;
     public Handler myHandler;
     TextView junk_fangxin;
-    LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user, junk_button_ram;
-    TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size, junk_ram_size;
-    TextView junk_system_unit, junk_apk_unit, junk_unload_unit, junk_log_unit, junk_user_unit, junk_ram_unit;
+    LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user;
+    TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size;
+    TextView junk_system_unit, junk_apk_unit, junk_unload_unit, junk_log_unit, junk_user_unit;
     FrameLayout title_left;
     TextView title_name;
     LinearLayout junk_title_backg;
@@ -52,9 +52,9 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
     private JunkPresenter junkPresenter;
     private JunkAdapter adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterClear, adapterRam;
     TextView junk_unit;
-    ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou, junk_ram_jiantou;
+    ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou;
     private boolean flag1, flag2, flag3, flag4, flag5, flag6;
-    ListViewForScrollMyView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list, junk_ram_list;
+    ListViewForScrollMyView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list;
     Button junk_button_clean;
     MyMainScrollView junk_scroll;
     ListView junk_list_all;
@@ -88,31 +88,26 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
         junk_button_unload = $(R.id.junk_button_unload);
         junk_button_log = $(R.id.junk_button_log);
         junk_button_user = $(R.id.junk_button_user);
-        junk_button_ram = $(R.id.junk_button_ram);
         junk_system_size = $(R.id.junk_system_size);
         junk_apk_size = $(R.id.junk_apk_size);
         junk_unload_size = $(R.id.junk_unload_size);
         junk_log_size = $(R.id.junk_log_size);
         junk_user_size = $(R.id.junk_user_size);
-        junk_ram_size = $(R.id.junk_ram_size);
         junk_system_unit = $(R.id.junk_system_unit);
         junk_apk_unit = $(R.id.junk_apk_unit);
         junk_unload_unit = $(R.id.junk_unload_unit);
         junk_log_unit = $(R.id.junk_log_unit);
         junk_user_unit = $(R.id.junk_user_unit);
-        junk_ram_unit = $(R.id.junk_ram_unit);
         junk_system_jiantou = $(R.id.junk_system_jiantou);
         junk_apk_jiaotou = $(R.id.junk_apk_jiaotou);
         junk_unload_jiantou = $(R.id.junk_unload_jiantou);
         junk_log_jiantou = $(R.id.junk_log_jiantou);
         junk_user_jiantou = $(R.id.junk_user_jiantou);
-        junk_ram_jiantou = $(R.id.junk_ram_jiantou);
         junk_system_list = $(R.id.junk_system_list);
         junk_apk_list = $(R.id.junk_apk_list);
         junk_unload_list = $(R.id.junk_unload_list);
         junk_log_list = $(R.id.junk_log_list);
         junk_user_list = $(R.id.junk_user_list);
-        junk_ram_list = $(R.id.junk_ram_list);
         junk_button_clean = $(R.id.junk_button_clean);
         junk_scroll = $(R.id.junk_scroll);
         junk_list_all = $(R.id.junk_list_all);
@@ -208,7 +203,6 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
         junk_unload_list.setAdapter(adapterUnload);
         junk_log_list.setAdapter(adapterLog);
         junk_user_list.setAdapter(adapterUser);
-        junk_ram_list.setAdapter(adapterRam);
         junkPresenter.addAdapterData();
     }
 
@@ -289,7 +283,6 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
         junk_button_unload.setOnClickListener(onClickListener);
         junk_button_log.setOnClickListener(onClickListener);
         junk_button_user.setOnClickListener(onClickListener);
-        junk_button_ram.setOnClickListener(onClickListener);
         junk_button_clean.setOnClickListener(onClickListener);
     }
 
@@ -336,7 +329,6 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
     @Override
     public void addRamdata(final long size, List<JunkInfo> list) {
         adapterRam.addDataList(list);
-        junk_ram_list.setVisibility(View.GONE);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -355,13 +347,6 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            junk_ram_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_ram_unit);
-                        }
-                    });
                 }
             }
         }).start();
@@ -513,12 +498,6 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startCleanAnimation(junk_button_ram);
-                }
-            }, 400);
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
                     junkPresenter.jumpToActivity(SuccessingActivity.class, bundle, 1);
                 }
             }, 700);
@@ -551,21 +530,9 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                if (finalI != 0) {
-//                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(finalI, true) + ")");
-//                                }
-//                            }
-//                        });
                     }
                 }
             }).start();
-        } else {
-//            if (size != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(size, true) + ")");
-//            }
         }
     }
 
@@ -663,30 +630,16 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
                         junk_user_list.setVisibility(View.VISIBLE);
                     }
                     break;
-                case R.id.junk_button_ram:
-                    if (adapterRam.getCount() == 0) {
-                        break;
-                    }
-                    if (junk_ram_list.getVisibility() == View.VISIBLE) {
-                        UtilAd.track("垃圾页面", "点击收起ram文件", "", 1);
-                        junk_ram_jiantou.setImageResource(R.mipmap.junk_jiantou);
-                        junk_ram_list.setVisibility(View.GONE);
-                    } else {
-                        UtilAd.track("垃圾页面", "点击打开ram文件", "", 1);
-                        junk_ram_jiantou.setImageResource(R.mipmap.junk_system_jiantou_down);
-                        junk_ram_list.setVisibility(View.VISIBLE);
-                    }
-                    break;
                 case R.id.junk_button_clean:
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
                     DataPre.putDB(GarbageActivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
                     UtilAd.track("垃圾页面", "点击清理", "", 1);
                     if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
-                            junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE && junk_ram_list.getVisibility() == View.GONE) {
-                        junkPresenter.bleachFile(false, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData(), adapterRam.getData());
+                            junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE) {
+                        junkPresenter.bleachFile(false, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
                     } else {
-                        junkPresenter.bleachFile(true, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData(), adapterRam.getData());
+                        junkPresenter.bleachFile(true, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
                     }
                     break;
             }

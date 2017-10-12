@@ -25,44 +25,17 @@
             <include layout="@layout/layout_title" />
         </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d35"
-            android:layout_marginLeft="@dimen/d17"
-            android:layout_marginRight="@dimen/d17"
-            android:gravity="center_vertical">
 
-            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                android:id="@+id/tv_s"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="@string/gboost_6"
-                android:textColor="@color/A2"
-                android:textSize="@dimen/s12" />
-
-            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/tv_s"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/tv_s"
-                android:text=" 30%"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s12" />
-
-            <ImageView
-                android:id="@+id/gboost_power_check"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@mipmap/side_check_passed" />
-        </RelativeLayout>
+        <ImageView
+            android:id="@+id/gboost_power_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/side_check_passed"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/shape_ad"
             android:orientation="vertical">
 
@@ -111,23 +84,14 @@
             </FrameLayout>
         </LinearLayout>
 
-        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d24"
-            android:layout_marginLeft="@dimen/d16"
-            android:background="@color/A4"
-            android:gravity="center_vertical"
-            android:text="@string/gboost_2"
-            android:textColor="@color/A2"
-            android:textSize="@dimen/s12" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_ad"
             android:orientation="vertical"
             android:paddingLeft="@dimen/d16"
-            android:paddingRight="@dimen/d16">
+            android:paddingRight="@dimen/d16"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -237,12 +201,12 @@
             android:id="@+id/gboost_clean_button"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d40"
+            android:layout_height="@dimen/d36"
             android:layout_centerInParent="true"
             android:background="@drawable/shape_button"
             android:text="@string/short_cut"
             android:textColor="@color/A0"
-            android:textSize="@dimen/s15" />
+            android:textSize="@dimen/s18" />
     </RelativeLayout>
 
     <LinearLayout

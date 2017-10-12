@@ -111,24 +111,25 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true">
 
-                    <ImageView
-                        android:layout_width="@dimen/d79"
-                        android:layout_height="@dimen/d68"
-                        android:src="@mipmap/float_ball_bj" />
+                    <!--   <ImageView
+                           android:layout_width="@dimen/d79"
+                           android:layout_height="@dimen/d68"
+                           android:src="@mipmap/float_ball_bj" />-->
 
                     <ImageView
                         android:id="@+id/float_cricle"
-                        android:layout_width="@dimen/d71"
-                        android:layout_height="@dimen/d67"
+                        android:layout_width="@dimen/d68"
+                        android:layout_height="@dimen/d68"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/float_ball" />
 
                     <ImageView
                         android:id="@+id/float_rotate"
-                        android:layout_width="@dimen/d71"
-                        android:layout_height="@dimen/d67"
+                        android:layout_width="@dimen/d68"
+                        android:layout_height="@dimen/d68"
                         android:layout_centerInParent="true"
-                        android:src="@mipmap/float_dialog_3" />
+                        android:src="@mipmap/float_dialog_3"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -148,7 +149,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="77"
-                                android:textColor="@color/A1"
+                                android:textColor="@color/A0"
                                 android:textSize="@dimen/s13" />
 
                             <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
@@ -156,7 +157,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_toRightOf="@id/float_memory"
                                 android:text="%"
-                                android:textColor="@color/A1"
+                                android:textColor="@color/A0"
                                 android:textSize="@dimen/s13" />
                         </LinearLayout>
 
@@ -167,7 +168,7 @@
                             android:layout_below="@id/float_memory"
                             android:layout_gravity="center"
                             android:text="@string/float_jiasu"
-                            android:textColor="@color/A1"
+                            android:textColor="@color/A0"
                             android:textSize="@dimen/s11" />
                     </LinearLayout>
                 </RelativeLayout>

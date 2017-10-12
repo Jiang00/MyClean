@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bruder.clean.activity.AppManagerActivity;
+import com.bruder.clean.activity.FilesActivity;
 import com.bruder.clean.activity.GBoostingActivity;
 import com.bruder.clean.activity.GarbageActivity;
 import com.bruder.clean.activity.NotifiIfActivity;
@@ -41,6 +42,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     int PICTURE = -1;
     int GBOOST = -1;
     int NOTIFI = -1;
+    int FILE = -1;
     int MANAGER = -1;
 
     public SideAdapter(Context context) {
@@ -50,6 +52,9 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         FLOAT = idx++;
         JUNK = idx++;
         RAM = idx++;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DataPre.getDB(context, Constant.FILEACTIVITY, 0) != 0) {
+            FILE = idx++;
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DataPre.getDB(context, Constant.POWERACATIVITY, 0) != 0) {
             POWER = idx++;
         }
@@ -108,7 +113,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
 
-        if (position == 8) {
+        if (position == 9) {
             holder.side_divide.setVisibility(View.GONE);
         } else {
             holder.side_divide.setVisibility(View.VISIBLE);
@@ -163,7 +168,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == NOTIFI) {
             UtilAd.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             DataPre.putDB(context, Constant.NOTIFI_CLEAN, true);
-             if (!Util.isNotificationListenEnabled(context)||!DataPre.getDB(context, Constant.KEY_NOTIFI, true)) {
+            if (!Util.isNotificationListenEnabled(context) || !DataPre.getDB(context, Constant.KEY_NOTIFI, true)) {
                 Intent intent6 = new Intent(context, NotifiIfActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
             } else {
@@ -173,6 +178,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == MANAGER) {
             UtilAd.track("侧边栏", "点击进入应用管理页面", "", 1);
             Intent intent4 = new Intent(context, AppManagerActivity.class);
+            ((Activity) context).startActivityForResult(intent4, 1);
+        } else if (position == FILE) {
+            UtilAd.track("侧边栏", "点击进入文件管理页面", "", 1);
+            Intent intent4 = new Intent(context, FilesActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         }
     }

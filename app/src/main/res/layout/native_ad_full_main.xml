@@ -28,23 +28,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d190"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/d10"
                 android:scaleType="centerCrop"
                 android:tag="ad_image" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/main_full_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d10"
-                android:layout_marginTop="@dimen/d20"
-                android:background="@color/B8"
-                android:gravity="center"
-                android:padding="@dimen/d5"
-                android:text="Skip"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s15"
-                android:visibility="gone" />
+                android:src="@mipmap/ad_delete"
+                android:visibility="visible" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -59,8 +53,6 @@
                 android:layout_alignTop="@id/ad_image"
                 android:orientation="horizontal"
                 android:tag="ad_choices" />
-
-
         </RelativeLayout>
 
 

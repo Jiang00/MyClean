@@ -6,21 +6,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import android.util.Log;
 
-import com.android.client.AndroidSdk;
 import com.bruder.clean.junk.R;
 import com.bruder.clean.myservice.FloatingService;
 import com.bruder.clean.myservice.NotificationingService;
 import com.bruder.clean.util.Constant;
+import com.brudering.kpa.DaemonClient;
+import com.brudering.kpa.DaemonConfigurations;
+import com.brudering.kpa.KeepLiveManager;
+import com.brudering.kpa.PersistService;
 import com.cleaner.heart.CleanManager;
 import com.cleaner.notification.NotificationsMonitorService;
 import com.cleaner.util.DataPre;
 import com.cleaner.util.Util;
-import com.bruder.kpa.DaemonClient;
 import com.my.bruder.charge.saver.Util.Constants;
 import com.my.bruder.charge.saver.Util.Utils;
 import com.my.bruder.charge.saver.service.BatteringService;
-import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Created by on 2016/11/29.
@@ -34,21 +36,10 @@ public class MyApplication extends Application {
 
     private HandlerThread mThread;
 
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        DaemonClient mDaemonClient = new DaemonClient(base, null);
-        mDaemonClient.onAttachBaseContext(base);
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
-        AndroidSdk.onCreate(this);
-       /* ReStarService.start(this);
-        Intent serviceIntent = new Intent(this, ReStarService.class);
-        startService(serviceIntent);*/
+//        AndroidSdk.onCreate(this);
         //charging
         // 启动充电服务
         startService(new Intent(this, BatteringService.class));
@@ -61,7 +52,7 @@ public class MyApplication extends Application {
 
         if (DataPre.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotificationingService.class);
-            intent.setAction("notification");
+            intent.putExtra("from","notification");
             startService(intent);
         }
 
@@ -89,12 +80,16 @@ public class MyApplication extends Application {
             DataPre.putDB(this, Constant.IS_ACTION_BAR, Util.checkDeviceHasNavigationBar(this));
             DataPre.putDB(this, Constant.FIRST_INSTALL, false);
         }
-        if (LeakCanary.isInAnalyzerProcess(this)) {
+        //保活
+        startService(new Intent(this, PersistService.class));
+        KeepLiveManager.startJobScheduler(this, 1000);
+
+       /* if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
             return;
         }
-        LeakCanary.install(this);
+        LeakCanary.install(this);*/
     }
 
 
@@ -103,6 +98,30 @@ public class MyApplication extends Application {
         super.onTerminate();
     }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        /*   DaemonClient mDaemonClient = new DaemonClient(base, null);
+        mDaemonClient.onAttachBaseContext(base);*/
+        DaemonClient mDaemonClient = new DaemonClient(base, new DaemonConfigurations.DaemonListener() {
+            @Override
+            public void onPersistentStart(Context context) {
+                Log.e("rqy", "onPersistentStart");
+            }
+
+            @Override
+            public void onDaemonAssistantStart(Context context) {
+                Log.e("rqy", "onDaemonAssistantStart");
+            }
+
+            @Override
+            public void onWatchDaemonDead() {
+                Log.e("rqy", "onWatchDaemonDead");
+            }
+        });
+
+        mDaemonClient.onAttachBaseContext(base);
+    }
 
 }
 

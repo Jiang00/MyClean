@@ -89,37 +89,48 @@ public class SuccessingActivity extends BaseActivity {
         setAnimationThread();
         myHandler = new Handler();
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
-        notifi_info_lot.setImageAssetsFolder("images/success/");
-        notifi_info_lot.setAnimation("success.json");
-        notifi_info_lot.loop(false);
-        notifi_info_lot.setSpeed(0.7f);
-        notifi_info_lot.playAnimation();
-        notifi_info_lot.addAnimatorListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
 
+        if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+            //广告
+            if (DataPre.getDB(SuccessingActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
             }
+            //动画结束换内容的
+            startSecondAnimation();
+        } else {
+            notifi_info_lot.setImageAssetsFolder("images/success/");
+            notifi_info_lot.setAnimation("success.json");
+            notifi_info_lot.loop(false);
+            notifi_info_lot.setSpeed(0.7f);
+            notifi_info_lot.playAnimation();
+            notifi_info_lot.addAnimatorListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
 
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                //广告
-                if (DataPre.getDB(SuccessingActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
-                //动画结束换内容的
-                startSecondAnimation();
-            }
 
-            @Override
-            public void onAnimationCancel(Animator animation) {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    //广告
+                    if (DataPre.getDB(SuccessingActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    }
+                    //动画结束换内容的
+                    startSecondAnimation();
+                }
 
-            }
+                @Override
+                public void onAnimationCancel(Animator animation) {
 
-            @Override
-            public void onAnimationRepeat(Animator animation) {
+                }
 
-            }
-        });
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            });
+        }
+
         if (getIntent().getStringExtra("name") != null) {
             title_name.setText(getIntent().getStringExtra("name"));
         } else {
@@ -164,6 +175,10 @@ public class SuccessingActivity extends BaseActivity {
             main_cooling_button.setVisibility(View.GONE);
             main_gboost_button.setVisibility(View.GONE);
         } else if (TextUtils.equals("picture", getIntent().getStringExtra("from"))) {
+            main_picture_button.setVisibility(View.GONE);
+            main_notifi_button.setVisibility(View.GONE);
+            main_cooling_button.setVisibility(View.GONE);
+        } else {
             main_picture_button.setVisibility(View.GONE);
             main_notifi_button.setVisibility(View.GONE);
             main_cooling_button.setVisibility(View.GONE);

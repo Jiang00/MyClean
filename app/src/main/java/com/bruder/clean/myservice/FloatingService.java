@@ -53,7 +53,7 @@ public class FloatingService extends Service {
         if (myHandler == null) {
             myHandler = new Handler();
         }
-        manager = FloatingStateManager.getInstance(FloatingService.this);
+
         if (pm == null)
             pm = getPackageManager();
         if (am == null)
@@ -110,7 +110,7 @@ public class FloatingService extends Service {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(FloatingService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(FloatingService.this, NotificationingService.class);
-                            intent.setAction("gboost");
+                            intent.putExtra("from","gboost");
                             startService(intent);
                         }
                     }
@@ -124,6 +124,7 @@ public class FloatingService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        manager = FloatingStateManager.getInstance(FloatingService.this);
         mana = (WindowManager) FloatingService.this.getSystemService(Context.WINDOW_SERVICE);
         createFullScreenCheckView();
 

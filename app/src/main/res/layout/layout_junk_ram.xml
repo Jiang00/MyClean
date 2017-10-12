@@ -27,7 +27,6 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-
             <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                 android:id="@+id/junk_size_all"
                 android:layout_width="@dimen/d146"
@@ -37,7 +36,7 @@
                 android:lines="1"
                 android:text="0"
                 android:textColor="@color/A0"
-                android:textSize="@dimen/s63" />
+                android:textSize="@dimen/s70" />
 
             <LinearLayout
                 android:id="@+id/ll_tv"
@@ -51,26 +50,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s21" />
+                    android:textColor="@color/A0"
+                    android:textSize="@dimen/s14" />
 
                 <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/junk_fangxin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d12"
+                    android:layout_marginTop="@dimen/d20"
                     android:text="@string/junk_title_clean"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s12" />
+                    android:textColor="@color/A0"
+                    android:textSize="@dimen/s14" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/A10">
+        android:layout_height="match_parent"
+        android:background="@color/A0">
 
         <ListView
             android:id="@+id/junk_list_all"
@@ -85,6 +83,7 @@
             android:id="@+id/junk_scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/d72"
             android:background="@color/A0"
             android:scrollbars="none">
 
@@ -102,12 +101,13 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d56"
+                        android:layout_height="@dimen/d48"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/d16"
                             android:gravity="center">
 
                             <ImageView
@@ -120,10 +120,11 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d16"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_system"
-                            android:textColor="@color/B2"
+                            android:textColor="@color/A2"
                             android:textSize="@dimen/s14" />
 
 
@@ -132,11 +133,9 @@
                             android:layout_width="@dimen/d37"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
                             android:gravity="center"
                             android:text="10.0"
-                            android:textColor="@color/A1"
+                            android:textColor="@color/A7"
                             android:textSize="@dimen/s14" />
 
                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
@@ -146,8 +145,8 @@
                             android:layout_gravity="center_vertical"
                             android:gravity="center"
                             android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12" />
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s10" />
 
                         <ImageView
                             android:id="@+id/junk_system_jiantou"
@@ -159,7 +158,12 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
-
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d1"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d16"
+                        android:textColor="@color/A2" />
                 </LinearLayout>
 
                 <com.bruder.clean.customeview.ListViewForScrollMyView
@@ -179,12 +183,13 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d56"
+                        android:layout_height="@dimen/d48"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/d16"
                             android:gravity="center">
 
                             <ImageView
@@ -197,10 +202,11 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d16"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_apk"
-                            android:textColor="@color/B2"
+                            android:textColor="@color/A2"
                             android:textSize="@dimen/s14" />
 
                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
@@ -208,11 +214,9 @@
                             android:layout_width="@dimen/d37"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
                             android:gravity="center"
                             android:text="10.0"
-                            android:textColor="@color/A1"
+                            android:textColor="@color/A7"
                             android:textSize="@dimen/s14" />
 
                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
@@ -222,8 +226,8 @@
                             android:layout_gravity="center_vertical"
                             android:gravity="center"
                             android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12" />
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s10" />
 
                         <ImageView
                             android:id="@+id/junk_apk_jiaotou"
@@ -235,6 +239,12 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d1"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d16"
+                        android:textColor="@color/A2" />
                 </LinearLayout>
 
                 <com.bruder.clean.customeview.ListViewForScrollMyView
@@ -254,17 +264,18 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d56"
+                        android:layout_height="@dimen/d48"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center">
 
                             <ImageView
                                 android:layout_width="@dimen/d32"
                                 android:layout_height="@dimen/d32"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:src="@mipmap/junk_unload" />
                         </LinearLayout>
 
@@ -272,22 +283,22 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d16"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_unload"
-                            android:textColor="@color/B2"
+                            android:textColor="@color/A2"
                             android:textSize="@dimen/s14" />
+
 
                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                             android:id="@+id/junk_unload_size"
                             android:layout_width="@dimen/d37"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
                             android:gravity="center"
                             android:text="10.0"
-                            android:textColor="@color/A1"
+                            android:textColor="@color/A7"
                             android:textSize="@dimen/s14" />
 
                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
@@ -297,8 +308,8 @@
                             android:layout_gravity="center_vertical"
                             android:gravity="center"
                             android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12" />
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s10" />
 
                         <ImageView
                             android:id="@+id/junk_unload_jiantou"
@@ -310,6 +321,12 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d1"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d16"
+                        android:textColor="@color/A2" />
                 </LinearLayout>
 
                 <com.bruder.clean.customeview.ListViewForScrollMyView
@@ -333,13 +350,14 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center">
 
                             <ImageView
                                 android:layout_width="@dimen/d32"
                                 android:layout_height="@dimen/d32"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:src="@mipmap/junk_log" />
                         </LinearLayout>
 
@@ -347,10 +365,11 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d16"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_log"
-                            android:textColor="@color/B2"
+                            android:textColor="@color/A2"
                             android:textSize="@dimen/s14" />
 
 
@@ -359,11 +378,9 @@
                             android:layout_width="@dimen/d37"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
                             android:gravity="center"
                             android:text="10.0"
-                            android:textColor="@color/A1"
+                            android:textColor="@color/A7"
                             android:textSize="@dimen/s14" />
 
                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
@@ -373,8 +390,8 @@
                             android:layout_gravity="center_vertical"
                             android:gravity="center"
                             android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12" />
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s10" />
 
                         <ImageView
                             android:id="@+id/junk_log_jiantou"
@@ -386,6 +403,12 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d1"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d16"
+                        android:textColor="@color/A2" />
                 </LinearLayout>
 
                 <com.bruder.clean.customeview.ListViewForScrollMyView
@@ -409,13 +432,14 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center">
 
                             <ImageView
                                 android:layout_width="@dimen/d32"
                                 android:layout_height="@dimen/d32"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:src="@mipmap/junk_user" />
                         </LinearLayout>
 
@@ -423,10 +447,11 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d16"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_user"
-                            android:textColor="@color/B2"
+                            android:textColor="@color/A2"
                             android:textSize="@dimen/s14" />
 
 
@@ -435,11 +460,9 @@
                             android:layout_width="@dimen/d37"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
                             android:gravity="center"
                             android:text="10.0"
-                            android:textColor="@color/A1"
+                            android:textColor="@color/A7"
                             android:textSize="@dimen/s14" />
 
                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
@@ -449,8 +472,8 @@
                             android:layout_gravity="center_vertical"
                             android:gravity="center"
                             android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12" />
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s10" />
 
                         <ImageView
                             android:id="@+id/junk_user_jiantou"
@@ -462,6 +485,12 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d1"
+                        android:layout_marginLeft="@dimen/d72"
+                        android:layout_marginRight="@dimen/d16"
+                        android:textColor="@color/A2" />
                 </LinearLayout>
 
                 <com.bruder.clean.customeview.ListViewForScrollMyView
@@ -485,13 +514,14 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center">
 
                             <ImageView
                                 android:layout_width="@dimen/d32"
                                 android:layout_height="@dimen/d32"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:src="@mipmap/junk_ram" />
                         </LinearLayout>
 
@@ -499,23 +529,21 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d16"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_ram"
-                            android:textColor="@color/B2"
+                            android:textColor="@color/A2"
                             android:textSize="@dimen/s14" />
-
 
                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                             android:id="@+id/junk_ram_size"
                             android:layout_width="@dimen/d37"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
                             android:gravity="center"
                             android:text="10.0"
-                            android:textColor="@color/A1"
+                            android:textColor="@color/A7"
                             android:textSize="@dimen/s14" />
 
                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
@@ -525,8 +553,8 @@
                             android:layout_gravity="center_vertical"
                             android:gravity="center"
                             android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12" />
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s10" />
 
                         <ImageView
                             android:id="@+id/junk_ram_jiantou"
@@ -537,7 +565,6 @@
                             android:src="@mipmap/junk_jiantou"
                             android:visibility="visible" />
                     </LinearLayout>
-
                 </LinearLayout>
 
                 <com.bruder.clean.customeview.ListViewForScrollMyView
@@ -547,7 +574,6 @@
                     android:background="@color/A0"
                     android:divider="@drawable/list_divider"
                     android:dividerHeight="0px" />
-
             </LinearLayout>
         </com.bruder.clean.customeview.MyMainScrollView>
 
@@ -558,17 +584,18 @@
 
             <Button
                 android:id="@+id/junk_button_clean"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d36"
                 android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/d32"
                 android:layout_marginLeft="@dimen/d16"
                 android:layout_marginRight="@dimen/d16"
-                android:background="@drawable/shape_button"
+                android:background="@drawable/shape_button_a6"
                 android:text="@string/junk_button"
                 android:textAllCaps="false"
                 android:textColor="@color/A0"
-                android:textSize="@dimen/s15"
-                android:visibility="invisible" />
+                android:textSize="@dimen/s18" />
         </RelativeLayout>
     </FrameLayout>
 </LinearLayout>
