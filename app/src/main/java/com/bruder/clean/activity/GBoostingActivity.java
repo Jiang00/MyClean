@@ -126,6 +126,20 @@ public class GBoostingActivity extends BaseActivity {
         gboost_add = new ArrayList<>();
         listEdit = new ArrayList<>();
         initList();
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = UtilAd.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
+        View nativeView_add = UtilAd.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ada_ad = (LinearLayout) findViewById(R.id.ll_add_ad);
+        if (ll_ada_ad != null && nativeView_add != null) {
+            ll_ada_ad.addView(nativeView_add);
+        }
     }
 
     private void initList() {

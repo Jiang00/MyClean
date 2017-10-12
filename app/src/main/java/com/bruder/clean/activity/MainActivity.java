@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.annotation.LayoutRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -576,7 +577,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                 case R.id.l_title_ad:
                     //设置按钮
                     UtilAd.track("主页面", "点击AD", "", 1);
-                    AndroidSdk.loadFullAd("loading_full");
+                    AndroidSdk.loadFullAd("loading_full", null);
 //                    showMainAdAnim();
                     bubble.setVisibility(View.VISIBLE);
                     bubble.reStart();
@@ -704,55 +705,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         }
     };
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private void showMainAdAnim() {
-//        if (animSet != null) {
-//            animSet.cancel();
-//        }
-
-//        setAdAnim();
-    }
-
-    private void setAdAnim() {
-        //执行属性动画
-        Random random = new Random();
-        int randomNum = random.nextInt(2);
-        setHandler(main_iv, 0, 2000, randomNum, 2);
-        setHandler(main_iv1, 100, 1950, randomNum, 2);
-        setHandler(main_iv2, 300, 3700, randomNum, 1);
-        setHandler(main_iv3, 500, 3500, randomNum, 1);
-        setHandler(main_iv4, 700, 1650, randomNum, 2);
-        setHandler(main_iv5, 800, 1600, randomNum, 2);
-
-        setHandler(main_iv6, 400, 3600, randomNum, 1);
-        setHandler(main_iv7, 800, 3200, randomNum, 1);
-        setHandler(main_iv8, 1000, 1000, randomNum, 3);
-        setHandler(main_iv9, 800, 1790, randomNum, 2);
-        setHandler(main_iv10, 1000, 3300, randomNum, 1);
-        setHandler(main_iv11, 1100, 1600, randomNum, 2);
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                showAd();
-            }
-        }, 5000);
-    }
-
-    private void setHandler(final ImageView imageView, long delayMillis, final long duration, int randomNum, final int value) {
-        if (randomNum == 0) {
-            imageView.setImageResource(R.mipmap.main_xing3);
-        } else {
-            imageView.setImageResource(R.mipmap.main_xing33);
-        }
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ValueAnimator valueAnimator = new ValueAnimator();
-                start(valueAnimator, imageView, duration, value);
-                imageView.setVisibility(View.VISIBLE);
-            }
-        }, delayMillis);
-    }
 
     private void start(ValueAnimator valueAnimator, final ImageView imageView, long duration, int value) {
         //初始位置
@@ -792,10 +744,9 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void showAd() {
-        AndroidSdk.showFullAd("loading_full");
 
 //        AndroidSdk.showFullAd(Constant.FULL_START);
-//        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//        AndroidSdk.showFullAd(UtilAd.DEFAULT_FULL);
 //        View view = View.inflate(this, R.layout.main_ad_dialog, null);
 //        final LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
 //        final TextView main_ad_cx_tv = (TextView) view.findViewById(R.id.main_ad_cx_tv);
@@ -898,6 +849,9 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                 start();
             }
         }.start();
+        if (DataPre.getDB(this, Constant.FULL_EXIT, 0) == 1) {
+            AndroidSdk.loadFullAd("bruder_exit_full", null);
+        }
     }
 
     @Override
@@ -1010,7 +964,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         if (DataPre.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("loading_full");
         } else {
-            View nativeView_full = UtilAd.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
+            View nativeView_full = getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
@@ -1030,6 +984,24 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                 handler.postDelayed(fullAdRunnale, skip * 1000);
             }
         }
+    }
+
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd(tag)) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+        }
+        return nativeView;
     }
 
     Runnable fullAdRunnale = new Runnable() {
@@ -1194,8 +1166,8 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
-        if (DataPre.getDB(this, Constant.FULL_EXIT, 0) == 0) {
-            View nativeExit = UtilAd.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
+        if (DataPre.getDB(this, Constant.NATIVE_EXIT, 0) == 1) {
+            View nativeExit = getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.VISIBLE);
@@ -1222,29 +1194,30 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         });
         dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
         dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
         dialog.show();
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getRealMetrics(dm);
         WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
         lp.width = dm.widthPixels; //设置宽度
-        lp.height = dm.heightPixels; //设置高度
-        if (DataPre.getDB(this, Constant.IS_ACTION_BAR, true)) {
-            int uiOptions =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                            //布局位于状态栏下方
-                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                            //隐藏导航栏
-                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-            if (Build.VERSION.SDK_INT >= 19) {
-                uiOptions |= 0x00001000;
-            } else {
-                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
-            }
-            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
-        }
+//        lp.height = dm.heightPixels; //设置高度
+//        if (DataPre.getDB(this, Constant.IS_ACTION_BAR, true)) {
+//            int uiOptions =
+//                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+//                            //布局位于状态栏下方
+//                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+//                            //隐藏导航栏
+//                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+//                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+//            if (Build.VERSION.SDK_INT >= 19) {
+//                uiOptions |= 0x00001000;
+//            } else {
+//                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+//            }
+//            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+//        }
         dialog.getWindow().setAttributes(lp);
-        dialog.getWindow().setContentView(view);
+//        dialog.getWindow().setContentView(view);
     }
 
     @Override

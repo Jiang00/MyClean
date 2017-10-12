@@ -22,6 +22,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -68,7 +69,7 @@ public class PoweringActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(UtilAd.DEFAULT_FULL, null);
         power_clean = (LottieAnimationView) findViewById(R.id.power_clean);
         power_clean.setAnimation("clean.json");
         power_clean.setScaleX(2f);
@@ -154,6 +155,15 @@ public class PoweringActivity extends BaseActivity {
                 return;
             }
             junk_button_clean.callOnClick();
+        }
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = UtilAd.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
         }
     }
 

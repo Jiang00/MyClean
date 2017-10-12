@@ -20,6 +20,7 @@ import com.android.client.AndroidSdk;
 import com.bruder.clean.customeview.FlakeMyView;
 import com.bruder.clean.junk.R;
 import com.bruder.clean.util.Constant;
+import com.bruder.clean.util.UtilAd;
 import com.cleaner.util.DataPre;
 
 import java.util.Random;
@@ -61,7 +62,7 @@ public class CoolActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(UtilAd.DEFAULT_FULL,null);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +97,7 @@ public class CoolActivity extends BaseActivity {
                 cooling_fl.setVisibility(View.INVISIBLE);
                 cooling_xuehua.clearAnimation();
                 if (DataPre.getDB(CoolActivity.this, Constant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(UtilAd.DEFAULT_FULL);
                 }
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);

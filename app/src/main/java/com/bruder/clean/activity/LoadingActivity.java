@@ -53,7 +53,7 @@ public class LoadingActivity extends BaseActivity {
             DataPre.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
         if (DataPre.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.loadFullAd("loading_full");
+            AndroidSdk.loadFullAd("loading_full",null);
         }
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 4000);
@@ -233,6 +233,9 @@ public class LoadingActivity extends BaseActivity {
                 if (jsonObject.has("full_exit")) {
                     DataPre.putDB(LoadingActivity.this, Constant.FULL_EXIT, jsonObject.getInt("full_exit"));
                 }
+                if (jsonObject.has("show_exit_native")) {
+                    DataPre.putDB(LoadingActivity.this, Constant.NATIVE_EXIT, jsonObject.getInt("show_exit_native"));
+                }
                 if (jsonObject.has("skip_time")) {
                     DataPre.putDB(LoadingActivity.this, Constant.SKIP_TIME, jsonObject.getInt("skip_time"));
                     Log.e("timeada", jsonObject.getInt("skip_time") + "==");
@@ -245,6 +248,9 @@ public class LoadingActivity extends BaseActivity {
                 }
                 if (jsonObject.has("full_success")) {
                     DataPre.putDB(LoadingActivity.this, Constant.FULL_SUCCESS, jsonObject.getInt("full_success"));
+                }
+                if (jsonObject.has("clean_result_native")) {
+                    DataPre.putDB(LoadingActivity.this, Constant.NATIVE_SUCCESS, jsonObject.getInt("clean_result_native"));
                 }
                 if (jsonObject.has("full_setting")) {
                     DataPre.putDB(LoadingActivity.this, Constant.FULL_SETTING, jsonObject.getInt("full_setting"));

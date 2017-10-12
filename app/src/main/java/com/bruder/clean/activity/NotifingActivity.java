@@ -20,6 +20,7 @@ import com.bruder.clean.customeview.DeleteListMyView;
 import com.bruder.clean.junk.R;
 import com.bruder.clean.myadapter.NotifiMyAdapter;
 import com.bruder.clean.util.Constant;
+import com.bruder.clean.util.UtilAd;
 import com.cleaner.heart.CleanManager;
 import com.cleaner.notification.NotificationCallBack;
 import com.cleaner.notification.NotificationInfo;
@@ -114,7 +115,7 @@ public class NotifingActivity extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(UtilAd.DEFAULT_FULL, null);
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, NotificationsMonitorService.class));

@@ -69,7 +69,7 @@ public class FilesActivity extends BaseActivity {
     //ad
     private void initAd() {
         if (DataPre.getDB(this, Constant.FULL_FILE, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(UtilAd.DEFAULT_FULL);
         } else {
             nativeView = UtilAd.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {

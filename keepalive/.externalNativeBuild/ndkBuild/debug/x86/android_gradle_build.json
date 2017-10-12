@@ -1,63 +1,63 @@
 {
   "buildFiles": [
-    "E:\\work\\JunkClean\\keepalive\\src\\main\\jni\\Android.mk",
-    "E:\\work\\JunkClean\\keepalive\\src\\main\\jni\\Application.mk"
+    "D:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\Android.mk",
+    "D:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\Application.mk"
   ],
   "cleanCommands": [
-    "C:\\Users\\Ivy\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\work\\JunkClean\\keepalive\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\work\\JunkClean\\keepalive\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dE:/work/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\work\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\lib clean"
+    "E:\\android-ndk-r10e\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dD:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dD:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dD:/gitlab/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dD:\\gitlab\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\lib clean"
   ],
   "libraries": {
     "daemon_apik-debug-x86": {
-      "buildCommand": "C:\\Users\\Ivy\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\work\\JunkClean\\keepalive\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\work\\JunkClean\\keepalive\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dE:/work/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\work\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\lib E:/work/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj/local/x86/libdaemon_apik.so",
+      "buildCommand": "E:\\android-ndk-r10e\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dD:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dD:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dD:/gitlab/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dD:\\gitlab\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\lib D:/gitlab/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj/local/x86/libdaemon_apik.so",
       "toolchain": "toolchain-x86",
       "abi": "x86",
       "artifactName": "daemon_apik",
       "files": [
         {
-          "src": "E:\\work\\JunkClean\\keepalive\\src\\main\\jni\\common.c",
-          "flags": "\"-gcc-toolchain\" \"C:/Users/Ivy/AppData/Local/Android/sdk/ndk-bundle/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-IE:/work/JunkClean/keepalive/src/main/jni/include\" \"-IE:/work/JunkClean/keepalive/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"--sysroot\" \"C:/Users/Ivy/AppData/Local/Android/sdk/ndk-bundle/build//../platforms/android-9/arch-x86\""
+          "src": "D:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\common.c",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-ID:/gitlab/JunkClean/keepalive/src/main/jni/include\" \"-ID:/gitlab/JunkClean/keepalive/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-IE:/android-ndk-r10e/platforms/android-9/arch-x86/usr/include\""
         },
         {
-          "src": "E:\\work\\JunkClean\\keepalive\\src\\main\\jni\\daemon_apik.c",
-          "flags": "\"-gcc-toolchain\" \"C:/Users/Ivy/AppData/Local/Android/sdk/ndk-bundle/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-IE:/work/JunkClean/keepalive/src/main/jni/include\" \"-IE:/work/JunkClean/keepalive/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"--sysroot\" \"C:/Users/Ivy/AppData/Local/Android/sdk/ndk-bundle/build//../platforms/android-9/arch-x86\""
+          "src": "D:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\daemon_apik.c",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-ID:/gitlab/JunkClean/keepalive/src/main/jni/include\" \"-ID:/gitlab/JunkClean/keepalive/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-IE:/android-ndk-r10e/platforms/android-9/arch-x86/usr/include\""
         }
       ],
-      "output": "E:\\work\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libdaemon_apik.so"
+      "output": "D:\\gitlab\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libdaemon_apik.so"
     },
     "daemon-debug-x86": {
-      "buildCommand": "C:\\Users\\Ivy\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\work\\JunkClean\\keepalive\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\work\\JunkClean\\keepalive\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dE:/work/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\work\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\lib E:/work/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj/local/x86/daemon",
+      "buildCommand": "E:\\android-ndk-r10e\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dD:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dD:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dD:/gitlab/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dD:\\gitlab\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\lib D:/gitlab/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj/local/x86/daemon",
       "toolchain": "toolchain-x86",
       "abi": "x86",
       "artifactName": "daemon",
       "files": [
         {
-          "src": "E:\\work\\JunkClean\\keepalive\\src\\main\\jni\\daemon.c",
-          "flags": "\"-gcc-toolchain\" \"C:/Users/Ivy/AppData/Local/Android/sdk/ndk-bundle/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-IE:/work/JunkClean/keepalive/src/main/jni/include\" \"-IE:/work/JunkClean/keepalive/src/main/jni\" \"-DANDROID\" \"-pie\" \"-fPIE\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"--sysroot\" \"C:/Users/Ivy/AppData/Local/Android/sdk/ndk-bundle/build//../platforms/android-9/arch-x86\""
+          "src": "D:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\daemon.c",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-ID:/gitlab/JunkClean/keepalive/src/main/jni/include\" \"-ID:/gitlab/JunkClean/keepalive/src/main/jni\" \"-DANDROID\" \"-pie\" \"-fPIE\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-IE:/android-ndk-r10e/platforms/android-9/arch-x86/usr/include\""
         }
       ],
-      "output": "E:\\work\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\daemon"
+      "output": "D:\\gitlab\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\daemon"
     },
     "daemon_apil-debug-x86": {
-      "buildCommand": "C:\\Users\\Ivy\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\work\\JunkClean\\keepalive\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\work\\JunkClean\\keepalive\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dE:/work/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\work\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\lib E:/work/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj/local/x86/libdaemon_apil.so",
+      "buildCommand": "E:\\android-ndk-r10e\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dD:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dD:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dD:/gitlab/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dD:\\gitlab\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\lib D:/gitlab/JunkClean/keepalive/build/intermediates/ndkBuild/debug/obj/local/x86/libdaemon_apil.so",
       "toolchain": "toolchain-x86",
       "abi": "x86",
       "artifactName": "daemon_apil",
       "files": [
         {
-          "src": "E:\\work\\JunkClean\\keepalive\\src\\main\\jni\\common.c",
-          "flags": "\"-gcc-toolchain\" \"C:/Users/Ivy/AppData/Local/Android/sdk/ndk-bundle/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-IE:/work/JunkClean/keepalive/src/main/jni/include\" \"-IE:/work/JunkClean/keepalive/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"--sysroot\" \"C:/Users/Ivy/AppData/Local/Android/sdk/ndk-bundle/build//../platforms/android-9/arch-x86\""
+          "src": "D:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\common.c",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-ID:/gitlab/JunkClean/keepalive/src/main/jni/include\" \"-ID:/gitlab/JunkClean/keepalive/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-IE:/android-ndk-r10e/platforms/android-9/arch-x86/usr/include\""
         },
         {
-          "src": "E:\\work\\JunkClean\\keepalive\\src\\main\\jni\\daemon_apil.c",
-          "flags": "\"-gcc-toolchain\" \"C:/Users/Ivy/AppData/Local/Android/sdk/ndk-bundle/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-IE:/work/JunkClean/keepalive/src/main/jni/include\" \"-IE:/work/JunkClean/keepalive/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"--sysroot\" \"C:/Users/Ivy/AppData/Local/Android/sdk/ndk-bundle/build//../platforms/android-9/arch-x86\""
+          "src": "D:\\gitlab\\JunkClean\\keepalive\\src\\main\\jni\\daemon_apil.c",
+          "flags": "\"-ffunction-sections\" \"-funwind-tables\" \"-no-canonical-prefixes\" \"-fstack-protector\" \"-O2\" \"-g\" \"-DNDEBUG\" \"-fomit-frame-pointer\" \"-fstrict-aliasing\" \"-funswitch-loops\" \"-finline-limit\u003d300\" \"-O0\" \"-UNDEBUG\" \"-fno-omit-frame-pointer\" \"-fno-strict-aliasing\" \"-ID:/gitlab/JunkClean/keepalive/src/main/jni/include\" \"-ID:/gitlab/JunkClean/keepalive/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-IE:/android-ndk-r10e/platforms/android-9/arch-x86/usr/include\""
         }
       ],
-      "output": "E:\\work\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libdaemon_apil.so"
+      "output": "D:\\gitlab\\JunkClean\\keepalive\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libdaemon_apil.so"
     }
   },
   "toolchains": {
     "toolchain-x86": {
-      "cCompilerExecutable": "C:\\Users\\Ivy\\AppData\\Local\\Android\\sdk\\ndk-bundle\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe"
+      "cCompilerExecutable": "E:\\android-ndk-r10e\\toolchains\\x86-4.8\\prebuilt\\windows-x86_64\\bin\\i686-linux-android-gcc"
     }
   },
   "cFileExtensions": [

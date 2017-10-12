@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bruder.clean.junk.R;
 import com.bruder.clean.myadapter.MyWhiteListAdapter;
 import com.bruder.clean.util.Constant;
+import com.bruder.clean.util.UtilAd;
 import com.cleaner.entity.JunkInfo;
 import com.cleaner.heart.CleanManager;
 import com.cleaner.sqldb.CleanDBHelper;
@@ -45,6 +47,15 @@ public class WhiteAvtivity extends BaseActivity {
         adapter = new MyWhiteListAdapter(this);
         listView.setAdapter(adapter);
         initDAta();
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = UtilAd.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     @Override

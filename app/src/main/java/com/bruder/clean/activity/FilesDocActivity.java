@@ -43,8 +43,8 @@ public class FilesDocActivity extends BaseActivity {
     private AlertDialog dialog;
     private FileCategoryHelper.FileCategory fc_clean;
     private String TAG_FILE_2 = "bruder_file_2";//
-    private View nativeView;
-    private LinearLayout ll_ad;
+    private View nativeView1, nativeView2, nativeView3;
+    private LinearLayout ll_ad1, ll_ad2, ll_ad3;
     FrameLayout title_left;
     private View view_doc;
     private View view_txt;
@@ -68,7 +68,7 @@ public class FilesDocActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file_doc);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(UtilAd.DEFAULT_FULL, null);
         title_name.setText(R.string.file_txt);
         loadAd();
         setListenet();
@@ -153,18 +153,24 @@ public class FilesDocActivity extends BaseActivity {
 
     private void loadAd() {
         if (DataPre.getDB(this, Constant.FULL_FILE_2, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(UtilAd.DEFAULT_FULL);
         } else {
             addAd();
         }
     }
 
     private void addAd() {
-        nativeView = UtilAd.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
-        if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            ll_ad.setLayoutParams(layout_ad);
-            ll_ad.addView(nativeView);
+        nativeView1 = UtilAd.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        nativeView2 = UtilAd.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        nativeView3 = UtilAd.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        if (ll_ad1 != null && nativeView1 != null) {
+            ll_ad1.addView(nativeView1);
+        }
+        if (ll_ad2 != null && nativeView2 != null) {
+            ll_ad2.addView(nativeView2);
+        }
+        if (ll_ad3 != null && nativeView3 != null) {
+            ll_ad3.addView(nativeView3);
         }
     }
 
@@ -190,7 +196,9 @@ public class FilesDocActivity extends BaseActivity {
         view_doc = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         view_txt = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         view_pdf = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
-        ll_ad = (LinearLayout) view_doc.findViewById(R.id.ll_ad);
+        ll_ad1 = (LinearLayout) view_doc.findViewById(R.id.ll_ad);
+        ll_ad2 = (LinearLayout) view_txt.findViewById(R.id.ll_ad);
+        ll_ad3 = (LinearLayout) view_pdf.findViewById(R.id.ll_ad);
         initDoc();
         initTxt();
         initPdf();

@@ -57,7 +57,7 @@ public class SetActivity extends BaseActivity {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AndroidSdk.showFullAd(UtilAd.DEFAULT_FULL);
                 }
             }, 1000);
         } else {
@@ -165,16 +165,8 @@ public class SetActivity extends BaseActivity {
     private void addAd() {
         nativeView = UtilAd.getNativeAdView(TAG_SETTING, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            Log.e("aaa", "=====" + layout_ad.height);
-            if (nativeView.getHeight() == Util.dp2px(250)) {
-                layout_ad.height = Util.dp2px(250);
-            }
-            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
-//            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
             setting_scroll.setScrollY(0);
-        } else {
         }
     }
 

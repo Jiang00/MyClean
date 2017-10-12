@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.annotation.LayoutRes;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -93,7 +94,7 @@ public class SuccessingActivity extends BaseActivity {
         if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
             //广告
             if (DataPre.getDB(SuccessingActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                AndroidSdk.showFullAd(UtilAd.DEFAULT_FULL);
             }
             //动画结束换内容的
             startSecondAnimation();
@@ -113,7 +114,7 @@ public class SuccessingActivity extends BaseActivity {
                 public void onAnimationEnd(Animator animation) {
                     //广告
                     if (DataPre.getDB(SuccessingActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                        AndroidSdk.showFullAd(UtilAd.DEFAULT_FULL);
                     }
                     //动画结束换内容的
                     startSecondAnimation();
@@ -234,7 +235,6 @@ public class SuccessingActivity extends BaseActivity {
 //        success_jiantou.startAnimation(translate);
         shendu();
         if (DataPre.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
-
         } else {
             myHandler.postDelayed(new Runnable() {
                 public void run() {
@@ -242,6 +242,31 @@ public class SuccessingActivity extends BaseActivity {
                 }
             }, 1000);
         }
+        if (DataPre.getDB(this, Constant.NATIVE_SUCCESS, 0) == 1) {
+            native_xiao = getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+            if (ll_ad_xiao != null && native_xiao != null) {
+                ll_ad_xiao.addView(native_xiao);
+                ll_ad_xiao.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd(tag)) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+        }
+        return nativeView;
     }
 
     @Override
@@ -307,11 +332,10 @@ public class SuccessingActivity extends BaseActivity {
 
     private void addAd() {
         nativeView = UtilAd.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
-        native_xiao = UtilAd.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight();
-            Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
             ad_native_2.setLayoutParams(layout_ad);
             haveAd = true;
             ad_native_2.addView(nativeView);
@@ -321,10 +345,7 @@ public class SuccessingActivity extends BaseActivity {
                 scrollView.smoothScrollToSlow(2000);
             }
         }
-        if (ll_ad_xiao != null && native_xiao != null) {
-            ll_ad_xiao.addView(native_xiao);
-            ll_ad_xiao.setVisibility(View.VISIBLE);
-        }
+
     }
 
     private void shendu() {
