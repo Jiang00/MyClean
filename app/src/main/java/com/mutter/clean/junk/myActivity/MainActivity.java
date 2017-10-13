@@ -1045,6 +1045,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             final TuiguangInfo info = list.get(position);
             holder.recyc_name.setText(info.title);
             if (info.drable_id == -1) {
+                holder.recyc_ad.setVisibility(View.VISIBLE);
                 Util.loadImg(MainActivity.this, info.url, R.mipmap.icon, holder.recyc_icon);
                 holder.recycle_item.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -1054,6 +1055,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     }
                 });
             } else if (info.drable_id == R.mipmap.tuiguang_notifi) {
+                holder.recyc_ad.setVisibility(View.INVISIBLE);
                 holder.recyc_icon.setImageResource(info.drable_id);
                 holder.recycle_item.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -1068,6 +1070,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     }
                 });
             } else {
+                holder.recyc_ad.setVisibility(View.INVISIBLE);
                 holder.recyc_icon.setImageResource(info.drable_id);
                 holder.recycle_item.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -1088,6 +1091,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         class HomeViewHolder extends RecyclerView.ViewHolder {
             ImageView recyc_icon;
             TextView recyc_name;
+            TextView recyc_ad;
             LinearLayout recycle_item;
 
             public HomeViewHolder(View view) {
@@ -1095,6 +1099,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 recycle_item = (LinearLayout) view.findViewById(R.id.recycle_item);
                 recyc_icon = (ImageView) view.findViewById(R.id.recyc_icon);
                 recyc_name = (TextView) view.findViewById(R.id.recyc_name);
+                recyc_ad = (TextView) view.findViewById(R.id.recyc_ad);
             }
         }
     }

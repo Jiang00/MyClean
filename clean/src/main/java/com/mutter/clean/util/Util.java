@@ -167,7 +167,7 @@ public class Util {
 //            return "B";
     }
 
-    public static int dp2px(int dp) {
+    public static int dp2px(float dp) {
         return (int) (Resources.getSystem().getDisplayMetrics().density * dp);
     }
 

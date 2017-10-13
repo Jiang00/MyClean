@@ -7,80 +7,49 @@
     android:gravity="center">
 
     <FrameLayout
-        android:layout_width="333dp"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
         <LinearLayout
-            android:layout_width="333dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal|bottom"
-            android:gravity="center"
+            android:layout_width="@dimen/d225"
+            android:layout_height="@dimen/d133"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_a1_p"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/normal_rectangle"
-                android:gravity="center_horizontal|center_vertical">
-
-                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/permiss_t"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    app:typeface="lyp_text.otf" />
-
-                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d5"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/app_name"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    app:typeface="lyp_text.otf" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
-                android:gravity="center"
-                android:paddingTop="10dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/permiss_1" />
-
-            </LinearLayout>
-
+                android:layout_gravity="right"
+                android:padding="@dimen/d8"
+                android:src="@mipmap/permiss_1" />
 
             <RelativeLayout
-
-                android:id="@+id/ok"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingLeft="5dp"
-                android:paddingTop="10dp">
+                android:layout_height="@dimen/d46"
+                android:layout_marginLeft="@dimen/d17"
+                android:layout_marginRight="@dimen/d17"
+                android:layout_marginTop="@dimen/d8"
+                android:background="@drawable/shape_ffffff_permiss"
+                android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="@dimen/d24"
+                    android:layout_height="@dimen/d24"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/d14"
+                    android:background="@mipmap/icon" />
 
                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="76dp"
+                    android:layout_marginLeft="@dimen/d47"
                     android:fontFamily="sans-serif"
                     android:text="@string/app_name"
-                    android:textColor="@color/B2"
-                    android:textSize="18sp"
+                    android:textColor="@color/A9"
+                    android:textSize="@dimen/s11"
                     app:typeface="lyp_text.otf" />
 
                 <ImageView
@@ -88,75 +57,27 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="40dp"
-                    android:src="@mipmap/side_check_passed" />
+                    android:layout_marginRight="@dimen/d14"
+                    android:src="@mipmap/permiss_2" />
 
-                <ImageView
-                    android:layout_width="47dp"
-                    android:layout_height="47dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_gravity="left|center"
-                    android:layout_marginLeft="21dp"
-                    android:layout_marginStart="21dp"
-                    android:background="@mipmap/icon" />
 
             </RelativeLayout>
 
-            <LinearLayout
 
-                android:layout_width="match_parent"
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                android:id="@+id/tishi"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/d14"
+                android:fontFamily="sans-serif"
                 android:gravity="center"
-                android:orientation="horizontal">
-
-
-                <ImageView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/permiss_1" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingTop="10dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/permiss_1" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="@android:color/darker_gray"
-
-                ></View>
-
+                android:text="@string/permiss_tishi"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s14"
+                app:typeface="lyp_text.otf" />
         </LinearLayout>
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|right"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"
-            android:background="@mipmap/permiss_2" />
     </FrameLayout>
-
 
 </LinearLayout>
 

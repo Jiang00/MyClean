@@ -19,30 +19,31 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-
         <FrameLayout
             android:id="@+id/short_fl"
-            android:layout_width="@dimen/d72"
-            android:layout_height="@dimen/d72"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center">
 
             <ImageView
                 android:id="@+id/short_rotate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/d109"
+                android:layout_height="@dimen/d109"
                 android:layout_gravity="center"
                 android:src="@mipmap/short_0" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/d67"
+                android:layout_height="@dimen/d67"
                 android:layout_gravity="center"
                 android:src="@mipmap/short_1" />
 
         </FrameLayout>
-
-
     </LinearLayout>
 
-
+    <com.mutter.clean.junk.myview.BubbleCenterLayout
+        android:id="@+id/bubble"
+        android:layout_width="@dimen/d275"
+        android:layout_height="@dimen/d275"
+        android:layout_gravity="center" />
 </FrameLayout>

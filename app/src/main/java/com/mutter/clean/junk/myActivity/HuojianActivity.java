@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.mutter.clean.junk.myview.BubbleCenterLayout;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -40,6 +41,7 @@ public class HuojianActivity extends BaseActivity {
     FrameLayout short_backg;
     LinearLayout ll_ad;
     FrameLayout short_fl;
+    BubbleCenterLayout bubble;
     ImageView short_rotate;
     private Animation rotate;
     private Animation fang;
@@ -57,6 +59,7 @@ public class HuojianActivity extends BaseActivity {
         short_backg = (FrameLayout) findViewById(R.id.short_backg);
         short_fl = (FrameLayout) findViewById(R.id.short_fl);
         short_rotate = (ImageView) findViewById(R.id.short_rotate);
+        bubble = (BubbleCenterLayout) findViewById(R.id.bubble);
     }
 
     @Override
@@ -172,12 +175,14 @@ public class HuojianActivity extends BaseActivity {
         myHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                bubble.pause();
                 short_fl.startAnimation(suo);
                 suo.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         short_fl.setVisibility(View.GONE);
                         short_rotate.clearAnimation();
+                        bubble.destroy();
                         count++;
                         show_text();
                     }
@@ -207,6 +212,10 @@ public class HuojianActivity extends BaseActivity {
         super.onStop();
         short_rotate.clearAnimation();
         count = 0;
+        if (bubble != null) {
+            bubble.pause();
+            bubble.destroy();
+        }
         finish();
     }
 }
