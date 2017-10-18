@@ -34,8 +34,8 @@ public class RoundImageView extends ImageView {
      * <p>
      * 这两个都是画圆的半径
      */
-    private int roundWidth = Util.dp2px(14);
-    private int roundHeight = Util.dp2px(14);
+    private int roundWidth;
+    private int roundHeight;
     private Paint paint2;
 
     public RoundImageView(Context context, AttributeSet attrs, int defStyle) {
@@ -45,6 +45,8 @@ public class RoundImageView extends ImageView {
 
     public RoundImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        roundWidth = getResources().getDimensionPixelOffset(R.dimen.d14);
+        roundHeight = getResources().getDimensionPixelOffset(R.dimen.d14);
         init(context, attrs);
     }
 

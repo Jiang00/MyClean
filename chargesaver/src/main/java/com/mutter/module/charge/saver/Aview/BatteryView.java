@@ -357,13 +357,15 @@ public class BatteryView extends FrameLayout {
 
     public void pauseBubble() {
         if (bubbleLayout != null) {
-//            bubbleLayout.pause();
+            bubbleLayout.pause();
         }
     }
 
     public void reStartBubble() {
         if (bubbleLayout != null) {
 //            bubbleLayout.reStart();
+            bubbleLayout.pause();
+
         }
     }
 
@@ -391,7 +393,7 @@ public class BatteryView extends FrameLayout {
             shell.cancelAnimation();
         }
         if (bubbleLayout != null) {
-//            bubbleLayout.destroy();
+            bubbleLayout.destroy();
         }
         if (isBindView) {
             isBindView = false;

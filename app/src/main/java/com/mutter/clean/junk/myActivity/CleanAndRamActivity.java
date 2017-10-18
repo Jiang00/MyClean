@@ -101,7 +101,7 @@ public class CleanAndRamActivity extends BaseActivity implements JunkRamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk_ram);
-        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
         myHandler = new Handler();
         junkPresenter = new JunkRamPresenter(this, this);
         junkPresenter.init();
@@ -470,7 +470,7 @@ public class CleanAndRamActivity extends BaseActivity implements JunkRamView {
             }).start();
         } else {
 //            if (cleanSize != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(cleanSize, true) + ")");
+            junk_size_all.setText(Util.convertStorage(cleanSize, false));
 //            }
         }
 

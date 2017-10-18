@@ -420,9 +420,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     }
 
-    @Override
-    public void initGuard(int num, RotateAnimation rotateAnimation) {
-    }
 
     //初始化监听
     public void onClick() {
@@ -480,22 +477,22 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
+        adapter.addData(new SideInfo(R.string.main_cooling_name, R.mipmap.side_battery));//电池降温
         if (PreData.getDB(this, Constant.DEEP_KAIGUAN, 1) != 0) {
             adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) != 0) {
             adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
         }
+        if (PreData.getDB(this, Constant.GBOOST_KAIGUAN, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
+        }
+        adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
         if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) != 0) {
             adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
         }
         if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) != 0) {
             adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
-        }
-        adapter.addData(new SideInfo(R.string.main_cooling_name, R.mipmap.side_battery));//电池降温
-        adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
-        if (PreData.getDB(this, Constant.GBOOST_KAIGUAN, 1) != 0) {
-            adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
         }
         adapter.addData(new SideInfo(R.string.main_msg_title, R.mipmap.side_message));//硬件信息
         adapter.addData(new SideInfo(R.string.side_setting, R.mipmap.side_setting));//设置
@@ -738,8 +735,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                                     public void onNativeAdLoadSuccess(View view) {
                                         LinearLayout loading_text = (LinearLayout) view.findViewById(R.id.loading_text);
                                         loading_text.setOnClickListener(null);
-                                        ImageView ad_delete = (ImageView) view.findViewById(R.id.ad_delete);
-                                        ad_delete.setOnClickListener(new View.OnClickListener() {
+                                        LoadingTime ad_loading = (LoadingTime) view.findViewById(R.id.ad_loading);
+                                        ad_loading.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
                                                 adDelete();

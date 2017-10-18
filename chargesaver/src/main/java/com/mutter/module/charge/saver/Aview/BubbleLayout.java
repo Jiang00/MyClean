@@ -59,14 +59,14 @@ public class BubbleLayout extends View {
         this.bitmap = bitmap;
     }
 
-    public void pause(){
+    public void pause() {
         thread = false;
         if (bubbles != null) {
             bubbles.clear();
         }
     }
 
-    public void reStart(){
+    public void reStart() {
         thread = true;
         starting = false;
         invalidate();

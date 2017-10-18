@@ -8,52 +8,54 @@
 
 
     <LinearLayout
+        android:id="@+id/doalig_result"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/d72"
         android:layout_marginLeft="@dimen/d16"
         android:layout_marginRight="@dimen/d16"
         android:background="@drawable/shape_ad"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d37"
+            android:src="@mipmap/short_5" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d37"
-                android:src="@mipmap/short_5" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:text="@string/short_cut_1"
+            android:textColor="@color/B2"
+            android:textSize="@dimen/s13" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d16"
-                android:text="@string/short_cut_1"
-                android:textColor="@color/B2"
-                android:textSize="@dimen/s13" />
+        <TextView
+            android:id="@+id/short_clean_szie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d2"
+            android:textColor="@color/A1"
+            android:textSize="@dimen/s13" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/short_clean_szie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d2"
-                android:textColor="@color/A1"
-                android:textSize="@dimen/s13" />
-        </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/ll_ad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
             android:layout_marginTop="@dimen/d5"
+            android:background="@drawable/shape_ad"
             android:orientation="vertical"
             android:visibility="gone" />
-    </LinearLayout>
-
+    </FrameLayout>
 
 </LinearLayout>

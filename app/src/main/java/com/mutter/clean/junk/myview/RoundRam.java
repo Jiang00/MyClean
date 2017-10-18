@@ -73,6 +73,7 @@ public class RoundRam extends View {
         bluePoint.setColor(context.getResources().getColor(R.color.B6));
         mMatrix = new Matrix();
         bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.main_dian);
+        bitmap = Bitmap.createScaledBitmap(bitmap, getResources().getDimensionPixelOffset(R.dimen.d10), getResources().getDimensionPixelOffset(R.dimen.d10), true);
 
     }
 

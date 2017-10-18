@@ -45,7 +45,6 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/d8"
             android:padding="@dimen/d8"
-            android:scaleType="center"
             android:src="@mipmap/white_add_right" />
     </RelativeLayout>
 
@@ -78,16 +77,16 @@
             android:textColorHint="@color/B4" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/d24"
+            android:layout_height="@dimen/d24"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/d8"
             android:src="@mipmap/edit_left_drawable" />
 
         <ImageButton
             android:id="@+id/clear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/d29"
+            android:layout_height="@dimen/d29"
             android:layout_gravity="center_vertical|end"
             android:layout_marginRight="@dimen/d3"
             android:background="@mipmap/eidt_cha"

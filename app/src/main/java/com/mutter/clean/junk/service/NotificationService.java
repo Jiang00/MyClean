@@ -95,7 +95,7 @@ public class NotificationService extends Service {
         paint_1 = new Paint();
         paint_1.setAntiAlias(true);
         paint_1.setStrokeCap(Paint.Cap.ROUND);
-        paint_1.setStrokeWidth(Util.dp2px(1.5f));
+        paint_1.setStrokeWidth(Util.dp2px(2));
         paint_1.setStyle(Paint.Style.STROKE);
         oval = new RectF(0 + Util.dp2px(2), -pointX + Util.dp2px(2), pointX
                 * 2 - Util.dp2px(2), pointX - Util.dp2px(2));
@@ -201,8 +201,8 @@ public class NotificationService extends Service {
             paint_1.setColor(ContextCompat.getColor(this, R.color.A2));
             remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(this, R.color.A2));
         } else {
-            paint_1.setColor(ContextCompat.getColor(this, R.color.A1));
-            remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(this, R.color.A1));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.A3));
+            remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(this, R.color.A3));
         }
         canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
 
@@ -315,8 +315,8 @@ public class NotificationService extends Service {
                     paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A2));
                     remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(NotificationService.this, R.color.A2));
                 } else {
-                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A1));
-                    remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(NotificationService.this, R.color.A1));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A3));
+                    remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(NotificationService.this, R.color.A3));
                 }
                 canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
                 remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);

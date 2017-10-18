@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -26,31 +27,59 @@
                 android:tag="ad_choices" />
         </RelativeLayout>
 
+
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/full_ad_ad_image"
-            android:layout_marginLeft="@dimen/full_ad__big_margin"
-            android:layout_marginRight="@dimen/full_ad__big_margin"
-            android:layout_marginTop="@dimen/full_ad__big_margin"
-            android:scaleType="centerCrop"
-            android:tag="ad_image" />
+            android:layout_height="@dimen/d225"
+            android:layout_marginLeft="@dimen/d12"
+            android:layout_marginRight="@dimen/d12"
+            android:layout_marginTop="@dimen/d12">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <com.mutter.clean.junk.myview.RotateTime
+                    android:layout_width="match_parent"
+                    android:elevation="@dimen/d2"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/d225" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d200"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/d8"
+                android:background="@color/white_100"
+                android:elevation="@dimen/d2"
+                android:padding="@dimen/d8"
+                android:scaleType="centerCrop"
+                android:tag="ad_image" />
+
+        </FrameLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <com.mutter.clean.junk.myview.RoundImageView
                 android:id="@+id/iv_ic"
-                android:layout_width="@dimen/full_ad__icon_size"
-                android:layout_height="@dimen/full_ad__icon_size"
+                android:layout_width="@dimen/d67"
+                android:layout_height="@dimen/d67"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/full_ad__icon_margin_top"
-                android:tag="ad_icon" />
+                android:layout_marginTop="@dimen/d18"
+                android:src="@mipmap/icon"
+                android:tag="ad_icon"
+                app:roundHeight="@dimen/d33"
+                app:roundWidth="@dimen/d33" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_ic"
+                android:layout_marginTop="@dimen/d27"
                 android:orientation="vertical">
 
                 <TextView
@@ -67,22 +96,23 @@
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
                     android:tag="ad_title"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s18"
+                    android:textColor="@color/black_100"
+                    android:textSize="@dimen/s17"
                     tools:text="Your see" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/full_ad__desc_text_margin"
-                    android:layout_marginRight="@dimen/full_ad__desc_text_margin"
-                    android:layout_marginTop="@dimen/full_ad__desc_text_margin_top"
+                    android:layout_marginLeft="@dimen/full_ad__ac_action_green_margin"
+                    android:layout_marginRight="@dimen/full_ad__ac_action_green_margin"
+                    android:layout_marginTop="@dimen/d12"
                     android:ellipsize="end"
                     android:fontFamily="sans-serif-light"
-                    android:lines="3"
+                    android:gravity="center"
+                    android:lines="2"
                     android:tag="ad_desc"
                     android:textColor="@color/A9"
-                    android:textSize="@dimen/s18"
+                    android:textSize="@dimen/s12"
                     tools:text="Your seeasd df fsfsfsfsf" />
 
                 <TextView
@@ -90,13 +120,13 @@
                     android:layout_height="@dimen/d50"
                     android:layout_marginLeft="@dimen/full_ad__ac_action_green_margin"
                     android:layout_marginRight="@dimen/full_ad__ac_action_green_margin"
-                    android:layout_marginTop="@dimen/full_ad_ac_action_green_margin_top"
+                    android:layout_marginTop="@dimen/d25"
                     android:background="@drawable/select_text_ad"
                     android:gravity="center"
                     android:tag="ad_action"
                     android:text="Install"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/full_ad__ac_action_green_text_size" />
+                    android:textSize="@dimen/s14" />
 
                 <FrameLayout
                     android:layout_width="wrap_content"

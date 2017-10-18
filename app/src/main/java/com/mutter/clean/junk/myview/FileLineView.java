@@ -23,7 +23,7 @@ public class FileLineView extends View {
     private long doc_size;
     private long music_size;
     private long all_size;
-    private float lint_whith = Util.dp2px(29);
+    private float lint_whith;
     private RectF rectF;
     private int whith, hight;
     private long apk_size;
@@ -50,6 +50,7 @@ public class FileLineView extends View {
         this.context = context;
         paint_apk = new Paint();
         paint_apk.setAntiAlias(true);
+        lint_whith = getResources().getDimensionPixelOffset(R.dimen.d29);
         paint_apk.setStrokeWidth(lint_whith);
         paint_apk.setStyle(Paint.Style.STROKE);
         paint_apk.setColor(ContextCompat.getColor(context, R.color.file_apk));

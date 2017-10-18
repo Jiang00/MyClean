@@ -17,8 +17,8 @@
 
     <ImageView
         android:id="@+id/picture_best"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/d40"
+        android:layout_height="@dimen/d40"
         android:layout_gravity="bottom"
         android:src="@mipmap/picture_xing" />
 
@@ -32,11 +32,10 @@
 
     <ImageView
         android:id="@+id/picture_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/d30"
+        android:layout_height="@dimen/d30"
         android:layout_gravity="right"
-        android:paddingRight="@dimen/d3"
-        android:paddingTop="@dimen/d3"
+        android:padding="@dimen/d3"
         android:src="@mipmap/ram_normal" />
 
 </FrameLayout>

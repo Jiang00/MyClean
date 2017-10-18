@@ -168,11 +168,6 @@ public class UnloadActivity extends BaseActivity {
         } else {
             nativeView = AdUtil.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == Util.dp2px(250)) {
-                    layout_ad.height = Util.dp2px(250);
-                }
-                ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
             }
         }

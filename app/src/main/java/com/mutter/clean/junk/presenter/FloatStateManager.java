@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.mutter.clean.junk.R;
 import com.mutter.clean.util.Util;
 import com.mutter.clean.junk.myActivity.XuanfuActivity;
 import com.mutter.clean.junk.myview.FloatStateView;
@@ -176,8 +177,8 @@ public class FloatStateManager {
             params.width = circleView.width;
             params.height = circleView.height;
             params.gravity = Gravity.TOP | Gravity.LEFT;
-            params.x = Util.dp2px(0);
-            params.y = Util.dp2px(201);
+            params.x = 0;
+            params.y = context.getResources().getDimensionPixelOffset(R.dimen.d200);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
                 params.type = WindowManager.LayoutParams.TYPE_TOAST;
             } else {

@@ -51,13 +51,13 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private int FLOAT = -1;
     private int JUNK = -1;
     private int RAM = -1;
+    private int BATTERY_COOLING = -1;
     private int POWER = -1;
     private int NOTIFI = -1;
+    private int GBOOST = -1;
+    private int MANAGER = -1;
     private int PICTURE = -1;
     private int FILE = -1;
-    private int BATTERY_COOLING = -1;
-    private int MANAGER = -1;
-    private int GBOOST = -1;
     private int MESSAGE = -1;
     private int SETTING = -1;
     private int ROTATE = -1;
@@ -70,22 +70,22 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         FLOAT = idx++;
         JUNK = idx++;
         RAM = idx++;
+        BATTERY_COOLING = idx++;
         if (PreData.getDB(context, Constant.DEEP_KAIGUAN, 1) != 0) {
             POWER = idx++;
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, Constant.NOTIFI_KAIGUAN, 1) != 0) {
             NOTIFI = idx++;
         }
+        if (PreData.getDB(context, Constant.GBOOST_KAIGUAN, 1) != 0) {
+            GBOOST = idx++;
+        }
+        MANAGER = idx++;
         if (PreData.getDB(context, Constant.PICTURE_KAIGUAN, 1) != 0) {
             PICTURE = idx++;
         }
         if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) != 0) {
             FILE = idx++;
-        }
-        BATTERY_COOLING = idx++;
-        MANAGER = idx++;
-        if (PreData.getDB(context, Constant.GBOOST_KAIGUAN, 1) != 0) {
-            GBOOST = idx++;
         }
         MESSAGE = idx++;
         SETTING = idx++;
@@ -130,7 +130,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
 
-        if (position == JUNK || position == FILE || position == MESSAGE) {
+        if (position == JUNK || position == GBOOST || position == MESSAGE) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);

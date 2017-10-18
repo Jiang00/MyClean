@@ -13,7 +13,6 @@ public interface MainView extends IView {
 
     void initSd(int perent, String size, long sd_kongxian);
 
-    void initGuard(int num, RotateAnimation rotateAnimation);
 
     void loadAirAnimator(TranslateAnimation translateAnimation);
 

@@ -387,7 +387,8 @@ public class PhotoHuiActivity extends BaseActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        final Bitmap bitma = imageHelper.pathWithScaledBitmap(PhotoHuiActivity.this, info.backFilePath, Util.dp2px(112), Util.dp2px(112));
+                        final Bitmap bitma = imageHelper.pathWithScaledBitmap(PhotoHuiActivity.this, info.backFilePath, getResources().getDimensionPixelOffset(R.dimen.d112),
+                                getResources().getDimensionPixelOffset(R.dimen.d112));
                         if (bitma == null) {
                         } else {
                             runOnUiThread(new Runnable() {

@@ -12,7 +12,11 @@
         android:id="@+id/view_title_bar"
         android:layout_width="wrap_content"
         android:layout_height="1dp" />
-
+    <com.mutter.clean.junk.myview.BubbleCenterLayout
+        android:id="@+id/bubble"
+        android:layout_width="@dimen/d275"
+        android:layout_height="@dimen/d275"
+        android:layout_gravity="center" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,9 +45,5 @@
         </FrameLayout>
     </LinearLayout>
 
-    <com.mutter.clean.junk.myview.BubbleCenterLayout
-        android:id="@+id/bubble"
-        android:layout_width="@dimen/d275"
-        android:layout_height="@dimen/d275"
-        android:layout_gravity="center" />
+
 </FrameLayout>

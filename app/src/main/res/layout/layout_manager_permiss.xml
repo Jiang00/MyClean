@@ -16,8 +16,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/d30"
+            android:layout_height="@dimen/d36"
             android:src="@mipmap/permiss_icon" />
 
         <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -44,14 +44,14 @@
 
         <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/manager_shouquan"
-            android:layout_width="@dimen/d72"
-            android:layout_height="@dimen/d33"
+            android:layout_width="@dimen/d121"
+            android:layout_height="@dimen/d36"
             android:layout_marginTop="20dp"
             android:background="@drawable/shape_a7_tuo"
             android:gravity="center"
             android:text="@string/premiss_5"
             android:textColor="@color/white_100"
-            android:textSize="16dp"
+            android:textSize="@dimen/s16"
             app:typeface="lyp_text.otf" />
     </LinearLayout>
 </LinearLayout>

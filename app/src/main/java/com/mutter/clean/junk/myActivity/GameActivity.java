@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -168,8 +169,22 @@ public class GameActivity extends BaseActivity {
             ImageView iv_4 = (ImageView) shortcut_view.findViewById(R.id.iv_4);
             iv_4.setImageDrawable(LoadManager.getInstance(GameActivity.this).getAppIcon(list.get(4)));
         }
-        Bitmap bitmap = Util.getViewBitmap(shortcut_view);
+        Bitmap bitmap = getViewBitmap(shortcut_view, this);
         gboost_short_iv.setImageBitmap(bitmap);
+    }
+
+    //布局转bitmap
+    public static Bitmap getViewBitmap(View view, Context context) {
+        if (null == view) {
+            throw new IllegalArgumentException("parameter can't be null.");
+        }
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        view.layout(0, 0, context.getResources().getDimensionPixelOffset(R.dimen.d61),
+                context.getResources().getDimensionPixelOffset(R.dimen.d61));
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap bitmap = view.getDrawingCache();
+        return bitmap;
     }
 
     private void initList() {
@@ -343,7 +358,7 @@ public class GameActivity extends BaseActivity {
                 PreData.putDB(GameActivity.this, Constant.GBOOST_SI, true);
             }
 
-            Bitmap bitmap = Util.getViewBitmap(shortcut_view);
+            Bitmap bitmap = getViewBitmap(shortcut_view, this);
             if (bitmap != null) {
                 ShortCutUtils.removeShortcut(GameActivity.this, shortcutIntent, title);
                 ShortCutUtils.addShortcut(GameActivity.this, shortcutIntent, title, false, bitmap);

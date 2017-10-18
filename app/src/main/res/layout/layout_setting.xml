@@ -59,8 +59,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d2"
+                        android:layout_height="@dimen/d13"
                         android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_line" />
 
@@ -91,12 +91,17 @@
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
-                    <ImageView
-                        android:id="@+id/setting_tongzhi_check"
+                    <FrameLayout
                         android:layout_width="@dimen/d72"
                         android:layout_height="@dimen/d56"
-                        android:layout_alignParentRight="true"
-                        android:scaleType="center" />
+                        android:layout_alignParentRight="true">
+
+                        <ImageView
+                            android:id="@+id/setting_tongzhi_check"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d36"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
                 </RelativeLayout>
 
 
@@ -116,12 +121,17 @@
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
-                    <ImageView
-                        android:id="@+id/setting_tongzhilan_check"
+                    <FrameLayout
                         android:layout_width="@dimen/d72"
                         android:layout_height="@dimen/d56"
-                        android:layout_alignParentRight="true"
-                        android:scaleType="center" />
+                        android:layout_alignParentRight="true">
+
+                        <ImageView
+                            android:id="@+id/setting_tongzhilan_check"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d36"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
                 </RelativeLayout>
 
 
@@ -141,12 +151,17 @@
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
-                    <ImageView
-                        android:id="@+id/setting_float_check"
+                    <FrameLayout
                         android:layout_width="@dimen/d72"
                         android:layout_height="@dimen/d56"
-                        android:layout_alignParentRight="true"
-                        android:scaleType="center" />
+                        android:layout_alignParentRight="true">
+
+                        <ImageView
+                            android:id="@+id/setting_float_check"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d36"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
                 </RelativeLayout>
 
 
@@ -177,12 +192,17 @@
                         android:textSize="@dimen/s9"
                         app:typeface="lyp_text.otf" />
 
-                    <ImageView
-                        android:id="@+id/setting_battery_check"
+                    <FrameLayout
                         android:layout_width="@dimen/d72"
                         android:layout_height="@dimen/d56"
-                        android:layout_alignParentRight="true"
-                        android:scaleType="center" />
+                        android:layout_alignParentRight="true">
+
+                        <ImageView
+                            android:id="@+id/setting_battery_check"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d36"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
                 </RelativeLayout>
 
 
@@ -207,6 +227,7 @@
                         android:id="@+id/setting_unload_check"
                         android:layout_width="@dimen/d72"
                         android:layout_height="@dimen/d56"
+
                         android:layout_alignParentRight="true"
                         android:scaleType="center" />
                 </RelativeLayout>
@@ -227,8 +248,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d2"
+                        android:layout_height="@dimen/d13"
                         android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_line" />
 
@@ -266,12 +287,11 @@
 
                     <ImageView
                         android:id="@+id/a"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/d16"
-                        android:scaleType="center"
                         android:src="@mipmap/setting_rig" />
 
                     <TextView
@@ -305,12 +325,11 @@
 
                     <ImageView
                         android:id="@+id/b"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/d16"
-                        android:scaleType="center"
                         android:src="@mipmap/setting_rig" />
 
                     <TextView
@@ -344,12 +363,11 @@
 
                     <ImageView
                         android:id="@+id/c"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/d16"
-                        android:scaleType="center"
                         android:src="@mipmap/setting_rig" />
 
                     <TextView
@@ -383,12 +401,11 @@
 
                     <ImageView
                         android:id="@+id/d"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/d16"
-                        android:scaleType="center"
                         android:src="@mipmap/setting_rig" />
 
                     <TextView
@@ -422,12 +439,11 @@
 
                     <ImageView
                         android:id="@+id/e"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/d16"
-                        android:scaleType="center"
                         android:src="@mipmap/setting_rig" />
 
                     <TextView
@@ -461,12 +477,11 @@
 
                     <ImageView
                         android:id="@+id/f"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/d16"
-                        android:scaleType="center"
                         android:src="@mipmap/setting_rig" />
 
                     <TextView
@@ -491,23 +506,19 @@
                     <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginStart="18dp"
+                        android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_white"
                         android:textColor="@color/B2"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/d16"
-                        android:scaleType="center"
                         android:src="@mipmap/setting_rig" />
                 </RelativeLayout>
 
@@ -529,12 +540,11 @@
                         app:typeface="lyp_text.otf" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/d16"
-                        android:scaleType="center"
                         android:src="@mipmap/setting_rig" />
                 </RelativeLayout>
 
@@ -556,12 +566,11 @@
                         app:typeface="lyp_text.otf" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d36"
+                        android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/d16"
-                        android:scaleType="center"
                         android:src="@mipmap/setting_rig" />
                 </RelativeLayout>
             </LinearLayout>

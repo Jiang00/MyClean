@@ -86,7 +86,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
         setContentView(R.layout.layout_ram);
         PreData.putDB(this, Constant.HONG_RAM, false);
         BadgerCount.setCount(this);
-        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();
         ramPresenter.init();
@@ -226,7 +226,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
             }).start();
         } else {
 //            if (size != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + Util.convertStorage(size, true) + ")");
+            junk_size_all.setText(Util.convertStorage(size, false));
 //            }
         }
 

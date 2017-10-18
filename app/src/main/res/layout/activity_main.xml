@@ -40,7 +40,6 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:padding="@dimen/d8"
-                    android:scaleType="center"
                     android:src="@mipmap/main_menu" />
 
                 <ImageView
@@ -72,7 +71,6 @@
                     android:layout_marginRight="@dimen/d8"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:padding="@dimen/d8"
-                    android:scaleType="center"
                     android:src="@mipmap/main_setting" />
 
 
@@ -257,33 +255,33 @@
 
                             <FrameLayout
                                 android:id="@+id/ad_delete"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="@dimen/d67"
+                                android:layout_height="@dimen/d67"
                                 android:layout_gravity="bottom|right"
                                 android:layout_marginBottom="@dimen/d56"
                                 android:layout_marginRight="@dimen/d67"
-                                android:gravity="center_horizontal"
+                                android:gravity="center"
                                 android:orientation="vertical">
 
                                 <ImageView
                                     android:id="@+id/main_circle"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="@dimen/d65"
+                                    android:layout_height="@dimen/d65"
                                     android:layout_gravity="center"
                                     android:background="@mipmap/air_backg"
                                     android:src="@mipmap/air_main" />
 
                                 <FrameLayout
                                     android:id="@+id/main_ad"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="@dimen/d65"
+                                    android:layout_height="@dimen/d65"
                                     android:background="@mipmap/air_backg"
                                     android:visibility="gone">
 
                                     <ImageView
                                         android:id="@+id/lot_family"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_width="@dimen/d65"
+                                        android:layout_height="@dimen/d65"
                                         android:layout_gravity="center"
                                         android:src="@mipmap/air_ad" />
 

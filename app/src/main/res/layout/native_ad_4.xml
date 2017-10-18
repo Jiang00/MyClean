@@ -21,11 +21,13 @@
             android:layout_below="@id/ad_image"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.mutter.clean.junk.myview.RoundImageView
                 android:id="@+id/ad_icon"
                 android:layout_width="@dimen/d65"
                 android:layout_height="@dimen/d65"
-                android:tag="ad_icon" />
+                android:tag="ad_icon"
+                app:roundHeight="@dimen/d3"
+                app:roundWidth="@dimen/d3" />
 
             <LinearLayout
                 android:layout_width="0dp"

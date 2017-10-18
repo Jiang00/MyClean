@@ -100,7 +100,7 @@ public class CleanActivity extends BaseActivity implements JunkView {
         setContentView(R.layout.layout_junk);
         PreData.putDB(this, Constant.HONG_JUNK, false);
         BadgerCount.setCount(this);
-        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);
         junkPresenter.init();
@@ -428,7 +428,7 @@ public class CleanActivity extends BaseActivity implements JunkView {
             }).start();
         } else {
 //            if (size != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(size, true) + ")");
+            junk_size_all.setText(Util.convertStorage(size, false));
 //            }
         }
 

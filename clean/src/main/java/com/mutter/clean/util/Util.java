@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.mutter.clean.BuildConfig;
+import com.mutter.clean.R;
 import com.mutter.clean.deepclean.CustomerAccessibilityService;
 import com.squareup.picasso.Picasso;
 
@@ -330,19 +331,6 @@ public class Util {
             e.printStackTrace();
         }
         return firstInstallTime;
-    }
-
-    //布局转bitmap
-    public static Bitmap getViewBitmap(View view) {
-        if (null == view) {
-            throw new IllegalArgumentException("parameter can't be null.");
-        }
-        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        view.layout(0, 0, Util.dp2px(60), Util.dp2px(60));
-        view.setDrawingCacheEnabled(true);
-        view.buildDrawingCache();
-        Bitmap bitmap = view.getDrawingCache();
-        return bitmap;
     }
 
 

@@ -23,6 +23,7 @@ public class BubbleCenterLayout extends View {
     private int width, height;
     private boolean starting = false;
     private boolean thread = true;
+    private boolean isDestory = false;
     private Bitmap bitmap = null;
     private Bitmap dstBitmap;
 
@@ -42,12 +43,13 @@ public class BubbleCenterLayout extends View {
     }
 
     private void init() {
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.battery_bubble);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.bubble_bai);
     }
 
     public void destroy() {
         starting = false;
         thread = false;
+
         if (bubbles != null) {
             bubbles.clear();
         }
@@ -57,6 +59,7 @@ public class BubbleCenterLayout extends View {
         if (dstBitmap != null) {
             dstBitmap.recycle();
         }
+        isDestory = true;
     }
 
     public void setParticleBitmap(Bitmap bitmap) {
@@ -88,7 +91,7 @@ public class BubbleCenterLayout extends View {
                     while (starting && thread) {
                         Log.d("MyTest", "bubble Thread");
                         Bubble bubble = new Bubble();
-                        float speedY = random.nextFloat() * 2 + 3;
+                        float speedY = random.nextFloat() * 3 + 8;
                         float scale = random.nextFloat();
                         while (scale <= 0.7) {
                             scale = random.nextFloat();
@@ -118,20 +121,32 @@ public class BubbleCenterLayout extends View {
                         if (b_w > width / 2) {
                             if (b_h > height / 2) {
                                 float line = (float) Math.sqrt((b_w - width / 2) * (b_w - width / 2) + (b_h - height / 2) * (b_h - height / 2));
+                                if (line < getResources().getDimensionPixelSize(R.dimen.d109)) {
+                                    bubble.setBitmap(null);
+                                }
                                 bubble.setSpeedX(-(speedY * (b_w - width / 2) / line));
                                 bubble.setSpeedY(-(speedY * (b_h - height / 2) / line));
                             } else {
                                 float line = (float) Math.sqrt((b_w - width / 2) * (b_w - width / 2) + (height / 2 - b_h) * (height / 2 - b_h));
+                                if (line < getResources().getDimensionPixelSize(R.dimen.d109)) {
+                                    bubble.setBitmap(null);
+                                }
                                 bubble.setSpeedX(-(speedY * (b_w - width / 2) / line));
                                 bubble.setSpeedY((speedY * (height / 2 - b_h) / line));
                             }
                         } else {
                             if (b_h > height / 2) {
                                 float line = (float) Math.sqrt((width / 2 - b_w) * (width / 2 - b_w) + (b_h - height / 2) * (b_h - height / 2));
+                                if (line < getResources().getDimensionPixelSize(R.dimen.d109)) {
+                                    bubble.setBitmap(null);
+                                }
                                 bubble.setSpeedX((speedY * (width / 2 - b_w) / line));
                                 bubble.setSpeedY(-(speedY * (b_h - height / 2) / line));
                             } else {
                                 float line = (float) Math.sqrt((width / 2 - b_w) * (width / 2 - b_w) + (height / 2 - b_h) * (height / 2 - b_h));
+                                if (line < getResources().getDimensionPixelSize(R.dimen.d109)) {
+                                    bubble.setBitmap(null);
+                                }
                                 bubble.setSpeedX((speedY * (width / 2 - b_w) / line));
                                 bubble.setSpeedY((speedY * (height / 2 - b_h) / line));
                             }
@@ -139,7 +154,7 @@ public class BubbleCenterLayout extends View {
 
                         bubbles.add(bubble);
                         try {
-                            Thread.sleep(random.nextInt(3) * 200);
+                            Thread.sleep(random.nextInt(2) * 100);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -151,7 +166,7 @@ public class BubbleCenterLayout extends View {
 
         paint.reset();
         paint.setColor(0X669999);//灰白色
-        paint.setAlpha(125);//设置不透明度：透明为0，完全不透明为255
+        paint.setAlpha(180);//设置不透明度：透明为0，完全不透明为255
         List<Bubble> list = new ArrayList<Bubble>(bubbles);
         //依次绘制气泡
         for (Bubble bubble : list) {
@@ -187,8 +202,10 @@ public class BubbleCenterLayout extends View {
                 }
             }
         }
-        //刷新屏幕
-        invalidate();
+        if (!isDestory) {
+            //刷新屏幕
+            invalidate();
+        }
     }
 
     //内部VO，不需要太多注释吧？

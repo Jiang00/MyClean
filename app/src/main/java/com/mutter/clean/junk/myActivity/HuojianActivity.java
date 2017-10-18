@@ -1,5 +1,7 @@
 package com.mutter.clean.junk.myActivity;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.Context;
@@ -52,6 +54,8 @@ public class HuojianActivity extends BaseActivity {
     private String TAG_SHORTCUT = "mutter_shortcut";
     private Animation suo;
     private Dialog dialog;
+    private ObjectAnimator rotate_x;
+    private ObjectAnimator translate;
 
     @Override
     protected void findId() {
@@ -91,12 +95,50 @@ public class HuojianActivity extends BaseActivity {
             count = 0;
             View view = getLayoutInflater().inflate(R.layout.layout_short_dialog, null);
             ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
-            loadAd();
+            LinearLayout doalig_result = (LinearLayout) view.findViewById(R.id.doalig_result);
             TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
             if (size < 0) {
                 size = 0;
             }
             short_clean_szie.setText(Util.convertStorage(size, true));
+            if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) != 1) {
+                nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad_2);
+                if (ll_ad != null && nativeView != null) {
+                    ll_ad.addView(nativeView);
+//                    ll_ad.setVisibility(View.VISIBLE);
+                    ll_ad.setVisibility(View.INVISIBLE);
+                }
+            }
+            rotate_x = ObjectAnimator.ofFloat(doalig_result, View.ROTATION_X, 0, 360);
+            rotate_x.setDuration(1500);
+            rotate_x.setStartDelay(500);
+            rotate_x.start();
+            rotate_x.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationCancel(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    if (nativeView != null) {
+                        translate = ObjectAnimator.ofFloat(ll_ad, View.TRANSLATION_Y, -ll_ad.getHeight(), 0);
+                        translate.setDuration(500);
+                        translate.start();
+                        ll_ad.setVisibility(View.VISIBLE);
+                    }
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationStart(Animator animation) {
+
+                }
+            });
             dialog = new Dialog(HuojianActivity.this, R.style.add_dialog);
             dialog.show();
             Window window = dialog.getWindow();
@@ -122,20 +164,7 @@ public class HuojianActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) == 1) {
-        } else {
-            nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad_2);
-            if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == Util.dp2px(250)) {
-                    layout_ad.height = Util.dp2px(250);
-                }
-                ll_ad.setLayoutParams(layout_ad);
-                ll_ad.addView(nativeView);
-                ll_ad.setVisibility(View.VISIBLE);
-            } else {
-            }
-        }
+
     }
 
 
@@ -215,6 +244,13 @@ public class HuojianActivity extends BaseActivity {
         if (bubble != null) {
             bubble.pause();
             bubble.destroy();
+        }
+        if (rotate_x != null) {
+            rotate_x.removeAllListeners();
+            rotate_x.cancel();
+        }
+        if (translate != null) {
+            translate.cancel();
         }
         finish();
     }

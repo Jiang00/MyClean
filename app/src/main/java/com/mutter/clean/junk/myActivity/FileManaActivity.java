@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,6 +30,7 @@ public class FileManaActivity extends BaseActivity {
     TextView title_name;
     TextView file_sd_kong;
     LinearLayout file_apk, file_zip, file_txt, file_music, file_video, file_other;
+    LinearLayout file_title;
     FileLineView file_piechart;
     LinearLayout file_apk_button, file_zip_button, file_txt_button, file_music_button, file_video_button, file_other_button;
     LinearLayout file_apk_null, file_zip_null, file_txt_null, file_music_null, file_video_null, file_other_null;
@@ -77,6 +80,7 @@ public class FileManaActivity extends BaseActivity {
         file_music = (LinearLayout) findViewById(R.id.file_music);
         file_video = (LinearLayout) findViewById(R.id.file_video);
         file_other = (LinearLayout) findViewById(R.id.file_other);
+        file_title = (LinearLayout) findViewById(R.id.file_title);
 
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
@@ -129,47 +133,69 @@ public class FileManaActivity extends BaseActivity {
                         file_music_size.setText(Util.convertStorage(musicInfo.size));
                         file_video_size.setText(Util.convertStorage(videoInfo.size));
                         file_other_size.setText(Util.convertStorage(otherInfo.size));
+                        int file_size = 0;
                         if (apkInfo.count == 0) {
                             file_apk.setVisibility(View.GONE);
                             file_apk_null.setVisibility(View.VISIBLE);
+                            file_size++;
                         } else {
                             file_apk.setVisibility(View.VISIBLE);
                             file_apk_null.setVisibility(View.GONE);
                             file_apk_num.setText(apkInfo.count + getString(R.string.file_apk));
+                            ViewGroup parent = (ViewGroup) file_apk_button.getParent();
+                            parent.removeView(file_apk_button);
+                            parent.addView(file_apk_button);
                         }
                         if (zipInfo.count == 0) {
+                            file_size++;
                             file_zip.setVisibility(View.GONE);
                             file_zip_null.setVisibility(View.VISIBLE);
                         } else {
                             file_zip.setVisibility(View.VISIBLE);
                             file_zip_null.setVisibility(View.GONE);
                             file_zip_num.setText(zipInfo.count + getString(R.string.file_zip));
+                            ViewGroup parent = (ViewGroup) file_zip_button.getParent();
+                            parent.removeView(file_zip_button);
+                            parent.addView(file_zip_button);
                         }
                         if (docInfo.count == 0) {
+                            file_size++;
                             file_txt.setVisibility(View.GONE);
                             file_txt_null.setVisibility(View.VISIBLE);
                         } else {
                             file_txt.setVisibility(View.VISIBLE);
                             file_txt_null.setVisibility(View.GONE);
                             file_txt_num.setText(docInfo.count + getString(R.string.file_txt));
+                            ViewGroup parent = (ViewGroup) file_txt_button.getParent();
+                            parent.removeView(file_txt_button);
+                            parent.addView(file_txt_button);
                         }
                         if (musicInfo.count == 0) {
+                            file_size++;
                             file_music.setVisibility(View.GONE);
                             file_music_null.setVisibility(View.VISIBLE);
                         } else {
                             file_music.setVisibility(View.VISIBLE);
                             file_music_null.setVisibility(View.GONE);
                             file_music_num.setText(musicInfo.count + getString(R.string.file_music));
+                            ViewGroup parent = (ViewGroup) file_music_button.getParent();
+                            parent.removeView(file_music_button);
+                            parent.addView(file_music_button);
                         }
                         if (videoInfo.count == 0) {
+                            file_size++;
                             file_video.setVisibility(View.GONE);
                             file_video_null.setVisibility(View.VISIBLE);
                         } else {
                             file_video.setVisibility(View.VISIBLE);
                             file_video_null.setVisibility(View.GONE);
                             file_video_num.setText(videoInfo.count + getString(R.string.file_video));
+                            ViewGroup parent = (ViewGroup) file_music_button.getParent();
+                            parent.removeView(file_music_button);
+                            parent.addView(file_music_button);
                         }
                         if (otherInfo.count == 0) {
+                            file_size++;
                             file_other.setVisibility(View.GONE);
                             file_other_null.setVisibility(View.VISIBLE);
                         } else {
@@ -178,6 +204,9 @@ public class FileManaActivity extends BaseActivity {
                             file_other_num.setText(otherInfo.count + getString(R.string.file_other));
                         }
                         file_piechart.setProgress(mHandler, apkInfo.size, zipInfo.size, docInfo.size, musicInfo.size, videoInfo.size, otherInfo.size);
+                        if (file_size == 6) {
+                            file_title.setVisibility(View.GONE);
+                        }
                         setListener();
                     }
                 });

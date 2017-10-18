@@ -63,6 +63,7 @@
                 android:textColor="@color/A8"
                 android:textSize="@dimen/s12" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/ll_ad"
             android:layout_width="match_parent"
@@ -74,6 +75,7 @@
             android:elevation="@dimen/d2"
             android:orientation="vertical"
             android:visibility="gone" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -119,8 +121,8 @@
 
         <Button
             android:id="@+id/gboost_clean_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/d95"
+            android:layout_height="@dimen/d95"
             android:background="@drawable/shape_button"
             android:visibility="visible" />
     </FrameLayout>
@@ -239,6 +241,7 @@
             </FrameLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/ll_ad_a"
             android:layout_width="match_parent"

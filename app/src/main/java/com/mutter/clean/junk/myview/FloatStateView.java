@@ -24,9 +24,9 @@ public class FloatStateView extends View {
     public static final int STATE_LEFT = 1;
     public static final int STATE_RIGHT = 2;
 
-    public int height = Util.dp2px(30);
+    public int height;
     private Paint textPaint;
-    public int width = Util.dp2px(30);
+    public int width;
     private Paint firstPaint;
     private String text = "50%";
     private int type = 1;
@@ -46,6 +46,8 @@ public class FloatStateView extends View {
 
     public FloatStateView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        width = getResources().getDimensionPixelOffset(R.dimen.d30);
+        height = getResources().getDimensionPixelOffset(R.dimen.d30);
         init();
 
     }
@@ -75,7 +77,7 @@ public class FloatStateView extends View {
 
         // 文字
         textPaint = new Paint();
-        textPaint.setTextSize(Util.dp2px(12));
+        textPaint.setTextSize(getResources().getDimensionPixelOffset(R.dimen.s12));
         textPaint.setColor(Color.WHITE);
         textPaint.setAntiAlias(true);
         textPaint.setFakeBoldText(true);

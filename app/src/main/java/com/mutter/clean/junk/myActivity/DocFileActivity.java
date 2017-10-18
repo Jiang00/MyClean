@@ -198,8 +198,8 @@ public class DocFileActivity extends BaseActivity {
         initDoc();
         initTxt();
         initPdf();
-        viewList.add(view_doc);
         viewList.add(view_txt);
+        viewList.add(view_doc);
         viewList.add(view_pdf);
         doc_view_pager.setAdapter(new PagerAdapter() {
             @Override
