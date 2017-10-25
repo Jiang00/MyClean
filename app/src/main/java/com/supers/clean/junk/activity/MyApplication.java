@@ -22,6 +22,7 @@ import com.fraumobi.call.service.PhoneService;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.service.AutoService;
 import com.supers.clean.junk.service.FloatService;
+import com.supers.clean.junk.service.MyFileObserver;
 import com.supers.clean.junk.service.NotificationService;
 import com.android.clean.util.Constant;
 import com.supers.clean.junk.util.BadgerCount;
@@ -124,7 +125,7 @@ public class MyApplication extends App {
             intent.putExtra("from", "notification");
             startService(intent);
         }
-
+        startService(new Intent(this, MyFileObserver.class));
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            // This process is dedicated to LeakCanary for heap analysis.
 //            // You should not init your app in this process.

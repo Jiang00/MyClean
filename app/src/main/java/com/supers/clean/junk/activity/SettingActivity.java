@@ -1,12 +1,17 @@
 package com.supers.clean.junk.activity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -50,6 +55,8 @@ public class SettingActivity extends BaseActivity {
     private String TAG_SETTING = "eos_setting";
     private Handler myHandler;
     private LottieAnimationView lot_setting;
+    private AlertDialog dialog;
+    private AnimatorSet animatorSet_rotate;
 
     @Override
     protected void findId() {
@@ -384,7 +391,8 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_rotate:
                     AdUtil.track("设置页面", "好评", "", 1);
-                    UtilGp.rate(SettingActivity.this);
+
+                    showExitDialog();
                     break;
                 case R.id.setting_privacy:
                     AdUtil.track("设置页面", "隐私清理", "", 1);
@@ -403,6 +411,61 @@ public class SettingActivity extends BaseActivity {
                     break;
                 default:
                     break;
+            }
+        }
+    };
+
+    private void showExitDialog() {
+        View view = View.inflate(this, R.layout.dialog_rotate, null);
+        ImageView rotate_delete = (ImageView) view.findViewById(R.id.rotate_delete);
+        ImageView rotate_ic = (ImageView) view.findViewById(R.id.rotate_ic);
+        Button main_rotate_good = (Button) view.findViewById(R.id.main_rotate_good);
+        animatorSet_rotate = new AnimatorSet();
+        ObjectAnimator objectAnimator_0 = ObjectAnimator.ofFloat(rotate_ic, View.ALPHA, 1, 0);
+        objectAnimator_0.setDuration(800);
+        ObjectAnimator objectAnimator_1 = ObjectAnimator.ofFloat(rotate_ic, View.SCALE_X, 0, 1);
+        objectAnimator_1.setDuration(700);
+        ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(rotate_ic, View.SCALE_Y, 0, 1);
+        objectAnimator_2.setDuration(700);
+        ObjectAnimator objectAnimator_3 = ObjectAnimator.ofFloat(rotate_ic, View.ALPHA, 0, 1);
+        objectAnimator_3.setDuration(700);
+        animatorSet_rotate.play(objectAnimator_1).with(objectAnimator_2).with(objectAnimator_3).after(objectAnimator_0);
+        myHandler.postDelayed(runnable_rotate, 1000);
+        main_rotate_good.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                UtilGp.rate(SettingActivity.this);
+            }
+        });
+        rotate_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
+        dialog.show();
+        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                if (myHandler != null) {
+                    myHandler.removeCallbacks(runnable_rotate);
+                    animatorSet_rotate.cancel();
+                }
+            }
+        });
+    }
+
+    Runnable runnable_rotate = new Runnable() {
+        @Override
+        public void run() {
+            if (animatorSet_rotate != null) {
+                animatorSet_rotate.start();
+                myHandler.postDelayed(this, 3000);
             }
         }
     };

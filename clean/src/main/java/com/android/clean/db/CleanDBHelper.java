@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.android.clean.util.LoadManager;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -34,7 +35,7 @@ public class CleanDBHelper extends SQLiteOpenHelper {
     private Context mContext;
 
     public enum TableType {
-        Ram, Notification, GameBoost
+        Ram, Notification, GameBoost, RacentFile
     }
 
     private CleanDBHelper(Context context) {
@@ -143,6 +144,41 @@ public class CleanDBHelper extends SQLiteOpenHelper {
                 if (!LoadManager.getInstance(mContext).isPkgInstalled(pkgName)) {
                     deleteItem(tableType, pkgName);
                     continue;
+                }
+                whiteList.add(pkgName);
+            } while (cursor.moveToNext());
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e("rqy", "e.message=" + e.getMessage());
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return whiteList;
+    }
+
+    public ArrayList<String> getFileList(TableType tableType) {
+        String table_name = getTableName(tableType);
+        //先删除过期文件
+
+        ArrayList<String> whiteList = new ArrayList<>();
+        Cursor cursor = null;
+        try {
+            cursor = getWritableDatabase().rawQuery("select " + PKG_NAME + " from " + table_name, null);
+            if (cursor == null || cursor.getCount() == 0) {
+                return whiteList;
+            }
+            cursor.moveToFirst();
+            do {
+                //遍历出表名
+                String pkgName = cursor.getString(0);
+                File file = new File(pkgName);
+                if (file.exists() && file.isFile()) {
+                    if (file.length() < 1024 * 10) {
+                        deleteItem(tableType, pkgName);
+                        continue;
+                    }
                 }
                 whiteList.add(pkgName);
             } while (cursor.moveToNext());

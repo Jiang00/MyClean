@@ -43,7 +43,7 @@ public class NotifiActivity extends Activity {
     TextView title_name;
     ImageView title_right;
     ListView list_si;
-    TextView white_wu;
+    FrameLayout white_wu;
     RelativeLayout notifi_button_rl;
     Button notifi_button_clean;
 
@@ -69,7 +69,7 @@ public class NotifiActivity extends Activity {
         list_si = (ListView) findViewById(R.id.list_si);
         title_name = (TextView) findViewById(R.id.title_name);
         title_right = (ImageView) findViewById(R.id.title_right);
-        white_wu = (TextView) findViewById(R.id.white_wu);
+        white_wu = (FrameLayout) findViewById(R.id.white_wu);
         notifi_button_rl = (RelativeLayout) findViewById(R.id.notifi_button_rl);
         notifi_button_clean = (Button) findViewById(R.id.notifi_button_clean);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);

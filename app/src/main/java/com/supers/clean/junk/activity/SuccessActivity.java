@@ -1,6 +1,7 @@
 package com.supers.clean.junk.activity;
 
 import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,6 +20,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -72,9 +74,9 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_picture_button;
     ImageView power_icon;
     TextView power_text;
-    LinearLayout main_rotate_good;
+    Button main_rotate_good;
+    ImageView rotate_ic;
     ImageView rotate_delete;
-    TextView main_rotate_bad;
     //    ImageView delete;
     ImageView success_progress;
     LinearLayout ad_title;
@@ -100,6 +102,7 @@ public class SuccessActivity extends BaseActivity {
     private boolean haveAd;
     private boolean animationEnd;
     private MyApplication cleanApplication;
+    private AnimatorSet animatorSet_rotate;
 
     @Override
     protected void findId() {
@@ -122,9 +125,9 @@ public class SuccessActivity extends BaseActivity {
         main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
         main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         power_text = (TextView) findViewById(R.id.power_text);
-        main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
+        main_rotate_good = (Button) findViewById(R.id.main_rotate_good);
+        rotate_ic = (ImageView) findViewById(R.id.rotate_ic);
         rotate_delete = (ImageView) findViewById(R.id.rotate_delete);
-        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
 //        delete = (ImageView) findViewById(R.id.delete);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
@@ -274,7 +277,30 @@ public class SuccessActivity extends BaseActivity {
                 ll_ad_xiao.setVisibility(View.VISIBLE);
             }
         }
+        if (main_rotate_all.getVisibility() == View.VISIBLE) {
+            animatorSet_rotate = new AnimatorSet();
+            ObjectAnimator objectAnimator_0 = ObjectAnimator.ofFloat(rotate_ic, View.ALPHA, 1, 0);
+            objectAnimator_0.setDuration(800);
+            ObjectAnimator objectAnimator_1 = ObjectAnimator.ofFloat(rotate_ic, View.SCALE_X, 0, 1);
+            objectAnimator_1.setDuration(700);
+            ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(rotate_ic, View.SCALE_Y, 0, 1);
+            objectAnimator_2.setDuration(700);
+            ObjectAnimator objectAnimator_3 = ObjectAnimator.ofFloat(rotate_ic, View.ALPHA, 0, 1);
+            objectAnimator_3.setDuration(700);
+            animatorSet_rotate.play(objectAnimator_1).with(objectAnimator_2).with(objectAnimator_3).after(objectAnimator_0);
+            myHandler.postDelayed(runnable_rotate, 2000);
+        }
     }
+
+    Runnable runnable_rotate = new Runnable() {
+        @Override
+        public void run() {
+            if (animatorSet_rotate != null) {
+                animatorSet_rotate.start();
+                myHandler.postDelayed(this, 2000);
+            }
+        }
+    };
 
     private void shendu() {
         cleanApplication = (MyApplication) getApplication();
@@ -344,7 +370,6 @@ public class SuccessActivity extends BaseActivity {
     private void addListener() {
         title_left.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
-        main_rotate_bad.setOnClickListener(onClickListener);
         rotate_delete.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
@@ -567,14 +592,16 @@ public class SuccessActivity extends BaseActivity {
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     UtilGp.rate(SuccessActivity.this);
                     main_rotate_all.setVisibility(View.GONE);
+                    myHandler.removeCallbacks(runnable_rotate);
                     break;
-                case R.id.main_rotate_bad:
-                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
-                    main_rotate_all.setVisibility(View.GONE);
-                    break;
+//                case R.id.main_rotate_bad:
+//                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
+//                    main_rotate_all.setVisibility(View.GONE);
+//                    break;
                 case R.id.rotate_delete:
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE_SUCC, true);
                     main_rotate_all.setVisibility(View.GONE);
+                    myHandler.removeCallbacks(runnable_rotate);
                     break;
                 case R.id.main_power_button:
                     if (TextUtils.equals("power", getIntent().getStringExtra("from"))) {
@@ -685,6 +712,9 @@ public class SuccessActivity extends BaseActivity {
         super.onDestroy();
         if (success_drawhook != null) {
             success_drawhook.setListener(null);
+        }
+        if (myHandler != null) {
+            myHandler.removeCallbacks(runnable_rotate);
         }
     }
 

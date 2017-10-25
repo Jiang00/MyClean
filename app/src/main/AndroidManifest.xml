@@ -139,7 +139,7 @@
         <activity
             android:name=".activity.SuccessActivity"
             android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="eos.successactivity" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -250,6 +250,9 @@
             android:name=".activity.FileActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.SDCardActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.FileListActivity"
             android:screenOrientation="portrait">
 
@@ -257,6 +260,10 @@
         <activity
             android:name=".activity.FileDocActivity"
             android:screenOrientation="portrait" />
+
+        <service
+            android:name=".service.MyFileObserver"
+            android:excludeFromRecents="true" />
 
         <!--<service-->
         <!--android:name=".widget.WidgetService"-->

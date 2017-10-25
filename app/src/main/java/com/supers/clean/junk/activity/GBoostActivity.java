@@ -16,6 +16,7 @@ import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -271,10 +272,10 @@ public class GBoostActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.add_right:
-                    toggleEditAnimation();
+                    toggleEditAnimation(true);
                     break;
                 case R.id.clear:
-                    toggleEditAnimation();
+                    toggleEditAnimation(false);
                     break;
 
                 case R.id.gboost_power_check:
@@ -307,36 +308,23 @@ public class GBoostActivity extends BaseActivity {
         }
     };
 
-    private void toggleEditAnimation() {
+
+    private void toggleEditAnimation(final boolean isVisible) {
         final View searchView = findViewById(R.id.goost_container);
-        View normalView = findViewById(R.id.normal_bar);
-
-        final View visibleView, invisibleView;
-        if (searchView.getVisibility() == View.GONE) {
-            visibleView = normalView;
-            invisibleView = searchView;
-        } else {
-            visibleView = searchView;
-            invisibleView = normalView;
-//            showSoftKeyboard(AbsActivity.this, null, false);
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(searchView, View.TRANSLATION_X, metrics.widthPixels, 0);
+        if (!isVisible) {
+            animator = ObjectAnimator.ofFloat(searchView, View.TRANSLATION_X, 0, metrics.widthPixels);
         }
-
-        final ObjectAnimator invis2vis = ObjectAnimator.ofFloat(invisibleView, "rotationY", -90, 0);
-        invis2vis.setDuration(500);
-        invis2vis.setInterpolator(new LinearInterpolator());
-        ObjectAnimator vis2invis = ObjectAnimator.ofFloat(visibleView, "rotationY", 0, 90);
-        vis2invis.setDuration(500);
-        vis2invis.setInterpolator(new LinearInterpolator());
-
-        vis2invis.addListener(new AnimatorListenerAdapter() {
+        animator.setDuration(500);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                visibleView.setVisibility(View.GONE);
-                invisibleView.setVisibility(View.VISIBLE);
-
-                if (search) {
+                if (!isVisible) {
                     initData();
-                    search = false;
+                    searchView.setVisibility(View.GONE);
                 } else {
                     search_edit_text.setText("");
                     search_edit_text.addTextChangedListener(new TextWatcher() {
@@ -355,13 +343,13 @@ public class GBoostActivity extends BaseActivity {
 
                         }
                     });
-                    search = true;
                 }
-
-                invis2vis.start();
             }
         });
-        vis2invis.start();
+        animator.start();
+        if (isVisible) {
+            searchView.setVisibility(View.VISIBLE);
+        }
     }
 
     private long getCup() {

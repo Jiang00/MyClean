@@ -47,7 +47,7 @@ public class PictureHuiActivity extends BaseActivity {
     TextView title_name;
     TextView title_check;
     RecyclerView picture_hui_recyc;
-    TextView hui_never;
+    FrameLayout hui_never;
     LinearLayout ll_picture;
     TextView picture_restore;
     TextView picture_delete;
@@ -69,7 +69,7 @@ public class PictureHuiActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         title_check = (TextView) findViewById(R.id.title_check);
         picture_hui_recyc = (RecyclerView) findViewById(R.id.picture_hui_recyc);
-        hui_never = (TextView) findViewById(R.id.hui_never);
+        hui_never = (FrameLayout) findViewById(R.id.hui_never);
         ll_picture = (LinearLayout) findViewById(R.id.ll_picture);
         picture_restore = (TextView) findViewById(R.id.picture_restore);
         picture_delete = (TextView) findViewById(R.id.picture_delete);

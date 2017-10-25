@@ -15,6 +15,7 @@ import com.android.clean.filemanager.Util;
 import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.service.FileIconHelper;
 
 /**
  * Created by Ivy on 2017/4/21.
@@ -62,6 +63,8 @@ public class FileAdapter extends MybaseAdapter<JunkInfo> {
             viewHolder.file_icon.setImageResource(R.mipmap.file_video_icon);
         } else if (TextUtils.equals("other", name)) {
             viewHolder.file_icon.setImageResource(R.mipmap.file_other_icon);
+        } else if (TextUtils.equals("racent", name)) {
+            FileIconHelper.setIcon(info.path, viewHolder.file_icon);
         } else {
             viewHolder.file_icon.setImageDrawable(info.icon);
         }

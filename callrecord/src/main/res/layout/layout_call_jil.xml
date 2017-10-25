@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f1f1f1"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <View
@@ -70,7 +70,7 @@
                 android:background="@color/A8" />
         </LinearLayout>
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/null_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,18 +82,19 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:src="@mipmap/null_lanjie" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/d16"
+                android:layout_marginTop="@dimen/d72"
                 android:gravity="center_horizontal"
                 android:text="@string/call_1"
                 android:textColor="@color/black_20"
                 android:textSize="@dimen/s16" />
-        </LinearLayout>
+        </FrameLayout>
 
     </FrameLayout>
 </LinearLayout>

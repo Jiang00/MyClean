@@ -10,10 +10,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +65,8 @@ public class PowerActivity extends BaseActivity {
     private PowerWidgetContainer container;
     private int count = 0;
     private LinearLayout ll_ad;
-
+    private ArrayList<View> viewList;
+    ViewPager view_pager;
 
     @Override
     protected void findId() {
@@ -70,9 +74,10 @@ public class PowerActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
-        power_size = (TextView) findViewById(R.id.power_size);
+
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        view_pager = (ViewPager) findViewById(R.id.view_pager);
     }
 
     @Override
@@ -86,6 +91,7 @@ public class PowerActivity extends BaseActivity {
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", false));
         initData();
         title_name.setText(R.string.side_power);
+
         power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         mLayoutManager = new GridLayoutManager(this, 4);//设置为一个4列的纵向网格布局
         power_recycler.setLayoutManager(mLayoutManager);
@@ -162,20 +168,14 @@ public class PowerActivity extends BaseActivity {
             }
             junk_button_clean.callOnClick();
         }
-        addAd();
     }
 
-    private void addAd() {
-        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
-        if (ll_ad != null && native_xiao != null) {
-            ll_ad.addView(native_xiao);
-            ll_ad.setVisibility(View.VISIBLE);
-        }
-    }
 
     private void setContainer() {
         containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
         containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
+        containerView.findViewById(R.id.view_con).setVisibility(View.VISIBLE);
+        containerView.findViewById(R.id.view_pager).setVisibility(View.GONE);
         TextView name = (TextView) containerView.findViewById(R.id.title_name);
         containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
         name.setText(R.string.side_power);
@@ -282,10 +282,58 @@ public class PowerActivity extends BaseActivity {
         cleanApplication = (MyApplication) getApplication();
         startList = new ArrayList<>();
         for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
+            Log.e("deep", "sss===1");
             if (info.isSelfBoot) {
+                Log.e("deep", "sss===2");
                 startList.add(info);
             }
         }
+        viewList = new ArrayList<>();
+        View layout_deep_ad = LayoutInflater.from(this).inflate(R.layout.layout_power_pager, null);
+        power_size = (TextView) layout_deep_ad.findViewById(R.id.power_size);
+        viewList.add(layout_deep_ad);
+        View nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (nativeView != null) {
+            viewList.add(nativeView);
+        }
+        view_pager.setAdapter(new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return viewList.size();
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                container.addView(viewList.get(position), 0);
+                return viewList.get(position);
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                View view = (View) object;
+                container.removeView(view);
+                view = null;
+            }
+
+            @Override
+            public int getItemPosition(Object object) {
+                return POSITION_NONE;
+            }
+
+
+            @Override
+            public boolean isViewFromObject(View arg0, Object arg1) {
+                return arg0 == arg1;
+            }
+
+
+        });
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view_pager.setCurrentItem(1);
+            }
+        }, 2000);
     }
 
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {

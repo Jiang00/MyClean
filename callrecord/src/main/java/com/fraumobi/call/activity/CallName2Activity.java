@@ -37,13 +37,13 @@ public class CallName2Activity extends BaseActivity {
     ListView call_list;
     FrameLayout title_left;
     ProgressBar progressbar;
-    LinearLayout null_call;
+    FrameLayout null_call;
 
     protected void findId() {
         call_list = (ListView) findViewById(R.id.call_list);
         title_left = (FrameLayout) findViewById(R.id.title_left);
         progressbar = (ProgressBar) findViewById(R.id.progressbar);
-        null_call = (LinearLayout) findViewById(R.id.null_call);
+        null_call = (FrameLayout) findViewById(R.id.null_call);
     }
 
     @Override

@@ -29,6 +29,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.AnticipateInterpolator;
 import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.RotateAnimation;
@@ -98,9 +99,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LinearLayout main_manager_button, main_applock_button, main_theme_button;
     TextView main_junk_h, main_ram_h, main_cooling_h;
     LinearLayout main_rotate_all;
-    LinearLayout main_rotate_good;
+    Button main_rotate_good;
+    ImageView rotate_ic;
     ImageView rotate_delete;
-    TextView main_rotate_bad;
     LinearLayout main_tuiguang_button;
     FrameLayout fl_lot_main;
     TextView main_msg_tuiguang;
@@ -128,7 +129,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LottieAnimationView lot_main_tap;
     ImageView lot_family;
     FrameLayout load_loading;
-    ImageView load_1, load_2, load_3, load_4, load_5, load_6;
+    ImageView load_1, load_2;
     ImageView menu_hong;
 
     LottieAnimationView lot_side;
@@ -164,6 +165,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private ArrayList<View> arrayList;
     private AnimatorSet animatorSet;
     private AnimationDrawable animationDrawable;
+    private AnimatorSet animatorSet_rotate;
 
     @Override
     protected void findId() {
@@ -187,9 +189,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_ram_h = (TextView) findViewById(R.id.main_ram_h);
         main_cooling_h = (TextView) findViewById(R.id.main_cooling_h);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
-        main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
+        main_rotate_good = (Button) findViewById(R.id.main_rotate_good);
+        rotate_ic = (ImageView) findViewById(R.id.rotate_ic);
         rotate_delete = (ImageView) findViewById(R.id.rotate_delete);
-        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
         fl_lot_main = (FrameLayout) findViewById(R.id.fl_lot_main);
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
@@ -219,10 +221,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         load_loading = (FrameLayout) findViewById(R.id.load_loading);
         load_1 = (ImageView) findViewById(R.id.load_1);
         load_2 = (ImageView) findViewById(R.id.load_2);
-        load_3 = (ImageView) findViewById(R.id.load_3);
-        load_4 = (ImageView) findViewById(R.id.load_4);
-        load_5 = (ImageView) findViewById(R.id.load_5);
-        load_6 = (ImageView) findViewById(R.id.load_6);
         menu_hong = (ImageView) findViewById(R.id.menu_hong);
         main_battery = (LinearLayout) findViewById(R.id.main_battery);
     }
@@ -442,8 +440,30 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             battery_cha.setOnClickListener(onClickListener);
             battery_button.setOnClickListener(onClickListener);
         }
-
+        if (main_rotate_all.getVisibility() == View.VISIBLE) {
+            animatorSet_rotate = new AnimatorSet();
+            ObjectAnimator objectAnimator_0 = ObjectAnimator.ofFloat(rotate_ic, View.ALPHA, 1, 0);
+            objectAnimator_0.setDuration(800);
+            ObjectAnimator objectAnimator_1 = ObjectAnimator.ofFloat(rotate_ic, View.SCALE_X, 0, 1);
+            objectAnimator_1.setDuration(700);
+            ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(rotate_ic, View.SCALE_Y, 0, 1);
+            objectAnimator_2.setDuration(700);
+            ObjectAnimator objectAnimator_3 = ObjectAnimator.ofFloat(rotate_ic, View.ALPHA, 0, 1);
+            objectAnimator_3.setDuration(700);
+            animatorSet_rotate.play(objectAnimator_1).with(objectAnimator_2).with(objectAnimator_3).after(objectAnimator_0);
+            handler.postDelayed(runnable_rotate, 2000);
+        }
     }
+
+    Runnable runnable_rotate = new Runnable() {
+        @Override
+        public void run() {
+            if (animatorSet_rotate != null) {
+                animatorSet_rotate.start();
+                handler.postDelayed(this, 3000);
+            }
+        }
+    };
 
     private void showDetectDialog() {
         View view = View.inflate(this, R.layout.layout_battery_r, null);
@@ -654,7 +674,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_theme_button.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         rotate_delete.setOnClickListener(onClickListener);
-        main_rotate_bad.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
@@ -788,7 +807,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     public void initSideData() {
         if (adapter == null) {
-            adapter = new SideAdapter(this);
+            adapter = new SideAdapter(this, handler);
             side_listView.setAdapter(adapter);
         }
         adapter.clear();
@@ -822,6 +841,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     public void setRotateGone() {
         main_rotate_all.setVisibility(View.GONE);
+        handler.removeCallbacks(runnable_rotate);
     }
 
     @Override
@@ -1036,23 +1056,21 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     if (PreData.getDB(MainActivity.this, Constant.FULL_START, 0) == 1) {
 
                         animatorSet = new AnimatorSet();
-                        ObjectAnimator animator_1 = ObjectAnimator.ofFloat(load_1, View.ROTATION, 0, 30, 0, -30, 0);
-                        animator_1.setRepeatCount(2);
-                        ObjectAnimator animator_2 = ObjectAnimator.ofFloat(load_2, View.ROTATION, 0, -30, 0, 30, 0);
-                        animator_2.setRepeatCount(2);
-                        ObjectAnimator animator_3 = ObjectAnimator.ofFloat(load_3, View.ROTATION, 0, 30, 0, -30, 0);
-                        animator_3.setRepeatCount(2);
-                        ObjectAnimator animator_4 = ObjectAnimator.ofFloat(load_4, View.ROTATION, 0, -30, 0, 30, 0);
-                        animator_4.setRepeatCount(2);
-                        ObjectAnimator animator_5 = ObjectAnimator.ofFloat(load_5, View.ROTATION, 0, 30, 0, -30, 0);
-                        animator_5.setRepeatCount(2);
-                        ObjectAnimator animator_6 = ObjectAnimator.ofFloat(load_6, View.ROTATION, 0, -30, 0, 30, 0);
-                        animator_6.setRepeatCount(2);
-                        animatorSet.play(animator_1).with(animator_2).with(animator_3).with(animator_4).with(animator_5).with(animator_6);
-                        animatorSet.setDuration(1500);
-                        animatorSet.setInterpolator(new LinearInterpolator());
+                        load_2.setScaleX(1);
+                        load_2.setScaleY(1);
+                        load_2.setTranslationX(0);
+                        ObjectAnimator animator_1 = ObjectAnimator.ofFloat(load_2, View.SCALE_Y, 1, 1.2f, 1);
+                        animator_1.setRepeatCount(3);
+                        animator_1.setDuration(1000);
+                        ObjectAnimator animator_2 = ObjectAnimator.ofFloat(load_2, View.SCALE_X, 1, 1.2f, 1);
+                        animator_2.setRepeatCount(3);
+                        animator_2.setDuration(1000);
+                        ObjectAnimator animator_3 = ObjectAnimator.ofFloat(load_2, View.TRANSLATION_X, 0, -getResources().getDimensionPixelSize(R.dimen.d5), 0);
+                        animator_3.setRepeatCount(3);
+                        animator_3.setDuration(1000);
+                        animatorSet.play(animator_1).with(animator_2).with(animator_3);
+//                        animatorSet.setInterpolator(new DecelerateInterpolator());
                         animatorSet.start();
-                        load_loading.setBackgroundColor(getResources().getColor(R.color.load_1));
                         load_loading.setVisibility(View.VISIBLE);
                         load = false;
                         AndroidSdk.loadFullAd(TAG_LOAD_FULL, new AdListener() {
@@ -1074,7 +1092,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                                 load_loading.setVisibility(View.GONE);
                             }
                         });
-                        handler.postDelayed(runnable_color, 375);
                         handler.postDelayed(runnable_load, 4500);
                     } else {
                         Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
@@ -1137,10 +1154,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.main_rotate_good:
                     AdUtil.track("主页面", "点击好评good按钮", "", 1);
                     mainPresenter.clickRotate(true);
-                    break;
-                case R.id.main_rotate_bad:
-                    AdUtil.track("主页面", "点击好评bad按钮", "", 1);
-                    mainPresenter.clickRotate(false);
                     break;
                 case R.id.rotate_delete:
                     AdUtil.track("主页面", "点击好评bad按钮", "", 1);
@@ -1216,7 +1229,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     public void run() {
                         load_loading.setVisibility(View.GONE);
                     }
-                }, 1500);
+                }, 500);
             } else {
                 if (animatorSet != null) {
                     animatorSet.removeAllListeners();
@@ -1233,19 +1246,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
     };
     private ValueAnimator colorAnim;
-    Runnable runnable_color = new Runnable() {
-        @Override
-        public void run() {
-            colorAnim = ObjectAnimator.ofInt(load_loading, "backgroundColor", getResources().getColor(R.color.load_1),
-                    getResources().getColor(R.color.load_2), getResources().getColor(R.color.load_3),
-                    getResources().getColor(R.color.load_4), getResources().getColor(R.color.load_5), getResources().getColor(R.color.load_6));
-            colorAnim.setDuration(4125);
-            colorAnim.setInterpolator(new LinearInterpolator());
-            colorAnim.setRepeatCount(0);
-            colorAnim.setEvaluator(new ArgbEvaluator());
-            colorAnim.start();
-        }
-    };
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -1360,6 +1360,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             if (animationDrawable.isRunning()) {
                 animationDrawable.stop();
             }
+        }
+        if (handler != null) {
+            handler.removeCallbacks(runnable_rotate);
         }
     }
 

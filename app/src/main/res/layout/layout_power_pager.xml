@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:paddingBottom="13dp"
+        android:paddingTop="13dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="27dp"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/power_2" />
+
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+            android:id="@+id/power_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/power_1"
+            android:textColor="#ff3131"
+            android:textSize="13sp"
+            app:typeface="eos_clean.otf" />
+
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@string/power_2"
+            android:textColor="#808ea4"
+            android:textSize="13sp"
+            app:typeface="eos_clean.otf" />
+    </LinearLayout>
+
+</LinearLayout>

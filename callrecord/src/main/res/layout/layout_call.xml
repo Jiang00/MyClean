@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f1f1f1"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <View
@@ -14,7 +14,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,27 +51,32 @@
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s18" />
 
-                <ImageView
-                    android:id="@+id/title_checked"
-                    android:layout_width="@dimen/d40"
-                    android:layout_height="@dimen/d40"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/d8"
-                    android:clickable="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/call_check_all" />
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/title_setting"
-                    android:layout_width="@dimen/d40"
-                    android:layout_height="@dimen/d40"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:layout_toLeftOf="@id/title_checked"
-                    android:clickable="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/call_setting" />
+                    <ImageView
+                        android:id="@+id/title_setting"
+                        android:layout_width="@dimen/d40"
+                        android:layout_height="@dimen/d40"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@mipmap/call_setting" />
+
+                    <ImageView
+                        android:id="@+id/title_checked"
+                        android:layout_width="@dimen/d40"
+                        android:layout_height="@dimen/d40"
+                        android:clickable="true"
+                        android:scaleType="center"
+                        android:src="@mipmap/call_check_all" />
+
+
+                </LinearLayout>
             </RelativeLayout>
 
             <LinearLayout
@@ -117,7 +121,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/null_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -129,18 +133,19 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:src="@mipmap/null_lanjie" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/d16"
+                android:layout_marginTop="@dimen/d72"
                 android:gravity="center_horizontal"
                 android:text="@string/call_1"
                 android:textColor="@color/black_20"
                 android:textSize="@dimen/s16" />
-        </LinearLayout>
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/add_check_fl"
@@ -152,10 +157,12 @@
 
             <LinearLayout
                 android:id="@+id/add_check"
-                android:layout_width="@dimen/d120"
-                android:layout_height="@dimen/d100"
+                android:layout_width="@dimen/d146"
+                android:layout_height="@dimen/d121"
                 android:layout_gravity="right"
-                android:background="@color/white_100"
+                android:layout_marginRight="@dimen/d5"
+                android:layout_marginTop="@dimen/d5"
+                android:background="@drawable/shape_ffffff_r"
                 android:elevation="@dimen/d4"
                 android:orientation="vertical">
 
@@ -169,7 +176,7 @@
                     android:paddingLeft="@dimen/s8"
                     android:text="@string/call_add_tongxunlu"
                     android:textColor="@color/black_87"
-                    android:textSize="@dimen/s13" />
+                    android:textSize="@dimen/s16" />
 
                 <TextView
                     android:id="@+id/check_jilu"
@@ -181,7 +188,7 @@
                     android:paddingLeft="@dimen/s8"
                     android:text="@string/call_add_jilu"
                     android:textColor="@color/black_87"
-                    android:textSize="@dimen/s13" />
+                    android:textSize="@dimen/s16" />
 
                 <TextView
                     android:id="@+id/check_shou"
@@ -193,7 +200,7 @@
                     android:paddingLeft="@dimen/s8"
                     android:text="@string/call_add_shou"
                     android:textColor="@color/black_87"
-                    android:textSize="@dimen/s13" />
+                    android:textSize="@dimen/s16" />
             </LinearLayout>
         </FrameLayout>
     </FrameLayout>

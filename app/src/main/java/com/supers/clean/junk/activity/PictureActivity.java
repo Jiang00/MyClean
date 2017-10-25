@@ -58,7 +58,7 @@ public class PictureActivity extends BaseActivity {
     Button picture_button;
     TextView picture_scan;
     ProgressBar picture_progressbar;
-    LinearLayout picture_other;
+    FrameLayout picture_other;
     RecyclerView picture_recycle;
     ViewPager picture_pager;
     FrameLayout pager_fl;
@@ -92,7 +92,7 @@ public class PictureActivity extends BaseActivity {
         picture_button = (Button) findViewById(R.id.picture_button);
         picture_scan = (TextView) findViewById(R.id.picture_scan);
         picture_progressbar = (ProgressBar) findViewById(R.id.picture_progressbar);
-        picture_other = (LinearLayout) findViewById(R.id.picture_other);
+        picture_other = (FrameLayout) findViewById(R.id.picture_other);
         picture_recycle = (RecyclerView) findViewById(R.id.picture_recycle);
         picture_pager = (ViewPager) findViewById(R.id.picture_pager);
         pager_fl = (FrameLayout) findViewById(R.id.pager_fl);
@@ -174,7 +174,6 @@ public class PictureActivity extends BaseActivity {
         title_left.setOnClickListener(clickListener);
         title_right.setOnClickListener(clickListener);
         picture_button.setOnClickListener(clickListener);
-        picture_other.setOnClickListener(clickListener);
         pic_pager_left.setOnClickListener(clickListener);
     }
 
@@ -391,11 +390,6 @@ public class PictureActivity extends BaseActivity {
                         return;
                     }
                     deleteDialog(bitmaps);
-                    break;
-                case R.id.picture_other:
-                    AdUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
-                    jumpTo(JunkActivity.class);
-                    onBackPressed();
                     break;
                 case R.id.pic_pager_left:
                     pager_fl.setVisibility(View.GONE);

@@ -156,105 +156,72 @@
                         android:id="@+id/main_rotate_all"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d10"
+                        android:layout_marginTop="@dimen/d9"
                         android:background="@color/white_100"
                         android:orientation="vertical">
 
-                        <LinearLayout
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d15"
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d19"
-                                android:src="@mipmap/main_rotate_1" />
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d121"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d16"
+                                android:src="@mipmap/main_rotate_2" />
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d5"
-                                android:text="@string/main_rotate_title"
-                                android:textColor="@color/black_87"
-                                android:textSize="@dimen/s16" />
+                            <ImageView
+                                android:id="@+id/rotate_ic"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/d61"
+                                android:layout_gravity="center_horizontal|bottom"
+                                android:src="@mipmap/main_rotate_3" />
+
                             <ImageView
                                 android:id="@+id/rotate_delete"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d16"
-                                android:padding="@dimen/d5"
+                                android:layout_gravity="right"
                                 android:src="@mipmap/rotate_cha" />
-                        </LinearLayout>
+                        </FrameLayout>
 
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d121"
-                            android:layout_marginTop="@dimen/d15"
-                            android:scaleType="centerCrop"
-                            android:layout_marginLeft="@dimen/d16"
-                            android:layout_marginRight="@dimen/d16"
-                            android:src="@mipmap/main_rotate_2" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/d53"
-                            android:layout_marginRight="@dimen/d53"
-                            android:layout_marginTop="@dimen/d18"
+                            android:layout_marginLeft="@dimen/d16"
+                            android:layout_marginRight="@dimen/d16"
+                            android:layout_marginTop="@dimen/d23"
                             android:gravity="center"
-                            android:text="@string/main_rotate_msg"
-                            android:textColor="#1e88e5"
+                            android:text="@string/rotate_1"
+                            android:textColor="@color/black_87"
                             android:textSize="@dimen/s17" />
 
-                        <View
+                        <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="@dimen/d30"
-                            android:background="#e5e5e5" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/d16"
+                            android:layout_marginRight="@dimen/d16"
+                            android:layout_marginTop="@dimen/d14"
+                            android:gravity="center"
+                            android:text="@string/rotate_2"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/s14" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d40"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/main_rotate_bad"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:background="?attr/selectableItemBackground"
-                                android:gravity="center"
-                                android:text="@string/main_rotate_bad"
-                                android:textColor="@color/black_54"
-                                android:textSize="@dimen/s17" />
-
-                            <LinearLayout
-                                android:id="@+id/main_rotate_good"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:background="?attr/selectableItemBackground"
-                                android:gravity="center"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/main_rotate_good"
-                                    android:textColor="@color/black_54"
-                                    android:textSize="@dimen/s17" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
+                        <Button
+                            android:id="@+id/main_rotate_good"
+                            android:layout_width="@dimen/d250"
+                            android:layout_height="@dimen/d37"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="@dimen/d16"
+                            android:layout_marginTop="@dimen/d24"
+                            android:background="@drawable/shape_a1_r"
+                            android:text="@string/rotate_3"
+                            android:textColor="@color/white_100"
+                            android:textSize="@dimen/s17" />
                     </LinearLayout>
 
                     <LinearLayout

@@ -61,7 +61,7 @@ public class CallActivity extends BaseActivity {
     ListView call_list;
     TextView call_delete;
     TextView call_restore;
-    LinearLayout null_call;
+    FrameLayout null_call;
     FrameLayout title_left;
     ImageView title_setting;
     LinearLayout add_check;
@@ -78,7 +78,7 @@ public class CallActivity extends BaseActivity {
         call_list = (ListView) findViewById(R.id.call_list);
         call_delete = (TextView) findViewById(R.id.call_delete);
         call_restore = (TextView) findViewById(R.id.call_restore);
-        null_call = (LinearLayout) findViewById(R.id.null_call);
+        null_call = (FrameLayout) findViewById(R.id.null_call);
         title_setting = (ImageView) findViewById(R.id.title_setting);
         add_check = (LinearLayout) findViewById(R.id.add_check);
         add_check_fl = (FrameLayout) findViewById(R.id.add_check_fl);
@@ -297,8 +297,10 @@ public class CallActivity extends BaseActivity {
             call_delete.setVisibility(View.GONE);
             call_restore.setVisibility(View.GONE);
             null_call.setVisibility(View.VISIBLE);
+            title_checked.setVisibility(View.GONE);
             title_checked.setImageResource(R.mipmap.call_check_all_2);
         } else {
+            title_checked.setVisibility(View.VISIBLE);
             adapter.upList(blockList);
             adapter.notifyDataSetChanged();
             updateTitle();

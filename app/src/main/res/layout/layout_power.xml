@@ -34,7 +34,13 @@
         android:background="@color/A10"
         android:orientation="vertical">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d82" />
+
         <LinearLayout
+            android:id="@+id/view_con"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -42,7 +48,8 @@
             android:background="#ffffff"
             android:orientation="horizontal"
             android:paddingBottom="13dp"
-            android:paddingTop="13dp">
+            android:paddingTop="13dp"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -72,11 +79,6 @@
                 android:textSize="13sp"
                 app:typeface="eos_clean.otf" />
         </LinearLayout>
-        <LinearLayout
-            android:id="@+id/ll_ad"
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/power_recycler"

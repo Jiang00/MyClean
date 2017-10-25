@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.EditText;
@@ -89,7 +90,7 @@ public class WhiteListAddActivity extends BaseActivity {
                 white_list.add(info);
             }
         }
-        adapter.addDataList(white_list);
+        adapter.upList(white_list);
         adapter.notifyDataSetChanged();
     }
 
@@ -101,45 +102,33 @@ public class WhiteListAddActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.title_right:
-                    toggleEditAnimation();
+                    toggleEditAnimation(true);
                     break;
                 case R.id.clear:
-                    toggleEditAnimation();
+                    toggleEditAnimation(false);
                     break;
             }
         }
     };
 
-    private void toggleEditAnimation() {
+    private void toggleEditAnimation(final boolean isVisible) {
         final View searchView = findViewById(R.id.search_container);
-        View normalView = findViewById(R.id.normal_bar);
-
-        final View visibleView, invisibleView;
-        if (searchView.getVisibility() == View.GONE) {
-            visibleView = normalView;
-            invisibleView = searchView;
+        ObjectAnimator invis2vis = null;
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+        if (isVisible) {
+            invis2vis = ObjectAnimator.ofFloat(searchView, View.TRANSLATION_X, metrics.widthPixels, 0);
         } else {
-            visibleView = searchView;
-            invisibleView = normalView;
-//            showSoftKeyboard(AbsActivity.this, null, false);
+            invis2vis = ObjectAnimator.ofFloat(searchView, View.TRANSLATION_X, 0, metrics.widthPixels);
         }
-
-        final ObjectAnimator invis2vis = ObjectAnimator.ofFloat(invisibleView, "rotationY", -90, 0);
         invis2vis.setDuration(500);
         invis2vis.setInterpolator(new LinearInterpolator());
-        ObjectAnimator vis2invis = ObjectAnimator.ofFloat(visibleView, "rotationY", 0, 90);
-        vis2invis.setDuration(500);
-        vis2invis.setInterpolator(new LinearInterpolator());
-
-        vis2invis.addListener(new AnimatorListenerAdapter() {
+        invis2vis.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                visibleView.setVisibility(View.GONE);
-                invisibleView.setVisibility(View.VISIBLE);
-
-                if (search) {
+                if (!isVisible) {
                     initData();
-                    search = false;
+                    searchView.setVisibility(View.GONE);
                 } else {
                     search_edit_text.setText("");
                     search_edit_text.addTextChangedListener(new TextWatcher() {
@@ -158,13 +147,13 @@ public class WhiteListAddActivity extends BaseActivity {
 
                         }
                     });
-                    search = true;
                 }
-
-                invis2vis.start();
             }
         });
-        vis2invis.start();
+        invis2vis.start();
+        if (isVisible) {
+            searchView.setVisibility(View.VISIBLE);
+        }
     }
 
     private void upData(String string) {

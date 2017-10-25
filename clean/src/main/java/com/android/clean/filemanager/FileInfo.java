@@ -27,6 +27,10 @@ public class FileInfo {
 
     public long fileSize;
 
+    public String fileTime;
+
+    public String suffix;
+
     public boolean isDir;
 
     public int count;

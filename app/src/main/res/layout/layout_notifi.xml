@@ -32,20 +32,31 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+        <FrameLayout
             android:id="@+id/white_wu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:gravity="center"
-            android:text="@string/notifi_nor"
-            android:textColor="#bfbfbf"
-            android:textSize="22sp"
-            android:visibility="invisible"
-            app:typeface="eos_clean.otf" />
+            android:orientation="vertical"
+            android:visibility="gone">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/null_file" />
+
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                android:layout_width="@dimen/d280"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/d72"
+                android:gravity="center"
+                android:text="@string/notifi_nor"
+                android:textColor="@color/black_20"
+                android:textSize="@dimen/s16"
+                app:typeface="eos_clean.otf" />
+        </FrameLayout>
 
         <ListView
             android:id="@+id/list_si"

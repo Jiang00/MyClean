@@ -84,11 +84,13 @@
                 android:textSize="@dimen/s10"
                 app:typeface="eos_clean.otf" />
         </FrameLayout>
-<LinearLayout
-    android:id="@+id/ll_ad"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/ll_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -111,7 +113,7 @@
                 android:layout_height="match_parent"
                 android:scrollbars="none" />
 
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/picture_other"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,27 +121,24 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:text="@string/picture_3"
-                    android:textColor="#bfbfbf"
-                    android:textSize="@dimen/s21"
-                    app:typeface="eos_clean.otf" />
+                    android:layout_gravity="center"
+                    android:src="@mipmap/null_file" />
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/d10"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/d72"
                     android:gravity="center"
-                    android:text="@string/picture_4"
-                    android:textColor="#1e88e5"
+                    android:text="@string/picture_3"
+                    android:textColor="@color/black_20"
                     android:textSize="@dimen/s16"
                     app:typeface="eos_clean.otf" />
-            </LinearLayout>
+
+            </FrameLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -150,10 +149,10 @@
                     android:id="@+id/picture_button"
                     android:layout_width="@dimen/d168"
                     android:layout_height="@dimen/d40"
-                    android:textAllCaps="false"
                     android:layout_centerInParent="true"
                     android:background="@drawable/shape_button"
                     android:text="@string/picture_14"
+                    android:textAllCaps="false"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/s15"
                     android:visibility="invisible" />

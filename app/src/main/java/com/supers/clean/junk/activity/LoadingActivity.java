@@ -70,7 +70,7 @@ public class LoadingActivity extends BaseActivity {
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2500);
         myHandler.removeCallbacks(runnableAni);
-        myHandler.post(runnableAni);
+        myHandler.postDelayed(runnableAni, 500);
     }
 
     Runnable runnableAni = new Runnable() {

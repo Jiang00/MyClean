@@ -50,8 +50,8 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
     private WifiManager mWifiManager;
     private WifiInfo mWifiInfo;
     private Context mContext;
-    private LinearLayout ll_netmon_main, ll_netmon_unconnect, ll_netmon_none;
-    FrameLayout ll_netmon_list;
+    private LinearLayout ll_netmon_main;
+    FrameLayout ll_netmon_list, ll_netmon_unconnect, ll_netmon_none;
     Button junk_button_clean;
     private ListView lv_netmon;
     private TextView tv_netmon_ssid, tv_netmon_up, tv_netmon_down;
@@ -136,8 +136,8 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
 
 
     public void findId() {
-        ll_netmon_none = (LinearLayout) findViewById(R.id.ll_netmon_none);
-        ll_netmon_unconnect = (LinearLayout) findViewById(R.id.ll_netmon_unconnect);
+        ll_netmon_none = (FrameLayout) findViewById(R.id.ll_netmon_none);
+        ll_netmon_unconnect = (FrameLayout) findViewById(R.id.ll_netmon_unconnect);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         ll_netmon_main = (LinearLayout) findViewById(R.id.ll_netmon_main);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);

@@ -31,7 +31,7 @@ public class WhiteListAvtivity extends BaseActivity {
     ImageView title_right;
     WhiteListAdapter adapter;
     ListView listView;
-    TextView white_wu;
+    FrameLayout white_wu;
     List<JunkInfo> white_list;
     private List<String> whiteList;
     private LinearLayout ll_ad;
@@ -43,7 +43,7 @@ public class WhiteListAvtivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         title_right = (ImageView) findViewById(R.id.title_right);
         listView = (ListView) findViewById(R.id.list_si);
-        white_wu = (TextView) findViewById(R.id.white_wu);
+        white_wu = (FrameLayout) findViewById(R.id.white_wu);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 

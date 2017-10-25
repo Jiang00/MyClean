@@ -19,7 +19,7 @@
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/ll_netmon_unconnect"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,19 +29,18 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="126dp"
-            android:src="@mipmap/netmonno" />
+            android:layout_gravity="center"
+            android:src="@mipmap/null_file" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/d72"
             android:text="@string/main_status_unconnect"
-            android:textColor="@color/black_54"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:textColor="@color/black_20"
+            android:textSize="@dimen/s16" />
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/ll_netmon_main"
@@ -104,7 +103,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" />
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/ll_netmon_none"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -116,19 +115,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="96dp"
-            android:src="@mipmap/norunapp" />
+            android:src="@mipmap/null_file" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="@dimen/d72"
             android:text="@string/noapprun"
-            android:textColor="@color/black_54"
-            android:textSize="16sp" />
+            android:textColor="@color/black_20"
+            android:textSize="@dimen/s16" />
 
-    </LinearLayout>
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/ll_netmon_list"

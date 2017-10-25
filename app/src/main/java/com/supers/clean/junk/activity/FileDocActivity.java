@@ -49,7 +49,7 @@ public class FileDocActivity extends BaseActivity {
     ProgressBar file_progressbar;
     ViewPager doc_view_pager;
     TabLayout view_pager_tab;
-    LinearLayout null_ll;
+    FrameLayout null_ll;
     FrameLayout file_fl;
 
     private FileCategoryHelper fileHelper;
@@ -66,7 +66,7 @@ public class FileDocActivity extends BaseActivity {
     private String TAG_FILE_2 = "eos_file_2";
     private View nativeView1, nativeView2, nativeView3;
     private LinearLayout ll_ad_1, ll_ad_2, ll_ad_3;
-    private LinearLayout null_doc, null_txt, null_pdf;
+    private FrameLayout null_doc, null_txt, null_pdf;
 
     @Override
     protected void findId() {
@@ -78,7 +78,7 @@ public class FileDocActivity extends BaseActivity {
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         doc_view_pager = (ViewPager) findViewById(R.id.doc_view_pager);
         view_pager_tab = (TabLayout) findViewById(R.id.view_pager_tab);
-        null_ll = (LinearLayout) findViewById(R.id.null_ll);
+        null_ll = (FrameLayout) findViewById(R.id.null_ll);
         file_fl = (FrameLayout) findViewById(R.id.file_fl);
     }
 
@@ -250,11 +250,11 @@ public class FileDocActivity extends BaseActivity {
 
     private void initDoc() {
         ListView listView_doc = (ListView) view_doc.findViewById(R.id.file_list);
-        null_doc = (LinearLayout) view_doc.findViewById(R.id.null_ll);
+        null_doc = (FrameLayout) view_doc.findViewById(R.id.null_ll);
         ListView listView_txt = (ListView) view_txt.findViewById(R.id.file_list);
-        null_txt = (LinearLayout) view_txt.findViewById(R.id.null_ll);
+        null_txt = (FrameLayout) view_txt.findViewById(R.id.null_ll);
         ListView listView_pdf = (ListView) view_pdf.findViewById(R.id.file_list);
-        null_pdf = (LinearLayout) view_pdf.findViewById(R.id.null_ll);
+        null_pdf = (FrameLayout) view_pdf.findViewById(R.id.null_ll);
         listView_doc.setAdapter(adapter_doc);
         listView_txt.setAdapter(adapter_txt);
         listView_pdf.setAdapter(adapter_pdf);

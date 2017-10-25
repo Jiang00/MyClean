@@ -1,14 +1,22 @@
 package com.supers.clean.junk.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,6 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.clean.db.CleanDBHelper;
 import com.android.clean.filemanager.FileCategoryHelper;
 import com.android.clean.filemanager.FileSortHelper;
 import com.android.clean.filemanager.FileUtils;
@@ -29,6 +38,7 @@ import com.android.clean.util.Util;
 import com.supers.clean.junk.util.AdUtil;
 import com.android.clean.util.Constant;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -40,18 +50,20 @@ public class FileListActivity extends BaseActivity {
     public static final String TAG = "FileListActivity";
     FrameLayout title_left;
     TextView title_name;
+    ImageView title_right, clear;
+    EditText search_edit_text;
     ListView file_list;
     Button file_button_clean;
     RelativeLayout file_clean_rl;
     ProgressBar file_progressbar;
     LinearLayout ll_ad;
-    ImageView null_icon;
-    LinearLayout null_ll;
+    FrameLayout null_ll;
     FrameLayout file_fl;
 
     private FileCategoryHelper fileHelper;
     private FileAdapter adapter;
     private ArrayList<JunkInfo> fileList;
+    private ArrayList<JunkInfo> listEdit;
     private Handler mHandler;
     private String name;
     private int nameId;
@@ -65,13 +77,15 @@ public class FileListActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
+        title_right = (ImageView) findViewById(R.id.title_right);
+        search_edit_text = (EditText) findViewById(R.id.search_edit_text);
+        clear = (ImageView) findViewById(R.id.clear);
         file_list = (ListView) findViewById(R.id.file_list);
         file_button_clean = (Button) findViewById(R.id.file_button_clean);
         file_clean_rl = (RelativeLayout) findViewById(R.id.file_clean_rl);
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
-        null_icon = (ImageView) findViewById(R.id.null_icon);
-        null_ll = (LinearLayout) findViewById(R.id.null_ll);
+        null_ll = (FrameLayout) findViewById(R.id.null_ll);
         file_fl = (FrameLayout) findViewById(R.id.file_fl);
 
     }
@@ -89,27 +103,17 @@ public class FileListActivity extends BaseActivity {
         title_name.setText(nameId);
         mHandler = new Handler();
         loadAd();
+        fileList = new ArrayList<>();
+        listEdit = new ArrayList<>();
+        adapter = new FileAdapter(this, name);
         setListenet();
         if (0 == getIntent().getIntExtra("count", 1)) {
             file_fl.setVisibility(View.GONE);
             null_ll.setVisibility(View.VISIBLE);
-            if (TextUtils.equals("apk", name)) {
-                null_icon.setImageResource(R.mipmap.null_apk);
-            } else if (TextUtils.equals("zip", name)) {
-                null_icon.setImageResource(R.mipmap.null_zip);
-            } else if (TextUtils.equals("music", name)) {
-                null_icon.setImageResource(R.mipmap.null_music);
-            } else if (TextUtils.equals("video", name)) {
-                null_icon.setImageResource(R.mipmap.null_video);
-            } else if (TextUtils.equals("other", name)) {
-                null_icon.setImageResource(R.mipmap.null_other);
-            }
             return;
         }
         fileHelper = new FileCategoryHelper(this);
-        fileList = new ArrayList<>();
         initData();
-        adapter = new FileAdapter(this, name);
         file_list.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -153,6 +157,32 @@ public class FileListActivity extends BaseActivity {
                     fc = FileCategoryHelper.FileCategory.Video;
                 } else if (TextUtils.equals("other", name)) {
                     fc = FileCategoryHelper.FileCategory.Other;
+                } else if (TextUtils.equals("racent", name)) {
+                    ArrayList<String> list = CleanDBHelper.getInstance(FileListActivity.this).getFileList(CleanDBHelper.TableType.RacentFile);
+                    if (list != null && list.size() != 0) {
+
+                        for (String info : list) {
+                            File f = new File(info);
+                            fileList.add(new JunkInfo(0, null, f.getName(), info, f.length(), false));
+                        }
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                file_progressbar.setVisibility(View.GONE);
+                                adapter.upList(fileList);
+                                adapter.notifyDataSetChanged();
+                            }
+                        });
+                    } else {
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                file_progressbar.setVisibility(View.GONE);
+
+                            }
+                        });
+                    }
+                    return;
                 }
                 cursor = fileHelper.query(fc, FileSortHelper.SortMethod.size);
                 if (cursor != null && cursor.moveToFirst()) {
@@ -190,6 +220,8 @@ public class FileListActivity extends BaseActivity {
     private void setListenet() {
         title_left.setOnClickListener(clickListener);
         file_button_clean.setOnClickListener(clickListener);
+        title_right.setOnClickListener(clickListener);
+        clear.setOnClickListener(clickListener);
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -198,6 +230,12 @@ public class FileListActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.title_left:
                     onBackPressed();
+                    break;
+                case R.id.title_right:
+                    toggleEditAnimation(true);
+                    break;
+                case R.id.clear:
+                    toggleEditAnimation(false);
                     break;
                 case R.id.file_button_clean:
                     ArrayList<JunkInfo> deleteList = new ArrayList<>();
@@ -214,6 +252,64 @@ public class FileListActivity extends BaseActivity {
             }
         }
     };
+
+    private void toggleEditAnimation(final boolean isVisible) {
+        final View searchView = findViewById(R.id.search_container);
+        ObjectAnimator invis2vis = null;
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+        if (isVisible) {
+            invis2vis = ObjectAnimator.ofFloat(searchView, View.TRANSLATION_X, metrics.widthPixels, 0);
+        } else {
+            invis2vis = ObjectAnimator.ofFloat(searchView, View.TRANSLATION_X, 0, metrics.widthPixels);
+        }
+        invis2vis.setDuration(500);
+        invis2vis.setInterpolator(new LinearInterpolator());
+        invis2vis.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (!isVisible) {
+                    adapter.upList(fileList);
+                    adapter.notifyDataSetChanged();
+                    searchView.setVisibility(View.GONE);
+                } else {
+                    search_edit_text.setText("");
+                    search_edit_text.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void afterTextChanged(Editable s) {
+                            upData(s.toString());
+                        }
+
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                        }
+                    });
+                }
+            }
+        });
+        invis2vis.start();
+        if (isVisible) {
+            searchView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void upData(String string) {
+        listEdit.clear();
+        for (JunkInfo info : fileList) {
+            if (info.label.contains(string)) {
+                listEdit.add(info);
+            }
+        }
+        adapter.upList(listEdit);
+        adapter.notifyDataSetChanged();
+
+    }
 
     private void showDia(final ArrayList<JunkInfo> deleteList) {
         if (deleteList.size() == 0) {
@@ -243,7 +339,11 @@ public class FileListActivity extends BaseActivity {
                 long size = 0;
                 for (JunkInfo info : deleteList) {
                     size += info.size;
-                    FileUtils.deleteCo(FileListActivity.this, fc, info._id);
+                    if (info._id != 0) {
+                        FileUtils.deleteCo(FileListActivity.this, fc, info._id);
+                    } else {
+                        CleanDBHelper.getInstance(FileListActivity.this).deleteItem(CleanDBHelper.TableType.RacentFile, info.path);
+                    }
                 }
                 new Thread() {
                     @Override
@@ -257,7 +357,7 @@ public class FileListActivity extends BaseActivity {
                         }
                     }
                 }.start();
-
+                listEdit.removeAll(deleteList);
                 fileList.removeAll(deleteList);
                 adapter.notifyDataSetChanged();
                 Intent intent = new Intent(FileListActivity.this, SuccessActivity.class);

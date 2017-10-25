@@ -30,28 +30,28 @@
             android:background="#f1f1f1" />
     </LinearLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/null_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="invisible">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@mipmap/null_doc" />
+            android:src="@mipmap/null_file" />
 
         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/d16"
+            android:layout_marginTop="@dimen/d72"
             android:text="@string/file_null"
-            android:textColor="@color/black_50"
-            android:textSize="@dimen/d16"
+            android:textColor="@color/black_20"
+            android:textSize="@dimen/s16"
             app:typeface="eos_clean.otf" />
-    </LinearLayout>
+    </FrameLayout>
 </FrameLayout>
