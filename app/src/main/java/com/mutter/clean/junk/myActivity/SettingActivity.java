@@ -1,5 +1,6 @@
 package com.mutter.clean.junk.myActivity;
 
+import android.animation.ValueAnimator;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -17,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.mutter.clean.junk.service.AutoService;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -37,14 +39,15 @@ import me.leolin.shortcutbadger.ShortcutBadger;
  */
 
 public class SettingActivity extends BaseActivity {
-    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_unload, setting_power, setting_file,
+    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_auto, setting_float, setting_battery, setting_unload, setting_power, setting_file,
             setting_picture, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
-    ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check, setting_unload_check;
+    ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_auto_check, setting_float_check, setting_battery_check, setting_unload_check;
     LinearLayout tuiguang_setting;
     FrameLayout title_left;
     TextView title_name;
     private View nativeView;
     LinearLayout ll_ad;
+    FrameLayout ad_fl;
     ScrollView setting_scroll;
 
     private String TAG_SETTING = "mutter_setting";
@@ -57,6 +60,7 @@ public class SettingActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         setting_tongzhi = (RelativeLayout) findViewById(R.id.setting_tongzhi);
         setting_tongzhilan = (RelativeLayout) findViewById(R.id.setting_tongzhilan);
+        setting_auto = (RelativeLayout) findViewById(R.id.setting_auto);
         setting_float = (RelativeLayout) findViewById(R.id.setting_float);
         setting_battery = (RelativeLayout) findViewById(R.id.setting_battery);
         setting_unload = (RelativeLayout) findViewById(R.id.setting_unload);
@@ -72,9 +76,11 @@ public class SettingActivity extends BaseActivity {
         setting_tongzhi_check = (ImageView) findViewById(R.id.setting_tongzhi_check);
         setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
         setting_float_check = (ImageView) findViewById(R.id.setting_float_check);
+        setting_auto_check = (ImageView) findViewById(R.id.setting_auto_check);
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
         setting_unload_check = (ImageView) findViewById(R.id.setting_unload_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
         tuiguang_setting = (LinearLayout) findViewById(R.id.tuiguang_setting);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
     }
@@ -97,7 +103,13 @@ public class SettingActivity extends BaseActivity {
                 }
             }, 1000);
         } else {
-            addAd();
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    addAd();
+                }
+            }, 1000);
+
         }
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             setting_notifi.setVisibility(View.GONE);
@@ -148,6 +160,11 @@ public class SettingActivity extends BaseActivity {
         } else {
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
         }
+        if (PreData.getDB(SettingActivity.this, Constant.AUTO_KAIGUAN)) {
+            setting_auto_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            setting_auto_check.setImageResource(R.mipmap.side_check_normal);
+        }
         if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)) {
             setting_battery_check.setImageResource(R.mipmap.side_check_passed);
         } else {
@@ -163,6 +180,7 @@ public class SettingActivity extends BaseActivity {
     private void initListener() {
         setting_tongzhi.setOnClickListener(onClickListener);
         setting_tongzhilan.setOnClickListener(onClickListener);
+        setting_auto.setOnClickListener(onClickListener);
         setting_float.setOnClickListener(onClickListener);
         setting_battery.setOnClickListener(onClickListener);
         setting_unload.setOnClickListener(onClickListener);
@@ -181,10 +199,8 @@ public class SettingActivity extends BaseActivity {
         nativeView = AdUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
-            ll_ad.setVisibility(View.VISIBLE);
-//            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
             setting_scroll.setScrollY(0);
-        } else {
+            AdUtil.startBannerAnimation(this,ad_fl);
         }
     }
 
@@ -219,6 +235,19 @@ public class SettingActivity extends BaseActivity {
                         Intent intent = new Intent(SettingActivity.this, NotificationService.class);
                         intent.putExtra("from", "notification");
                         startService(intent);
+                    }
+                    break;
+                case R.id.setting_auto:
+                    if (PreData.getDB(SettingActivity.this, Constant.AUTO_KAIGUAN)) {
+                        PreData.putDB(SettingActivity.this, Constant.AUTO_KAIGUAN, false);
+                        Intent intent1 = new Intent(SettingActivity.this, AutoService.class);
+                        setting_auto_check.setImageResource(R.mipmap.side_check_normal);
+                        stopService(intent1);
+                    } else {
+                        PreData.putDB(SettingActivity.this, Constant.AUTO_KAIGUAN, true);
+                        Intent intent1 = new Intent(SettingActivity.this, AutoService.class);
+                        setting_auto_check.setImageResource(R.mipmap.side_check_passed);
+                        startService(intent1);
                     }
                     break;
                 case R.id.setting_float:
@@ -328,6 +357,14 @@ public class SettingActivity extends BaseActivity {
                 Intent intent = new Intent(this, NotifiAnimationActivity.class);
                 startActivity(intent);
             }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (myHandler != null) {
+            myHandler.removeCallbacksAndMessages(null);
         }
     }
 

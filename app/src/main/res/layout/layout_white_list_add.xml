@@ -19,8 +19,8 @@
 
         <include layout="@layout/layout_title_sousuo" />
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/ll_ad"
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/d7"
@@ -28,8 +28,15 @@
         android:layout_marginTop="@dimen/d7"
         android:background="@drawable/shape_ad"
         android:elevation="@dimen/d2"
-        android:orientation="vertical"
-        android:visibility="gone" />
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ll_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </FrameLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

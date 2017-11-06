@@ -211,9 +211,8 @@
 
                 </LinearLayout>
 
-                <!--ad-->
-                <LinearLayout
-                    android:id="@+id/ll_ad_xiao"
+                <FrameLayout
+                    android:id="@+id/ad_fl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d10"
@@ -221,9 +220,14 @@
                     android:layout_marginRight="@dimen/d10"
                     android:background="@drawable/shape_ad"
                     android:elevation="@dimen/d2"
-                    android:orientation="vertical"
-                    android:visibility="gone" />
-
+                    android:visibility="gone">
+                    <!--ad-->
+                    <LinearLayout
+                        android:id="@+id/ll_ad_xiao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </FrameLayout>
                 <!--功能块-->
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -1,5 +1,7 @@
 package com.mutter.clean.junk.myActivity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.ComponentName;
@@ -20,6 +22,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -51,6 +54,7 @@ public class XuanfuActivity extends BaseActivity {
     private View nativeView;
     private String TAG_FLAOT = "mutter_float";
     private Animation suo, fang;
+    private AnimatorSet animatorSet;
 
     @Override
     protected void findId() {
@@ -158,10 +162,26 @@ public class XuanfuActivity extends BaseActivity {
             nativeView = AdUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
+                View ad_action = nativeView.findViewWithTag("ad_action");
+                animatorSet = new AnimatorSet();
+                ObjectAnimator animator_1 = ObjectAnimator.ofFloat(ll_ad, View.SCALE_X, 1, 1.2f, 0.9f, 1.1f, 1);
+                animator_1.setDuration(800);
+                ObjectAnimator animator_2 = ObjectAnimator.ofFloat(ll_ad, View.SCALE_Y, 1, 0.8f, 1.1f, 0.9f, 1);
+                animator_2.setDuration(800);
+                animatorSet.play(animator_1).with(animator_2);
+                animatorSet.setInterpolator(new DecelerateInterpolator());
+                myHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (animatorSet != null && !animatorSet.isRunning()) {
+                            animatorSet.start();
+                        }
+                        myHandler.postDelayed(this, 2000);
+                    }
+                });
             }
         }
     }
-
 
     private void startCleanAnimation() {
         new Thread(new Runnable() {
@@ -407,5 +427,16 @@ public class XuanfuActivity extends BaseActivity {
         super.onResume();
         liuLiang();
         gps();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (myHandler != null) {
+            myHandler.removeCallbacksAndMessages(null);
+        }
+        if (animatorSet != null) {
+            animatorSet.cancel();
+        }
     }
 }

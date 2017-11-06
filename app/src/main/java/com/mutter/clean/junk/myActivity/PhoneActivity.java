@@ -39,6 +39,7 @@ public class PhoneActivity extends BaseActivity {
     TextView message_brand, message_model, message_version, message_cpu, message_resolution,
             message_q_camera, message_h_camera, message_ram, message_sd;
     LinearLayout ll_ad;
+    FrameLayout ad_fl;
     LottieAnimationView lot_message;
     MessageRoundView message_r_sd, message_r_ram;
     FrameLayout title_left;
@@ -66,6 +67,7 @@ public class PhoneActivity extends BaseActivity {
         message_brand = (TextView) findViewById(R.id.message_brand);
         message_cpu = (TextView) findViewById(R.id.message_cpu);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
         message_r_sd = (MessageRoundView) findViewById(R.id.message_r_sd);
         message_r_ram = (MessageRoundView) findViewById(R.id.message_r_ram);
         message_r_cpu = (MessageRoundViewCpu) findViewById(R.id.message_r_cpu);
@@ -193,7 +195,13 @@ public class PhoneActivity extends BaseActivity {
                 }
             }, 1000);
         } else {
-            addAd();
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    addAd();
+                }
+            }, 1000);
+
         }
     }
 
@@ -219,8 +227,7 @@ public class PhoneActivity extends BaseActivity {
         View nativeView = AdUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
-            ll_ad.setVisibility(View.VISIBLE);
-        } else {
+            AdUtil.startBannerAnimation(this,ad_fl);
         }
     }
 
@@ -276,6 +283,14 @@ public class PhoneActivity extends BaseActivity {
     protected void onRestart() {
         super.onRestart();
         initN();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (myHandler != null) {
+            myHandler.removeCallbacksAndMessages(null);
+        }
     }
 
     @Override

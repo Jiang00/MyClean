@@ -3,6 +3,7 @@ package com.mutter.clean.junk.myActivity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -67,6 +68,7 @@ public class GameActivity extends BaseActivity {
     private PackageManager pm;
     TextView gboost_short_add;
     LinearLayout ll_ad, ll_ad_a;
+    FrameLayout ad_fl;
     ImageView gboost_short_iv;
     TextView title_name;
     Button gboost_clean_button;
@@ -110,6 +112,7 @@ public class GameActivity extends BaseActivity {
         gboost_short_iv = (ImageView) findViewById(R.id.gboost_short_iv);
         gboost_short_add = (TextView) findViewById(R.id.gboost_short_add);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
         ll_ad_a = (LinearLayout) findViewById(R.id.ll_ad_a);
     }
 
@@ -139,11 +142,17 @@ public class GameActivity extends BaseActivity {
     }
 
     private void initAd() {
-        nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
-        if (ll_ad != null && nativeView != null) {
-            ll_ad.addView(nativeView);
-            ll_ad.setVisibility(View.VISIBLE);
-        }
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+                if (ll_ad != null && nativeView != null) {
+                    ll_ad.addView(nativeView);
+                    AdUtil.startBannerAnimation(GameActivity.this,ad_fl);
+                }
+            }
+        }, 1000);
+
         nativeView_2 = AdUtil.getNativeAdView("", R.layout.native_ad_3);
         if (ll_ad_a != null && nativeView_2 != null) {
             ll_ad_a.addView(nativeView_2);
@@ -400,7 +409,9 @@ public class GameActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(null);
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.mutter.clean.junk.myActivity;
 
 import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
@@ -143,6 +145,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private ArrayList<View> arrayList;
     private AlertDialog dialogB;
     private ObjectAnimator load_rotate;
+    private String LOADING_FULL = "loading_full";
+    private String EXIT_FULL = "loading_full";//mutter_exit_full
+    private AnimatorSet animatorSet_junk, animatorSet_ram, animatorSet_cpu, animatorSet_app;
+    private ObjectAnimator translate;
 
 
     @Override
@@ -246,7 +252,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_ram_h = (TextView) view.findViewById(R.id.main_ram_h);
         main_cooling_h = (TextView) view.findViewById(R.id.main_cooling_h);
         arrayList.add(view);
-
+        animatorSet_junk = new AnimatorSet();
+        animatorSet_ram = new AnimatorSet();
+        animatorSet_cpu = new AnimatorSet();
+        animatorSet_app = new AnimatorSet();
+        startKuai(animatorSet_junk, main_junk_button, 1000);
+        startKuai(animatorSet_ram, main_ram_button, 3600);
+        startKuai(animatorSet_cpu, main_cooling_button, 6200);
+        startKuai(animatorSet_app, main_manager_button, 8800);
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
 //        View adView = AdUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_6);
@@ -354,6 +367,23 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         initSideData();
     }
 
+    private void startKuai(final AnimatorSet animatorset, View view, int time) {
+        ObjectAnimator animator_1 = ObjectAnimator.ofFloat(view, View.SCALE_X, 1, 1.2f, 0.9f, 1.1f, 1);
+        animator_1.setDuration(800);
+        ObjectAnimator animator_2 = ObjectAnimator.ofFloat(view, View.SCALE_Y, 1, 0.8f, 1.1f, 0.9f, 1);
+        animator_2.setDuration(800);
+        animatorset.play(animator_1).with(animator_2);
+        animatorset.setInterpolator(new DecelerateInterpolator());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (animatorset != null && !animatorset.isRunning()) {
+                    animatorset.start();
+                }
+                handler.postDelayed(this, 10400);
+            }
+        }, time);
+    }
 
     int sdProgress;
 
@@ -378,13 +408,44 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             @Override
             public void run() {
                 main_sd_size.setText(size);
+
                 if (main_junk_h.getVisibility() == View.INVISIBLE) {
-                    long junk_size = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() +
+                    final long junk_size = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() +
                             CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
                     if (junk_size > 0) {
                         main_junk_h.setText(Util.convertStorage(junk_size, true));
                         if (PreData.getDB(MainActivity.this, Constant.HONG_JUNK, true)) {
                             main_junk_h.setVisibility(View.VISIBLE);
+//                            new Thread(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    int time = 500;
+//                                    for (long i = 0; i <= junk_size; i += (junk_size / 40)) {
+//                                        final long finalI = i;
+//                                        time -= 5;
+//                                        if (time < 30) {
+//                                            time = 30;
+//                                        }
+//                                        if (onDestroyed) {
+//                                            break;
+//                                        }
+//                                        try {
+//                                            Thread.sleep(time);
+//                                        } catch (InterruptedException e) {
+//                                            e.printStackTrace();
+//                                        }
+//                                        if (onDestroyed) {
+//                                            break;
+//                                        }
+//                                        runOnUiThread(new Runnable() {
+//                                            @Override
+//                                            public void run() {
+//                                                main_junk_h.setText(Util.convertStorage(finalI, true));
+//                                            }
+//                                        });
+//                                    }
+//                                }
+//                            }).start();
                         }
                     }
                 }
@@ -405,11 +466,41 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         main_ram_per.setText(String.valueOf(progress) + "");
                         main_ram_size.setText(size);
                         if (main_ram_h.getVisibility() == View.INVISIBLE) {
-                            long ram_size = CleanManager.getInstance(MainActivity.this).getRamSize();
+                            final long ram_size = CleanManager.getInstance(MainActivity.this).getRamSize();
                             if (ram_size > 0) {
                                 main_ram_h.setText(Util.convertStorage(ram_size, true));
                                 if (PreData.getDB(MainActivity.this, Constant.HONG_RAM, true)) {
                                     main_ram_h.setVisibility(View.VISIBLE);
+//                                    new Thread(new Runnable() {
+//                                        @Override
+//                                        public void run() {
+//                                            int time = 500;
+//                                            for (long i = 0; i <= ram_size; i += (ram_size / 40)) {
+//                                                final long finalI = i;
+//                                                time -= 5;
+//                                                if (time < 30) {
+//                                                    time = 30;
+//                                                }
+//                                                if (onDestroyed) {
+//                                                    break;
+//                                                }
+//                                                try {
+//                                                    Thread.sleep(time);
+//                                                } catch (InterruptedException e) {
+//                                                    e.printStackTrace();
+//                                                }
+//                                                if (onDestroyed) {
+//                                                    break;
+//                                                }
+//                                                runOnUiThread(new Runnable() {
+//                                                    @Override
+//                                                    public void run() {
+//                                                        main_ram_h.setText(Util.convertStorage(finalI, true));
+//                                                    }
+//                                                });
+//                                            }
+//                                        }
+//                                    }).start();
                                 }
                             }
                         }
@@ -462,6 +553,36 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             main_cooling_h.setText(String.valueOf(temp) + "℃");
             if (PreData.getDB(MainActivity.this, Constant.HONG_COOLING, true)) {
                 main_cooling_h.setVisibility(View.VISIBLE);
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        int time = 500;
+//                        for (long i = 0; i <= temp; i += (temp / 40)) {
+//                            final long finalI = i;
+//                            time -= 5;
+//                            if (time < 30) {
+//                                time = 30;
+//                            }
+//                            if (onDestroyed) {
+//                                break;
+//                            }
+//                            try {
+//                                Thread.sleep(time);
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
+//                            if (onDestroyed) {
+//                                break;
+//                            }
+//                            runOnUiThread(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    main_cooling_h.setText(String.valueOf(finalI) + "℃");
+//                                }
+//                            });
+//                        }
+//                    }
+//                }).start();
             }
 
         }
@@ -518,15 +639,22 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (!PreData.getDB(this, Constant.BATTERY_FIRST, false)) {
             showBattery();
             PreData.putDB(this, Constant.BATTERY_FIRST, true);
-            return;
+//            return;
         }
 
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
 //        if (true) {
-            AndroidSdk.showFullAd("loading_full");
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+            AndroidSdk.showFullAd(LOADING_FULL);
+            Log.e("adadad", "Showloading_full");
+//                }
+//            }, 10000);
 
         } else {
-            View nativeView_full = getNativeAd(TAG_START_FULL, R.layout.native_ad_full_main);
+            // TODO: 2017/10/31
+            View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
@@ -687,7 +815,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.lot_family:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
                     if (PreData.getDB(MainActivity.this, Constant.FULL_START, 0) == 1) {
-                        AndroidSdk.loadFullAd("loading_full", new AdListener() {
+                        AndroidSdk.loadFullAd(LOADING_FULL, new AdListener() {
                             @Override
                             public void onAdClosed() {
                                 super.onAdClosed();
@@ -823,7 +951,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     Runnable runnable_load = new Runnable() {
         @Override
         public void run() {
-            AndroidSdk.showFullAd("loading_full");
+            AndroidSdk.showFullAd(LOADING_FULL);
 
             if (libao_load != null) {
                 libao_load.setVisibility(View.GONE);
@@ -873,7 +1001,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         AndroidSdk.onResumeWithoutTransition(this);
         handler.postDelayed(runnable1, 500);
-        AndroidSdk.loadFullAd("mutter_exit_full", null);
+        AndroidSdk.loadFullAd(EXIT_FULL, null);
     }
 
     Runnable runnable1 = new Runnable() {
@@ -887,12 +1015,31 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+        }
         if (lot_family != null) {
             lot_family.clearAnimation();
         }
         if (ad_loading != null) {
             ad_loading.cancle();
         }
+        if (animatorSet_junk != null) {
+            animatorSet_junk.cancel();
+        }
+        if (animatorSet_ram != null) {
+            animatorSet_ram.cancel();
+        }
+        if (animatorSet_cpu != null) {
+            animatorSet_cpu.cancel();
+        }
+        if (animatorSet_app != null) {
+            animatorSet_app.cancel();
+        }
+        if (translate != null) {
+            translate.cancel();
+        }
+
     }
 
     public void onBackPressed() {
@@ -914,7 +1061,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
             if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd("mutter_exit_full");
+                AndroidSdk.showFullAd(EXIT_FULL);
             }
             showExitDialog();
         }
@@ -963,14 +1110,29 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     private void showExitDialog() {
         View view = View.inflate(this, R.layout.dialog_exit, null);
-        LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
+        final LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.FULL_EDIT_NATIVE, 0) == 1) {
-            View nativeExit = getNativeAd(TAG_EXIT_FULL, R.layout.native_ad_6);
+            View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_6);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
-                ll_ad_exit.setVisibility(View.VISIBLE);
+                ll_ad_exit.setVisibility(View.INVISIBLE);
+//                int w = View.MeasureSpec.makeMeasureSpec(0,
+//                        View.MeasureSpec.UNSPECIFIED);
+//                int h = View.MeasureSpec.makeMeasureSpec(0,
+//                        View.MeasureSpec.UNSPECIFIED);
+//                ll_ad_exit.measure(w, h);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        translate = ObjectAnimator.ofFloat(ll_ad_exit, View.TRANSLATION_X, -ll_ad_exit.getWidth(), 0);
+                        translate.setDuration(500);
+                        translate.start();
+                        ll_ad_exit.setVisibility(View.VISIBLE);
+                    }
+                }, 500);
+
             }
         }
         exit_queren.setOnClickListener(new View.OnClickListener() {
@@ -986,7 +1148,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 dialog.dismiss();
             }
         });
-        dialog = new AlertDialog.Builder(this).create();
+        dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.setView(view);
         dialog.show();

@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import android.util.Log;
 
+import com.android.client.AdListener;
 import com.android.client.AndroidSdk;
 import com.mutter.clean.core.CleanManager;
+import com.mutter.clean.junk.service.AutoService;
 import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.notifi.NotificationMonitorService;
 import com.mutter.clean.util.PreData;
@@ -46,6 +49,33 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         AndroidSdk.onCreate(this);
+        if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
+            AndroidSdk.loadFullAd("loading_full", new AdListener() {
+                @Override
+                public void onAdLoadSuccess() {
+                    super.onAdLoadSuccess();
+                    Log.e("adadad", "onAdLoadSuccess");
+                }
+
+                @Override
+                public void onAdLoadFails() {
+                    super.onAdLoadFails();
+                    Log.e("adadad", "onAdLoadFails");
+                }
+
+                @Override
+                public void onAdShow() {
+                    super.onAdShow();
+                    Log.e("adadad", "onAdShow");
+                }
+
+                @Override
+                public void onAdShowFails() {
+                    super.onAdShowFails();
+                    Log.e("adadad", "onAdShowFails");
+                }
+            });
+        }
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/
@@ -74,8 +104,11 @@ public class MyApplication extends Application {
             return;
         }
         am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-
-
+        Log.e("auto", PreData.getDB(this, Constant.AUTO_KAIGUAN) + "==" + PreData.hasDB(this, Constant.AUTO_KAIGUAN));
+        if (PreData.getDB(this, Constant.AUTO_KAIGUAN) || !PreData.hasDB(this, Constant.AUTO_KAIGUAN)) {
+            Intent intent = new Intent(this, AutoService.class);
+            startService(intent);
+        }
         mThread = new HandlerThread("scan");
         mThread.start();
 
@@ -107,4 +140,3 @@ public class MyApplication extends Application {
 
 
 }
-

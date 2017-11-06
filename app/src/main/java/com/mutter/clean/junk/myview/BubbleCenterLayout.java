@@ -170,6 +170,9 @@ public class BubbleCenterLayout extends View {
         List<Bubble> list = new ArrayList<Bubble>(bubbles);
         //依次绘制气泡
         for (Bubble bubble : list) {
+            if (bubble == null) {
+                continue;
+            }
             //碰到上边界从数组中移除
             if (bubble.getY() + bubble.getRadius() > height / 2 && bubble.getY() + bubble.getRadius() + bubble.getSpeedY() <= height / 2) {
                 bubbles.remove(bubble);

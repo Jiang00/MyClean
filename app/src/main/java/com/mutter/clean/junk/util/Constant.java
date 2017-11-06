@@ -70,6 +70,10 @@ public class Constant {
 
     public static final String KEY_CLEAN_TIME = "KEY_CLEAN_TIME";//两天
 
+    public static final String AUTO_KAIGUAN = "AUTO_KAIGUAN";//自动清理开关
+
+    public static final String AUTO_TIME = "AUTO_TIME";//自动清理息屏时间
+
 
     /**
      * 广告控制

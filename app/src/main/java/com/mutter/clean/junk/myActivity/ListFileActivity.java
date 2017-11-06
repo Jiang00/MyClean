@@ -39,6 +39,7 @@ public class ListFileActivity extends BaseActivity {
     Button file_button_clean;
     ProgressBar file_progressbar;
     LinearLayout ll_ad;
+    FrameLayout ad_fl;
     FrameLayout title_left;
     TextView title_name;
     FrameLayout file_fl;
@@ -66,6 +67,7 @@ public class ListFileActivity extends BaseActivity {
         file_button_clean = (Button) findViewById(R.id.file_button_clean);
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
         null_icon = (ImageView) findViewById(R.id.null_icon);
         null_ll = (LinearLayout) findViewById(R.id.null_ll);
         file_fl = (FrameLayout) findViewById(R.id.file_fl);
@@ -104,7 +106,12 @@ public class ListFileActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.FULL_FILE_1, 0) == 1) {
             AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
         } else {
-            addAd();
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    addAd();
+                }
+            }, 1000);
         }
     }
 
@@ -112,7 +119,7 @@ public class ListFileActivity extends BaseActivity {
         nativeView = AdUtil.getNativeAdView(Tag_file_1, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
-            ll_ad.setVisibility(View.VISIBLE);
+            AdUtil.startBannerAnimation(this,ad_fl);
         }
     }
 
@@ -248,6 +255,14 @@ public class ListFileActivity extends BaseActivity {
     private void setListenet() {
         title_left.setOnClickListener(clickListener);
         file_button_clean.setOnClickListener(clickListener);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(null);
+        }
     }
 
     @Override

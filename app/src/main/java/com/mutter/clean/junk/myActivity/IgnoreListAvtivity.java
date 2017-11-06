@@ -2,6 +2,7 @@ package com.mutter.clean.junk.myActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,13 +38,15 @@ public class IgnoreListAvtivity extends BaseActivity {
     ImageView title_right;
     WhiteListAdapter adapter;
     LinearLayout ll_ad;
+    FrameLayout ad_fl;
     private View nativeView;
-
+    Handler handler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ignore);
+        handler = new Handler();
         title_name.setText(R.string.white_list_name);
         title_right.setVisibility(View.VISIBLE);
         title_left.setOnClickListener(clickListener);
@@ -53,14 +56,19 @@ public class IgnoreListAvtivity extends BaseActivity {
         adapter = new WhiteListAdapter(this);
         listView.setAdapter(adapter);
         initDAta();
-        initAd();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                initAd();
+            }
+        }, 1000);
     }
 
     private void initAd() {
         nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
-            ll_ad.setVisibility(View.VISIBLE);
+            AdUtil.startBannerAnimation(this,ad_fl);
         }
     }
 
@@ -112,6 +120,7 @@ public class IgnoreListAvtivity extends BaseActivity {
         listView = (ListView) findViewById(R.id.list_si);
         white_wu = (LinearLayout) findViewById(R.id.white_wu);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
     }
 
     @Override
@@ -119,6 +128,14 @@ public class IgnoreListAvtivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == 1) {
             initDAta();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
         }
     }
 }

@@ -254,6 +254,9 @@
             android:name="com.mutter.clean.junk.myActivity.DocFileActivity"
             android:screenOrientation="portrait" />
 
+        <service
+            android:name=".service.AutoService"
+            android:excludeFromRecents="true" />
 
     </application>
 

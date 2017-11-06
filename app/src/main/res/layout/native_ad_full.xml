@@ -27,7 +27,6 @@
                 android:tag="ad_choices" />
         </RelativeLayout>
 
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/d225"
@@ -35,16 +34,29 @@
             android:layout_marginRight="@dimen/d12"
             android:layout_marginTop="@dimen/d12">
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center">
+            <!--<FrameLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_gravity="center">-->
 
-                <com.mutter.clean.junk.myview.RotateTime
+            <!--<com.mutter.clean.junk.myview.RotateTime-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:elevation="@dimen/d2"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_height="@dimen/d225" />-->
+            <!--</FrameLayout>-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
                     android:layout_width="match_parent"
-                    android:elevation="@dimen/d2"
+                    android:layout_height="@dimen/d200"
                     android:layout_gravity="center"
-                    android:layout_height="@dimen/d225" />
+                    android:layout_margin="@dimen/d8"
+                    android:background="@color/white_100"
+                    android:elevation="@dimen/d2"
+                    android:rotation="-2" />
             </FrameLayout>
 
             <FrameLayout

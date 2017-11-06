@@ -29,11 +29,11 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/d8"
                 android:layout_marginRight="@dimen/d8"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -44,6 +44,7 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:fontFamily="sans-serif-regular"
+                    android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
                     android:tag="ad_title"
                     android:textColor="@color/black_70"
@@ -59,6 +60,7 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:fontFamily="sans-serif-regular"
+                    android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
                     android:tag="ad_desc"
                     android:textColor="#b3404040"
@@ -85,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ad" />
+
 
     <LinearLayout
         android:layout_width="wrap_content"

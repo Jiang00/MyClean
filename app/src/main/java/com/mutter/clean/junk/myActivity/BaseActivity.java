@@ -224,10 +224,10 @@ public class BaseActivity extends AppCompatActivity {
             invisibleView = normalView;
         }
         final ObjectAnimator invis2vis = ObjectAnimator.ofFloat(invisibleView, "rotationY", -90, 0);
-        invis2vis.setDuration(500);
+        invis2vis.setDuration(300);
         invis2vis.setInterpolator(new LinearInterpolator());
         ObjectAnimator vis2invis = ObjectAnimator.ofFloat(visibleView, "rotationY", 0, 90);
-        vis2invis.setDuration(500);
+        vis2invis.setDuration(300);
         vis2invis.setInterpolator(new LinearInterpolator());
 
         vis2invis.addListener(new AnimatorListenerAdapter() {

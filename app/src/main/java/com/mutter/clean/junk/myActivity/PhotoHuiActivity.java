@@ -57,6 +57,7 @@ public class PhotoHuiActivity extends BaseActivity {
     private String TAG_RECYCLE = "recyclebin";
     private View nativeView;
     private LinearLayout ll_ad;
+    FrameLayout ad_fl;
 
     @Override
     protected void findId() {
@@ -69,6 +70,7 @@ public class PhotoHuiActivity extends BaseActivity {
         ll_picture = (LinearLayout) findViewById(R.id.ll_picture);
         picture_delete = (Button) findViewById(R.id.picture_delete);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
     }
 
     @Override
@@ -94,6 +96,7 @@ public class PhotoHuiActivity extends BaseActivity {
             picture_hui_recyc.setItemAnimator(new DefaultItemAnimator());
         }
         addListener();
+
         loadAd();
     }
 
@@ -109,17 +112,20 @@ public class PhotoHuiActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.RECYCLEBIN, 0) == 1) {
             AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
         } else {
-            addAd();
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    addAd();
+                }
+            }, 1000);
         }
     }
 
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(TAG_RECYCLE, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
-            ll_ad.setVisibility(View.VISIBLE);
+            AdUtil.startBannerAnimation(this,ad_fl);
         }
     }
 
@@ -173,6 +179,14 @@ public class PhotoHuiActivity extends BaseActivity {
             setResult(5);
         }
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(null);
+        }
     }
 
     private void dialog(final boolean isrestore, final int count) {

@@ -64,6 +64,7 @@ public class SuccessActivity extends BaseActivity {
     //    ImageView delete;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
+    FrameLayout ad_fl;
     LinearLayout tuiguang_success;
     TextView success_c;
 
@@ -105,6 +106,7 @@ public class SuccessActivity extends BaseActivity {
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
         tuiguang_success = (LinearLayout) findViewById(R.id.tuiguang_success);
         success_c = (TextView) findViewById(R.id.success_c);
     }
@@ -231,13 +233,7 @@ public class SuccessActivity extends BaseActivity {
             }, 1000);
 
         }
-        if (PreData.getDB(this, Constant.FULL_SUCCESS_NATIVE, 0) == 1) {
-            native_xiao = getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_6);
-            if (ll_ad_xiao != null && native_xiao != null) {
-                ll_ad_xiao.addView(native_xiao);
-                ll_ad_xiao.setVisibility(View.VISIBLE);
-            }
-        }
+
         tuiguang(TUIGUAN_SUCCESS_SOFT, true, tuiguang_success);
         tuiguang(TUIGUAN_SUCCESS, false, tuiguang_success);
     }
@@ -415,7 +411,13 @@ public class SuccessActivity extends BaseActivity {
                         }
                     }
                 }, 1000);
-
+                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS_NATIVE, 0) == 1) {
+                    native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_6);
+                    if (ll_ad_xiao != null && native_xiao != null) {
+                        ll_ad_xiao.addView(native_xiao);
+                        AdUtil.startBannerAnimation(SuccessActivity.this,ad_fl);
+                    }
+                }
             }
 
             @Override

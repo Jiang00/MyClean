@@ -2,6 +2,7 @@ package com.mutter.clean.junk.myActivity;
 
 import android.annotation.TargetApi;
 import android.content.ComponentName;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.android.client.AdListener;
+import com.mutter.clean.junk.service.AutoService;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -56,31 +58,37 @@ public class LoadingActivity extends BaseActivity {
         }
         init();
         myHandler.removeCallbacks(runnable1);
-        myHandler.postDelayed(runnable1, 2000);
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.translate_loading);
-        loading_text_1.startAnimation(animation);
-        loading_text_1.setVisibility(View.VISIBLE);
-        animation.setAnimationListener(new Animation.AnimationListener() {
+        myHandler.postDelayed(runnable1, 4000);
+        myHandler.postDelayed(new Runnable() {
             @Override
-            public void onAnimationEnd(Animation animation) {
-                Animation animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.translate_loading);
-                loading_text_2.startAnimation(animation1);
-                loading_text_2.setVisibility(View.VISIBLE);
+            public void run() {
+                Animation animation = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.translate_loading);
+                loading_text_1.startAnimation(animation);
+                loading_text_1.setVisibility(View.VISIBLE);
+                animation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Animation animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.translate_loading);
+                        loading_text_2.startAnimation(animation1);
+                        loading_text_2.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+                });
             }
+        }, 1000);
 
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-        });
-        if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.loadFullAd("loading_full", null);
-        }
+//        if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
+//            AndroidSdk.loadFullAd("loading_full", null);
+//        }
 
     }
 
@@ -165,6 +173,10 @@ public class LoadingActivity extends BaseActivity {
             }
         } catch (Exception e) {
 
+        }
+        if (PreData.getDB(this, Constant.AUTO_KAIGUAN)) {
+            Intent intent = new Intent(this, AutoService.class);
+            startService(intent);
         }
     }
 

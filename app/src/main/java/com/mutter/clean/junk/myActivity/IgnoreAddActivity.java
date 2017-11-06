@@ -3,7 +3,9 @@ package com.mutter.clean.junk.myActivity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -43,7 +45,9 @@ public class IgnoreAddActivity extends BaseActivity {
     private List<JunkInfo> white_list, listEdit;
     private List<String> whiteList;
     LinearLayout ll_ad;
+    FrameLayout ad_fl;
     private View nativeView;
+    Handler handler;
 
     @Override
     protected void findId() {
@@ -55,12 +59,14 @@ public class IgnoreAddActivity extends BaseActivity {
         clear = (ImageButton) findViewById(R.id.clear);
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_white_list_add);
+        handler = new Handler();
         title_name.setText(R.string.white_list_add_name);
         title_left.setOnClickListener(clickListener);
         title_right.setOnClickListener(clickListener);
@@ -71,14 +77,19 @@ public class IgnoreAddActivity extends BaseActivity {
         adapter = new WhiteListAdapter(this);
         list_si.setAdapter(adapter);
         initData();
-        initAd();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                initAd();
+            }
+        }, 1000);
     }
 
     private void initAd() {
         nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
-            ll_ad.setVisibility(View.VISIBLE);
+            AdUtil.startBannerAnimation(this,ad_fl);
         }
     }
 
@@ -161,6 +172,14 @@ public class IgnoreAddActivity extends BaseActivity {
         adapter.upList(listEdit);
         adapter.notifyDataSetChanged();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+        }
     }
 
     @Override

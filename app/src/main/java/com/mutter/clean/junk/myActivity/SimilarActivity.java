@@ -64,6 +64,7 @@ public class SimilarActivity extends BaseActivity {
     ImageView pic_pager_left;
     ImageView pic_pager_check_iv;
     LinearLayout ll_ad;
+    FrameLayout ad_fl;
     View nativeView;
 
     private PagerAdapter pagerAdapter;
@@ -98,6 +99,7 @@ public class SimilarActivity extends BaseActivity {
         pic_pager_delete = (LinearLayout) findViewById(R.id.pic_pager_delete);
         pic_pager_check = (LinearLayout) findViewById(R.id.pic_pager_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
         pic_pager_check_iv = (ImageView) findViewById(R.id.pic_pager_check_iv);
 
     }
@@ -276,7 +278,13 @@ public class SimilarActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.PICTURE, 0) == 1) {
             AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
         } else {
-            addAd();
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    addAd();
+                }
+            }, 1000);
+
         }
     }
 
@@ -284,7 +292,7 @@ public class SimilarActivity extends BaseActivity {
         nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
-            ll_ad.setVisibility(View.VISIBLE);
+            AdUtil.startBannerAnimation(this,ad_fl);
         }
     }
 
@@ -494,6 +502,14 @@ public class SimilarActivity extends BaseActivity {
             return;
         }
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(null);
+        }
     }
 
     public void showBigPic(ArrayList<ImageInfo> list) {

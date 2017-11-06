@@ -143,5 +143,15 @@ public final class PreData {
         return defValue;
     }
 
+    public static boolean getDB(Context context, String key) {
+        SharedPreferences db = getDB(context);
+        if (db != null) {
+            if (db.contains(key)) {
+                return db.getBoolean(key, false);
+            }
+        }
+        return false;
+    }
+
 
 }

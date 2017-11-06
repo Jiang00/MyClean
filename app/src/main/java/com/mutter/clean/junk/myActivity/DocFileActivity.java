@@ -1,5 +1,6 @@
 package com.mutter.clean.junk.myActivity;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
@@ -63,6 +64,7 @@ public class DocFileActivity extends BaseActivity {
     private String TAG_FILE_2 = "mutter_file_2";
     private View nativeView, nativeView_2, nativeView_3;
     private LinearLayout ll_ad, ll_ad_2, ll_ad_3;
+    FrameLayout ad_fl;
 
     @Override
     protected void findId() {
@@ -109,18 +111,16 @@ public class DocFileActivity extends BaseActivity {
         nativeView_2 = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
         nativeView_3 = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
-            ll_ad.setVisibility(View.VISIBLE);
+            view_doc.findViewById(R.id.ad_fl).setVisibility(View.VISIBLE);
         }
         if (ll_ad_2 != null && nativeView_2 != null) {
             ll_ad_2.addView(nativeView_2);
-            ll_ad_2.setVisibility(View.VISIBLE);
+            AdUtil.startBannerAnimation(this,ad_fl);
         }
         if (ll_ad_3 != null && nativeView_3 != null) {
             ll_ad_3.addView(nativeView_3);
-            ll_ad_3.setVisibility(View.VISIBLE);
+            view_pdf.findViewById(R.id.ad_fl).setVisibility(View.VISIBLE);
         }
     }
 
@@ -194,7 +194,9 @@ public class DocFileActivity extends BaseActivity {
         view_pdf = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         ll_ad = (LinearLayout) view_doc.findViewById(R.id.ll_ad);
         ll_ad_2 = (LinearLayout) view_txt.findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) view_txt.findViewById(R.id.ad_fl);
         ll_ad_3 = (LinearLayout) view_pdf.findViewById(R.id.ll_ad);
+
         initDoc();
         initTxt();
         initPdf();

@@ -48,6 +48,7 @@ import java.util.List;
 public class UserAppActivity extends BaseActivity implements AppManagerView {
 
     LinearLayout ll_ad_size, ll_ad_time, ll_ad_pinlv;
+    FrameLayout ad_fl;
     TextView manager_shouquan;
     ViewPager doc_view_pager;
     FrameLayout title_left;
@@ -99,24 +100,25 @@ public class UserAppActivity extends BaseActivity implements AppManagerView {
         if (PreData.getDB(this, Constant.FULL_MANAGER, 0) == 1) {
             AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
         } else {
-            nativeView1 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    nativeView1 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
+                    if (ll_ad_size != null && nativeView1 != null) {
+                        ll_ad_size.addView(nativeView1);
+                        AdUtil.startBannerAnimation(UserAppActivity.this, ad_fl);
+                    }
+                }
+            }, 1000);
             nativeView2 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             nativeView3 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
-            if (ll_ad_size != null && nativeView1 != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad_size.getLayoutParams();
-                ll_ad_size.setLayoutParams(layout_ad);
-                ll_ad_size.addView(nativeView1);
-                ll_ad_size.setVisibility(View.VISIBLE);
-            }
             if (ll_ad_time != null && nativeView2 != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad_time.getLayoutParams();
-                ll_ad_time.setLayoutParams(layout_ad);
                 ll_ad_time.addView(nativeView2);
-                ll_ad_time.setVisibility(View.VISIBLE);
+                view_time.findViewById(R.id.ad_fl).setVisibility(View.VISIBLE);
             }
             if (ll_ad_pinlv != null && nativeView3 != null) {
                 ll_ad_pinlv.addView(nativeView3);
-                ll_ad_pinlv.setVisibility(View.VISIBLE);
+                view_pinlv.findViewById(R.id.ad_fl).setVisibility(View.VISIBLE);
             }
 
         }
@@ -185,6 +187,7 @@ public class UserAppActivity extends BaseActivity implements AppManagerView {
         ListView listView_pinlv = (ListView) view_pinlv.findViewById(R.id.file_list);
         TextView manager_shouquan = (TextView) view_permiss.findViewById(R.id.manager_shouquan);
         ll_ad_size = (LinearLayout) view_size.findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) view_size.findViewById(R.id.ad_fl);
         ll_ad_time = (LinearLayout) view_time.findViewById(R.id.ll_ad);
         ll_ad_pinlv = (LinearLayout) view_pinlv.findViewById(R.id.ll_ad);
         listView_size.setAdapter(adapter_size);
@@ -374,6 +377,9 @@ public class UserAppActivity extends BaseActivity implements AppManagerView {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (myHandler != null) {
+            myHandler.removeCallbacksAndMessages(null);
+        }
         unregisterReceiver(receiver);
     }
 

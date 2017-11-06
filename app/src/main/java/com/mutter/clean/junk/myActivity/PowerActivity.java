@@ -55,6 +55,7 @@ public class PowerActivity extends BaseActivity {
     Handler mHandler;
     RecyclerView power_recycler;
     LinearLayout ll_ad;
+    FrameLayout ad_fl;
     private HomeAdapter homeAdapter, containerAdapter;
     private ArrayList<JunkInfo> startList;
     private RecyclerView containerView_recyclerView;
@@ -72,6 +73,7 @@ public class PowerActivity extends BaseActivity {
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         power_check = (ImageView) findViewById(R.id.power_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
     }
 
     @Override
@@ -122,17 +124,21 @@ public class PowerActivity extends BaseActivity {
             junk_button_clean.callOnClick();
         }
         if (PreData.getDB(this, Constant.FULL_DEEP_NATIVE, 0) == 1) {
-            addAd();
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    addAd();
+                }
+            }, 1000);
+
         }
     }
 
     private void addAd() {
         nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
-            ll_ad.setVisibility(View.VISIBLE);
+            AdUtil.startBannerAnimation(this,ad_fl);
         }
     }
 
@@ -368,7 +374,9 @@ public class PowerActivity extends BaseActivity {
     protected void onDestroy() {
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", true));
         super.onDestroy();
-
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(null);
+        }
     }
 
     @Override
