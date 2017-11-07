@@ -321,8 +321,11 @@ public class MessageActivity extends BaseActivity {
         PhoneManager phoneManager = PhoneManager.getPhoneManage(this);
         message_cpu_1.setText(phoneManager.getCpuName());
         message_cpu_2.setText(phoneManager.getPhoneCpuNumber() + "");
-        message_cpu_3.setText(Integer.parseInt(phoneManager.getPhoneCpuMinFreq()) / 1000 + "MHz" +
-                "-" + Integer.parseInt(phoneManager.getPhoneCpuMaxFreq()) / 1000 + "MHz");
+        try {
+            message_cpu_3.setText(Integer.parseInt(phoneManager.getPhoneCpuMinFreq()) / 1000 + "MHz" +
+                    "-" + Integer.parseInt(phoneManager.getPhoneCpuMaxFreq()) / 1000 + "MHz");
+        } catch (Exception e) {
+        }
 
     }
 

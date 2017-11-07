@@ -49,15 +49,17 @@ public class RecursiveFileObserver extends FileObserver {
         while (!stack.isEmpty()) {
             String temp = (String) stack.pop();
             mObservers.put(temp, new SingleFileObserver(temp, mMask));
-            File path = new File(temp);
-            File[] files = path.listFiles();
-            if (null == files)
-                continue;
-            for (File f : files) {
-                // 递归监听目录
-                if (f.isDirectory() && !f.getName().equals(".") && !f.getName()
-                        .equals("..")) {
-                    stack.push(f.getAbsolutePath());
+            if (temp != null && temp.length() != 0) {
+                File path = new File(temp);
+                File[] files = path.listFiles();
+                if (null == files)
+                    continue;
+                for (File f : files) {
+                    // 递归监听目录
+                    if (f.isDirectory() && !f.getName().equals(".") && !f.getName()
+                            .equals("..")) {
+                        stack.push(f.getAbsolutePath());
+                    }
                 }
             }
         }

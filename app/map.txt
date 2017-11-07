@@ -48899,7 +48899,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6590:15712:void <clinit>() -> <clinit>
+    6596:15718:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -50485,16 +50485,16 @@ com.supers.clean.junk.activity.MessageActivity -> com.supers.clean.junk.activity
     189:207:void initListener() -> g
     210:289:void initSensor() -> h
     292:302:void initBattery() -> i
-    321:327:void setData() -> j
-    331:354:void tuiGuang() -> d
-    357:368:void loadAd() -> k
-    371:382:void addAd() -> l
-    385:390:boolean isW() -> m
-    395:399:java.lang.String getResolution() -> e
-    407:411:java.lang.String getPhoneIMEI() -> f
-    417:422:void onResume() -> onResume
-    426:430:void onPause() -> onPause
-    434:436:void onDestroy() -> onDestroy
+    321:330:void setData() -> j
+    334:357:void tuiGuang() -> d
+    360:371:void loadAd() -> k
+    374:385:void addAd() -> l
+    388:393:boolean isW() -> m
+    398:402:java.lang.String getResolution() -> e
+    410:414:java.lang.String getPhoneIMEI() -> f
+    420:425:void onResume() -> onResume
+    429:433:void onPause() -> onPause
+    437:439:void onDestroy() -> onDestroy
     52:52:boolean access$000(com.supers.clean.junk.activity.MessageActivity) -> a
     52:52:int access$100(com.supers.clean.junk.activity.MessageActivity) -> b
 com.supers.clean.junk.activity.MessageActivity$1 -> com.supers.clean.junk.activity.MessageActivity$1:
@@ -50535,13 +50535,13 @@ com.supers.clean.junk.activity.MessageActivity$6 -> com.supers.clean.junk.activi
     307:317:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.supers.clean.junk.activity.MessageActivity$7 -> com.supers.clean.junk.activity.MessageActivity$7:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    332:332:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    336:336:void onClick(android.view.View) -> onClick
-    340:352:void onLoadView(android.view.View) -> a
+    335:335:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    339:339:void onClick(android.view.View) -> onClick
+    343:355:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.MessageActivity$8 -> com.supers.clean.junk.activity.MessageActivity$8:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    358:358:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    361:362:void run() -> run
+    361:361:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    364:365:void run() -> run
 com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.MyApplication:
     37:37:void <init>() -> <init>
     41:44:void attachBaseContext(android.content.Context) -> attachBaseContext
@@ -50550,40 +50550,41 @@ com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.M
     74:135:void onCreate() -> onCreate
     140:141:void onTerminate() -> onTerminate
 com.supers.clean.junk.activity.NetMonitor -> com.supers.clean.junk.activity.NetMonitor:
-    android.net.wifi.WifiManager mWifiManager -> g
-    android.net.wifi.WifiInfo mWifiInfo -> h
-    android.content.Context mContext -> o
-    android.widget.LinearLayout ll_netmon_main -> p
+    android.net.wifi.WifiManager mWifiManager -> h
+    android.net.wifi.WifiInfo mWifiInfo -> o
+    android.content.Context mContext -> p
+    android.widget.LinearLayout ll_netmon_main -> q
     android.widget.FrameLayout ll_netmon_list -> a
     android.widget.FrameLayout ll_netmon_unconnect -> b
     android.widget.FrameLayout ll_netmon_none -> c
     android.widget.Button junk_button_clean -> d
-    android.widget.ListView lv_netmon -> q
-    android.widget.TextView tv_netmon_ssid -> r
-    android.widget.TextView tv_netmon_up -> s
-    android.widget.TextView tv_netmon_down -> t
-    android.widget.FrameLayout title_left -> u
-    android.widget.ProgressBar iv_empty -> v
-    java.util.List mRunAppInfoList -> w
-    android.os.Handler mHandler -> e
-    long lastTotalRxBytes -> x
-    long lastTotalTxBytes -> y
-    long lastTimeStamp -> z
-    com.supers.clean.junk.activity.NetMonitor$MyAdapter mAdapter -> A
-    android.widget.LinearLayout ll_ad -> f
-    long downSpeed -> B
-    long upSpeed -> C
-    java.lang.Runnable runnableW -> D
-    49:155:void <init>() -> <init>
-    70:127:void onCreate(android.os.Bundle) -> onCreate
-    130:135:void addAd() -> e
-    139:151:void findId() -> a
-    178:183:boolean isWifiConnected(android.content.Context) -> a
-    187:195:boolean isDataConnected(android.content.Context) -> b
-    200:202:void onResume() -> onResume
-    206:208:void onPause() -> onPause
-    212:235:void loadFinish(java.util.List,boolean) -> a
-    317:320:void onDestroy() -> onDestroy
+    android.widget.ListView lv_netmon -> r
+    android.widget.TextView tv_netmon_ssid -> s
+    android.widget.TextView tv_netmon_up -> t
+    android.widget.TextView tv_netmon_down -> u
+    android.widget.FrameLayout title_left -> v
+    android.widget.TextView title_name -> e
+    android.widget.ProgressBar iv_empty -> w
+    java.util.List mRunAppInfoList -> x
+    android.os.Handler mHandler -> f
+    long lastTotalRxBytes -> y
+    long lastTotalTxBytes -> z
+    long lastTimeStamp -> A
+    com.supers.clean.junk.activity.NetMonitor$MyAdapter mAdapter -> B
+    android.widget.LinearLayout ll_ad -> g
+    long downSpeed -> C
+    long upSpeed -> D
+    java.lang.Runnable runnableW -> E
+    49:158:void <init>() -> <init>
+    71:129:void onCreate(android.os.Bundle) -> onCreate
+    132:137:void addAd() -> e
+    141:154:void findId() -> a
+    181:186:boolean isWifiConnected(android.content.Context) -> a
+    190:198:boolean isDataConnected(android.content.Context) -> b
+    203:205:void onResume() -> onResume
+    209:211:void onPause() -> onPause
+    215:238:void loadFinish(java.util.List,boolean) -> a
+    320:323:void onDestroy() -> onDestroy
     49:49:long access$002(com.supers.clean.junk.activity.NetMonitor,long) -> a
     49:49:long access$100(com.supers.clean.junk.activity.NetMonitor) -> a
     49:49:long access$200(com.supers.clean.junk.activity.NetMonitor) -> b
@@ -50601,41 +50602,41 @@ com.supers.clean.junk.activity.NetMonitor -> com.supers.clean.junk.activity.NetM
     49:49:com.supers.clean.junk.activity.NetMonitor$MyAdapter access$900(com.supers.clean.junk.activity.NetMonitor) -> j
 com.supers.clean.junk.activity.NetMonitor$1 -> com.supers.clean.junk.activity.NetMonitor$1:
     com.supers.clean.junk.activity.NetMonitor this$0 -> a
-    78:78:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
-    81:82:void onClick(android.view.View) -> onClick
+    80:80:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
+    83:84:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.NetMonitor$2 -> com.supers.clean.junk.activity.NetMonitor$2:
     com.supers.clean.junk.activity.NetMonitor this$0 -> a
-    118:118:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
-    121:124:void onClick(android.view.View) -> onClick
+    120:120:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
+    123:126:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.NetMonitor$3 -> com.supers.clean.junk.activity.NetMonitor$3:
     com.supers.clean.junk.activity.NetMonitor this$0 -> a
-    155:155:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
-    157:174:void run() -> run
+    158:158:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
+    160:177:void run() -> run
 com.supers.clean.junk.activity.NetMonitor$4 -> com.supers.clean.junk.activity.NetMonitor$4:
     com.supers.clean.junk.activity.NetMonitor this$0 -> a
-    213:213:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
-    216:218:void run() -> run
+    216:216:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
+    219:221:void run() -> run
 com.supers.clean.junk.activity.NetMonitor$5 -> com.supers.clean.junk.activity.NetMonitor$5:
     java.util.List val$lastRunAppInfoList -> a
     com.supers.clean.junk.activity.NetMonitor this$0 -> b
-    223:223:void <init>(com.supers.clean.junk.activity.NetMonitor,java.util.List) -> <init>
-    226:232:void run() -> run
+    226:226:void <init>(com.supers.clean.junk.activity.NetMonitor,java.util.List) -> <init>
+    229:235:void run() -> run
 com.supers.clean.junk.activity.NetMonitor$MyAdapter -> com.supers.clean.junk.activity.NetMonitor$a:
     android.view.LayoutInflater inflater -> a
     java.util.List list -> b
     com.supers.clean.junk.activity.NetMonitor this$0 -> c
-    242:245:void <init>(com.supers.clean.junk.activity.NetMonitor,android.content.Context,java.util.List) -> <init>
-    248:250:void refresh(java.util.List) -> a
-    254:254:int getCount() -> getCount
-    259:259:java.lang.Object getItem(int) -> getItem
-    264:264:long getItemId(int) -> getItemId
-    271:305:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    245:248:void <init>(com.supers.clean.junk.activity.NetMonitor,android.content.Context,java.util.List) -> <init>
+    251:253:void refresh(java.util.List) -> a
+    257:257:int getCount() -> getCount
+    262:262:java.lang.Object getItem(int) -> getItem
+    267:267:long getItemId(int) -> getItemId
+    274:308:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.supers.clean.junk.activity.NetMonitor$MyAdapter$1 -> com.supers.clean.junk.activity.NetMonitor$a$1:
     com.supers.clean.junk.wifi.RunAppInfo val$appInfo -> a
     com.supers.clean.junk.activity.NetMonitor$MyAdapter$ViewHolder val$holder -> b
     com.supers.clean.junk.activity.NetMonitor$MyAdapter this$1 -> c
-    293:293:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter,com.supers.clean.junk.wifi.RunAppInfo,com.supers.clean.junk.activity.NetMonitor$MyAdapter$ViewHolder) -> <init>
-    296:303:void onClick(android.view.View) -> onClick
+    296:296:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter,com.supers.clean.junk.wifi.RunAppInfo,com.supers.clean.junk.activity.NetMonitor$MyAdapter$ViewHolder) -> <init>
+    299:306:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.NetMonitor$MyAdapter$ViewHolder -> com.supers.clean.junk.activity.NetMonitor$a$a:
     android.widget.ImageView iv_netmonitem_icon -> a
     android.widget.TextView tv_netmonitem_name -> b
@@ -50643,7 +50644,7 @@ com.supers.clean.junk.activity.NetMonitor$MyAdapter$ViewHolder -> com.supers.cle
     android.widget.TextView tv_netmonitem_up -> d
     android.widget.ImageView bt_netmonitem_stop -> e
     com.supers.clean.junk.activity.NetMonitor$MyAdapter this$1 -> f
-    308:308:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter) -> <init>
+    311:311:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter) -> <init>
 com.supers.clean.junk.activity.NotifiActivity -> com.supers.clean.junk.activity.NotifiActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -51688,12 +51689,12 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
     android.view.View$OnClickListener onClickListener -> L
     57:584:void <init>() -> <init>
     109:140:void findId() -> a
-    144:293:void onCreate(android.os.Bundle) -> onCreate
-    306:323:void shendu() -> f
-    327:359:void tuiGuang() -> d
-    362:368:void initAnimation() -> g
-    371:384:void addListener() -> h
-    387:403:void addAd() -> i
+    144:298:void onCreate(android.os.Bundle) -> onCreate
+    311:328:void shendu() -> f
+    332:364:void tuiGuang() -> d
+    367:373:void initAnimation() -> g
+    376:389:void addListener() -> h
+    392:408:void addAd() -> i
     474:549:void startFirstAnimation() -> e
     552:582:void startSecondAnimation() -> j
     688:699:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
@@ -51715,21 +51716,25 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
 com.supers.clean.junk.activity.SuccessActivity$1 -> com.supers.clean.junk.activity.SuccessActivity$1:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
     243:243:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    247:253:void duogouSc() -> a
+    247:258:void duogouSc() -> a
+com.supers.clean.junk.activity.SuccessActivity$1$1 -> com.supers.clean.junk.activity.SuccessActivity$1$1:
+    com.supers.clean.junk.activity.SuccessActivity$1 this$1 -> a
+    251:251:void <init>(com.supers.clean.junk.activity.SuccessActivity$1) -> <init>
+    254:255:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$2 -> com.supers.clean.junk.activity.SuccessActivity$2:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    295:295:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    298:302:void run() -> run
+    300:300:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    303:307:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$3 -> com.supers.clean.junk.activity.SuccessActivity$3:
     com.eos.ui.demo.entries.CrossData$CrossPromotionBean val$bean -> a
     com.supers.clean.junk.activity.SuccessActivity this$0 -> b
-    332:332:void <init>(com.supers.clean.junk.activity.SuccessActivity,com.eos.ui.demo.entries.CrossData$CrossPromotionBean) -> <init>
-    336:336:void onClick(android.view.View) -> onClick
-    340:357:void onLoadView(android.view.View) -> a
+    337:337:void <init>(com.supers.clean.junk.activity.SuccessActivity,com.eos.ui.demo.entries.CrossData$CrossPromotionBean) -> <init>
+    341:341:void onClick(android.view.View) -> onClick
+    345:362:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.SuccessActivity$4 -> com.supers.clean.junk.activity.SuccessActivity$4:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    362:362:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    365:366:void run() -> run
+    367:367:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    370:371:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$5 -> com.supers.clean.junk.activity.SuccessActivity$5:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
     478:478:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
@@ -51810,19 +51815,19 @@ com.supers.clean.junk.activity.UnloadActivity -> com.supers.clean.junk.activity.
     java.util.ArrayList mngList -> s
     android.os.Handler myHandler -> o
     android.view.View$OnClickListener BtClickListener -> p
-    32:128:void <init>() -> <init>
-    48:104:void onCreate(android.os.Bundle) -> onCreate
-    107:126:void addAd() -> e
-    154:155:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    158:180:void deleteFiles(java.lang.String) -> c
+    32:127:void <init>() -> <init>
+    48:103:void onCreate(android.os.Bundle) -> onCreate
+    106:125:void addAd() -> e
+    153:154:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    157:179:void deleteFiles(java.lang.String) -> c
 com.supers.clean.junk.activity.UnloadActivity$1 -> com.supers.clean.junk.activity.UnloadActivity$1:
     com.supers.clean.junk.activity.UnloadActivity this$0 -> a
-    108:108:void <init>(com.supers.clean.junk.activity.UnloadActivity) -> <init>
-    111:112:void run() -> run
+    107:107:void <init>(com.supers.clean.junk.activity.UnloadActivity) -> <init>
+    110:111:void run() -> run
 com.supers.clean.junk.activity.UnloadActivity$2 -> com.supers.clean.junk.activity.UnloadActivity$2:
     com.supers.clean.junk.activity.UnloadActivity this$0 -> a
-    128:128:void <init>(com.supers.clean.junk.activity.UnloadActivity) -> <init>
-    131:149:void onClick(android.view.View) -> onClick
+    127:127:void <init>(com.supers.clean.junk.activity.UnloadActivity) -> <init>
+    130:148:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.WhiteListAddActivity -> com.supers.clean.junk.activity.WhiteListAddActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -52322,10 +52327,10 @@ com.supers.clean.junk.broadcast.UnloadBroadcast$1 -> com.supers.clean.junk.broad
     56:56:void <init>(com.supers.clean.junk.broadcast.UnloadBroadcast,android.content.Context) -> <init>
     59:73:void run() -> run
 com.supers.clean.junk.customeview.CirLinearLayout -> com.supers.clean.junk.customeview.CirLinearLayout:
-    23:24:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    27:28:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    32:32:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
-    38:38:void superDraw(android.graphics.Canvas) -> a
+    22:23:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    26:27:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    31:31:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    37:37:void superDraw(android.graphics.Canvas) -> a
 com.supers.clean.junk.customeview.CustomRoundCpu -> com.supers.clean.junk.customeview.CustomRoundCpu:
     android.content.Context context -> c
     android.graphics.Paint circlePoint -> d
@@ -53604,14 +53609,14 @@ com.supers.clean.junk.service.RecursiveFileObserver -> com.supers.clean.junk.ser
     android.content.Context context -> d
     31:33:void <init>(android.content.Context,java.lang.String) -> <init>
     36:39:void <init>(java.lang.String,int) -> <init>
-    43:69:void startWatching() -> startWatching
-    73:83:void stopWatching() -> stopWatching
-    87:125:void onEvent(int,java.lang.String) -> onEvent
+    43:71:void startWatching() -> startWatching
+    75:85:void stopWatching() -> stopWatching
+    89:127:void onEvent(int,java.lang.String) -> onEvent
 com.supers.clean.junk.service.RecursiveFileObserver$SingleFileObserver -> com.supers.clean.junk.service.b$a:
     java.lang.String mPath -> a
     com.supers.clean.junk.service.RecursiveFileObserver this$0 -> b
-    162:165:void <init>(com.supers.clean.junk.service.RecursiveFileObserver,java.lang.String,int) -> <init>
-    169:173:void onEvent(int,java.lang.String) -> onEvent
+    164:167:void <init>(com.supers.clean.junk.service.RecursiveFileObserver,java.lang.String,int) -> <init>
+    171:175:void onEvent(int,java.lang.String) -> onEvent
 com.supers.clean.junk.util.AdUtil -> com.supers.clean.junk.b.a:
     java.lang.String DEFAULT -> a
     20:22:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a

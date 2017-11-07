@@ -248,7 +248,12 @@ public class SuccessActivity extends BaseActivity {
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
                     AndroidSdk.showFullAd(AdUtil.DEFAULT);
                 }
-                startSecondAnimation();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        startSecondAnimation();
+                    }
+                });
 
             }
         });
@@ -401,10 +406,8 @@ public class SuccessActivity extends BaseActivity {
         }
 
     }
-
 //    private void addAd() {
 //        AndroidSdk.loadNativeAd(TAG_CLEAN, R.layout.native_ad_full, new ClientNativeAd.NativeAdLoadListener() {
-//            @Override
 //            public void onNativeAdLoadSuccess(View view) {
 //                Log.e("inf", "reload success1");
 //                nativeView = view;
@@ -423,15 +426,12 @@ public class SuccessActivity extends BaseActivity {
 //                        iv_next.startAnimation(rotate);
 //                    }
 //                });
-//
 //                if (animationEnd) {
 //                    ad_native_2.setVisibility(View.VISIBLE);
 //                    scrollView.isTouch = false;
 //                    scrollView.smoothScrollToSlow(2000);
 //                }
 //            }
-//
-//            @Override
 //            public void onNativeAdLoadFails() {
 //                Log.e("inf", "reload shibai1");
 //                haveAd = false;
@@ -440,7 +440,6 @@ public class SuccessActivity extends BaseActivity {
 //            }
 //        });
 //    }
-
 //    public void reloadNativeAd() {
 //        AndroidSdk.reLoadNativeAd(TAG_CLEAN, nativeView, new ClientNativeAd.NativeAdLoadListener() {
 //            @Override
@@ -469,6 +468,7 @@ public class SuccessActivity extends BaseActivity {
 //            }
 //        });
 //    }
+
 
     public void startFirstAnimation() {
         Animation animation = AnimationUtils.loadAnimation(SuccessActivity.this, R.anim.huojian_pop);

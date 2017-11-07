@@ -56,6 +56,7 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
     private ListView lv_netmon;
     private TextView tv_netmon_ssid, tv_netmon_up, tv_netmon_down;
     private FrameLayout title_left;
+    TextView title_name;
     private ProgressBar iv_empty;
     private List<RunAppInfo> mRunAppInfoList = new ArrayList<>();
     Handler mHandler;
@@ -75,6 +76,7 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
         findId();
 
         mRunAppInfoList.clear();
+        title_name.setText(R.string.wifi_name);
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,6 +149,7 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
         tv_netmon_up = (TextView) findViewById(R.id.tv_netmon_up);
         tv_netmon_down = (TextView) findViewById(R.id.tv_netmon_down);
         title_left = (FrameLayout) findViewById(R.id.title_left);
+        title_name = (TextView) findViewById(R.id.title_name);
         iv_empty = (ProgressBar) findViewById(R.id.iv_empty);
     }
 

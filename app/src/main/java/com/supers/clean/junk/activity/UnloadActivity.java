@@ -77,7 +77,7 @@ public class UnloadActivity extends BaseActivity {
             }
         }
         if (!a) {
-            mngList = CleanManager.getInstance(this).getAppList();
+            mngList = (ArrayList<JunkInfo>) CleanManager.getInstance(this).getAppList().clone();
             if (mngList == null || mngList.size() == 0) {
                 return;
             }
@@ -85,7 +85,6 @@ public class UnloadActivity extends BaseActivity {
                 if (info.pkg.equals(packageName)) {
                     a = true;
                     iv_icon.setRotation(-10);
-
                     iv_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
                     size = (long) ((Math.random() * 1024 * 100) + 1024 * 10);
                     path = MemoryManager.getPhoneInSDCardPath() + "/Android/data/" + packageName;

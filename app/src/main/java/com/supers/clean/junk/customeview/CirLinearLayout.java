@@ -10,7 +10,6 @@ import com.mingle.circletreveal.CircleRevealEnable;
 import com.mingle.widget.animation.CRAnimation;
 
 /**
- * Created by Ivy on 2017/5/22.
  */
 
 public class CirLinearLayout extends LinearLayout implements CircleRevealEnable {
