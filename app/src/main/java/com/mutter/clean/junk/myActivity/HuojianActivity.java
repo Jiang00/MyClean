@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -78,6 +79,7 @@ public class HuojianActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("autoservice", "HuojianonCreate");
         setContentView(R.layout.layout_short_cut);
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
         fang = AnimationUtils.loadAnimation(this, R.anim.fang);
@@ -378,5 +380,11 @@ public class HuojianActivity extends BaseActivity {
             translate.cancel();
         }
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e("autoservice", "HuojianonDestroy");
     }
 }

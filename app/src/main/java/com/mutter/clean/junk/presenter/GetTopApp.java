@@ -43,7 +43,6 @@ public class GetTopApp {
             }
         } else {
             try {
-
                 packageName = getTopPackage();
                 if (packageName != null) {
                     return packageName;
@@ -52,7 +51,6 @@ public class GetTopApp {
                 if (packageName != null) {
                     return packageName;
                 }
-
                 List<ActivityManager.RunningTaskInfo> lst = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
                 if (lst != null && lst.size() > 0) {
                     ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);

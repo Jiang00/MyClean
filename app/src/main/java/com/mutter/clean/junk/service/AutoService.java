@@ -55,15 +55,15 @@ public class AutoService extends Service {
     Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            count++;
-            String pkg = topApp.execute();
-            Log.e("autoservice", pkg + "==");
-            if (hmoes.contains(pkg)) {
-                count = 0;
-                startActivity(new Intent(AutoService.this, HuojianActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("from", "auto").putExtra("time", time_diff));
-            } else if (count <= 20) {
-                myHandler.postDelayed(runnable, 2000);
-            }
+//            count++;
+//            String pkg = topApp.execute();
+//            Log.e("autoservice", pkg + "==");
+//            if (hmoes.contains(pkg)) {
+//                count = 0;
+            startActivity(new Intent(AutoService.this, HuojianActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("from", "auto").putExtra("time", time_diff));
+//            } else if (count <= 20) {
+//                myHandler.postDelayed(runnable, 2000);
+//            }
         }
     };
 
@@ -86,13 +86,11 @@ public class AutoService extends Service {
                 return;
             }
             String action = intent.getAction();
-            if
-
-                    (TextUtils.equals(Intent.ACTION_SCREEN_ON, action)) {
+            if (TextUtils.equals(Intent.ACTION_SCREEN_ON, action)) {
                 long this_time = System.currentTimeMillis();
                 long time = PreData.getDB(AutoService.this, Constant.AUTO_TIME, System.currentTimeMillis());
                 time_diff = this_time - time;
-                int default_time = 10;
+                int default_time = 1;
                 try {
                     JSONObject jsonObject = new JSONObject(AndroidSdk.getExtraData());
                     default_time = jsonObject.getInt("auto_time");
@@ -100,12 +98,15 @@ public class AutoService extends Service {
                     e.printStackTrace();
                 }
                 if (time_diff > default_time * 60 * 1000) {
-                    myHandler.post(runnable);
+                    myHandler.postDelayed(runnable, 8 * 1000);
                 } else {
                     PreData.putDB(AutoService.this, Constant.AUTO_TIME, this_time);
                 }
             } else if (TextUtils.equals(Intent.ACTION_SCREEN_OFF, action)) {
                 PreData.putDB(AutoService.this, Constant.AUTO_TIME, System.currentTimeMillis());
+                if (myHandler != null) {
+                    myHandler.removeCallbacksAndMessages(null);
+                }
             }
         }
     };

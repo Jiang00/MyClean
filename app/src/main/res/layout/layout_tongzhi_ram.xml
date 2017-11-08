@@ -37,27 +37,38 @@
                 android:id="@+id/electricity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/notifi_ram"
+                android:text="@string/notifi_tongzhi_3"
                 android:textColor="@color/B2"
                 android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/notifi_tongzhi"
+                android:textColor="@color/B3"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_memory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:lines="1"
                 android:text="70%"
                 android:textColor="@color/A2"
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/notifi_ram_msg"
-            android:textColor="@color/B3"
-            android:textSize="12sp" />
     </LinearLayout>
 
     <TextView

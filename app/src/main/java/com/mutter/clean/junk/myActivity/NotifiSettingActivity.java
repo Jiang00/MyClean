@@ -1,16 +1,19 @@
 package com.mutter.clean.junk.myActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mutter.clean.core.CleanManager;
 import com.mutter.clean.db.CleanDBHelper;
+import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.junk.R;
 import com.mutter.clean.junk.myAdapter.NotifiSettingAdapter;
@@ -33,11 +36,13 @@ public class NotifiSettingActivity extends BaseActivity {
     ImageView notifi_all_check;
     TextView title_name;
     NotifiSettingAdapter adapter;
-
+    LinearLayout ll_ad;
+    FrameLayout ad_fl;
     ListView list_si;
     MyApplication myApplication;
     ArrayList<JunkInfo> list;
     List<String> isnotifiWhiteList = CleanDBHelper.getInstance(this).getWhiteList(Notification);
+    Handler myHandler;
 
     @Override
     protected void findId() {
@@ -49,12 +54,15 @@ public class NotifiSettingActivity extends BaseActivity {
         notifi_button_clean = (Button) findViewById(R.id.notifi_button_clean);
         notifi_setting_t = (RelativeLayout) findViewById(R.id.notifi_setting_t);
         notifi_all_check = (ImageView) findViewById(R.id.notifi_all_check);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_notifi);
+        myHandler = new Handler();
         myApplication = (MyApplication) getApplication();
         title_name.setText(R.string.side_notifi);
         notifi_setting_t.setVisibility(View.VISIBLE);
@@ -81,8 +89,21 @@ public class NotifiSettingActivity extends BaseActivity {
         adapter.addDataList(list);
         list_si.setAdapter(adapter);
         setListener();
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                addAd();
+            }
+        }, 1000);
     }
 
+    private void addAd() {
+        View nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+            AdUtil.startBannerAnimation(this, ad_fl);
+        }
+    }
 
     View.OnClickListener nOnClickListener = new View.OnClickListener() {
         @Override

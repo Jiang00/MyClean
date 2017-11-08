@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -43,9 +44,12 @@ public class NotifiActivity extends Activity {
     TextView title_name;
     FrameLayout title_left;
     Button notifi_button_clean;
+    LinearLayout ll_ad;
+    FrameLayout ad_fl;
 
     private NotifiAdapter adapter;
     private MyApplication myApplication;
+    Handler myHandler;
 
     public int getStatusHeight(Activity activity) {
         int result = 0;
@@ -68,6 +72,8 @@ public class NotifiActivity extends Activity {
         white_wu = (LinearLayout) findViewById(R.id.white_wu);
         ll_list = (LinearLayout) findViewById(R.id.ll_list);
         notifi_button_clean = (Button) findViewById(R.id.notifi_button_clean);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
     }
 
     private void setTranslucentStatus(boolean on) {
@@ -113,6 +119,7 @@ public class NotifiActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         PreData.putDB(this, Constant.HONG_NOTIFI, false);
+        myHandler = new Handler();
         BadgerCount.setCount(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
@@ -135,11 +142,22 @@ public class NotifiActivity extends Activity {
         setListener();
         adapter = new NotifiAdapter(this);
         list_si.setAdapter(adapter);
-
         CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
-
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                addAd();
+            }
+        }, 1000);
     }
 
+    private void addAd() {
+        View nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+            AdUtil.startBannerAnimation(this, ad_fl);
+        }
+    }
 
     NotificationCallBack notificationCallBack = new NotificationCallBack() {
         @Override

@@ -200,7 +200,7 @@ public class SettingActivity extends BaseActivity {
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
             setting_scroll.setScrollY(0);
-            AdUtil.startBannerAnimation(this,ad_fl);
+            AdUtil.startBannerAnimation(this, ad_fl);
         }
     }
 
