@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import com.icleaner.clean.mydb.CleanDBHelper;
 import com.icleaner.junk.R;
 import com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter;
 import com.icleaner.clean.entity.JunkInfo;
+import com.icleaner.junk.mytools.SetAdUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +56,15 @@ public class IgnoresAddActivity extends BaseActivity {
         adapter = new IgnoreListViewAdapter(this);
         list_si.setAdapter(adapter);
         initData();
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = SetAdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {

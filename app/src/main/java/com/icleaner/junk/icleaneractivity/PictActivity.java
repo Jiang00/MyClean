@@ -117,6 +117,11 @@ public class PictActivity extends BaseActivity {
         if (PreData.getDB(this, MyConstant.PICTURE, 0) == 1) {
             AndroidSdk.showFullAd(SetAdUtil.DEFAULT_FULL);
         }
+        View nativeView = SetAdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     @Override
@@ -147,7 +152,7 @@ public class PictActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_picture);
-        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL,null);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL, null);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);
         title_right.setImageResource(R.mipmap.picture_right);

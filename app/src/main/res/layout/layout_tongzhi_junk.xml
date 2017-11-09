@@ -32,34 +32,41 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/electricity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/notifi_junk"
+                android:text="@string/notifi_tongzhi_1"
                 android:textColor="#000000"
                 android:textSize="@dimen/s15" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d3"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/notifi_tongzhi"
+                android:textColor="#b3000000"
+                android:textSize="@dimen/s12" />
 
             <TextView
                 android:id="@+id/tv_memory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d3"
                 android:lines="1"
                 android:text="200MB"
                 android:textColor="#000000"
                 android:textSize="@dimen/s15" />
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d5"
-            android:text="@string/notifi_junk_msg"
-            android:textColor="#b3000000"
-            android:textSize="@dimen/s12" />
     </LinearLayout>
 
     <TextView

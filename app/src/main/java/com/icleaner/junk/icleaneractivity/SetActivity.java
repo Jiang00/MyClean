@@ -279,15 +279,8 @@ public class SetActivity extends BaseActivity {
     private void addAd() {
         nativeView = SetAdUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            if (nativeView.getHeight() == MyUtils.dp2px(250)) {
-                layout_ad.height = MyUtils.dp2px(250);
-            }
-            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
-//            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
             setting_scroll.setScrollY(0);
-        } else {
         }
     }
 

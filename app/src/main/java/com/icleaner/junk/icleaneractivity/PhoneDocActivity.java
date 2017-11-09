@@ -53,14 +53,13 @@ public class PhoneDocActivity extends BaseActivity {
     PhoneFileAdapter adapter_doc, adapter_txt, adapter_pdf;
     private AlertDialog dialog;
     TextView title_name;
-    private View nativeView;
     private ArrayList<JunkInfo> docList, txtList, pdfList;
     private Handler mHandler;
     ImageView file_button_clean;
     ViewPager doc_view_pager;
     private PhoneFileCategoryHelper.FileCategory fc_clean;
     private String TAG_FILE_2 = "icleaner_file_2";
-    private LinearLayout ll_ad;
+    private LinearLayout ll_ad_doc, ll_ad_txt, ll_ad_pdf;
     TabLayout view_pager_tab;
     LinearLayout null_ll;
     FrameLayout file_fl;
@@ -82,7 +81,9 @@ public class PhoneDocActivity extends BaseActivity {
         view_doc = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         view_txt = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         view_pdf = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
-        ll_ad = (LinearLayout) view_doc.findViewById(R.id.ll_ad);
+        ll_ad_doc = (LinearLayout) view_doc.findViewById(R.id.ll_ad);
+        ll_ad_txt = (LinearLayout) view_txt.findViewById(R.id.ll_ad);
+        ll_ad_pdf = (LinearLayout) view_pdf.findViewById(R.id.ll_ad);
         initDoc();
         initTxt();
         initPdf();
@@ -137,9 +138,9 @@ public class PhoneDocActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file_doc);
-        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL,null);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL, null);
         title_name.setText(R.string.file_txt);
-        loadAd();
+
         setListenet();
         if (0 == getIntent().getIntExtra("count", 1)) {
             null_ll.setVisibility(View.VISIBLE);
@@ -156,7 +157,7 @@ public class PhoneDocActivity extends BaseActivity {
         pdfList = new ArrayList<>();
         viewList = new ArrayList<>();
         initData();
-
+        loadAd();
     }
 
     private void initCur() {
@@ -203,11 +204,17 @@ public class PhoneDocActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = SetAdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
-        if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            ll_ad.setLayoutParams(layout_ad);
-            ll_ad.addView(nativeView);
+        View nativeView = SetAdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        if (ll_ad_doc != null && nativeView != null) {
+            ll_ad_doc.addView(nativeView);
+        }
+        View nativeView_2 = SetAdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        if (ll_ad_txt != null && nativeView_2 != null) {
+            ll_ad_txt.addView(nativeView_2);
+        }
+        View nativeView_3 = SetAdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        if (ll_ad_pdf != null && nativeView_3 != null) {
+            ll_ad_pdf.addView(nativeView_3);
         }
     }
 

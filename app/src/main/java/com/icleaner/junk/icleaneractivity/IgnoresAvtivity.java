@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import com.icleaner.clean.entity.JunkInfo;
 import com.icleaner.junk.R;
 import com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter;
 import com.icleaner.junk.mytools.MyConstant;
+import com.icleaner.junk.mytools.SetAdUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +47,15 @@ public class IgnoresAvtivity extends BaseActivity {
         adapter = new IgnoreListViewAdapter(this);
         listView.setAdapter(adapter);
         initDAta();
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = SetAdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     private void initDAta() {

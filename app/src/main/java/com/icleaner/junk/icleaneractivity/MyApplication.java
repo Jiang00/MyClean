@@ -82,6 +82,7 @@ public class MyApplication extends Application {
 //        LeakCanary.install(this);
         startService(new Intent(this, PersistService.class));
         KeepLiveManager.startJobScheduler(this, 1000);
+
     }
 
     @Override

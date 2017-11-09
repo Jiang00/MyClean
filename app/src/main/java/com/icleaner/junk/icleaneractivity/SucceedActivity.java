@@ -220,6 +220,13 @@ public class SucceedActivity extends BaseActivity {
             }, 1000);
 
         }
+        if (PreData.getDB(this, MyConstant.NATIVE_SUCCESS, 0) == 1) {
+            native_xiao = SetAdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+            if (ll_ad_xiao != null && native_xiao != null) {
+                ll_ad_xiao.addView(native_xiao);
+                ll_ad_xiao.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     @Override
@@ -258,7 +265,7 @@ public class SucceedActivity extends BaseActivity {
 
     private void addAd() {
         nativeView = SetAdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
-        native_xiao = SetAdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
@@ -272,10 +279,7 @@ public class SucceedActivity extends BaseActivity {
                 scrollView.smoothScrollToSlow(2000);
             }
         }
-        if (ll_ad_xiao != null && native_xiao != null) {
-            ll_ad_xiao.addView(native_xiao);
-            ll_ad_xiao.setVisibility(View.VISIBLE);
-        }
+
     }
 
     private void shendu() {

@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -60,6 +62,8 @@ public class DeepingActivity extends BaseActivity {
     private GridLayoutManager mLayoutManager;
     Handler mHandler;
     private HomeAdapter homeAdapter, containerAdapter;
+    private ArrayList<View> viewList;
+    ViewPager view_pager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -157,6 +161,7 @@ public class DeepingActivity extends BaseActivity {
         power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
         power_size = (TextView) findViewById(R.id.power_size);
         junk_button_clean = (ImageView) findViewById(R.id.junk_button_clean);
+        view_pager = (ViewPager) findViewById(R.id.view_pager);
     }
 
     Runnable runnable = new Runnable() {
@@ -338,6 +343,51 @@ public class DeepingActivity extends BaseActivity {
                 startList.add(info);
             }
         }
+        viewList = new ArrayList<>();
+        View layout_deep_ad = LayoutInflater.from(this).inflate(R.layout.layout_power_1, null);
+        viewList.add(layout_deep_ad);
+        View nativeView = SetAdUtil.getNativeAdView("", R.layout.native_ad_2);
+        if (nativeView != null) {
+            viewList.add(nativeView);
+        }
+        view_pager.setAdapter(new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return viewList.size();
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                container.addView(viewList.get(position), 0);
+                return viewList.get(position);
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                View view = (View) object;
+                container.removeView(view);
+                view = null;
+            }
+
+            @Override
+            public int getItemPosition(Object object) {
+                return POSITION_NONE;
+            }
+
+
+            @Override
+            public boolean isViewFromObject(View arg0, Object arg1) {
+                return arg0 == arg1;
+            }
+
+
+        });
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view_pager.setCurrentItem(1);
+            }
+        }, 2000);
     }
 
     @Override

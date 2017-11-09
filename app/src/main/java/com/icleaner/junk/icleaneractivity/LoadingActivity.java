@@ -51,7 +51,7 @@ public class LoadingActivity extends BaseActivity {
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2000);
         if (PreData.getDB(this, MyConstant.FULL_START, 0) == 1) {
-            AndroidSdk.loadFullAd("loading_full",null);
+            AndroidSdk.loadFullAd("loading_full", null);
         }
         animatorSet = new AnimatorSet();
         loading_icon.setTranslationX(getResources().getDimensionPixelOffset(R.dimen.d150));
@@ -109,6 +109,9 @@ public class LoadingActivity extends BaseActivity {
                 if (jsonObject.has("full_exit")) {
                     PreData.putDB(LoadingActivity.this, MyConstant.FULL_EXIT, jsonObject.getInt("full_exit"));
                 }
+                if (jsonObject.has("show_exit_native")) {
+                    PreData.putDB(LoadingActivity.this, MyConstant.NATIVE_EXIT, jsonObject.getInt("show_exit_native"));
+                }
                 if (jsonObject.has("skip_time")) {
                     PreData.putDB(LoadingActivity.this, MyConstant.SKIP_TIME, jsonObject.getInt("skip_time"));
                     Log.e("timeada", jsonObject.getInt("skip_time") + "==");
@@ -121,6 +124,9 @@ public class LoadingActivity extends BaseActivity {
                 }
                 if (jsonObject.has("full_success")) {
                     PreData.putDB(LoadingActivity.this, MyConstant.FULL_SUCCESS, jsonObject.getInt("full_success"));
+                }
+                if (jsonObject.has("clean_result_native")) {
+                    PreData.putDB(LoadingActivity.this, MyConstant.NATIVE_SUCCESS, jsonObject.getInt("clean_result_native"));
                 }
                 if (jsonObject.has("full_setting")) {
                     PreData.putDB(LoadingActivity.this, MyConstant.FULL_SETTING, jsonObject.getInt("full_setting"));

@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -111,7 +112,7 @@ public class MyNotifingActivity extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL,null);
+        AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL, null);
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, MyServiceNotificationMonitor.class));
@@ -121,9 +122,16 @@ public class MyNotifingActivity extends Activity {
         setListener();
         adapter = new NotifiAdapter(this);
         list_si.setAdapter(adapter);
-
         CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
+        addAd();
+    }
 
+    private void addAd() {
+        View nativeView = SetAdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     private void setTranslucentStatus(boolean on) {
