@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_100"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/A1"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/view_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <include layout="@layout/layout_title" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/ad_fl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_ad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/white_100"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </FrameLayout>
+            <!--六个按钮-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d16"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/file_apk_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/d59"
+                            android:layout_height="@dimen/d59"
+                            android:src="@mipmap/power_6" />
+
+                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d10"
+                            android:text="@string/side_power"
+                            android:textColor="#555555"
+                            android:textSize="@dimen/s12"
+                            app:typeface="eos_clean.otf" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/file_zip_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_main" />
+
+                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d10"
+                            android:text="@string/file_zip"
+                            android:textColor="#555555"
+                            android:textSize="@dimen/s12"
+                            app:typeface="eos_clean.otf" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/file_txt_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_txt_button" />
+
+                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d10"
+                            android:text="@string/file_txt"
+                            android:textColor="#555555"
+                            android:textSize="@dimen/s12"
+                            app:typeface="eos_clean.otf" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/file_music_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_music_button" />
+
+                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d10"
+                            android:text="@string/file_music"
+                            android:textColor="#555555"
+                            android:textSize="@dimen/s12"
+                            app:typeface="eos_clean.otf" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/file_video_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_video_button" />
+
+                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d10"
+                            android:text="@string/file_video"
+                            android:textColor="#555555"
+                            android:textSize="@dimen/s12"
+                            app:typeface="eos_clean.otf" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/file_other_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_other_button" />
+
+                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d10"
+                            android:text="@string/file_pther"
+                            android:textColor="#555555"
+                            android:textSize="@dimen/s12"
+                            app:typeface="eos_clean.otf" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/file_recent_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_recent_button" />
+
+                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d10"
+                            android:text="@string/file_racent"
+                            android:textColor="#555555"
+                            android:textSize="@dimen/s12"
+                            app:typeface="eos_clean.otf" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/file_download_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_download_button" />
+
+                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d10"
+                            android:text="@string/file_download"
+                            android:textColor="#555555"
+                            android:textSize="@dimen/s12"
+                            app:typeface="eos_clean.otf" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/file_sd_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

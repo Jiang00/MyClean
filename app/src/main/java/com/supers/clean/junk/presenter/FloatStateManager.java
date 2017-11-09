@@ -6,6 +6,7 @@ import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -13,7 +14,11 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.android.clean.util.Util;
+import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.FloatActivity;
+import com.supers.clean.junk.activity.FloatAnimationActivity;
+import com.supers.clean.junk.customeview.FloatDiView;
+import com.supers.clean.junk.customeview.FloatHuoView;
 import com.supers.clean.junk.customeview.FloatStateView;
 
 import java.lang.reflect.Field;
@@ -27,20 +32,27 @@ import java.lang.reflect.Field;
  * Created by chengyuan on 16/8/12.
  */
 public class FloatStateManager {
+    private final Vibrator vibrator;
+    private final int size_1;
     private Context context;
     private WindowManager wm; // 通过这个windowManager来操控浮窗体的显示和隐藏以及位置的改变
 
     private FloatStateView circleView;
+    FloatHuoView huoView;
+    private FloatDiView diView;
     //    private FloatMenuView menuView;
-    private WindowManager.LayoutParams params;
+    private WindowManager.LayoutParams params, params_di;
     Handler myHandler;
     boolean added = false;
+    boolean remove = false;
+    boolean isAnimation = false;
 
     private View.OnTouchListener circleViewTouchListener = new View.OnTouchListener() {
         private float startX;
         private float startY;
         private float x0;
         private float y0;
+        private int paramx, paramy;
 
         @Override
         public boolean onTouch(View v, MotionEvent event) {
@@ -51,6 +63,12 @@ public class FloatStateManager {
                     x0 = event.getRawX();
                     y0 = event.getRawY();
                     params.alpha = 1;
+                    paramx = params.x;
+                    paramy = params.y;
+                    try {
+                        wm.addView(diView, params_di);
+                    } catch (Exception e) {
+                    }
                     break;
                 case MotionEvent.ACTION_MOVE:
                     int end = (int) event.getRawX();
@@ -60,46 +78,85 @@ public class FloatStateManager {
                     if (Math.abs(end - x0) < 50 && Math.abs(endY - y0) < 50) {
                         break;
                     }
-                    circleView.setDragState(FloatStateView.STATE_NORMAL);
                     params.x += dx;
                     params.y += dy;
-                    try {
-                        wm.updateViewLayout(circleView, params);
-                    } catch (Exception e) {
+                    if (!remove) {
+                        remove = true;
+                        circleView.setDragState(FloatStateView.STATE_NORMAL);
+                        try {
+                            wm.updateViewLayout(circleView, params);
+                        } catch (Exception e) {
+                        }
+                    } else {
+                        try {
+                            wm.updateViewLayout(circleView, params);
+                        } catch (Exception e) {
+                        }
+                    }
+                    if (params.y + circleView.height >= getScreenHeight() - diView.height &&
+                            (params.x + circleView.width > (getScreenWidth() - diView.width) / 2 && params.x < (getScreenWidth() + diView.width) / 2)) {
+                        isAnimation = true;
+                        vibrator.vibrate(1000);
+                    } else {
+                        isAnimation = false;
+                        vibrator.cancel();
                     }
                     startX = (int) event.getRawX();
                     startY = (int) event.getRawY();
                     break;
                 case MotionEvent.ACTION_UP:
+                    vibrator.cancel();
                     float endX = event.getRawX();
-                    if (endX > getScreenWidth() / 2) {
-                        params.x = getScreenWidth() - circleView.width;
-                        circleView.setDragState(FloatStateView.STATE_RIGHT);
-                    } else {
-                        params.x = 0;
-                        circleView.setDragState(FloatStateView.STATE_LEFT);
-                    }
-
+                    remove = false;
                     try {
-                        wm.updateViewLayout(circleView, params);
+                        wm.removeView(diView);
                     } catch (Exception e) {
                     }
-                    params.alpha = 0.4f;
-                    myHandler.postDelayed(new Runnable() {
-                        public void run() {
-                            if (added)
-                                try {
-                                    wm.updateViewLayout(circleView, params);
-                                } catch (Exception e) {
-                                }
+                    if (isAnimation) {
+                        try {
+                            wm.removeView(circleView);
+                            added = false;
+                        } catch (Exception e) {
                         }
-                    }, 2000);
+                        Intent intent = new Intent(context, FloatAnimationActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        params.x = paramx;
+                        params.y = paramy;
+                        if (paramx > getScreenWidth() / 2) {
+                            circleView.setDragState(FloatStateView.STATE_RIGHT);
+                        } else {
+                            circleView.setDragState(FloatStateView.STATE_LEFT);
+                        }
+
+                    } else {
+                        if (endX > getScreenWidth() / 2) {
+                            circleView.setDragState(FloatStateView.STATE_RIGHT);
+                            params.x = getScreenWidth() - size_1;
+                        } else {
+                            circleView.setDragState(FloatStateView.STATE_LEFT);
+                            params.x = 0;
+                        }
+                        try {
+                            wm.updateViewLayout(circleView, params);
+                        } catch (Exception e) {
+                        }
+                        params.alpha = 0.4f;
+                        myHandler.postDelayed(new Runnable() {
+                            public void run() {
+                                if (added)
+                                    try {
+                                        wm.updateViewLayout(circleView, params);
+                                    } catch (Exception e) {
+                                    }
+                            }
+                        }, 2000);
+                    }
                     if (Math.abs(endX - x0) > 50) {
                         return true;
                     } else {
                         return false;
                     }
-
                 default:
                     break;
             }
@@ -139,8 +196,12 @@ public class FloatStateManager {
 
     private FloatStateManager(final Context context) {
         this.context = context.getApplicationContext();
+
+        size_1 = context.getResources().getDimensionPixelOffset(R.dimen.d30);
         wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         circleView = new FloatStateView(context);
+        huoView = new FloatHuoView(context);
         circleView.setOnTouchListener(circleViewTouchListener);
         if (myHandler == null) {
             myHandler = new Handler(Looper.getMainLooper());
@@ -154,7 +215,8 @@ public class FloatStateManager {
 //                removeWindowsView();
             }
         });
-
+        diView = new FloatDiView(context);
+        showFloatDi();
     }
 
     private static FloatStateManager instance;
@@ -170,10 +232,11 @@ public class FloatStateManager {
      * 展示浮窗小球到窗口上
      */
     public void showFloatCircleView() {
+
         if (params == null) {
             params = new WindowManager.LayoutParams();
-            params.width = circleView.width;
-            params.height = circleView.height;
+            params.width = size_1;
+            params.height = size_1;
             params.gravity = Gravity.TOP | Gravity.LEFT;
             params.x = Util.dp2px(0);
             params.y = Util.dp2px(400);
@@ -182,8 +245,27 @@ public class FloatStateManager {
             } else {
                 params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
             }
-            params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+            params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
             params.format = PixelFormat.RGBA_8888;
+        }
+    }
+
+    /**
+     * 展示浮窗小球到窗口上
+     */
+    public void showFloatDi() {
+        if (params_di == null) {
+            params_di = new WindowManager.LayoutParams();
+            params_di.width = circleView.width;
+            params_di.height = circleView.height;
+            params_di.gravity = Gravity.BOTTOM | Gravity.CENTER;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+                params_di.type = WindowManager.LayoutParams.TYPE_TOAST;
+            } else {
+                params_di.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+            }
+            params_di.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+            params_di.format = PixelFormat.RGBA_8888;
         }
     }
 

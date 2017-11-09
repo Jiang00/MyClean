@@ -1,7 +1,5 @@
 package com.supers.clean.junk.service;
 
-import android.annotation.SuppressLint;
-import android.app.ActivityManager;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,28 +8,15 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.res.Configuration;
-import android.graphics.PixelFormat;
 import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.WindowManager;
-import android.view.WindowManager.LayoutParams;
-import android.widget.LinearLayout;
 
-import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.Constant;
 import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.ShortCutActivity;
-import com.supers.clean.junk.presenter.FloatStateManager;
 import com.supers.clean.junk.presenter.GetTopApp;
 
 import org.json.JSONException;

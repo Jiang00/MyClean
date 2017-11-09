@@ -24,8 +24,8 @@ public class FloatStateView extends View {
     public static final int STATE_LEFT = 1;
     public static final int STATE_RIGHT = 2;
 
-    public int width = Util.dp2px(30);
-    public int height = Util.dp2px(30);
+    public int width;
+    public int height;
     private Paint textPaint;
     private Paint firstPaint;
     private String text = "50%";
@@ -38,6 +38,12 @@ public class FloatStateView extends View {
 
     public FloatStateView(Context context) {
         this(context, null);
+    }
+
+    public FloatStateView(Context context, int width, int height) {
+        this(context, null);
+        this.width = width;
+        this.height = height;
     }
 
     public FloatStateView(Context context, AttributeSet attrs) {
@@ -58,6 +64,8 @@ public class FloatStateView extends View {
      */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        width = getResources().getDimensionPixelOffset(R.dimen.d61);
+        height = getResources().getDimensionPixelOffset(R.dimen.d100);
         setMeasuredDimension(width, height);
         initPaints();
 
@@ -79,10 +87,13 @@ public class FloatStateView extends View {
         textPaint.setColor(Color.WHITE);
         textPaint.setAntiAlias(true);
         textPaint.setFakeBoldText(true);
-        Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.icon);
-        bitmap_normal = Bitmap.createScaledBitmap(src, width, height, true);
-        bitmap_left = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_left), width, height, true);
-        bitmap_right = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_right), width, height, true);
+        Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.float_huo);
+        bitmap_normal = Bitmap.createScaledBitmap(src, getResources().getDimensionPixelOffset(R.dimen.d61),
+                getResources().getDimensionPixelOffset(R.dimen.d100), true);
+        bitmap_left = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_left), getResources().getDimensionPixelOffset(R.dimen.d30),
+                getResources().getDimensionPixelOffset(R.dimen.d30), true);
+        bitmap_right = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_right), getResources().getDimensionPixelOffset(R.dimen.d30),
+                getResources().getDimensionPixelOffset(R.dimen.d30), true);
     }
 
     /**
@@ -92,7 +103,6 @@ public class FloatStateView extends View {
      */
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
         if (type == STATE_NORMAL) {
             canvas.drawBitmap(bitmap_normal, 0, 0, null);
         } else {
@@ -110,16 +120,23 @@ public class FloatStateView extends View {
                 firstPaint.setColor(getResources().getColor(R.color.A1));
             }
             float textWidth = textPaint.measureText(text);
-            float x = width / 2 - textWidth / 2;
+            float x = bitmap_left.getWidth() / 2 - textWidth / 2;
             Paint.FontMetrics metrics = textPaint.getFontMetrics();
             float dy = -(metrics.descent + metrics.ascent) / 2;
-            float y = dy + height / 2;
+            float y = dy + bitmap_left.getHeight() / 2;
             canvas.drawText(text, x, y, textPaint);
         }
     }
 
     public void setDragState(int type) {
         this.type = type;
+//        if (type == STATE_NORMAL) {
+//            width = getResources().getDimensionPixelOffset(R.dimen.d61);
+//            height = getResources().getDimensionPixelOffset(R.dimen.d100);
+//        } else {
+//            width = getResources().getDimensionPixelOffset(R.dimen.d30);
+//            height = getResources().getDimensionPixelOffset(R.dimen.d30);
+//        }
         invalidate();
     }
 
