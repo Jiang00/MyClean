@@ -1334,7 +1334,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Constant.SETTING_RESUIL) {
-
+            recreate();
         } else if (resultCode == Constant.COOLING_RESUIL) {
             int wendu = data.getIntExtra("wendu", 0);
             temp -= wendu;

@@ -90,7 +90,7 @@ public class FileDocActivity extends BaseActivity {
             AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         }
         title_name.setText(R.string.file_txt);
-        loadAd();
+
         setListenet();
         if (0 == getIntent().getIntExtra("count", 1)) {
             null_ll.setVisibility(View.VISIBLE);
@@ -107,7 +107,7 @@ public class FileDocActivity extends BaseActivity {
         pdfList = new ArrayList<>();
         viewList = new ArrayList<>();
         initData();
-
+        loadAd();
     }
 
     private void loadAd() {

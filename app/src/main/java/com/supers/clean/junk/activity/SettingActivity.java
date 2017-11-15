@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -121,6 +122,7 @@ public class SettingActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             setting_notifi.setVisibility(View.GONE);
         }
+        Log.e("lange", "===2");
     }
 
     @Override
@@ -420,6 +422,7 @@ public class SettingActivity extends BaseActivity {
                     AdUtil.track("设置页面", "语言", "", 1);
                     Intent lagIntent = new Intent(SettingActivity.this, LanguageSettingActivity.class);
                     startActivityForResult(lagIntent, Constant.LANGUAGE_RESUIL);
+
                     break;
                 default:
                     break;
@@ -481,6 +484,7 @@ public class SettingActivity extends BaseActivity {
             }
         }
     };
+    boolean languahe;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -495,12 +499,31 @@ public class SettingActivity extends BaseActivity {
             }
         } else if (requestCode == Constant.LANGUAGE_RESUIL) {
             recreate();
+
         }
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        languahe = true;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        languahe = true;
+
+    }
+
+    @Override
     public void onBackPressed() {
-        setResult(Constant.SETTING_RESUIL);
-        finish();
+        if (languahe) {
+            setResult(Constant.SETTING_RESUIL);
+            finish();
+        } else {
+            finish();
+        }
+
     }
 }
