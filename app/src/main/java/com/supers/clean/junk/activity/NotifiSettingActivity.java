@@ -88,7 +88,7 @@ public class NotifiSettingActivity extends BaseActivity {
     }
 
     private void addAd() {
-        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        View native_xiao = AdUtil.getNativeAdView(this,"", R.layout.native_ad_3);
         if (ll_ad != null && native_xiao != null) {
             ll_ad.addView(native_xiao);
             ll_ad.setVisibility(View.VISIBLE);

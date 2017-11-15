@@ -32,7 +32,6 @@ import com.android.clean.similarimage.ImageInfo;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.fraumobi.call.Utils.BadgerCount;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RecycleViewAdapter;
 import com.android.clean.similarimage.RecyclerDbHelper;
@@ -138,9 +137,9 @@ public class PictureActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_picture);
-        PreData.putDB(this, Constant.HONG_PHOTO, false);
-        BadgerCount.setCount(this);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+            AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        }
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);
         title_right.setImageResource(R.mipmap.picture_right);
@@ -161,9 +160,11 @@ public class PictureActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.PICTURE, 0) == 1) {
-            AndroidSdk.showFullAd(AdUtil.DEFAULT);
+            if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+                AndroidSdk.showFullAd(AdUtil.DEFAULT);
+            }
         }
-        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        View native_xiao = AdUtil.getNativeAdView(this, "", R.layout.native_ad_3);
         if (ll_ad != null && native_xiao != null) {
             ll_ad.addView(native_xiao);
             ll_ad.setVisibility(View.VISIBLE);

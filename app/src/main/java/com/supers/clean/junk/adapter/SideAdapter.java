@@ -9,42 +9,27 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Handler;
-import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
 import com.android.theme.internal.data.Theme;
 import com.eos.eshop.ShopMaster;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
-import com.fraumobi.call.activity.CallActivity;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.activity.FileActivity;
-import com.supers.clean.junk.activity.GBoostActivity;
 import com.supers.clean.junk.activity.JunkActivity;
-import com.supers.clean.junk.activity.LanguageSettingActivity;
 import com.supers.clean.junk.activity.ManagerActivity;
-import com.supers.clean.junk.activity.NetMonitor;
-import com.supers.clean.junk.activity.NotifiActivity;
-import com.supers.clean.junk.activity.NotifiInfoActivity;
-import com.supers.clean.junk.activity.PictureActivity;
-import com.supers.clean.junk.activity.PowerActivity;
-import com.supers.clean.junk.activity.PrivacyActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SettingActivity;
+import com.supers.clean.junk.activity.ToolActivity;
 import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.util.AdUtil;
@@ -60,15 +45,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static final int JUNK = idx++;
     private static final int RAM = idx++;
     private static final int MANAGER = idx++;
-    private static final int FILE = idx++;
-    private static final int POWER = idx++;
-    private static final int CALL = idx++;
-    private static final int PRIVARY = idx++;
-    private static final int WIFI = idx++;
-    //    private static final int LAG_SETTING = idx++;
-    private static final int NOTIFI = idx++;
-    private static final int PICTURE = idx++;
-    private static final int GBOOST = idx++;
+    private static final int TOOL = idx++;
     private static final int FAMILY = idx++;
     private static final int THEME = idx++;
     private static final int SETTING = idx++;
@@ -163,18 +140,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
-//        hongV(holder, position);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            if (position == NOTIFI) {
-                holder.rl_item.setVisibility(View.GONE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(0, 1);
-                convertView.setLayoutParams(param);
-            } else {
-                holder.rl_item.setVisibility(View.VISIBLE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
-                convertView.setLayoutParams(param);
-            }
-        }
+        hongV(holder, position);
         if (position == JUNK || position == FAMILY) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
@@ -200,62 +166,6 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         }
         if (position == MANAGER) {
             if (PreData.getDB(context, Constant.HONG_MANAGER, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == FILE) {
-            if (PreData.getDB(context, Constant.HONG_FILE, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == CALL) {
-            if (PreData.getDB(context, Constant.HONG_CALL, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == WIFI) {
-            if (PreData.getDB(context, Constant.HONG_NET, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == PRIVARY) {
-            if (PreData.getDB(context, Constant.HONG_PRI, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == POWER) {
-            if (PreData.getDB(context, Constant.HONG_DEEP, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == NOTIFI) {
-            if (PreData.getDB(context, Constant.HONG_NOTIFI, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == PICTURE) {
-            if (PreData.getDB(context, Constant.HONG_PHOTO, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == GBOOST) {
-            if (PreData.getDB(context, Constant.HONG_GBOOST, true)) {
                 holder.iv_hong.setVisibility(View.VISIBLE);
             } else {
                 holder.iv_hong.setVisibility(View.GONE);
@@ -296,10 +206,6 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             AdUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
             Intent intent2 = new Intent(context, JunkActivity.class);
             ((Activity) context).startActivityForResult(intent2, 1);
-        } else if (position == WIFI) {
-            AdUtil.track("侧边栏", "点击进入WIFI", "", 1);
-            Intent intent = new Intent(context, NetMonitor.class);
-            ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == RAM) {
             AdUtil.track("侧边栏", "点击进入ram页面", "", 1);
             Intent intent3 = new Intent(context, RamAvtivity.class);
@@ -308,46 +214,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             AdUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
             Intent intent4 = new Intent(context, ManagerActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
-        } else if (position == FILE) {
-//            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-//            ((Activity) context).startActivityForResult(intent, 1);
-            AdUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
-            PreData.putDB(context, Constant.FILE_CLEAN, true);
-            Intent intent5 = new Intent(context, FileActivity.class);
-            ((Activity) context).startActivityForResult(intent5, 1);
-        } else if (position == POWER) {
-            PreData.putDB(context, Constant.DEEP_CLEAN, true);
-            AdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
-            Intent intent5 = new Intent(context, PowerActivity.class);
-            ((Activity) context).startActivityForResult(intent5, 1);
-        } else if (position == CALL) {
-            AdUtil.track("侧边栏", "点击进入骚扰拦截页面", "", 1);
-            Intent intent5 = new Intent(context, CallActivity.class);
-            ((Activity) context).startActivityForResult(intent5, 1);
-        } else if (position == PRIVARY) {
-            AdUtil.track("侧边栏", "点击进入隐私清理页面", "", 1);
-            Intent intent5 = new Intent(context, PrivacyActivity.class);
-            ((Activity) context).startActivityForResult(intent5, 1);
-        } else if (position == NOTIFI) {
-            AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
-            PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
-            if (!Util.isNotificationListenEnabled(context) || !PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
-                Intent intent6 = new Intent(context, NotifiInfoActivity.class);
-                ((Activity) context).startActivityForResult(intent6, 1);
-            } else {
-                Intent intent6 = new Intent(context, NotifiActivity.class);
-                ((Activity) context).startActivityForResult(intent6, 1);
-            }
-        } else if (position == PICTURE) {
-            AdUtil.track("侧边栏", "点击进入相似图片", "", 1);
-            PreData.putDB(context, Constant.PHOTO_CLEAN, true);
-            Intent intent = new Intent(context, PictureActivity.class);
-            ((Activity) context).startActivityForResult(intent, 1);
-        } else if (position == GBOOST) {
-            AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
-            PreData.putDB(context, Constant.GBOOST_CLEAN, true);
-            Intent intent = new Intent(context, GBoostActivity.class);
-            ((Activity) context).startActivityForResult(intent, 1);
+        } else if (position == TOOL) {
+            AdUtil.track("侧边栏", "点击进入工具箱页面", "", 1);
+            Intent intent4 = new Intent(context, ToolActivity.class);
+            ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FAMILY) {
             AdUtil.track("侧边栏", "点击进入family页面", "", 1);
             ShopMaster.launch(context, "EOS_Family",

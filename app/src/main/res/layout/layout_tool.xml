@@ -29,20 +29,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <FrameLayout
-                android:id="@+id/ad_fl"
+            <LinearLayout
+                android:id="@+id/ll_ad"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:id="@+id/ll_ad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:background="@color/white_100"
-                    android:orientation="vertical"
-                    android:visibility="gone" />
-            </FrameLayout>
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/white_100"
+                android:orientation="vertical" />
             <!--六个按钮-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,78 +50,85 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/file_apk_button"
+                        android:id="@+id/deep_button"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/d95"
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="@dimen/d59"
-                            android:layout_height="@dimen/d59"
+                            android:layout_width="@dimen/d50"
+                            android:layout_height="@dimen/d50"
                             android:src="@mipmap/power_6" />
 
                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                            android:id="@+id/customerTypefaceTextView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d10"
+                            android:layout_marginTop="@dimen/d12"
+                            android:gravity="center"
+                            android:lines="1"
                             android:text="@string/side_power"
-                            android:textColor="#555555"
-                            android:textSize="@dimen/s12"
+                            android:textColor="@color/B2"
+                            android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
                     </LinearLayout>
 
 
                     <LinearLayout
-                        android:id="@+id/file_zip_button"
+                        android:id="@+id/file_button"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/d95"
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/d50"
+                            android:layout_height="@dimen/d50"
                             android:src="@mipmap/file_main" />
 
                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d10"
-                            android:text="@string/file_zip"
-                            android:textColor="#555555"
-                            android:textSize="@dimen/s12"
+                            android:layout_marginTop="@dimen/d12"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:text="@string/side_file"
+                            android:textColor="@color/B2"
+                            android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
                     </LinearLayout>
 
 
                     <LinearLayout
-                        android:id="@+id/file_txt_button"
+                        android:id="@+id/gboost_button"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/d95"
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/file_txt_button" />
+                            android:layout_width="@dimen/d50"
+                            android:layout_height="@dimen/d50"
+                            android:src="@mipmap/gboost_main" />
 
                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d10"
-                            android:text="@string/file_txt"
-                            android:textColor="#555555"
-                            android:textSize="@dimen/s12"
+                            android:layout_marginTop="@dimen/d12"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:text="@string/gboost_0"
+                            android:textColor="@color/B2"
+                            android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
                     </LinearLayout>
@@ -136,83 +136,90 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d27"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/file_music_button"
+                        android:id="@+id/picture_button"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="@dimen/d95"
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/file_music_button" />
+                            android:layout_width="@dimen/d50"
+                            android:layout_height="@dimen/d50"
+                            android:src="@mipmap/main_picture" />
 
                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d10"
-                            android:text="@string/file_music"
-                            android:textColor="#555555"
-                            android:textSize="@dimen/s12"
+                            android:layout_marginTop="@dimen/d12"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:text="@string/side_picture"
+                            android:textColor="@color/B2"
+                            android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
                     </LinearLayout>
 
 
                     <LinearLayout
-                        android:id="@+id/file_video_button"
+                        android:id="@+id/privacy_button"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="@dimen/d95"
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/file_video_button" />
+                            android:layout_width="@dimen/d50"
+                            android:layout_height="@dimen/d50"
+                            android:src="@mipmap/privacy_main" />
 
                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                            android:id="@+id/customerTypefaceTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d10"
-                            android:text="@string/file_video"
-                            android:textColor="#555555"
-                            android:textSize="@dimen/s12"
+                            android:layout_marginTop="@dimen/d12"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:text="@string/privacy_clean"
+                            android:textColor="@color/B2"
+                            android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
                     </LinearLayout>
 
 
                     <LinearLayout
-                        android:id="@+id/file_other_button"
+                        android:id="@+id/wifi_button"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="@dimen/d95"
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/file_other_button" />
+                            android:layout_width="@dimen/d50"
+                            android:layout_height="@dimen/d50"
+                            android:src="@mipmap/wifi_main" />
 
                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d10"
-                            android:text="@string/file_pther"
-                            android:textColor="#555555"
-                            android:textSize="@dimen/s12"
+                            android:layout_marginTop="@dimen/d12"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:text="@string/wifi_name"
+                            android:textColor="@color/B2"
+                            android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
                     </LinearLayout>
@@ -221,55 +228,59 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d27"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/file_recent_button"
+                        android:id="@+id/call_button"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="@dimen/d95"
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/file_recent_button" />
+                            android:layout_width="@dimen/d50"
+                            android:layout_height="@dimen/d50"
+                            android:src="@mipmap/call_main" />
 
                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d10"
-                            android:text="@string/file_racent"
-                            android:textColor="#555555"
-                            android:textSize="@dimen/s12"
+                            android:layout_marginTop="@dimen/d12"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:text="@string/call_lanjie"
+                            android:textColor="@color/B2"
+                            android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/file_download_button"
+                        android:id="@+id/notifi_button"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="@dimen/d95"
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/file_download_button" />
+                            android:layout_width="@dimen/d50"
+                            android:layout_height="@dimen/d50"
+                            android:src="@mipmap/notifi_6" />
 
                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d10"
-                            android:text="@string/file_download"
-                            android:textColor="#555555"
-                            android:textSize="@dimen/s12"
+                            android:layout_marginTop="@dimen/d12"
+                            android:gravity="center"
+                            android:lines="1"
+                            android:text="@string/side_notifi"
+                            android:textColor="@color/B2"
+                            android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
                     </LinearLayout>

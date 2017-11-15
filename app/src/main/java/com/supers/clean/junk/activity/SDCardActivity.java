@@ -103,7 +103,9 @@ public class SDCardActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+            AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        }
         name = getIntent().getStringExtra("name");
         nameId = getIntent().getIntExtra("nameId", 0);
         if (name == null) {
@@ -126,20 +128,22 @@ public class SDCardActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FILE_1, 0) == 1) {
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
-                }
-            }, 1000);
-            tuiGuang();
+            if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        AndroidSdk.showFullAd(AdUtil.DEFAULT);
+                    }
+                }, 1000);
+                tuiGuang();
+            }
         } else {
             addAd();
         }
     }
 
     private void addAd() {
-        nativeView = AdUtil.getNativeAdView(Tag_file_1, R.layout.native_ad_3);
+        nativeView = AdUtil.getNativeAdView(this, Tag_file_1, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             ll_ad.setLayoutParams(layout_ad);

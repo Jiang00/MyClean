@@ -91,8 +91,6 @@ public class FileActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file);
-        PreData.putDB(this, Constant.HONG_FILE, false);
-        BadgerCount.setCount(this);
         title_name.setText(R.string.side_file);
         whiteList = new ArrayList<>();
         whiteList = CleanDBHelper.getInstance(this).getFileList(CleanDBHelper.TableType.RacentFile);
@@ -189,19 +187,14 @@ public class FileActivity extends BaseActivity {
     }
 
     private void initAd() {
-
-        if (PreData.getDB(this, Constant.FULL_FILE, 0) == 1) {
-            AndroidSdk.showFullAd(AdUtil.DEFAULT);
-        } else {
             mHandler.postDelayed(runnable, 2500);
-        }
 
     }
 
     Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            nativeView = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
+            nativeView = AdUtil.getNativeAdView(FileActivity.this, TAG_FILE, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
                 ll_ad.setVisibility(View.VISIBLE);

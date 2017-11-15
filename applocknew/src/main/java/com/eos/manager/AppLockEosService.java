@@ -839,14 +839,6 @@ public class AppLockEosService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        try {
-            AndroidSdk.onCreate(this);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } catch (NoClassDefFoundError e) {
-            e.printStackTrace();
-        }
         Utils.init();
         handler = new Handler(getMainLooper());
 

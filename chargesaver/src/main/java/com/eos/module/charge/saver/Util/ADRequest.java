@@ -1,11 +1,14 @@
 package com.eos.module.charge.saver.Util;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.util.Constant;
+import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.eos.module.charge.saver.R;
@@ -15,11 +18,10 @@ import com.eos.module.charge.saver.R;
  */
 public class ADRequest {
 
-    public static void showFullAD() {
-        AndroidSdk.showFullAd("result_full");
-    }
-
-    public View showCustomNativeAD(String adTag, int layoutID, final ICustomNativeADClicked adClick) {
+    public View showCustomNativeAD(Context context, String adTag, int layoutID, final ICustomNativeADClicked adClick) {
+        if (PreData.getDB(context, Constant.BILL_YOUXIAO, true)) {
+            return null;
+        }
         View adView = null;
         if (AndroidSdk.hasNativeAd(adTag)) {
             adView = AndroidSdk.peekNativeAdViewWithLayout(adTag,

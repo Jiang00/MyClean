@@ -102,7 +102,7 @@ public class BatteryView extends FrameLayout {
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
 
     private void showNativeAD() {
-        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad, null);
+        adView = new ADRequest().showCustomNativeAD(mContext,Constants.TAG_CHARGING, R.layout.native_ad, null);
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(VISIBLE);

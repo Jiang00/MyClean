@@ -86,7 +86,9 @@ public class FileDocActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file_doc);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+            AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        }
         title_name.setText(R.string.file_txt);
         loadAd();
         setListenet();
@@ -109,24 +111,19 @@ public class FileDocActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, Constant.FULL_FILE_2, 0) == 1) {
-            AndroidSdk.showFullAd(AdUtil.DEFAULT);
-            tuiGuang();
-        } else {
-            addAd();
-        }
+        addAd();
     }
 
     private void addAd() {
-        nativeView1 = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        nativeView1 = AdUtil.getNativeAdView(FileDocActivity.this, TAG_FILE_2, R.layout.native_ad_3);
         if (ll_ad_1 != null && nativeView1 != null) {
             ll_ad_1.addView(nativeView1);
         }
-        nativeView2 = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        nativeView2 = AdUtil.getNativeAdView(FileDocActivity.this, TAG_FILE_2, R.layout.native_ad_3);
         if (ll_ad_2 != null && nativeView2 != null) {
             ll_ad_2.addView(nativeView2);
         }
-        nativeView3 = AdUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        nativeView3 = AdUtil.getNativeAdView(FileDocActivity.this, TAG_FILE_2, R.layout.native_ad_3);
         if (ll_ad_3 != null && nativeView3 != null) {
             ll_ad_3.addView(nativeView3);
         }

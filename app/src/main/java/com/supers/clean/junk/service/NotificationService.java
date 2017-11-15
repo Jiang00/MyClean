@@ -32,9 +32,11 @@ import com.android.clean.notification.NotificationCallBack;
 import com.android.clean.notification.NotificationInfo;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.CoolingActivity;
+import com.supers.clean.junk.activity.FloatAnimationActivity;
 import com.supers.clean.junk.activity.JunkAndRamActivity;
 import com.supers.clean.junk.activity.MainActivity;
 import com.supers.clean.junk.activity.NotifiActivity;
+import com.supers.clean.junk.activity.NotifiCpuActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SuccessActivity;
 import com.supers.clean.junk.activity.TranslateActivity;
@@ -296,49 +298,58 @@ public class NotificationService extends Service {
             }
         });
         long time = System.currentTimeMillis();
+        if (PreData.getDB(this, Constant.TAN_COOLING, true)) {
+            int hh = Integer.parseInt(Util.getStrTimeHH(time));
+            //cooling
+            if (hh >= 6 && hh < 12 && PreData.getDB(this, Constant.KEY_TAN_ZAO_COOLING, true)) {
+                PreData.putDB(NotificationService.this, Constant.KEY_TAN_ZHONG_COOLING, true);
+                PreData.putDB(NotificationService.this, Constant.KEY_TAN_WAN_COOLING, true);
+                if (cpuTemp > 50) {
+                    AdUtil.track("通知栏", "降温弹窗", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.KEY_TAN_ZAO_COOLING, false);
+                    Intent intent = new Intent(this, NotifiCpuActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+                    try {
+                        pendingIntent.send(); // 监听到Home键按下后立即调用startActivity启动Activity会有5s延迟
+                    } catch (PendingIntent.CanceledException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TAN_ZHONG_COOLING, true)) {
+                PreData.putDB(NotificationService.this, Constant.KEY_TAN_ZAO_COOLING, true);
+                PreData.putDB(NotificationService.this, Constant.KEY_TAN_WAN_COOLING, true);
+                if (cpuTemp > 50) {
+                    AdUtil.track("通知栏", "降温弹窗", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.KEY_TAN_ZHONG_COOLING, false);
+                    Intent intent = new Intent(this, NotifiCpuActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+                    try {
+                        pendingIntent.send(); // 监听到Home键按下后立即调用startActivity启动Activity会有5s延迟
+                    } catch (PendingIntent.CanceledException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TAN_WAN_COOLING, true)) {
+                PreData.putDB(NotificationService.this, Constant.KEY_TAN_ZAO_COOLING, true);
+                PreData.putDB(NotificationService.this, Constant.KEY_TAN_ZHONG_COOLING, true);
+                if (cpuTemp > 50) {
+                    AdUtil.track("通知栏", "降温弹窗", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.KEY_TAN_WAN_COOLING, false);
+                    Intent intent = new Intent(this, NotifiCpuActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+                    try {
+                        pendingIntent.send(); // 监听到Home键按下后立即调用startActivity启动Activity会有5s延迟
+                    } catch (PendingIntent.CanceledException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
         if (PreData.getDB(this, Constant.TONGZHI_SWITCH, true)) {
             int hh = Integer.parseInt(Util.getStrTimeHH(time));
-            //ram
-            if (hh >= 6 && hh < 12 && PreData.getDB(this, Constant.KEY_TONGZHI_ZAO_RAM, true)) {
-                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, true);
-                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, true);
-                if (memory > 80) {
-                    tonghzi_Ram();
-                    mNotifyManager.cancel(101);
-                    mNotifyManager.notify(101, notification_ram);
-                    AdUtil.track("通知栏", "内存通知", "展示", 1);
-                    PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, false);
-                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
-                    BadgerCount.setCount(NotificationService.this);
-                }
-                return;
-            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_RAM, true)) {
-                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, true);
-                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, true);
-                if (memory > 80) {
-                    tonghzi_Ram();
-                    mNotifyManager.cancel(101);
-                    mNotifyManager.notify(101, notification_ram);
-                    AdUtil.track("通知栏", "内存通知", "展示", 1);
-                    PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, false);
-                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
-                    BadgerCount.setCount(NotificationService.this);
-                }
-                return;
-            } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_RAM, true)) {
-                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, true);
-                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, true);
-                if (memory > 80) {
-                    tonghzi_Ram();
-                    mNotifyManager.cancel(101);
-                    mNotifyManager.notify(101, notification_ram);
-                    AdUtil.track("通知栏", "内存通知", "展示", 1);
-                    PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, false);
-                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
-                    BadgerCount.setCount(NotificationService.this);
-                }
-                return;
-            }
             //cooling
             if (hh >= 6 && hh < 12 && PreData.getDB(this, Constant.KEY_TONGZHI_ZAO_COOLING, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, true);
@@ -380,6 +391,48 @@ public class NotificationService extends Service {
                 }
                 return;
             }
+            //ram
+            if (hh >= 6 && hh < 12 && PreData.getDB(this, Constant.KEY_TONGZHI_ZAO_RAM, true)) {
+                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, true);
+                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, true);
+                if (memory > 80) {
+                    tonghzi_Ram();
+                    mNotifyManager.cancel(101);
+                    mNotifyManager.notify(101, notification_ram);
+                    AdUtil.track("通知栏", "内存通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
+                    BadgerCount.setCount(NotificationService.this);
+                }
+                return;
+            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_RAM, true)) {
+                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, true);
+                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, true);
+                if (memory > 80) {
+                    tonghzi_Ram();
+                    mNotifyManager.cancel(101);
+                    mNotifyManager.notify(101, notification_ram);
+                    AdUtil.track("通知栏", "内存通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
+                    BadgerCount.setCount(NotificationService.this);
+                }
+                return;
+            } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_RAM, true)) {
+                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, true);
+                PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, true);
+                if (memory > 80) {
+                    tonghzi_Ram();
+                    mNotifyManager.cancel(101);
+                    mNotifyManager.notify(101, notification_ram);
+                    AdUtil.track("通知栏", "内存通知", "展示", 1);
+                    PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, false);
+                    PreData.putDB(NotificationService.this, Constant.HONG_RAM, true);
+                    BadgerCount.setCount(NotificationService.this);
+                }
+                return;
+            }
+
             //junk
             long laji_size = CleanManager.getInstance(this).getApkSize() + CleanManager.getInstance(this).getCacheSize() + CleanManager.getInstance(this).getUnloadSize() + CleanManager.getInstance(this).getLogSize()
                     + CleanManager.getInstance(this).getDataSize() + CleanManager.getInstance(this).getRamSize();

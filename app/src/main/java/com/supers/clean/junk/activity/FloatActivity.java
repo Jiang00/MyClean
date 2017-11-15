@@ -105,14 +105,16 @@ public class FloatActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FLOAT, 0) == 1) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
-                }
-            }, 1000);
+            if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+                myHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        AndroidSdk.showFullAd(AdUtil.DEFAULT);
+                    }
+                }, 1000);
+            }
         } else {
-            nativeView = AdUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
+            nativeView = AdUtil.getNativeAdView(this, TAG_FLAOT, R.layout.native_ad_5);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 if (nativeView.getHeight() == Util.dp2px(250)) {

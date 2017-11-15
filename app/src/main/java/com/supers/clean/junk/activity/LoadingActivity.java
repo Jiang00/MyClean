@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
+import com.android.client.PaymentSystemListener;
 import com.eos.eshop.ShopMaster;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
@@ -52,6 +53,8 @@ public class LoadingActivity extends BaseActivity {
         ShopMaster.onCreate(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loading);
+        PreData.putDB(LoadingActivity.this, Constant.BILL_YOUXIAO, false);
+
         ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
@@ -61,29 +64,43 @@ public class LoadingActivity extends BaseActivity {
             PreData.putDB(this, Constant.ROOT_TRAK, false);
             PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
-        if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_START, 0) == 1 && !PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
             AndroidSdk.loadFullAd("loading_full", null);
-        } else {
         }
 
-
-        myHandler.removeCallbacks(runnable1);
-        myHandler.postDelayed(runnable1, 2500);
         myHandler.removeCallbacks(runnableAni);
         myHandler.postDelayed(runnableAni, 500);
     }
 
+    private Animation animation1;
     Runnable runnableAni = new Runnable() {
         @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         @Override
         public void run() {
-            Animation animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_icon);
+            animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_icon);
             Animation animation2 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_name);
             Animation animation3 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_text);
             load_icon.startAnimation(animation1);
             load_name.startAnimation(animation2);
             load_text.startAnimation(animation3);
             loading_text.setVisibility(View.VISIBLE);
+            animation1.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    myHandler.removeCallbacks(runnable1);
+                    myHandler.postDelayed(runnable1, 500);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+            });
         }
     };
     Runnable runnable1 = new Runnable() {
@@ -118,9 +135,16 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        myHandler.removeCallbacks(runnable1);
-        myHandler.removeCallbacks(runnableAni);
-        myHandler.removeCallbacksAndMessages(null);
+
+        if (animation1 != null) {
+            animation1.setAnimationListener(null);
+            animation1.cancel();
+        }
+        if (myHandler != null) {
+            myHandler.removeCallbacks(runnable1);
+            myHandler.removeCallbacks(runnableAni);
+            myHandler.removeCallbacksAndMessages(null);
+        }
         super.onDestroy();
     }
 

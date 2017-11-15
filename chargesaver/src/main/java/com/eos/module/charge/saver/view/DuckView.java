@@ -110,7 +110,7 @@ public class DuckView extends FrameLayout {
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
 
     private void showNativeAD(String tag) {
-        adView = new ADRequest().showCustomNativeAD(tag, R.layout.native_ad, null);
+        adView = new ADRequest().showCustomNativeAD(mContext, tag, R.layout.native_ad, null);
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(View.VISIBLE);

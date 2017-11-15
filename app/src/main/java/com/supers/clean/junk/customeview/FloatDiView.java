@@ -9,8 +9,12 @@ import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
@@ -26,6 +30,8 @@ public class FloatDiView extends View {
 
     public int width;
     public int height;
+    public int bitmap_width;
+    public int bitmap_height;
     private Paint textPaint;
     private Paint firstPaint;
     private String text;
@@ -34,6 +40,7 @@ public class FloatDiView extends View {
     private Bitmap bitmap_normal;
     private Bitmap bitmap_left;
     private Bitmap bitmap_right;
+    Context context;
 
 
     public FloatDiView(Context context) {
@@ -46,6 +53,7 @@ public class FloatDiView extends View {
 
     public FloatDiView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.context = context;
         init();
         text = context.getString(R.string.float_huo);
     }
@@ -58,8 +66,11 @@ public class FloatDiView extends View {
      */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        width = getResources().getDimensionPixelOffset(R.dimen.d280);
-        height = getResources().getDimensionPixelOffset(R.dimen.d40);
+        DisplayMetrics metrics = new DisplayMetrics();
+        ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getRealMetrics(metrics);
+        Log.e("metrics", metrics.widthPixels + "==" + metrics.heightPixels);
+        width = metrics.widthPixels;
+        height = metrics.heightPixels;
         setMeasuredDimension(width, height);
         initPaints();
 
@@ -71,7 +82,7 @@ public class FloatDiView extends View {
      */
     private void initPaints() {
         firstPaint = new Paint();
-        firstPaint.setColor(getResources().getColor(R.color.white_40));
+        firstPaint.setColor(getResources().getColor(R.color.black_50));
         firstPaint.setAntiAlias(true);
 //        firstPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
 
@@ -80,6 +91,8 @@ public class FloatDiView extends View {
         textPaint.setTextSize(getResources().getDimensionPixelSize(R.dimen.s13));
         textPaint.setColor(Color.WHITE);
         textPaint.setAntiAlias(true);
+        bitmap_width = getResources().getDimensionPixelOffset(R.dimen.d280);
+        bitmap_height = getResources().getDimensionPixelOffset(R.dimen.d59);
 //        textPaint.setFakeBoldText(true);
     }
 
@@ -91,12 +104,19 @@ public class FloatDiView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
-        canvas.drawCircle(width / 2, getResources().getDimensionPixelOffset(R.dimen.d190), getResources().getDimensionPixelOffset(R.dimen.d190), firstPaint);
+        Rect rect = new Rect();
+        rect.right = width;
+        rect.left = 0;
+        rect.bottom = height;
+        rect.top = 0;
+        canvas.drawRect(rect, firstPaint);
+        firstPaint.setColor(getResources().getColor(R.color.white_40));
+        canvas.drawCircle(width / 2, getResources().getDimensionPixelOffset(R.dimen.d141) + height, getResources().getDimensionPixelOffset(R.dimen.d200), firstPaint);
         float textWidth = textPaint.measureText(text);
         float x = width / 2 - textWidth / 2;
         Paint.FontMetrics metrics = textPaint.getFontMetrics();
         float dy = -(metrics.descent + metrics.ascent) / 2;
-        float y = height * 2 / 3;
+        float y = height - getResources().getDimensionPixelOffset(R.dimen.d33);
         canvas.drawText(text, x, y, textPaint);
     }
 

@@ -1,5 +1,6 @@
 package com.supers.clean.junk.presenter;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
@@ -65,10 +66,7 @@ public class FloatStateManager {
                     params.alpha = 1;
                     paramx = params.x;
                     paramy = params.y;
-                    try {
-                        wm.addView(diView, params_di);
-                    } catch (Exception e) {
-                    }
+
                     break;
                 case MotionEvent.ACTION_MOVE:
                     int end = (int) event.getRawX();
@@ -82,6 +80,10 @@ public class FloatStateManager {
                     params.y += dy;
                     if (!remove) {
                         remove = true;
+                        try {
+                            wm.addView(diView, params_di);
+                        } catch (Exception e) {
+                        }
                         circleView.setDragState(FloatStateView.STATE_NORMAL);
                         try {
                             wm.updateViewLayout(circleView, params);
@@ -93,8 +95,8 @@ public class FloatStateManager {
                         } catch (Exception e) {
                         }
                     }
-                    if (params.y + circleView.height >= getScreenHeight() - diView.height &&
-                            (params.x + circleView.width > (getScreenWidth() - diView.width) / 2 && params.x < (getScreenWidth() + diView.width) / 2)) {
+                    if (params.y + circleView.height >= getScreenHeight() - diView.bitmap_height &&
+                            (params.x + circleView.width > (getScreenWidth() - diView.bitmap_width) / 2 && params.x < (getScreenWidth() + diView.bitmap_width) / 2)) {
                         isAnimation = true;
                         vibrator.vibrate(1000);
                     } else {
@@ -120,7 +122,13 @@ public class FloatStateManager {
                         }
                         Intent intent = new Intent(context, FloatAnimationActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        context.startActivity(intent);
+                        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+                        try {
+                            pendingIntent.send(); // 监听到Home键按下后立即调用startActivity启动Activity会有5s延迟
+                        } catch (PendingIntent.CanceledException e) {
+                            e.printStackTrace();
+                        }
+//                        context.startActivity(intent);
                         params.x = paramx;
                         params.y = paramy;
                         if (paramx > getScreenWidth() / 2) {
@@ -211,7 +219,13 @@ public class FloatStateManager {
             public void onClick(View view) {
                 Intent intent = new Intent(context, FloatActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+                try {
+                    pendingIntent.send(); // 监听到Home键按下后立即调用startActivity启动Activity会有5s延迟
+                } catch (PendingIntent.CanceledException e) {
+                    e.printStackTrace();
+                }
+//                context.startActivity(intent);
 //                removeWindowsView();
             }
         });
@@ -256,13 +270,13 @@ public class FloatStateManager {
     public void showFloatDi() {
         if (params_di == null) {
             params_di = new WindowManager.LayoutParams();
-            params_di.width = circleView.width;
-            params_di.height = circleView.height;
+            params_di.width = WindowManager.LayoutParams.MATCH_PARENT;
+            params_di.height = WindowManager.LayoutParams.MATCH_PARENT;
             params_di.gravity = Gravity.BOTTOM | Gravity.CENTER;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
-                params_di.type = WindowManager.LayoutParams.TYPE_TOAST;
+                params_di.type = WindowManager.LayoutParams.TYPE_PHONE;
             } else {
-                params_di.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+                params_di.type = WindowManager.LayoutParams.TYPE_PHONE;
             }
             params_di.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
             params_di.format = PixelFormat.RGBA_8888;

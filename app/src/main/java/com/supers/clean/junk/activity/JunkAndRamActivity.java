@@ -109,7 +109,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk_ram);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
+        if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+            AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        }
         myHandler = new Handler();
         junkPresenter = new JunkRamPresenter(this, this);
         junkPresenter.init();

@@ -97,7 +97,7 @@ public class GameShortCutActivity extends BaseActivity {
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) == 1) {
         } else {
-            nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
+            nativeView = AdUtil.getNativeAdView(this,TAG_SHORTCUT, R.layout.native_ad1);
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
                 ll_ad.setVisibility(View.VISIBLE);

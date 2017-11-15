@@ -43,7 +43,7 @@ public class FloatAnimationActivity extends BaseActivity {
     private long size;
     private int count;
     private LinearLayout ll_ad;
-    private ObjectAnimator animator_top;
+    private AnimatorSet animatorSet_2;
 
     @Override
     protected void findId() {
@@ -62,7 +62,7 @@ public class FloatAnimationActivity extends BaseActivity {
         animatorSet = new AnimatorSet();
         ObjectAnimator animator_x = ObjectAnimator.ofFloat(float_huo, View.SCALE_X, 0.8f, 1);
         ObjectAnimator animator_y = ObjectAnimator.ofFloat(float_huo, View.SCALE_Y, 0.8f, 1f);
-        ObjectAnimator animator_t = ObjectAnimator.ofFloat(float_huo, View.TRANSLATION_Y, 0, -getResources().getDimensionPixelOffset(R.dimen.d200));
+        ObjectAnimator animator_t = ObjectAnimator.ofFloat(float_huo, View.TRANSLATION_Y, 0, -getResources().getDimensionPixelOffset(R.dimen.d146));
         animatorSet.setDuration(500);
         animatorSet.play(animator_t).with(animator_x).with(animator_y).after(500);
         animatorSet.start();
@@ -71,11 +71,15 @@ public class FloatAnimationActivity extends BaseActivity {
             public void run() {
                 DisplayMetrics metrics = new DisplayMetrics();
                 getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-                animator_top = ObjectAnimator.ofFloat(float_huo, View.TRANSLATION_Y, -getResources().getDimensionPixelOffset(R.dimen.d200),
+                animatorSet_2 = new AnimatorSet();
+                ObjectAnimator animator_1 = ObjectAnimator.ofFloat(float_huo, View.TRANSLATION_Y, -getResources().getDimensionPixelOffset(R.dimen.d146),
                         -metrics.heightPixels);
-                animator_top.setDuration(500);
-                animator_top.start();
-                animator_top.addListener(new Animator.AnimatorListener() {
+                ObjectAnimator animator_2 = ObjectAnimator.ofFloat(float_huo, View.SCALE_X, 1, 0.4f);
+                ObjectAnimator animator_3 = ObjectAnimator.ofFloat(float_huo, View.SCALE_Y, 1, 0.4f);
+                animatorSet_2.setDuration(500);
+                animatorSet_2.play(animator_1).with(animator_2).with(animator_3);
+                animatorSet_2.start();
+                animatorSet_2.addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationCancel(Animator animation) {
 
@@ -188,7 +192,7 @@ public class FloatAnimationActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        View nativeView = AdUtil.getNativeAdView("", R.layout.native_ad1);
+        View nativeView = AdUtil.getNativeAdView(this, "", R.layout.native_ad1);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
             ll_ad.setVisibility(View.VISIBLE);
@@ -218,8 +222,8 @@ public class FloatAnimationActivity extends BaseActivity {
         if (animatorSet != null) {
             animatorSet.cancel();
         }
-        if (animator_top != null) {
-            animator_top.cancel();
+        if (animatorSet_2 != null) {
+            animatorSet_2.cancel();
         }
     }
 }

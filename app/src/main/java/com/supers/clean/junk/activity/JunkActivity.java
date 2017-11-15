@@ -106,7 +106,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
         setContentView(R.layout.layout_junk);
         PreData.putDB(this, Constant.HONG_JUNK, false);
         BadgerCount.setCount(this);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+            AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        }
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);
         junkPresenter.init();

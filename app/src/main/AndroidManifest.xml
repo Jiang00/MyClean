@@ -115,6 +115,10 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.ToolActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.ManagerActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -166,6 +170,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
+            android:name=".activity.PermissionPowerActivity"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/power_permiss" />
+        <activity
             android:name=".activity.NotifiActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -209,6 +220,11 @@
         </activity>
         <activity
             android:name=".activity.FloatAnimationActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Transparent"></activity>
+        <activity
+            android:name=".activity.NotifiCpuActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent"></activity>

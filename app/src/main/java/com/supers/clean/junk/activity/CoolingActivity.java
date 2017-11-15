@@ -81,7 +81,9 @@ public class CoolingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+            AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        }
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,9 +117,6 @@ public class CoolingActivity extends BaseActivity {
             public void onAnimationEnd(Animation animation) {
                 cooling_fl.setVisibility(View.INVISIBLE);
                 cooling_xuehua.clearAnimation();
-                if (PreData.getDB(CoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
-                }
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);
                 bundle.putString("from", "cooling");

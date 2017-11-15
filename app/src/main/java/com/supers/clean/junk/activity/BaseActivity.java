@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
+import com.android.client.PaymentSystemListener;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JsonData;
 import com.supers.clean.junk.util.JsonParser;
@@ -87,7 +88,28 @@ public class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        AndroidSdk.onCreate(this);
+        AndroidSdk.onCreate(this, new AndroidSdk.Builder().setPaymentListener(new PaymentSystemListener() {
+            @Override
+            public void onPaymentSuccess(int i) {
+                PreData.putDB(BaseActivity.this, Constant.BILL_YOUXIAO, true);
+            }
+
+            @Override
+            public void onPaymentFail(int i) {
+
+            }
+
+            @Override
+            public void onPaymentSystemValid() {
+                AndroidSdk.query(1);
+                AndroidSdk.query(2);
+                AndroidSdk.query(3);
+            }
+
+            @Override
+            public void onPaymentCanceled(int i) {
+            }
+        }));
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.registerReceiver(mBroadcastReceiver, new IntentFilter(LANGUAGE_CHANGE_ACTION));
 
@@ -107,7 +129,7 @@ public class BaseActivity extends AppCompatActivity {
                 PreData.putDB(this, Constant.FULL_MAIN, data.full_main);
                 PreData.putDB(this, Constant.FULL_START, data.full_start);
                 PreData.putDB(this, Constant.FULL_EXIT, data.full_exit);
-                PreData.putDB(this, Constant.NATIVE_EXIT, data.show_exit_native );
+                PreData.putDB(this, Constant.NATIVE_EXIT, data.show_exit_native);
                 PreData.putDB(this, Constant.SKIP_TIME, data.skip_time);
                 PreData.putDB(this, Constant.FULL_MANAGER, data.full_manager);
                 PreData.putDB(this, Constant.FULL_MESSAGE, data.full_message);

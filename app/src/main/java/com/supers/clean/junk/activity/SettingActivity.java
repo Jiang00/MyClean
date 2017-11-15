@@ -8,9 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -26,7 +24,7 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
-import com.fraumobi.call.activity.CallActivity;
+import com.supers.call.activity.CallActivity;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.service.AutoService;
@@ -44,9 +42,9 @@ import com.supers.clean.junk.util.UtilGp;
 public class SettingActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_auto, setting_float, setting_battery, setting_detect, setting_unload, setting_power, setting_file,
+    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_cooling, setting_auto, setting_float, setting_battery, setting_detect, setting_unload, setting_power, setting_file,
             setting_picture, setting_wifi, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
-    ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_auto_check, setting_float_check, setting_battery_check, setting_detect_check, setting_unload_check;
+    ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_cooling_check, setting_auto_check, setting_float_check, setting_battery_check, setting_detect_check, setting_unload_check;
     LinearLayout ll_ad;
     ScrollView setting_scroll;
     FrameLayout fl_lot_setting;
@@ -65,6 +63,7 @@ public class SettingActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         setting_tongzhi = (RelativeLayout) findViewById(R.id.setting_tongzhi);
         setting_tongzhilan = (RelativeLayout) findViewById(R.id.setting_tongzhilan);
+        setting_cooling = (RelativeLayout) findViewById(R.id.setting_cooling);
         setting_float = (RelativeLayout) findViewById(R.id.setting_float);
         setting_auto = (RelativeLayout) findViewById(R.id.setting_auto);
         setting_battery = (RelativeLayout) findViewById(R.id.setting_battery);
@@ -82,6 +81,7 @@ public class SettingActivity extends BaseActivity {
         setting_rotate = (RelativeLayout) findViewById(R.id.setting_rotate);
         setting_tongzhi_check = (ImageView) findViewById(R.id.setting_tongzhi_check);
         setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
+        setting_cooling_check = (ImageView) findViewById(R.id.setting_cooling_check);
         setting_float_check = (ImageView) findViewById(R.id.setting_float_check);
         setting_auto_check = (ImageView) findViewById(R.id.setting_auto_check);
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
@@ -106,13 +106,15 @@ public class SettingActivity extends BaseActivity {
         initData();
         initListener();
         if (PreData.getDB(this, Constant.FULL_SETTING, 0) == 1) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
-                }
-            }, 1000);
-            tuiGuang();
+            if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+                myHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        AndroidSdk.showFullAd(AdUtil.DEFAULT);
+                    }
+                }, 1000);
+                tuiGuang();
+            }
         } else {
             addAd();
         }
@@ -164,14 +166,8 @@ public class SettingActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = AdUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad_3);
+        nativeView = AdUtil.getNativeAdView(this, TAG_SETTING, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            Log.e("aaa", "=====" + layout_ad.height);
-            if (nativeView.getHeight() == Util.dp2px(250)) {
-                layout_ad.height = Util.dp2px(250);
-            }
-            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
 //            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
             setting_scroll.setScrollY(0);
@@ -190,6 +186,11 @@ public class SettingActivity extends BaseActivity {
             setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
+        }
+        if (PreData.getDB(SettingActivity.this, Constant.TAN_COOLING, true)) {
+            setting_cooling_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            setting_cooling_check.setImageResource(R.mipmap.side_check_normal);
         }
         if (PreData.getDB(SettingActivity.this, Constant.FlOAT_SWITCH, true)) {
             setting_float_check.setImageResource(R.mipmap.side_check_passed);
@@ -221,6 +222,7 @@ public class SettingActivity extends BaseActivity {
     private void initListener() {
         setting_tongzhi.setOnClickListener(onClickListener);
         setting_tongzhilan.setOnClickListener(onClickListener);
+        setting_cooling.setOnClickListener(onClickListener);
         setting_float.setOnClickListener(onClickListener);
         setting_auto.setOnClickListener(onClickListener);
         setting_battery.setOnClickListener(onClickListener);
@@ -269,6 +271,16 @@ public class SettingActivity extends BaseActivity {
                         Intent intent = new Intent(SettingActivity.this, NotificationService.class);
                         intent.putExtra("from", "notification");
                         startService(intent);
+                    }
+                    break;
+                case R.id.setting_cooling:
+                    AdUtil.track("设置页面", "点击通知栏开关", "", 1);
+                    if (PreData.getDB(SettingActivity.this, Constant.TAN_COOLING, true)) {
+                        PreData.putDB(SettingActivity.this, Constant.TAN_COOLING, false);
+                        setting_cooling_check.setImageResource(R.mipmap.side_check_normal);
+                    } else {
+                        PreData.putDB(SettingActivity.this, Constant.TAN_COOLING, true);
+                        setting_cooling_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
                 case R.id.setting_float:

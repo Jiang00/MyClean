@@ -4,6 +4,7 @@ import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
@@ -51,6 +52,7 @@ import com.android.clean.util.Util;
 import com.android.client.AdListener;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.android.client.PaymentSystemListener;
 import com.android.theme.internal.data.ThemeManager;
 import com.eos.manager.AppLockPatternEosActivity;
 import com.eos.manager.meta.SecurityMyPref;
@@ -80,6 +82,9 @@ import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.view.MainView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,11 +111,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     FrameLayout fl_lot_main;
     TextView main_msg_tuiguang;
     LinearLayout main_msg_button;
-    LinearLayout main_power_button;
-    LinearLayout main_notifi_button;
-    LinearLayout main_file_button;
-    LinearLayout main_gboost_button;
-    LinearLayout main_picture_button;
     TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_sd_unit, main_msg_cpu_percent;
     TextView main_gurad_num;
     ImageView main_guard_rotate;
@@ -128,6 +128,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LottieAnimationView lot_main;
     LottieAnimationView lot_main_tap;
     ImageView lot_family;
+    ImageView bill;
     FrameLayout load_loading;
     ImageView load_1, load_2;
     ImageView menu_hong;
@@ -166,6 +167,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private AnimatorSet animatorSet;
     private AnimationDrawable animationDrawable;
     private AnimatorSet animatorSet_rotate;
+    private AlertDialog bill_dialog;
+    private int bill_id;
+    private View viewpager_2;
 
     @Override
     protected void findId() {
@@ -196,11 +200,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         fl_lot_main = (FrameLayout) findViewById(R.id.fl_lot_main);
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
-        main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
-        main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
-        main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
-        main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
-        main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
         main_msg_sd_unit = (TextView) findViewById(R.id.main_msg_sd_unit);
@@ -218,6 +217,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
         side_title = (ImageView) findViewById(R.id.side_title);
         lot_family = (ImageView) findViewById(R.id.lot_family);
+        bill = (ImageView) findViewById(R.id.bill);
         load_loading = (FrameLayout) findViewById(R.id.load_loading);
         load_1 = (ImageView) findViewById(R.id.load_1);
         load_2 = (ImageView) findViewById(R.id.load_2);
@@ -261,20 +261,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            main_notifi_button.setVisibility(View.GONE);
-            PreData.putDB(this, Constant.HONG_NOTIFI, false);
-        }
         menu_hong.setVisibility(View.GONE);
-//        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) || PreData.getDB(this, Constant.HONG_NET, true) ||
-//                PreData.getDB(this, Constant.HONG_NOTIFI, true) || PreData.getDB(this, Constant.HONG_CALL, true) || PreData.getDB(this, Constant.HONG_PRI, true) ||
-//                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
-//                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
-//            menu_hong.setVisibility(View.VISIBLE);
-//        } else {
-//            menu_hong.setVisibility(View.GONE);
-//        }
+        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) ||
+                PreData.getDB(this, Constant.HONG_MANAGER, true)) {
+            menu_hong.setVisibility(View.VISIBLE);
+        } else {
+            menu_hong.setVisibility(View.GONE);
+        }
         tuiGuang();
         arrayList = new ArrayList<>();
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
@@ -291,9 +284,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
         main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
         arrayList.add(view);
-        View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
+        viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
-        View adView = AdUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
+        View adView = AdUtil.getNativeAdView(this, TAG_HUA, R.layout.native_ad_2);
         if (adView != null) {
             ViewGroup.LayoutParams layout_ad = view_ad.getLayoutParams();
             if (adView.getHeight() == Util.dp2px(250)) {
@@ -429,9 +422,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
 
         AdUtil.track("主页面", "进入主页面", "", 1);
-        animationDrawable = (AnimationDrawable) getResources().getDrawable(R.drawable.zhen);
-        lot_family.setBackgroundDrawable(animationDrawable);
-
+        if (PreData.getDB(MainActivity.this, Constant.BILL_YOUXIAO, true)) {
+            bill.setVisibility(View.GONE);
+            lot_family.setVisibility(View.GONE);
+        } else {
+            animationDrawable = (AnimationDrawable) getResources().getDrawable(R.drawable.zhen);
+            lot_family.setBackgroundDrawable(animationDrawable);
+        }
         if (PreData.getDB(this, Constant.FIRST_BATTERY, true)) {
             PreData.putDB(this, Constant.FIRST_BATTERY, false);
             main_battery.setVisibility(View.VISIBLE);
@@ -515,7 +512,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 count++;
             }
         }
-        View view_ad = AdUtil.getNativeAdView(TAG_DETECT, R.layout.native_ad);
+        View view_ad = AdUtil.getNativeAdView(this, TAG_DETECT, R.layout.native_ad);
         if (detect_ad != null && view_ad != null) {
             detect_ad.addView(view_ad);
         }
@@ -570,6 +567,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (bean == null || bean.pkg == null) {
             return false;
         }
+        if (PreData.getDB(MainActivity.this, Constant.BILL_YOUXIAO, true)) {
+            return false;
+        }
         Picasso.with(this).load(bean.iconUrl).into((ImageView) viewpager_3.findViewById(R.id.ad_icon));
         Picasso.with(this).load(bean.topPicUrl).into((ImageView) viewpager_3.findViewById(R.id.ad_image));
         ((TextView) viewpager_3.findViewById(R.id.ad_title)).setText(bean.appName.get(0).content);
@@ -588,6 +588,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     }
 
     public void tuiGuang() {
+        if (PreData.getDB(MainActivity.this, Constant.BILL_YOUXIAO, true)) {
+            return;
+        }
         super.tuiGuang();
         Log.e("onSave", "==" + isSave);
         if (isSave) {
@@ -675,14 +678,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_rotate_good.setOnClickListener(onClickListener);
         rotate_delete.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
-        main_power_button.setOnClickListener(onClickListener);
-        main_notifi_button.setOnClickListener(onClickListener);
-        main_file_button.setOnClickListener(onClickListener);
-        main_gboost_button.setOnClickListener(onClickListener);
-        main_picture_button.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
         fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
+        bill.setOnClickListener(onClickListener);
 
         main_scroll_view.setScrollViewListener(new MyScrollView.ScrollViewListener() {
             @Override
@@ -817,15 +816,16 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
         adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
-        adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
-        adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
-        adapter.addData(new SideInfo(R.string.call_lanjie, R.mipmap.side_call));//骚扰拦截
-        adapter.addData(new SideInfo(R.string.privacy_clean, R.mipmap.privacy_side));//隐私清理
-        adapter.addData(new SideInfo(R.string.wifi_name, R.mipmap.side_wifi));//wifi
+        adapter.addData(new SideInfo(R.string.main_tool_name, R.mipmap.side_tool));//工具箱
+//        adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
+//        adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
+//        adapter.addData(new SideInfo(R.string.call_lanjie, R.mipmap.side_call));//骚扰拦截
+//        adapter.addData(new SideInfo(R.string.privacy_clean, R.mipmap.privacy_side));//隐私清理
+//        adapter.addData(new SideInfo(R.string.wifi_name, R.mipmap.side_wifi));//wifi
 //        adapter.addData(new SideInfo(R.string.language, R.mipmap.side_lag_setting));//yuyan
-        adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
-        adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
-        adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
+//        adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
+//        adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
+//        adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
         adapter.addData(new SideInfo(R.string.side_family, R.mipmap.side_theme));//family
         adapter.addData(new SideInfo(R.string.side_theme, R.mipmap.side_theme));//主题
         adapter.addData(new SideInfo(R.string.side_setting, R.mipmap.side_setting));//设置
@@ -858,10 +858,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void loadFullAd() {
+        if (PreData.getDB(MainActivity.this, Constant.BILL_YOUXIAO, true)) {
+            return;
+        }
         if (PreData.getDB(this, Constant.FULL_MAIN, 0) == 1) {
 
         } else {
-            View nativeView = AdUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
+            View nativeView = AdUtil.getNativeAdView(this, TAG_MAIN, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 Log.e("aaa", "=====" + layout_ad.height);
@@ -878,7 +881,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             } else {
                 ll_ad.setVisibility(View.GONE);
             }
-            View nativeView_side = AdUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_2);
+            View nativeView_side = AdUtil.getNativeAdView(this, TAG_SIDE, R.layout.native_ad_2);
             if (ll_ad_side != null && nativeView_side != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_side.getLayoutParams();
                 layout_ad.height = nativeView_side.getMeasuredHeight();
@@ -888,12 +891,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         }
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
-            AndroidSdk.showFullAd(TAG_LOAD_FULL);
+            if (!PreData.getDB(MainActivity.this, Constant.BILL_YOUXIAO, true)) {
+                AndroidSdk.showFullAd(TAG_LOAD_FULL);
+            }
         } else {
             if (TextUtils.equals(from, "translate") || isSave) {
                 return;
             }
-            View nativeView_full = AdUtil.getNativeAdViewV(TAG_START_FULL, R.layout.native_ad_full_main);
+            View nativeView_full = AdUtil.getNativeAdViewV(this, TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
@@ -942,7 +947,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
+                    if (!PreData.getDB(MainActivity.this, Constant.BILL_YOUXIAO, true)) {
+                        AndroidSdk.showFullAd(AdUtil.DEFAULT);
+                    }
                     main_pull_refresh.loadmoreFinish(PullToRefreshLayout.SUCCEED);
                 }
             }, 500);
@@ -1045,8 +1052,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     }
                     break;
                 case R.id.main_theme_button:
-                    AdUtil.track("主页面", "点击进入buton游戏加速", "", 1);
-                    mainPresenter.jumpToActivity(GBoostActivity.class, 1);
+                    AdUtil.track("主页面", "点击进入buton工具箱", "", 1);
+                    mainPresenter.jumpToActivity(ToolActivity.class, 1);
                     break;
                 case R.id.lot_family:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
@@ -1163,37 +1170,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     AdUtil.track("主页面", "点击进入硬件信息", "", 1);
                     mainPresenter.jumpToActivity(MessageActivity.class, 1);
                     break;
-                case R.id.main_power_button:
-                    AdUtil.track("主页面", "点击进入深度清理", "", 1);
-                    PreData.putDB(MainActivity.this, Constant.DEEP_CLEAN, true);
-                    mainPresenter.jumpToActivity(PowerActivity.class, 1);
-                    break;
-                case R.id.main_file_button:
-                    AdUtil.track("主页面", "点击进入文件管理", "", 1);
-                    PreData.putDB(MainActivity.this, Constant.FILE_CLEAN, true);
-                    mainPresenter.jumpToActivity(FileActivity.class, 1);
-                    break;
-                case R.id.main_gboost_button:
-                    AdUtil.track("主页面", "点击进入游戏加速", "", 1);
-                    PreData.putDB(MainActivity.this, Constant.GBOOST_CLEAN, true);
-                    mainPresenter.jumpToActivity(GBoostActivity.class, 1);
-                    break;
-                case R.id.main_picture_button:
-                    AdUtil.track("主页面", "点击进入相似图片", "", 1);
-                    PreData.putDB(MainActivity.this, Constant.PHOTO_CLEAN, true);
-                    mainPresenter.jumpToActivity(PictureActivity.class, 1);
-                    break;
-                case R.id.main_notifi_button:
-                    AdUtil.track("主页面", "点击进入通知栏清理", "", 1);
-                    PreData.putDB(MainActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!Util.isNotificationListenEnabled(MainActivity.this) || !PreData.getDB(MainActivity.this, Constant.KEY_NOTIFI, true)) {
-                        Intent intent6 = new Intent(MainActivity.this, NotifiInfoActivity.class);
-                        startActivityForResult(intent6, 1);
-                    } else {
-                        Intent intent6 = new Intent(MainActivity.this, NotifiActivity.class);
-                        startActivityForResult(intent6, 1);
-                    }
-                    break;
                 case R.id.main_tuiguang_button:
                 case R.id.fl_lot_side:
                     if (LoadManager.getInstance(MainActivity.this).isPkgInstalled(tuiguang)) {
@@ -1212,12 +1188,120 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.battery_cha:
                     main_battery.setVisibility(View.GONE);
                     break;
+                case R.id.bill:
+                    showBillDialog();
+                    break;
                 default:
                     break;
 
             }
         }
     };
+
+    private void showBillDialog() {
+        bill_id = 1;
+        View view = View.inflate(this, R.layout.layout_bill, null);
+        final ImageView bill_week_check = (ImageView) view.findViewById(R.id.bill_week_check);
+        final ImageView bill_month_check = (ImageView) view.findViewById(R.id.bill_month_check);
+        final ImageView bill_year_check = (ImageView) view.findViewById(R.id.bill_year_check);
+        ImageView bill_cha = (ImageView) view.findViewById(R.id.bill_cha);
+        TextView bill_week_name = (TextView) view.findViewById(R.id.bill_week_name);
+        TextView bill_month_name = (TextView) view.findViewById(R.id.bill_month_name);
+        TextView bill_year_name = (TextView) view.findViewById(R.id.bill_year_name);
+        Button bill_button = (Button) view.findViewById(R.id.bill_button);
+        try {
+            JSONObject jsonObject = new JSONObject(AndroidSdk.getExtraData());
+            String bill_week = jsonObject.getString("bill_week");
+            bill_week_name.setText("$" + bill_week + getString(R.string.bill_week));
+            String bill_month = jsonObject.getString("bill_month");
+            bill_month_name.setText("$" + bill_month + getString(R.string.bill_month));
+            String bill_year = jsonObject.getString("bill_year");
+            bill_year_name.setText("$" + bill_year + getString(R.string.bill_year));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        View.OnClickListener bill_click = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.bill_week_check:
+                        bill_id = 1;
+                        bill_week_check.setImageResource(R.mipmap.bill_p);
+                        bill_month_check.setImageResource(R.mipmap.bill_n);
+                        bill_year_check.setImageResource(R.mipmap.bill_n);
+                        break;
+                    case R.id.bill_month_check:
+                        bill_id = 2;
+                        bill_week_check.setImageResource(R.mipmap.bill_n);
+                        bill_month_check.setImageResource(R.mipmap.bill_p);
+                        bill_year_check.setImageResource(R.mipmap.bill_n);
+                        break;
+                    case R.id.bill_year_check:
+                        bill_id = 3;
+                        bill_week_check.setImageResource(R.mipmap.bill_n);
+                        bill_month_check.setImageResource(R.mipmap.bill_n);
+                        bill_year_check.setImageResource(R.mipmap.bill_p);
+                        break;
+                    case R.id.bill_button:
+                        AndroidSdk.pay(bill_id, new PaymentSystemListener() {
+                            @Override
+                            public void onPaymentSuccess(int i) {
+                                PreData.putDB(MainActivity.this, Constant.BILL_YOUXIAO, true);
+                                updateAd();
+                            }
+
+                            @Override
+                            public void onPaymentFail(int i) {
+                            }
+
+                            @Override
+                            public void onPaymentSystemValid() {
+                            }
+
+                            @Override
+                            public void onPaymentCanceled(int i) {
+                            }
+                        });
+                        bill_dialog.dismiss();
+                        break;
+                    case R.id.bill_cha:
+                        bill_dialog.dismiss();
+                        break;
+                }
+            }
+        };
+        bill_week_check.setOnClickListener(bill_click);
+        bill_month_check.setOnClickListener(bill_click);
+        bill_year_check.setOnClickListener(bill_click);
+        bill_button.setOnClickListener(bill_click);
+        bill_cha.setOnClickListener(bill_click);
+        bill_dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
+        bill_dialog.setCanceledOnTouchOutside(false);
+        bill_dialog.setView(view);
+        bill_dialog.show();
+
+    }
+
+    public void updateAd() {
+        if (animationDrawable != null) {
+            animationDrawable.stop();
+        }
+        bill.setVisibility(View.GONE);
+        lot_family.setVisibility(View.GONE);
+        ll_ad_side.setVisibility(View.GONE);
+        ll_ad.setVisibility(View.GONE);
+        if (viewpager_3 != null && arrayList.contains(viewpager_3)) {
+            arrayList.remove(viewpager_3);
+            viewpager.removeView(viewpager_3);
+        }
+        if (viewpager_2 != null && arrayList.contains(viewpager_2)) {
+            arrayList.remove(viewpager_2);
+            viewpager.removeView(viewpager_2);
+        }
+        pageindicatorview.setViewPager(viewpager);
+        pagerAdapter.notifyDataSetChanged();
+    }
+
     Runnable runnable_load = new Runnable() {
         @Override
         public void run() {
@@ -1328,7 +1412,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (lot_main != null) {
             lot_main.playAnimation();
         }
-        if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1 && !PreData.getDB(MainActivity.this, Constant.BILL_YOUXIAO, true)) {
             AndroidSdk.loadFullAd("eos_exit_full", null);
         }
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
@@ -1391,10 +1475,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd("eos_exit_full");
-            }
+
             showExitDialog();
+            if (!PreData.getDB(MainActivity.this, Constant.BILL_YOUXIAO, true)) {
+                if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
+                    AndroidSdk.showFullAd("eos_exit_full");
+                }
+            }
+
         }
     }
 
@@ -1427,7 +1515,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.NATIVE_EXIT, 0) == 1) {
-            View nativeExit = AdUtil.getNativeAdViewV(TAG_EXIT_FULL, R.layout.native_ad_2);
+            View nativeExit = AdUtil.getNativeAdViewV(this, TAG_EXIT_FULL, R.layout.native_ad_2);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.INVISIBLE);
@@ -1502,14 +1590,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (lot_side != null) {
             lot_side.pauseAnimation();
         }
-//        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) || PreData.getDB(this, Constant.HONG_NET, true) ||
-//                PreData.getDB(this, Constant.HONG_NOTIFI, true) || PreData.getDB(this, Constant.HONG_CALL, true) || PreData.getDB(this, Constant.HONG_PRI, true) ||
-//                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
-//                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
-//            menu_hong.setVisibility(View.VISIBLE);
-//        } else {
-//            menu_hong.setVisibility(View.GONE);
-//        }
+        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) ||
+                PreData.getDB(this, Constant.HONG_MANAGER, true)) {
+            menu_hong.setVisibility(View.VISIBLE);
+        } else {
+            menu_hong.setVisibility(View.GONE);
+        }
     }
 
     @Override

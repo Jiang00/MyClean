@@ -1,12 +1,16 @@
 package com.supers.clean.junk.util;
 
+import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.clean.util.Constant;
+import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.BuildConfig;
+import com.supers.clean.junk.activity.MainActivity;
 
 /**
  * Created by Ivy on 2017/5/24.
@@ -21,7 +25,10 @@ public class AdUtil {
         }
     }
 
-    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+    public static View getNativeAdView(Context context, String tag, @LayoutRes int layout) {
+        if (PreData.getDB(context, Constant.BILL_YOUXIAO, true)) {
+            return null;
+        }
         if (!AndroidSdk.hasNativeAd("eos_native")) {
             return null;
         }
@@ -39,7 +46,10 @@ public class AdUtil {
         return nativeView;
     }
 
-    public static View getNativeAdViewV(String tag, @LayoutRes int layout) {
+    public static View getNativeAdViewV(Context context, String tag, @LayoutRes int layout) {
+        if (PreData.getDB(context, Constant.BILL_YOUXIAO, true)) {
+            return null;
+        }
         if (!AndroidSdk.hasNativeAd(tag)) {
             return null;
         }

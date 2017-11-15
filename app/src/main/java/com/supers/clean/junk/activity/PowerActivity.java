@@ -12,6 +12,7 @@ import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,6 +22,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -67,6 +69,7 @@ public class PowerActivity extends BaseActivity {
     private LinearLayout ll_ad;
     private ArrayList<View> viewList;
     ViewPager view_pager;
+    private AlertDialog dialog;
 
     @Override
     protected void findId() {
@@ -84,9 +87,9 @@ public class PowerActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
-        PreData.putDB(this, Constant.HONG_DEEP, false);
-        BadgerCount.setCount(this);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+            AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        }
         mHandler = new Handler();
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", false));
         initData();
@@ -103,21 +106,7 @@ public class PowerActivity extends BaseActivity {
             public void onClick(View v) {
                 AdUtil.track("深度清理页面", "点击清理", "", 1);
                 if (!Util.isAccessibilitySettingsOn(PowerActivity.this)) {
-                    try {
-                        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                        startActivityForResult(intent, 100);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        AdUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
-                    }
-
-                    mHandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent transintent = new Intent(PowerActivity.this, PermissionActivity.class);
-                            startActivity(transintent);
-                        }
-                    }, 1500);
+                    permissIntent();
                     return;
                 }
                 junk_button_clean.setOnClickListener(null);
@@ -168,6 +157,24 @@ public class PowerActivity extends BaseActivity {
             }
             junk_button_clean.callOnClick();
         }
+    }
+
+    public void permissIntent() {
+        try {
+            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            startActivityForResult(intent, 100);
+        } catch (Exception e) {
+            e.printStackTrace();
+            AdUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
+        }
+
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent transintent = new Intent(PowerActivity.this, PermissionPowerActivity.class);
+                startActivity(transintent);
+            }
+        }, 1500);
     }
 
 
@@ -292,7 +299,7 @@ public class PowerActivity extends BaseActivity {
         View layout_deep_ad = LayoutInflater.from(this).inflate(R.layout.layout_power_pager, null);
         power_size = (TextView) layout_deep_ad.findViewById(R.id.power_size);
         viewList.add(layout_deep_ad);
-        View nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        View nativeView = AdUtil.getNativeAdView(this, "", R.layout.native_ad_3);
         if (nativeView != null) {
             viewList.add(nativeView);
         }
@@ -415,7 +422,48 @@ public class PowerActivity extends BaseActivity {
         if (requestCode == 100) {
             if (Util.isAccessibilitySettingsOn(PowerActivity.this)) {
                 junk_button_clean.callOnClick();
+            } else {
+                showDialogPermiss();
             }
+        }
+    }
+
+    private void showDialogPermiss() {
+        View view = View.inflate(this, R.layout.dialog_permiss, null);
+        LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
+        TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
+        TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
+        if (PreData.getDB(this, Constant.NATIVE_EXIT, 0) == 1) {
+            View nativeExit = AdUtil.getNativeAdViewV(this, "", R.layout.native_ad_2);
+            if (nativeExit != null) {
+//                ll_ad_exit.addView(nativeExit);
+//                ll_ad_exit.setVisibility(View.INVISIBLE);
+            }
+        }
+        exit_queren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                permissIntent();
+                dialog.dismiss();
+
+            }
+        });
+        exit_quxiao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
+        dialog.show();
+        if (ll_ad_exit.getVisibility() == View.INVISIBLE) {
+            ObjectAnimator animator = ObjectAnimator.ofFloat(ll_ad_exit, View.TRANSLATION_Y, -getResources().getDimensionPixelOffset(R.dimen.d280), 0);
+            animator.setDuration(600);
+            animator.setInterpolator(new AccelerateDecelerateInterpolator());
+            animator.start();
+            ll_ad_exit.setVisibility(View.VISIBLE);
         }
     }
 }

@@ -6,6 +6,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 
+import com.android.clean.util.Constant;
+import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.ADRequest;
 
@@ -31,6 +33,8 @@ public class ADActivity extends Activity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResume(this);
-        ADRequest.showFullAD();
+        if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+            AndroidSdk.showFullAd("result_full");
+        }
     }
 }

@@ -19,9 +19,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.clean.util.Constant;
-import com.android.clean.util.PreData;
-import com.fraumobi.call.Utils.BadgerCount;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.privacy.CallEntity;
 import com.supers.clean.junk.privacy.PrivacyClean;
@@ -109,8 +106,6 @@ public class PrivacyActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_privary);
-        PreData.putDB(this, Constant.HONG_PRI, false);
-        BadgerCount.setCount(this);
         privacyClean = PrivacyClean.getInstance(this);
 
         mHandler = new Handler() {

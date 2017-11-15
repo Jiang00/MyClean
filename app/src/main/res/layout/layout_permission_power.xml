@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/onclick"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <FrameLayout
+        android:layout_width="333dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="333dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|bottom"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/normal_rectangle"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d20"
+                    android:src="@mipmap/loading_icon" />
+
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d14"
+                    android:layout_marginLeft="@dimen/d24"
+                    android:layout_marginRight="@dimen/d24"
+                    android:layout_marginTop="@dimen/d14"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="@string/permiss_1"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/s16"
+                    app:typeface="eos_clean.otf" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="#e4e4e4"
+                    android:gravity="center"
+                    android:paddingTop="10dp">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/permiss_1" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+
+                    android:id="@+id/ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp">
+
+
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="76dp"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/app_name"
+                        android:textColor="@color/B2"
+                        android:textSize="18sp"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="40dp"
+                        android:src="@mipmap/side_check_passed" />
+
+                    <ImageView
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="left|center"
+                        android:layout_marginLeft="21dp"
+                        android:layout_marginStart="21dp"
+                        android:background="@mipmap/icon" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@mipmap/permiss_2" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#e4e4e4"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/permiss_1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#e4e4e4"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/permiss_1" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="#e4e4e4" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="@dimen/d146"
+                android:layout_height="@dimen/d40"
+                android:layout_marginTop="@dimen/d48"
+                android:background="@drawable/shape_ffffff_kong"
+                android:gravity="center"
+                android:text="@string/premiss_5"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s20" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+</LinearLayout>
+

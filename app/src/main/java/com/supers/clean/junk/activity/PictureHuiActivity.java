@@ -101,14 +101,16 @@ public class PictureHuiActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.RECYCLEBIN, 0) == 1) {
-            AndroidSdk.showFullAd(AdUtil.DEFAULT);
+            if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+                AndroidSdk.showFullAd(AdUtil.DEFAULT);
+            }
         } else {
             addAd();
         }
     }
 
     private void addAd() {
-        nativeView = AdUtil.getNativeAdView(TAG_RECYCLE, R.layout.native_ad_3);
+        nativeView = AdUtil.getNativeAdView(this, TAG_RECYCLE, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             ll_ad.setLayoutParams(layout_ad);
@@ -381,7 +383,6 @@ public class PictureHuiActivity extends BaseActivity {
             }
             notifyDataSetChanged();
         }
-
 
         public HuiAdapter.HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             HuiAdapter.HomeViewHolder holder = new HuiAdapter.HomeViewHolder(LayoutInflater.from(

@@ -246,7 +246,9 @@ public class SuccessActivity extends BaseActivity {
             public void duogouSc() {
                 success_drawhook.setListener(null);
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
+                    if (!PreData.getDB(SuccessActivity.this, Constant.BILL_YOUXIAO, true)) {
+                        AndroidSdk.showFullAd(AdUtil.DEFAULT);
+                    }
                 }
                 runOnUiThread(new Runnable() {
                     @Override
@@ -276,7 +278,7 @@ public class SuccessActivity extends BaseActivity {
             addAd();
         }
         if (PreData.getDB(this, Constant.NATIVE_SUCCESS, 0) == 1) {
-            native_xiao = AdUtil.getNativeAdViewV(TAG_CLEAN_2, R.layout.native_ad_2);
+            native_xiao = AdUtil.getNativeAdViewV(this, TAG_CLEAN_2, R.layout.native_ad_2);
             if (ll_ad_xiao != null && native_xiao != null) {
                 ll_ad_xiao.addView(native_xiao);
                 ll_ad_xiao.setVisibility(View.VISIBLE);
@@ -389,7 +391,7 @@ public class SuccessActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = AdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
+        nativeView = AdUtil.getNativeAdView(this, TAG_CLEAN, R.layout.native_ad_full);
 
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();

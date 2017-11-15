@@ -123,7 +123,10 @@ public class DetectActivity extends Activity {
         }
     }
 
-    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+    public View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (PreData.getDB(this.getApplicationContext(), Constant.BILL_YOUXIAO, true)) {
+            return null;
+        }
         if (!AndroidSdk.hasNativeAd(tag)) {
             return null;
         }

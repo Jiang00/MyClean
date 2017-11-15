@@ -35,6 +35,8 @@ public class Constant {
 
     public static final String TONGZHI_SWITCH = "TONGZHI_SWITCH";//通知开关
 
+    public static final String TAN_COOLING = "TAN_COOLING";//温度提醒开关
+
     public static final String TONGZHILAN_SWITCH = "TONGZHILAN_SWITCH";//通知栏开关
 
     public static final String KEY_TONGZHI_ZAO_RAM = "KEY_TONGZHI_ZAO_RAM";//一天三次
@@ -48,6 +50,12 @@ public class Constant {
     public static final String KEY_TONGZHI_ZHONG_COOLING = "KEY_TONGZHI_ZHONG_COOLING";//一天三次
 
     public static final String KEY_TONGZHI_WAN_COOLING = "KEY_TONGZHI_WAN_COOLING";//一天三次
+
+    public static final String KEY_TAN_ZAO_COOLING = "KEY_TAN_ZAO_COOLING";//一天三次
+
+    public static final String KEY_TAN_ZHONG_COOLING = "KEY_TAN_ZHONG_COOLING";//一天三次
+
+    public static final String KEY_TAN_WAN_COOLING = "KEY_TAN_WAN_COOLING";//一天三次
 
     public static final String KEY_TONGZHI_ZAO_JUNK = "KEY_TONGZHI_ZAO_JUNK";//一天三次
 
@@ -155,16 +163,8 @@ public class Constant {
     public static final String HONG_RAM = "HONG_RAM";
     public static final String HONG_JUNK = "HONG_JUNK";
     public static final String HONG_COOLING = "HONG_COOLING";
-    public static final String HONG_NOTIFI = "HONG_NOTIFI";
-    public static final String HONG_FILE = "HONG_FILE";
     public static final String HONG_MANAGER = "HONG_MANAGER";
-    public static final String HONG_DEEP = "HONG_DEEP";
-    public static final String HONG_PHOTO = "HONG_PHOTO";
-    public static final String HONG_GBOOST = "HONG_GBOOST";
-    public static final String HONG_MESSAGE = "HONG_MESSAGE";
-    public static final String HONG_NET = "HONG_NET";
-    public static final String HONG_CALL = "HONG_CALL";
-    public static final String HONG_PRI = "HONG_PRI";
-
+    //付费
+    public static final String BILL_YOUXIAO = "BILL_YOUXIAO";
 
 }

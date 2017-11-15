@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fraumobi.call.record">
+    package="com.supers.call.record">
 
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -18,17 +18,17 @@
         android:supportsRtl="true">
 
         <activity
-            android:name="com.fraumobi.call.activity.CallActivity"
+            android:name="com.supers.call.activity.CallActivity"
             android:theme="@style/cleanTheme"
             />
         <activity
-            android:name="com.fraumobi.call.activity.CallNameActivity"
+            android:name="com.supers.call.activity.CallNameActivity"
             android:theme="@style/cleanTheme" />
         <activity
-            android:name="com.fraumobi.call.activity.CallName2Activity"
+            android:name="com.supers.call.activity.CallName2Activity"
             android:theme="@style/cleanTheme" />
 
-        <service android:name="com.fraumobi.call.service.PhoneService" />
+        <service android:name="com.supers.call.service.PhoneService" />
     </application>
 
 </manifest>

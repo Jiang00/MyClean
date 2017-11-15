@@ -34,6 +34,7 @@ import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
 import com.eos.module.tweenengine.TweenManager;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.customeview.BubbleCenterLayout;
 import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.util.AdUtil;
 import com.android.clean.util.Constant;
@@ -54,6 +55,7 @@ public class ShortCutActivity extends BaseActivity {
     FrameLayout short_fl;
     ImageView rotate_ni;
     ImageView rotate_zheng;
+    BubbleCenterLayout bubble_center;
     private Animation rotate;
     private Animation fang;
     private TweenManager tweenManager;
@@ -68,6 +70,7 @@ public class ShortCutActivity extends BaseActivity {
     private Animation suo;
     private Dialog dialog;
     private AnimatorSet animatorSet;
+
     private LinearLayout auto_ram_l, auto_junk_l, auto_battery_l;
     Animation animation_ram, animation_junk, animation_battery;
 
@@ -78,6 +81,7 @@ public class ShortCutActivity extends BaseActivity {
         short_fl = (FrameLayout) findViewById(R.id.short_fl);
         rotate_ni = (ImageView) findViewById(R.id.rotate_ni);
         rotate_zheng = (ImageView) findViewById(R.id.rotate_zheng);
+        bubble_center = (BubbleCenterLayout) findViewById(R.id.bubble_center);
     }
 
     @Override
@@ -134,7 +138,7 @@ public class ShortCutActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
+        nativeView = AdUtil.getNativeAdView(this, TAG_SHORTCUT, R.layout.native_ad1);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
             ll_ad.setVisibility(View.VISIBLE);
@@ -363,6 +367,10 @@ public class ShortCutActivity extends BaseActivity {
                 @Override
                 public void onAnimationEnd(Animation animation) {
                     short_fl.setVisibility(View.GONE);
+                    if (bubble_center != null) {
+                        bubble_center.pause();
+                        bubble_center.destroy();
+                    }
                     count++;
                     show_text();
                 }
@@ -416,6 +424,10 @@ public class ShortCutActivity extends BaseActivity {
         if (suo != null) {
             suo.setAnimationListener(null);
             suo.cancel();
+        }
+        if (bubble_center != null) {
+            bubble_center.pause();
+            bubble_center.destroy();
         }
         istween = false;
         finish();

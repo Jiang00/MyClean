@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.TrafficStats;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -35,7 +34,6 @@ import com.android.clean.gboost.GameBooster;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.clean.util.LoadManager;
-import com.fraumobi.call.Utils.BadgerCount;
 import com.rd.PageIndicatorView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.AddGameAdapter;
@@ -133,8 +131,6 @@ public class GBoostActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_gboost);
-        PreData.putDB(this, Constant.HONG_GBOOST, false);
-        BadgerCount.setCount(this);
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         mHandler = new Handler();
         cleanApplication = (MyApplication) getApplication();
@@ -163,7 +159,7 @@ public class GBoostActivity extends BaseActivity {
     }
 
     private void addAd() {
-        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        View native_xiao = AdUtil.getNativeAdView(this,"", R.layout.native_ad_3);
         if (ll_ad != null && native_xiao != null) {
             ll_ad.addView(native_xiao);
             ll_ad.setVisibility(View.VISIBLE);

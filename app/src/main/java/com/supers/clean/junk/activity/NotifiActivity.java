@@ -22,10 +22,8 @@ import com.android.clean.notification.NotificationCallBack;
 import com.android.clean.notification.NotificationInfo;
 import com.android.clean.notification.NotificationMonitorService;
 import com.android.client.AndroidSdk;
-import com.fraumobi.call.Utils.BadgerCount;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.NotifiAdapter;
-import com.supers.clean.junk.customeview.DeleteListView;
 import com.android.clean.util.Util;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Constant;
@@ -117,8 +115,6 @@ public class NotifiActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PreData.putDB(this, Constant.HONG_NOTIFI, false);
-        BadgerCount.setCount(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
 
@@ -130,7 +126,9 @@ public class NotifiActivity extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
+            AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
+        }
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, NotificationMonitorService.class));
@@ -146,7 +144,7 @@ public class NotifiActivity extends Activity {
     }
 
     private void addAd() {
-        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        View native_xiao = AdUtil.getNativeAdView(this,"", R.layout.native_ad_3);
         if (ll_ad != null && native_xiao != null) {
             ll_ad.addView(native_xiao);
             ll_ad.setVisibility(View.VISIBLE);

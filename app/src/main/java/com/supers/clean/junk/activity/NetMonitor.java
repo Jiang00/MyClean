@@ -3,7 +3,6 @@ package com.supers.clean.junk.activity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.TrafficStats;
@@ -12,13 +11,9 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -28,12 +23,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.clean.core.CleanManager;
-import com.android.clean.util.Constant;
-import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
-import com.android.client.AndroidSdk;
-import com.fraumobi.call.Utils.BadgerCount;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.wifi.RunAppInfo;
@@ -70,8 +60,6 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_netmonitor);
-        PreData.putDB(this, Constant.HONG_NET, false);
-        BadgerCount.setCount(this);
         mContext = this;
         findId();
 
@@ -129,7 +117,7 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
     }
 
     private void addAd() {
-        View native_xiao = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        View native_xiao = AdUtil.getNativeAdView(this,"", R.layout.native_ad_3);
         if (ll_ad != null && native_xiao != null) {
             ll_ad.addView(native_xiao);
             ll_ad.setVisibility(View.VISIBLE);
