@@ -80,6 +80,8 @@ public class NotificationService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        long time = System.currentTimeMillis();
+        Log.e("loading_time", "notificraet0");
         if (myHandler == null)
             myHandler = new Handler();
         phoneManager = PhoneManager.getPhoneManage(this);
@@ -95,6 +97,7 @@ public class NotificationService extends Service {
         changZhuTongzhi();
         tonghzi_notifi();
         CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
+        Log.e("loading_time", "loaingonResume" + (System.currentTimeMillis() - time));
     }
 
     NotificationCallBack notificationCallBack = new NotificationCallBack() {

@@ -69,7 +69,7 @@ public class FloatService extends Service {
         hmoes = getLaunchers();
         manager.showFloatCircleView();
         myHandler.removeCallbacks(runnable);
-        myHandler.postDelayed(runnable, 1000);
+        myHandler.postDelayed(runnable, 3000);
 //        manager.addWindowsView();
         return START_REDELIVER_INTENT;
     }

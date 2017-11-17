@@ -26,6 +26,7 @@ public class RecursiveFileObserver extends FileObserver {
     String mPath;
     int mMask;
     Context context;
+    private boolean run;
 
     public RecursiveFileObserver(Context context, String path) {
         this(path, ALL_EVENTS);
@@ -40,38 +41,48 @@ public class RecursiveFileObserver extends FileObserver {
 
     @Override
     public void startWatching() {
+        run = true;
         if (mObservers != null)
             return;
         mObservers = new ArrayMap<>();
-        Stack stack = new Stack();
-        stack.push(mPath);
 
-        while (!stack.isEmpty()) {
-            String temp = (String) stack.pop();
-            mObservers.put(temp, new SingleFileObserver(temp, mMask));
-            if (temp != null && temp.length() != 0) {
-                File path = new File(temp);
-                File[] files = path.listFiles();
-                if (null == files)
-                    continue;
-                for (File f : files) {
-                    // 递归监听目录
-                    if (f.isDirectory() && !f.getName().equals(".") && !f.getName()
-                            .equals("..")) {
-                        stack.push(f.getAbsolutePath());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (run) {
+                    Stack stack = new Stack();
+                    stack.push(mPath);
+                    while (!stack.isEmpty()) {
+                        String temp = (String) stack.pop();
+                        mObservers.put(temp, new SingleFileObserver(temp, mMask));
+                        if (temp != null && temp.length() != 0) {
+                            File path = new File(temp);
+                            File[] files = path.listFiles();
+                            if (null == files)
+                                continue;
+                            for (File f : files) {
+                                // 递归监听目录
+                                if (f.isDirectory() && !f.getName().equals(".") && !f.getName()
+                                        .equals("..")) {
+                                    stack.push(f.getAbsolutePath());
+                                }
+                            }
+                        }
+                    }
+                    Iterator<String> iterator = mObservers.keySet().iterator();
+                    while (iterator.hasNext()) {
+                        String key = iterator.next();
+                        mObservers.get(key).startWatching();
                     }
                 }
             }
-        }
-        Iterator<String> iterator = mObservers.keySet().iterator();
-        while (iterator.hasNext()) {
-            String key = iterator.next();
-            mObservers.get(key).startWatching();
-        }
+        }).start();
+
     }
 
     @Override
     public void stopWatching() {
+        run = false;
         if (mObservers == null)
             return;
 

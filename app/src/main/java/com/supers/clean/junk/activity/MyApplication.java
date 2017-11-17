@@ -75,13 +75,17 @@ public class MyApplication extends App {
     public void onCreate() {
         super.onCreate();
 
+        AndroidSdk.onCreate(this);
+        String name = Util.getProcessName(this);
+        if (!TextUtils.equals(name, getPackageName())) {
+            return;
+        }
         String language = PreData.getDB(this, BaseActivity.DEFAULT_SYSTEM_LANGUAGE, BaseActivity.DEFAULT_SYSTEM_LANGUAGE);
 
         if (!TextUtils.equals(language, BaseActivity.DEFAULT_SYSTEM_LANGUAGE)) {
             changeAppLanguage(language);
         }
         ShortcutBadger.applyCount(this, 0);
-        AndroidSdk.onCreate(this);
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/
@@ -93,7 +97,7 @@ public class MyApplication extends App {
         Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.loading_icon);
 
         CleanManager.getInstance(this).startLoad();
-//
+
         startService(new Intent(this, PhoneService.class));
 
         if (PreData.getDB(this, Constant.FlOAT_SWITCH, true)) {
@@ -108,11 +112,6 @@ public class MyApplication extends App {
         //启动通知兰清理
         if (Util.isNotificationListenEnabled(this) && PreData.getDB(this, Constant.KEY_NOTIFI, false)) {
             startService(new Intent(this, NotificationMonitorService.class));
-        }
-
-        String name = Util.getProcessName(this);
-        if (!TextUtils.equals(name, getPackageName())) {
-            return;
         }
 
         if (PreData.getDB(this, Constant.FIRST_INSTALL, true)) {

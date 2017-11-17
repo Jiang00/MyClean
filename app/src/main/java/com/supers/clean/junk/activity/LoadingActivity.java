@@ -36,6 +36,7 @@ public class LoadingActivity extends BaseActivity {
     LinearLayout loading_text;
     TextView load_name, load_text;
     ImageView load_icon;
+    long time;
 
     @Override
     protected void findId() {
@@ -49,7 +50,7 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
+        time = System.currentTimeMillis();
         ShopMaster.onCreate(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loading);
@@ -67,9 +68,33 @@ public class LoadingActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1 && !PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
             AndroidSdk.loadFullAd("loading_full", null);
         }
-
-        myHandler.removeCallbacks(runnableAni);
-        myHandler.postDelayed(runnableAni, 500);
+        myHandler.removeCallbacks(runnable1);
+        myHandler.postDelayed(runnable1, 2500);
+//        myHandler.removeCallbacks(runnableAni);
+//        myHandler.postDelayed(runnableAni, 500);
+//        animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_icon);
+//        Animation animation2 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_name);
+//        Animation animation3 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_text);
+//        load_icon.startAnimation(animation1);
+//        load_name.startAnimation(animation2);
+//        load_text.startAnimation(animation3);
+//        loading_text.setVisibility(View.VISIBLE);
+//        animation1.setAnimationListener(new Animation.AnimationListener() {
+//            @Override
+//            public void onAnimationEnd(Animation animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animation animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationStart(Animation animation) {
+//
+//            }
+//        });
     }
 
     private Animation animation1;
@@ -77,30 +102,7 @@ public class LoadingActivity extends BaseActivity {
         @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         @Override
         public void run() {
-            animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_icon);
-            Animation animation2 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_name);
-            Animation animation3 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.load_text);
-            load_icon.startAnimation(animation1);
-            load_name.startAnimation(animation2);
-            load_text.startAnimation(animation3);
-            loading_text.setVisibility(View.VISIBLE);
-            animation1.setAnimationListener(new Animation.AnimationListener() {
-                @Override
-                public void onAnimationEnd(Animation animation) {
-                    myHandler.removeCallbacks(runnable1);
-                    myHandler.postDelayed(runnable1, 500);
-                }
 
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-
-                }
-
-                @Override
-                public void onAnimationStart(Animation animation) {
-
-                }
-            });
         }
     };
     Runnable runnable1 = new Runnable() {
@@ -121,7 +123,9 @@ public class LoadingActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.e("loading_time", "loaingonResume" + (System.currentTimeMillis() - time));
         AndroidSdk.onResumeWithoutTransition(this);
+        Log.e("loading_time", "loaingonResume结束" + (System.currentTimeMillis() - time));
     }
 
     @Override
