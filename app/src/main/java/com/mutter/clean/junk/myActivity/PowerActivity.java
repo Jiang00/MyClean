@@ -3,12 +3,16 @@ package com.mutter.clean.junk.myActivity;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +21,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -26,6 +31,7 @@ import android.widget.TextView;
 
 import com.mutter.clean.core.CleanManager;
 import com.mutter.clean.deepclean.CustomerAccessibilityService;
+import com.mutter.clean.junk.myview.WidgetContainer;
 import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.util.LoadManager;
 import com.mutter.clean.util.PreData;
@@ -62,6 +68,8 @@ public class PowerActivity extends BaseActivity {
     private PowerWidgetContainer container;
     private int count = 0;
     private View nativeView;
+    private WidgetContainer widgetContainer;
+    private AlertDialog dialog;
 
 
     @Override
@@ -80,6 +88,8 @@ public class PowerActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
+        registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+
         PreData.putDB(this, Constant.HONG_DEEP, false);
         BadgerCount.setCount(this);
         AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
@@ -138,7 +148,7 @@ public class PowerActivity extends BaseActivity {
         nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
-            AdUtil.startBannerAnimation(this,ad_fl);
+            AdUtil.startBannerAnimation(this, ad_fl);
         }
     }
 
@@ -169,21 +179,7 @@ public class PowerActivity extends BaseActivity {
                 case R.id.junk_button_clean:
                     AdUtil.track("深度清理页面", "点击清理", "", 1);
                     if (!Util.isAccessibilitySettingsOn(PowerActivity.this)) {
-                        try {
-                            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                            startActivityForResult(intent, 100);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            AdUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
-                        }
-
-                        mHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                Intent transintent = new Intent(PowerActivity.this, ShowPermissionActivity.class);
-                                startActivity(transintent);
-                            }
-                        }, 1500);
+                        permissIntent();
                         return;
                     }
                     junk_button_clean.setOnClickListener(null);
@@ -370,8 +366,21 @@ public class PowerActivity extends BaseActivity {
         }
     }
 
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
+                if (widgetContainer != null) {
+                    widgetContainer.removeFromWindow();
+                }
+            }
+        }
+    };
+
     @Override
     protected void onDestroy() {
+        unregisterReceiver(broadcastReceiver);
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", true));
         super.onDestroy();
         if (mHandler != null) {
@@ -395,6 +404,42 @@ public class PowerActivity extends BaseActivity {
         }
     }
 
+    public void permissIntent() {
+        try {
+            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            startActivityForResult(intent, 100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                View view = LayoutInflater.from(PowerActivity.this).inflate(R.layout.layout_power_permission, null);
+                widgetContainer = new WidgetContainer(PowerActivity.this.getApplicationContext(), Gravity.NO_GRAVITY, WindowManager.LayoutParams.MATCH_PARENT,
+                        WindowManager.LayoutParams.MATCH_PARENT, true);
+                widgetContainer.addView(view);
+                widgetContainer.addToWindow();
+                widgetContainer.setWidgetListener(new WidgetContainer.IWidgetListener() {
+                    @Override
+                    public boolean onBackPressed() {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onMenuPressed() {
+                        return false;
+                    }
+
+                    @Override
+                    public void onClick() {
+                        widgetContainer.removeFromWindow();
+                    }
+                });
+            }
+        }, 1500);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
@@ -403,7 +448,33 @@ public class PowerActivity extends BaseActivity {
         if (requestCode == 100) {
             if (Util.isAccessibilitySettingsOn(PowerActivity.this)) {
                 junk_button_clean.callOnClick();
+            } else {
+                showDialogPermiss();
             }
         }
+    }
+
+    private void showDialogPermiss() {
+        View view = View.inflate(this, R.layout.dialog_power, null);
+        TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
+        TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
+        exit_queren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                permissIntent();
+                dialog.dismiss();
+
+            }
+        });
+        exit_quxiao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
+        dialog.show();
     }
 }

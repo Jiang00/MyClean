@@ -32748,7 +32748,7 @@ com.mutter.clean.junk.R$styleable -> com.mutter.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6083:15069:void <clinit>() -> <clinit>
+    6091:15077:void <clinit>() -> <clinit>
 com.mutter.clean.junk.broadcast.UnloadBroadcast -> com.mutter.clean.junk.broadcast.UnloadBroadcast:
     23:23:void <init>() -> <init>
     27:55:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -34470,103 +34470,129 @@ com.mutter.clean.junk.myActivity.PhotoHuiActivity$MyCallBack -> com.mutter.clean
     void progress() -> a
     void success() -> b
 com.mutter.clean.junk.myActivity.PowerActivity -> com.mutter.clean.junk.myActivity.PowerActivity:
-    android.support.v7.widget.LinearLayoutManager mLayoutManager -> v
-    com.mutter.clean.junk.myActivity.MyApplication cleanApplication -> w
-    android.view.View containerView -> x
+    android.support.v7.widget.LinearLayoutManager mLayoutManager -> w
+    com.mutter.clean.junk.myActivity.MyApplication cleanApplication -> x
+    android.view.View containerView -> y
     android.widget.Button junk_button_clean -> l
     android.widget.ImageView power_check -> m
     android.widget.TextView title_name -> n
     android.widget.FrameLayout title_left -> o
-    android.widget.Button containerView_junk_button_clean -> y
+    android.widget.Button containerView_junk_button_clean -> z
     android.os.Handler mHandler -> p
     android.support.v7.widget.RecyclerView power_recycler -> q
     android.widget.LinearLayout ll_ad -> r
     android.widget.FrameLayout ad_fl -> s
-    com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter homeAdapter -> z
-    com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter containerAdapter -> A
-    java.util.ArrayList startList -> B
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> C
-    com.mutter.clean.junk.myview.PowerWidgetContainer container -> D
-    int count -> E
-    android.view.View nativeView -> F
+    com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter homeAdapter -> A
+    com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter containerAdapter -> B
+    java.util.ArrayList startList -> C
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> D
+    com.mutter.clean.junk.myview.PowerWidgetContainer container -> E
+    int count -> F
+    android.view.View nativeView -> G
+    com.mutter.clean.junk.myview.WidgetContainer widgetContainer -> H
+    android.support.v7.app.AlertDialog dialog -> I
     android.view.View$OnClickListener clickListener -> t
     java.lang.Runnable runnable -> u
-    46:219:void <init>() -> <init>
-    69:77:void findId() -> a
-    81:135:void onCreate(android.os.Bundle) -> onCreate
-    138:143:void addAd() -> b
-    209:217:void setContainer() -> c
-    263:292:void animatorView(android.view.View,int) -> a
-    295:300:void showPackageDetail(java.lang.String) -> b
-    303:310:void initData() -> d
-    375:380:void onDestroy() -> onDestroy
-    384:386:void onBackPressed() -> onBackPressed
-    390:396:void onResume() -> onResume
-    400:408:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    46:46:void access$000(com.mutter.clean.junk.myActivity.PowerActivity) -> a
-    46:46:android.view.View access$102(com.mutter.clean.junk.myActivity.PowerActivity,android.view.View) -> a
-    46:46:com.mutter.clean.junk.myview.PowerWidgetContainer access$202(com.mutter.clean.junk.myActivity.PowerActivity,com.mutter.clean.junk.myview.PowerWidgetContainer) -> a
-    46:46:android.view.View access$100(com.mutter.clean.junk.myActivity.PowerActivity) -> b
-    46:46:com.mutter.clean.junk.myview.PowerWidgetContainer access$200(com.mutter.clean.junk.myActivity.PowerActivity) -> c
-    46:46:void access$300(com.mutter.clean.junk.myActivity.PowerActivity) -> d
-    46:46:java.util.ArrayList access$400(com.mutter.clean.junk.myActivity.PowerActivity) -> e
-    46:46:int access$508(com.mutter.clean.junk.myActivity.PowerActivity) -> f
-    46:46:void access$600(com.mutter.clean.junk.myActivity.PowerActivity,java.lang.String) -> a
-    46:46:android.support.v7.widget.RecyclerView access$700(com.mutter.clean.junk.myActivity.PowerActivity) -> g
-    46:46:void access$800(com.mutter.clean.junk.myActivity.PowerActivity,android.view.View,int) -> a
-    46:46:com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter access$900(com.mutter.clean.junk.myActivity.PowerActivity) -> h
-    46:46:int access$500(com.mutter.clean.junk.myActivity.PowerActivity) -> i
-    46:46:com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter access$1000(com.mutter.clean.junk.myActivity.PowerActivity) -> j
+    android.content.BroadcastReceiver broadcastReceiver -> v
+    52:369:void <init>() -> <init>
+    77:85:void findId() -> a
+    89:145:void onCreate(android.os.Bundle) -> onCreate
+    148:153:void addAd() -> c
+    205:213:void setContainer() -> d
+    259:288:void animatorView(android.view.View,int) -> a
+    291:296:void showPackageDetail(java.lang.String) -> b
+    299:306:void initData() -> e
+    383:389:void onDestroy() -> onDestroy
+    393:395:void onBackPressed() -> onBackPressed
+    399:405:void onResume() -> onResume
+    409:441:void permissIntent() -> b
+    445:455:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    458:479:void showDialogPermiss() -> f
+    52:52:void access$000(com.mutter.clean.junk.myActivity.PowerActivity) -> a
+    52:52:android.view.View access$102(com.mutter.clean.junk.myActivity.PowerActivity,android.view.View) -> a
+    52:52:com.mutter.clean.junk.myview.PowerWidgetContainer access$202(com.mutter.clean.junk.myActivity.PowerActivity,com.mutter.clean.junk.myview.PowerWidgetContainer) -> a
+    52:52:android.view.View access$100(com.mutter.clean.junk.myActivity.PowerActivity) -> b
+    52:52:com.mutter.clean.junk.myview.PowerWidgetContainer access$200(com.mutter.clean.junk.myActivity.PowerActivity) -> c
+    52:52:void access$300(com.mutter.clean.junk.myActivity.PowerActivity) -> d
+    52:52:java.util.ArrayList access$400(com.mutter.clean.junk.myActivity.PowerActivity) -> e
+    52:52:int access$508(com.mutter.clean.junk.myActivity.PowerActivity) -> f
+    52:52:void access$600(com.mutter.clean.junk.myActivity.PowerActivity,java.lang.String) -> a
+    52:52:android.support.v7.widget.RecyclerView access$700(com.mutter.clean.junk.myActivity.PowerActivity) -> g
+    52:52:void access$800(com.mutter.clean.junk.myActivity.PowerActivity,android.view.View,int) -> a
+    52:52:com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter access$900(com.mutter.clean.junk.myActivity.PowerActivity) -> h
+    52:52:int access$500(com.mutter.clean.junk.myActivity.PowerActivity) -> i
+    52:52:com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter access$1000(com.mutter.clean.junk.myActivity.PowerActivity) -> j
+    52:52:com.mutter.clean.junk.myview.WidgetContainer access$1100(com.mutter.clean.junk.myActivity.PowerActivity) -> k
+    52:52:com.mutter.clean.junk.myview.WidgetContainer access$1102(com.mutter.clean.junk.myActivity.PowerActivity,com.mutter.clean.junk.myview.WidgetContainer) -> a
+    52:52:android.support.v7.app.AlertDialog access$1200(com.mutter.clean.junk.myActivity.PowerActivity) -> l
 com.mutter.clean.junk.myActivity.PowerActivity$1 -> com.mutter.clean.junk.myActivity.PowerActivity$1:
     com.mutter.clean.junk.myActivity.PowerActivity this$0 -> a
-    127:127:void <init>(com.mutter.clean.junk.myActivity.PowerActivity) -> <init>
-    130:131:void run() -> run
+    137:137:void <init>(com.mutter.clean.junk.myActivity.PowerActivity) -> <init>
+    140:141:void run() -> run
 com.mutter.clean.junk.myActivity.PowerActivity$2 -> com.mutter.clean.junk.myActivity.PowerActivity$2:
     com.mutter.clean.junk.myActivity.PowerActivity this$0 -> a
-    145:145:void <init>(com.mutter.clean.junk.myActivity.PowerActivity) -> <init>
-    148:205:void onClick(android.view.View) -> onClick
+    155:155:void <init>(com.mutter.clean.junk.myActivity.PowerActivity) -> <init>
+    158:201:void onClick(android.view.View) -> onClick
 com.mutter.clean.junk.myActivity.PowerActivity$2$1 -> com.mutter.clean.junk.myActivity.PowerActivity$2$1:
     com.mutter.clean.junk.myActivity.PowerActivity$2 this$1 -> a
-    161:161:void <init>(com.mutter.clean.junk.myActivity.PowerActivity$2) -> <init>
-    164:166:void run() -> run
-com.mutter.clean.junk.myActivity.PowerActivity$2$2 -> com.mutter.clean.junk.myActivity.PowerActivity$2$2:
-    com.mutter.clean.junk.myActivity.PowerActivity$2 this$1 -> a
-    180:180:void <init>(com.mutter.clean.junk.myActivity.PowerActivity$2) -> <init>
-    183:185:void run() -> run
+    171:171:void <init>(com.mutter.clean.junk.myActivity.PowerActivity$2) -> <init>
+    174:176:void run() -> run
 com.mutter.clean.junk.myActivity.PowerActivity$3 -> com.mutter.clean.junk.myActivity.PowerActivity$3:
     com.mutter.clean.junk.myActivity.PowerActivity this$0 -> a
-    219:219:void <init>(com.mutter.clean.junk.myActivity.PowerActivity) -> <init>
-    222:259:void run() -> run
+    215:215:void <init>(com.mutter.clean.junk.myActivity.PowerActivity) -> <init>
+    218:255:void run() -> run
 com.mutter.clean.junk.myActivity.PowerActivity$4 -> com.mutter.clean.junk.myActivity.PowerActivity$4:
     int val$i -> a
     com.mutter.clean.junk.myActivity.PowerActivity this$0 -> b
-    267:267:void <init>(com.mutter.clean.junk.myActivity.PowerActivity,int) -> <init>
-    270:270:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    274:279:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    284:284:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    288:288:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    263:263:void <init>(com.mutter.clean.junk.myActivity.PowerActivity,int) -> <init>
+    266:266:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    270:275:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    280:280:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    284:284:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.mutter.clean.junk.myActivity.PowerActivity$5 -> com.mutter.clean.junk.myActivity.PowerActivity$5:
+    com.mutter.clean.junk.myActivity.PowerActivity this$0 -> a
+    369:369:void <init>(com.mutter.clean.junk.myActivity.PowerActivity) -> <init>
+    372:378:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.mutter.clean.junk.myActivity.PowerActivity$6 -> com.mutter.clean.junk.myActivity.PowerActivity$6:
+    com.mutter.clean.junk.myActivity.PowerActivity this$0 -> a
+    415:415:void <init>(com.mutter.clean.junk.myActivity.PowerActivity) -> <init>
+    418:439:void run() -> run
+com.mutter.clean.junk.myActivity.PowerActivity$6$1 -> com.mutter.clean.junk.myActivity.PowerActivity$6$1:
+    com.mutter.clean.junk.myActivity.PowerActivity$6 this$1 -> a
+    423:423:void <init>(com.mutter.clean.junk.myActivity.PowerActivity$6) -> <init>
+    426:426:boolean onBackPressed() -> a
+    431:431:boolean onMenuPressed() -> b
+    436:437:void onClick() -> c
+com.mutter.clean.junk.myActivity.PowerActivity$7 -> com.mutter.clean.junk.myActivity.PowerActivity$7:
+    com.mutter.clean.junk.myActivity.PowerActivity this$0 -> a
+    461:461:void <init>(com.mutter.clean.junk.myActivity.PowerActivity) -> <init>
+    464:467:void onClick(android.view.View) -> onClick
+com.mutter.clean.junk.myActivity.PowerActivity$8 -> com.mutter.clean.junk.myActivity.PowerActivity$8:
+    com.mutter.clean.junk.myActivity.PowerActivity this$0 -> a
+    469:469:void <init>(com.mutter.clean.junk.myActivity.PowerActivity) -> <init>
+    472:473:void onClick(android.view.View) -> onClick
 com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter -> com.mutter.clean.junk.myActivity.PowerActivity$a:
     boolean isWidget -> a
     com.mutter.clean.junk.myActivity.PowerActivity this$0 -> b
-    315:317:void <init>(com.mutter.clean.junk.myActivity.PowerActivity,boolean) -> <init>
-    321:324:com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    329:344:void onBindViewHolder(com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter$MyViewHolder,int) -> a
-    348:350:void reChangesData(int) -> a
-    354:354:int getItemCount() -> getItemCount
-    312:312:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    312:312:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    311:313:void <init>(com.mutter.clean.junk.myActivity.PowerActivity,boolean) -> <init>
+    317:320:com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    325:340:void onBindViewHolder(com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter$MyViewHolder,int) -> a
+    344:346:void reChangesData(int) -> a
+    350:350:int getItemCount() -> getItemCount
+    308:308:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    308:308:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter$1 -> com.mutter.clean.junk.myActivity.PowerActivity$a$1:
     int val$position -> a
     com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter this$1 -> b
-    337:337:void <init>(com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter,int) -> <init>
-    340:342:void onClick(android.view.View) -> onClick
+    333:333:void <init>(com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter,int) -> <init>
+    336:338:void onClick(android.view.View) -> onClick
 com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter$MyViewHolder -> com.mutter.clean.junk.myActivity.PowerActivity$a$a:
     android.widget.RelativeLayout recyc_item -> a
     android.widget.ImageView recyc_icon -> b
     android.widget.ImageView recyc_check -> c
     android.widget.TextView junk_item_lable -> d
     com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter this$1 -> e
-    363:369:void <init>(com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter,android.view.View) -> <init>
+    359:365:void <init>(com.mutter.clean.junk.myActivity.PowerActivity$HomeAdapter,android.view.View) -> <init>
 com.mutter.clean.junk.myActivity.RamAvtivity -> com.mutter.clean.junk.myActivity.RamAvtivity:
     android.widget.TextView junk_size_all -> l
     android.widget.TextView junk_unit -> m
@@ -36001,6 +36027,29 @@ com.mutter.clean.junk.myview.SlowScrollView -> com.mutter.clean.junk.myview.Slow
     56:59:void smoothScrollBySlow(int,int,int) -> a
     67:68:void fling(int) -> fling
     74:75:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.mutter.clean.junk.myview.WidgetContainer -> com.mutter.clean.junk.myview.WidgetContainer:
+    android.view.WindowManager$LayoutParams lp -> a
+    boolean modal -> b
+    int screenHeight -> c
+    boolean added -> d
+    com.mutter.clean.junk.myview.WidgetContainer$IWidgetListener listener -> e
+    android.view.WindowManager wm -> f
+    float x -> g
+    float y -> h
+    boolean moving -> i
+    24:129:void <init>(android.content.Context,int,int,int,boolean) -> <init>
+    39:47:android.graphics.Point getScreenSize(android.content.Context) -> a
+    52:55:void onClick(android.view.View) -> onClick
+    68:76:void addToWindow() -> a
+    79:87:void removeFromWindow() -> b
+    92:93:void setWidgetListener(com.mutter.clean.junk.myview.WidgetContainer$IWidgetListener) -> setWidgetListener
+    99:120:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    125:125:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    133:159:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.mutter.clean.junk.myview.WidgetContainer$IWidgetListener -> com.mutter.clean.junk.myview.WidgetContainer$a:
+    boolean onBackPressed() -> a
+    boolean onMenuPressed() -> b
+    void onClick() -> c
 com.mutter.clean.junk.presenter.BasePresenter -> com.mutter.clean.junk.c.a:
     java.lang.Object iView -> a
     android.content.Context context -> b
