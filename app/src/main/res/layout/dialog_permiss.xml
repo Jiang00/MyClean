@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_ad"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d30"
+            android:gravity="center_vertical"
+            android:text="@string/app_name"
+            android:textColor="@color/black_100"
+            android:textSize="@dimen/s17" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/d8"
+            android:layout_marginLeft="@dimen/d24"
+            android:layout_marginRight="@dimen/d24"
+            android:layout_marginTop="@dimen/d20"
+            android:gravity="center"
+            android:text="@string/power_premiss_3"
+            android:textColor="@color/black_54"
+            android:textSize="@dimen/s14" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/d40"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/d18"
+            android:layout_marginTop="@dimen/d20"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/exit_quxiao"
+                android:layout_width="@dimen/d112"
+                android:layout_height="@dimen/d36"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/premiss_4"
+                android:textColor="@color/black_54"
+                android:textSize="@dimen/s14" />
+
+
+            <TextView
+                android:id="@+id/exit_queren"
+                android:layout_width="@dimen/d112"
+                android:layout_height="@dimen/d36"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/d60"
+                android:background="@drawable/shape_a1_r"
+                android:gravity="center"
+                android:text="@string/premiss_5"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s14" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d5"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_ad_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

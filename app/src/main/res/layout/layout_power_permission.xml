@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/onclick"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_54"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/d333"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_ad"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d27"
+            android:src="@mipmap/power_permiss" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d20"
+            android:text="@string/app_name"
+            android:textColor="@color/black_100"
+            android:textSize="@dimen/s17" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/d36"
+            android:layout_marginLeft="@dimen/d24"
+            android:layout_marginRight="@dimen/d24"
+            android:layout_marginTop="@dimen/d16"
+            android:gravity="center"
+            android:text="@string/power_premiss_1"
+            android:textColor="@color/black_54"
+            android:textSize="@dimen/s14" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="@dimen/d333"
+        android:layout_height="@dimen/d48"
+        android:layout_marginTop="@dimen/d21"
+        android:background="@drawable/shape_ffffff_k"
+        android:gravity="center"
+        android:text="@string/power_premiss_2"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/activity_horizontal_margin" />
+</LinearLayout>
+

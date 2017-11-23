@@ -3,7 +3,10 @@ package com.icleaner.junk.icleaneractivity;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +14,7 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,9 +23,12 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -30,6 +37,7 @@ import com.icleaner.clean.deepclean.MyServiceCustomerAccessibility;
 import com.icleaner.clean.entity.JunkInfo;
 import com.icleaner.clean.utils.MyUtils;
 import com.icleaner.junk.R;
+import com.icleaner.junk.mycustomview.WidgetContainer;
 import com.icleaner.junk.mytools.MyConstant;
 import com.icleaner.junk.services.MyNotificationService;
 import com.icleaner.junk.mytools.SetAdUtil;
@@ -64,11 +72,14 @@ public class DeepingActivity extends BaseActivity {
     private HomeAdapter homeAdapter, containerAdapter;
     private ArrayList<View> viewList;
     ViewPager view_pager;
+    private WidgetContainer widgetContainer;
+    private AlertDialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
+        registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         AndroidSdk.loadFullAd(SetAdUtil.DEFAULT_FULL, null);
         mHandler = new Handler();
         startService(new Intent(this, MyServiceCustomerAccessibility.class).putExtra("isDis", false));
@@ -86,21 +97,7 @@ public class DeepingActivity extends BaseActivity {
                 flag = true;
                 SetAdUtil.track("深度清理页面", "点击清理", "", 1);
                 if (!MyUtils.isAccessibilitySettingsOn(DeepingActivity.this)) {
-                    try {
-                        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                        startActivityForResult(intent, 100);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        SetAdUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
-                    }
-
-                    mHandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent transintent = new Intent(DeepingActivity.this, PermissingActivity.class);
-                            startActivity(transintent);
-                        }
-                    }, 1500);
+                    permissIntent();
                     return;
                 }
                 junk_button_clean.setOnClickListener(null);
@@ -152,6 +149,18 @@ public class DeepingActivity extends BaseActivity {
             junk_button_clean.callOnClick();
         }
     }
+
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
+                if (widgetContainer != null) {
+                    widgetContainer.removeFromWindow();
+                }
+            }
+        }
+    };
 
     @Override
     protected void findId() {
@@ -401,6 +410,42 @@ public class DeepingActivity extends BaseActivity {
         super.onPause();
     }
 
+    public void permissIntent() {
+        try {
+            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            startActivityForResult(intent, 100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                View view = LayoutInflater.from(DeepingActivity.this).inflate(R.layout.layout_power_permission, null);
+                widgetContainer = new WidgetContainer(DeepingActivity.this, Gravity.NO_GRAVITY, WindowManager.LayoutParams.MATCH_PARENT,
+                        WindowManager.LayoutParams.MATCH_PARENT, true);
+                widgetContainer.addView(view);
+                widgetContainer.addToWindow();
+                widgetContainer.setWidgetListener(new WidgetContainer.IWidgetListener() {
+                    @Override
+                    public boolean onBackPressed() {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onMenuPressed() {
+                        return false;
+                    }
+
+                    @Override
+                    public void onClick() {
+                        widgetContainer.removeFromWindow();
+                    }
+                });
+            }
+        }, 1500);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
@@ -409,8 +454,35 @@ public class DeepingActivity extends BaseActivity {
         if (requestCode == 100) {
             if (MyUtils.isAccessibilitySettingsOn(DeepingActivity.this)) {
                 junk_button_clean.callOnClick();
+            } else {
+                showDialogPermiss();
             }
         }
+    }
+
+
+    private void showDialogPermiss() {
+        View view = View.inflate(this, R.layout.dialog_permiss, null);
+        TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
+        TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
+        exit_queren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                permissIntent();
+                dialog.dismiss();
+
+            }
+        });
+        exit_quxiao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
+        dialog.show();
     }
 
     private void endAnimator() {
@@ -419,6 +491,7 @@ public class DeepingActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        unregisterReceiver(broadcastReceiver);
         startService(new Intent(this, MyServiceCustomerAccessibility.class).putExtra("isDis", true));
         super.onDestroy();
         if (animator1 != null) {
