@@ -421,8 +421,8 @@ public class DeepingActivity extends BaseActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                View view = LayoutInflater.from(DeepingActivity.this.getApplicationContext()).inflate(R.layout.layout_power_permission, null);
-                widgetContainer = new WidgetContainer(DeepingActivity.this, Gravity.NO_GRAVITY, WindowManager.LayoutParams.MATCH_PARENT,
+                View view = LayoutInflater.from(DeepingActivity.this).inflate(R.layout.layout_power_permission, null);
+                widgetContainer = new WidgetContainer(DeepingActivity.this.getApplicationContext(), Gravity.NO_GRAVITY, WindowManager.LayoutParams.MATCH_PARENT,
                         WindowManager.LayoutParams.MATCH_PARENT, true);
                 widgetContainer.addView(view);
                 widgetContainer.addToWindow();
