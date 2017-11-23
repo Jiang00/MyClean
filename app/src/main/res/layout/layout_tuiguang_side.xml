@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/d48">
 
         <RelativeLayout
             android:id="@+id/rl"
@@ -36,6 +36,15 @@
             android:textColor="@color/B2"
             android:textSize="@dimen/s13"
             app:typeface="lyp_text.otf" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="AD"
+            android:textColor="@color/black_10"
+            android:textSize="@dimen/d9" />
 
     </RelativeLayout>
 </LinearLayout>
