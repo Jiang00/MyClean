@@ -44,6 +44,7 @@ public class BatteryLevelView extends View {
         height = MeasureSpec.getSize(heightMeasureSpec);
 //        width = height = DisplayUtil.dip2px(getContext(), 180);
         setMeasuredDimension(width, height);
+
     }
 
     private void init() {
@@ -58,9 +59,11 @@ public class BatteryLevelView extends View {
     private void getRocket() {
         if (battery == null || battery.isRecycled()) {
             battery = BitmapFactory.decodeResource(getResources(), R.mipmap.battery);
+            battery = Bitmap.createScaledBitmap(battery, getResources().getDimensionPixelOffset(R.dimen.d120), getResources().getDimensionPixelOffset(R.dimen.d44), true);
         }
         if (battery_di == null || battery_di.isRecycled()) {
             battery_di = BitmapFactory.decodeResource(getResources(), R.mipmap.battery_di);
+            battery_di = Bitmap.createScaledBitmap(battery_di, getResources().getDimensionPixelOffset(R.dimen.d120), getResources().getDimensionPixelOffset(R.dimen.d44), true);
         }
     }
 
