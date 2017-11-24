@@ -32603,87 +32603,113 @@ com.froumobic.clean.junk.mactivity.DeepActivity -> com.froumobic.clean.junk.mact
     android.widget.TextView power_size -> d
     android.widget.Button junk_button_clean -> e
     android.os.Handler mHandler -> f
-    android.support.v7.widget.GridLayoutManager mLayoutManager -> h
-    com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter homeAdapter -> i
-    com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter containerAdapter -> j
-    java.util.ArrayList startList -> k
-    android.view.View containerView -> l
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> m
-    android.widget.TextView containerView_power_size -> n
-    android.widget.Button containerView_junk_button_clean -> o
-    com.froumobic.clean.junk.mview.PowerWidgetContainer container -> p
-    int count -> q
+    android.support.v7.widget.GridLayoutManager mLayoutManager -> i
+    com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter homeAdapter -> j
+    com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter containerAdapter -> k
+    java.util.ArrayList startList -> l
+    android.view.View containerView -> m
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> n
+    android.widget.TextView containerView_power_size -> o
+    android.widget.Button containerView_junk_button_clean -> p
+    com.froumobic.clean.junk.mview.PowerWidgetContainer container -> q
+    int count -> r
+    com.froumobic.clean.junk.mview.WidgetContainer widgetContainer -> s
+    android.support.v7.app.AlertDialog dialog -> t
     java.lang.Runnable runnable -> g
-    45:173:void <init>() -> <init>
-    65:71:void findId() -> a
-    75:158:void onCreate(android.os.Bundle) -> onCreate
-    161:171:void setContainer() -> b
-    218:256:void animatorView(android.view.View,int) -> a
-    259:265:void initData() -> c
-    268:273:void showPackageDetail(java.lang.String) -> b
-    336:339:void onDestroy() -> onDestroy
-    343:345:void onBackPressed() -> onBackPressed
-    349:357:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    45:45:android.view.View access$002(com.froumobic.clean.junk.mactivity.DeepActivity,android.view.View) -> a
-    45:45:com.froumobic.clean.junk.mview.PowerWidgetContainer access$102(com.froumobic.clean.junk.mactivity.DeepActivity,com.froumobic.clean.junk.mview.PowerWidgetContainer) -> a
-    45:45:android.view.View access$000(com.froumobic.clean.junk.mactivity.DeepActivity) -> a
-    45:45:com.froumobic.clean.junk.mview.PowerWidgetContainer access$100(com.froumobic.clean.junk.mactivity.DeepActivity) -> b
-    45:45:void access$200(com.froumobic.clean.junk.mactivity.DeepActivity) -> c
-    45:45:java.util.ArrayList access$300(com.froumobic.clean.junk.mactivity.DeepActivity) -> d
-    45:45:int access$408(com.froumobic.clean.junk.mactivity.DeepActivity) -> e
-    45:45:void access$500(com.froumobic.clean.junk.mactivity.DeepActivity,java.lang.String) -> a
-    45:45:android.support.v7.widget.RecyclerView access$600(com.froumobic.clean.junk.mactivity.DeepActivity) -> f
-    45:45:void access$700(com.froumobic.clean.junk.mactivity.DeepActivity,android.view.View,int) -> a
-    45:45:com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter access$800(com.froumobic.clean.junk.mactivity.DeepActivity) -> g
-    45:45:int access$400(com.froumobic.clean.junk.mactivity.DeepActivity) -> h
-    45:45:android.widget.TextView access$900(com.froumobic.clean.junk.mactivity.DeepActivity) -> i
-    45:45:com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter access$1000(com.froumobic.clean.junk.mactivity.DeepActivity) -> j
+    android.content.BroadcastReceiver broadcastReceiver -> h
+    51:343:void <init>() -> <init>
+    73:79:void findId() -> a
+    83:153:void onCreate(android.os.Bundle) -> onCreate
+    156:166:void setContainer() -> c
+    213:251:void animatorView(android.view.View,int) -> a
+    254:260:void initData() -> d
+    263:268:void showPackageDetail(java.lang.String) -> b
+    331:335:void onDestroy() -> onDestroy
+    339:341:void onBackPressed() -> onBackPressed
+    357:389:void permissIntent() -> b
+    394:404:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    407:428:void showDialogPermiss() -> e
+    51:51:android.view.View access$002(com.froumobic.clean.junk.mactivity.DeepActivity,android.view.View) -> a
+    51:51:com.froumobic.clean.junk.mview.PowerWidgetContainer access$102(com.froumobic.clean.junk.mactivity.DeepActivity,com.froumobic.clean.junk.mview.PowerWidgetContainer) -> a
+    51:51:android.view.View access$000(com.froumobic.clean.junk.mactivity.DeepActivity) -> a
+    51:51:com.froumobic.clean.junk.mview.PowerWidgetContainer access$100(com.froumobic.clean.junk.mactivity.DeepActivity) -> b
+    51:51:void access$200(com.froumobic.clean.junk.mactivity.DeepActivity) -> c
+    51:51:java.util.ArrayList access$300(com.froumobic.clean.junk.mactivity.DeepActivity) -> d
+    51:51:int access$408(com.froumobic.clean.junk.mactivity.DeepActivity) -> e
+    51:51:void access$500(com.froumobic.clean.junk.mactivity.DeepActivity,java.lang.String) -> a
+    51:51:android.support.v7.widget.RecyclerView access$600(com.froumobic.clean.junk.mactivity.DeepActivity) -> f
+    51:51:void access$700(com.froumobic.clean.junk.mactivity.DeepActivity,android.view.View,int) -> a
+    51:51:com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter access$800(com.froumobic.clean.junk.mactivity.DeepActivity) -> g
+    51:51:int access$400(com.froumobic.clean.junk.mactivity.DeepActivity) -> h
+    51:51:android.widget.TextView access$900(com.froumobic.clean.junk.mactivity.DeepActivity) -> i
+    51:51:com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter access$1000(com.froumobic.clean.junk.mactivity.DeepActivity) -> j
+    51:51:com.froumobic.clean.junk.mview.WidgetContainer access$1100(com.froumobic.clean.junk.mactivity.DeepActivity) -> k
+    51:51:com.froumobic.clean.junk.mview.WidgetContainer access$1102(com.froumobic.clean.junk.mactivity.DeepActivity,com.froumobic.clean.junk.mview.WidgetContainer) -> a
+    51:51:android.support.v7.app.AlertDialog access$1200(com.froumobic.clean.junk.mactivity.DeepActivity) -> l
 com.froumobic.clean.junk.mactivity.DeepActivity$1 -> com.froumobic.clean.junk.mactivity.DeepActivity$1:
     com.froumobic.clean.junk.mactivity.DeepActivity this$0 -> a
-    88:88:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity) -> <init>
-    91:123:void onClick(android.view.View) -> onClick
-com.froumobic.clean.junk.mactivity.DeepActivity$1$1 -> com.froumobic.clean.junk.mactivity.DeepActivity$1$1:
-    com.froumobic.clean.junk.mactivity.DeepActivity$1 this$1 -> a
-    101:101:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity$1) -> <init>
-    104:106:void run() -> run
+    97:97:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity) -> <init>
+    100:118:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.DeepActivity$2 -> com.froumobic.clean.junk.mactivity.DeepActivity$2:
     com.froumobic.clean.junk.mactivity.DeepActivity this$0 -> a
-    125:125:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity) -> <init>
-    128:129:void onClick(android.view.View) -> onClick
+    120:120:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity) -> <init>
+    123:124:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.DeepActivity$3 -> com.froumobic.clean.junk.mactivity.DeepActivity$3:
     com.froumobic.clean.junk.mactivity.DeepActivity this$0 -> a
-    173:173:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity) -> <init>
-    176:214:void run() -> run
+    168:168:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity) -> <init>
+    171:209:void run() -> run
 com.froumobic.clean.junk.mactivity.DeepActivity$4 -> com.froumobic.clean.junk.mactivity.DeepActivity$4:
     android.animation.ObjectAnimator val$rotate -> a
     int val$i -> b
     com.froumobic.clean.junk.mactivity.DeepActivity this$0 -> c
-    227:227:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity,android.animation.ObjectAnimator,int) -> <init>
-    231:231:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    235:242:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    247:247:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    251:251:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    222:222:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity,android.animation.ObjectAnimator,int) -> <init>
+    226:226:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    230:237:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    242:242:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    246:246:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.froumobic.clean.junk.mactivity.DeepActivity$5 -> com.froumobic.clean.junk.mactivity.DeepActivity$5:
+    com.froumobic.clean.junk.mactivity.DeepActivity this$0 -> a
+    343:343:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity) -> <init>
+    346:352:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.froumobic.clean.junk.mactivity.DeepActivity$6 -> com.froumobic.clean.junk.mactivity.DeepActivity$6:
+    com.froumobic.clean.junk.mactivity.DeepActivity this$0 -> a
+    363:363:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity) -> <init>
+    366:387:void run() -> run
+com.froumobic.clean.junk.mactivity.DeepActivity$6$1 -> com.froumobic.clean.junk.mactivity.DeepActivity$6$1:
+    com.froumobic.clean.junk.mactivity.DeepActivity$6 this$1 -> a
+    371:371:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity$6) -> <init>
+    374:374:boolean onBackPressed() -> a
+    379:379:boolean onMenuPressed() -> b
+    384:385:void onClick() -> c
+com.froumobic.clean.junk.mactivity.DeepActivity$7 -> com.froumobic.clean.junk.mactivity.DeepActivity$7:
+    com.froumobic.clean.junk.mactivity.DeepActivity this$0 -> a
+    410:410:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity) -> <init>
+    413:416:void onClick(android.view.View) -> onClick
+com.froumobic.clean.junk.mactivity.DeepActivity$8 -> com.froumobic.clean.junk.mactivity.DeepActivity$8:
+    com.froumobic.clean.junk.mactivity.DeepActivity this$0 -> a
+    418:418:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity) -> <init>
+    421:422:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter -> com.froumobic.clean.junk.mactivity.DeepActivity$a:
     boolean isWidget -> a
     com.froumobic.clean.junk.mactivity.DeepActivity this$0 -> b
-    279:281:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity,boolean) -> <init>
-    285:288:com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    293:307:void onBindViewHolder(com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter$MyViewHolder,int) -> a
-    311:313:void reChangesData(int) -> a
-    317:317:int getItemCount() -> getItemCount
-    276:276:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    276:276:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    274:276:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity,boolean) -> <init>
+    280:283:com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    288:302:void onBindViewHolder(com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter$MyViewHolder,int) -> a
+    306:308:void reChangesData(int) -> a
+    312:312:int getItemCount() -> getItemCount
+    271:271:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    271:271:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter$1 -> com.froumobic.clean.junk.mactivity.DeepActivity$a$1:
     int val$position -> a
     com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter this$1 -> b
-    300:300:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter,int) -> <init>
-    303:305:void onClick(android.view.View) -> onClick
+    295:295:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter,int) -> <init>
+    298:300:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter$MyViewHolder -> com.froumobic.clean.junk.mactivity.DeepActivity$a$a:
     android.widget.FrameLayout recyc_item -> a
     android.widget.ImageView recyc_icon -> b
     android.widget.ImageView recyc_check -> c
     com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter this$1 -> d
-    325:330:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter,android.view.View) -> <init>
+    320:325:void <init>(com.froumobic.clean.junk.mactivity.DeepActivity$HomeAdapter,android.view.View) -> <init>
 com.froumobic.clean.junk.mactivity.FileActivity -> com.froumobic.clean.junk.mactivity.FileActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -35118,6 +35144,29 @@ com.froumobic.clean.junk.mview.SlowScrollView -> com.froumobic.clean.junk.mview.
     58:66:void computeScroll() -> computeScroll
     73:74:void fling(int) -> fling
     80:81:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.froumobic.clean.junk.mview.WidgetContainer -> com.froumobic.clean.junk.mview.WidgetContainer:
+    android.view.WindowManager$LayoutParams lp -> a
+    boolean modal -> b
+    int screenHeight -> c
+    boolean added -> d
+    com.froumobic.clean.junk.mview.WidgetContainer$IWidgetListener listener -> e
+    android.view.WindowManager wm -> f
+    float x -> g
+    float y -> h
+    boolean moving -> i
+    24:129:void <init>(android.content.Context,int,int,int,boolean) -> <init>
+    39:47:android.graphics.Point getScreenSize(android.content.Context) -> a
+    52:55:void onClick(android.view.View) -> onClick
+    68:76:void addToWindow() -> a
+    79:87:void removeFromWindow() -> b
+    92:93:void setWidgetListener(com.froumobic.clean.junk.mview.WidgetContainer$IWidgetListener) -> setWidgetListener
+    99:120:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    125:125:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    133:159:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.froumobic.clean.junk.mview.WidgetContainer$IWidgetListener -> com.froumobic.clean.junk.mview.WidgetContainer$a:
+    boolean onBackPressed() -> a
+    boolean onMenuPressed() -> b
+    void onClick() -> c
 com.froumobic.clean.junk.presenter.BasePresenter -> com.froumobic.clean.junk.c.a:
     java.lang.Object iView -> a
     int cpuTemp -> c
