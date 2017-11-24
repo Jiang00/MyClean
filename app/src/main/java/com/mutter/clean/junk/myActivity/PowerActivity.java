@@ -161,20 +161,7 @@ public class PowerActivity extends BaseActivity {
                     break;
                 case R.id.power_check:
                     AdUtil.track("深度清理页面", "开启辅助功能", "", 1);
-                    try {
-                        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                        startActivityForResult(intent, 100);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                    mHandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent transintent = new Intent(PowerActivity.this, ShowPermissionActivity.class);
-                            startActivity(transintent);
-                        }
-                    }, 1500);
+                    permissIntent();
                     break;
                 case R.id.junk_button_clean:
                     AdUtil.track("深度清理页面", "点击清理", "", 1);
