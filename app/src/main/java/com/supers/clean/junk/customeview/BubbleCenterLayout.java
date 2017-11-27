@@ -198,10 +198,9 @@ public class BubbleCenterLayout extends View {
                 bubble.setY(bubble.getY() + bubble.getSpeedY());
                 bubbles.set(i, bubble);
 //				canvas.drawCircle(bubble.getX(), bubble.getY(), bubble.getRadius(), paint);
-                Bitmap dst = bubble.getBitmap();
-                if (dst != null) {
-                    canvas.drawBitmap(dst, bubble.getX(), bubble.getY(), paint);
-                } else {
+                try {
+                    canvas.drawBitmap(bubble.getBitmap(), bubble.getX(), bubble.getY(), paint);
+                } catch (Exception e) {
                     bubbles.remove(bubble);
                 }
             }

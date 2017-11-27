@@ -170,6 +170,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private AlertDialog bill_dialog;
     private int bill_id;
     private View viewpager_2;
+    private View nativeExit;
 
     @Override
     protected void findId() {
@@ -1515,7 +1516,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.NATIVE_EXIT, 0) == 1) {
-            View nativeExit = AdUtil.getNativeAdViewV(this, TAG_EXIT_FULL, R.layout.native_ad_2);
+            nativeExit = AdUtil.getNativeAdViewV(this, TAG_EXIT_FULL, R.layout.native_ad_2);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.INVISIBLE);

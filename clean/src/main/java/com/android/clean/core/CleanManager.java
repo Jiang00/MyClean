@@ -175,15 +175,17 @@ public class CleanManager {
                     }
 
                     boolean isc = false;
-                    for (JunkInfo info : appRamList) {
-                        if (info.pkg.equals(pkgName)) {
-                            if (!info.pids.contains(pid)) {
-                                Debug.MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
-                                long size = (long) processMemoryInfo[0].getTotalPrivateDirty() * 1024;
-                                info.size += size;
-                                info.pids.add(pid);
+                    if (appRamList != null && appRamList.size() != 0) {
+                        for (JunkInfo info : appRamList) {
+                            if (info.pkg.equals(pkgName)) {
+                                if (!info.pids.contains(pid)) {
+                                    Debug.MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
+                                    long size = (long) processMemoryInfo[0].getTotalPrivateDirty() * 1024;
+                                    info.size += size;
+                                    info.pids.add(pid);
+                                }
+                                isc = true;
                             }
-                            isc = true;
                         }
                     }
                     if (isc) {

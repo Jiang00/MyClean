@@ -9,6 +9,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -132,12 +134,15 @@ public class FloatAnimationActivity extends BaseActivity {
             if (onPause) {
                 break;
             }
-            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.eosmobi")
-                    || packageInfo.packageName.contains("com.google") || packageInfo.packageName.contains("com.android.vending")) {
-                continue;
+            try {
+                if (packageInfo.packageName == null || packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.eosmobi")
+                        || packageInfo.packageName.contains("com.google") || packageInfo.packageName.contains("com.android.vending")) {
+                    continue;
+                }
+                am.killBackgroundProcesses(packageInfo.packageName);
+                ++count;
+            } catch (Exception e) {
             }
-            am.killBackgroundProcesses(packageInfo.packageName);
-            ++count;
         }
         final long afterMem = getAvailMemory(am);
         final long M = (afterMem - beforeMem);
@@ -212,10 +217,18 @@ public class FloatAnimationActivity extends BaseActivity {
         super.onDestroy();
         count = 0;
         if (animationDrawable != null) {
-            if (animationDrawable.isRunning()) {
-                animationDrawable.stop();
+            animationDrawable.stop();
+            for (int i = 0; i < animationDrawable.getNumberOfFrames(); i++) {
+                Drawable frame = animationDrawable.getFrame(i);
+                if (frame instanceof BitmapDrawable) {
+                    ((BitmapDrawable) frame).getBitmap().recycle();
+                }
+                frame.setCallback(null);
             }
+            animationDrawable.setCallback(null);
+            animationDrawable = null;
         }
+
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }

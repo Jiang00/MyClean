@@ -15,7 +15,12 @@ import java.lang.reflect.Method;
 public class CheckState {
     public static boolean wifiState(Context context) {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        return wifiManager.isWifiEnabled();
+        try {
+
+            return wifiManager.isWifiEnabled();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     private static AudioManager getAudioManager(Context context) {

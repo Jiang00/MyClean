@@ -34,6 +34,7 @@ public class FloatStateView extends View {
     private Bitmap bitmap_normal;
     private Bitmap bitmap_left;
     private Bitmap bitmap_right;
+    private Bitmap src;
 
 
     public FloatStateView(Context context) {
@@ -87,7 +88,7 @@ public class FloatStateView extends View {
         textPaint.setColor(Color.WHITE);
         textPaint.setAntiAlias(true);
         textPaint.setFakeBoldText(true);
-        Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.float_huo);
+        src = BitmapFactory.decodeResource(getResources(), R.mipmap.float_huo);
         bitmap_normal = Bitmap.createScaledBitmap(src, getResources().getDimensionPixelOffset(R.dimen.d61),
                 getResources().getDimensionPixelOffset(R.dimen.d100), true);
         bitmap_left = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_left), getResources().getDimensionPixelOffset(R.dimen.d30),
@@ -104,12 +105,18 @@ public class FloatStateView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         if (type == STATE_NORMAL) {
-            canvas.drawBitmap(bitmap_normal, 0, 0, null);
+            if (bitmap_normal != null) {
+                canvas.drawBitmap(bitmap_normal, 0, 0, null);
+            }
         } else {
             if (type == STATE_LEFT) {
-                canvas.drawBitmap(bitmap_left, 0, 0, null);
+                if (bitmap_left != null) {
+                    canvas.drawBitmap(bitmap_left, 0, 0, null);
+                }
             } else {
-                canvas.drawBitmap(bitmap_right, 0, 0, null);
+                if (bitmap_right != null) {
+                    canvas.drawBitmap(bitmap_right, 0, 0, null);
+                }
             }
 
             if (pratent > 40 && pratent <= 80) {
@@ -120,11 +127,34 @@ public class FloatStateView extends View {
                 firstPaint.setColor(getResources().getColor(R.color.A1));
             }
             float textWidth = textPaint.measureText(text);
-            float x = bitmap_left.getWidth() / 2 - textWidth / 2;
-            Paint.FontMetrics metrics = textPaint.getFontMetrics();
-            float dy = -(metrics.descent + metrics.ascent) / 2;
-            float y = dy + bitmap_left.getHeight() / 2;
-            canvas.drawText(text, x, y, textPaint);
+            if (bitmap_left != null) {
+                float x = bitmap_left.getWidth() / 2 - textWidth / 2;
+                Paint.FontMetrics metrics = textPaint.getFontMetrics();
+                float dy = -(metrics.descent + metrics.ascent) / 2;
+                float y = dy + bitmap_left.getHeight() / 2;
+                canvas.drawText(text, x, y, textPaint);
+            }
+        }
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (bitmap_normal != null && !bitmap_normal.isRecycled()) {
+            bitmap_normal.recycle();
+            bitmap_normal = null;
+        }
+        if (bitmap_left != null && !bitmap_left.isRecycled()) {
+            bitmap_left.recycle();
+            bitmap_left = null;
+        }
+        if (bitmap_right != null && !bitmap_right.isRecycled()) {
+            bitmap_right.recycle();
+            bitmap_right = null;
+        }
+        if (src != null && !src.isRecycled()) {
+            src.recycle();
+            src = null;
         }
     }
 
