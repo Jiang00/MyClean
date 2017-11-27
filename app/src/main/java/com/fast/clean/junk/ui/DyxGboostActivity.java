@@ -3,8 +3,11 @@ package com.fast.clean.junk.ui;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.TrafficStats;
@@ -14,10 +17,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +37,7 @@ import android.widget.TextView;
 
 import com.fast.clean.core.CleanManager;
 import com.fast.clean.db.CleanDBHelper;
+import com.fast.clean.junk.myview.WidgetContainer;
 import com.fast.clean.junk.util.BadgerCount;
 import com.fast.clean.mgboost.GameBooster;
 import com.fast.clean.mutil.PreData;
@@ -102,6 +110,7 @@ public class DyxGboostActivity extends BaseActivity {
     private List<JunkInfo> gboost_add, listEdit;
     private int screenWidth;
     private int width;
+    private AlertDialog dialog;
 
     @Override
     protected void findId() {
@@ -129,6 +138,7 @@ public class DyxGboostActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_gboost);
+        registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         PreData.putDB(this, Constant.HONG_GBOOST, false);
         BadgerCount.setCount(this);
         screenWidth = getResources().getDisplayMetrics().widthPixels;
@@ -290,20 +300,7 @@ public class DyxGboostActivity extends BaseActivity {
 
                 case R.id.gboost_power_check:
                     AdUtil.track("游戏加速页面", "开启辅助功能", "", 1);
-                    try {
-                        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                        startActivityForResult(intent, 100);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                    mHandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent transintent = new Intent(DyxGboostActivity.this, PermissionActivity.class);
-                            startActivity(transintent);
-                        }
-                    }, 1500);
+                    permissIntent();
                     break;
                 case R.id.gboost_clean_button:
                     AdUtil.track("游戏加速页面", "点击一键加速", "", 1);
@@ -537,9 +534,61 @@ public class DyxGboostActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        unregisterReceiver(broadcastReceiver);
         super.onDestroy();
 
     }
+
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
+                if (widgetContainer != null) {
+                    widgetContainer.removeFromWindow();
+                }
+            }
+        }
+    };
+
+    public void permissIntent() {
+        try {
+            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            startActivityForResult(intent, 100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mHandler.postDelayed(runnable_acc, 1500);
+    }
+
+    private WidgetContainer widgetContainer;
+    Runnable runnable_acc = new Runnable() {
+        @Override
+        public void run() {
+            View view = LayoutInflater.from(DyxGboostActivity.this).inflate(R.layout.layout_power_promiss, null);
+            widgetContainer = new WidgetContainer(DyxGboostActivity.this.getApplicationContext(), Gravity.NO_GRAVITY, WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.MATCH_PARENT, true);
+            widgetContainer.addView(view);
+            widgetContainer.addToWindow();
+            widgetContainer.setWidgetListener(new WidgetContainer.IWidgetListener() {
+                @Override
+                public boolean onBackPressed() {
+                    return false;
+                }
+
+                @Override
+                public boolean onMenuPressed() {
+                    return false;
+                }
+
+                @Override
+                public void onClick() {
+                    widgetContainer.removeFromWindow();
+                }
+            });
+        }
+    };
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -550,8 +599,46 @@ public class DyxGboostActivity extends BaseActivity {
                 gboost_power_check.setText(R.string.gboost_k);
             }
         }
+        if (requestCode == 100) {
+            if (mHandler != null) {
+                mHandler.removeCallbacks(runnable_acc);
+            }
+            if (Util.isAccessibilitySettingsOn(this)) {
+            } else {
+                showDialogPermiss();
+            }
+        }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    private void showDialogPermiss() {
+        View view = View.inflate(this, R.layout.dialog_power, null);
+        TextView exit_queren = (TextView) view.findViewById(R.id.bt_queren);
+        TextView exit_quxiao = (TextView) view.findViewById(R.id.bt_quxiao);
+        ImageView iv_cha = (ImageView) view.findViewById(R.id.iv_cha);
+        exit_queren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                permissIntent();
+                dialog.dismiss();
 
+            }
+        });
+        iv_cha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        exit_quxiao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
+        dialog.show();
+    }
 }

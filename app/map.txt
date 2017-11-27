@@ -31520,32 +31520,32 @@ com.fast.clean.core.CleanManager -> com.fast.clean.core.a:
     469:501:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
     506:517:java.util.List getUsageStatistics(int) -> a
     522:546:void clearSystemCache() -> c
-    550:567:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    572:587:void notificationChanged(com.fast.clean.notification.NotificationInfo,boolean) -> a
-    590:597:void clearNotificationInfo() -> d
-    600:610:void addNotificationCallBack(com.fast.clean.notification.NotificationCallBack) -> a
-    613:619:void removeNotificatioCallBack(com.fast.clean.notification.NotificationCallBack) -> b
-    623:623:long getCacheSize() -> e
-    631:631:long getApkSize() -> f
-    635:635:long getUnloadSize() -> g
-    639:639:long getLogSize() -> h
-    643:643:long getDataSize() -> i
-    647:647:long getRamSize() -> j
-    651:651:java.util.ArrayList getAppRamList() -> k
-    655:655:java.util.ArrayList getUninstallResiduals() -> l
-    659:659:java.util.ArrayList getAppCaches() -> m
-    663:663:java.util.ArrayList getSystemCaches() -> n
-    667:667:java.util.ArrayList getAppList() -> o
-    671:671:java.util.ArrayList getApkFiles() -> p
-    675:675:java.util.ArrayList getLogFiles() -> q
-    680:692:void removeRam(com.fast.clean.entity.JunkInfo) -> a
-    695:704:void removeRamSelfBoot(com.fast.clean.entity.JunkInfo) -> b
-    707:711:void clearRam() -> r
-    714:723:void removeAppCache(com.fast.clean.entity.JunkInfo) -> c
-    727:731:void removeAppList(com.fast.clean.entity.JunkInfo) -> d
-    734:743:void removeFilesOfUnintalledApk(com.fast.clean.entity.JunkInfo) -> e
-    747:756:void removeApkFiles(com.fast.clean.entity.JunkInfo) -> f
-    760:769:void removeAppLog(com.fast.clean.entity.JunkInfo) -> g
+    551:569:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
+    574:589:void notificationChanged(com.fast.clean.notification.NotificationInfo,boolean) -> a
+    592:599:void clearNotificationInfo() -> d
+    602:612:void addNotificationCallBack(com.fast.clean.notification.NotificationCallBack) -> a
+    615:621:void removeNotificatioCallBack(com.fast.clean.notification.NotificationCallBack) -> b
+    625:625:long getCacheSize() -> e
+    633:633:long getApkSize() -> f
+    637:637:long getUnloadSize() -> g
+    641:641:long getLogSize() -> h
+    645:645:long getDataSize() -> i
+    649:649:long getRamSize() -> j
+    653:653:java.util.ArrayList getAppRamList() -> k
+    657:657:java.util.ArrayList getUninstallResiduals() -> l
+    661:661:java.util.ArrayList getAppCaches() -> m
+    665:665:java.util.ArrayList getSystemCaches() -> n
+    669:669:java.util.ArrayList getAppList() -> o
+    673:673:java.util.ArrayList getApkFiles() -> p
+    677:677:java.util.ArrayList getLogFiles() -> q
+    682:694:void removeRam(com.fast.clean.entity.JunkInfo) -> a
+    697:706:void removeRamSelfBoot(com.fast.clean.entity.JunkInfo) -> b
+    709:713:void clearRam() -> r
+    716:725:void removeAppCache(com.fast.clean.entity.JunkInfo) -> c
+    729:733:void removeAppList(com.fast.clean.entity.JunkInfo) -> d
+    736:745:void removeFilesOfUnintalledApk(com.fast.clean.entity.JunkInfo) -> e
+    749:758:void removeApkFiles(com.fast.clean.entity.JunkInfo) -> f
+    762:771:void removeAppLog(com.fast.clean.entity.JunkInfo) -> g
     63:63:void access$000(com.fast.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.fast.clean.core.CleanManager$1 -> com.fast.clean.core.a$1:
     com.fast.clean.core.CleanManager this$0 -> a
@@ -32889,6 +32889,29 @@ com.fast.clean.junk.myview.TitanicTextView -> com.fast.clean.junk.myview.Titanic
     160:178:void onDraw(android.graphics.Canvas) -> onDraw
 com.fast.clean.junk.myview.TitanicTextView$AnimationSetupCallback -> com.fast.clean.junk.myview.TitanicTextView$a:
     void onSetupAnimation(com.fast.clean.junk.myview.TitanicTextView) -> a
+com.fast.clean.junk.myview.WidgetContainer -> com.fast.clean.junk.myview.WidgetContainer:
+    android.view.WindowManager$LayoutParams lp -> a
+    boolean modal -> b
+    int screenHeight -> c
+    boolean added -> d
+    com.fast.clean.junk.myview.WidgetContainer$IWidgetListener listener -> e
+    android.view.WindowManager wm -> f
+    float x -> g
+    float y -> h
+    boolean moving -> i
+    24:129:void <init>(android.content.Context,int,int,int,boolean) -> <init>
+    39:47:android.graphics.Point getScreenSize(android.content.Context) -> a
+    52:55:void onClick(android.view.View) -> onClick
+    68:76:void addToWindow() -> a
+    79:87:void removeFromWindow() -> b
+    92:93:void setWidgetListener(com.fast.clean.junk.myview.WidgetContainer$IWidgetListener) -> setWidgetListener
+    99:120:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    125:125:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    133:159:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.fast.clean.junk.myview.WidgetContainer$IWidgetListener -> com.fast.clean.junk.myview.WidgetContainer$a:
+    boolean onBackPressed() -> a
+    boolean onMenuPressed() -> b
+    void onClick() -> c
 com.fast.clean.junk.presenter.BasePresenter -> com.fast.clean.junk.c.a:
     java.lang.Object iView -> a
     int cpuTemp -> c
@@ -33251,20 +33274,20 @@ com.fast.clean.junk.ui.DocActivity -> com.fast.clean.junk.ui.DocActivity:
     android.widget.LinearLayout ll_ad2 -> M
     android.widget.LinearLayout ll_ad3 -> N
     android.view.View$OnClickListener clickListener -> x
-    41:227:void <init>() -> <init>
+    41:226:void <init>() -> <init>
     70:80:void findId() -> a
     84:106:void onCreate(android.os.Bundle) -> onCreate
     109:129:void initCur() -> b
     132:132:void initTxt() -> c
     135:135:void initPdf() -> d
     138:187:void initData() -> e
-    191:196:void loadAd() -> f
-    199:205:void initDoc() -> g
-    208:220:void addAd() -> h
-    223:225:void setListenet() -> i
-    265:286:void queryData(com.fast.clean.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
-    289:352:void showDia(java.util.ArrayList) -> a
-    356:358:void onBackPressed() -> onBackPressed
+    191:195:void loadAd() -> f
+    198:204:void initDoc() -> g
+    207:219:void addAd() -> h
+    222:224:void setListenet() -> i
+    264:285:void queryData(com.fast.clean.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
+    288:351:void showDia(java.util.ArrayList) -> a
+    355:357:void onBackPressed() -> onBackPressed
     41:41:java.util.ArrayList access$000(com.fast.clean.junk.ui.DocActivity) -> a
     41:41:void access$100(com.fast.clean.junk.ui.DocActivity,com.fast.clean.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
     41:41:java.util.ArrayList access$200(com.fast.clean.junk.ui.DocActivity) -> b
@@ -33294,21 +33317,21 @@ com.fast.clean.junk.ui.DocActivity$2 -> com.fast.clean.junk.ui.DocActivity$2:
     183:183:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.fast.clean.junk.ui.DocActivity$3 -> com.fast.clean.junk.ui.DocActivity$3:
     com.fast.clean.junk.ui.DocActivity this$0 -> a
-    227:227:void <init>(com.fast.clean.junk.ui.DocActivity) -> <init>
-    230:261:void onClick(android.view.View) -> onClick
+    226:226:void <init>(com.fast.clean.junk.ui.DocActivity) -> <init>
+    229:260:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.DocActivity$4 -> com.fast.clean.junk.ui.DocActivity$4:
     java.util.ArrayList val$deleteList -> a
     com.fast.clean.junk.ui.DocActivity this$0 -> b
-    309:309:void <init>(com.fast.clean.junk.ui.DocActivity,java.util.ArrayList) -> <init>
-    312:344:void onClick(android.view.View) -> onClick
+    308:308:void <init>(com.fast.clean.junk.ui.DocActivity,java.util.ArrayList) -> <init>
+    311:343:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.DocActivity$4$1 -> com.fast.clean.junk.ui.DocActivity$4$1:
     com.fast.clean.junk.ui.DocActivity$4 this$1 -> a
-    318:318:void <init>(com.fast.clean.junk.ui.DocActivity$4) -> <init>
-    321:328:void run() -> run
+    317:317:void <init>(com.fast.clean.junk.ui.DocActivity$4) -> <init>
+    320:327:void run() -> run
 com.fast.clean.junk.ui.DocActivity$5 -> com.fast.clean.junk.ui.DocActivity$5:
     com.fast.clean.junk.ui.DocActivity this$0 -> a
-    346:346:void <init>(com.fast.clean.junk.ui.DocActivity) -> <init>
-    349:350:void onClick(android.view.View) -> onClick
+    345:345:void <init>(com.fast.clean.junk.ui.DocActivity) -> <init>
+    348:349:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.DyxGboostActivity -> com.fast.clean.junk.ui.DyxGboostActivity:
     com.rd.PageIndicatorView pageindicatorview -> a
     android.widget.TextView gboost_ram_size -> b
@@ -33326,103 +33349,134 @@ com.fast.clean.junk.ui.DyxGboostActivity -> com.fast.clean.junk.ui.DyxGboostActi
     android.widget.FrameLayout add_left -> y
     android.widget.ListView list_game -> z
     android.widget.TextView add_games -> A
-    com.fast.clean.junk.myview.LaunchpadAdapter adapter -> C
-    java.util.ArrayList list -> D
-    android.os.Handler mHandler -> E
-    com.fast.clean.junk.adapter.JiaGameAdapter whiteListAdapter -> F
-    long total -> G
-    long idle -> H
-    long lastTotalRxBytes -> I
-    long lastTimeStamp -> J
-    boolean search -> K
-    java.util.List gboost_add -> L
-    java.util.List listEdit -> M
-    int screenWidth -> N
+    com.fast.clean.junk.myview.LaunchpadAdapter adapter -> E
+    java.util.ArrayList list -> F
+    android.os.Handler mHandler -> G
+    com.fast.clean.junk.adapter.JiaGameAdapter whiteListAdapter -> H
+    long total -> I
+    long idle -> J
+    long lastTotalRxBytes -> K
+    long lastTimeStamp -> L
+    boolean search -> M
+    java.util.List gboost_add -> N
+    java.util.List listEdit -> O
+    int screenWidth -> P
+    android.support.v7.app.AlertDialog dialog -> Q
     android.view.View$OnClickListener clickListener -> B
-    60:260:void <init>() -> <init>
-    108:126:void findId() -> a
-    130:158:void onCreate(android.os.Bundle) -> onCreate
-    161:166:void addAd() -> b
-    169:186:long getCup() -> c
-    190:193:void initList() -> d
-    196:258:void addData() -> e
-    326:380:void toggleEditAnimation() -> f
-    384:391:long getNetWork() -> g
-    396:397:long getTotalRxBytes() -> h
-    402:442:void onResume() -> onResume
-    446:464:void onBackPressed() -> onBackPressed
-    467:506:void shortGame(boolean) -> a
-    509:524:void initData() -> i
-    527:536:void upData(java.lang.String) -> b
-    540:542:void onDestroy() -> onDestroy
-    546:554:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    60:60:java.util.ArrayList access$000(com.fast.clean.junk.ui.DyxGboostActivity) -> a
-    60:60:android.os.Handler access$100(com.fast.clean.junk.ui.DyxGboostActivity) -> b
-    60:60:com.fast.clean.junk.myview.LaunchpadAdapter access$202(com.fast.clean.junk.ui.DyxGboostActivity,com.fast.clean.junk.myview.LaunchpadAdapter) -> a
-    60:60:com.fast.clean.junk.myview.LaunchpadAdapter access$200(com.fast.clean.junk.ui.DyxGboostActivity) -> c
-    60:60:void access$300(com.fast.clean.junk.ui.DyxGboostActivity,boolean) -> a
-    60:60:void access$400(com.fast.clean.junk.ui.DyxGboostActivity) -> d
-    60:60:com.fast.clean.junk.adapter.JiaGameAdapter access$502(com.fast.clean.junk.ui.DyxGboostActivity,com.fast.clean.junk.adapter.JiaGameAdapter) -> a
-    60:60:com.fast.clean.junk.adapter.JiaGameAdapter access$500(com.fast.clean.junk.ui.DyxGboostActivity) -> e
-    60:60:void access$600(com.fast.clean.junk.ui.DyxGboostActivity) -> f
-    60:60:boolean access$700(com.fast.clean.junk.ui.DyxGboostActivity) -> g
-    60:60:boolean access$702(com.fast.clean.junk.ui.DyxGboostActivity,boolean) -> b
-    60:60:void access$800(com.fast.clean.junk.ui.DyxGboostActivity,java.lang.String) -> a
-    60:60:long access$900(com.fast.clean.junk.ui.DyxGboostActivity) -> h
-    60:60:long access$1000(com.fast.clean.junk.ui.DyxGboostActivity) -> i
+    android.content.BroadcastReceiver broadcastReceiver -> C
+    com.fast.clean.junk.myview.WidgetContainer widgetContainer -> R
+    java.lang.Runnable runnable_acc -> D
+    68:566:void <init>() -> <init>
+    117:135:void findId() -> a
+    139:168:void onCreate(android.os.Bundle) -> onCreate
+    171:176:void addAd() -> c
+    179:196:long getCup() -> d
+    200:203:void initList() -> e
+    206:268:void addData() -> f
+    323:377:void toggleEditAnimation() -> g
+    381:388:long getNetWork() -> h
+    393:394:long getTotalRxBytes() -> i
+    399:439:void onResume() -> onResume
+    443:461:void onBackPressed() -> onBackPressed
+    464:503:void shortGame(boolean) -> a
+    506:521:void initData() -> j
+    524:533:void upData(java.lang.String) -> b
+    537:540:void onDestroy() -> onDestroy
+    556:563:void permissIntent() -> b
+    595:612:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    615:643:void showDialogPermiss() -> k
+    68:68:java.util.ArrayList access$000(com.fast.clean.junk.ui.DyxGboostActivity) -> a
+    68:68:android.os.Handler access$100(com.fast.clean.junk.ui.DyxGboostActivity) -> b
+    68:68:com.fast.clean.junk.myview.LaunchpadAdapter access$202(com.fast.clean.junk.ui.DyxGboostActivity,com.fast.clean.junk.myview.LaunchpadAdapter) -> a
+    68:68:com.fast.clean.junk.myview.LaunchpadAdapter access$200(com.fast.clean.junk.ui.DyxGboostActivity) -> c
+    68:68:void access$300(com.fast.clean.junk.ui.DyxGboostActivity,boolean) -> a
+    68:68:void access$400(com.fast.clean.junk.ui.DyxGboostActivity) -> d
+    68:68:com.fast.clean.junk.adapter.JiaGameAdapter access$502(com.fast.clean.junk.ui.DyxGboostActivity,com.fast.clean.junk.adapter.JiaGameAdapter) -> a
+    68:68:com.fast.clean.junk.adapter.JiaGameAdapter access$500(com.fast.clean.junk.ui.DyxGboostActivity) -> e
+    68:68:void access$600(com.fast.clean.junk.ui.DyxGboostActivity) -> f
+    68:68:boolean access$700(com.fast.clean.junk.ui.DyxGboostActivity) -> g
+    68:68:boolean access$702(com.fast.clean.junk.ui.DyxGboostActivity,boolean) -> b
+    68:68:void access$800(com.fast.clean.junk.ui.DyxGboostActivity,java.lang.String) -> a
+    68:68:long access$900(com.fast.clean.junk.ui.DyxGboostActivity) -> h
+    68:68:long access$1000(com.fast.clean.junk.ui.DyxGboostActivity) -> i
+    68:68:com.fast.clean.junk.myview.WidgetContainer access$1100(com.fast.clean.junk.ui.DyxGboostActivity) -> j
+    68:68:com.fast.clean.junk.myview.WidgetContainer access$1102(com.fast.clean.junk.ui.DyxGboostActivity,com.fast.clean.junk.myview.WidgetContainer) -> a
+    68:68:android.support.v7.app.AlertDialog access$1200(com.fast.clean.junk.ui.DyxGboostActivity) -> k
 com.fast.clean.junk.ui.DyxGboostActivity$1 -> com.fast.clean.junk.ui.DyxGboostActivity$1:
     com.fast.clean.junk.ui.DyxGboostActivity this$0 -> a
-    83:83:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
-    86:93:void handleMessage(android.os.Message) -> handleMessage
-com.fast.clean.junk.ui.DyxGboostActivity$2 -> com.fast.clean.junk.ui.DyxGboostActivity$2:
+    91:91:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
+    94:101:void handleMessage(android.os.Message) -> handleMessage
+com.fast.clean.junk.ui.DyxGboostActivity$10 -> com.fast.clean.junk.ui.DyxGboostActivity$2:
     com.fast.clean.junk.ui.DyxGboostActivity this$0 -> a
-    201:201:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
-    204:253:void run() -> run
-com.fast.clean.junk.ui.DyxGboostActivity$2$1 -> com.fast.clean.junk.ui.DyxGboostActivity$2$1:
+    633:633:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
+    636:637:void onClick(android.view.View) -> onClick
+com.fast.clean.junk.ui.DyxGboostActivity$2 -> com.fast.clean.junk.ui.DyxGboostActivity$3:
+    com.fast.clean.junk.ui.DyxGboostActivity this$0 -> a
+    211:211:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
+    214:263:void run() -> run
+com.fast.clean.junk.ui.DyxGboostActivity$2$1 -> com.fast.clean.junk.ui.DyxGboostActivity$3$1:
     com.fast.clean.junk.ui.DyxGboostActivity$2 this$1 -> a
-    212:212:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$2) -> <init>
-    215:251:void run() -> run
-com.fast.clean.junk.ui.DyxGboostActivity$2$1$1 -> com.fast.clean.junk.ui.DyxGboostActivity$2$1$1:
+    222:222:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$2) -> <init>
+    225:261:void run() -> run
+com.fast.clean.junk.ui.DyxGboostActivity$2$1$1 -> com.fast.clean.junk.ui.DyxGboostActivity$3$1$1:
     com.fast.clean.junk.ui.DyxGboostActivity$2$1 this$2 -> a
-    230:230:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$2$1) -> <init>
-    233:234:void onPageChange(int,int) -> a
-com.fast.clean.junk.ui.DyxGboostActivity$2$1$2 -> com.fast.clean.junk.ui.DyxGboostActivity$2$1$2:
+    240:240:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$2$1) -> <init>
+    243:244:void onPageChange(int,int) -> a
+com.fast.clean.junk.ui.DyxGboostActivity$2$1$2 -> com.fast.clean.junk.ui.DyxGboostActivity$3$1$2:
     com.fast.clean.junk.ui.DyxGboostActivity$2$1 this$2 -> a
-    236:236:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$2$1) -> <init>
-    241:248:void onClick(java.lang.Object,int) -> a
-com.fast.clean.junk.ui.DyxGboostActivity$3 -> com.fast.clean.junk.ui.DyxGboostActivity$3:
+    246:246:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$2$1) -> <init>
+    251:258:void onClick(java.lang.Object,int) -> a
+com.fast.clean.junk.ui.DyxGboostActivity$3 -> com.fast.clean.junk.ui.DyxGboostActivity$4:
     com.fast.clean.junk.ui.DyxGboostActivity this$0 -> a
-    260:260:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
-    263:322:void onClick(android.view.View) -> onClick
-com.fast.clean.junk.ui.DyxGboostActivity$3$1 -> com.fast.clean.junk.ui.DyxGboostActivity$3$1:
-    com.fast.clean.junk.ui.DyxGboostActivity$3 this$1 -> a
-    300:300:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$3) -> <init>
-    303:305:void run() -> run
-com.fast.clean.junk.ui.DyxGboostActivity$4 -> com.fast.clean.junk.ui.DyxGboostActivity$4:
+    270:270:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
+    273:319:void onClick(android.view.View) -> onClick
+com.fast.clean.junk.ui.DyxGboostActivity$4 -> com.fast.clean.junk.ui.DyxGboostActivity$5:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.fast.clean.junk.ui.DyxGboostActivity this$0 -> d
-    346:346:void <init>(com.fast.clean.junk.ui.DyxGboostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    349:377:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-com.fast.clean.junk.ui.DyxGboostActivity$4$1 -> com.fast.clean.junk.ui.DyxGboostActivity$4$1:
+    343:343:void <init>(com.fast.clean.junk.ui.DyxGboostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    346:374:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.fast.clean.junk.ui.DyxGboostActivity$4$1 -> com.fast.clean.junk.ui.DyxGboostActivity$5$1:
     com.fast.clean.junk.ui.DyxGboostActivity$4 this$1 -> a
-    357:357:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$4) -> <init>
-    360:361:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    366:366:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    371:371:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
-com.fast.clean.junk.ui.DyxGboostActivity$5 -> com.fast.clean.junk.ui.DyxGboostActivity$5:
+    354:354:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$4) -> <init>
+    357:358:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    363:363:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    368:368:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+com.fast.clean.junk.ui.DyxGboostActivity$5 -> com.fast.clean.junk.ui.DyxGboostActivity$6:
     com.fast.clean.junk.ui.DyxGboostActivity this$0 -> a
-    403:403:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
-    406:440:void run() -> run
-com.fast.clean.junk.ui.DyxGboostActivity$5$1 -> com.fast.clean.junk.ui.DyxGboostActivity$5$1:
+    400:400:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
+    403:437:void run() -> run
+com.fast.clean.junk.ui.DyxGboostActivity$5$1 -> com.fast.clean.junk.ui.DyxGboostActivity$6$1:
     int val$cup -> a
     int val$memo -> b
     int val$speed -> c
     long val$size -> d
     com.fast.clean.junk.ui.DyxGboostActivity$5 this$1 -> e
-    412:412:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$5,int,int,int,long) -> <init>
-    415:432:void run() -> run
+    409:409:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$5,int,int,int,long) -> <init>
+    412:429:void run() -> run
+com.fast.clean.junk.ui.DyxGboostActivity$6 -> com.fast.clean.junk.ui.DyxGboostActivity$7:
+    com.fast.clean.junk.ui.DyxGboostActivity this$0 -> a
+    542:542:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
+    545:551:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.fast.clean.junk.ui.DyxGboostActivity$7 -> com.fast.clean.junk.ui.DyxGboostActivity$8:
+    com.fast.clean.junk.ui.DyxGboostActivity this$0 -> a
+    566:566:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
+    569:590:void run() -> run
+com.fast.clean.junk.ui.DyxGboostActivity$7$1 -> com.fast.clean.junk.ui.DyxGboostActivity$8$1:
+    com.fast.clean.junk.ui.DyxGboostActivity$7 this$1 -> a
+    574:574:void <init>(com.fast.clean.junk.ui.DyxGboostActivity$7) -> <init>
+    577:577:boolean onBackPressed() -> a
+    582:582:boolean onMenuPressed() -> b
+    587:588:void onClick() -> c
+com.fast.clean.junk.ui.DyxGboostActivity$8 -> com.fast.clean.junk.ui.DyxGboostActivity$9:
+    com.fast.clean.junk.ui.DyxGboostActivity this$0 -> a
+    619:619:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
+    622:625:void onClick(android.view.View) -> onClick
+com.fast.clean.junk.ui.DyxGboostActivity$9 -> com.fast.clean.junk.ui.DyxGboostActivity$10:
+    com.fast.clean.junk.ui.DyxGboostActivity this$0 -> a
+    627:627:void <init>(com.fast.clean.junk.ui.DyxGboostActivity) -> <init>
+    630:631:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.FileLajiActivity -> com.fast.clean.junk.ui.FileLajiActivity:
     android.widget.TextView junk_fangxin -> a
     android.widget.LinearLayout junk_button_system -> b
@@ -34776,92 +34830,123 @@ com.fast.clean.junk.ui.PictureHuiActivity$MyCallBack -> com.fast.clean.junk.ui.P
 com.fast.clean.junk.ui.PowerActivity -> com.fast.clean.junk.ui.PowerActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> h
-    android.widget.TextView containerView_power_size -> i
-    android.widget.Button containerView_junk_button_clean -> j
-    com.fast.clean.junk.myview.PowerWidgetContainer container -> k
-    int count -> w
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> j
+    android.widget.TextView containerView_power_size -> k
+    android.widget.Button containerView_junk_button_clean -> w
+    com.fast.clean.junk.myview.PowerWidgetContainer container -> x
+    int count -> y
     android.support.v7.widget.RecyclerView power_recycler -> c
     android.widget.TextView power_size -> d
     android.widget.Button junk_button_clean -> e
     android.os.Handler mHandler -> f
-    android.support.v7.widget.GridLayoutManager mLayoutManager -> x
-    com.fast.clean.junk.ui.PowerActivity$HomeAdapter homeAdapter -> y
-    com.fast.clean.junk.ui.PowerActivity$HomeAdapter containerAdapter -> z
-    com.fast.clean.junk.ui.MyApplication cleanApplication -> A
-    java.util.ArrayList startList -> B
-    android.view.View containerView -> C
+    android.support.v7.widget.GridLayoutManager mLayoutManager -> z
+    com.fast.clean.junk.ui.PowerActivity$HomeAdapter homeAdapter -> A
+    com.fast.clean.junk.ui.PowerActivity$HomeAdapter containerAdapter -> B
+    com.fast.clean.junk.ui.MyApplication cleanApplication -> C
+    java.util.ArrayList startList -> D
+    android.view.View containerView -> E
+    android.support.v7.app.AlertDialog dialog -> F
     java.lang.Runnable runnable -> g
-    46:184:void <init>() -> <init>
-    67:73:void findId() -> a
-    77:163:void onCreate(android.os.Bundle) -> onCreate
-    166:171:void addAd() -> b
-    174:181:void initData() -> c
-    231:266:void animatorView(android.view.View,int) -> a
-    269:279:void setContainer() -> d
-    282:287:void showPackageDetail(java.lang.String) -> b
-    349:352:void onDestroy() -> onDestroy
-    356:358:void onBackPressed() -> onBackPressed
-    362:370:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    46:46:android.view.View access$002(com.fast.clean.junk.ui.PowerActivity,android.view.View) -> a
-    46:46:com.fast.clean.junk.myview.PowerWidgetContainer access$102(com.fast.clean.junk.ui.PowerActivity,com.fast.clean.junk.myview.PowerWidgetContainer) -> a
-    46:46:android.view.View access$000(com.fast.clean.junk.ui.PowerActivity) -> a
-    46:46:com.fast.clean.junk.myview.PowerWidgetContainer access$100(com.fast.clean.junk.ui.PowerActivity) -> b
-    46:46:void access$200(com.fast.clean.junk.ui.PowerActivity) -> c
-    46:46:java.util.ArrayList access$300(com.fast.clean.junk.ui.PowerActivity) -> d
-    46:46:int access$408(com.fast.clean.junk.ui.PowerActivity) -> e
-    46:46:void access$500(com.fast.clean.junk.ui.PowerActivity,java.lang.String) -> a
-    46:46:android.support.v7.widget.RecyclerView access$600(com.fast.clean.junk.ui.PowerActivity) -> f
-    46:46:void access$700(com.fast.clean.junk.ui.PowerActivity,android.view.View,int) -> a
-    46:46:com.fast.clean.junk.ui.PowerActivity$HomeAdapter access$800(com.fast.clean.junk.ui.PowerActivity) -> g
-    46:46:int access$400(com.fast.clean.junk.ui.PowerActivity) -> h
-    46:46:android.widget.TextView access$900(com.fast.clean.junk.ui.PowerActivity) -> i
-    46:46:com.fast.clean.junk.ui.PowerActivity$HomeAdapter access$1000(com.fast.clean.junk.ui.PowerActivity) -> j
+    android.content.BroadcastReceiver broadcastReceiver -> h
+    com.fast.clean.junk.myview.WidgetContainer widgetContainer -> G
+    java.lang.Runnable runnable_acc -> i
+    52:379:void <init>() -> <init>
+    74:80:void findId() -> a
+    84:157:void onCreate(android.os.Bundle) -> onCreate
+    160:165:void addAd() -> c
+    168:175:void initData() -> d
+    225:260:void animatorView(android.view.View,int) -> a
+    263:273:void setContainer() -> e
+    276:281:void showPackageDetail(java.lang.String) -> b
+    343:347:void onDestroy() -> onDestroy
+    351:353:void onBackPressed() -> onBackPressed
+    369:376:void permissIntent() -> b
+    408:421:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    424:452:void showDialogPermiss() -> f
+    52:52:android.view.View access$002(com.fast.clean.junk.ui.PowerActivity,android.view.View) -> a
+    52:52:com.fast.clean.junk.myview.PowerWidgetContainer access$102(com.fast.clean.junk.ui.PowerActivity,com.fast.clean.junk.myview.PowerWidgetContainer) -> a
+    52:52:android.view.View access$000(com.fast.clean.junk.ui.PowerActivity) -> a
+    52:52:com.fast.clean.junk.myview.PowerWidgetContainer access$100(com.fast.clean.junk.ui.PowerActivity) -> b
+    52:52:void access$200(com.fast.clean.junk.ui.PowerActivity) -> c
+    52:52:java.util.ArrayList access$300(com.fast.clean.junk.ui.PowerActivity) -> d
+    52:52:int access$408(com.fast.clean.junk.ui.PowerActivity) -> e
+    52:52:void access$500(com.fast.clean.junk.ui.PowerActivity,java.lang.String) -> a
+    52:52:android.support.v7.widget.RecyclerView access$600(com.fast.clean.junk.ui.PowerActivity) -> f
+    52:52:void access$700(com.fast.clean.junk.ui.PowerActivity,android.view.View,int) -> a
+    52:52:com.fast.clean.junk.ui.PowerActivity$HomeAdapter access$800(com.fast.clean.junk.ui.PowerActivity) -> g
+    52:52:int access$400(com.fast.clean.junk.ui.PowerActivity) -> h
+    52:52:android.widget.TextView access$900(com.fast.clean.junk.ui.PowerActivity) -> i
+    52:52:com.fast.clean.junk.ui.PowerActivity$HomeAdapter access$1000(com.fast.clean.junk.ui.PowerActivity) -> j
+    52:52:com.fast.clean.junk.myview.WidgetContainer access$1100(com.fast.clean.junk.ui.PowerActivity) -> k
+    52:52:com.fast.clean.junk.myview.WidgetContainer access$1102(com.fast.clean.junk.ui.PowerActivity,com.fast.clean.junk.myview.WidgetContainer) -> a
+    52:52:android.support.v7.app.AlertDialog access$1200(com.fast.clean.junk.ui.PowerActivity) -> l
 com.fast.clean.junk.ui.PowerActivity$1 -> com.fast.clean.junk.ui.PowerActivity$1:
     com.fast.clean.junk.ui.PowerActivity this$0 -> a
-    92:92:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
-    95:127:void onClick(android.view.View) -> onClick
-com.fast.clean.junk.ui.PowerActivity$1$1 -> com.fast.clean.junk.ui.PowerActivity$1$1:
-    com.fast.clean.junk.ui.PowerActivity$1 this$1 -> a
-    105:105:void <init>(com.fast.clean.junk.ui.PowerActivity$1) -> <init>
-    108:110:void run() -> run
+    100:100:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
+    103:121:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PowerActivity$2 -> com.fast.clean.junk.ui.PowerActivity$2:
     com.fast.clean.junk.ui.PowerActivity this$0 -> a
-    129:129:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
-    132:133:void onClick(android.view.View) -> onClick
+    123:123:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
+    126:127:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PowerActivity$3 -> com.fast.clean.junk.ui.PowerActivity$3:
     com.fast.clean.junk.ui.PowerActivity this$0 -> a
-    184:184:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
-    187:227:void run() -> run
+    178:178:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
+    181:221:void run() -> run
 com.fast.clean.junk.ui.PowerActivity$4 -> com.fast.clean.junk.ui.PowerActivity$4:
     int val$i -> a
     com.fast.clean.junk.ui.PowerActivity this$0 -> b
-    239:239:void <init>(com.fast.clean.junk.ui.PowerActivity,int) -> <init>
-    243:243:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    247:253:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    258:258:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    262:262:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    233:233:void <init>(com.fast.clean.junk.ui.PowerActivity,int) -> <init>
+    237:237:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    241:247:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    252:252:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    256:256:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.fast.clean.junk.ui.PowerActivity$5 -> com.fast.clean.junk.ui.PowerActivity$5:
+    com.fast.clean.junk.ui.PowerActivity this$0 -> a
+    355:355:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
+    358:364:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.fast.clean.junk.ui.PowerActivity$6 -> com.fast.clean.junk.ui.PowerActivity$6:
+    com.fast.clean.junk.ui.PowerActivity this$0 -> a
+    379:379:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
+    382:403:void run() -> run
+com.fast.clean.junk.ui.PowerActivity$6$1 -> com.fast.clean.junk.ui.PowerActivity$6$1:
+    com.fast.clean.junk.ui.PowerActivity$6 this$1 -> a
+    387:387:void <init>(com.fast.clean.junk.ui.PowerActivity$6) -> <init>
+    390:390:boolean onBackPressed() -> a
+    395:395:boolean onMenuPressed() -> b
+    400:401:void onClick() -> c
+com.fast.clean.junk.ui.PowerActivity$7 -> com.fast.clean.junk.ui.PowerActivity$7:
+    com.fast.clean.junk.ui.PowerActivity this$0 -> a
+    428:428:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
+    431:434:void onClick(android.view.View) -> onClick
+com.fast.clean.junk.ui.PowerActivity$8 -> com.fast.clean.junk.ui.PowerActivity$8:
+    com.fast.clean.junk.ui.PowerActivity this$0 -> a
+    436:436:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
+    439:440:void onClick(android.view.View) -> onClick
+com.fast.clean.junk.ui.PowerActivity$9 -> com.fast.clean.junk.ui.PowerActivity$9:
+    com.fast.clean.junk.ui.PowerActivity this$0 -> a
+    442:442:void <init>(com.fast.clean.junk.ui.PowerActivity) -> <init>
+    445:446:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PowerActivity$HomeAdapter -> com.fast.clean.junk.ui.PowerActivity$a:
     boolean isWidget -> a
     com.fast.clean.junk.ui.PowerActivity this$0 -> b
-    292:294:void <init>(com.fast.clean.junk.ui.PowerActivity,boolean) -> <init>
-    298:301:com.fast.clean.junk.ui.PowerActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    306:320:void onBindViewHolder(com.fast.clean.junk.ui.PowerActivity$HomeAdapter$MyViewHolder,int) -> a
-    324:326:void reChangesData(int) -> a
-    330:330:int getItemCount() -> getItemCount
-    289:289:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    289:289:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    286:288:void <init>(com.fast.clean.junk.ui.PowerActivity,boolean) -> <init>
+    292:295:com.fast.clean.junk.ui.PowerActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    300:314:void onBindViewHolder(com.fast.clean.junk.ui.PowerActivity$HomeAdapter$MyViewHolder,int) -> a
+    318:320:void reChangesData(int) -> a
+    324:324:int getItemCount() -> getItemCount
+    283:283:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    283:283:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.fast.clean.junk.ui.PowerActivity$HomeAdapter$1 -> com.fast.clean.junk.ui.PowerActivity$a$1:
     int val$position -> a
     com.fast.clean.junk.ui.PowerActivity$HomeAdapter this$1 -> b
-    313:313:void <init>(com.fast.clean.junk.ui.PowerActivity$HomeAdapter,int) -> <init>
-    316:318:void onClick(android.view.View) -> onClick
+    307:307:void <init>(com.fast.clean.junk.ui.PowerActivity$HomeAdapter,int) -> <init>
+    310:312:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PowerActivity$HomeAdapter$MyViewHolder -> com.fast.clean.junk.ui.PowerActivity$a$a:
     android.widget.FrameLayout recyc_item -> a
     android.widget.ImageView recyc_icon -> b
     android.widget.ImageView recyc_check -> c
     com.fast.clean.junk.ui.PowerActivity$HomeAdapter this$1 -> d
-    338:343:void <init>(com.fast.clean.junk.ui.PowerActivity$HomeAdapter,android.view.View) -> <init>
+    332:337:void <init>(com.fast.clean.junk.ui.PowerActivity$HomeAdapter,android.view.View) -> <init>
 com.fast.clean.junk.ui.SettingActivity -> com.fast.clean.junk.ui.SettingActivity:
     android.widget.ImageView setting_tongzhi_check -> a
     android.widget.ImageView setting_tongzhilan_check -> b
