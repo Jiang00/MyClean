@@ -3,7 +3,10 @@ package com.supers.clean.junk.activity;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +25,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -38,6 +42,7 @@ import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.PowerWidgetContainer;
 import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.customeview.WidgetContainer;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.AdUtil;
 import com.android.clean.util.Constant;
@@ -87,6 +92,7 @@ public class PowerActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
+        registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         if (!PreData.getDB(this, Constant.BILL_YOUXIAO, true)) {
             AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         }
@@ -159,6 +165,18 @@ public class PowerActivity extends BaseActivity {
         }
     }
 
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
+                if (widgetContainer != null) {
+                    widgetContainer.removeFromWindow();
+                }
+            }
+        }
+    };
+
     public void permissIntent() {
         try {
             Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
@@ -167,16 +185,36 @@ public class PowerActivity extends BaseActivity {
             e.printStackTrace();
             AdUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
         }
-
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent transintent = new Intent(PowerActivity.this, PermissionPowerActivity.class);
-                startActivity(transintent);
-            }
-        }, 1500);
+        mHandler.postDelayed(runnable_acc, 1500);
     }
 
+    private WidgetContainer widgetContainer;
+    Runnable runnable_acc = new Runnable() {
+        @Override
+        public void run() {
+            View view = LayoutInflater.from(PowerActivity.this).inflate(R.layout.layout_permission_power, null);
+            widgetContainer = new WidgetContainer(PowerActivity.this.getApplicationContext(), Gravity.NO_GRAVITY, WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.MATCH_PARENT, true);
+            widgetContainer.addView(view);
+            widgetContainer.addToWindow();
+            widgetContainer.setWidgetListener(new WidgetContainer.IWidgetListener() {
+                @Override
+                public boolean onBackPressed() {
+                    return false;
+                }
+
+                @Override
+                public boolean onMenuPressed() {
+                    return false;
+                }
+
+                @Override
+                public void onClick() {
+                    widgetContainer.removeFromWindow();
+                }
+            });
+        }
+    };
 
     private void setContainer() {
         containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
@@ -403,6 +441,7 @@ public class PowerActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        unregisterReceiver(broadcastReceiver);
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", true));
         super.onDestroy();
 
@@ -420,6 +459,9 @@ public class PowerActivity extends BaseActivity {
             onBackPressed();
         }
         if (requestCode == 100) {
+            if (mHandler != null) {
+                mHandler.removeCallbacks(runnable_acc);
+            }
             if (Util.isAccessibilitySettingsOn(PowerActivity.this)) {
                 junk_button_clean.callOnClick();
             } else {
