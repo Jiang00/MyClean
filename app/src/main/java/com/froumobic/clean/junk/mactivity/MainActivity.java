@@ -365,12 +365,13 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
         if (PreData.getDB(this, Constant.FIRST_BATTERY, true)) {
             PreData.putDB(this, Constant.FIRST_BATTERY, false);
-            Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
-//            main_battery.setVisibility(View.VISIBLE);
-//            ImageView battery_cha = (ImageView) findViewById(R.id.battery_cha);
-//            Button battery_button = (Button) findViewById(R.id.battery_button);
-//            battery_cha.setOnClickListener(onClickListener);
-//            battery_button.setOnClickListener(onClickListener);
+
+//            Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+            main_battery.setVisibility(View.VISIBLE);
+            ImageView battery_cha = (ImageView) findViewById(R.id.battery_cha);
+            Button battery_button = (Button) findViewById(R.id.battery_button);
+            battery_cha.setOnClickListener(onClickListener);
+            battery_button.setOnClickListener(onClickListener);
         }
         tuiguang(TUIGUAN_MAIN_SOFT, true, main_tuiguang);
         tuiguang(TUIGUAN_MAIN, false, main_tuiguang);
@@ -968,7 +969,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                     break;
                 case R.id.battery_cha:
                     main_battery.setVisibility(View.GONE);
-                    Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                    Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
                     initSideData();
                     adapter.notifyDataSetChanged();
                     AdUtil.track("主界面", "充电屏保引导", "叉掉了", 1);
@@ -1122,7 +1123,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (main_battery.getVisibility() == View.VISIBLE) {
             AdUtil.track("主界面", "充电屏保引导", "返回键退出", 1);
             main_battery.setVisibility(View.GONE);
-            Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+            Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
             initSideData();
             adapter.notifyDataSetChanged();
             return;
