@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/onclick"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="@dimen/d301"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_a1_r">
+
+        <ImageView
+            android:id="@+id/iv_cha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="@dimen/d8"
+            android:src="@mipmap/permiss_delete" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:orientation="vertical">
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:id="@+id/bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d19"
+                android:fontFamily="sans-serif"
+                android:text="@string/permission_3"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s13" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginRight="@dimen/d16"
+                android:layout_marginTop="@dimen/d18"
+                android:background="@drawable/shape_ffffff_r"
+                android:orientation="horizontal">
+
+
+                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/d16"
+                    android:text="@string/permission_4"
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s16" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d56">
+
+                <TextView
+                    android:id="@+id/bt_quxiao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:gravity="center"
+                    android:padding="@dimen/d10"
+                    android:text="@string/premiss_4"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s13" />
+
+                <TextView
+                    android:id="@+id/bt_queren"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/d20"
+                    android:gravity="center"
+                    android:padding="@dimen/d10"
+                    android:text="@string/premiss_3"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s13" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>
+

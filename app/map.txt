@@ -36175,92 +36175,123 @@ com.vater.clean.junk.jiemian.BatteryActivity$4 -> com.vater.clean.junk.jiemian.B
 com.vater.clean.junk.jiemian.DeepActivity -> com.vater.clean.junk.jiemian.DeepActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
-    com.vater.clean.junk.myview.DeepWidgetContainer container -> h
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> i
-    android.widget.TextView containerView_power_size -> j
-    android.widget.Button containerView_junk_button_clean -> k
-    int count -> p
+    com.vater.clean.junk.myview.DeepWidgetContainer container -> j
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> k
+    android.widget.TextView containerView_power_size -> p
+    android.widget.Button containerView_junk_button_clean -> q
+    int count -> r
     android.widget.TextView power_size -> c
     android.support.v7.widget.RecyclerView power_recycler -> d
     android.widget.Button junk_button_clean -> e
-    android.support.v7.widget.GridLayoutManager mLayoutManager -> q
+    android.support.v7.widget.GridLayoutManager mLayoutManager -> s
     android.os.Handler mHandler -> f
-    com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter homeAdapter -> r
-    com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter containerAdapter -> s
-    com.vater.clean.junk.jiemian.MyApplication cleanApplication -> t
-    java.util.ArrayList startList -> u
-    android.view.View containerView -> v
+    com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter homeAdapter -> t
+    com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter containerAdapter -> u
+    com.vater.clean.junk.jiemian.MyApplication cleanApplication -> v
+    java.util.ArrayList startList -> w
+    android.view.View containerView -> x
+    android.support.v7.app.AlertDialog dialog -> y
     java.lang.Runnable runnable -> g
-    44:161:void <init>() -> <init>
-    65:71:void findId() -> a
-    75:158:void onCreate(android.os.Bundle) -> onCreate
-    208:243:void animatorView(android.view.View,int) -> a
-    246:256:void setContainer() -> b
-    259:264:void showPackageDetail(java.lang.String) -> b
-    267:274:void initData() -> c
-    338:341:void onDestroy() -> onDestroy
-    345:347:void onBackPressed() -> onBackPressed
-    351:359:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    44:44:android.view.View access$002(com.vater.clean.junk.jiemian.DeepActivity,android.view.View) -> a
-    44:44:com.vater.clean.junk.myview.DeepWidgetContainer access$102(com.vater.clean.junk.jiemian.DeepActivity,com.vater.clean.junk.myview.DeepWidgetContainer) -> a
-    44:44:android.view.View access$000(com.vater.clean.junk.jiemian.DeepActivity) -> a
-    44:44:com.vater.clean.junk.myview.DeepWidgetContainer access$100(com.vater.clean.junk.jiemian.DeepActivity) -> b
-    44:44:void access$200(com.vater.clean.junk.jiemian.DeepActivity) -> c
-    44:44:java.util.ArrayList access$300(com.vater.clean.junk.jiemian.DeepActivity) -> d
-    44:44:int access$408(com.vater.clean.junk.jiemian.DeepActivity) -> e
-    44:44:void access$500(com.vater.clean.junk.jiemian.DeepActivity,java.lang.String) -> a
-    44:44:android.support.v7.widget.RecyclerView access$600(com.vater.clean.junk.jiemian.DeepActivity) -> f
-    44:44:void access$700(com.vater.clean.junk.jiemian.DeepActivity,android.view.View,int) -> a
-    44:44:com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter access$800(com.vater.clean.junk.jiemian.DeepActivity) -> g
-    44:44:int access$400(com.vater.clean.junk.jiemian.DeepActivity) -> h
-    44:44:android.widget.TextView access$900(com.vater.clean.junk.jiemian.DeepActivity) -> i
-    44:44:com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter access$1000(com.vater.clean.junk.jiemian.DeepActivity) -> j
+    android.content.BroadcastReceiver broadcastReceiver -> h
+    com.vater.clean.junk.myview.WidgetContainer widgetContainer -> z
+    java.lang.Runnable runnable_acc -> i
+    50:368:void <init>() -> <init>
+    72:78:void findId() -> a
+    82:152:void onCreate(android.os.Bundle) -> onCreate
+    202:237:void animatorView(android.view.View,int) -> a
+    240:250:void setContainer() -> c
+    253:258:void showPackageDetail(java.lang.String) -> b
+    261:268:void initData() -> d
+    332:336:void onDestroy() -> onDestroy
+    352:354:void onBackPressed() -> onBackPressed
+    358:365:void permissIntent() -> b
+    397:410:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    413:441:void showDialogPermiss() -> e
+    50:50:android.view.View access$002(com.vater.clean.junk.jiemian.DeepActivity,android.view.View) -> a
+    50:50:com.vater.clean.junk.myview.DeepWidgetContainer access$102(com.vater.clean.junk.jiemian.DeepActivity,com.vater.clean.junk.myview.DeepWidgetContainer) -> a
+    50:50:android.view.View access$000(com.vater.clean.junk.jiemian.DeepActivity) -> a
+    50:50:com.vater.clean.junk.myview.DeepWidgetContainer access$100(com.vater.clean.junk.jiemian.DeepActivity) -> b
+    50:50:void access$200(com.vater.clean.junk.jiemian.DeepActivity) -> c
+    50:50:java.util.ArrayList access$300(com.vater.clean.junk.jiemian.DeepActivity) -> d
+    50:50:int access$408(com.vater.clean.junk.jiemian.DeepActivity) -> e
+    50:50:void access$500(com.vater.clean.junk.jiemian.DeepActivity,java.lang.String) -> a
+    50:50:android.support.v7.widget.RecyclerView access$600(com.vater.clean.junk.jiemian.DeepActivity) -> f
+    50:50:void access$700(com.vater.clean.junk.jiemian.DeepActivity,android.view.View,int) -> a
+    50:50:com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter access$800(com.vater.clean.junk.jiemian.DeepActivity) -> g
+    50:50:int access$400(com.vater.clean.junk.jiemian.DeepActivity) -> h
+    50:50:android.widget.TextView access$900(com.vater.clean.junk.jiemian.DeepActivity) -> i
+    50:50:com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter access$1000(com.vater.clean.junk.jiemian.DeepActivity) -> j
+    50:50:com.vater.clean.junk.myview.WidgetContainer access$1100(com.vater.clean.junk.jiemian.DeepActivity) -> k
+    50:50:com.vater.clean.junk.myview.WidgetContainer access$1102(com.vater.clean.junk.jiemian.DeepActivity,com.vater.clean.junk.myview.WidgetContainer) -> a
+    50:50:android.support.v7.app.AlertDialog access$1200(com.vater.clean.junk.jiemian.DeepActivity) -> l
 com.vater.clean.junk.jiemian.DeepActivity$1 -> com.vater.clean.junk.jiemian.DeepActivity$1:
     com.vater.clean.junk.jiemian.DeepActivity this$0 -> a
-    88:88:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
-    91:123:void onClick(android.view.View) -> onClick
-com.vater.clean.junk.jiemian.DeepActivity$1$1 -> com.vater.clean.junk.jiemian.DeepActivity$1$1:
-    com.vater.clean.junk.jiemian.DeepActivity$1 this$1 -> a
-    101:101:void <init>(com.vater.clean.junk.jiemian.DeepActivity$1) -> <init>
-    104:106:void run() -> run
+    96:96:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
+    99:117:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.DeepActivity$2 -> com.vater.clean.junk.jiemian.DeepActivity$2:
     com.vater.clean.junk.jiemian.DeepActivity this$0 -> a
-    125:125:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
-    128:129:void onClick(android.view.View) -> onClick
+    119:119:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
+    122:123:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.DeepActivity$3 -> com.vater.clean.junk.jiemian.DeepActivity$3:
     com.vater.clean.junk.jiemian.DeepActivity this$0 -> a
-    161:161:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
-    164:204:void run() -> run
+    155:155:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
+    158:198:void run() -> run
 com.vater.clean.junk.jiemian.DeepActivity$4 -> com.vater.clean.junk.jiemian.DeepActivity$4:
     int val$i -> a
     com.vater.clean.junk.jiemian.DeepActivity this$0 -> b
-    216:216:void <init>(com.vater.clean.junk.jiemian.DeepActivity,int) -> <init>
-    220:220:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    224:230:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    235:235:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    239:239:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    210:210:void <init>(com.vater.clean.junk.jiemian.DeepActivity,int) -> <init>
+    214:214:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    218:224:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    229:229:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    233:233:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.vater.clean.junk.jiemian.DeepActivity$5 -> com.vater.clean.junk.jiemian.DeepActivity$5:
+    com.vater.clean.junk.jiemian.DeepActivity this$0 -> a
+    338:338:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
+    341:347:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.vater.clean.junk.jiemian.DeepActivity$6 -> com.vater.clean.junk.jiemian.DeepActivity$6:
+    com.vater.clean.junk.jiemian.DeepActivity this$0 -> a
+    368:368:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
+    371:392:void run() -> run
+com.vater.clean.junk.jiemian.DeepActivity$6$1 -> com.vater.clean.junk.jiemian.DeepActivity$6$1:
+    com.vater.clean.junk.jiemian.DeepActivity$6 this$1 -> a
+    376:376:void <init>(com.vater.clean.junk.jiemian.DeepActivity$6) -> <init>
+    379:379:boolean onBackPressed() -> a
+    384:384:boolean onMenuPressed() -> b
+    389:390:void onClick() -> c
+com.vater.clean.junk.jiemian.DeepActivity$7 -> com.vater.clean.junk.jiemian.DeepActivity$7:
+    com.vater.clean.junk.jiemian.DeepActivity this$0 -> a
+    417:417:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
+    420:423:void onClick(android.view.View) -> onClick
+com.vater.clean.junk.jiemian.DeepActivity$8 -> com.vater.clean.junk.jiemian.DeepActivity$8:
+    com.vater.clean.junk.jiemian.DeepActivity this$0 -> a
+    425:425:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
+    428:429:void onClick(android.view.View) -> onClick
+com.vater.clean.junk.jiemian.DeepActivity$9 -> com.vater.clean.junk.jiemian.DeepActivity$9:
+    com.vater.clean.junk.jiemian.DeepActivity this$0 -> a
+    431:431:void <init>(com.vater.clean.junk.jiemian.DeepActivity) -> <init>
+    434:435:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter -> com.vater.clean.junk.jiemian.DeepActivity$a:
     boolean isWidget -> a
     com.vater.clean.junk.jiemian.DeepActivity this$0 -> b
-    279:281:void <init>(com.vater.clean.junk.jiemian.DeepActivity,boolean) -> <init>
-    285:288:com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    293:307:void onBindViewHolder(com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter$MyViewHolder,int) -> a
-    311:313:void reChangesData(int) -> a
-    317:317:int getItemCount() -> getItemCount
-    276:276:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    276:276:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    273:275:void <init>(com.vater.clean.junk.jiemian.DeepActivity,boolean) -> <init>
+    279:282:com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    287:301:void onBindViewHolder(com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter$MyViewHolder,int) -> a
+    305:307:void reChangesData(int) -> a
+    311:311:int getItemCount() -> getItemCount
+    270:270:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    270:270:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter$1 -> com.vater.clean.junk.jiemian.DeepActivity$a$1:
     int val$position -> a
     com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter this$1 -> b
-    300:300:void <init>(com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter,int) -> <init>
-    303:305:void onClick(android.view.View) -> onClick
+    294:294:void <init>(com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter,int) -> <init>
+    297:299:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter$MyViewHolder -> com.vater.clean.junk.jiemian.DeepActivity$a$a:
     android.widget.FrameLayout recyc_item -> a
     android.widget.ImageView recyc_icon -> b
     android.widget.ImageView recyc_check -> c
     android.widget.TextView recyc_name -> d
     com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter this$1 -> e
-    326:332:void <init>(com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter,android.view.View) -> <init>
+    320:326:void <init>(com.vater.clean.junk.jiemian.DeepActivity$HomeAdapter,android.view.View) -> <init>
 com.vater.clean.junk.jiemian.DocActivity -> com.vater.clean.junk.jiemian.DocActivity:
     android.widget.ProgressBar file_progressbar -> a
     android.widget.RelativeLayout file_clean_rl -> b
@@ -36499,101 +36530,132 @@ com.vater.clean.junk.jiemian.GameActivity -> com.vater.clean.junk.jiemian.GameAc
     android.widget.Button gboost_clean_button -> q
     android.widget.FrameLayout add_left -> r
     android.widget.ListView list_game -> s
-    com.vater.clean.junk.myview.LaunchpadAdapter adapter -> u
-    java.util.ArrayList list -> v
-    android.os.Handler mHandler -> w
-    com.vater.clean.junk.shipeiqi.JiaGameAdapter whiteListAdapter -> x
-    long total -> y
-    long idle -> z
-    long lastTotalRxBytes -> A
-    java.util.List gboost_add -> B
-    java.util.List listEdit -> C
-    long lastTimeStamp -> D
-    boolean search -> E
-    int screenWidth -> F
+    com.vater.clean.junk.myview.LaunchpadAdapter adapter -> w
+    java.util.ArrayList list -> x
+    android.os.Handler mHandler -> y
+    com.vater.clean.junk.shipeiqi.JiaGameAdapter whiteListAdapter -> z
+    long total -> A
+    long idle -> B
+    long lastTotalRxBytes -> C
+    java.util.List gboost_add -> D
+    java.util.List listEdit -> E
+    long lastTimeStamp -> F
+    boolean search -> G
+    int screenWidth -> H
+    android.support.v7.app.AlertDialog dialog -> I
     android.view.View$OnClickListener clickListener -> t
-    58:253:void <init>() -> <init>
-    105:122:void findId() -> a
-    126:150:void onCreate(android.os.Bundle) -> onCreate
-    154:157:void initList() -> b
-    160:230:void addData() -> c
-    233:250:long getCup() -> d
-    313:320:long getNetWork() -> e
-    324:378:void toggleEditAnimation() -> f
-    382:383:long getTotalRxBytes() -> g
-    388:414:void onResume() -> onResume
-    418:436:void onBackPressed() -> onBackPressed
-    439:481:void shortGame(boolean) -> a
-    484:499:void initData() -> h
-    502:511:void upData(java.lang.String) -> b
-    515:517:void onDestroy() -> onDestroy
-    521:529:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    58:58:java.util.ArrayList access$000(com.vater.clean.junk.jiemian.GameActivity) -> a
-    58:58:android.os.Handler access$100(com.vater.clean.junk.jiemian.GameActivity) -> b
-    58:58:com.vater.clean.junk.myview.LaunchpadAdapter access$202(com.vater.clean.junk.jiemian.GameActivity,com.vater.clean.junk.myview.LaunchpadAdapter) -> a
-    58:58:com.vater.clean.junk.myview.LaunchpadAdapter access$200(com.vater.clean.junk.jiemian.GameActivity) -> c
-    58:58:com.vater.clean.junk.shipeiqi.JiaGameAdapter access$302(com.vater.clean.junk.jiemian.GameActivity,com.vater.clean.junk.shipeiqi.JiaGameAdapter) -> a
-    58:58:com.vater.clean.junk.shipeiqi.JiaGameAdapter access$300(com.vater.clean.junk.jiemian.GameActivity) -> d
-    58:58:void access$400(com.vater.clean.junk.jiemian.GameActivity) -> e
-    58:58:void access$500(com.vater.clean.junk.jiemian.GameActivity,boolean) -> a
-    58:58:void access$600(com.vater.clean.junk.jiemian.GameActivity) -> f
-    58:58:boolean access$700(com.vater.clean.junk.jiemian.GameActivity) -> g
-    58:58:boolean access$702(com.vater.clean.junk.jiemian.GameActivity,boolean) -> b
-    58:58:void access$800(com.vater.clean.junk.jiemian.GameActivity,java.lang.String) -> a
-    58:58:long access$900(com.vater.clean.junk.jiemian.GameActivity) -> h
-    58:58:long access$1000(com.vater.clean.junk.jiemian.GameActivity) -> i
+    android.content.BroadcastReceiver broadcastReceiver -> u
+    com.vater.clean.junk.myview.WidgetContainer widgetContainer -> J
+    java.lang.Runnable runnable_acc -> v
+    66:541:void <init>() -> <init>
+    114:131:void findId() -> a
+    135:160:void onCreate(android.os.Bundle) -> onCreate
+    164:167:void initList() -> c
+    170:240:void addData() -> d
+    243:260:long getCup() -> e
+    310:317:long getNetWork() -> f
+    321:375:void toggleEditAnimation() -> g
+    379:380:long getTotalRxBytes() -> h
+    385:411:void onResume() -> onResume
+    415:433:void onBackPressed() -> onBackPressed
+    436:478:void shortGame(boolean) -> a
+    481:496:void initData() -> i
+    499:508:void upData(java.lang.String) -> b
+    512:515:void onDestroy() -> onDestroy
+    531:538:void permissIntent() -> b
+    570:588:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    591:619:void showDialogPermiss() -> j
+    66:66:java.util.ArrayList access$000(com.vater.clean.junk.jiemian.GameActivity) -> a
+    66:66:android.os.Handler access$100(com.vater.clean.junk.jiemian.GameActivity) -> b
+    66:66:com.vater.clean.junk.myview.LaunchpadAdapter access$202(com.vater.clean.junk.jiemian.GameActivity,com.vater.clean.junk.myview.LaunchpadAdapter) -> a
+    66:66:com.vater.clean.junk.myview.LaunchpadAdapter access$200(com.vater.clean.junk.jiemian.GameActivity) -> c
+    66:66:com.vater.clean.junk.shipeiqi.JiaGameAdapter access$302(com.vater.clean.junk.jiemian.GameActivity,com.vater.clean.junk.shipeiqi.JiaGameAdapter) -> a
+    66:66:com.vater.clean.junk.shipeiqi.JiaGameAdapter access$300(com.vater.clean.junk.jiemian.GameActivity) -> d
+    66:66:void access$400(com.vater.clean.junk.jiemian.GameActivity) -> e
+    66:66:void access$500(com.vater.clean.junk.jiemian.GameActivity,boolean) -> a
+    66:66:void access$600(com.vater.clean.junk.jiemian.GameActivity) -> f
+    66:66:boolean access$700(com.vater.clean.junk.jiemian.GameActivity) -> g
+    66:66:boolean access$702(com.vater.clean.junk.jiemian.GameActivity,boolean) -> b
+    66:66:void access$800(com.vater.clean.junk.jiemian.GameActivity,java.lang.String) -> a
+    66:66:long access$900(com.vater.clean.junk.jiemian.GameActivity) -> h
+    66:66:long access$1000(com.vater.clean.junk.jiemian.GameActivity) -> i
+    66:66:com.vater.clean.junk.myview.WidgetContainer access$1100(com.vater.clean.junk.jiemian.GameActivity) -> j
+    66:66:com.vater.clean.junk.myview.WidgetContainer access$1102(com.vater.clean.junk.jiemian.GameActivity,com.vater.clean.junk.myview.WidgetContainer) -> a
+    66:66:android.support.v7.app.AlertDialog access$1200(com.vater.clean.junk.jiemian.GameActivity) -> k
 com.vater.clean.junk.jiemian.GameActivity$1 -> com.vater.clean.junk.jiemian.GameActivity$1:
     com.vater.clean.junk.jiemian.GameActivity this$0 -> a
-    80:80:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
-    83:90:void handleMessage(android.os.Message) -> handleMessage
-com.vater.clean.junk.jiemian.GameActivity$2 -> com.vater.clean.junk.jiemian.GameActivity$2:
+    88:88:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    91:98:void handleMessage(android.os.Message) -> handleMessage
+com.vater.clean.junk.jiemian.GameActivity$10 -> com.vater.clean.junk.jiemian.GameActivity$2:
     com.vater.clean.junk.jiemian.GameActivity this$0 -> a
-    165:165:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
-    168:225:void run() -> run
-com.vater.clean.junk.jiemian.GameActivity$2$1 -> com.vater.clean.junk.jiemian.GameActivity$2$1:
+    609:609:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    612:613:void onClick(android.view.View) -> onClick
+com.vater.clean.junk.jiemian.GameActivity$2 -> com.vater.clean.junk.jiemian.GameActivity$3:
+    com.vater.clean.junk.jiemian.GameActivity this$0 -> a
+    175:175:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    178:235:void run() -> run
+com.vater.clean.junk.jiemian.GameActivity$2$1 -> com.vater.clean.junk.jiemian.GameActivity$3$1:
     com.vater.clean.junk.jiemian.GameActivity$2 this$1 -> a
-    176:176:void <init>(com.vater.clean.junk.jiemian.GameActivity$2) -> <init>
-    179:223:void run() -> run
-com.vater.clean.junk.jiemian.GameActivity$2$1$1 -> com.vater.clean.junk.jiemian.GameActivity$2$1$1:
+    186:186:void <init>(com.vater.clean.junk.jiemian.GameActivity$2) -> <init>
+    189:233:void run() -> run
+com.vater.clean.junk.jiemian.GameActivity$2$1$1 -> com.vater.clean.junk.jiemian.GameActivity$3$1$1:
     com.vater.clean.junk.jiemian.GameActivity$2$1 this$2 -> a
-    194:194:void <init>(com.vater.clean.junk.jiemian.GameActivity$2$1) -> <init>
-    197:198:void onPageChange(int,int) -> a
-com.vater.clean.junk.jiemian.GameActivity$2$1$2 -> com.vater.clean.junk.jiemian.GameActivity$2$1$2:
+    204:204:void <init>(com.vater.clean.junk.jiemian.GameActivity$2$1) -> <init>
+    207:208:void onPageChange(int,int) -> a
+com.vater.clean.junk.jiemian.GameActivity$2$1$2 -> com.vater.clean.junk.jiemian.GameActivity$3$1$2:
     com.vater.clean.junk.jiemian.GameActivity$2$1 this$2 -> a
-    200:200:void <init>(com.vater.clean.junk.jiemian.GameActivity$2$1) -> <init>
-    203:220:void onClick(java.lang.Object,int) -> a
-com.vater.clean.junk.jiemian.GameActivity$3 -> com.vater.clean.junk.jiemian.GameActivity$3:
+    210:210:void <init>(com.vater.clean.junk.jiemian.GameActivity$2$1) -> <init>
+    213:230:void onClick(java.lang.Object,int) -> a
+com.vater.clean.junk.jiemian.GameActivity$3 -> com.vater.clean.junk.jiemian.GameActivity$4:
     com.vater.clean.junk.jiemian.GameActivity this$0 -> a
-    253:253:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
-    256:308:void onClick(android.view.View) -> onClick
-com.vater.clean.junk.jiemian.GameActivity$3$1 -> com.vater.clean.junk.jiemian.GameActivity$3$1:
-    com.vater.clean.junk.jiemian.GameActivity$3 this$1 -> a
-    293:293:void <init>(com.vater.clean.junk.jiemian.GameActivity$3) -> <init>
-    296:298:void run() -> run
-com.vater.clean.junk.jiemian.GameActivity$4 -> com.vater.clean.junk.jiemian.GameActivity$4:
+    263:263:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    266:305:void onClick(android.view.View) -> onClick
+com.vater.clean.junk.jiemian.GameActivity$4 -> com.vater.clean.junk.jiemian.GameActivity$5:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.vater.clean.junk.jiemian.GameActivity this$0 -> d
-    344:344:void <init>(com.vater.clean.junk.jiemian.GameActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    347:375:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-com.vater.clean.junk.jiemian.GameActivity$4$1 -> com.vater.clean.junk.jiemian.GameActivity$4$1:
+    341:341:void <init>(com.vater.clean.junk.jiemian.GameActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    344:372:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.vater.clean.junk.jiemian.GameActivity$4$1 -> com.vater.clean.junk.jiemian.GameActivity$5$1:
     com.vater.clean.junk.jiemian.GameActivity$4 this$1 -> a
-    355:355:void <init>(com.vater.clean.junk.jiemian.GameActivity$4) -> <init>
-    358:359:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    364:364:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    369:369:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
-com.vater.clean.junk.jiemian.GameActivity$5 -> com.vater.clean.junk.jiemian.GameActivity$5:
+    352:352:void <init>(com.vater.clean.junk.jiemian.GameActivity$4) -> <init>
+    355:356:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    361:361:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    366:366:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+com.vater.clean.junk.jiemian.GameActivity$5 -> com.vater.clean.junk.jiemian.GameActivity$6:
     com.vater.clean.junk.jiemian.GameActivity this$0 -> a
-    389:389:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
-    392:412:void run() -> run
-com.vater.clean.junk.jiemian.GameActivity$5$1 -> com.vater.clean.junk.jiemian.GameActivity$5$1:
+    386:386:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    389:409:void run() -> run
+com.vater.clean.junk.jiemian.GameActivity$5$1 -> com.vater.clean.junk.jiemian.GameActivity$6$1:
     int val$cup -> a
     int val$speed -> b
     long val$size -> c
     com.vater.clean.junk.jiemian.GameActivity$5 this$1 -> d
-    398:398:void <init>(com.vater.clean.junk.jiemian.GameActivity$5,int,int,long) -> <init>
-    401:404:void run() -> run
+    395:395:void <init>(com.vater.clean.junk.jiemian.GameActivity$5,int,int,long) -> <init>
+    398:401:void run() -> run
+com.vater.clean.junk.jiemian.GameActivity$6 -> com.vater.clean.junk.jiemian.GameActivity$7:
+    com.vater.clean.junk.jiemian.GameActivity this$0 -> a
+    517:517:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    520:526:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.vater.clean.junk.jiemian.GameActivity$7 -> com.vater.clean.junk.jiemian.GameActivity$8:
+    com.vater.clean.junk.jiemian.GameActivity this$0 -> a
+    541:541:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    544:565:void run() -> run
+com.vater.clean.junk.jiemian.GameActivity$7$1 -> com.vater.clean.junk.jiemian.GameActivity$8$1:
+    com.vater.clean.junk.jiemian.GameActivity$7 this$1 -> a
+    549:549:void <init>(com.vater.clean.junk.jiemian.GameActivity$7) -> <init>
+    552:552:boolean onBackPressed() -> a
+    557:557:boolean onMenuPressed() -> b
+    562:563:void onClick() -> c
+com.vater.clean.junk.jiemian.GameActivity$8 -> com.vater.clean.junk.jiemian.GameActivity$9:
+    com.vater.clean.junk.jiemian.GameActivity this$0 -> a
+    595:595:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    598:601:void onClick(android.view.View) -> onClick
+com.vater.clean.junk.jiemian.GameActivity$9 -> com.vater.clean.junk.jiemian.GameActivity$10:
+    com.vater.clean.junk.jiemian.GameActivity this$0 -> a
+    603:603:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    606:607:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.IgnoreAddActivity -> com.vater.clean.junk.jiemian.IgnoreAddActivity:
     android.widget.EditText search_edit_text -> a
     android.widget.TextView title_name -> b
@@ -38568,6 +38630,29 @@ com.vater.clean.junk.myview.SlowScrollView -> com.vater.clean.junk.myview.SlowSc
     50:58:void computeScroll() -> computeScroll
     67:68:void fling(int) -> fling
     74:75:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.vater.clean.junk.myview.WidgetContainer -> com.vater.clean.junk.myview.WidgetContainer:
+    android.view.WindowManager$LayoutParams lp -> a
+    boolean modal -> b
+    int screenHeight -> c
+    boolean added -> d
+    com.vater.clean.junk.myview.WidgetContainer$IWidgetListener listener -> e
+    android.view.WindowManager wm -> f
+    float x -> g
+    float y -> h
+    boolean moving -> i
+    24:129:void <init>(android.content.Context,int,int,int,boolean) -> <init>
+    39:47:android.graphics.Point getScreenSize(android.content.Context) -> a
+    52:55:void onClick(android.view.View) -> onClick
+    68:76:void addToWindow() -> a
+    79:87:void removeFromWindow() -> b
+    92:93:void setWidgetListener(com.vater.clean.junk.myview.WidgetContainer$IWidgetListener) -> setWidgetListener
+    99:120:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    125:125:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    133:159:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.vater.clean.junk.myview.WidgetContainer$IWidgetListener -> com.vater.clean.junk.myview.WidgetContainer$a:
+    boolean onBackPressed() -> a
+    boolean onMenuPressed() -> b
+    void onClick() -> c
 com.vater.clean.junk.presenter.BasePresenter -> com.vater.clean.junk.b.a:
     java.lang.Object iView -> a
     int cpuTemp -> c
