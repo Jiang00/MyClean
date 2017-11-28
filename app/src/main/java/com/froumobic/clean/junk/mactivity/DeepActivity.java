@@ -360,34 +360,35 @@ public class DeepActivity extends MBaseActivity {
             e.printStackTrace();
         }
 
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                View view = LayoutInflater.from(DeepActivity.this).inflate(R.layout.layout_power_promiss, null);
-                widgetContainer = new WidgetContainer(DeepActivity.this.getApplicationContext(), Gravity.NO_GRAVITY, WindowManager.LayoutParams.MATCH_PARENT,
-                        WindowManager.LayoutParams.MATCH_PARENT, true);
-                widgetContainer.addView(view);
-                widgetContainer.addToWindow();
-                widgetContainer.setWidgetListener(new WidgetContainer.IWidgetListener() {
-                    @Override
-                    public boolean onBackPressed() {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onMenuPressed() {
-                        return false;
-                    }
-
-                    @Override
-                    public void onClick() {
-                        widgetContainer.removeFromWindow();
-                    }
-                });
-            }
-        }, 1500);
+        mHandler.postDelayed(runnable_po, 1500);
     }
 
+    Runnable runnable_po = new Runnable() {
+        @Override
+        public void run() {
+            View view = LayoutInflater.from(DeepActivity.this).inflate(R.layout.layout_power_promiss, null);
+            widgetContainer = new WidgetContainer(DeepActivity.this.getApplicationContext(), Gravity.NO_GRAVITY, WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.MATCH_PARENT, true);
+            widgetContainer.addView(view);
+            widgetContainer.addToWindow();
+            widgetContainer.setWidgetListener(new WidgetContainer.IWidgetListener() {
+                @Override
+                public boolean onBackPressed() {
+                    return false;
+                }
+
+                @Override
+                public boolean onMenuPressed() {
+                    return false;
+                }
+
+                @Override
+                public void onClick() {
+                    widgetContainer.removeFromWindow();
+                }
+            });
+        }
+    };
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -395,6 +396,9 @@ public class DeepActivity extends MBaseActivity {
             onBackPressed();
         }
         if (requestCode == 100) {
+            if (mHandler != null) {
+                mHandler.removeCallbacks(runnable_po);
+            }
             if (Util.isAccessibilitySettingsOn(DeepActivity.this)) {
                 junk_button_clean.callOnClick();
             } else {
