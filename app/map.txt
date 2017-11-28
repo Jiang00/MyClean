@@ -35014,7 +35014,7 @@ com.vector.cleaner.R$styleable -> com.vector.cleaner.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    4971:13546:void <clinit>() -> <clinit>
+    4980:13555:void <clinit>() -> <clinit>
 com.vector.cleaner.activity.ANeicunAvtivity -> com.vector.cleaner.activity.ANeicunAvtivity:
     android.widget.ImageView title_right -> a
     android.widget.LinearLayout junk_title_backg -> b
@@ -35246,95 +35246,126 @@ com.vector.cleaner.activity.BatteryCoolingActivity$4 -> com.vector.cleaner.activ
     126:126:void <init>(com.vector.cleaner.activity.BatteryCoolingActivity) -> <init>
     129:134:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.vector.cleaner.activity.DeepActivity -> com.vector.cleaner.activity.DeepActivity:
-    android.widget.Button containerView_junk_button_clean -> h
-    com.vector.cleaner.myview.DeepWidgetContainer container -> i
-    int count -> j
+    android.widget.Button containerView_junk_button_clean -> j
+    com.vector.cleaner.myview.DeepWidgetContainer container -> k
+    int count -> o
     android.support.v7.widget.RecyclerView power_recycler -> a
     android.widget.FrameLayout title_left -> b
     android.widget.TextView title_name -> c
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> k
-    android.widget.TextView containerView_power_size -> o
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> p
+    android.widget.TextView containerView_power_size -> q
     android.widget.TextView power_size -> d
     android.widget.Button junk_button_clean -> e
     android.os.Handler mHandler -> f
-    android.support.v7.widget.GridLayoutManager mLayoutManager -> p
-    com.vector.cleaner.activity.DeepActivity$HomeAdapter homeAdapter -> q
-    com.vector.cleaner.activity.DeepActivity$HomeAdapter containerAdapter -> r
-    com.vector.cleaner.activity.MyApplication cleanApplication -> s
-    java.util.ArrayList startList -> t
-    android.view.View containerView -> u
+    android.support.v7.widget.GridLayoutManager mLayoutManager -> r
+    com.vector.cleaner.activity.DeepActivity$HomeAdapter homeAdapter -> s
+    com.vector.cleaner.activity.DeepActivity$HomeAdapter containerAdapter -> t
+    com.vector.cleaner.activity.MyApplication cleanApplication -> u
+    java.util.ArrayList startList -> v
+    android.view.View containerView -> w
+    android.support.v7.app.AlertDialog dialog -> x
     java.lang.Runnable runnable -> g
-    44:171:void <init>() -> <init>
-    65:71:void findId() -> a
-    75:158:void onCreate(android.os.Bundle) -> onCreate
-    161:168:void initData() -> b
-    218:253:void animatorView(android.view.View,int) -> a
-    257:262:void showPackageDetail(java.lang.String) -> b
-    265:275:void setContainer() -> c
-    340:343:void onDestroy() -> onDestroy
-    347:349:void onBackPressed() -> onBackPressed
-    353:361:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    44:44:android.view.View access$002(com.vector.cleaner.activity.DeepActivity,android.view.View) -> a
-    44:44:com.vector.cleaner.myview.DeepWidgetContainer access$102(com.vector.cleaner.activity.DeepActivity,com.vector.cleaner.myview.DeepWidgetContainer) -> a
-    44:44:android.view.View access$000(com.vector.cleaner.activity.DeepActivity) -> a
-    44:44:com.vector.cleaner.myview.DeepWidgetContainer access$100(com.vector.cleaner.activity.DeepActivity) -> b
-    44:44:void access$200(com.vector.cleaner.activity.DeepActivity) -> c
-    44:44:java.util.ArrayList access$300(com.vector.cleaner.activity.DeepActivity) -> d
-    44:44:int access$408(com.vector.cleaner.activity.DeepActivity) -> e
-    44:44:void access$500(com.vector.cleaner.activity.DeepActivity,java.lang.String) -> a
-    44:44:android.support.v7.widget.RecyclerView access$600(com.vector.cleaner.activity.DeepActivity) -> f
-    44:44:void access$700(com.vector.cleaner.activity.DeepActivity,android.view.View,int) -> a
-    44:44:com.vector.cleaner.activity.DeepActivity$HomeAdapter access$800(com.vector.cleaner.activity.DeepActivity) -> g
-    44:44:int access$400(com.vector.cleaner.activity.DeepActivity) -> h
-    44:44:android.widget.TextView access$900(com.vector.cleaner.activity.DeepActivity) -> i
-    44:44:com.vector.cleaner.activity.DeepActivity$HomeAdapter access$1000(com.vector.cleaner.activity.DeepActivity) -> j
+    android.content.BroadcastReceiver broadcastReceiver -> h
+    com.vector.cleaner.myview.WidgetContainer widgetContainer -> y
+    java.lang.Runnable runnable_acc -> i
+    50:370:void <init>() -> <init>
+    72:78:void findId() -> a
+    82:152:void onCreate(android.os.Bundle) -> onCreate
+    155:162:void initData() -> c
+    212:247:void animatorView(android.view.View,int) -> a
+    251:256:void showPackageDetail(java.lang.String) -> b
+    259:269:void setContainer() -> d
+    334:338:void onDestroy() -> onDestroy
+    342:344:void onBackPressed() -> onBackPressed
+    360:367:void permissIntent() -> b
+    399:412:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    415:443:void showDialogPermiss() -> e
+    50:50:android.view.View access$002(com.vector.cleaner.activity.DeepActivity,android.view.View) -> a
+    50:50:com.vector.cleaner.myview.DeepWidgetContainer access$102(com.vector.cleaner.activity.DeepActivity,com.vector.cleaner.myview.DeepWidgetContainer) -> a
+    50:50:android.view.View access$000(com.vector.cleaner.activity.DeepActivity) -> a
+    50:50:com.vector.cleaner.myview.DeepWidgetContainer access$100(com.vector.cleaner.activity.DeepActivity) -> b
+    50:50:void access$200(com.vector.cleaner.activity.DeepActivity) -> c
+    50:50:java.util.ArrayList access$300(com.vector.cleaner.activity.DeepActivity) -> d
+    50:50:int access$408(com.vector.cleaner.activity.DeepActivity) -> e
+    50:50:void access$500(com.vector.cleaner.activity.DeepActivity,java.lang.String) -> a
+    50:50:android.support.v7.widget.RecyclerView access$600(com.vector.cleaner.activity.DeepActivity) -> f
+    50:50:void access$700(com.vector.cleaner.activity.DeepActivity,android.view.View,int) -> a
+    50:50:com.vector.cleaner.activity.DeepActivity$HomeAdapter access$800(com.vector.cleaner.activity.DeepActivity) -> g
+    50:50:int access$400(com.vector.cleaner.activity.DeepActivity) -> h
+    50:50:android.widget.TextView access$900(com.vector.cleaner.activity.DeepActivity) -> i
+    50:50:com.vector.cleaner.activity.DeepActivity$HomeAdapter access$1000(com.vector.cleaner.activity.DeepActivity) -> j
+    50:50:com.vector.cleaner.myview.WidgetContainer access$1100(com.vector.cleaner.activity.DeepActivity) -> k
+    50:50:com.vector.cleaner.myview.WidgetContainer access$1102(com.vector.cleaner.activity.DeepActivity,com.vector.cleaner.myview.WidgetContainer) -> a
+    50:50:android.support.v7.app.AlertDialog access$1200(com.vector.cleaner.activity.DeepActivity) -> l
 com.vector.cleaner.activity.DeepActivity$1 -> com.vector.cleaner.activity.DeepActivity$1:
     com.vector.cleaner.activity.DeepActivity this$0 -> a
-    88:88:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
-    91:123:void onClick(android.view.View) -> onClick
-com.vector.cleaner.activity.DeepActivity$1$1 -> com.vector.cleaner.activity.DeepActivity$1$1:
-    com.vector.cleaner.activity.DeepActivity$1 this$1 -> a
-    101:101:void <init>(com.vector.cleaner.activity.DeepActivity$1) -> <init>
-    104:106:void run() -> run
+    96:96:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
+    99:117:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.DeepActivity$2 -> com.vector.cleaner.activity.DeepActivity$2:
     com.vector.cleaner.activity.DeepActivity this$0 -> a
-    125:125:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
-    128:129:void onClick(android.view.View) -> onClick
+    119:119:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
+    122:123:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.DeepActivity$3 -> com.vector.cleaner.activity.DeepActivity$3:
     com.vector.cleaner.activity.DeepActivity this$0 -> a
-    171:171:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
-    174:214:void run() -> run
+    165:165:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
+    168:208:void run() -> run
 com.vector.cleaner.activity.DeepActivity$4 -> com.vector.cleaner.activity.DeepActivity$4:
     android.view.View val$recyc_item -> a
     int val$i -> b
     com.vector.cleaner.activity.DeepActivity this$0 -> c
-    225:225:void <init>(com.vector.cleaner.activity.DeepActivity,android.view.View,int) -> <init>
-    229:229:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    233:240:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    245:245:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    249:249:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    219:219:void <init>(com.vector.cleaner.activity.DeepActivity,android.view.View,int) -> <init>
+    223:223:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    227:234:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    239:239:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    243:243:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.vector.cleaner.activity.DeepActivity$5 -> com.vector.cleaner.activity.DeepActivity$5:
+    com.vector.cleaner.activity.DeepActivity this$0 -> a
+    346:346:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
+    349:355:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.vector.cleaner.activity.DeepActivity$6 -> com.vector.cleaner.activity.DeepActivity$6:
+    com.vector.cleaner.activity.DeepActivity this$0 -> a
+    370:370:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
+    373:394:void run() -> run
+com.vector.cleaner.activity.DeepActivity$6$1 -> com.vector.cleaner.activity.DeepActivity$6$1:
+    com.vector.cleaner.activity.DeepActivity$6 this$1 -> a
+    378:378:void <init>(com.vector.cleaner.activity.DeepActivity$6) -> <init>
+    381:381:boolean onBackPressed() -> a
+    386:386:boolean onMenuPressed() -> b
+    391:392:void onClick() -> c
+com.vector.cleaner.activity.DeepActivity$7 -> com.vector.cleaner.activity.DeepActivity$7:
+    com.vector.cleaner.activity.DeepActivity this$0 -> a
+    419:419:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
+    422:425:void onClick(android.view.View) -> onClick
+com.vector.cleaner.activity.DeepActivity$8 -> com.vector.cleaner.activity.DeepActivity$8:
+    com.vector.cleaner.activity.DeepActivity this$0 -> a
+    427:427:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
+    430:431:void onClick(android.view.View) -> onClick
+com.vector.cleaner.activity.DeepActivity$9 -> com.vector.cleaner.activity.DeepActivity$9:
+    com.vector.cleaner.activity.DeepActivity this$0 -> a
+    433:433:void <init>(com.vector.cleaner.activity.DeepActivity) -> <init>
+    436:437:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.DeepActivity$HomeAdapter -> com.vector.cleaner.activity.DeepActivity$a:
     boolean isWidget -> a
     com.vector.cleaner.activity.DeepActivity this$0 -> b
-    280:282:void <init>(com.vector.cleaner.activity.DeepActivity,boolean) -> <init>
-    286:289:com.vector.cleaner.activity.DeepActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    294:309:void onBindViewHolder(com.vector.cleaner.activity.DeepActivity$HomeAdapter$MyViewHolder,int) -> a
-    313:315:void reChangesData(int) -> a
-    319:319:int getItemCount() -> getItemCount
-    277:277:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    277:277:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    274:276:void <init>(com.vector.cleaner.activity.DeepActivity,boolean) -> <init>
+    280:283:com.vector.cleaner.activity.DeepActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    288:303:void onBindViewHolder(com.vector.cleaner.activity.DeepActivity$HomeAdapter$MyViewHolder,int) -> a
+    307:309:void reChangesData(int) -> a
+    313:313:int getItemCount() -> getItemCount
+    271:271:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    271:271:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.vector.cleaner.activity.DeepActivity$HomeAdapter$1 -> com.vector.cleaner.activity.DeepActivity$a$1:
     int val$position -> a
     com.vector.cleaner.activity.DeepActivity$HomeAdapter this$1 -> b
-    302:302:void <init>(com.vector.cleaner.activity.DeepActivity$HomeAdapter,int) -> <init>
-    305:307:void onClick(android.view.View) -> onClick
+    296:296:void <init>(com.vector.cleaner.activity.DeepActivity$HomeAdapter,int) -> <init>
+    299:301:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.DeepActivity$HomeAdapter$MyViewHolder -> com.vector.cleaner.activity.DeepActivity$a$a:
     android.widget.FrameLayout recyc_item -> a
     android.widget.ImageView recyc_icon -> b
     android.widget.ImageView recyc_check -> c
     android.widget.TextView recyc_name -> d
     com.vector.cleaner.activity.DeepActivity$HomeAdapter this$1 -> e
-    328:334:void <init>(com.vector.cleaner.activity.DeepActivity$HomeAdapter,android.view.View) -> <init>
+    322:328:void <init>(com.vector.cleaner.activity.DeepActivity$HomeAdapter,android.view.View) -> <init>
 com.vector.cleaner.activity.DyxGboostActivity -> com.vector.cleaner.activity.DyxGboostActivity:
     android.widget.TextView gboost_power_check -> a
     android.widget.Button gboost_clean_button -> b
@@ -35347,92 +35378,123 @@ com.vector.cleaner.activity.DyxGboostActivity -> com.vector.cleaner.activity.Dyx
     android.support.v7.widget.RecyclerView gboost_recyc -> i
     android.widget.FrameLayout add_left -> j
     android.widget.ListView list_game -> k
-    com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter adapter -> p
-    java.util.ArrayList list -> q
-    android.os.Handler mHandler -> r
-    com.vector.cleaner.madapter.GameAddAdapter whiteListAdapter -> s
-    boolean search -> t
-    java.util.List gboost_add -> u
-    java.util.List listEdit -> v
-    int screenWidth -> w
+    com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter adapter -> r
+    java.util.ArrayList list -> s
+    android.os.Handler mHandler -> t
+    com.vector.cleaner.madapter.GameAddAdapter whiteListAdapter -> u
+    boolean search -> v
+    java.util.List gboost_add -> w
+    java.util.List listEdit -> x
+    int screenWidth -> y
+    android.support.v7.app.AlertDialog dialog -> z
     android.view.View$OnClickListener clickListener -> o
-    58:186:void <init>() -> <init>
-    101:114:void findId() -> a
-    118:141:void onCreate(android.os.Bundle) -> onCreate
-    145:177:void addData() -> b
-    180:183:void initList() -> c
-    232:285:void toggleEditAnimation() -> d
-    290:291:void onResume() -> onResume
-    295:302:void onBackPressed() -> onBackPressed
-    305:344:void shortGame(boolean) -> a
-    347:362:void initData() -> e
-    365:374:void upData(java.lang.String) -> b
-    378:380:void onDestroy() -> onDestroy
-    384:392:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    58:58:java.util.ArrayList access$000(com.vector.cleaner.activity.DyxGboostActivity) -> a
-    58:58:android.os.Handler access$100(com.vector.cleaner.activity.DyxGboostActivity) -> b
-    58:58:com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter access$202(com.vector.cleaner.activity.DyxGboostActivity,com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter) -> a
-    58:58:com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter access$200(com.vector.cleaner.activity.DyxGboostActivity) -> c
-    58:58:void access$300(com.vector.cleaner.activity.DyxGboostActivity,boolean) -> a
-    58:58:void access$400(com.vector.cleaner.activity.DyxGboostActivity) -> d
-    58:58:boolean access$500(com.vector.cleaner.activity.DyxGboostActivity) -> e
-    58:58:void access$600(com.vector.cleaner.activity.DyxGboostActivity) -> f
-    58:58:boolean access$502(com.vector.cleaner.activity.DyxGboostActivity,boolean) -> b
-    58:58:void access$700(com.vector.cleaner.activity.DyxGboostActivity,java.lang.String) -> a
-    58:58:com.vector.cleaner.madapter.GameAddAdapter access$802(com.vector.cleaner.activity.DyxGboostActivity,com.vector.cleaner.madapter.GameAddAdapter) -> a
-    58:58:com.vector.cleaner.madapter.GameAddAdapter access$800(com.vector.cleaner.activity.DyxGboostActivity) -> g
+    android.content.BroadcastReceiver broadcastReceiver -> p
+    com.vector.cleaner.myview.WidgetContainer widgetContainer -> A
+    java.lang.Runnable runnable_acc -> q
+    65:404:void <init>() -> <init>
+    109:122:void findId() -> a
+    126:150:void onCreate(android.os.Bundle) -> onCreate
+    154:186:void addData() -> c
+    189:192:void initList() -> d
+    229:282:void toggleEditAnimation() -> e
+    287:288:void onResume() -> onResume
+    292:299:void onBackPressed() -> onBackPressed
+    302:341:void shortGame(boolean) -> a
+    344:359:void initData() -> f
+    362:371:void upData(java.lang.String) -> b
+    375:378:void onDestroy() -> onDestroy
+    394:401:void permissIntent() -> b
+    433:450:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    453:481:void showDialogPermiss() -> g
+    65:65:java.util.ArrayList access$000(com.vector.cleaner.activity.DyxGboostActivity) -> a
+    65:65:android.os.Handler access$100(com.vector.cleaner.activity.DyxGboostActivity) -> b
+    65:65:com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter access$202(com.vector.cleaner.activity.DyxGboostActivity,com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter) -> a
+    65:65:com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter access$200(com.vector.cleaner.activity.DyxGboostActivity) -> c
+    65:65:void access$300(com.vector.cleaner.activity.DyxGboostActivity,boolean) -> a
+    65:65:void access$400(com.vector.cleaner.activity.DyxGboostActivity) -> d
+    65:65:boolean access$500(com.vector.cleaner.activity.DyxGboostActivity) -> e
+    65:65:void access$600(com.vector.cleaner.activity.DyxGboostActivity) -> f
+    65:65:boolean access$502(com.vector.cleaner.activity.DyxGboostActivity,boolean) -> b
+    65:65:void access$700(com.vector.cleaner.activity.DyxGboostActivity,java.lang.String) -> a
+    65:65:com.vector.cleaner.myview.WidgetContainer access$800(com.vector.cleaner.activity.DyxGboostActivity) -> g
+    65:65:com.vector.cleaner.myview.WidgetContainer access$802(com.vector.cleaner.activity.DyxGboostActivity,com.vector.cleaner.myview.WidgetContainer) -> a
+    65:65:android.support.v7.app.AlertDialog access$900(com.vector.cleaner.activity.DyxGboostActivity) -> h
+    65:65:com.vector.cleaner.madapter.GameAddAdapter access$1002(com.vector.cleaner.activity.DyxGboostActivity,com.vector.cleaner.madapter.GameAddAdapter) -> a
+    65:65:com.vector.cleaner.madapter.GameAddAdapter access$1000(com.vector.cleaner.activity.DyxGboostActivity) -> i
 com.vector.cleaner.activity.DyxGboostActivity$1 -> com.vector.cleaner.activity.DyxGboostActivity$1:
     com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    76:76:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    79:86:void handleMessage(android.os.Message) -> handleMessage
+    83:83:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    86:93:void handleMessage(android.os.Message) -> handleMessage
 com.vector.cleaner.activity.DyxGboostActivity$2 -> com.vector.cleaner.activity.DyxGboostActivity$2:
     com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    150:150:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    153:172:void run() -> run
+    159:159:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    162:181:void run() -> run
 com.vector.cleaner.activity.DyxGboostActivity$2$1 -> com.vector.cleaner.activity.DyxGboostActivity$2$1:
     com.vector.cleaner.activity.DyxGboostActivity$2 this$1 -> a
-    162:162:void <init>(com.vector.cleaner.activity.DyxGboostActivity$2) -> <init>
-    165:170:void run() -> run
+    171:171:void <init>(com.vector.cleaner.activity.DyxGboostActivity$2) -> <init>
+    174:179:void run() -> run
 com.vector.cleaner.activity.DyxGboostActivity$3 -> com.vector.cleaner.activity.DyxGboostActivity$3:
     com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    186:186:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    189:228:void onClick(android.view.View) -> onClick
-com.vector.cleaner.activity.DyxGboostActivity$3$1 -> com.vector.cleaner.activity.DyxGboostActivity$3$1:
-    com.vector.cleaner.activity.DyxGboostActivity$3 this$1 -> a
-    213:213:void <init>(com.vector.cleaner.activity.DyxGboostActivity$3) -> <init>
-    216:218:void run() -> run
+    195:195:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    198:225:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.DyxGboostActivity$4 -> com.vector.cleaner.activity.DyxGboostActivity$4:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.vector.cleaner.activity.DyxGboostActivity this$0 -> d
-    252:252:void <init>(com.vector.cleaner.activity.DyxGboostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    255:282:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    249:249:void <init>(com.vector.cleaner.activity.DyxGboostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    252:279:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.vector.cleaner.activity.DyxGboostActivity$4$1 -> com.vector.cleaner.activity.DyxGboostActivity$4$1:
     com.vector.cleaner.activity.DyxGboostActivity$4 this$1 -> a
-    262:262:void <init>(com.vector.cleaner.activity.DyxGboostActivity$4) -> <init>
-    265:266:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    271:271:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    276:276:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    259:259:void <init>(com.vector.cleaner.activity.DyxGboostActivity$4) -> <init>
+    262:263:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    268:268:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    273:273:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+com.vector.cleaner.activity.DyxGboostActivity$5 -> com.vector.cleaner.activity.DyxGboostActivity$5:
+    com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
+    380:380:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    383:389:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.vector.cleaner.activity.DyxGboostActivity$6 -> com.vector.cleaner.activity.DyxGboostActivity$6:
+    com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
+    404:404:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    407:428:void run() -> run
+com.vector.cleaner.activity.DyxGboostActivity$6$1 -> com.vector.cleaner.activity.DyxGboostActivity$6$1:
+    com.vector.cleaner.activity.DyxGboostActivity$6 this$1 -> a
+    412:412:void <init>(com.vector.cleaner.activity.DyxGboostActivity$6) -> <init>
+    415:415:boolean onBackPressed() -> a
+    420:420:boolean onMenuPressed() -> b
+    425:426:void onClick() -> c
+com.vector.cleaner.activity.DyxGboostActivity$7 -> com.vector.cleaner.activity.DyxGboostActivity$7:
+    com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
+    457:457:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    460:463:void onClick(android.view.View) -> onClick
+com.vector.cleaner.activity.DyxGboostActivity$8 -> com.vector.cleaner.activity.DyxGboostActivity$8:
+    com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
+    465:465:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    468:469:void onClick(android.view.View) -> onClick
+com.vector.cleaner.activity.DyxGboostActivity$9 -> com.vector.cleaner.activity.DyxGboostActivity$9:
+    com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
+    471:471:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    474:475:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter -> com.vector.cleaner.activity.DyxGboostActivity$a:
     com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    396:397:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    401:404:com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    409:439:void onBindViewHolder(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$HomeViewHolder,int) -> a
-    448:448:int getItemCount() -> getItemCount
-    394:394:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    394:394:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    485:486:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    490:493:com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    498:528:void onBindViewHolder(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$HomeViewHolder,int) -> a
+    537:537:int getItemCount() -> getItemCount
+    483:483:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    483:483:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$1 -> com.vector.cleaner.activity.DyxGboostActivity$a$1:
     int val$position -> a
     com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter this$1 -> b
-    417:417:void <init>(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter,int) -> <init>
-    420:436:void onClick(android.view.View) -> onClick
+    506:506:void <init>(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter,int) -> <init>
+    509:525:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$HomeViewHolder -> com.vector.cleaner.activity.DyxGboostActivity$a$a:
     android.widget.ImageView gboost_item_icon -> a
     android.widget.TextView gboost_item_name -> b
     android.widget.FrameLayout gboost_item_c -> c
     com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter this$1 -> d
-    456:461:void <init>(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter,android.view.View) -> <init>
+    545:550:void <init>(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter,android.view.View) -> <init>
 com.vector.cleaner.activity.FileDocActivity -> com.vector.cleaner.activity.FileDocActivity:
     android.support.v4.view.ViewPager doc_view_pager -> a
     android.support.design.widget.TabLayout view_pager_tab -> b
@@ -37935,6 +37997,29 @@ com.vector.cleaner.myview.WaveProgress$ShapeType -> com.vector.cleaner.myview.Wa
     70:72:void <clinit>() -> <clinit>
 com.vector.cleaner.myview.WaveProgress$StopListener -> com.vector.cleaner.myview.WaveProgress$a:
     void stopO() -> a
+com.vector.cleaner.myview.WidgetContainer -> com.vector.cleaner.myview.WidgetContainer:
+    android.view.WindowManager$LayoutParams lp -> a
+    boolean modal -> b
+    int screenHeight -> c
+    boolean added -> d
+    com.vector.cleaner.myview.WidgetContainer$IWidgetListener listener -> e
+    android.view.WindowManager wm -> f
+    float x -> g
+    float y -> h
+    boolean moving -> i
+    24:129:void <init>(android.content.Context,int,int,int,boolean) -> <init>
+    39:47:android.graphics.Point getScreenSize(android.content.Context) -> a
+    52:55:void onClick(android.view.View) -> onClick
+    68:76:void addToWindow() -> a
+    79:87:void removeFromWindow() -> b
+    92:93:void setWidgetListener(com.vector.cleaner.myview.WidgetContainer$IWidgetListener) -> setWidgetListener
+    99:120:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    125:125:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    133:159:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.vector.cleaner.myview.WidgetContainer$IWidgetListener -> com.vector.cleaner.myview.WidgetContainer$a:
+    boolean onBackPressed() -> a
+    boolean onMenuPressed() -> b
+    void onClick() -> c
 com.vector.cleaner.presenter.BasePresenter -> com.vector.cleaner.c.a:
     java.lang.Object iView -> a
     int cpuTemp -> c
@@ -38688,16 +38773,16 @@ com.vector.module.BatteryActivity -> com.vector.module.BatteryActivity:
     com.vector.module.mView.BatteryView batteryView -> b
     long time -> c
     android.content.BroadcastReceiver mReceiver -> d
-    21:128:void <init>() -> <init>
+    21:127:void <init>() -> <init>
     31:44:void hideBottomUIMenu() -> a
     49:51:void onUserLeaveHint() -> onUserLeaveHint
     56:58:void onBackPressed() -> onBackPressed
     62:73:void doBar() -> b
     78:99:void onCreate(android.os.Bundle) -> onCreate
     103:105:void onResume() -> onResume
-    109:112:void onPause() -> onPause
-    116:126:void onDestroy() -> onDestroy
-    148:157:void batteryChange(android.content.Intent) -> a
+    109:111:void onPause() -> onPause
+    115:125:void onDestroy() -> onDestroy
+    147:156:void batteryChange(android.content.Intent) -> a
     21:21:com.vector.module.mView.BatteryView access$000(com.vector.module.BatteryActivity) -> a
 com.vector.module.BatteryActivity$1 -> com.vector.module.BatteryActivity$1:
     com.vector.module.BatteryActivity this$0 -> a
@@ -38705,8 +38790,8 @@ com.vector.module.BatteryActivity$1 -> com.vector.module.BatteryActivity$1:
     67:69:void onUnlock() -> a
 com.vector.module.BatteryActivity$2 -> com.vector.module.BatteryActivity$2:
     com.vector.module.BatteryActivity this$0 -> a
-    128:128:void <init>(com.vector.module.BatteryActivity) -> <init>
-    131:144:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    127:127:void <init>(com.vector.module.BatteryActivity) -> <init>
+    130:143:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.vector.module.R -> com.vector.module.a:
 com.vector.module.R$anim -> com.vector.module.a$a:
     int abc_fade_in -> abc_fade_in

@@ -24,7 +24,9 @@
         <item name="android:windowEnterAnimation">@anim/dia_appear</item>
         <item name="android:windowExitAnimation">@anim/dia_disappear</item>
     </style>
-
+    <style name="exit_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
     <style name="add_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>
