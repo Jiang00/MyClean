@@ -29485,123 +29485,150 @@ com.easy.junk.easyactivity.EasyBatteriesActivity$5 -> com.easy.junk.easyactivity
 com.easy.junk.easyactivity.EasyDeepingActivity -> com.easy.junk.easyactivity.EasyDeepingActivity:
     android.widget.FrameLayout title_left -> e
     android.widget.TextView title_name -> f
-    int count -> l
+    int count -> n
     android.support.v7.widget.RecyclerView power_recycler -> g
     android.widget.TextView junk_button_clean -> h
-    com.easy.junk.easycustomview.DeepWidgetContainer container -> m
-    com.easy.junk.easyactivity.MyApplication cleanApplication -> n
-    android.animation.ObjectAnimator animator1 -> o
-    android.animation.ObjectAnimator animator2 -> p
-    android.animation.ObjectAnimator animator3 -> q
-    android.animation.ObjectAnimator animator4 -> r
-    android.animation.ObjectAnimator animator5 -> s
-    android.animation.ObjectAnimator animator6 -> t
-    boolean flag -> u
-    java.util.ArrayList startList -> v
-    android.view.View containerView -> w
-    android.widget.ImageView power_imageview -> x
+    com.easy.junk.easycustomview.DeepWidgetContainer container -> o
+    com.easy.junk.easyactivity.MyApplication cleanApplication -> p
+    android.animation.ObjectAnimator animator1 -> q
+    android.animation.ObjectAnimator animator2 -> r
+    android.animation.ObjectAnimator animator3 -> s
+    android.animation.ObjectAnimator animator4 -> t
+    android.animation.ObjectAnimator animator5 -> u
+    android.animation.ObjectAnimator animator6 -> v
+    boolean flag -> w
+    java.util.ArrayList startList -> x
+    android.view.View containerView -> y
+    android.widget.ImageView power_imageview -> z
     android.widget.ImageView gboost_power_check -> i
     android.os.Handler mHandler -> j
-    com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter homeAdapter -> y
-    com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter containerAdapter -> z
-    android.widget.ImageView power_1 -> A
-    android.widget.ImageView power_2 -> B
-    android.widget.ImageView power_3 -> C
-    android.widget.ImageView power_4 -> D
-    android.widget.ImageView power_5 -> E
-    android.widget.ImageView power_6 -> F
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> G
-    android.widget.TextView containerView_junk_button_clean -> H
-    android.support.v7.widget.GridLayoutManager mLayoutManager -> I
+    com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter homeAdapter -> A
+    com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter containerAdapter -> B
+    android.widget.ImageView power_1 -> C
+    android.widget.ImageView power_2 -> D
+    android.widget.ImageView power_3 -> E
+    android.widget.ImageView power_4 -> F
+    android.widget.ImageView power_5 -> G
+    android.widget.ImageView power_6 -> H
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> I
+    android.widget.TextView containerView_junk_button_clean -> J
+    android.support.v7.widget.GridLayoutManager mLayoutManager -> K
+    android.support.v7.app.AlertDialog dialog -> L
     java.lang.Runnable runnable -> k
-    42:177:void <init>() -> <init>
-    66:175:void onCreate(android.os.Bundle) -> onCreate
-    223:229:void findId() -> a
-    232:265:void animatorView(android.view.View,int) -> a
-    268:297:void setContainer() -> b
-    300:305:void showPackageDetail(java.lang.String) -> b
-    369:371:void onBackPressed() -> onBackPressed
-    374:381:void initData() -> c
-    385:386:void onPause() -> onPause
-    390:405:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    409:412:void onDestroy() -> onDestroy
-    415:456:void startSetAnimator() -> d
-    42:42:android.view.View access$002(com.easy.junk.easyactivity.EasyDeepingActivity,android.view.View) -> a
-    42:42:com.easy.junk.easycustomview.DeepWidgetContainer access$102(com.easy.junk.easyactivity.EasyDeepingActivity,com.easy.junk.easycustomview.DeepWidgetContainer) -> a
-    42:42:android.view.View access$000(com.easy.junk.easyactivity.EasyDeepingActivity) -> a
-    42:42:com.easy.junk.easycustomview.DeepWidgetContainer access$100(com.easy.junk.easyactivity.EasyDeepingActivity) -> b
-    42:42:void access$200(com.easy.junk.easyactivity.EasyDeepingActivity) -> c
-    42:42:java.util.ArrayList access$300(com.easy.junk.easyactivity.EasyDeepingActivity) -> d
-    42:42:int access$408(com.easy.junk.easyactivity.EasyDeepingActivity) -> e
-    42:42:void access$500(com.easy.junk.easyactivity.EasyDeepingActivity,java.lang.String) -> a
-    42:42:android.support.v7.widget.RecyclerView access$600(com.easy.junk.easyactivity.EasyDeepingActivity) -> f
-    42:42:void access$700(com.easy.junk.easyactivity.EasyDeepingActivity,android.view.View,int) -> a
-    42:42:com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter access$800(com.easy.junk.easyactivity.EasyDeepingActivity) -> g
-    42:42:int access$400(com.easy.junk.easyactivity.EasyDeepingActivity) -> h
-    42:42:com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter access$900(com.easy.junk.easyactivity.EasyDeepingActivity) -> i
-    42:42:boolean access$1000(com.easy.junk.easyactivity.EasyDeepingActivity) -> j
-    42:42:void access$1100(com.easy.junk.easyactivity.EasyDeepingActivity) -> k
+    android.content.BroadcastReceiver broadcastReceiver -> l
+    com.easy.junk.easycustomview.WidgetContainer widgetContainer -> M
+    java.lang.Runnable runnable_acc -> m
+    48:393:void <init>() -> <init>
+    73:156:void onCreate(android.os.Bundle) -> onCreate
+    204:210:void findId() -> a
+    213:246:void animatorView(android.view.View,int) -> a
+    249:278:void setContainer() -> c
+    281:286:void showPackageDetail(java.lang.String) -> b
+    350:352:void onBackPressed() -> onBackPressed
+    355:362:void initData() -> d
+    366:367:void onPause() -> onPause
+    383:390:void permissIntent() -> b
+    422:442:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    445:473:void showDialogPermiss() -> e
+    477:481:void onDestroy() -> onDestroy
+    484:525:void startSetAnimator() -> f
+    48:48:android.view.View access$002(com.easy.junk.easyactivity.EasyDeepingActivity,android.view.View) -> a
+    48:48:com.easy.junk.easycustomview.DeepWidgetContainer access$102(com.easy.junk.easyactivity.EasyDeepingActivity,com.easy.junk.easycustomview.DeepWidgetContainer) -> a
+    48:48:android.view.View access$000(com.easy.junk.easyactivity.EasyDeepingActivity) -> a
+    48:48:com.easy.junk.easycustomview.DeepWidgetContainer access$100(com.easy.junk.easyactivity.EasyDeepingActivity) -> b
+    48:48:void access$200(com.easy.junk.easyactivity.EasyDeepingActivity) -> c
+    48:48:java.util.ArrayList access$300(com.easy.junk.easyactivity.EasyDeepingActivity) -> d
+    48:48:int access$408(com.easy.junk.easyactivity.EasyDeepingActivity) -> e
+    48:48:void access$500(com.easy.junk.easyactivity.EasyDeepingActivity,java.lang.String) -> a
+    48:48:android.support.v7.widget.RecyclerView access$600(com.easy.junk.easyactivity.EasyDeepingActivity) -> f
+    48:48:void access$700(com.easy.junk.easyactivity.EasyDeepingActivity,android.view.View,int) -> a
+    48:48:com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter access$800(com.easy.junk.easyactivity.EasyDeepingActivity) -> g
+    48:48:int access$400(com.easy.junk.easyactivity.EasyDeepingActivity) -> h
+    48:48:com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter access$900(com.easy.junk.easyactivity.EasyDeepingActivity) -> i
+    48:48:com.easy.junk.easycustomview.WidgetContainer access$1000(com.easy.junk.easyactivity.EasyDeepingActivity) -> j
+    48:48:com.easy.junk.easycustomview.WidgetContainer access$1002(com.easy.junk.easyactivity.EasyDeepingActivity,com.easy.junk.easycustomview.WidgetContainer) -> a
+    48:48:android.support.v7.app.AlertDialog access$1100(com.easy.junk.easyactivity.EasyDeepingActivity) -> k
+    48:48:boolean access$1200(com.easy.junk.easyactivity.EasyDeepingActivity) -> l
+    48:48:void access$1300(com.easy.junk.easyactivity.EasyDeepingActivity) -> m
 com.easy.junk.easyactivity.EasyDeepingActivity$1 -> com.easy.junk.easyactivity.EasyDeepingActivity$1:
     com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> a
-    75:75:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
-    78:93:void onClick(android.view.View) -> onClick
-com.easy.junk.easyactivity.EasyDeepingActivity$1$1 -> com.easy.junk.easyactivity.EasyDeepingActivity$1$1:
-    com.easy.junk.easyactivity.EasyDeepingActivity$1 this$1 -> a
-    86:86:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity$1) -> <init>
-    89:91:void run() -> run
-com.easy.junk.easyactivity.EasyDeepingActivity$2 -> com.easy.junk.easyactivity.EasyDeepingActivity$2:
+    83:83:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
+    86:88:void onClick(android.view.View) -> onClick
+com.easy.junk.easyactivity.EasyDeepingActivity$10 -> com.easy.junk.easyactivity.EasyDeepingActivity$2:
     com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> a
-    105:105:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
-    108:139:void onClick(android.view.View) -> onClick
-com.easy.junk.easyactivity.EasyDeepingActivity$2$1 -> com.easy.junk.easyactivity.EasyDeepingActivity$2$1:
-    com.easy.junk.easyactivity.EasyDeepingActivity$2 this$1 -> a
-    118:118:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity$2) -> <init>
-    121:123:void run() -> run
-com.easy.junk.easyactivity.EasyDeepingActivity$3 -> com.easy.junk.easyactivity.EasyDeepingActivity$3:
+    463:463:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
+    466:467:void onClick(android.view.View) -> onClick
+com.easy.junk.easyactivity.EasyDeepingActivity$11 -> com.easy.junk.easyactivity.EasyDeepingActivity$3:
     com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> a
-    141:141:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
-    144:145:void onClick(android.view.View) -> onClick
-com.easy.junk.easyactivity.EasyDeepingActivity$4 -> com.easy.junk.easyactivity.EasyDeepingActivity$4:
+    502:502:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
+    506:506:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    510:513:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    518:518:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    523:523:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+com.easy.junk.easyactivity.EasyDeepingActivity$2 -> com.easy.junk.easyactivity.EasyDeepingActivity$4:
     com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> a
-    177:177:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
-    180:218:void run() -> run
-com.easy.junk.easyactivity.EasyDeepingActivity$5 -> com.easy.junk.easyactivity.EasyDeepingActivity$5:
+    100:100:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
+    103:120:void onClick(android.view.View) -> onClick
+com.easy.junk.easyactivity.EasyDeepingActivity$3 -> com.easy.junk.easyactivity.EasyDeepingActivity$5:
+    com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> a
+    122:122:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
+    125:126:void onClick(android.view.View) -> onClick
+com.easy.junk.easyactivity.EasyDeepingActivity$4 -> com.easy.junk.easyactivity.EasyDeepingActivity$6:
+    com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> a
+    158:158:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
+    161:199:void run() -> run
+com.easy.junk.easyactivity.EasyDeepingActivity$5 -> com.easy.junk.easyactivity.EasyDeepingActivity$7:
     int val$i -> a
     com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> b
-    238:238:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity,int) -> <init>
-    242:242:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    246:252:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    257:257:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    261:261:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-com.easy.junk.easyactivity.EasyDeepingActivity$6 -> com.easy.junk.easyactivity.EasyDeepingActivity$6:
+    219:219:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity,int) -> <init>
+    223:223:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    227:233:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    238:238:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    242:242:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.easy.junk.easyactivity.EasyDeepingActivity$6 -> com.easy.junk.easyactivity.EasyDeepingActivity$8:
     com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> a
-    433:433:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
-    437:437:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-    441:444:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    449:449:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    454:454:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    369:369:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
+    372:378:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.easy.junk.easyactivity.EasyDeepingActivity$7 -> com.easy.junk.easyactivity.EasyDeepingActivity$9:
+    com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> a
+    393:393:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
+    396:417:void run() -> run
+com.easy.junk.easyactivity.EasyDeepingActivity$7$1 -> com.easy.junk.easyactivity.EasyDeepingActivity$9$1:
+    com.easy.junk.easyactivity.EasyDeepingActivity$7 this$1 -> a
+    401:401:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity$7) -> <init>
+    404:404:boolean onBackPressed() -> a
+    409:409:boolean onMenuPressed() -> b
+    414:415:void onClick() -> c
+com.easy.junk.easyactivity.EasyDeepingActivity$8 -> com.easy.junk.easyactivity.EasyDeepingActivity$10:
+    com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> a
+    449:449:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
+    452:455:void onClick(android.view.View) -> onClick
+com.easy.junk.easyactivity.EasyDeepingActivity$9 -> com.easy.junk.easyactivity.EasyDeepingActivity$11:
+    com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> a
+    457:457:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity) -> <init>
+    460:461:void onClick(android.view.View) -> onClick
 com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter -> com.easy.junk.easyactivity.EasyDeepingActivity$a:
     boolean isWidget -> a
     com.easy.junk.easyactivity.EasyDeepingActivity this$0 -> b
-    310:312:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity,boolean) -> <init>
-    316:319:com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    324:338:void onBindViewHolder(com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter$MyViewHolder,int) -> a
-    342:344:void reChangesData(int) -> a
-    348:348:int getItemCount() -> getItemCount
-    307:307:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    307:307:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    291:293:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity,boolean) -> <init>
+    297:300:com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    305:319:void onBindViewHolder(com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter$MyViewHolder,int) -> a
+    323:325:void reChangesData(int) -> a
+    329:329:int getItemCount() -> getItemCount
+    288:288:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    288:288:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter$1 -> com.easy.junk.easyactivity.EasyDeepingActivity$a$1:
     int val$position -> a
     com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter this$1 -> b
-    331:331:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter,int) -> <init>
-    334:336:void onClick(android.view.View) -> onClick
+    312:312:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter,int) -> <init>
+    315:317:void onClick(android.view.View) -> onClick
 com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter$MyViewHolder -> com.easy.junk.easyactivity.EasyDeepingActivity$a$a:
     android.widget.FrameLayout recyc_item -> a
     android.widget.ImageView recyc_icon -> b
     android.widget.ImageView recyc_check -> c
     android.widget.TextView recyc_name -> d
     com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter this$1 -> e
-    357:363:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter,android.view.View) -> <init>
+    338:344:void <init>(com.easy.junk.easyactivity.EasyDeepingActivity$HomeAdapter,android.view.View) -> <init>
 com.easy.junk.easyactivity.EasyDocActivity -> com.easy.junk.easyactivity.EasyDocActivity:
     java.lang.String TAG_FILE_2 -> r
     android.widget.ProgressBar file_progressbar -> e
@@ -29944,22 +29971,22 @@ com.easy.junk.easyactivity.EasyFloatActivity$7 -> com.easy.junk.easyactivity.Eas
     317:317:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
     322:322:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.easy.junk.easyactivity.EasyGoodGameActivity -> com.easy.junk.easyactivity.EasyGoodGameActivity:
-    com.easy.junk.easycustomview.EasyGridViewAdAdapter gridViewAdAdapter -> t
-    long lastTotalRxBytes -> u
-    java.util.List gboost_add -> v
-    java.util.List listEdit -> w
-    long lastTimeStamp -> x
+    com.easy.junk.easycustomview.EasyGridViewAdAdapter gridViewAdAdapter -> v
+    long lastTotalRxBytes -> w
+    java.util.List gboost_add -> x
+    java.util.List listEdit -> y
+    long lastTimeStamp -> z
     android.widget.LinearLayout ll_add_game -> e
     android.widget.TextView gboost_clean_button -> f
-    java.util.ArrayList list -> y
+    java.util.ArrayList list -> A
     android.widget.ImageButton clear -> g
     android.widget.ImageView add_right -> h
-    long total -> z
-    long idle -> A
-    boolean flag -> B
-    com.easy.junk.easycustomadapter.JiaGoodGameAdapter whiteListAdapter -> C
-    boolean search -> D
-    int screenWidth -> E
+    long total -> B
+    long idle -> C
+    boolean flag -> D
+    com.easy.junk.easycustomadapter.JiaGoodGameAdapter whiteListAdapter -> E
+    boolean search -> F
+    int screenWidth -> G
     android.widget.FrameLayout add_left -> i
     android.widget.ImageView gboost_power_check -> j
     android.widget.ListView list_game -> k
@@ -29970,83 +29997,114 @@ com.easy.junk.easyactivity.EasyGoodGameActivity -> com.easy.junk.easyactivity.Ea
     android.widget.TextView gboost_short_add -> p
     android.widget.TextView gboost_item_textview -> q
     android.widget.GridView gboost_gridview -> r
-    android.os.Handler mHandler -> F
+    android.os.Handler mHandler -> H
+    android.support.v7.app.AlertDialog dialog -> I
     android.view.View$OnClickListener clickListener -> s
-    59:230:void <init>() -> <init>
-    103:127:void onCreate(android.os.Bundle) -> onCreate
-    131:146:void findId() -> a
-    149:168:void initIcon() -> b
-    171:173:void initList() -> c
-    176:228:void addData() -> d
-    283:300:long getCup() -> e
-    305:317:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
-    321:373:void toggleEditAnimation() -> f
-    377:378:long getTotalRxBytes() -> g
-    382:388:long getNetWork() -> h
-    393:405:void shortGame(boolean) -> a
-    440:461:void onResume() -> onResume
-    465:472:void onBackPressed() -> onBackPressed
-    475:490:void initData() -> i
-    493:501:void upData(java.lang.String) -> b
-    505:506:void onDestroy() -> onDestroy
-    510:518:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    59:59:java.util.ArrayList access$000(com.easy.junk.easyactivity.EasyGoodGameActivity) -> a
-    59:59:android.os.Handler access$100(com.easy.junk.easyactivity.EasyGoodGameActivity) -> b
-    59:59:com.easy.junk.easycustomview.EasyGridViewAdAdapter access$202(com.easy.junk.easyactivity.EasyGoodGameActivity,com.easy.junk.easycustomview.EasyGridViewAdAdapter) -> a
-    59:59:com.easy.junk.easycustomview.EasyGridViewAdAdapter access$200(com.easy.junk.easyactivity.EasyGoodGameActivity) -> c
-    59:59:com.easy.junk.easycustomadapter.JiaGoodGameAdapter access$302(com.easy.junk.easyactivity.EasyGoodGameActivity,com.easy.junk.easycustomadapter.JiaGoodGameAdapter) -> a
-    59:59:com.easy.junk.easycustomadapter.JiaGoodGameAdapter access$300(com.easy.junk.easyactivity.EasyGoodGameActivity) -> d
-    59:59:void access$400(com.easy.junk.easyactivity.EasyGoodGameActivity) -> e
-    59:59:void access$500(com.easy.junk.easyactivity.EasyGoodGameActivity) -> f
-    59:59:void access$600(com.easy.junk.easyactivity.EasyGoodGameActivity,boolean) -> a
-    59:59:void access$700(com.easy.junk.easyactivity.EasyGoodGameActivity) -> g
-    59:59:boolean access$800(com.easy.junk.easyactivity.EasyGoodGameActivity) -> h
-    59:59:boolean access$802(com.easy.junk.easyactivity.EasyGoodGameActivity,boolean) -> b
-    59:59:void access$900(com.easy.junk.easyactivity.EasyGoodGameActivity,java.lang.String) -> a
-    59:59:long access$1000(com.easy.junk.easyactivity.EasyGoodGameActivity) -> i
-    59:59:long access$1100(com.easy.junk.easyactivity.EasyGoodGameActivity) -> j
-    73:73:void <clinit>() -> <clinit>
+    android.content.BroadcastReceiver broadcastReceiver -> t
+    com.easy.junk.easycustomview.WidgetContainer widgetContainer -> J
+    java.lang.Runnable runnable_acc -> u
+    67:530:void <init>() -> <init>
+    112:137:void onCreate(android.os.Bundle) -> onCreate
+    141:156:void findId() -> a
+    159:178:void initIcon() -> c
+    181:183:void initList() -> d
+    186:238:void addData() -> e
+    280:297:long getCup() -> f
+    302:314:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    318:370:void toggleEditAnimation() -> g
+    374:375:long getTotalRxBytes() -> h
+    379:385:long getNetWork() -> i
+    390:402:void shortGame(boolean) -> a
+    437:458:void onResume() -> onResume
+    462:469:void onBackPressed() -> onBackPressed
+    472:487:void initData() -> j
+    490:498:void upData(java.lang.String) -> b
+    502:504:void onDestroy() -> onDestroy
+    520:527:void permissIntent() -> b
+    559:576:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    579:607:void showDialogPermiss() -> k
+    67:67:java.util.ArrayList access$000(com.easy.junk.easyactivity.EasyGoodGameActivity) -> a
+    67:67:android.os.Handler access$100(com.easy.junk.easyactivity.EasyGoodGameActivity) -> b
+    67:67:com.easy.junk.easycustomview.EasyGridViewAdAdapter access$202(com.easy.junk.easyactivity.EasyGoodGameActivity,com.easy.junk.easycustomview.EasyGridViewAdAdapter) -> a
+    67:67:com.easy.junk.easycustomview.EasyGridViewAdAdapter access$200(com.easy.junk.easyactivity.EasyGoodGameActivity) -> c
+    67:67:com.easy.junk.easycustomadapter.JiaGoodGameAdapter access$302(com.easy.junk.easyactivity.EasyGoodGameActivity,com.easy.junk.easycustomadapter.JiaGoodGameAdapter) -> a
+    67:67:com.easy.junk.easycustomadapter.JiaGoodGameAdapter access$300(com.easy.junk.easyactivity.EasyGoodGameActivity) -> d
+    67:67:void access$400(com.easy.junk.easyactivity.EasyGoodGameActivity) -> e
+    67:67:void access$500(com.easy.junk.easyactivity.EasyGoodGameActivity) -> f
+    67:67:void access$600(com.easy.junk.easyactivity.EasyGoodGameActivity,boolean) -> a
+    67:67:void access$700(com.easy.junk.easyactivity.EasyGoodGameActivity) -> g
+    67:67:boolean access$800(com.easy.junk.easyactivity.EasyGoodGameActivity) -> h
+    67:67:boolean access$802(com.easy.junk.easyactivity.EasyGoodGameActivity,boolean) -> b
+    67:67:void access$900(com.easy.junk.easyactivity.EasyGoodGameActivity,java.lang.String) -> a
+    67:67:long access$1000(com.easy.junk.easyactivity.EasyGoodGameActivity) -> i
+    67:67:long access$1100(com.easy.junk.easyactivity.EasyGoodGameActivity) -> j
+    67:67:com.easy.junk.easycustomview.WidgetContainer access$1200(com.easy.junk.easyactivity.EasyGoodGameActivity) -> k
+    67:67:com.easy.junk.easycustomview.WidgetContainer access$1202(com.easy.junk.easyactivity.EasyGoodGameActivity,com.easy.junk.easycustomview.WidgetContainer) -> a
+    67:67:android.support.v7.app.AlertDialog access$1300(com.easy.junk.easyactivity.EasyGoodGameActivity) -> l
+    81:81:void <clinit>() -> <clinit>
 com.easy.junk.easyactivity.EasyGoodGameActivity$1 -> com.easy.junk.easyactivity.EasyGoodGameActivity$1:
     com.easy.junk.easyactivity.EasyGoodGameActivity this$0 -> a
-    89:89:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
-    92:98:void handleMessage(android.os.Message) -> handleMessage
-com.easy.junk.easyactivity.EasyGoodGameActivity$2 -> com.easy.junk.easyactivity.EasyGoodGameActivity$2:
+    97:97:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
+    100:106:void handleMessage(android.os.Message) -> handleMessage
+com.easy.junk.easyactivity.EasyGoodGameActivity$10 -> com.easy.junk.easyactivity.EasyGoodGameActivity$2:
     com.easy.junk.easyactivity.EasyGoodGameActivity this$0 -> a
-    181:181:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
-    184:226:void run() -> run
-com.easy.junk.easyactivity.EasyGoodGameActivity$2$1 -> com.easy.junk.easyactivity.EasyGoodGameActivity$2$1:
+    597:597:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
+    600:601:void onClick(android.view.View) -> onClick
+com.easy.junk.easyactivity.EasyGoodGameActivity$2 -> com.easy.junk.easyactivity.EasyGoodGameActivity$3:
+    com.easy.junk.easyactivity.EasyGoodGameActivity this$0 -> a
+    191:191:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
+    194:236:void run() -> run
+com.easy.junk.easyactivity.EasyGoodGameActivity$2$1 -> com.easy.junk.easyactivity.EasyGoodGameActivity$3$1:
     com.easy.junk.easyactivity.EasyGoodGameActivity$2 this$1 -> a
-    192:192:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity$2) -> <init>
-    195:224:void run() -> run
-com.easy.junk.easyactivity.EasyGoodGameActivity$2$1$1 -> com.easy.junk.easyactivity.EasyGoodGameActivity$2$1$1:
+    202:202:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity$2) -> <init>
+    205:234:void run() -> run
+com.easy.junk.easyactivity.EasyGoodGameActivity$2$1$1 -> com.easy.junk.easyactivity.EasyGoodGameActivity$3$1$1:
     com.easy.junk.easyactivity.EasyGoodGameActivity$2$1 this$2 -> a
-    199:199:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity$2$1) -> <init>
-    202:221:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.easy.junk.easyactivity.EasyGoodGameActivity$3 -> com.easy.junk.easyactivity.EasyGoodGameActivity$3:
+    209:209:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity$2$1) -> <init>
+    212:231:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.easy.junk.easyactivity.EasyGoodGameActivity$3 -> com.easy.junk.easyactivity.EasyGoodGameActivity$4:
     com.easy.junk.easyactivity.EasyGoodGameActivity this$0 -> a
-    230:230:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
-    233:279:void onClick(android.view.View) -> onClick
-com.easy.junk.easyactivity.EasyGoodGameActivity$3$1 -> com.easy.junk.easyactivity.EasyGoodGameActivity$3$1:
-    com.easy.junk.easyactivity.EasyGoodGameActivity$3 this$1 -> a
-    270:270:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity$3) -> <init>
-    273:275:void run() -> run
-com.easy.junk.easyactivity.EasyGoodGameActivity$4 -> com.easy.junk.easyactivity.EasyGoodGameActivity$4:
+    240:240:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
+    243:276:void onClick(android.view.View) -> onClick
+com.easy.junk.easyactivity.EasyGoodGameActivity$4 -> com.easy.junk.easyactivity.EasyGoodGameActivity$5:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.easy.junk.easyactivity.EasyGoodGameActivity this$0 -> d
-    340:340:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    343:370:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-com.easy.junk.easyactivity.EasyGoodGameActivity$4$1 -> com.easy.junk.easyactivity.EasyGoodGameActivity$4$1:
+    337:337:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    340:367:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.easy.junk.easyactivity.EasyGoodGameActivity$4$1 -> com.easy.junk.easyactivity.EasyGoodGameActivity$5$1:
     com.easy.junk.easyactivity.EasyGoodGameActivity$4 this$1 -> a
-    351:351:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity$4) -> <init>
-    354:355:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    360:360:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    365:365:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
-com.easy.junk.easyactivity.EasyGoodGameActivity$5 -> com.easy.junk.easyactivity.EasyGoodGameActivity$5:
+    348:348:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity$4) -> <init>
+    351:352:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    357:357:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    362:362:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+com.easy.junk.easyactivity.EasyGoodGameActivity$5 -> com.easy.junk.easyactivity.EasyGoodGameActivity$6:
     com.easy.junk.easyactivity.EasyGoodGameActivity this$0 -> a
-    444:444:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
-    447:459:void run() -> run
+    441:441:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
+    444:456:void run() -> run
+com.easy.junk.easyactivity.EasyGoodGameActivity$6 -> com.easy.junk.easyactivity.EasyGoodGameActivity$7:
+    com.easy.junk.easyactivity.EasyGoodGameActivity this$0 -> a
+    506:506:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
+    509:515:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.easy.junk.easyactivity.EasyGoodGameActivity$7 -> com.easy.junk.easyactivity.EasyGoodGameActivity$8:
+    com.easy.junk.easyactivity.EasyGoodGameActivity this$0 -> a
+    530:530:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
+    533:554:void run() -> run
+com.easy.junk.easyactivity.EasyGoodGameActivity$7$1 -> com.easy.junk.easyactivity.EasyGoodGameActivity$8$1:
+    com.easy.junk.easyactivity.EasyGoodGameActivity$7 this$1 -> a
+    538:538:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity$7) -> <init>
+    541:541:boolean onBackPressed() -> a
+    546:546:boolean onMenuPressed() -> b
+    551:552:void onClick() -> c
+com.easy.junk.easyactivity.EasyGoodGameActivity$8 -> com.easy.junk.easyactivity.EasyGoodGameActivity$9:
+    com.easy.junk.easyactivity.EasyGoodGameActivity this$0 -> a
+    583:583:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
+    586:589:void onClick(android.view.View) -> onClick
+com.easy.junk.easyactivity.EasyGoodGameActivity$9 -> com.easy.junk.easyactivity.EasyGoodGameActivity$10:
+    com.easy.junk.easyactivity.EasyGoodGameActivity this$0 -> a
+    591:591:void <init>(com.easy.junk.easyactivity.EasyGoodGameActivity) -> <init>
+    594:595:void onClick(android.view.View) -> onClick
 com.easy.junk.easyactivity.EasyHardwareActivity -> com.easy.junk.easyactivity.EasyHardwareActivity:
     java.lang.String TAG_MESSAGE -> t
     android.widget.TextView title_name -> e
@@ -32310,6 +32368,29 @@ com.easy.junk.easycustomview.Success_CircleWaveView$1 -> com.easy.junk.easycusto
     com.easy.junk.easycustomview.Success_CircleWaveView this$0 -> a
     27:27:void <init>(com.easy.junk.easycustomview.Success_CircleWaveView) -> <init>
     31:41:void handleMessage(android.os.Message) -> handleMessage
+com.easy.junk.easycustomview.WidgetContainer -> com.easy.junk.easycustomview.WidgetContainer:
+    android.view.WindowManager$LayoutParams lp -> a
+    boolean modal -> b
+    int screenHeight -> c
+    boolean added -> d
+    com.easy.junk.easycustomview.WidgetContainer$IWidgetListener listener -> e
+    android.view.WindowManager wm -> f
+    float x -> g
+    float y -> h
+    boolean moving -> i
+    24:129:void <init>(android.content.Context,int,int,int,boolean) -> <init>
+    39:47:android.graphics.Point getScreenSize(android.content.Context) -> a
+    52:55:void onClick(android.view.View) -> onClick
+    68:76:void addToWindow() -> a
+    79:87:void removeFromWindow() -> b
+    92:93:void setWidgetListener(com.easy.junk.easycustomview.WidgetContainer$IWidgetListener) -> setWidgetListener
+    99:120:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    125:125:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    133:159:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.easy.junk.easycustomview.WidgetContainer$IWidgetListener -> com.easy.junk.easycustomview.WidgetContainer$a:
+    boolean onBackPressed() -> a
+    boolean onMenuPressed() -> b
+    void onClick() -> c
 com.easy.junk.easycustomview.YuanHuViewNotifi -> com.easy.junk.easycustomview.YuanHuViewNotifi:
     android.graphics.Paint paint -> a
     android.graphics.RectF rectF -> b
