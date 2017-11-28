@@ -1,5 +1,6 @@
 package com.fast.clean.junk.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -271,15 +272,14 @@ public class SettingActivity extends BaseActivity {
                 case R.id.setting_notifi:
                     AdUtil.track("设置页面", "进入通知栏清理", "", 1);
                     PreData.putDB(SettingActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!Util.isNotificationListenEnabled(SettingActivity.this)) {
-                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-                    } else if (!PreData.getDB(SettingActivity.this, Constant.KEY_NOTIFI, true)) {
+                    if (!Util.isNotificationListenEnabled(SettingActivity.this) || !PreData.getDB(SettingActivity.this, Constant.KEY_NOTIFI, true)) {
                         Intent intent6 = new Intent(SettingActivity.this, NotifiInfoActivity.class);
-                        startActivity(intent6);
+                        ((Activity) SettingActivity.this).startActivityForResult(intent6, 1);
                     } else {
                         Intent intent6 = new Intent(SettingActivity.this, NotifiActivity.class);
-                        startActivity(intent6);
+                        ((Activity) SettingActivity.this).startActivityForResult(intent6, 1);
                     }
+
                     break;
                 case R.id.setting_rotate:
                     AdUtil.track("设置页面", "好评", "", 1);
