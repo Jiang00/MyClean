@@ -32408,122 +32408,149 @@ com.myboost.junk.boostactivity.BoostAllAppsActivity$MyReceiver -> com.myboost.ju
     289:289:void <init>(com.myboost.junk.boostactivity.BoostAllAppsActivity) -> <init>
     292:294:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.myboost.junk.boostactivity.BoostDeepingActivity -> com.myboost.junk.boostactivity.BoostDeepingActivity:
-    android.support.v7.widget.GridLayoutManager mLayoutManager -> m
+    android.support.v7.widget.GridLayoutManager mLayoutManager -> o
     android.os.Handler mHandler -> e
-    com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter homeAdapter -> n
-    com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter containerAdapter -> o
-    java.util.ArrayList startList -> p
-    android.view.View containerView -> q
-    boolean flag -> r
-    android.widget.ImageView power_1 -> s
-    android.widget.ImageView power_2 -> t
-    android.widget.ImageView power_3 -> u
-    android.widget.ImageView power_4 -> v
-    android.animation.ObjectAnimator animator1 -> w
-    android.animation.ObjectAnimator animator2 -> x
-    android.animation.ObjectAnimator animator3 -> y
-    android.animation.ObjectAnimator animator4 -> z
+    com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter homeAdapter -> p
+    com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter containerAdapter -> q
+    java.util.ArrayList startList -> r
+    android.view.View containerView -> s
+    boolean flag -> t
+    android.widget.ImageView power_1 -> u
+    android.widget.ImageView power_2 -> v
+    android.widget.ImageView power_3 -> w
+    android.widget.ImageView power_4 -> x
+    android.animation.ObjectAnimator animator1 -> y
+    android.animation.ObjectAnimator animator2 -> z
+    android.animation.ObjectAnimator animator3 -> A
+    android.animation.ObjectAnimator animator4 -> B
     android.animation.AnimatorSet animatorSet -> f
     android.widget.TextView title_name -> g
-    com.myboost.junk.customviewboost.BoostDeepWidgetContainer container -> A
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> B
-    android.widget.TextView containerView_junk_button_clean -> C
+    com.myboost.junk.customviewboost.BoostDeepWidgetContainer container -> C
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> D
+    android.widget.TextView containerView_junk_button_clean -> E
     android.widget.ImageView gboost_power_check -> h
-    com.myboost.junk.boostactivity.MyApplication cleanApplication -> D
-    int count -> E
+    com.myboost.junk.boostactivity.MyApplication cleanApplication -> F
+    int count -> G
     android.support.v7.widget.RecyclerView power_recycler -> i
     android.widget.TextView junk_button_clean -> j
     android.widget.FrameLayout title_left -> k
     java.lang.Runnable runnable -> l
-    42:64:void <init>() -> <init>
-    110:116:void findId() -> a
-    120:229:void onCreate(android.os.Bundle) -> onCreate
-    232:264:void animatorView(android.view.View,int) -> a
-    267:272:void showPackageDetail(java.lang.String) -> b
-    275:292:void setContainer() -> b
-    360:367:void initData() -> c
-    371:373:void onBackPressed() -> onBackPressed
-    377:379:void onPause() -> onPause
-    383:398:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    401:432:void startSetAnimator() -> d
-    436:438:void onDestroy() -> onDestroy
-    42:42:java.util.ArrayList access$000(com.myboost.junk.boostactivity.BoostDeepingActivity) -> a
-    42:42:int access$108(com.myboost.junk.boostactivity.BoostDeepingActivity) -> b
-    42:42:void access$200(com.myboost.junk.boostactivity.BoostDeepingActivity,java.lang.String) -> a
-    42:42:android.support.v7.widget.RecyclerView access$300(com.myboost.junk.boostactivity.BoostDeepingActivity) -> c
-    42:42:void access$400(com.myboost.junk.boostactivity.BoostDeepingActivity,android.view.View,int) -> a
-    42:42:com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter access$500(com.myboost.junk.boostactivity.BoostDeepingActivity) -> d
-    42:42:int access$100(com.myboost.junk.boostactivity.BoostDeepingActivity) -> e
-    42:42:com.myboost.junk.customviewboost.BoostDeepWidgetContainer access$600(com.myboost.junk.boostactivity.BoostDeepingActivity) -> f
-    42:42:boolean access$702(com.myboost.junk.boostactivity.BoostDeepingActivity,boolean) -> a
-    42:42:android.view.View access$802(com.myboost.junk.boostactivity.BoostDeepingActivity,android.view.View) -> a
-    42:42:com.myboost.junk.customviewboost.BoostDeepWidgetContainer access$602(com.myboost.junk.boostactivity.BoostDeepingActivity,com.myboost.junk.customviewboost.BoostDeepWidgetContainer) -> a
-    42:42:android.view.View access$800(com.myboost.junk.boostactivity.BoostDeepingActivity) -> g
-    42:42:void access$900(com.myboost.junk.boostactivity.BoostDeepingActivity) -> h
-    42:42:com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter access$1000(com.myboost.junk.boostactivity.BoostDeepingActivity) -> i
-    42:42:boolean access$700(com.myboost.junk.boostactivity.BoostDeepingActivity) -> j
-    42:42:void access$1100(com.myboost.junk.boostactivity.BoostDeepingActivity) -> k
+    android.support.v7.app.AlertDialog dialog -> H
+    android.content.BroadcastReceiver broadcastReceiver -> m
+    com.myboost.junk.customviewboost.WidgetContainer widgetContainer -> I
+    java.lang.Runnable runnable_acc -> n
+    48:387:void <init>() -> <init>
+    117:123:void findId() -> a
+    127:211:void onCreate(android.os.Bundle) -> onCreate
+    214:246:void animatorView(android.view.View,int) -> a
+    249:254:void showPackageDetail(java.lang.String) -> b
+    257:274:void setContainer() -> c
+    342:349:void initData() -> d
+    353:355:void onBackPressed() -> onBackPressed
+    359:361:void onPause() -> onPause
+    377:384:void permissIntent() -> b
+    416:436:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    439:470:void startSetAnimator() -> e
+    474:477:void onDestroy() -> onDestroy
+    480:508:void showDialogPermiss() -> f
+    48:48:java.util.ArrayList access$000(com.myboost.junk.boostactivity.BoostDeepingActivity) -> a
+    48:48:int access$108(com.myboost.junk.boostactivity.BoostDeepingActivity) -> b
+    48:48:void access$200(com.myboost.junk.boostactivity.BoostDeepingActivity,java.lang.String) -> a
+    48:48:android.support.v7.widget.RecyclerView access$300(com.myboost.junk.boostactivity.BoostDeepingActivity) -> c
+    48:48:void access$400(com.myboost.junk.boostactivity.BoostDeepingActivity,android.view.View,int) -> a
+    48:48:com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter access$500(com.myboost.junk.boostactivity.BoostDeepingActivity) -> d
+    48:48:int access$100(com.myboost.junk.boostactivity.BoostDeepingActivity) -> e
+    48:48:com.myboost.junk.customviewboost.BoostDeepWidgetContainer access$600(com.myboost.junk.boostactivity.BoostDeepingActivity) -> f
+    48:48:boolean access$702(com.myboost.junk.boostactivity.BoostDeepingActivity,boolean) -> a
+    48:48:android.view.View access$802(com.myboost.junk.boostactivity.BoostDeepingActivity,android.view.View) -> a
+    48:48:com.myboost.junk.customviewboost.BoostDeepWidgetContainer access$602(com.myboost.junk.boostactivity.BoostDeepingActivity,com.myboost.junk.customviewboost.BoostDeepWidgetContainer) -> a
+    48:48:android.view.View access$800(com.myboost.junk.boostactivity.BoostDeepingActivity) -> g
+    48:48:void access$900(com.myboost.junk.boostactivity.BoostDeepingActivity) -> h
+    48:48:com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter access$1000(com.myboost.junk.boostactivity.BoostDeepingActivity) -> i
+    48:48:com.myboost.junk.customviewboost.WidgetContainer access$1100(com.myboost.junk.boostactivity.BoostDeepingActivity) -> j
+    48:48:com.myboost.junk.customviewboost.WidgetContainer access$1102(com.myboost.junk.boostactivity.BoostDeepingActivity,com.myboost.junk.customviewboost.WidgetContainer) -> a
+    48:48:boolean access$700(com.myboost.junk.boostactivity.BoostDeepingActivity) -> k
+    48:48:void access$1200(com.myboost.junk.boostactivity.BoostDeepingActivity) -> l
+    48:48:android.support.v7.app.AlertDialog access$1300(com.myboost.junk.boostactivity.BoostDeepingActivity) -> m
 com.myboost.junk.boostactivity.BoostDeepingActivity$1 -> com.myboost.junk.boostactivity.BoostDeepingActivity$1:
     com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> a
-    64:64:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
-    67:105:void run() -> run
-com.myboost.junk.boostactivity.BoostDeepingActivity$2 -> com.myboost.junk.boostactivity.BoostDeepingActivity$2:
+    70:70:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
+    73:111:void run() -> run
+com.myboost.junk.boostactivity.BoostDeepingActivity$10 -> com.myboost.junk.boostactivity.BoostDeepingActivity$2:
     com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> a
-    129:129:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
-    132:147:void onClick(android.view.View) -> onClick
-com.myboost.junk.boostactivity.BoostDeepingActivity$2$1 -> com.myboost.junk.boostactivity.BoostDeepingActivity$2$1:
-    com.myboost.junk.boostactivity.BoostDeepingActivity$2 this$1 -> a
-    140:140:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity$2) -> <init>
-    143:145:void run() -> run
-com.myboost.junk.boostactivity.BoostDeepingActivity$3 -> com.myboost.junk.boostactivity.BoostDeepingActivity$3:
+    492:492:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
+    495:496:void onClick(android.view.View) -> onClick
+com.myboost.junk.boostactivity.BoostDeepingActivity$11 -> com.myboost.junk.boostactivity.BoostDeepingActivity$3:
     com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> a
-    158:158:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
-    161:194:void onClick(android.view.View) -> onClick
-com.myboost.junk.boostactivity.BoostDeepingActivity$3$1 -> com.myboost.junk.boostactivity.BoostDeepingActivity$3$1:
-    com.myboost.junk.boostactivity.BoostDeepingActivity$3 this$1 -> a
-    172:172:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity$3) -> <init>
-    175:177:void run() -> run
-com.myboost.junk.boostactivity.BoostDeepingActivity$4 -> com.myboost.junk.boostactivity.BoostDeepingActivity$4:
+    498:498:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
+    501:502:void onClick(android.view.View) -> onClick
+com.myboost.junk.boostactivity.BoostDeepingActivity$2 -> com.myboost.junk.boostactivity.BoostDeepingActivity$4:
     com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> a
-    196:196:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
-    199:200:void onClick(android.view.View) -> onClick
-com.myboost.junk.boostactivity.BoostDeepingActivity$5 -> com.myboost.junk.boostactivity.BoostDeepingActivity$5:
+    138:138:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
+    141:143:void onClick(android.view.View) -> onClick
+com.myboost.junk.boostactivity.BoostDeepingActivity$3 -> com.myboost.junk.boostactivity.BoostDeepingActivity$5:
+    com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> a
+    154:154:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
+    157:176:void onClick(android.view.View) -> onClick
+com.myboost.junk.boostactivity.BoostDeepingActivity$4 -> com.myboost.junk.boostactivity.BoostDeepingActivity$6:
+    com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> a
+    178:178:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
+    181:182:void onClick(android.view.View) -> onClick
+com.myboost.junk.boostactivity.BoostDeepingActivity$5 -> com.myboost.junk.boostactivity.BoostDeepingActivity$7:
     int val$i -> a
     com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> b
-    238:238:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity,int) -> <init>
-    242:242:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    246:251:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    256:256:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    260:260:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-com.myboost.junk.boostactivity.BoostDeepingActivity$6 -> com.myboost.junk.boostactivity.BoostDeepingActivity$6:
+    220:220:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity,int) -> <init>
+    224:224:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    228:233:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    238:238:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    242:242:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.myboost.junk.boostactivity.BoostDeepingActivity$6 -> com.myboost.junk.boostactivity.BoostDeepingActivity$8:
     com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> a
-    409:409:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
-    413:413:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-    417:420:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    425:425:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    430:430:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    363:363:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
+    366:372:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.myboost.junk.boostactivity.BoostDeepingActivity$7 -> com.myboost.junk.boostactivity.BoostDeepingActivity$9:
+    com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> a
+    387:387:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
+    390:411:void run() -> run
+com.myboost.junk.boostactivity.BoostDeepingActivity$7$1 -> com.myboost.junk.boostactivity.BoostDeepingActivity$9$1:
+    com.myboost.junk.boostactivity.BoostDeepingActivity$7 this$1 -> a
+    395:395:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity$7) -> <init>
+    398:398:boolean onBackPressed() -> a
+    403:403:boolean onMenuPressed() -> b
+    408:409:void onClick() -> c
+com.myboost.junk.boostactivity.BoostDeepingActivity$8 -> com.myboost.junk.boostactivity.BoostDeepingActivity$10:
+    com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> a
+    447:447:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
+    451:451:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    455:458:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    463:463:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    468:468:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+com.myboost.junk.boostactivity.BoostDeepingActivity$9 -> com.myboost.junk.boostactivity.BoostDeepingActivity$11:
+    com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> a
+    484:484:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity) -> <init>
+    487:490:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter -> com.myboost.junk.boostactivity.BoostDeepingActivity$a:
     boolean isWidget -> a
     com.myboost.junk.boostactivity.BoostDeepingActivity this$0 -> b
-    297:299:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity,boolean) -> <init>
-    303:306:com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    311:330:void onBindViewHolder(com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter$MyViewHolder,int) -> a
-    334:336:void reChangesData(int) -> a
-    340:340:int getItemCount() -> getItemCount
-    294:294:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    294:294:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    279:281:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity,boolean) -> <init>
+    285:288:com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    293:312:void onBindViewHolder(com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter$MyViewHolder,int) -> a
+    316:318:void reChangesData(int) -> a
+    322:322:int getItemCount() -> getItemCount
+    276:276:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    276:276:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter$1 -> com.myboost.junk.boostactivity.BoostDeepingActivity$a$1:
     int val$position -> a
     com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter this$1 -> b
-    323:323:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter,int) -> <init>
-    326:328:void onClick(android.view.View) -> onClick
+    305:305:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter,int) -> <init>
+    308:310:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter$MyViewHolder -> com.myboost.junk.boostactivity.BoostDeepingActivity$a$a:
     android.widget.FrameLayout recyc_item -> a
     android.widget.ImageView recyc_icon -> b
     android.widget.ImageView recyc_check -> c
     android.widget.TextView recyc_name -> d
     com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter this$1 -> e
-    349:355:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter,android.view.View) -> <init>
+    331:337:void <init>(com.myboost.junk.boostactivity.BoostDeepingActivity$HomeAdapter,android.view.View) -> <init>
 com.myboost.junk.boostactivity.BoostDocActivity -> com.myboost.junk.boostactivity.BoostDocActivity:
     java.lang.String TAG_FILE_2 -> r
     android.widget.ProgressBar file_progressbar -> e
@@ -35476,6 +35503,29 @@ com.myboost.junk.customviewboost.ScrollView -> com.myboost.junk.customviewboost.
     151:152:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
 com.myboost.junk.customviewboost.ScrollView$ScrollViewListener -> com.myboost.junk.customviewboost.ScrollView$a:
     void onScrollChanged(com.myboost.junk.customviewboost.ScrollView,int,int,int,int) -> a
+com.myboost.junk.customviewboost.WidgetContainer -> com.myboost.junk.customviewboost.WidgetContainer:
+    android.view.WindowManager$LayoutParams lp -> a
+    boolean modal -> b
+    int screenHeight -> c
+    boolean added -> d
+    com.myboost.junk.customviewboost.WidgetContainer$IWidgetListener listener -> e
+    android.view.WindowManager wm -> f
+    float x -> g
+    float y -> h
+    boolean moving -> i
+    24:129:void <init>(android.content.Context,int,int,int,boolean) -> <init>
+    39:47:android.graphics.Point getScreenSize(android.content.Context) -> a
+    52:55:void onClick(android.view.View) -> onClick
+    68:76:void addToWindow() -> a
+    79:87:void removeFromWindow() -> b
+    92:93:void setWidgetListener(com.myboost.junk.customviewboost.WidgetContainer$IWidgetListener) -> setWidgetListener
+    99:120:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    125:125:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    133:159:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.myboost.junk.customviewboost.WidgetContainer$IWidgetListener -> com.myboost.junk.customviewboost.WidgetContainer$a:
+    boolean onBackPressed() -> a
+    boolean onMenuPressed() -> b
+    void onClick() -> c
 com.myboost.junk.customviewboost.YuanHuViewBoost -> com.myboost.junk.customviewboost.YuanHuViewBoost:
     android.graphics.Paint paint -> a
     android.graphics.Paint paintCrile -> b

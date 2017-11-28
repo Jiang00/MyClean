@@ -3,12 +3,16 @@ package com.myboost.junk.boostactivity;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +21,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +37,7 @@ import com.myboost.junk.R;
 import com.myboost.junk.boosttools.BoostMyConstant;
 import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 import com.myboost.junk.customviewboost.BoostDeepWidgetContainer;
+import com.myboost.junk.customviewboost.WidgetContainer;
 import com.myboost.junk.servicesboost.NotificationServiceBoost;
 
 import java.util.ArrayList;
@@ -104,6 +110,7 @@ public class BoostDeepingActivity extends BaseActivity {
             container.removeFromWindow();
         }
     };
+    private AlertDialog dialog;
 
     @Override
     protected void findId() {
@@ -119,7 +126,9 @@ public class BoostDeepingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
-        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL,null);
+        registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+
+        AndroidSdk.loadFullAd(SetAdUtilPrivacy.DEFAULT_FULL, null);
         mHandler = new Handler();
         if (MyUtils.isAccessibilitySettingsOn(this)) {
             gboost_power_check.setImageResource(R.mipmap.side_check_passed);
@@ -130,20 +139,7 @@ public class BoostDeepingActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 SetAdUtilPrivacy.track("深度清理页面", "开启辅助功能", "", 1);
-                try {
-                    Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                    startActivityForResult(intent, 100);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent transintent = new Intent(BoostDeepingActivity.this, BoostPermissingActivity.class);
-                        startActivity(transintent);
-                    }
-                }, 1500);
+                permissIntent();
             }
         });
         startService(new Intent(this, MyServiceCustomerAccessibility.class).putExtra("isDis", false));
@@ -161,21 +157,7 @@ public class BoostDeepingActivity extends BaseActivity {
                 flag = true;
                 SetAdUtilPrivacy.track("深度清理页面", "点击清理", "", 1);
                 if (!MyUtils.isAccessibilitySettingsOn(BoostDeepingActivity.this)) {
-                    try {
-                        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                        startActivityForResult(intent, 100);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        SetAdUtilPrivacy.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
-                    }
-
-                    mHandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent transintent = new Intent(BoostDeepingActivity.this, BoostPermissingActivity.class);
-                            startActivity(transintent);
-                        }
-                    }, 1500);
+                    permissIntent();
                     return;
                 }
                 junk_button_clean.setOnClickListener(null);
@@ -378,14 +360,70 @@ public class BoostDeepingActivity extends BaseActivity {
 //        endSetAnimator();
     }
 
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
+                if (widgetContainer != null) {
+                    widgetContainer.removeFromWindow();
+                }
+            }
+        }
+    };
+
+    public void permissIntent() {
+        try {
+            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            startActivityForResult(intent, 100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mHandler.postDelayed(runnable_acc, 1500);
+    }
+
+    private WidgetContainer widgetContainer;
+    Runnable runnable_acc = new Runnable() {
+        @Override
+        public void run() {
+            View view = LayoutInflater.from(BoostDeepingActivity.this).inflate(R.layout.layout_power_promiss, null);
+            widgetContainer = new WidgetContainer(BoostDeepingActivity.this.getApplicationContext(), Gravity.NO_GRAVITY, WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.MATCH_PARENT, true);
+            widgetContainer.addView(view);
+            widgetContainer.addToWindow();
+            widgetContainer.setWidgetListener(new WidgetContainer.IWidgetListener() {
+                @Override
+                public boolean onBackPressed() {
+                    return false;
+                }
+
+                @Override
+                public boolean onMenuPressed() {
+                    return false;
+                }
+
+                @Override
+                public void onClick() {
+                    widgetContainer.removeFromWindow();
+                }
+            });
+        }
+    };
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
             onBackPressed();
         }
         if (requestCode == 100) {
-            if (MyUtils.isAccessibilitySettingsOn(BoostDeepingActivity.this)) {
+            if (mHandler != null) {
+                mHandler.removeCallbacks(runnable_acc);
+            }
+            if (MyUtils.isAccessibilitySettingsOn(this)) {
                 junk_button_clean.callOnClick();
+            } else {
+                showDialogPermiss();
             }
         }
         if (requestCode == 100 || requestCode == 1) {
@@ -433,7 +471,39 @@ public class BoostDeepingActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        unregisterReceiver(broadcastReceiver);
         startService(new Intent(this, MyServiceCustomerAccessibility.class).putExtra("isDis", true));
         super.onDestroy();
+    }
+
+    private void showDialogPermiss() {
+        View view = View.inflate(this, R.layout.dialog_power, null);
+        TextView exit_queren = (TextView) view.findViewById(R.id.bt_queren);
+        TextView exit_quxiao = (TextView) view.findViewById(R.id.bt_quxiao);
+        ImageView iv_cha = (ImageView) view.findViewById(R.id.iv_cha);
+        exit_queren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                permissIntent();
+                dialog.dismiss();
+
+            }
+        });
+        iv_cha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        exit_quxiao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
+        dialog.show();
     }
 }
