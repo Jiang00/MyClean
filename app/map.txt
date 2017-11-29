@@ -35560,34 +35560,49 @@ com.myboost.junk.servicesboost.BoostSuspensionBallService -> com.myboost.junk.se
     android.content.pm.PackageManager pm -> i
     java.util.List hmoes -> j
     android.widget.LinearLayout mFullScreenCheckView -> k
+    android.app.Dialog dialog -> l
     android.os.Handler myHandler -> a
     com.myboost.junk.boostpresenter.FloatStateManagerBoost manager -> b
     android.view.WindowManager mana -> c
     java.lang.Runnable runnable -> d
     java.lang.String runingGboost -> e
-    39:76:void <init>() -> <init>
-    49:49:android.os.IBinder onBind(android.content.Intent) -> onBind
-    58:73:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    88:93:void onCreate() -> onCreate
-    96:129:void createFullScreenCheckView() -> b
-    132:163:void updata() -> c
-    166:179:java.util.List getLaunchers() -> a
-    185:192:void onDestroy() -> onDestroy
-    39:39:void access$000(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> a
-    39:39:android.widget.LinearLayout access$100(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> b
-    39:39:com.myboost.junk.boostpresenter.GetTopApp access$200(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> c
+    43:82:void <init>() -> <init>
+    54:54:android.os.IBinder onBind(android.content.Intent) -> onBind
+    63:79:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    92:123:void showDialogPermiss() -> b
+    127:132:void onCreate() -> onCreate
+    135:168:void createFullScreenCheckView() -> c
+    171:202:void updata() -> d
+    205:218:java.util.List getLaunchers() -> a
+    224:231:void onDestroy() -> onDestroy
+    43:43:void access$000(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> a
+    43:43:android.app.Dialog access$100(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> b
+    43:43:android.widget.LinearLayout access$200(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> c
+    43:43:com.myboost.junk.boostpresenter.GetTopApp access$300(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> d
 com.myboost.junk.servicesboost.BoostSuspensionBallService$1 -> com.myboost.junk.servicesboost.BoostSuspensionBallService$1:
     com.myboost.junk.servicesboost.BoostSuspensionBallService this$0 -> a
-    76:76:void <init>(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> <init>
-    79:81:void run() -> run
+    82:82:void <init>(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> <init>
+    85:87:void run() -> run
 com.myboost.junk.servicesboost.BoostSuspensionBallService$2 -> com.myboost.junk.servicesboost.BoostSuspensionBallService$2:
     com.myboost.junk.servicesboost.BoostSuspensionBallService this$0 -> a
-    104:104:void <init>(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> <init>
-    110:122:void onGlobalLayout() -> onGlobalLayout
+    97:97:void <init>(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> <init>
+    100:102:void onClick(android.view.View) -> onClick
 com.myboost.junk.servicesboost.BoostSuspensionBallService$3 -> com.myboost.junk.servicesboost.BoostSuspensionBallService$3:
     com.myboost.junk.servicesboost.BoostSuspensionBallService this$0 -> a
-    139:139:void <init>(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> <init>
-    142:160:void run() -> run
+    104:104:void <init>(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> <init>
+    107:108:void onClick(android.view.View) -> onClick
+com.myboost.junk.servicesboost.BoostSuspensionBallService$4 -> com.myboost.junk.servicesboost.BoostSuspensionBallService$4:
+    com.myboost.junk.servicesboost.BoostSuspensionBallService this$0 -> a
+    110:110:void <init>(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> <init>
+    113:114:void onClick(android.view.View) -> onClick
+com.myboost.junk.servicesboost.BoostSuspensionBallService$5 -> com.myboost.junk.servicesboost.BoostSuspensionBallService$5:
+    com.myboost.junk.servicesboost.BoostSuspensionBallService this$0 -> a
+    143:143:void <init>(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> <init>
+    149:161:void onGlobalLayout() -> onGlobalLayout
+com.myboost.junk.servicesboost.BoostSuspensionBallService$6 -> com.myboost.junk.servicesboost.BoostSuspensionBallService$6:
+    com.myboost.junk.servicesboost.BoostSuspensionBallService this$0 -> a
+    178:178:void <init>(com.myboost.junk.servicesboost.BoostSuspensionBallService) -> <init>
+    181:199:void run() -> run
 com.myboost.junk.servicesboost.NotificationServiceBoost -> com.myboost.junk.servicesboost.NotificationServiceBoost:
     android.os.Handler myHandler -> a
     com.myboost.junk.boosttools.PhonesManager phoneManager -> c

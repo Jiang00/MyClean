@@ -5,10 +5,14 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <FrameLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/close"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="@dimen/d152"
@@ -78,7 +82,7 @@
                 android:padding="@dimen/d5"
                 android:src="@mipmap/close" />
         </RelativeLayout>
-    </FrameLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_ad_exit"
