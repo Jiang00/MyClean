@@ -218,15 +218,15 @@ public class FloatAnimationActivity extends BaseActivity {
         count = 0;
         if (animationDrawable != null) {
             animationDrawable.stop();
-            for (int i = 0; i < animationDrawable.getNumberOfFrames(); i++) {
-                Drawable frame = animationDrawable.getFrame(i);
-                if (frame instanceof BitmapDrawable) {
-                    ((BitmapDrawable) frame).getBitmap().recycle();
-                }
-                frame.setCallback(null);
-            }
-            animationDrawable.setCallback(null);
-            animationDrawable = null;
+//            for (int i = 0; i < animationDrawable.getNumberOfFrames(); i++) {
+//                Drawable frame = animationDrawable.getFrame(i);
+//                if (frame instanceof BitmapDrawable) {
+//                    ((BitmapDrawable) frame).getBitmap().recycle();
+//                }
+//                frame.setCallback(null);
+//            }
+//            animationDrawable.setCallback(null);
+//            animationDrawable = null;
         }
 
         if (handler != null) {
