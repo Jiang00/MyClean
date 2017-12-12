@@ -69,9 +69,11 @@ public class XuanfuActivity extends MBaseActivity {
         float_memory = (TextView) findViewById(R.id.float_memory);
         float_tishi = (TextView) findViewById(R.id.float_tishi);
     }
+
     private void initList() {
         float_memory.setText(Util.getMemory(this) + "%");
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +90,7 @@ public class XuanfuActivity extends MBaseActivity {
         xianshiD();
         addListener();
     }
+
     private void addListener() {
         ll_wifi.setOnClickListener(kuaijieListener);
         ll_liuliang.setOnClickListener(kuaijieListener);
@@ -96,6 +99,7 @@ public class XuanfuActivity extends MBaseActivity {
         ll_gps.setOnClickListener(kuaijieListener);
         float_rotate.setOnClickListener(kuaijieListener);
     }
+
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FLOAT, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
@@ -116,9 +120,6 @@ public class XuanfuActivity extends MBaseActivity {
             }
         }
     }
-
-
-
 
 
     View.OnClickListener kuaijieListener = new View.OnClickListener() {
