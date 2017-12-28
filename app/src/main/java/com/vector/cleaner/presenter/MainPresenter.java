@@ -57,7 +57,6 @@ public class MainPresenter extends BasePresenter<MainView> {
                 });
             }
         }).start();
-        setRotateGone();
         iView.onClick();
 
     }
@@ -83,24 +82,8 @@ public class MainPresenter extends BasePresenter<MainView> {
         int memo = (int) (ram_shiyong * 100 / ram_all);
         String ram_size = Util.convertStorage(ram_shiyong, true) + "/" + Util.convertStorage(ram_all, true);
         iView.initRam(memo, ram_size);
-        iView.initHuojian();
-        setRotateGone();
     }
 
-
-    public void clickRotate(boolean isGood) {
-        if (isGood) {
-            goToGooglePlay();
-        }
-        PreData.putDB(context, Constant.IS_ROTATE, true);
-        setRotateGone();
-    }
-
-    public void setRotateGone() {
-        if (PreData.getDB(context, Constant.IS_ROTATE, false) || PreData.getDB(context, Constant.IS__MAIN_ROTATE, false)) {
-            iView.setRotateGone();
-        }
-    }
 
     //设置侧边栏滑出距离,从屏幕哪里可以滑出
     public void setDrawerLeftEdgeSize(DrawerLayout drawerLayout, float displayWidthPercentage) {

@@ -57,16 +57,6 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
         iView.loadFullAd();
     }
 
-    public void addCleandata(boolean isAdd, long size) {
-        if (isAdd) {
-            cleanSize += size;
-        } else {
-            cleanSize -= size;
-        }
-        iView.setCleanDAta(cleanSize);
-
-    }
-
     public void addAdapterData() {
         iView.updateAdapter(list_size, list_time, list_pinlv);
     }
@@ -75,15 +65,12 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
         if (clearList == null || clearList.size() == 0) {
             return;
         }
-
-
         for (JunkInfo softinfo : clearList) {
             if (softinfo.pkg.equals(packageName)) {
                 CleanManager.getInstance(context).removeAppList(softinfo);
                 list_size.remove(softinfo);
                 list_time.remove(softinfo);
                 list_pinlv.remove(softinfo);
-                addCleandata(false, softinfo.allSize);
                 iView.updateAdapter(list_size, list_time, list_pinlv);
             }
         }
@@ -96,17 +83,12 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     }
 
 
-    public void bleachFile(List<JunkInfo> appManager) {
+    public void bleachFile(JunkInfo softInfo) {
         clearList = new ArrayList<>();
-        for (JunkInfo softInfo : appManager) {
-            if (softInfo.isChecked) {
-                clearList.add(softInfo);
-                Intent intent = new Intent(Intent.ACTION_DELETE);
-                intent.setData(Uri.parse("package:" + softInfo.pkg));
-                context.startActivity(intent);
-            }
-        }
-
+        clearList.add(softInfo);
+        Intent intent = new Intent(Intent.ACTION_DELETE);
+        intent.setData(Uri.parse("package:" + softInfo.pkg));
+        context.startActivity(intent);
     }
 
 }

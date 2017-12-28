@@ -37,8 +37,8 @@ public class FloatStateView extends View {
 
     private Paint textPaint;
     private Paint firstPaint;
-    public int width = Util.dp2px(33);
-    public int height = Util.dp2px(33);
+    public int width = Util.dp2px(35);
+    public int height = Util.dp2px(35);
     private String text = "50%";
     private int type = 1;
     private int pratent;
@@ -80,7 +80,7 @@ public class FloatStateView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        createShader();
+//        createShader();
     }
 
     private void initW() {
@@ -172,7 +172,6 @@ public class FloatStateView extends View {
     private void initPaints() {
         firstPaint = new Paint();
         firstPaint.setAntiAlias(true);
-        firstPaint.setColor(ContextCompat.getColor(context, R.color.black_5));
         // 文字
         textPaint = new Paint();
         textPaint.setTextSize(Util.dp2px(10));
@@ -208,33 +207,19 @@ public class FloatStateView extends View {
         if (type == STATE_NORMAL) {
             canvas.drawBitmap(bitmap_normal, 0, 0, null);
         } else {
-            if (mWaveShader != null) {
-                // first call after mShowWave, assign it to our paint
-                if (mViewPaint.getShader() == null) {
-                    mViewPaint.setShader(mWaveShader);
-                }
-                // sacle shader according to mWaveLengthRatio and mAmplitudeRatio
-                // this decides the size(mWaveLengthRatio for width, mAmplitudeRatio for height) of waves
-                mShaderMatrix.setScale(
-                        1,
-                        1,
-                        0,
-                        mDefaultWaterLevel);
-                // translate shader according to mWaveShiftRatio and mWaterLevelRatio
-                // this decides the start position(mWaveShiftRatio for x, mWaterLevelRatio for y) of waves
-                mShaderMatrix.postTranslate(
-                        mWaveShiftRatio * width,
-                        (0.5f - mWaterLevelRatio) * height);
-
-                // assign matrix to invalidate the shader
-                mWaveShader.setLocalMatrix(mShaderMatrix);
-
-                float radius = height / 2f;
-                canvas.drawCircle(getWidth() / 2f, getHeight() / 2f, radius, firstPaint);
-                canvas.drawCircle(width / 2f, height / 2f, radius, mViewPaint);
-            } else {
-                mViewPaint.setShader(null);
-            }
+//            if (mWaveShader != null) {
+//                if (mViewPaint.getShader() == null) {
+//                    mViewPaint.setShader(mWaveShader);
+//                }
+//                mShaderMatrix.setScale(1, 1, 0, mDefaultWaterLevel);
+//                mShaderMatrix.postTranslate(mWaveShiftRatio * width, (0.5f - mWaterLevelRatio) * height);
+//                mWaveShader.setLocalMatrix(mShaderMatrix);
+//                float radius = height / 2f;
+//                canvas.drawCircle(getWidth() / 2f, getHeight() / 2f, radius, firstPaint);
+//                canvas.drawCircle(width / 2f, height / 2f, radius, mViewPaint);
+//            } else {
+//                mViewPaint.setShader(null);
+//            }
             float textWidth = textPaint.measureText(text);
             float x = width / 2 - textWidth / 2;
             Paint.FontMetrics metrics = textPaint.getFontMetrics();

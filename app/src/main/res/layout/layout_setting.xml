@@ -38,13 +38,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/A5"
+            android:background="@color/white_100"
             android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/A10" />
 
             <com.vector.module.mView.CustomerTypefaceTextView
                 android:layout_width="match_parent"
@@ -52,43 +48,32 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/d16"
                 android:text="@string/setting_kaiguanllei"
-                android:textColor="@color/A8"
+                android:textColor="@color/A1"
                 android:textSize="@dimen/s14" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/A10" />
+                android:layout_marginLeft="@dimen/d16"
+                android:background="@color/B3" />
 
             <RelativeLayout
                 android:id="@+id/setting_tongzhi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_tongzhi"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/tongzhi_iv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_tongzhi" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:id="@+id/tongzhi_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_tongzhi"
                     android:text="@string/setting_tongzhi"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -105,32 +90,18 @@
             <RelativeLayout
                 android:id="@+id/setting_tongzhilan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_tongzhilan"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/tongzhilan_iv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_tongzhilan" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:id="@+id/tongzhilan_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_tongzhilan"
                     android:text="@string/setting_tongzhilan"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -146,32 +117,18 @@
             <RelativeLayout
                 android:id="@+id/setting_float"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_float"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/float_iv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_float" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:id="@+id/float_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_float"
                     android:text="@string/setting_float"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -187,29 +144,15 @@
             <RelativeLayout
                 android:id="@+id/setting_battery"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_battery"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/battery_iv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_battery" />
-                </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_battery"
                     android:orientation="vertical">
 
                     <com.vector.module.mView.CustomerTypefaceTextView
@@ -217,14 +160,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/setting_battery"
-                        android:textColor="@color/A8"
+                        android:textColor="@color/Z1"
                         android:textSize="@dimen/s16" />
 
                     <com.vector.module.mView.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/battery_8"
-                        android:textColor="@color/A9"
+                        android:textColor="@color/Z2"
                         android:textSize="@dimen/s12" />
                 </LinearLayout>
 
@@ -240,8 +183,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/A10" />
+                android:layout_height="@dimen/d10"
+                android:background="@color/B2" />
 
             <com.vector.module.mView.CustomerTypefaceTextView
                 android:layout_width="match_parent"
@@ -249,41 +192,30 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
                 android:text="@string/setting_gongneng"
-                android:textColor="@color/A8"
+                android:textColor="@color/A1"
                 android:textSize="@dimen/s14" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/A10" />
+                android:layout_marginLeft="@dimen/d16"
+                android:background="@color/B3" />
+
 
             <RelativeLayout
                 android:id="@+id/setting_picture"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_picture"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_picture" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_picture"
                     android:text="@string/side_picture"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -299,30 +231,17 @@
             <RelativeLayout
                 android:id="@+id/setting_hui"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_hui"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_hui" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_hui"
                     android:text="@string/picture_hui"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -338,30 +257,17 @@
             <RelativeLayout
                 android:id="@+id/main_msg_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_gboost"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/message_setting" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_gboost"
                     android:text="@string/main_msg_title"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -377,30 +283,17 @@
             <RelativeLayout
                 android:id="@+id/setting_file"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_file"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_file" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_file"
                     android:text="@string/side_file"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -416,30 +309,17 @@
             <RelativeLayout
                 android:id="@+id/setting_notifi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_notifi"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_notifi" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_notifi"
                     android:text="@string/side_notifi"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -455,30 +335,17 @@
             <RelativeLayout
                 android:id="@+id/setting_power"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_power"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_power" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_power"
                     android:text="@string/side_power"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -494,33 +361,17 @@
             <RelativeLayout
                 android:id="@+id/setting_white"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_white"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_white" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_white"
                     android:text="@string/setting_white"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -536,30 +387,17 @@
             <RelativeLayout
                 android:id="@+id/setting_short"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_short"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_shortcut" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_short"
                     android:text="@string/setting_short"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView
@@ -575,30 +413,17 @@
             <RelativeLayout
                 android:id="@+id/setting_rotate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d61"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
-                <RelativeLayout
-                    android:id="@+id/rl_rotate"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_rotate" />
-                </RelativeLayout>
 
                 <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_rotate"
                     android:text="@string/setting_rotate"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s16" />
 
                 <ImageView

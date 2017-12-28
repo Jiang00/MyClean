@@ -16,79 +16,28 @@
         android:background="#ffffff">
         // android:layout_gravity="start"
 
-        <LinearLayout
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ffffff"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d36"
+            android:scrollbars="none">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d176"
-                android:background="@mipmap/side_title"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|bottom"
-                    android:layout_marginBottom="@dimen/d19"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="@dimen/d67"
-                        android:layout_height="@dimen/d67"
-                        android:src="@mipmap/loading_icon" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/app_name"
-                        android:textColor="@color/white_100"
-                        android:textSize="@dimen/s16" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d5"
-                        android:text="Smart Super Clean for Android"
-                        android:textColor="@color/A6"
-                        android:textSize="@dimen/s11" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/ll_ad_side"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-
-
-            </FrameLayout>
-
-
-            <ScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <com.vector.cleaner.myview.ListViewForScrollView
+                    android:id="@+id/side_listView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <com.vector.cleaner.myview.ListViewForScrollView
-                        android:id="@+id/side_listView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:divider="#00000000"
-                        android:dividerHeight="0dp" />
+                    android:divider="#00000000"
+                    android:dividerHeight="0dp" />
 
 
-                </LinearLayout>
-            </ScrollView>
-        </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
     </com.vector.cleaner.myview.MainFrameLayout>
 
 </android.support.v4.widget.DrawerLayout>

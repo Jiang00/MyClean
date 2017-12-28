@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.vector.cleaner.activity.BatteryCoolingActivity;
+import com.vector.cleaner.activity.DyxGboostActivity;
 import com.vector.cleaner.activity.NotificationActivity;
 import com.vector.cleaner.aservice.MemoryService;
 import com.vector.cleaner.entity.SideInfo;
@@ -36,11 +38,11 @@ import com.vector.cleaner.activity.ANeicunAvtivity;
 
 public class MSideAdapter extends MybaseAdapter<SideInfo> {
 
-    private int BATTERY = -1;
-    private int FLOAT = -1;
-    private int JUNK = -1;
+    private int COOLING = -1;
     private int RAM = -1;
+    private int JUNK = -1;
     private int MANAGER = -1;
+    private int GAME = -1;
     private int FILE = -1;
     private int POWER = -1;
 
@@ -52,23 +54,17 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
     public MSideAdapter(Context context) {
         super(context);
         int idx = 0;
-        BATTERY = idx++;
-        FLOAT = idx++;
-        JUNK = idx++;
+        COOLING = idx++;
         RAM = idx++;
+        JUNK = idx++;
         MANAGER = idx++;
-        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) == 1) {
-            FILE = idx++;
-        }
-        POWER = idx++;
-        if (PreData.getDB(context, Constant.NOTIFI_KAIGUAN, 1) == 1 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            NOTIFI = idx++;
-        }
-        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) == 1) {
-            PICTURE = idx++;
-        }
-        SETTING = idx++;
+        GAME = idx++;
+//        FILE = idx++;
+//        POWER = idx++;
+        NOTIFI = idx++;
+//        PICTURE = idx++;
         ROTATE = idx++;
+        SETTING = idx++;
     }
 
     @Override
@@ -80,8 +76,6 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
             holder = new ViewHolder();
             holder.rl_item = (RelativeLayout) convertView
                     .findViewById(R.id.rl_item);
-            holder.checkBox = (ImageView) convertView
-                    .findViewById(R.id.iv_check);
             holder.iv_le = (ImageView) convertView
                     .findViewById(R.id.iv_le);
             holder.tv_name = (TextView) convertView
@@ -94,29 +88,13 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
         }
         holder.tv_name.setText(info.textId);
         holder.iv_le.setImageResource(info.drawableId);
-        if (info.isCheck) {
-            holder.checkBox.setImageResource(R.mipmap.side_check_passed);
-        } else {
-            holder.checkBox.setImageResource(R.mipmap.side_check_normal);
-        }
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                info.isCheck = !info.isCheck;
-                if (info.isCheck) {
-                    holder.checkBox.setImageResource(R.mipmap.side_check_passed);
-                } else {
-                    holder.checkBox.setImageResource(R.mipmap.side_check_normal);
-                }
                 onC(position);
             }
         });
-        if (position == BATTERY || position == FLOAT) {
-            holder.checkBox.setVisibility(View.VISIBLE);
-        } else {
-            holder.checkBox.setVisibility(View.INVISIBLE);
-        }
-        if (position == JUNK) {
+        if (position == ROTATE) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);
@@ -125,30 +103,14 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
     }
 
     private void onC(int position) {
-        if (position == BATTERY) {
-            if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, true)) {
-                AdUtil.track("侧边栏", "点击关闭充电屏保", "", 1);
-                Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, false);
-            } else {
-                AdUtil.track("侧边栏", "点击开启充电屏保", "", 1);
-                Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, true);
-            }
-        } else if (position == FLOAT) {
-            if (PreData.getDB(context, Constant.FlOAT_SWITCH, true)) {
-                AdUtil.track("侧边栏", "点击关闭悬浮窗", "", 1);
-                PreData.putDB(context, Constant.FlOAT_SWITCH, false);
-                Intent intent1 = new Intent(context, MemoryService.class);
-                context.stopService(intent1);
-            } else {
-                AdUtil.track("侧边栏", "点击开启悬浮窗", "", 1);
-                PreData.putDB(context, Constant.FlOAT_SWITCH, true);
-                Intent intent1 = new Intent(context, MemoryService.class);
-                context.startService(intent1);
-            }
-        } else if (position == JUNK) {
+        if (position == JUNK) {
             AdUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
             Intent intent2 = new Intent(context, LajiFileActivity.class);
             ((Activity) context).startActivityForResult(intent2, 1);
+        } else if (position == COOLING) {
+            AdUtil.track("侧边栏", "点击进入cooling页面", "", 1);
+            Intent intent3 = new Intent(context, BatteryCoolingActivity.class);
+            ((Activity) context).startActivityForResult(intent3, 1);
         } else if (position == RAM) {
             AdUtil.track("侧边栏", "点击进入ram页面", "", 1);
             Intent intent3 = new Intent(context, ANeicunAvtivity.class);
@@ -156,6 +118,10 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == MANAGER) {
             AdUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
             Intent intent4 = new Intent(context, AllAppActivity.class);
+            ((Activity) context).startActivityForResult(intent4, 1);
+        } else if (position == GAME) {
+            AdUtil.track("侧边栏", "点击进入游戏加速页面", "", 1);
+            Intent intent4 = new Intent(context, DyxGboostActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
 //            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);

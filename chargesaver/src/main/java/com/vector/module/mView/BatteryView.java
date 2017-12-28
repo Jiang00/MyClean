@@ -1,15 +1,18 @@
 package com.vector.module.mView;
 
+import android.animation.ObjectAnimator;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -52,12 +55,13 @@ public class BatteryView extends FrameLayout {
     private TextView time;
     private TextView date;
     private TextView week;
-    private TextView batteryLeft;
+    private TextView batteryLeft, batteryLeft_2;
     private TextView currentLevel;
+    private ImageView battery_zhuan;
     private AWaterView battery_water;
-    private BubbleLayout bubbleLayout;
 
     private int halfWidth;
+    private ObjectAnimator objectAnimator;
 
     public interface UnlockListener {
         void onUnlock();
@@ -155,18 +159,19 @@ public class BatteryView extends FrameLayout {
         }
         final int curLevel = entry.getLevel();
         currentLevel.setText(curLevel + "%");
-        battery_water.upDate(50);
+//        battery_water.upDate(50);
 
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
             String str;
             if (entry.isCharging()) {
-                str = getResources().getString(R.string.charging_on_left);
+                str = getResources().getString(R.string.charging_2);
             } else {
-                str = getResources().getString(R.string.charging_use_left);
+                str = getResources().getString(R.string.charging_1);
             }
-            String result = String.format(str, entry.extractHours(leftChargeTime), entry.extractMinutes(leftChargeTime));
-            batteryLeft.setText(result);
+            batteryLeft.setText(str);
+            String result = String.format(getResources().getString(R.string.charging_3), entry.extractHours(leftChargeTime), entry.extractMinutes(leftChargeTime));
+            batteryLeft_2.setText(result);
         }
 
     }
@@ -280,8 +285,8 @@ public class BatteryView extends FrameLayout {
     }
 
     private void initViews() {
-        bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
         currentLevel = (TextView) findViewById(R.id.battery_level);
+        battery_zhuan = (ImageView) findViewById(R.id.battery_zhuan);
         battery_water = (AWaterView) findViewById(R.id.battery_water);
         batteryView = (BatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
@@ -294,23 +299,24 @@ public class BatteryView extends FrameLayout {
         date = (TextView) findViewById(R.id.battery_now_date);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
+        batteryLeft_2 = (TextView) findViewById(R.id.battery_now_battery_left_2);
     }
 
     public void pauseBubble() {
-        if (bubbleLayout != null) {
-            bubbleLayout.pause();
-        }
-        if (battery_water != null) {
-            battery_water.stop();
+//        if (battery_water != null) {
+//            battery_water.stop();
+//        }
+        if (objectAnimator != null && objectAnimator.isRunning()) {
+            objectAnimator.cancel();
         }
     }
 
     public void reStartBubble() {
-        if (bubbleLayout != null) {
-            bubbleLayout.reStart();
-        }
-        if (battery_water != null) {
-            battery_water.start();
+//        if (battery_water != null) {
+//            battery_water.start();
+//        }
+        if (objectAnimator != null && !objectAnimator.isRunning()) {
+            objectAnimator.start();
         }
     }
 
@@ -320,8 +326,17 @@ public class BatteryView extends FrameLayout {
         if (!isRegisterTimeUpdate) {
             registerTimeUpdateReceiver();
         }
-        if (battery_water != null) {
-            battery_water.start();
+//        if (battery_water != null) {
+//            battery_water.start();
+//        }
+
+        if (battery_zhuan != null) {
+            objectAnimator = ObjectAnimator.ofFloat(battery_zhuan, View.ROTATION
+                    , 0, -360);
+            objectAnimator.setDuration(1500);
+            objectAnimator.setRepeatCount(-1);
+            objectAnimator.setInterpolator(new LinearInterpolator());
+            objectAnimator.start();
         }
         if (!isBindView) {
             isBindView = true;
@@ -331,6 +346,9 @@ public class BatteryView extends FrameLayout {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        if (objectAnimator != null) {
+            objectAnimator.cancel();
+        }
         try {
             JSONObject object = new JSONObject(AndroidSdk.getExtraData());
             int state = analysisJson(object);
@@ -343,15 +361,12 @@ public class BatteryView extends FrameLayout {
         if (isRegisterTimeUpdate) {
             unregisterTimeUpdateReceiver();
         }
-        if (bubbleLayout != null) {
-            bubbleLayout.destroy();
-        }
         if (isBindView) {
             isBindView = false;
         }
-        if (battery_water != null) {
-            battery_water.stop();
-        }
+//        if (battery_water != null) {
+//            battery_water.stop();
+//        }
     }
 
     private int analysisJson(JSONObject object) throws JSONException {

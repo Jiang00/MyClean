@@ -41,7 +41,7 @@ public class BubbleLayout extends View {
     }
 
     private void init() {
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.battery_bubble);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.bubble_main);
     }
 
     public void destroy() {
@@ -86,13 +86,13 @@ public class BubbleLayout extends View {
                         Bubble bubble = new Bubble();
                         int radius = random.nextInt(10) + 10;
                         float speedY = random.nextFloat() + 0.5f;
-                        float scale = random.nextFloat() * 0.2f + 0.6f;
+                        float scale = random.nextFloat() * 0.3f + 0.8f;
                         float speedX = random.nextFloat() * 0.2f - 0.1f;
                         bubble.setScale(scale);
                         bubble.setRadius(radius);
                         bubble.setSpeedY(speedY);
                         bubble.setX(random.nextInt(width));
-                        bubble.setY(height);
+                        bubble.setY(0);
                         bubble.setSpeedX(speedX);
                         if (bitmap != null && !bitmap.isRecycled()) {
                             try {
@@ -111,7 +111,7 @@ public class BubbleLayout extends View {
                         }
                         bubbles.add(bubble);
                         try {
-                            Thread.sleep(500);
+                            Thread.sleep(400);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -124,14 +124,14 @@ public class BubbleLayout extends View {
         //依次绘制气泡
         Paint paint = new Paint();
         paint.setColor(0X669999);//灰白色
-        paint.setAlpha(150);//设置不透明度：透明为0，完全不透明为255
+        paint.setAlpha(200);//设置不透明度：透明为0，完全不透明为255
         for (Bubble bubble : list) {
             //碰到上边界从数组中移除
-            if (bubble.getY() - bubble.getSpeedY() <= 0) {
+            if (bubble.getY() + bubble.getSpeedY() >= height) {
                 bubbles.remove(bubble);
-            } else if (bubble.getX() - bubble.getRadius() <= 0) {//碰到左边界从数组中移除
+            } else if (bubble.getX() + bubble.getSpeedX() <= 0) {//碰到左边界从数组中移除
                 bubbles.remove(bubble);
-            } else if (bubble.getX() + bubble.getRadius() >= width) { //碰到右边界从数组中移除
+            } else if (bubble.getX() + bubble.getSpeedX() + bubble.getBitmap().getWidth() >= width) { //碰到右边界从数组中移除
                 bubbles.remove(bubble);
             } else {
                 int i = bubbles.indexOf(bubble);
@@ -142,7 +142,7 @@ public class BubbleLayout extends View {
                 } else {
                     bubble.setX(bubble.getX() + bubble.getSpeedX());
                 }
-                bubble.setY(bubble.getY() - bubble.getSpeedY());
+                bubble.setY(bubble.getY() + bubble.getSpeedY());
 
                 bubbles.set(i, bubble);
 //				canvas.drawCircle(bubble.getX(), bubble.getY(), bubble.getRadius(), paint);

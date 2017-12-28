@@ -68,22 +68,10 @@ public class AppAdapter extends MybaseAdapter<JunkInfo> {
 
         Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
         holder.icon.setImageDrawable(icon);
-        if (info.isChecked) {
-            holder.checkBox.setImageResource(R.mipmap.ram_passed);
-        } else {
-            holder.checkBox.setImageResource(R.mipmap.ram_normal);
-        }
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                info.isChecked = !info.isChecked;
-                if (info.isChecked) {
-                    holder.checkBox.setImageResource(R.mipmap.ram_passed);
-                    managerPresenter.addCleandata(true, info.allSize);
-                } else {
-                    holder.checkBox.setImageResource(R.mipmap.ram_normal);
-                    managerPresenter.addCleandata(false, info.allSize);
-                }
+                managerPresenter.bleachFile(info);
             }
         });
 

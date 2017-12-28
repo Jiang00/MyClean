@@ -10,10 +10,8 @@ public interface MainView extends BaseView {
 
     void initRam(int percent, String size);
 
-    void initHuojian();
 
 
-    void setRotateGone();
 
     void initSideData();
 

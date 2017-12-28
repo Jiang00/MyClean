@@ -28,24 +28,36 @@
         android:layout_marginTop="@dimen/d133"
         android:orientation="vertical">
 
-
-        <ImageView
-            android:id="@+id/cooling_xuehua"
+        <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/cooling_1" />
+            android:layout_height="wrap_content">
 
-        <com.vector.module.mView.CustomerTypefaceTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/d15"
-            android:text="@string/cooling_start"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/s16" />
+            <ImageView
+                android:id="@+id/cooling_xuehua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/cooling_1" />
+
+            <ImageView
+                android:id="@+id/cooling_xuehua_z"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/cooling_2" />
+        </FrameLayout>
+
 
     </LinearLayout>
+
+    <com.vector.module.mView.CustomerTypefaceTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="@dimen/d78"
+        android:text="@string/cooling_start"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/s16" />
 
     <LinearLayout
         android:id="@+id/cooling_piao"

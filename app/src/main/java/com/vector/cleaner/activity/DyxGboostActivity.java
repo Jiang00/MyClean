@@ -65,7 +65,6 @@ import java.util.List;
 public class DyxGboostActivity extends BaseActivity {
     private static final int ADD_DATA = 0;
 
-    TextView gboost_power_check;
     Button gboost_clean_button;
     LinearLayout ll_add_game;
     FrameLayout title_left;
@@ -114,7 +113,6 @@ public class DyxGboostActivity extends BaseActivity {
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
 
         gboost_recyc = (RecyclerView) findViewById(R.id.gboost_recyc);
-        gboost_power_check = (TextView) findViewById(R.id.gboost_power_check);
         gboost_clean_button = (Button) findViewById(R.id.gboost_clean_button);
         ll_add_game = (LinearLayout) findViewById(R.id.ll_add_game);
         add_left = (FrameLayout) findViewById(R.id.add_left);
@@ -125,7 +123,6 @@ public class DyxGboostActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_gboost);
-        registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         mHandler = new Handler();
 
@@ -133,14 +130,6 @@ public class DyxGboostActivity extends BaseActivity {
         add_left.setOnClickListener(clickListener);
         title_name.setText(R.string.gboost_0);
 
-        long size = MemoryManager.getPhoneFreeRamMemory(this);
-
-        if (Util.isAccessibilitySettingsOn(this)) {
-            gboost_power_check.setText(R.string.gboost_kai_2);
-        } else {
-            gboost_power_check.setText(R.string.gboost_kai);
-        }
-        gboost_power_check.setOnClickListener(clickListener);
         gboost_clean_button.setOnClickListener(clickListener);
         add_right.setOnClickListener(clickListener);
         clear.setOnClickListener(clickListener);
@@ -211,15 +200,11 @@ public class DyxGboostActivity extends BaseActivity {
                     toggleEditAnimation();
                     break;
 
-                case R.id.gboost_power_check:
-                    AdUtil.track("游戏加速页面", "开启辅助功能", "", 1);
-                    permissIntent();
-                    break;
                 case R.id.gboost_clean_button:
                     AdUtil.track("游戏加速页面", "点击一键加速", "", 1);
                     Bundle bundle = new Bundle();
                     bundle.putString("from", "GBoost");
-                    jumpToActivity(DeepActivity.class, bundle, 1);
+                    jumpToActivity(ANeicunAvtivity.class, bundle, 1);
                     break;
             }
         }
@@ -372,119 +357,20 @@ public class DyxGboostActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        unregisterReceiver(broadcastReceiver);
         super.onDestroy();
 
     }
 
-    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
-                if (widgetContainer != null) {
-                    widgetContainer.removeFromWindow();
-                }
-            }
-        }
-    };
-
-    public void permissIntent() {
-        try {
-            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-            startActivityForResult(intent, 100);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        mHandler.postDelayed(runnable_acc, 1500);
-    }
-
-    private WidgetContainer widgetContainer;
-    Runnable runnable_acc = new Runnable() {
-        @Override
-        public void run() {
-            View view = LayoutInflater.from(DyxGboostActivity.this).inflate(R.layout.layout_power_promiss, null);
-            widgetContainer = new WidgetContainer(DyxGboostActivity.this.getApplicationContext(), Gravity.NO_GRAVITY, WindowManager.LayoutParams.MATCH_PARENT,
-                    WindowManager.LayoutParams.MATCH_PARENT, true);
-            widgetContainer.addView(view);
-            widgetContainer.addToWindow();
-            widgetContainer.setWidgetListener(new WidgetContainer.IWidgetListener() {
-                @Override
-                public boolean onBackPressed() {
-                    return false;
-                }
-
-                @Override
-                public boolean onMenuPressed() {
-                    return false;
-                }
-
-                @Override
-                public void onClick() {
-                    widgetContainer.removeFromWindow();
-                }
-            });
-        }
-    };
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 100 || requestCode == 1) {
-            if (Util.isAccessibilitySettingsOn(this)) {
-                gboost_power_check.setText(R.string.gboost_kai_2);
-            } else {
-                gboost_power_check.setText(R.string.gboost_kai);
-            }
-        }
-        if (requestCode == 100) {
-            if (mHandler != null) {
-                mHandler.removeCallbacks(runnable_acc);
-            }
-            if (Util.isAccessibilitySettingsOn(DyxGboostActivity.this)) {
-            } else {
-                showDialogPermiss();
-            }
-        }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private void showDialogPermiss() {
-        View view = View.inflate(this, R.layout.dialog_power, null);
-        TextView exit_queren = (TextView) view.findViewById(R.id.bt_queren);
-        TextView exit_quxiao = (TextView) view.findViewById(R.id.bt_quxiao);
-        ImageView iv_cha = (ImageView) view.findViewById(R.id.iv_cha);
-        exit_queren.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                permissIntent();
-                dialog.dismiss();
-
-            }
-        });
-        iv_cha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        exit_quxiao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        dialog = new AlertDialog.Builder(this, R.style.exit_dialog).create();
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setView(view);
-        dialog.show();
     }
 
     class HuiAdapter extends RecyclerView.Adapter<HuiAdapter.HomeViewHolder> {
 
         public HuiAdapter() {
         }
-
 
         public HuiAdapter.HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             HuiAdapter.HomeViewHolder holder = new HuiAdapter.HomeViewHolder(LayoutInflater.from(

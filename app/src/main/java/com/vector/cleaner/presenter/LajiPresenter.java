@@ -116,46 +116,30 @@ public class LajiPresenter extends BasePresenter<JunkView> {
 
     public void bleachFile(boolean isZhankai, List<JunkInfo> systemCache, List<JunkInfo> apkFiles, List<JunkInfo> filesOfUnintalledApk,
                            List<JunkInfo> appJunk, List<JunkInfo> appCache) {
-        clearList = new ArrayList<>();
-        if (isZhankai) {
-            clearList.addAll(CleanManager.getInstance(context).getSystemCaches());
-        }
 
 //                adapter1.clear();
         CleanManager.getInstance(context).clearSystemCache();
         for (JunkInfo fileListInfo : apkFiles) {
             if (fileListInfo.isChecked) {
                 CleanManager.getInstance(context).removeApkFiles(fileListInfo);
-                if (isZhankai) {
-                    clearList.add(fileListInfo);
-                }
             }
         }
 
         for (JunkInfo clearListInfo : filesOfUnintalledApk) {
             if (clearListInfo.isChecked) {
                 CleanManager.getInstance(context).removeFilesOfUnintalledApk(clearListInfo);
-                if (isZhankai) {
-                    clearList.add(clearListInfo);
-                }
             }
         }
 
         for (JunkInfo fileListInfo : appJunk) {
             if (fileListInfo.isChecked) {
                 CleanManager.getInstance(context).removeAppLog(fileListInfo);
-                if (isZhankai) {
-                    clearList.add(fileListInfo);
-                }
             }
         }
 
         for (JunkInfo fileListInfo : appCache) {
             if (fileListInfo.isChecked) {
                 CleanManager.getInstance(context).removeAppCache(fileListInfo);
-                if (isZhankai) {
-                    clearList.add(fileListInfo);
-                }
             }
         }
         changeColor(allSize - cleanSize);

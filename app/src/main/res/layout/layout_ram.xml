@@ -1,118 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:orientation="vertical">
 
-
     <LinearLayout
-        android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/A1"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <View
-            android:id="@+id/view_title_bar"
+        <LinearLayout
+            android:id="@+id/junk_title_backg"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="wrap_content"
+            android:background="@color/A1"
+            android:orientation="vertical">
 
-        <include layout="@layout/layout_title" />
+            <View
+                android:id="@+id/view_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d95">
+            <include layout="@layout/layout_title" />
+
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d100"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <com.vector.module.mView.CustomerTypefaceTextView
-                    android:id="@+id/junk_size_all"
-                    android:layout_width="@dimen/d133"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d20"
-                    android:gravity="center"
-                    android:lines="1"
-                    android:text="0"
-                    android:textColor="#ffffff"
-                    android:textSize="@dimen/s60"
-                    app:typeface="Roboto-Light.ttf" />
-
-                <LinearLayout
-                    android:id="@+id/ll_tv"
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical">
-
+                    android:layout_height="wrap_content">
 
                     <com.vector.module.mView.CustomerTypefaceTextView
-                        android:id="@+id/junk_fangxin"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/junk_size_all"
+                        android:layout_width="@dimen/d133"
                         android:layout_height="wrap_content"
-                        android:text="B"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="0"
                         android:textColor="#ffffff"
-                        android:textSize="@dimen/s30"
+                        android:textSize="@dimen/s53"
                         app:typeface="Roboto-Light.ttf" />
 
                     <com.vector.module.mView.CustomerTypefaceTextView
                         android:id="@+id/junk_unit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d1"
-                        android:text="@string/junk_title_clean"
-                        android:textColor="@color/white_100"
-                        android:textSize="@dimen/s17"
+                        android:layout_alignBaseline="@id/junk_size_all"
+                        android:layout_toRightOf="@id/junk_size_all"
+                        android:text="B"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/s18"
                         app:typeface="Roboto-Light.ttf" />
+                </RelativeLayout>
 
-
-                </LinearLayout>
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:id="@+id/junk_fangxin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/junk_title_clean"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s14"
+                    app:typeface="Roboto-Light.ttf" />
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|bottom"
-                android:background="@mipmap/neicun" />
+        </LinearLayout>
 
-        </FrameLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white_100"
-        android:orientation="vertical">
-
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white_100"
+            android:orientation="vertical">
 
-            <ListView
-                android:id="@+id/junk_list_all"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:divider="@drawable/list_divider"
-                android:dividerHeight="0px" />
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/junk_button_clean"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:background="@mipmap/button"
-                android:visibility="invisible" />
-        </FrameLayout>
+                <ListView
+                    android:id="@+id/junk_list_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/list_divider"
+                    android:dividerHeight="1px" />
+
+                <Button
+                    android:id="@+id/junk_button_clean"
+                    android:layout_width="@dimen/d208"
+                    android:layout_height="@dimen/d48"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/d12"
+                    android:background="@drawable/shape_button"
+                    android:text="@string/ram_button"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s16"
+                    android:visibility="invisible" />
+            </FrameLayout>
 
 
+        </LinearLayout>
     </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/ram_clean"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/A1"
+        android:clickable="true"
+        android:visibility="invisible">
 
-</LinearLayout>
+        <com.vector.cleaner.myview.BubbleLayoutJunk
+            android:id="@+id/ram_clean_bubble"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.vector.cleaner.myview.BubbleLayoutRam
+            android:id="@+id/ram_clean_bubble_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/ram_clean_feiji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/d146"
+                android:layout_height="@dimen/d168"
+                android:layout_gravity="center"
+                android:src="@mipmap/ram_2" />
+
+            <ImageView
+                android:id="@+id/ram_clean_huo"
+                android:layout_width="@dimen/d40"
+                android:layout_height="@dimen/d48"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/d24"
+                android:layout_marginTop="-11dp"
+                android:src="@mipmap/ram_3" />
+        </LinearLayout>
+
+        <com.vector.module.mView.CustomerTypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="@dimen/d78"
+            android:text="@string/toast_ing"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s16" />
+
+    </FrameLayout>
+</FrameLayout>

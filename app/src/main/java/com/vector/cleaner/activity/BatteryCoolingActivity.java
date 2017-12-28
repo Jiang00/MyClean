@@ -1,5 +1,6 @@
 package com.vector.cleaner.activity;
 
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
@@ -36,7 +37,7 @@ public class BatteryCoolingActivity extends BaseActivity {
     FrameLayout title_left;
     LinearLayout cooling_text;
     LinearLayout cooling_piao;
-    ImageView cooling_xuehua;
+    ImageView cooling_xuehua, cooling_xuehua_z;
     LinearLayout cooling_fl;
 
     private FlakeView flakeView;
@@ -52,7 +53,7 @@ public class BatteryCoolingActivity extends BaseActivity {
     private Animation suo;
     private Random random;
     private int time;
-    private ObjectAnimator rotationY;
+    private AnimatorSet animatorSet;
 
     @Override
     protected void findId() {
@@ -61,6 +62,7 @@ public class BatteryCoolingActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
         cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
+        cooling_xuehua_z = (ImageView) findViewById(R.id.cooling_xuehua_z);
         cooling_fl = (LinearLayout) findViewById(R.id.cooling_fl);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
@@ -70,7 +72,7 @@ public class BatteryCoolingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,10 +84,12 @@ public class BatteryCoolingActivity extends BaseActivity {
 
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         mHandler = new Handler();
-        rotationY = ObjectAnimator.ofFloat(cooling_xuehua, "rotationY", 0, 90, 0, -90, 0);
-        rotationY.setDuration(3000);
-        rotationY.setInterpolator(new LinearInterpolator());
-        rotationY.start();
+        animatorSet = new AnimatorSet();
+        ObjectAnimator rotationY = ObjectAnimator.ofFloat(cooling_xuehua_z, View.ROTATION, 0, 7200);
+        ObjectAnimator rotationY_2 = ObjectAnimator.ofFloat(cooling_xuehua, View.ROTATION, 0, -7200);
+        animatorSet.setDuration(3000);
+        animatorSet.play(rotationY).with(rotationY_2);
+        animatorSet.start();
         startCoolingAni();
 
 
@@ -93,7 +97,7 @@ public class BatteryCoolingActivity extends BaseActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 cooling_fl.setVisibility(View.INVISIBLE);
-                rotationY.cancel();
+                animatorSet.cancel();
                 cooling_xuehua.clearAnimation();
                 if (PreData.getDB(BatteryCoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
                     AndroidSdk.showFullAd(AdUtil.DEFAULT);
@@ -168,6 +172,9 @@ public class BatteryCoolingActivity extends BaseActivity {
     protected void onDestroy() {
         if (mHandler != null && runnable != null) {
             mHandler.removeCallbacks(runnable);
+        }
+        if (animatorSet != null && animatorSet.isRunning()) {
+            animatorSet.cancel();
         }
         super.onDestroy();
     }

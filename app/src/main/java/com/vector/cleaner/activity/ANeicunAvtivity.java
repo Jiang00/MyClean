@@ -1,5 +1,7 @@
 package com.vector.cleaner.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -18,6 +20,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.vector.cleaner.madapter.RamAdapter;
+import com.vector.cleaner.myview.BubbleLayoutJunk;
+import com.vector.cleaner.myview.BubbleLayoutRam;
 import com.vector.cleaner.presenter.RamPresenter;
 import com.vector.cleaner.utils.AdUtil;
 import com.vector.cleaner.utils.Constant;
@@ -45,12 +49,18 @@ public class ANeicunAvtivity extends BaseActivity implements MRamView {
     TextView title_name;
     TextView junk_size_all;
     ListView junk_list_all;
+    FrameLayout ram_clean;
+    BubbleLayoutJunk ram_clean_bubble;
+    BubbleLayoutRam ram_clean_bubble_2;
+    LinearLayout ram_clean_feiji;
+    ImageView ram_clean_huo;
 
     private RamAdapter adapterRam;
     private RamPresenter ramPresenter;
     private boolean color1 = true;
     private boolean color2 = true;
     public Handler myHandler;
+    private AnimatorSet animatorSet;
 
     @Override
     protected void findId() {
@@ -64,13 +74,20 @@ public class ANeicunAvtivity extends BaseActivity implements MRamView {
         junk_fangxin = (TextView) findViewById(R.id.junk_fangxin);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
+        ram_clean = (FrameLayout) findViewById(R.id.ram_clean);
+        ram_clean_bubble = (BubbleLayoutJunk) findViewById(R.id.ram_clean_bubble);
+        ram_clean_bubble_2 = (BubbleLayoutRam) findViewById(R.id.ram_clean_bubble_2);
+        ram_clean_feiji = (LinearLayout) findViewById(R.id.ram_clean_feiji);
+        ram_clean_huo = (ImageView) findViewById(R.id.ram_clean_huo);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
+        ram_clean_bubble.pause();
+        ram_clean_bubble_2.pause();
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();
         ramPresenter.init();
@@ -131,7 +148,7 @@ public class ANeicunAvtivity extends BaseActivity implements MRamView {
                         @Override
                         public void run() {
                             junk_size_all.setText(Util.convertStorage(finalI, false));
-                            setUnit(allSize, junk_fangxin);
+                            setUnit(allSize, junk_unit);
                         }
                     });
                 }
@@ -149,7 +166,7 @@ public class ANeicunAvtivity extends BaseActivity implements MRamView {
         if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A3));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
@@ -158,13 +175,20 @@ public class ANeicunAvtivity extends BaseActivity implements MRamView {
         } else if (allSize > 1024 * 1024 * 200) {
             if (color2) {
                 color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A2));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
             }
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        ram_clean_bubble.resume();
+        ram_clean_bubble_2.resume();
     }
 
     public void setUnit(long size, TextView textView) {
@@ -224,49 +248,61 @@ public class ANeicunAvtivity extends BaseActivity implements MRamView {
 
     @Override
     public void cleanAnimation(List<JunkInfo> cleanList, final long cleanSize) {
-        adapterRam.upList(cleanList);
-        adapterRam.notifyDataSetChanged();
-        new Thread(new Runnable() {
+        final Bundle bundle = new Bundle();
+        bundle.putLong("sizeR", cleanSize);
+        bundle.putString("name", (String) getText(R.string.jiasu_success));
+        bundle.putString("from", "ramSpeed");
+
+        ram_clean.setVisibility(View.VISIBLE);
+        ram_clean_bubble.reStart();
+        ram_clean_bubble_2.reStart();
+        animatorSet = new AnimatorSet();
+        ObjectAnimator objectAnimator_1 = ObjectAnimator.ofFloat(ram_clean_feiji, View.TRANSLATION_Y, getResources().getDimension(R.dimen.d425), 0);
+        objectAnimator_1.setDuration(500);
+        ram_clean_huo.setPivotY(0);
+        ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(ram_clean_huo, View.SCALE_Y, 1, 1.3f, 1);
+        objectAnimator_2.setDuration(500);
+        objectAnimator_2.setRepeatCount(4);
+        ObjectAnimator objectAnimator_3 = ObjectAnimator.ofFloat(ram_clean_feiji, View.TRANSLATION_Y, 0, -getResources().getDimension(R.dimen.d425));
+        objectAnimator_3.setDuration(500);
+        animatorSet.playSequentially(objectAnimator_1, objectAnimator_2, objectAnimator_3);
+        animatorSet.start();
+        animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
-            public void run() {
-                int a = adapterRam.getCount();
-                int time = 100;
-                for (int i = 0; i < a; i++) {
-                    if (i > 10) {
-                        time = 30;
-                    }
-                    try {
-                        Thread.sleep(time--);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            if (adapterRam.getData().size() != 0) {
-                                adapterRam.removeData(adapterRam.getData(0));
-                                adapterRam.notifyDataSetChanged();
-                                Log.e("aaa", "===ram清理2");
-                            }
-                        }
-                    });
-                }
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Bundle bundle = new Bundle();
-                        bundle.putLong("sizeR", cleanSize);
-                        bundle.putString("name", (String) getText(R.string.jiasu_success));
-                        bundle.putString("from", "ramSpeed");
-                        ramPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
-                    }
-                });
+            public void onAnimationCancel(Animator animation) {
+
             }
-        }).start();
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                ramPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
+
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (animatorSet != null && animatorSet.isRunning()) {
+            animatorSet.removeAllListeners();
+            animatorSet.cancel();
+        }
+        ram_clean_bubble.pause();
+        ram_clean_bubble.destroy();
+        ram_clean_bubble_2.pause();
+        ram_clean_bubble_2.destroy();
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -287,7 +323,6 @@ public class ANeicunAvtivity extends BaseActivity implements MRamView {
                     AdUtil.track("ram页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     Log.e("aaa", "===ram点击");
-                    showToast((String) getText(R.string.toast_ing));
                     ramPresenter.bleachFile(adapterRam.getData());
                     break;
             }

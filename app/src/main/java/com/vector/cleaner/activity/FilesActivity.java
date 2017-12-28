@@ -1,8 +1,10 @@
 package com.vector.cleaner.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -11,9 +13,11 @@ import android.widget.TextView;
 import com.vector.cleaner.utils.AdUtil;
 import com.vector.cleaner.utils.Constant;
 import com.vector.mcleaner.file.FileCategoryHelper;
+import com.vector.mcleaner.mutil.MemoryManager;
 import com.vector.mcleaner.mutil.PreData;
 import com.android.client.AndroidSdk;
 import com.vector.cleaner.R;
+import com.vector.mcleaner.mutil.Util;
 
 /**
  * Created by  on 2017/4/20.
@@ -23,15 +27,19 @@ public class FilesActivity extends BaseActivity {
     LinearLayout ll_ad;
 
     FrameLayout title_left;
-    LinearLayout file_apk_button, file_zip_button, file_txt_button, file_music_button, file_video_button, file_other_button;
+    LinearLayout file_apk_button, file_zip_button, file_txt_button, file_music_button, file_video_button;
     TextView title_name;
     private View nativeView;
-    TextView file_apk_num, file_zip_num, file_txt_num, file_music_num, file_video_num, file_qita_num;
-    TextView file_apk_num_d, file_zip_num_d, file_txt_num_d, file_music_num_d, file_video_num_d, file_qita_num_d;
+    TextView file_apk_num, file_zip_num, file_txt_num, file_music_num, file_video_num;
+    TextView file_apk_num_d, file_zip_num_d, file_txt_num_d, file_music_num_d, file_video_num_d;
+    TextView file_apk_num_check, file_zip_num_check, file_txt_num_check, file_music_num_check, file_video_num_check;
+
+    TextView file_sd_keyong;
+    TextView file_video_size, file_apk_size, file_audio_size, file_zip_size, file_dec_size;
 
     private String TAG_FILE = "vector_file";
     private FileCategoryHelper fileHelper;
-    private FileCategoryHelper.CategoryInfo apkInfo, zipInfo, docInfo, musicInfo, videoInfo, otherInfo;
+    private FileCategoryHelper.CategoryInfo apkInfo, zipInfo, docInfo, musicInfo, videoInfo;
     private Handler mHandler;
 
     @Override
@@ -44,20 +52,28 @@ public class FilesActivity extends BaseActivity {
         file_txt_num = (TextView) findViewById(R.id.file_txt_num);
         file_music_num = (TextView) findViewById(R.id.file_music_num);
         file_video_num = (TextView) findViewById(R.id.file_video_num);
-        file_qita_num = (TextView) findViewById(R.id.file_qita_num);
         file_apk_num_d = (TextView) findViewById(R.id.file_apk_num_d);
         file_zip_num_d = (TextView) findViewById(R.id.file_zip_num_d);
         file_txt_num_d = (TextView) findViewById(R.id.file_txt_num_d);
         file_music_num_d = (TextView) findViewById(R.id.file_music_num_d);
         file_video_num_d = (TextView) findViewById(R.id.file_video_num_d);
-        file_qita_num_d = (TextView) findViewById(R.id.file_qita_num_d);
+        file_apk_num_check = (TextView) findViewById(R.id.file_apk_num_check);
+        file_zip_num_check = (TextView) findViewById(R.id.file_zip_num_check);
+        file_txt_num_check = (TextView) findViewById(R.id.file_txt_num_check);
+        file_music_num_check = (TextView) findViewById(R.id.file_music_num_check);
+        file_video_num_check = (TextView) findViewById(R.id.file_video_num_check);
         file_apk_button = (LinearLayout) findViewById(R.id.file_apk_button);
         file_zip_button = (LinearLayout) findViewById(R.id.file_zip_button);
         file_txt_button = (LinearLayout) findViewById(R.id.file_txt_button);
         file_music_button = (LinearLayout) findViewById(R.id.file_music_button);
         file_video_button = (LinearLayout) findViewById(R.id.file_video_button);
-        file_other_button = (LinearLayout) findViewById(R.id.file_other_button);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        file_sd_keyong = (TextView) findViewById(R.id.file_sd_keyong);
+        file_video_size = (TextView) findViewById(R.id.file_video_size);
+        file_apk_size = (TextView) findViewById(R.id.file_apk_size);
+        file_audio_size = (TextView) findViewById(R.id.file_audio_size);
+        file_zip_size = (TextView) findViewById(R.id.file_zip_size);
+        file_dec_size = (TextView) findViewById(R.id.file_dec_size);
     }
 
     @Override
@@ -69,7 +85,8 @@ public class FilesActivity extends BaseActivity {
         mHandler = new Handler();
         initAd();
         initData();
-
+        long sd_kongxian = MemoryManager.getPhoneAllFreeSize();
+        file_sd_keyong.setText(Util.convertStorage(sd_kongxian, true) + " " + getString(R.string.main_msg_sd));
 
     }
 
@@ -87,24 +104,38 @@ public class FilesActivity extends BaseActivity {
                         docInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Doc);
                         musicInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Music);
                         videoInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Video);
-                        otherInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Other);
-                        file_apk_num.setText(apkInfo.count + "");
-                        file_zip_num.setText(zipInfo.count + "");
-                        file_txt_num.setText(docInfo.count + "");
-                        file_music_num.setText(musicInfo.count + "");
-                        file_video_num.setText(videoInfo.count + "");
-                        file_qita_num.setText(otherInfo.count + "");
-                        file_apk_num_d.setVisibility(View.VISIBLE);
-                        file_zip_num_d.setVisibility(View.VISIBLE);
-                        file_txt_num_d.setVisibility(View.VISIBLE);
-                        file_music_num_d.setVisibility(View.VISIBLE);
-                        file_video_num_d.setVisibility(View.VISIBLE);
-                        file_qita_num_d.setVisibility(View.VISIBLE);
+
+                        setFileNum(file_apk_num, file_apk_num_d, file_apk_num_check, apkInfo.count);
+                        setFileNum(file_zip_num, file_zip_num_d, file_zip_num_check, zipInfo.count);
+                        setFileNum(file_txt_num, file_txt_num_d, file_txt_num_check, docInfo.count);
+                        setFileNum(file_music_num, file_music_num_d, file_music_num_check, musicInfo.count);
+                        setFileNum(file_video_num, file_video_num_d, file_video_num_check, videoInfo.count);
+
+                        file_video_size.setText(Util.convertStorage(videoInfo.size, true));
+                        file_apk_size.setText(Util.convertStorage(apkInfo.size, true));
+                        file_audio_size.setText(Util.convertStorage(musicInfo.size, true));
+                        file_zip_size.setText(Util.convertStorage(zipInfo.size, true));
+                        file_dec_size.setText(Util.convertStorage(docInfo.size, true));
                         setListener();
                     }
                 });
             }
         }).start();
+    }
+
+    private void setFileNum(TextView view1, TextView view2, TextView view3, long num) {
+        view1.setText(num + " " + getString(R.string.file_num));
+        if (num > 0) {
+            view1.setTextColor(ContextCompat.getColor(FilesActivity.this, R.color.A2));
+            view2.setText(R.string.file_main);
+            view2.setTextColor(ContextCompat.getColor(FilesActivity.this, R.color.Z1));
+            view3.setBackgroundResource(R.drawable.shape_a2_round);
+        } else {
+            view1.setTextColor(ContextCompat.getColor(FilesActivity.this, R.color.Z1));
+            view2.setText(R.string.file_null);
+            view2.setTextColor(ContextCompat.getColor(FilesActivity.this, R.color.Z2));
+            view3.setBackgroundResource(R.drawable.shape_b3_round);
+        }
     }
 
     private void initAd() {
@@ -173,15 +204,6 @@ public class FilesActivity extends BaseActivity {
                     bundle.putInt("nameId", R.string.file_video);
                     jumpToActivity(FileListActivity.class, bundle, 1);
                     break;
-                case R.id.file_other_button:
-                    AdUtil.track("文件管理页面", "点击进入其他页面", "", 1);
-                    if (otherInfo.count == 0) {
-                        bundle.putInt("count", 0);
-                    }
-                    bundle.putString("name", "other");
-                    bundle.putInt("nameId", R.string.file_pther);
-                    jumpToActivity(FileListActivity.class, bundle, 1);
-                    break;
             }
         }
     };
@@ -193,7 +215,6 @@ public class FilesActivity extends BaseActivity {
         file_txt_button.setOnClickListener(clickListener);
         file_music_button.setOnClickListener(clickListener);
         file_video_button.setOnClickListener(clickListener);
-        file_other_button.setOnClickListener(clickListener);
     }
 
     @Override

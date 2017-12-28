@@ -35014,7 +35014,7 @@ com.vector.cleaner.R$styleable -> com.vector.cleaner.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    4980:13555:void <clinit>() -> <clinit>
+    5040:13615:void <clinit>() -> <clinit>
 com.vector.cleaner.activity.ANeicunAvtivity -> com.vector.cleaner.activity.ANeicunAvtivity:
     android.widget.ImageView title_right -> a
     android.widget.LinearLayout junk_title_backg -> b
@@ -35025,110 +35025,109 @@ com.vector.cleaner.activity.ANeicunAvtivity -> com.vector.cleaner.activity.ANeic
     android.widget.TextView title_name -> g
     android.widget.TextView junk_size_all -> h
     android.widget.ListView junk_list_all -> i
-    com.vector.cleaner.madapter.RamAdapter adapterRam -> o
-    com.vector.cleaner.presenter.RamPresenter ramPresenter -> p
-    boolean color1 -> q
-    boolean color2 -> r
-    android.os.Handler myHandler -> j
-    android.view.View$OnClickListener onClickListener -> k
-    37:272:void <init>() -> <init>
-    57:67:void findId() -> a
-    71:80:void onCreate(android.os.Bundle) -> onCreate
-    85:85:void loadFullAd() -> b
-    89:92:void onClick() -> c
-    96:108:void initData(long) -> a
-    112:168:void setColor(int,long) -> a
-    171:180:void setUnit(long,android.widget.TextView) -> a
-    184:186:void addRamdata(long,java.util.List) -> a
-    190:223:void setCleanDAta(boolean,long) -> a
-    227:265:void cleanAnimation(java.util.List,long) -> a
-    269:270:void onDestroy() -> onDestroy
-    300:302:void onResume() -> onResume
-    306:311:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    315:322:void onBackPressed() -> onBackPressed
-    37:37:com.vector.cleaner.madapter.RamAdapter access$000(com.vector.cleaner.activity.ANeicunAvtivity) -> a
-    37:37:com.vector.cleaner.presenter.RamPresenter access$100(com.vector.cleaner.activity.ANeicunAvtivity) -> b
+    android.widget.FrameLayout ram_clean -> j
+    com.vector.cleaner.myview.BubbleLayoutJunk ram_clean_bubble -> k
+    com.vector.cleaner.myview.BubbleLayoutRam ram_clean_bubble_2 -> l
+    android.widget.LinearLayout ram_clean_feiji -> m
+    android.widget.ImageView ram_clean_huo -> n
+    com.vector.cleaner.madapter.RamAdapter adapterRam -> t
+    com.vector.cleaner.presenter.RamPresenter ramPresenter -> u
+    boolean color1 -> v
+    boolean color2 -> w
+    android.os.Handler myHandler -> o
+    android.animation.AnimatorSet animatorSet -> x
+    android.view.View$OnClickListener onClickListener -> p
+    41:308:void <init>() -> <init>
+    67:82:void findId() -> a
+    86:97:void onCreate(android.os.Bundle) -> onCreate
+    102:102:void loadFullAd() -> b
+    106:109:void onClick() -> c
+    113:125:void initData(long) -> a
+    129:185:void setColor(int,long) -> a
+    189:192:void onRestart() -> onRestart
+    195:204:void setUnit(long,android.widget.TextView) -> a
+    208:210:void addRamdata(long,java.util.List) -> a
+    214:247:void setCleanDAta(boolean,long) -> a
+    251:293:void cleanAnimation(java.util.List,long) -> a
+    297:306:void onDestroy() -> onDestroy
+    335:337:void onResume() -> onResume
+    341:346:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    350:357:void onBackPressed() -> onBackPressed
+    41:41:com.vector.cleaner.presenter.RamPresenter access$000(com.vector.cleaner.activity.ANeicunAvtivity) -> a
+    41:41:com.vector.cleaner.madapter.RamAdapter access$100(com.vector.cleaner.activity.ANeicunAvtivity) -> b
 com.vector.cleaner.activity.ANeicunAvtivity$1 -> com.vector.cleaner.activity.ANeicunAvtivity$1:
     long val$allSize -> a
     com.vector.cleaner.activity.ANeicunAvtivity this$0 -> b
-    112:112:void <init>(com.vector.cleaner.activity.ANeicunAvtivity,long) -> <init>
-    115:146:void run() -> run
+    129:129:void <init>(com.vector.cleaner.activity.ANeicunAvtivity,long) -> <init>
+    132:163:void run() -> run
 com.vector.cleaner.activity.ANeicunAvtivity$1$1 -> com.vector.cleaner.activity.ANeicunAvtivity$1$1:
     long val$finalI -> a
     com.vector.cleaner.activity.ANeicunAvtivity$1 this$1 -> b
-    130:130:void <init>(com.vector.cleaner.activity.ANeicunAvtivity$1,long) -> <init>
-    133:135:void run() -> run
+    147:147:void <init>(com.vector.cleaner.activity.ANeicunAvtivity$1,long) -> <init>
+    150:152:void run() -> run
 com.vector.cleaner.activity.ANeicunAvtivity$1$2 -> com.vector.cleaner.activity.ANeicunAvtivity$1$2:
     com.vector.cleaner.activity.ANeicunAvtivity$1 this$1 -> a
-    138:138:void <init>(com.vector.cleaner.activity.ANeicunAvtivity$1) -> <init>
-    141:144:void run() -> run
+    155:155:void <init>(com.vector.cleaner.activity.ANeicunAvtivity$1) -> <init>
+    158:161:void run() -> run
 com.vector.cleaner.activity.ANeicunAvtivity$2 -> com.vector.cleaner.activity.ANeicunAvtivity$2:
     long val$size -> a
     com.vector.cleaner.activity.ANeicunAvtivity this$0 -> b
-    191:191:void <init>(com.vector.cleaner.activity.ANeicunAvtivity,long) -> <init>
-    194:215:void run() -> run
+    215:215:void <init>(com.vector.cleaner.activity.ANeicunAvtivity,long) -> <init>
+    218:239:void run() -> run
 com.vector.cleaner.activity.ANeicunAvtivity$3 -> com.vector.cleaner.activity.ANeicunAvtivity$3:
-    long val$cleanSize -> a
+    android.os.Bundle val$bundle -> a
     com.vector.cleaner.activity.ANeicunAvtivity this$0 -> b
-    229:229:void <init>(com.vector.cleaner.activity.ANeicunAvtivity,long) -> <init>
-    232:263:void run() -> run
-com.vector.cleaner.activity.ANeicunAvtivity$3$1 -> com.vector.cleaner.activity.ANeicunAvtivity$3$1:
-    com.vector.cleaner.activity.ANeicunAvtivity$3 this$1 -> a
-    243:243:void <init>(com.vector.cleaner.activity.ANeicunAvtivity$3) -> <init>
-    245:250:void run() -> run
-com.vector.cleaner.activity.ANeicunAvtivity$3$2 -> com.vector.cleaner.activity.ANeicunAvtivity$3$2:
-    com.vector.cleaner.activity.ANeicunAvtivity$3 this$1 -> a
-    253:253:void <init>(com.vector.cleaner.activity.ANeicunAvtivity$3) -> <init>
-    256:261:void run() -> run
+    270:270:void <init>(com.vector.cleaner.activity.ANeicunAvtivity,android.os.Bundle) -> <init>
+    274:274:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    278:279:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    284:284:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    289:289:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.vector.cleaner.activity.ANeicunAvtivity$4 -> com.vector.cleaner.activity.ANeicunAvtivity$4:
     com.vector.cleaner.activity.ANeicunAvtivity this$0 -> a
-    272:272:void <init>(com.vector.cleaner.activity.ANeicunAvtivity) -> <init>
-    275:295:void onClick(android.view.View) -> onClick
+    308:308:void <init>(com.vector.cleaner.activity.ANeicunAvtivity) -> <init>
+    311:330:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.AllAppActivity -> com.vector.cleaner.activity.AllAppActivity:
     android.widget.LinearLayout ll_ad_size -> a
     android.widget.LinearLayout ll_ad_time -> b
     android.widget.LinearLayout ll_ad_pinlv -> c
     android.widget.FrameLayout title_left -> d
-    android.widget.RelativeLayout manager_clean -> e
-    android.support.v4.view.ViewPager doc_view_pager -> f
-    android.widget.TextView title_name -> g
-    android.widget.Button junk_button_clean -> h
-    android.support.design.widget.TabLayout view_pager_tab -> i
-    com.vector.cleaner.madapter.AppAdapter adapter_size -> o
-    com.vector.cleaner.madapter.AppAdapter adapter_time -> p
-    com.vector.cleaner.madapter.AppAdapter adapter_pinlv -> q
-    com.vector.cleaner.presenter.ManagerPresenter managerPresenter -> r
-    android.view.View nativeView1 -> s
-    android.view.View nativeView2 -> t
-    android.view.View nativeView3 -> u
-    com.vector.cleaner.activity.AllAppActivity$MyReceiver receiver -> v
-    android.content.IntentFilter filter -> w
-    java.lang.String TAG_MANAGER -> x
-    java.util.ArrayList titleList -> y
-    java.util.ArrayList viewList -> z
-    com.vector.cleaner.activity.AllAppActivity$MyPagerAdaptre pagerAdapter -> A
-    android.view.View view_size -> B
-    android.view.View view_time -> C
-    android.view.View view_pinlv -> D
-    android.view.View view_permiss -> E
-    android.os.Handler myHandler -> j
-    android.view.View$OnClickListener onClickListener -> k
-    48:296:void <init>() -> <init>
-    74:81:void findId() -> a
-    85:95:void onCreate(android.os.Bundle) -> onCreate
-    99:120:void loadFullAd() -> b
-    124:135:void initList() -> d
-    139:141:void onClick() -> c
-    145:205:void initData(long) -> a
-    272:283:void updateAdapter(java.util.List,java.util.List,java.util.List) -> a
-    287:288:void onPause() -> onPause
-    292:294:void onDestroy() -> onDestroy
-    346:354:boolean isNoSwitch() -> e
-    358:363:boolean isNoOption() -> f
-    368:369:void onRestart() -> onRestart
-    373:376:void onResume() -> onResume
-    381:389:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    393:404:void setCleanDAta(long) -> b
+    android.support.v4.view.ViewPager doc_view_pager -> e
+    android.widget.TextView title_name -> f
+    android.support.design.widget.TabLayout view_pager_tab -> g
+    com.vector.cleaner.madapter.AppAdapter adapter_size -> j
+    com.vector.cleaner.madapter.AppAdapter adapter_time -> k
+    com.vector.cleaner.madapter.AppAdapter adapter_pinlv -> l
+    com.vector.cleaner.presenter.ManagerPresenter managerPresenter -> m
+    android.view.View nativeView1 -> n
+    android.view.View nativeView2 -> o
+    android.view.View nativeView3 -> p
+    com.vector.cleaner.activity.AllAppActivity$MyReceiver receiver -> t
+    android.content.IntentFilter filter -> u
+    java.lang.String TAG_MANAGER -> v
+    java.util.ArrayList titleList -> w
+    java.util.ArrayList viewList -> x
+    com.vector.cleaner.activity.AllAppActivity$MyPagerAdaptre pagerAdapter -> y
+    android.view.View view_size -> z
+    android.view.View view_time -> A
+    android.view.View view_pinlv -> B
+    android.view.View view_permiss -> C
+    android.os.Handler myHandler -> h
+    android.view.View$OnClickListener onClickListener -> i
+    48:285:void <init>() -> <init>
+    72:77:void findId() -> a
+    81:91:void onCreate(android.os.Bundle) -> onCreate
+    95:116:void loadFullAd() -> b
+    120:131:void initList() -> d
+    135:136:void onClick() -> c
+    140:194:void initData(long) -> a
+    261:272:void updateAdapter(java.util.List,java.util.List,java.util.List) -> a
+    276:277:void onPause() -> onPause
+    281:283:void onDestroy() -> onDestroy
+    326:334:boolean isNoSwitch() -> e
+    338:343:boolean isNoOption() -> f
+    348:349:void onRestart() -> onRestart
+    353:356:void onResume() -> onResume
+    361:369:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     48:48:java.util.ArrayList access$000(com.vector.cleaner.activity.AllAppActivity) -> a
     48:48:java.util.ArrayList access$100(com.vector.cleaner.activity.AllAppActivity) -> b
     48:48:com.vector.cleaner.madapter.AppAdapter access$200(com.vector.cleaner.activity.AllAppActivity) -> c
@@ -35137,45 +35136,45 @@ com.vector.cleaner.activity.AllAppActivity -> com.vector.cleaner.activity.AllApp
     48:48:com.vector.cleaner.presenter.ManagerPresenter access$500(com.vector.cleaner.activity.AllAppActivity) -> f
 com.vector.cleaner.activity.AllAppActivity$1 -> com.vector.cleaner.activity.AllAppActivity$1:
     com.vector.cleaner.activity.AllAppActivity this$0 -> a
-    175:175:void <init>(com.vector.cleaner.activity.AllAppActivity) -> <init>
-    178:178:void onPageScrolled(int,float,int) -> onPageScrolled
-    182:190:void onPageSelected(int) -> onPageSelected
-    195:195:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    170:170:void <init>(com.vector.cleaner.activity.AllAppActivity) -> <init>
+    173:173:void onPageScrolled(int,float,int) -> onPageScrolled
+    177:185:void onPageSelected(int) -> onPageSelected
+    190:190:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.vector.cleaner.activity.AllAppActivity$2 -> com.vector.cleaner.activity.AllAppActivity$2:
     java.util.List val$listsize -> a
     java.util.List val$listtime -> b
     java.util.List val$listpinlv -> c
     com.vector.cleaner.activity.AllAppActivity this$0 -> d
-    272:272:void <init>(com.vector.cleaner.activity.AllAppActivity,java.util.List,java.util.List,java.util.List) -> <init>
-    275:281:void run() -> run
+    261:261:void <init>(com.vector.cleaner.activity.AllAppActivity,java.util.List,java.util.List,java.util.List) -> <init>
+    264:270:void run() -> run
 com.vector.cleaner.activity.AllAppActivity$3 -> com.vector.cleaner.activity.AllAppActivity$3:
     com.vector.cleaner.activity.AllAppActivity this$0 -> a
-    296:296:void <init>(com.vector.cleaner.activity.AllAppActivity) -> <init>
-    299:326:void onClick(android.view.View) -> onClick
+    285:285:void <init>(com.vector.cleaner.activity.AllAppActivity) -> <init>
+    288:306:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.AllAppActivity$3$1 -> com.vector.cleaner.activity.AllAppActivity$3$1:
     com.vector.cleaner.activity.AllAppActivity$3 this$1 -> a
-    307:307:void <init>(com.vector.cleaner.activity.AllAppActivity$3) -> <init>
-    310:312:void run() -> run
+    296:296:void <init>(com.vector.cleaner.activity.AllAppActivity$3) -> <init>
+    299:301:void run() -> run
 com.vector.cleaner.activity.AllAppActivity$MyPagerAdaptre -> com.vector.cleaner.activity.AllAppActivity$a:
     int mChildCount -> b
     com.vector.cleaner.activity.AllAppActivity this$0 -> a
-    208:209:void <init>(com.vector.cleaner.activity.AllAppActivity) -> <init>
-    213:213:int getCount() -> getCount
-    218:220:void notifyDataSetChanged() -> notifyDataSetChanged
-    224:229:int getItemPosition(java.lang.Object) -> getItemPosition
-    237:248:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    253:253:java.lang.CharSequence getPageTitle(int) -> getPageTitle
-    258:259:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    263:263:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    197:198:void <init>(com.vector.cleaner.activity.AllAppActivity) -> <init>
+    202:202:int getCount() -> getCount
+    207:209:void notifyDataSetChanged() -> notifyDataSetChanged
+    213:218:int getItemPosition(java.lang.Object) -> getItemPosition
+    226:237:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    242:242:java.lang.CharSequence getPageTitle(int) -> getPageTitle
+    247:248:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    252:252:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.vector.cleaner.activity.AllAppActivity$MyReceiver -> com.vector.cleaner.activity.AllAppActivity$MyReceiver:
     com.vector.cleaner.activity.AllAppActivity this$0 -> a
-    330:330:void <init>(com.vector.cleaner.activity.AllAppActivity) -> <init>
-    336:339:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    310:310:void <init>(com.vector.cleaner.activity.AllAppActivity) -> <init>
+    316:319:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.vector.cleaner.activity.BaseActivity -> com.vector.cleaner.activity.BaseActivity:
     android.widget.Toast toast -> a
-    boolean onPause -> l
-    boolean onDestroyed -> m
-    boolean onResume -> n
+    boolean onPause -> q
+    boolean onDestroyed -> r
+    boolean onResume -> s
     27:32:void <init>() -> <init>
     36:48:void onCreate(android.os.Bundle) -> onCreate
     52:55:void onResume() -> onResume
@@ -35204,61 +35203,62 @@ com.vector.cleaner.activity.BatteryCoolingActivity -> com.vector.cleaner.activit
     android.widget.LinearLayout cooling_text -> d
     android.widget.LinearLayout cooling_piao -> e
     android.widget.ImageView cooling_xuehua -> f
-    android.widget.LinearLayout cooling_fl -> g
-    com.vector.cleaner.myview.FlakeView flakeView -> h
-    android.os.Handler mHandler -> i
-    java.lang.Runnable runnable -> j
-    android.view.animation.Animation suo -> k
-    java.util.Random random -> o
-    int time -> p
-    android.animation.ObjectAnimator rotationY -> q
-    32:44:void <init>() -> <init>
-    59:67:void findId() -> a
-    71:118:void onCreate(android.os.Bundle) -> onCreate
-    122:140:void startCoolingAni() -> b
-    144:148:void onResume() -> onResume
-    153:159:void onBackPressed() -> onBackPressed
-    163:165:void onPause() -> onPause
-    169:173:void onDestroy() -> onDestroy
-    177:180:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    183:193:void hideSnow() -> c
-    32:32:com.vector.cleaner.myview.FlakeView access$000(com.vector.cleaner.activity.BatteryCoolingActivity) -> a
-    32:32:android.animation.ObjectAnimator access$100(com.vector.cleaner.activity.BatteryCoolingActivity) -> b
-    32:32:int access$200(com.vector.cleaner.activity.BatteryCoolingActivity) -> c
-    32:32:android.view.animation.Animation access$300(com.vector.cleaner.activity.BatteryCoolingActivity) -> d
-    32:32:void access$400(com.vector.cleaner.activity.BatteryCoolingActivity) -> e
+    android.widget.ImageView cooling_xuehua_z -> g
+    android.widget.LinearLayout cooling_fl -> h
+    com.vector.cleaner.myview.FlakeView flakeView -> i
+    android.os.Handler mHandler -> j
+    java.lang.Runnable runnable -> k
+    android.view.animation.Animation suo -> l
+    java.util.Random random -> m
+    int time -> n
+    android.animation.AnimatorSet animatorSet -> o
+    33:45:void <init>() -> <init>
+    60:69:void findId() -> a
+    73:122:void onCreate(android.os.Bundle) -> onCreate
+    126:144:void startCoolingAni() -> b
+    148:152:void onResume() -> onResume
+    157:163:void onBackPressed() -> onBackPressed
+    167:169:void onPause() -> onPause
+    173:180:void onDestroy() -> onDestroy
+    184:187:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    190:200:void hideSnow() -> c
+    33:33:com.vector.cleaner.myview.FlakeView access$000(com.vector.cleaner.activity.BatteryCoolingActivity) -> a
+    33:33:android.animation.AnimatorSet access$100(com.vector.cleaner.activity.BatteryCoolingActivity) -> b
+    33:33:int access$200(com.vector.cleaner.activity.BatteryCoolingActivity) -> c
+    33:33:android.view.animation.Animation access$300(com.vector.cleaner.activity.BatteryCoolingActivity) -> d
+    33:33:void access$400(com.vector.cleaner.activity.BatteryCoolingActivity) -> e
 com.vector.cleaner.activity.BatteryCoolingActivity$1 -> com.vector.cleaner.activity.BatteryCoolingActivity$1:
     com.vector.cleaner.activity.BatteryCoolingActivity this$0 -> a
-    44:44:void <init>(com.vector.cleaner.activity.BatteryCoolingActivity) -> <init>
-    47:50:void run() -> run
+    45:45:void <init>(com.vector.cleaner.activity.BatteryCoolingActivity) -> <init>
+    48:51:void run() -> run
 com.vector.cleaner.activity.BatteryCoolingActivity$2 -> com.vector.cleaner.activity.BatteryCoolingActivity$2:
     com.vector.cleaner.activity.BatteryCoolingActivity this$0 -> a
-    75:75:void <init>(com.vector.cleaner.activity.BatteryCoolingActivity) -> <init>
-    78:79:void onClick(android.view.View) -> onClick
+    77:77:void <init>(com.vector.cleaner.activity.BatteryCoolingActivity) -> <init>
+    80:81:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.BatteryCoolingActivity$3 -> com.vector.cleaner.activity.BatteryCoolingActivity$3:
     com.vector.cleaner.activity.BatteryCoolingActivity this$0 -> a
-    92:92:void <init>(com.vector.cleaner.activity.BatteryCoolingActivity) -> <init>
-    95:106:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    111:111:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    116:116:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    96:96:void <init>(com.vector.cleaner.activity.BatteryCoolingActivity) -> <init>
+    99:110:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    115:115:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    120:120:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.vector.cleaner.activity.BatteryCoolingActivity$4 -> com.vector.cleaner.activity.BatteryCoolingActivity$4:
     com.vector.cleaner.activity.BatteryCoolingActivity this$0 -> a
-    126:126:void <init>(com.vector.cleaner.activity.BatteryCoolingActivity) -> <init>
-    129:134:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    130:130:void <init>(com.vector.cleaner.activity.BatteryCoolingActivity) -> <init>
+    133:138:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.vector.cleaner.activity.DeepActivity -> com.vector.cleaner.activity.DeepActivity:
     android.widget.Button containerView_junk_button_clean -> j
     com.vector.cleaner.myview.DeepWidgetContainer container -> k
-    int count -> o
+    int count -> l
     android.support.v7.widget.RecyclerView power_recycler -> a
     android.widget.FrameLayout title_left -> b
     android.widget.TextView title_name -> c
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> p
-    android.widget.TextView containerView_power_size -> q
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> m
+    android.widget.TextView containerView_power_size -> n
     android.widget.TextView power_size -> d
     android.widget.Button junk_button_clean -> e
     android.os.Handler mHandler -> f
-    android.support.v7.widget.GridLayoutManager mLayoutManager -> r
-    com.vector.cleaner.activity.DeepActivity$HomeAdapter homeAdapter -> s
+    android.support.v7.widget.GridLayoutManager mLayoutManager -> o
+    com.vector.cleaner.activity.DeepActivity$HomeAdapter homeAdapter -> p
     com.vector.cleaner.activity.DeepActivity$HomeAdapter containerAdapter -> t
     com.vector.cleaner.activity.MyApplication cleanApplication -> u
     java.util.ArrayList startList -> v
@@ -35367,45 +35367,38 @@ com.vector.cleaner.activity.DeepActivity$HomeAdapter$MyViewHolder -> com.vector.
     com.vector.cleaner.activity.DeepActivity$HomeAdapter this$1 -> e
     322:328:void <init>(com.vector.cleaner.activity.DeepActivity$HomeAdapter,android.view.View) -> <init>
 com.vector.cleaner.activity.DyxGboostActivity -> com.vector.cleaner.activity.DyxGboostActivity:
-    android.widget.TextView gboost_power_check -> a
-    android.widget.Button gboost_clean_button -> b
-    android.widget.LinearLayout ll_add_game -> c
-    android.widget.FrameLayout title_left -> d
-    android.widget.EditText search_edit_text -> e
-    android.widget.TextView title_name -> f
-    android.widget.ImageView add_right -> g
-    android.widget.ImageButton clear -> h
-    android.support.v7.widget.RecyclerView gboost_recyc -> i
-    android.widget.FrameLayout add_left -> j
-    android.widget.ListView list_game -> k
-    com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter adapter -> r
-    java.util.ArrayList list -> s
-    android.os.Handler mHandler -> t
-    com.vector.cleaner.madapter.GameAddAdapter whiteListAdapter -> u
-    boolean search -> v
-    java.util.List gboost_add -> w
-    java.util.List listEdit -> x
-    int screenWidth -> y
-    android.support.v7.app.AlertDialog dialog -> z
-    android.view.View$OnClickListener clickListener -> o
-    android.content.BroadcastReceiver broadcastReceiver -> p
-    com.vector.cleaner.myview.WidgetContainer widgetContainer -> A
-    java.lang.Runnable runnable_acc -> q
-    65:404:void <init>() -> <init>
-    109:122:void findId() -> a
-    126:150:void onCreate(android.os.Bundle) -> onCreate
-    154:186:void addData() -> c
-    189:192:void initList() -> d
-    229:282:void toggleEditAnimation() -> e
-    287:288:void onResume() -> onResume
-    292:299:void onBackPressed() -> onBackPressed
-    302:341:void shortGame(boolean) -> a
-    344:359:void initData() -> f
-    362:371:void upData(java.lang.String) -> b
-    375:378:void onDestroy() -> onDestroy
-    394:401:void permissIntent() -> b
-    433:450:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    453:481:void showDialogPermiss() -> g
+    android.widget.Button gboost_clean_button -> a
+    android.widget.LinearLayout ll_add_game -> b
+    android.widget.FrameLayout title_left -> c
+    android.widget.EditText search_edit_text -> d
+    android.widget.TextView title_name -> e
+    android.widget.ImageView add_right -> f
+    android.widget.ImageButton clear -> g
+    android.support.v7.widget.RecyclerView gboost_recyc -> h
+    android.widget.FrameLayout add_left -> i
+    android.widget.ListView list_game -> j
+    com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter adapter -> l
+    java.util.ArrayList list -> m
+    android.os.Handler mHandler -> n
+    com.vector.cleaner.madapter.GameAddAdapter whiteListAdapter -> o
+    boolean search -> p
+    java.util.List gboost_add -> t
+    java.util.List listEdit -> u
+    int screenWidth -> v
+    android.view.View$OnClickListener clickListener -> k
+    65:184:void <init>() -> <init>
+    108:120:void findId() -> a
+    124:139:void onCreate(android.os.Bundle) -> onCreate
+    143:175:void addData() -> b
+    178:181:void initList() -> c
+    214:267:void toggleEditAnimation() -> d
+    272:273:void onResume() -> onResume
+    277:284:void onBackPressed() -> onBackPressed
+    287:326:void shortGame(boolean) -> a
+    329:344:void initData() -> e
+    347:356:void upData(java.lang.String) -> b
+    360:362:void onDestroy() -> onDestroy
+    367:368:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     65:65:java.util.ArrayList access$000(com.vector.cleaner.activity.DyxGboostActivity) -> a
     65:65:android.os.Handler access$100(com.vector.cleaner.activity.DyxGboostActivity) -> b
     65:65:com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter access$202(com.vector.cleaner.activity.DyxGboostActivity,com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter) -> a
@@ -35416,85 +35409,56 @@ com.vector.cleaner.activity.DyxGboostActivity -> com.vector.cleaner.activity.Dyx
     65:65:void access$600(com.vector.cleaner.activity.DyxGboostActivity) -> f
     65:65:boolean access$502(com.vector.cleaner.activity.DyxGboostActivity,boolean) -> b
     65:65:void access$700(com.vector.cleaner.activity.DyxGboostActivity,java.lang.String) -> a
-    65:65:com.vector.cleaner.myview.WidgetContainer access$800(com.vector.cleaner.activity.DyxGboostActivity) -> g
-    65:65:com.vector.cleaner.myview.WidgetContainer access$802(com.vector.cleaner.activity.DyxGboostActivity,com.vector.cleaner.myview.WidgetContainer) -> a
-    65:65:android.support.v7.app.AlertDialog access$900(com.vector.cleaner.activity.DyxGboostActivity) -> h
-    65:65:com.vector.cleaner.madapter.GameAddAdapter access$1002(com.vector.cleaner.activity.DyxGboostActivity,com.vector.cleaner.madapter.GameAddAdapter) -> a
-    65:65:com.vector.cleaner.madapter.GameAddAdapter access$1000(com.vector.cleaner.activity.DyxGboostActivity) -> i
+    65:65:com.vector.cleaner.madapter.GameAddAdapter access$802(com.vector.cleaner.activity.DyxGboostActivity,com.vector.cleaner.madapter.GameAddAdapter) -> a
+    65:65:com.vector.cleaner.madapter.GameAddAdapter access$800(com.vector.cleaner.activity.DyxGboostActivity) -> g
 com.vector.cleaner.activity.DyxGboostActivity$1 -> com.vector.cleaner.activity.DyxGboostActivity$1:
     com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    83:83:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    86:93:void handleMessage(android.os.Message) -> handleMessage
+    82:82:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    85:92:void handleMessage(android.os.Message) -> handleMessage
 com.vector.cleaner.activity.DyxGboostActivity$2 -> com.vector.cleaner.activity.DyxGboostActivity$2:
     com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    159:159:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    162:181:void run() -> run
+    148:148:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    151:170:void run() -> run
 com.vector.cleaner.activity.DyxGboostActivity$2$1 -> com.vector.cleaner.activity.DyxGboostActivity$2$1:
     com.vector.cleaner.activity.DyxGboostActivity$2 this$1 -> a
-    171:171:void <init>(com.vector.cleaner.activity.DyxGboostActivity$2) -> <init>
-    174:179:void run() -> run
+    160:160:void <init>(com.vector.cleaner.activity.DyxGboostActivity$2) -> <init>
+    163:168:void run() -> run
 com.vector.cleaner.activity.DyxGboostActivity$3 -> com.vector.cleaner.activity.DyxGboostActivity$3:
     com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    195:195:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    198:225:void onClick(android.view.View) -> onClick
+    184:184:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    187:210:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.DyxGboostActivity$4 -> com.vector.cleaner.activity.DyxGboostActivity$4:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.vector.cleaner.activity.DyxGboostActivity this$0 -> d
-    249:249:void <init>(com.vector.cleaner.activity.DyxGboostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    252:279:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    234:234:void <init>(com.vector.cleaner.activity.DyxGboostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    237:264:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.vector.cleaner.activity.DyxGboostActivity$4$1 -> com.vector.cleaner.activity.DyxGboostActivity$4$1:
     com.vector.cleaner.activity.DyxGboostActivity$4 this$1 -> a
-    259:259:void <init>(com.vector.cleaner.activity.DyxGboostActivity$4) -> <init>
-    262:263:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    268:268:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    273:273:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
-com.vector.cleaner.activity.DyxGboostActivity$5 -> com.vector.cleaner.activity.DyxGboostActivity$5:
-    com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    380:380:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    383:389:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.vector.cleaner.activity.DyxGboostActivity$6 -> com.vector.cleaner.activity.DyxGboostActivity$6:
-    com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    404:404:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    407:428:void run() -> run
-com.vector.cleaner.activity.DyxGboostActivity$6$1 -> com.vector.cleaner.activity.DyxGboostActivity$6$1:
-    com.vector.cleaner.activity.DyxGboostActivity$6 this$1 -> a
-    412:412:void <init>(com.vector.cleaner.activity.DyxGboostActivity$6) -> <init>
-    415:415:boolean onBackPressed() -> a
-    420:420:boolean onMenuPressed() -> b
-    425:426:void onClick() -> c
-com.vector.cleaner.activity.DyxGboostActivity$7 -> com.vector.cleaner.activity.DyxGboostActivity$7:
-    com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    457:457:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    460:463:void onClick(android.view.View) -> onClick
-com.vector.cleaner.activity.DyxGboostActivity$8 -> com.vector.cleaner.activity.DyxGboostActivity$8:
-    com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    465:465:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    468:469:void onClick(android.view.View) -> onClick
-com.vector.cleaner.activity.DyxGboostActivity$9 -> com.vector.cleaner.activity.DyxGboostActivity$9:
-    com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    471:471:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    474:475:void onClick(android.view.View) -> onClick
+    244:244:void <init>(com.vector.cleaner.activity.DyxGboostActivity$4) -> <init>
+    247:248:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    253:253:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    258:258:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter -> com.vector.cleaner.activity.DyxGboostActivity$a:
     com.vector.cleaner.activity.DyxGboostActivity this$0 -> a
-    485:486:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
-    490:493:com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    498:528:void onBindViewHolder(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$HomeViewHolder,int) -> a
-    537:537:int getItemCount() -> getItemCount
-    483:483:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    483:483:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    372:373:void <init>(com.vector.cleaner.activity.DyxGboostActivity) -> <init>
+    376:379:com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    384:414:void onBindViewHolder(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$HomeViewHolder,int) -> a
+    423:423:int getItemCount() -> getItemCount
+    370:370:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    370:370:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$1 -> com.vector.cleaner.activity.DyxGboostActivity$a$1:
     int val$position -> a
     com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter this$1 -> b
-    506:506:void <init>(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter,int) -> <init>
-    509:525:void onClick(android.view.View) -> onClick
+    392:392:void <init>(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter,int) -> <init>
+    395:411:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter$HomeViewHolder -> com.vector.cleaner.activity.DyxGboostActivity$a$a:
     android.widget.ImageView gboost_item_icon -> a
     android.widget.TextView gboost_item_name -> b
     android.widget.FrameLayout gboost_item_c -> c
     com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter this$1 -> d
-    545:550:void <init>(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter,android.view.View) -> <init>
+    431:436:void <init>(com.vector.cleaner.activity.DyxGboostActivity$HuiAdapter,android.view.View) -> <init>
 com.vector.cleaner.activity.FileDocActivity -> com.vector.cleaner.activity.FileDocActivity:
     android.support.v4.view.ViewPager doc_view_pager -> a
     android.support.design.widget.TabLayout view_pager_tab -> b
@@ -35505,9 +35469,9 @@ com.vector.cleaner.activity.FileDocActivity -> com.vector.cleaner.activity.FileD
     android.widget.FrameLayout title_left -> g
     android.widget.Button file_button_clean -> h
     android.widget.FrameLayout file_fl -> i
-    android.view.View view_txt -> q
-    android.view.View view_pdf -> r
-    android.view.View view_doc -> s
+    android.view.View view_txt -> n
+    android.view.View view_pdf -> o
+    android.view.View view_doc -> p
     com.vector.mcleaner.file.FileCategoryHelper fileHelper -> t
     java.util.ArrayList docList -> u
     java.util.ArrayList txtList -> v
@@ -35517,13 +35481,13 @@ com.vector.cleaner.activity.FileDocActivity -> com.vector.cleaner.activity.FileD
     java.util.ArrayList viewList -> z
     com.vector.cleaner.madapter.FilesAdapter adapter_doc -> j
     com.vector.cleaner.madapter.FilesAdapter adapter_txt -> k
-    com.vector.cleaner.madapter.FilesAdapter adapter_pdf -> o
+    com.vector.cleaner.madapter.FilesAdapter adapter_pdf -> l
     android.support.v7.app.AlertDialog dialog -> A
     android.view.View nativeView -> B
     com.vector.mcleaner.file.FileCategoryHelper$FileCategory fc_clean -> C
     java.lang.String TAG_FILE_2 -> D
     android.widget.LinearLayout ll_ad -> E
-    android.view.View$OnClickListener clickListener -> p
+    android.view.View$OnClickListener clickListener -> m
     41:214:void <init>() -> <init>
     71:81:void findId() -> a
     85:107:void onCreate(android.os.Bundle) -> onCreate
@@ -35591,67 +35555,67 @@ com.vector.cleaner.activity.FileListActivity -> com.vector.cleaner.activity.File
     android.widget.LinearLayout null_ll -> h
     android.widget.FrameLayout file_fl -> i
     int nameId -> k
-    android.support.v7.app.AlertDialog dialog -> o
-    com.vector.mcleaner.file.FileCategoryHelper$FileCategory fc -> p
-    com.vector.mcleaner.file.FileCategoryHelper fileHelper -> q
-    com.vector.cleaner.madapter.FilesAdapter adapter -> r
-    java.util.ArrayList fileList -> s
+    android.support.v7.app.AlertDialog dialog -> l
+    com.vector.mcleaner.file.FileCategoryHelper$FileCategory fc -> m
+    com.vector.mcleaner.file.FileCategoryHelper fileHelper -> n
+    com.vector.cleaner.madapter.FilesAdapter adapter -> o
+    java.util.ArrayList fileList -> p
     android.os.Handler mHandler -> t
     java.lang.String name -> u
     java.lang.String Tag_file_1 -> v
     android.view.View nativeView -> w
     android.view.View$OnClickListener clickListener -> j
-    36:110:void <init>() -> <init>
-    62:73:void findId() -> a
-    77:101:void onCreate(android.os.Bundle) -> onCreate
-    105:107:void onBackPressed() -> onBackPressed
-    135:181:void initData() -> b
-    184:194:void loadAd() -> c
-    197:199:void setListenet() -> d
-    202:208:void addAd() -> e
-    211:264:void showDia(java.util.ArrayList) -> a
-    36:36:java.util.ArrayList access$000(com.vector.cleaner.activity.FileListActivity) -> a
-    36:36:void access$100(com.vector.cleaner.activity.FileListActivity,java.util.ArrayList) -> a
-    36:36:java.lang.String access$200(com.vector.cleaner.activity.FileListActivity) -> b
-    36:36:com.vector.mcleaner.file.FileCategoryHelper$FileCategory access$302(com.vector.cleaner.activity.FileListActivity,com.vector.mcleaner.file.FileCategoryHelper$FileCategory) -> a
-    36:36:com.vector.mcleaner.file.FileCategoryHelper$FileCategory access$300(com.vector.cleaner.activity.FileListActivity) -> c
-    36:36:com.vector.mcleaner.file.FileCategoryHelper access$400(com.vector.cleaner.activity.FileListActivity) -> d
-    36:36:com.vector.cleaner.madapter.FilesAdapter access$500(com.vector.cleaner.activity.FileListActivity) -> e
-    36:36:android.os.Handler access$600(com.vector.cleaner.activity.FileListActivity) -> f
-    36:36:android.support.v7.app.AlertDialog access$700(com.vector.cleaner.activity.FileListActivity) -> g
+    37:111:void <init>() -> <init>
+    63:74:void findId() -> a
+    78:102:void onCreate(android.os.Bundle) -> onCreate
+    106:108:void onBackPressed() -> onBackPressed
+    136:182:void initData() -> b
+    185:195:void loadAd() -> c
+    198:200:void setListenet() -> d
+    203:209:void addAd() -> e
+    212:265:void showDia(java.util.ArrayList) -> a
+    37:37:java.util.ArrayList access$000(com.vector.cleaner.activity.FileListActivity) -> a
+    37:37:void access$100(com.vector.cleaner.activity.FileListActivity,java.util.ArrayList) -> a
+    37:37:java.lang.String access$200(com.vector.cleaner.activity.FileListActivity) -> b
+    37:37:com.vector.mcleaner.file.FileCategoryHelper$FileCategory access$302(com.vector.cleaner.activity.FileListActivity,com.vector.mcleaner.file.FileCategoryHelper$FileCategory) -> a
+    37:37:com.vector.mcleaner.file.FileCategoryHelper$FileCategory access$300(com.vector.cleaner.activity.FileListActivity) -> c
+    37:37:com.vector.mcleaner.file.FileCategoryHelper access$400(com.vector.cleaner.activity.FileListActivity) -> d
+    37:37:com.vector.cleaner.madapter.FilesAdapter access$500(com.vector.cleaner.activity.FileListActivity) -> e
+    37:37:android.os.Handler access$600(com.vector.cleaner.activity.FileListActivity) -> f
+    37:37:android.support.v7.app.AlertDialog access$700(com.vector.cleaner.activity.FileListActivity) -> g
 com.vector.cleaner.activity.FileListActivity$1 -> com.vector.cleaner.activity.FileListActivity$1:
     com.vector.cleaner.activity.FileListActivity this$0 -> a
-    110:110:void <init>(com.vector.cleaner.activity.FileListActivity) -> <init>
-    113:130:void onClick(android.view.View) -> onClick
+    111:111:void <init>(com.vector.cleaner.activity.FileListActivity) -> <init>
+    114:131:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.FileListActivity$2 -> com.vector.cleaner.activity.FileListActivity$2:
     com.vector.cleaner.activity.FileListActivity this$0 -> a
-    135:135:void <init>(com.vector.cleaner.activity.FileListActivity) -> <init>
-    138:179:void run() -> run
+    136:136:void <init>(com.vector.cleaner.activity.FileListActivity) -> <init>
+    139:180:void run() -> run
 com.vector.cleaner.activity.FileListActivity$2$1 -> com.vector.cleaner.activity.FileListActivity$2$1:
     com.vector.cleaner.activity.FileListActivity$2 this$1 -> a
-    162:162:void <init>(com.vector.cleaner.activity.FileListActivity$2) -> <init>
-    165:168:void run() -> run
+    163:163:void <init>(com.vector.cleaner.activity.FileListActivity$2) -> <init>
+    166:169:void run() -> run
 com.vector.cleaner.activity.FileListActivity$2$2 -> com.vector.cleaner.activity.FileListActivity$2$2:
     com.vector.cleaner.activity.FileListActivity$2 this$1 -> a
-    171:171:void <init>(com.vector.cleaner.activity.FileListActivity$2) -> <init>
-    174:176:void run() -> run
+    172:172:void <init>(com.vector.cleaner.activity.FileListActivity$2) -> <init>
+    175:177:void run() -> run
 com.vector.cleaner.activity.FileListActivity$3 -> com.vector.cleaner.activity.FileListActivity$3:
     com.vector.cleaner.activity.FileListActivity this$0 -> a
-    185:185:void <init>(com.vector.cleaner.activity.FileListActivity) -> <init>
-    188:189:void run() -> run
+    186:186:void <init>(com.vector.cleaner.activity.FileListActivity) -> <init>
+    189:190:void run() -> run
 com.vector.cleaner.activity.FileListActivity$4 -> com.vector.cleaner.activity.FileListActivity$4:
     java.util.ArrayList val$deleteList -> a
     com.vector.cleaner.activity.FileListActivity this$0 -> b
-    231:231:void <init>(com.vector.cleaner.activity.FileListActivity,java.util.ArrayList) -> <init>
-    234:256:void onClick(android.view.View) -> onClick
+    232:232:void <init>(com.vector.cleaner.activity.FileListActivity,java.util.ArrayList) -> <init>
+    235:257:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.FileListActivity$4$1 -> com.vector.cleaner.activity.FileListActivity$4$1:
     com.vector.cleaner.activity.FileListActivity$4 this$1 -> a
-    240:240:void <init>(com.vector.cleaner.activity.FileListActivity$4) -> <init>
-    243:247:void run() -> run
+    241:241:void <init>(com.vector.cleaner.activity.FileListActivity$4) -> <init>
+    244:248:void run() -> run
 com.vector.cleaner.activity.FileListActivity$5 -> com.vector.cleaner.activity.FileListActivity$5:
     com.vector.cleaner.activity.FileListActivity this$0 -> a
-    258:258:void <init>(com.vector.cleaner.activity.FileListActivity) -> <init>
-    261:262:void onClick(android.view.View) -> onClick
+    259:259:void <init>(com.vector.cleaner.activity.FileListActivity) -> <init>
+    262:263:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.FilesActivity -> com.vector.cleaner.activity.FilesActivity:
     android.widget.LinearLayout ll_ad -> a
     android.widget.FrameLayout title_left -> b
@@ -35660,65 +35624,72 @@ com.vector.cleaner.activity.FilesActivity -> com.vector.cleaner.activity.FilesAc
     android.widget.LinearLayout file_txt_button -> e
     android.widget.LinearLayout file_music_button -> f
     android.widget.LinearLayout file_video_button -> g
-    android.widget.LinearLayout file_other_button -> h
-    android.widget.TextView title_name -> i
-    android.view.View nativeView -> z
-    android.widget.TextView file_apk_num -> j
-    android.widget.TextView file_zip_num -> k
-    android.widget.TextView file_txt_num -> o
-    android.widget.TextView file_music_num -> p
-    android.widget.TextView file_video_num -> q
-    android.widget.TextView file_qita_num -> r
-    android.widget.TextView file_apk_num_d -> s
-    android.widget.TextView file_zip_num_d -> t
-    android.widget.TextView file_txt_num_d -> u
-    android.widget.TextView file_music_num_d -> v
-    android.widget.TextView file_video_num_d -> w
-    android.widget.TextView file_qita_num_d -> x
-    java.lang.String TAG_FILE -> A
-    com.vector.mcleaner.file.FileCategoryHelper fileHelper -> B
-    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo apkInfo -> C
-    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo zipInfo -> D
-    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo docInfo -> E
-    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo musicInfo -> F
-    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo videoInfo -> G
-    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo otherInfo -> H
-    android.os.Handler mHandler -> I
-    android.view.View$OnClickListener clickListener -> y
-    22:124:void <init>() -> <init>
-    39:61:void findId() -> a
-    65:74:void onCreate(android.os.Bundle) -> onCreate
-    78:108:void initData() -> b
-    111:121:void initAd() -> c
-    190:197:void setListener() -> d
-    201:204:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    22:22:com.vector.mcleaner.file.FileCategoryHelper access$000(com.vector.cleaner.activity.FilesActivity) -> a
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$102(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> a
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$202(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> b
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$302(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> c
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$402(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> d
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$502(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> e
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$602(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> f
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$100(com.vector.cleaner.activity.FilesActivity) -> b
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$200(com.vector.cleaner.activity.FilesActivity) -> c
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$300(com.vector.cleaner.activity.FilesActivity) -> d
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$400(com.vector.cleaner.activity.FilesActivity) -> e
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$500(com.vector.cleaner.activity.FilesActivity) -> f
-    22:22:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$600(com.vector.cleaner.activity.FilesActivity) -> g
-    22:22:void access$700(com.vector.cleaner.activity.FilesActivity) -> h
-    22:22:android.os.Handler access$800(com.vector.cleaner.activity.FilesActivity) -> i
+    android.widget.TextView title_name -> h
+    android.view.View nativeView -> H
+    android.widget.TextView file_apk_num -> i
+    android.widget.TextView file_zip_num -> j
+    android.widget.TextView file_txt_num -> k
+    android.widget.TextView file_music_num -> l
+    android.widget.TextView file_video_num -> m
+    android.widget.TextView file_apk_num_d -> n
+    android.widget.TextView file_zip_num_d -> o
+    android.widget.TextView file_txt_num_d -> p
+    android.widget.TextView file_music_num_d -> t
+    android.widget.TextView file_video_num_d -> u
+    android.widget.TextView file_apk_num_check -> v
+    android.widget.TextView file_zip_num_check -> w
+    android.widget.TextView file_txt_num_check -> x
+    android.widget.TextView file_music_num_check -> y
+    android.widget.TextView file_video_num_check -> z
+    android.widget.TextView file_sd_keyong -> A
+    android.widget.TextView file_video_size -> B
+    android.widget.TextView file_apk_size -> C
+    android.widget.TextView file_audio_size -> D
+    android.widget.TextView file_zip_size -> E
+    android.widget.TextView file_dec_size -> F
+    java.lang.String TAG_FILE -> I
+    com.vector.mcleaner.file.FileCategoryHelper fileHelper -> J
+    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo apkInfo -> K
+    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo zipInfo -> L
+    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo docInfo -> M
+    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo musicInfo -> N
+    com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo videoInfo -> O
+    android.os.Handler mHandler -> P
+    android.view.View$OnClickListener clickListener -> G
+    26:155:void <init>() -> <init>
+    47:77:void findId() -> a
+    81:91:void onCreate(android.os.Bundle) -> onCreate
+    95:124:void initData() -> b
+    127:139:void setFileNum(android.widget.TextView,android.widget.TextView,android.widget.TextView,long) -> a
+    142:152:void initAd() -> c
+    212:218:void setListener() -> d
+    222:225:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    26:26:com.vector.mcleaner.file.FileCategoryHelper access$000(com.vector.cleaner.activity.FilesActivity) -> a
+    26:26:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$102(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> a
+    26:26:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$202(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> b
+    26:26:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$302(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> c
+    26:26:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$402(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> d
+    26:26:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$502(com.vector.cleaner.activity.FilesActivity,com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo) -> e
+    26:26:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$100(com.vector.cleaner.activity.FilesActivity) -> b
+    26:26:void access$600(com.vector.cleaner.activity.FilesActivity,android.widget.TextView,android.widget.TextView,android.widget.TextView,long) -> a
+    26:26:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$200(com.vector.cleaner.activity.FilesActivity) -> c
+    26:26:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$300(com.vector.cleaner.activity.FilesActivity) -> d
+    26:26:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$400(com.vector.cleaner.activity.FilesActivity) -> e
+    26:26:com.vector.mcleaner.file.FileCategoryHelper$CategoryInfo access$500(com.vector.cleaner.activity.FilesActivity) -> f
+    26:26:void access$700(com.vector.cleaner.activity.FilesActivity) -> g
+    26:26:android.os.Handler access$800(com.vector.cleaner.activity.FilesActivity) -> h
 com.vector.cleaner.activity.FilesActivity$1 -> com.vector.cleaner.activity.FilesActivity$1:
     com.vector.cleaner.activity.FilesActivity this$0 -> a
-    78:78:void <init>(com.vector.cleaner.activity.FilesActivity) -> <init>
-    81:106:void run() -> run
+    95:95:void <init>(com.vector.cleaner.activity.FilesActivity) -> <init>
+    98:122:void run() -> run
 com.vector.cleaner.activity.FilesActivity$1$1 -> com.vector.cleaner.activity.FilesActivity$1$1:
     com.vector.cleaner.activity.FilesActivity$1 this$1 -> a
-    82:82:void <init>(com.vector.cleaner.activity.FilesActivity$1) -> <init>
-    85:104:void run() -> run
+    99:99:void <init>(com.vector.cleaner.activity.FilesActivity$1) -> <init>
+    102:120:void run() -> run
 com.vector.cleaner.activity.FilesActivity$2 -> com.vector.cleaner.activity.FilesActivity$2:
     com.vector.cleaner.activity.FilesActivity this$0 -> a
-    124:124:void <init>(com.vector.cleaner.activity.FilesActivity) -> <init>
-    127:186:void onClick(android.view.View) -> onClick
+    155:155:void <init>(com.vector.cleaner.activity.FilesActivity) -> <init>
+    158:208:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.FloatActivity -> com.vector.cleaner.activity.FloatActivity:
     android.widget.LinearLayout ll_wifi -> a
     android.widget.LinearLayout ll_liuliang -> b
@@ -35731,55 +35702,62 @@ com.vector.cleaner.activity.FloatActivity -> com.vector.cleaner.activity.FloatAc
     android.widget.ImageView iv_xianshi -> i
     android.widget.ImageView iv_shengyin -> j
     android.widget.ImageView iv_gps -> k
-    com.vector.cleaner.myview.WaveProgress water_memory -> o
-    android.view.View nativeView -> q
-    com.vector.cleaner.activity.MyApplication cleanApplication -> r
-    android.view.animation.Animation rotate -> s
+    android.widget.ImageView float_jiasu -> l
+    android.view.View nativeView -> n
+    com.vector.cleaner.activity.MyApplication cleanApplication -> o
+    android.view.animation.Animation rotate -> p
     android.view.animation.Animation suo -> t
     android.view.animation.Animation fang -> u
     android.os.Handler myHandler -> v
     java.lang.String TAG_FLAOT -> w
-    android.view.View$OnClickListener kuaijieListener -> p
-    38:121:void <init>() -> <init>
-    52:65:void findId() -> a
-    69:82:void onCreate(android.os.Bundle) -> onCreate
-    85:86:void initList() -> b
-    90:96:void addListener() -> c
-    100:118:void loadAd() -> d
-    170:184:void startCleanAnimation() -> e
-    188:203:int killAll(android.content.Context) -> a
-    207:210:long getAvailMemory(android.app.ActivityManager) -> a
-    214:219:void wifi() -> f
-    222:227:void wifiD() -> g
-    230:235:void liuLiang() -> h
-    238:243:void liuLiangd() -> i
-    246:260:void xianshiD() -> j
-    263:268:void shengYin() -> k
-    271:276:void gps() -> l
-    279:290:int getLight() -> m
-    301:359:void brightnessSwitchUtils(android.content.Context) -> b
-    362:370:void changeAppBrightness(android.content.Context,int) -> a
-    375:378:void onResume() -> onResume
-    38:38:void access$000(com.vector.cleaner.activity.FloatActivity) -> a
-    38:38:void access$100(com.vector.cleaner.activity.FloatActivity) -> b
-    38:38:void access$200(com.vector.cleaner.activity.FloatActivity) -> c
-    38:38:void access$300(com.vector.cleaner.activity.FloatActivity) -> d
+    android.animation.ObjectAnimator objectAnimator -> x
+    android.view.View$OnClickListener kuaijieListener -> m
+    40:123:void <init>() -> <init>
+    54:67:void findId() -> a
+    71:84:void onCreate(android.os.Bundle) -> onCreate
+    87:87:void initList() -> b
+    91:97:void addListener() -> c
+    101:119:void loadAd() -> d
+    197:204:void startCleanAnimation() -> e
+    208:223:int killAll(android.content.Context) -> a
+    227:230:long getAvailMemory(android.app.ActivityManager) -> a
+    234:239:void wifi() -> f
+    242:247:void wifiD() -> g
+    250:255:void liuLiang() -> h
+    258:263:void liuLiangd() -> i
+    266:280:void xianshiD() -> j
+    283:288:void shengYin() -> k
+    291:296:void gps() -> l
+    299:310:int getLight() -> m
+    321:379:void brightnessSwitchUtils(android.content.Context) -> b
+    382:390:void changeAppBrightness(android.content.Context,int) -> a
+    395:398:void onResume() -> onResume
+    402:406:void onDestroy() -> onDestroy
+    40:40:void access$000(com.vector.cleaner.activity.FloatActivity) -> a
+    40:40:void access$100(com.vector.cleaner.activity.FloatActivity) -> b
+    40:40:void access$200(com.vector.cleaner.activity.FloatActivity) -> c
+    40:40:void access$300(com.vector.cleaner.activity.FloatActivity) -> d
+    40:40:android.animation.ObjectAnimator access$402(com.vector.cleaner.activity.FloatActivity,android.animation.ObjectAnimator) -> a
+    40:40:android.animation.ObjectAnimator access$400(com.vector.cleaner.activity.FloatActivity) -> e
 com.vector.cleaner.activity.FloatActivity$1 -> com.vector.cleaner.activity.FloatActivity$1:
     com.vector.cleaner.activity.FloatActivity this$0 -> a
-    101:101:void <init>(com.vector.cleaner.activity.FloatActivity) -> <init>
-    104:105:void run() -> run
+    102:102:void <init>(com.vector.cleaner.activity.FloatActivity) -> <init>
+    105:106:void run() -> run
 com.vector.cleaner.activity.FloatActivity$2 -> com.vector.cleaner.activity.FloatActivity$2:
     com.vector.cleaner.activity.FloatActivity this$0 -> a
-    121:121:void <init>(com.vector.cleaner.activity.FloatActivity) -> <init>
-    124:166:void onClick(android.view.View) -> onClick
+    123:123:void <init>(com.vector.cleaner.activity.FloatActivity) -> <init>
+    126:192:void onClick(android.view.View) -> onClick
+com.vector.cleaner.activity.FloatActivity$2$1 -> com.vector.cleaner.activity.FloatActivity$2$1:
+    com.vector.cleaner.activity.FloatActivity$2 this$1 -> a
+    169:169:void <init>(com.vector.cleaner.activity.FloatActivity$2) -> <init>
+    173:173:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    177:178:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    183:183:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    188:188:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.vector.cleaner.activity.FloatActivity$3 -> com.vector.cleaner.activity.FloatActivity$3:
     com.vector.cleaner.activity.FloatActivity this$0 -> a
-    170:170:void <init>(com.vector.cleaner.activity.FloatActivity) -> <init>
-    173:174:void stopO() -> a
-com.vector.cleaner.activity.FloatActivity$4 -> com.vector.cleaner.activity.FloatActivity$4:
-    com.vector.cleaner.activity.FloatActivity this$0 -> a
-    177:177:void <init>(com.vector.cleaner.activity.FloatActivity) -> <init>
-    180:181:void run() -> run
+    197:197:void <init>(com.vector.cleaner.activity.FloatActivity) -> <init>
+    200:201:void run() -> run
 com.vector.cleaner.activity.HuishouActivity -> com.vector.cleaner.activity.HuishouActivity:
     android.widget.TextView title_name -> a
     android.widget.TextView title_check -> b
@@ -35789,18 +35767,18 @@ com.vector.cleaner.activity.HuishouActivity -> com.vector.cleaner.activity.Huish
     android.widget.TextView hui_never -> f
     android.widget.FrameLayout title_left -> g
     android.widget.TextView picture_delete -> h
-    java.lang.String TAG_RECYCLE -> p
-    android.view.View nativeView -> q
-    android.widget.LinearLayout ll_ad -> r
+    java.lang.String TAG_RECYCLE -> m
+    android.view.View nativeView -> n
+    android.widget.LinearLayout ll_ad -> o
     android.support.v7.widget.GridLayoutManager gridLayoutManager -> i
-    com.vector.mcleaner.photo.ImageHelper imageHelper -> s
+    com.vector.mcleaner.photo.ImageHelper imageHelper -> p
     com.vector.cleaner.activity.HuishouActivity$HuiAdapter adapter -> t
     android.support.v7.app.AlertDialog dialog -> u
     boolean isRestore -> v
     android.os.Handler mHandler -> w
     boolean isfalse -> j
     android.view.View$OnClickListener clickListener -> k
-    com.vector.cleaner.activity.HuishouActivity$MyCallBack callBack -> o
+    com.vector.cleaner.activity.HuishouActivity$MyCallBack callBack -> l
     45:131:void <init>() -> <init>
     68:78:void findId() -> a
     81:86:void addListener() -> b
@@ -35920,31 +35898,30 @@ com.vector.cleaner.activity.HuishouActivity$MyCallBack -> com.vector.cleaner.act
     void success() -> b
 com.vector.cleaner.activity.HuojianActivity -> com.vector.cleaner.activity.HuojianActivity:
     android.widget.FrameLayout short_backg -> a
-    int count -> f
-    android.os.Handler myHandler -> g
-    boolean isdoudong -> h
-    long size -> i
-    android.view.View nativeView -> j
-    com.sample.lottie.LottieAnimationView short_b -> b
-    android.widget.LinearLayout ll_ad -> c
-    android.widget.FrameLayout short_fl -> d
-    android.view.animation.Animation rotate -> k
-    android.view.animation.Animation fang -> o
-    android.app.Dialog dialog -> p
-    java.lang.String TAG_SHORTCUT -> q
-    android.view.animation.Animation suo -> r
-    java.lang.Runnable runnable -> e
-    36:186:void <init>() -> <init>
-    58:62:void findId() -> a
-    66:86:void onCreate(android.os.Bundle) -> onCreate
-    89:103:void loadAd() -> b
-    107:135:void show_text() -> c
-    138:141:long getAvailMemory(android.app.ActivityManager) -> a
-    145:146:void clear(android.content.Context) -> b
-    149:166:long killAll(android.content.Context) -> a
-    172:184:void onResume() -> onResume
-    219:221:void onPause() -> onPause
-    225:231:void onStop() -> onStop
+    int count -> e
+    android.os.Handler myHandler -> f
+    boolean isdoudong -> g
+    long size -> h
+    android.view.View nativeView -> i
+    android.widget.LinearLayout ll_ad -> b
+    android.widget.FrameLayout short_fl -> c
+    android.view.animation.Animation rotate -> j
+    android.view.animation.Animation fang -> k
+    android.app.Dialog dialog -> l
+    java.lang.String TAG_SHORTCUT -> m
+    android.view.animation.Animation suo -> n
+    java.lang.Runnable runnable -> d
+    36:180:void <init>() -> <init>
+    57:60:void findId() -> a
+    64:84:void onCreate(android.os.Bundle) -> onCreate
+    87:101:void loadAd() -> b
+    105:133:void show_text() -> c
+    136:139:long getAvailMemory(android.app.ActivityManager) -> a
+    143:144:void clear(android.content.Context) -> b
+    147:164:long killAll(android.content.Context) -> a
+    170:178:void onResume() -> onResume
+    209:211:void onPause() -> onPause
+    215:218:void onStop() -> onStop
     36:36:void access$000(com.vector.cleaner.activity.HuojianActivity,android.content.Context) -> a
     36:36:int access$108(com.vector.cleaner.activity.HuojianActivity) -> a
     36:36:void access$200(com.vector.cleaner.activity.HuojianActivity) -> b
@@ -35952,26 +35929,26 @@ com.vector.cleaner.activity.HuojianActivity -> com.vector.cleaner.activity.Huoji
     36:36:boolean access$402(com.vector.cleaner.activity.HuojianActivity,boolean) -> a
 com.vector.cleaner.activity.HuojianActivity$1 -> com.vector.cleaner.activity.HuojianActivity$1:
     com.vector.cleaner.activity.HuojianActivity this$0 -> a
-    73:73:void <init>(com.vector.cleaner.activity.HuojianActivity) -> <init>
-    76:84:void run() -> run
+    71:71:void <init>(com.vector.cleaner.activity.HuojianActivity) -> <init>
+    74:82:void run() -> run
 com.vector.cleaner.activity.HuojianActivity$1$1 -> com.vector.cleaner.activity.HuojianActivity$1$1:
     com.vector.cleaner.activity.HuojianActivity$1 this$1 -> a
-    77:77:void <init>(com.vector.cleaner.activity.HuojianActivity$1) -> <init>
-    80:82:void run() -> run
+    75:75:void <init>(com.vector.cleaner.activity.HuojianActivity$1) -> <init>
+    78:80:void run() -> run
 com.vector.cleaner.activity.HuojianActivity$2 -> com.vector.cleaner.activity.HuojianActivity$2:
     com.vector.cleaner.activity.HuojianActivity this$0 -> a
-    128:128:void <init>(com.vector.cleaner.activity.HuojianActivity) -> <init>
-    131:132:void onDismiss(android.content.DialogInterface) -> onDismiss
+    126:126:void <init>(com.vector.cleaner.activity.HuojianActivity) -> <init>
+    129:130:void onDismiss(android.content.DialogInterface) -> onDismiss
 com.vector.cleaner.activity.HuojianActivity$3 -> com.vector.cleaner.activity.HuojianActivity$3:
     com.vector.cleaner.activity.HuojianActivity this$0 -> a
-    186:186:void <init>(com.vector.cleaner.activity.HuojianActivity) -> <init>
-    189:214:void run() -> run
+    180:180:void <init>(com.vector.cleaner.activity.HuojianActivity) -> <init>
+    183:204:void run() -> run
 com.vector.cleaner.activity.HuojianActivity$3$1 -> com.vector.cleaner.activity.HuojianActivity$3$1:
     com.vector.cleaner.activity.HuojianActivity$3 this$1 -> a
-    190:190:void <init>(com.vector.cleaner.activity.HuojianActivity$3) -> <init>
-    194:202:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    207:207:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    212:212:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    184:184:void <init>(com.vector.cleaner.activity.HuojianActivity$3) -> <init>
+    188:192:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    197:197:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    202:202:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.vector.cleaner.activity.IgnoreListAddActivity -> com.vector.cleaner.activity.IgnoreListAddActivity:
     android.widget.ListView list_si -> a
     android.widget.ImageButton clear -> b
@@ -35983,7 +35960,7 @@ com.vector.cleaner.activity.IgnoreListAddActivity -> com.vector.cleaner.activity
     java.util.List white_list -> i
     java.util.List listEdit -> j
     boolean search -> k
-    java.util.List whiteList -> o
+    java.util.List whiteList -> l
     android.view.View$OnClickListener clickListener -> h
     31:73:void <init>() -> <init>
     47:54:void findId() -> a
@@ -36046,11 +36023,11 @@ com.vector.cleaner.activity.LajiAndRamActivity -> com.vector.cleaner.activity.La
     android.widget.LinearLayout junk_button_ram -> i
     android.widget.TextView title_name -> j
     android.widget.LinearLayout junk_title_backg -> k
-    android.widget.TextView junk_size_all -> o
-    android.widget.TextView junk_system_size -> p
-    android.widget.TextView junk_apk_size -> q
-    android.widget.TextView junk_unload_size -> r
-    android.widget.TextView junk_log_size -> s
+    android.widget.TextView junk_size_all -> l
+    android.widget.TextView junk_system_size -> m
+    android.widget.TextView junk_apk_size -> n
+    android.widget.TextView junk_unload_size -> o
+    android.widget.TextView junk_log_size -> p
     android.widget.TextView junk_user_size -> t
     android.widget.TextView junk_ram_size -> u
     android.widget.ImageView junk_system_jiantou -> v
@@ -36245,11 +36222,11 @@ com.vector.cleaner.activity.LajiFileActivity -> com.vector.cleaner.activity.Laji
     android.widget.FrameLayout title_left -> i
     android.widget.TextView title_name -> j
     android.widget.TextView junk_unit -> k
-    android.widget.TextView junk_system_size -> o
-    android.widget.TextView junk_apk_size -> p
-    android.widget.TextView junk_unload_size -> q
-    android.widget.TextView junk_log_size -> r
-    android.widget.TextView junk_user_size -> s
+    android.widget.TextView junk_system_size -> l
+    android.widget.TextView junk_apk_size -> m
+    android.widget.TextView junk_unload_size -> n
+    android.widget.TextView junk_log_size -> o
+    android.widget.TextView junk_user_size -> p
     android.widget.ImageView junk_system_jiantou -> t
     android.widget.ImageView junk_apk_jiaotou -> u
     android.widget.ImageView junk_unload_jiantou -> v
@@ -36263,155 +36240,128 @@ com.vector.cleaner.activity.LajiFileActivity -> com.vector.cleaner.activity.Laji
     android.widget.Button junk_button_clean -> D
     com.vector.cleaner.myview.MyScrollView junk_scroll -> E
     android.widget.ListView junk_list_all -> F
-    com.vector.cleaner.presenter.LajiPresenter junkPresenter -> I
-    com.vector.cleaner.madapter.LajiAdapter adapterSystem -> J
-    com.vector.cleaner.madapter.LajiAdapter adapterApk -> K
-    com.vector.cleaner.madapter.LajiAdapter adapterUnload -> L
-    com.vector.cleaner.madapter.LajiAdapter adapterLog -> M
-    com.vector.cleaner.madapter.LajiAdapter adapterUser -> N
-    com.vector.cleaner.madapter.LajiAdapter adapterClear -> O
-    boolean color1 -> P
-    boolean color2 -> Q
-    android.os.Handler myHandler -> G
-    android.view.View$OnClickListener onClickListener -> H
-    39:528:void <init>() -> <init>
-    63:93:void findId() -> a
-    97:103:void onCreate(android.os.Bundle) -> onCreate
-    108:108:void loadFullAd() -> b
-    112:119:void onClick() -> c
-    123:142:void initData(long) -> a
-    147:204:void setColor(long) -> b
-    208:244:void addSystemdata(long,java.util.List) -> a
-    248:279:void addApkdata(long,java.util.List) -> b
-    283:314:void addUnloaddata(long,java.util.List) -> c
-    318:349:void addLogdata(long,java.util.List) -> d
-    353:385:void addUserdata(long,java.util.List) -> e
-    389:390:void setUnit(long,android.widget.TextView) -> a
-    394:430:void setCleanDAta(boolean,long) -> a
-    434:517:void cleanAnimation(boolean,java.util.List,long) -> a
-    520:526:void startCleanAnimation(android.view.View) -> startCleanAnimation
-    620:624:void onDestroy() -> onDestroy
-    628:630:void onResume() -> onResume
-    634:638:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    642:644:void onBackPressed() -> onBackPressed
-    39:39:com.vector.cleaner.presenter.LajiPresenter access$000(com.vector.cleaner.activity.LajiFileActivity) -> a
-    39:39:com.vector.cleaner.madapter.LajiAdapter access$100(com.vector.cleaner.activity.LajiFileActivity) -> b
-    39:39:com.vector.cleaner.madapter.LajiAdapter access$200(com.vector.cleaner.activity.LajiFileActivity) -> c
-    39:39:com.vector.cleaner.madapter.LajiAdapter access$300(com.vector.cleaner.activity.LajiFileActivity) -> d
-    39:39:com.vector.cleaner.madapter.LajiAdapter access$400(com.vector.cleaner.activity.LajiFileActivity) -> e
-    39:39:com.vector.cleaner.madapter.LajiAdapter access$500(com.vector.cleaner.activity.LajiFileActivity) -> f
-    39:39:com.vector.cleaner.madapter.LajiAdapter access$600(com.vector.cleaner.activity.LajiFileActivity) -> g
+    android.widget.FrameLayout junk_clean -> G
+    android.widget.ImageView junk_clean_zhuan -> H
+    com.vector.cleaner.myview.BubbleLayoutJunk junk_clean_bubble -> I
+    com.vector.cleaner.presenter.LajiPresenter junkPresenter -> L
+    com.vector.cleaner.madapter.LajiAdapter adapterSystem -> M
+    com.vector.cleaner.madapter.LajiAdapter adapterApk -> N
+    com.vector.cleaner.madapter.LajiAdapter adapterUnload -> O
+    com.vector.cleaner.madapter.LajiAdapter adapterLog -> P
+    com.vector.cleaner.madapter.LajiAdapter adapterUser -> Q
+    com.vector.cleaner.madapter.LajiAdapter adapterClear -> R
+    boolean color1 -> S
+    boolean color2 -> T
+    android.os.Handler myHandler -> J
+    android.animation.ObjectAnimator objectAnimator -> U
+    android.view.View$OnClickListener onClickListener -> K
+    41:484:void <init>() -> <init>
+    68:101:void findId() -> a
+    105:112:void onCreate(android.os.Bundle) -> onCreate
+    117:117:void loadFullAd() -> b
+    121:128:void onClick() -> c
+    132:151:void initData(long) -> a
+    156:213:void setColor(long) -> b
+    217:253:void addSystemdata(long,java.util.List) -> a
+    257:288:void addApkdata(long,java.util.List) -> b
+    292:323:void addUnloaddata(long,java.util.List) -> c
+    327:358:void addLogdata(long,java.util.List) -> d
+    362:394:void addUserdata(long,java.util.List) -> e
+    398:399:void setUnit(long,android.widget.TextView) -> a
+    403:439:void setCleanDAta(boolean,long) -> a
+    443:472:void cleanAnimation(boolean,java.util.List,long) -> a
+    475:481:void startCleanAnimation(android.view.View) -> startCleanAnimation
+    578:586:void onDestroy() -> onDestroy
+    590:592:void onResume() -> onResume
+    596:600:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    604:606:void onBackPressed() -> onBackPressed
+    41:41:com.vector.cleaner.presenter.LajiPresenter access$000(com.vector.cleaner.activity.LajiFileActivity) -> a
+    41:41:com.vector.cleaner.madapter.LajiAdapter access$100(com.vector.cleaner.activity.LajiFileActivity) -> b
+    41:41:com.vector.cleaner.madapter.LajiAdapter access$200(com.vector.cleaner.activity.LajiFileActivity) -> c
+    41:41:com.vector.cleaner.madapter.LajiAdapter access$300(com.vector.cleaner.activity.LajiFileActivity) -> d
+    41:41:com.vector.cleaner.madapter.LajiAdapter access$400(com.vector.cleaner.activity.LajiFileActivity) -> e
+    41:41:com.vector.cleaner.madapter.LajiAdapter access$500(com.vector.cleaner.activity.LajiFileActivity) -> f
 com.vector.cleaner.activity.LajiFileActivity$1 -> com.vector.cleaner.activity.LajiFileActivity$1:
     long val$allSize -> a
     com.vector.cleaner.activity.LajiFileActivity this$0 -> b
-    147:147:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
-    150:181:void run() -> run
+    156:156:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
+    159:190:void run() -> run
 com.vector.cleaner.activity.LajiFileActivity$1$1 -> com.vector.cleaner.activity.LajiFileActivity$1$1:
     long val$finalI -> a
     com.vector.cleaner.activity.LajiFileActivity$1 this$1 -> b
-    165:165:void <init>(com.vector.cleaner.activity.LajiFileActivity$1,long) -> <init>
-    168:170:void run() -> run
+    174:174:void <init>(com.vector.cleaner.activity.LajiFileActivity$1,long) -> <init>
+    177:179:void run() -> run
 com.vector.cleaner.activity.LajiFileActivity$1$2 -> com.vector.cleaner.activity.LajiFileActivity$1$2:
     com.vector.cleaner.activity.LajiFileActivity$1 this$1 -> a
-    173:173:void <init>(com.vector.cleaner.activity.LajiFileActivity$1) -> <init>
-    176:179:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$10 -> com.vector.cleaner.activity.LajiFileActivity$2:
-    com.vector.cleaner.activity.LajiFileActivity this$0 -> a
-    484:484:void <init>(com.vector.cleaner.activity.LajiFileActivity) -> <init>
-    487:488:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$11 -> com.vector.cleaner.activity.LajiFileActivity$3:
-    com.vector.cleaner.activity.LajiFileActivity this$0 -> a
-    490:490:void <init>(com.vector.cleaner.activity.LajiFileActivity) -> <init>
-    493:494:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$12 -> com.vector.cleaner.activity.LajiFileActivity$4:
-    com.vector.cleaner.activity.LajiFileActivity this$0 -> a
-    496:496:void <init>(com.vector.cleaner.activity.LajiFileActivity) -> <init>
-    499:500:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$13 -> com.vector.cleaner.activity.LajiFileActivity$5:
-    com.vector.cleaner.activity.LajiFileActivity this$0 -> a
-    502:502:void <init>(com.vector.cleaner.activity.LajiFileActivity) -> <init>
-    505:506:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$14 -> com.vector.cleaner.activity.LajiFileActivity$6:
-    android.os.Bundle val$bundle -> a
-    com.vector.cleaner.activity.LajiFileActivity this$0 -> b
-    508:508:void <init>(com.vector.cleaner.activity.LajiFileActivity,android.os.Bundle) -> <init>
-    511:512:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$15 -> com.vector.cleaner.activity.LajiFileActivity$7:
-    com.vector.cleaner.activity.LajiFileActivity this$0 -> a
-    528:528:void <init>(com.vector.cleaner.activity.LajiFileActivity) -> <init>
-    531:615:void onClick(android.view.View) -> onClick
-com.vector.cleaner.activity.LajiFileActivity$2 -> com.vector.cleaner.activity.LajiFileActivity$8:
+    182:182:void <init>(com.vector.cleaner.activity.LajiFileActivity$1) -> <init>
+    185:188:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$2 -> com.vector.cleaner.activity.LajiFileActivity$2:
     long val$size -> a
     com.vector.cleaner.activity.LajiFileActivity this$0 -> b
-    216:216:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
-    219:242:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$2$1 -> com.vector.cleaner.activity.LajiFileActivity$8$1:
+    225:225:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
+    228:251:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$2$1 -> com.vector.cleaner.activity.LajiFileActivity$2$1:
     long val$finalI -> a
     com.vector.cleaner.activity.LajiFileActivity$2 this$1 -> b
-    235:235:void <init>(com.vector.cleaner.activity.LajiFileActivity$2,long) -> <init>
-    238:239:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$3 -> com.vector.cleaner.activity.LajiFileActivity$9:
+    244:244:void <init>(com.vector.cleaner.activity.LajiFileActivity$2,long) -> <init>
+    247:248:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$3 -> com.vector.cleaner.activity.LajiFileActivity$3:
     long val$size -> a
     com.vector.cleaner.activity.LajiFileActivity this$0 -> b
-    252:252:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
-    255:277:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$3$1 -> com.vector.cleaner.activity.LajiFileActivity$9$1:
+    261:261:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
+    264:286:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$3$1 -> com.vector.cleaner.activity.LajiFileActivity$3$1:
     long val$finalI -> a
     com.vector.cleaner.activity.LajiFileActivity$3 this$1 -> b
-    270:270:void <init>(com.vector.cleaner.activity.LajiFileActivity$3,long) -> <init>
-    273:274:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$4 -> com.vector.cleaner.activity.LajiFileActivity$10:
+    279:279:void <init>(com.vector.cleaner.activity.LajiFileActivity$3,long) -> <init>
+    282:283:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$4 -> com.vector.cleaner.activity.LajiFileActivity$4:
     long val$size -> a
     com.vector.cleaner.activity.LajiFileActivity this$0 -> b
-    287:287:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
-    290:312:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$4$1 -> com.vector.cleaner.activity.LajiFileActivity$10$1:
+    296:296:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
+    299:321:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$4$1 -> com.vector.cleaner.activity.LajiFileActivity$4$1:
     long val$finalI -> a
     com.vector.cleaner.activity.LajiFileActivity$4 this$1 -> b
-    305:305:void <init>(com.vector.cleaner.activity.LajiFileActivity$4,long) -> <init>
-    308:309:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$5 -> com.vector.cleaner.activity.LajiFileActivity$11:
+    314:314:void <init>(com.vector.cleaner.activity.LajiFileActivity$4,long) -> <init>
+    317:318:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$5 -> com.vector.cleaner.activity.LajiFileActivity$5:
     long val$size -> a
     com.vector.cleaner.activity.LajiFileActivity this$0 -> b
-    322:322:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
-    325:347:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$5$1 -> com.vector.cleaner.activity.LajiFileActivity$11$1:
+    331:331:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
+    334:356:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$5$1 -> com.vector.cleaner.activity.LajiFileActivity$5$1:
     long val$finalI -> a
     com.vector.cleaner.activity.LajiFileActivity$5 this$1 -> b
-    340:340:void <init>(com.vector.cleaner.activity.LajiFileActivity$5,long) -> <init>
-    343:344:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$6 -> com.vector.cleaner.activity.LajiFileActivity$12:
+    349:349:void <init>(com.vector.cleaner.activity.LajiFileActivity$5,long) -> <init>
+    352:353:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$6 -> com.vector.cleaner.activity.LajiFileActivity$6:
     long val$size -> a
     com.vector.cleaner.activity.LajiFileActivity this$0 -> b
-    357:357:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
-    360:382:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$6$1 -> com.vector.cleaner.activity.LajiFileActivity$12$1:
+    366:366:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
+    369:391:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$6$1 -> com.vector.cleaner.activity.LajiFileActivity$6$1:
     long val$finalI -> a
     com.vector.cleaner.activity.LajiFileActivity$6 this$1 -> b
-    375:375:void <init>(com.vector.cleaner.activity.LajiFileActivity$6,long) -> <init>
-    378:379:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$7 -> com.vector.cleaner.activity.LajiFileActivity$13:
+    384:384:void <init>(com.vector.cleaner.activity.LajiFileActivity$6,long) -> <init>
+    387:388:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$7 -> com.vector.cleaner.activity.LajiFileActivity$7:
     long val$size -> a
     com.vector.cleaner.activity.LajiFileActivity this$0 -> b
-    395:395:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
-    398:422:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$8 -> com.vector.cleaner.activity.LajiFileActivity$14:
+    404:404:void <init>(com.vector.cleaner.activity.LajiFileActivity,long) -> <init>
+    407:431:void run() -> run
+com.vector.cleaner.activity.LajiFileActivity$8 -> com.vector.cleaner.activity.LajiFileActivity$8:
     android.os.Bundle val$bundle -> a
     com.vector.cleaner.activity.LajiFileActivity this$0 -> b
-    442:442:void <init>(com.vector.cleaner.activity.LajiFileActivity,android.os.Bundle) -> <init>
-    445:474:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$8$1 -> com.vector.cleaner.activity.LajiFileActivity$14$1:
-    com.vector.cleaner.activity.LajiFileActivity$8 this$1 -> a
-    459:459:void <init>(com.vector.cleaner.activity.LajiFileActivity$8) -> <init>
-    461:465:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$8$2 -> com.vector.cleaner.activity.LajiFileActivity$14$2:
-    com.vector.cleaner.activity.LajiFileActivity$8 this$1 -> a
-    468:468:void <init>(com.vector.cleaner.activity.LajiFileActivity$8) -> <init>
-    471:472:void run() -> run
-com.vector.cleaner.activity.LajiFileActivity$9 -> com.vector.cleaner.activity.LajiFileActivity$15:
+    451:451:void <init>(com.vector.cleaner.activity.LajiFileActivity,android.os.Bundle) -> <init>
+    455:455:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    459:460:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    465:465:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    470:470:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.vector.cleaner.activity.LajiFileActivity$9 -> com.vector.cleaner.activity.LajiFileActivity$9:
     com.vector.cleaner.activity.LajiFileActivity this$0 -> a
-    478:478:void <init>(com.vector.cleaner.activity.LajiFileActivity) -> <init>
-    481:482:void run() -> run
+    484:484:void <init>(com.vector.cleaner.activity.LajiFileActivity) -> <init>
+    487:573:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.LoadingActivity -> com.vector.cleaner.activity.LoadingActivity:
     android.animation.ObjectAnimator rotationY -> d
     android.os.Handler myHandler -> a
@@ -36430,208 +36380,203 @@ com.vector.cleaner.activity.LoadingActivity$1 -> com.vector.cleaner.activity.Loa
     63:63:void <init>(com.vector.cleaner.activity.LoadingActivity) -> <init>
     67:141:void run() -> run
 com.vector.cleaner.activity.MainActivity -> com.vector.cleaner.activity.MainActivity:
-    android.widget.TextView main_rotate_good -> a
-    android.widget.TextView main_rotate_bad -> b
-    com.vector.cleaner.myview.MyScrollView main_scroll_view -> c
+    com.vector.cleaner.myview.MyScrollView main_scroll_view -> a
+    android.widget.FrameLayout main_ram_qiu -> b
+    android.widget.FrameLayout main_file_qiu -> c
     android.widget.TextView main_sd_per -> d
     android.widget.TextView main_sd_size -> e
     android.widget.TextView main_ram_per -> f
     android.widget.TextView main_ram_size -> g
     android.widget.RelativeLayout main_junk_button -> h
-    android.widget.RelativeLayout main_ram_button -> i
+    android.widget.RelativeLayout main_applock_button -> i
     android.widget.RelativeLayout main_cooling_button -> j
     android.widget.LinearLayout main_manager_button -> k
-    android.widget.LinearLayout main_applock_button -> o
-    android.widget.LinearLayout main_theme_button -> p
-    android.widget.LinearLayout main_rotate_all -> q
-    android.widget.ImageView main_rotate_cha -> r
-    com.vector.cleaner.myview.PullToRefreshLayout main_pull_refresh -> s
-    android.widget.ImageView iv_title_right -> t
-    android.widget.ImageView iv_title_left -> u
-    android.widget.LinearLayout main_sd_air_button -> v
-    android.widget.LinearLayout main_ram_air_button -> w
-    android.widget.ImageView main_huojian -> x
-    android.widget.ImageView main_yun -> y
-    com.vector.cleaner.myview.LineRam main_custom_sd -> z
-    com.vector.cleaner.myview.LineRam main_custom_ram -> A
-    android.widget.LinearLayout main_power_button -> B
-    android.widget.LinearLayout main_file_button -> C
-    android.widget.LinearLayout main_picture_button -> D
-    com.mingle.widget.LinearLayout ll_ad_full -> E
-    android.widget.ProgressBar ad_progressbar -> F
-    android.widget.LinearLayout main_battery -> G
-    android.widget.LinearLayout main_notifi_button -> H
-    android.widget.FrameLayout lot_ad -> I
-    android.widget.ImageView lot_ad_2 -> J
-    android.widget.FrameLayout full_load -> K
-    android.widget.TextView full_text -> L
-    com.vector.cleaner.myview.ListViewForScrollView side_listView -> M
-    android.support.v4.widget.DrawerLayout main_drawer -> N
-    android.widget.LinearLayout ll_ad -> O
-    android.widget.LinearLayout ll_ad_side -> P
-    android.widget.LinearLayout ad_native_2 -> Q
-    android.widget.LinearLayout ll_ad_s -> R
-    java.lang.String TAG_START_FULL -> Y
-    java.lang.String TAG_EXIT_FULL -> Z
-    java.lang.String TAG_FULL_PULL -> aa
-    java.lang.String TAG_MAIN -> ab
-    java.lang.String TAG_SIDE -> ac
-    java.lang.String TAG_REFRESH -> ad
-    java.lang.String LOADING_FULL -> ae
-    android.os.Handler handler -> af
-    com.vector.cleaner.presenter.MainPresenter mainPresenter -> ag
-    com.vector.cleaner.madapter.MSideAdapter adapter -> ah
-    int temp -> ai
-    android.support.v7.app.AlertDialog dialog -> aj
-    boolean light -> S
-    java.lang.Runnable run -> T
-    int sdProgress -> U
-    java.lang.Runnable fullAdRunnale -> V
-    com.vector.cleaner.myview.PullToRefreshLayout$OnRefreshListener refreshListener -> W
-    android.animation.AnimatorSet animatorSet -> ak
-    int time -> al
-    android.animation.ObjectAnimator animator_y -> am
-    android.view.View$OnClickListener onClickListener -> X
-    51:544:void <init>() -> <init>
-    102:151:void findId() -> a
-    155:176:void onCreate(android.os.Bundle) -> onCreate
-    196:218:void onClick() -> c
-    226:250:void initSideData() -> d
-    254:262:void initCpu(int) -> b
-    266:288:void initSd(int,java.lang.String,long) -> a
-    292:319:void initHuojian() -> e
-    323:337:void initRam(int,java.lang.String) -> a
-    341:342:void setRotateGone() -> f
-    346:347:void openDrawer() -> g
-    357:370:android.view.View getNativeAdView(java.lang.String,int) -> a
-    375:442:void loadFullAd() -> b
-    756:779:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    783:786:void onRestart() -> onRestart
-    790:791:void onPause() -> onPause
-    795:798:void onStop() -> onStop
-    802:808:void onResume() -> onResume
-    812:816:void onDestroy() -> onDestroy
-    819:850:void onBackPressed() -> onBackPressed
-    853:875:void adDelete() -> h
-    895:944:void showExitDialog() -> i
-    949:949:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    953:954:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    958:959:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    964:964:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    51:51:android.os.Handler access$000(com.vector.cleaner.activity.MainActivity) -> a
-    51:51:void access$100(com.vector.cleaner.activity.MainActivity) -> b
-    51:51:java.lang.String access$200(com.vector.cleaner.activity.MainActivity) -> c
-    51:51:com.vector.cleaner.presenter.MainPresenter access$300(com.vector.cleaner.activity.MainActivity) -> d
-    51:51:int access$400(com.vector.cleaner.activity.MainActivity) -> e
-    51:51:java.lang.String access$500(com.vector.cleaner.activity.MainActivity) -> f
-    51:51:android.animation.AnimatorSet access$602(com.vector.cleaner.activity.MainActivity,android.animation.AnimatorSet) -> a
-    51:51:int access$702(com.vector.cleaner.activity.MainActivity,int) -> a
-    51:51:int access$700(com.vector.cleaner.activity.MainActivity) -> g
-    51:51:android.animation.ObjectAnimator access$802(com.vector.cleaner.activity.MainActivity,android.animation.ObjectAnimator) -> a
-    51:51:android.animation.ObjectAnimator access$800(com.vector.cleaner.activity.MainActivity) -> h
-    51:51:android.animation.AnimatorSet access$600(com.vector.cleaner.activity.MainActivity) -> i
-    51:51:int access$710(com.vector.cleaner.activity.MainActivity) -> j
-    51:51:java.lang.String access$900(com.vector.cleaner.activity.MainActivity) -> k
-    51:51:com.vector.cleaner.madapter.MSideAdapter access$1000(com.vector.cleaner.activity.MainActivity) -> l
-    51:51:android.support.v7.app.AlertDialog access$1100(com.vector.cleaner.activity.MainActivity) -> m
+    android.widget.LinearLayout main_theme_button -> l
+    com.vector.cleaner.myview.PullToRefreshLayout main_pull_refresh -> m
+    android.widget.ImageView iv_title_right -> n
+    android.widget.ImageView iv_title_left -> o
+    android.widget.ImageView main_ram_ani -> p
+    android.widget.FrameLayout main_file_ani_1 -> t
+    com.vector.module.mView.BubbleLayout bubble_file -> u
+    android.widget.ImageView main_file_ani_2 -> v
+    com.vector.cleaner.myview.LineRam main_custom_sd -> w
+    com.vector.cleaner.myview.LineRam main_custom_ram -> x
+    com.mingle.widget.LinearLayout ll_ad_full -> y
+    android.widget.ProgressBar ad_progressbar -> z
+    android.widget.LinearLayout main_battery -> A
+    android.widget.ImageView lot_ad -> B
+    android.widget.FrameLayout full_load -> C
+    android.widget.ImageView full_zhuan -> D
+    com.vector.cleaner.myview.BubbleCenterLayout full_bubble -> E
+    com.vector.cleaner.myview.ListViewForScrollView side_listView -> F
+    android.support.v4.widget.DrawerLayout main_drawer -> G
+    java.lang.String TAG_START_FULL -> L
+    java.lang.String TAG_EXIT_FULL -> M
+    java.lang.String TAG_FULL_PULL -> N
+    java.lang.String TAG_MAIN -> O
+    java.lang.String TAG_SIDE -> P
+    java.lang.String TAG_REFRESH -> Q
+    java.lang.String LOADING_FULL -> R
+    android.os.Handler handler -> S
+    com.vector.cleaner.presenter.MainPresenter mainPresenter -> T
+    com.vector.cleaner.madapter.MSideAdapter adapter -> U
+    int temp -> V
+    android.support.v7.app.AlertDialog dialog -> W
+    android.animation.AnimatorSet animatorSet_ram -> X
+    android.animation.AnimatorSet animator_file -> Y
+    android.animation.ObjectAnimator objectAnimator_ad -> Z
+    int sdProgress -> H
+    java.lang.Runnable fullAdRunnale -> I
+    com.vector.cleaner.myview.PullToRefreshLayout$OnRefreshListener refreshListener -> J
+    android.animation.AnimatorSet animatorSet -> aa
+    android.animation.ObjectAnimator animator_y -> ab
+    android.view.View$OnClickListener onClickListener -> K
+    55:478:void <init>() -> <init>
+    104:142:void findId() -> a
+    146:158:void onCreate(android.os.Bundle) -> onCreate
+    164:177:void onClick() -> c
+    185:203:void initSideData() -> d
+    207:215:void initCpu(int) -> b
+    219:303:void initSd(int,java.lang.String,long) -> a
+    308:353:void initRam(int,java.lang.String) -> a
+    358:359:void openDrawer() -> e
+    369:382:android.view.View getNativeAdView(java.lang.String,int) -> a
+    387:437:void loadFullAd() -> b
+    645:668:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    672:675:void onRestart() -> onRestart
+    679:689:void onPause() -> onPause
+    693:694:void onStop() -> onStop
+    698:703:void onResume() -> onResume
+    707:719:void onDestroy() -> onDestroy
+    722:754:void onBackPressed() -> onBackPressed
+    757:779:void adDelete() -> f
+    799:848:void showExitDialog() -> g
+    853:853:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    857:858:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    862:863:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    868:868:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    55:55:android.os.Handler access$000(com.vector.cleaner.activity.MainActivity) -> a
+    55:55:android.animation.AnimatorSet access$102(com.vector.cleaner.activity.MainActivity,android.animation.AnimatorSet) -> a
+    55:55:android.animation.AnimatorSet access$100(com.vector.cleaner.activity.MainActivity) -> b
+    55:55:android.animation.AnimatorSet access$200(com.vector.cleaner.activity.MainActivity) -> c
+    55:55:android.animation.AnimatorSet access$202(com.vector.cleaner.activity.MainActivity,android.animation.AnimatorSet) -> b
+    55:55:void access$300(com.vector.cleaner.activity.MainActivity) -> d
+    55:55:com.vector.cleaner.presenter.MainPresenter access$400(com.vector.cleaner.activity.MainActivity) -> e
+    55:55:int access$500(com.vector.cleaner.activity.MainActivity) -> f
+    55:55:java.lang.String access$600(com.vector.cleaner.activity.MainActivity) -> g
+    55:55:android.animation.AnimatorSet access$702(com.vector.cleaner.activity.MainActivity,android.animation.AnimatorSet) -> c
+    55:55:android.animation.AnimatorSet access$700(com.vector.cleaner.activity.MainActivity) -> h
+    55:55:java.lang.String access$800(com.vector.cleaner.activity.MainActivity) -> i
+    55:55:com.vector.cleaner.madapter.MSideAdapter access$900(com.vector.cleaner.activity.MainActivity) -> j
+    55:55:android.support.v7.app.AlertDialog access$1000(com.vector.cleaner.activity.MainActivity) -> k
 com.vector.cleaner.activity.MainActivity$1 -> com.vector.cleaner.activity.MainActivity$1:
     com.vector.cleaner.activity.MainActivity this$0 -> a
-    179:179:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    182:189:void run() -> run
+    208:208:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
+    212:212:void run() -> run
 com.vector.cleaner.activity.MainActivity$10 -> com.vector.cleaner.activity.MainActivity$2:
     com.vector.cleaner.activity.MainActivity this$0 -> a
-    458:458:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    499:499:void onRefresh(com.vector.cleaner.myview.PullToRefreshLayout) -> a
-    504:527:void onLoadMore(com.vector.cleaner.myview.PullToRefreshLayout) -> b
+    478:478:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
+    482:640:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.MainActivity$10$1 -> com.vector.cleaner.activity.MainActivity$2$1:
     com.vector.cleaner.activity.MainActivity$10 this$1 -> a
-    505:505:void <init>(com.vector.cleaner.activity.MainActivity$10) -> <init>
-    508:520:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    524:525:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    537:537:void <init>(com.vector.cleaner.activity.MainActivity$10) -> <init>
+    541:541:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    545:553:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    558:558:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    563:563:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.vector.cleaner.activity.MainActivity$10$1$1 -> com.vector.cleaner.activity.MainActivity$2$1$1:
+    com.vector.cleaner.activity.MainActivity$10$1 this$2 -> a
+    547:547:void <init>(com.vector.cleaner.activity.MainActivity$10$1) -> <init>
+    550:551:void run() -> run
+com.vector.cleaner.activity.MainActivity$10$2 -> com.vector.cleaner.activity.MainActivity$2$2:
+    com.vector.cleaner.activity.MainActivity$10 this$1 -> a
+    573:573:void <init>(com.vector.cleaner.activity.MainActivity$10) -> <init>
+    576:599:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    604:604:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    609:609:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.vector.cleaner.activity.MainActivity$10$2$1 -> com.vector.cleaner.activity.MainActivity$2$2$1:
+    com.vector.cleaner.activity.MainActivity$10$2 this$2 -> a
+    576:576:void <init>(com.vector.cleaner.activity.MainActivity$10$2) -> <init>
+    579:590:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    594:597:void onNativeAdLoadFails() -> onNativeAdLoadFails
+com.vector.cleaner.activity.MainActivity$10$2$1$1 -> com.vector.cleaner.activity.MainActivity$2$2$1$1:
+    com.vector.cleaner.activity.MainActivity$10$2$1 this$3 -> a
+    582:582:void <init>(com.vector.cleaner.activity.MainActivity$10$2$1) -> <init>
+    585:586:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.MainActivity$11 -> com.vector.cleaner.activity.MainActivity$3:
     com.vector.cleaner.activity.MainActivity this$0 -> a
-    544:544:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    548:751:void onClick(android.view.View) -> onClick
-com.vector.cleaner.activity.MainActivity$11$1 -> com.vector.cleaner.activity.MainActivity$3$1:
-    com.vector.cleaner.activity.MainActivity$11 this$1 -> a
-    615:615:void <init>(com.vector.cleaner.activity.MainActivity$11) -> <init>
-    619:619:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    623:625:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    629:633:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    638:638:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-com.vector.cleaner.activity.MainActivity$11$2 -> com.vector.cleaner.activity.MainActivity$3$2:
-    com.vector.cleaner.activity.MainActivity$11 this$1 -> a
-    646:646:void <init>(com.vector.cleaner.activity.MainActivity$11) -> <init>
-    649:672:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    677:677:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    682:682:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.vector.cleaner.activity.MainActivity$11$2$1 -> com.vector.cleaner.activity.MainActivity$3$2$1:
-    com.vector.cleaner.activity.MainActivity$11$2 this$2 -> a
-    649:649:void <init>(com.vector.cleaner.activity.MainActivity$11$2) -> <init>
-    652:663:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    667:670:void onNativeAdLoadFails() -> onNativeAdLoadFails
-com.vector.cleaner.activity.MainActivity$11$2$1$1 -> com.vector.cleaner.activity.MainActivity$3$2$1$1:
-    com.vector.cleaner.activity.MainActivity$11$2$1 this$3 -> a
-    655:655:void <init>(com.vector.cleaner.activity.MainActivity$11$2$1) -> <init>
-    658:659:void onClick(android.view.View) -> onClick
+    769:769:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
+    772:774:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
 com.vector.cleaner.activity.MainActivity$12 -> com.vector.cleaner.activity.MainActivity$4:
     com.vector.cleaner.activity.MainActivity this$0 -> a
-    865:865:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    868:870:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
+    810:810:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
+    813:815:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.MainActivity$13 -> com.vector.cleaner.activity.MainActivity$5:
     com.vector.cleaner.activity.MainActivity this$0 -> a
-    906:906:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    909:911:void onClick(android.view.View) -> onClick
-com.vector.cleaner.activity.MainActivity$14 -> com.vector.cleaner.activity.MainActivity$6:
+    817:817:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
+    820:821:void onClick(android.view.View) -> onClick
+com.vector.cleaner.activity.MainActivity$2 -> com.vector.cleaner.activity.MainActivity$6:
+    java.lang.String val$size -> a
+    int val$percent -> b
+    com.vector.cleaner.activity.MainActivity this$0 -> c
+    221:221:void <init>(com.vector.cleaner.activity.MainActivity,java.lang.String,int) -> <init>
+    224:239:void run() -> run
+com.vector.cleaner.activity.MainActivity$3 -> com.vector.cleaner.activity.MainActivity$7:
     com.vector.cleaner.activity.MainActivity this$0 -> a
-    913:913:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    916:917:void onClick(android.view.View) -> onClick
-com.vector.cleaner.activity.MainActivity$2 -> com.vector.cleaner.activity.MainActivity$7:
-    com.vector.cleaner.activity.MainActivity this$0 -> a
-    255:255:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    259:259:void run() -> run
-com.vector.cleaner.activity.MainActivity$3 -> com.vector.cleaner.activity.MainActivity$8:
-    com.vector.cleaner.activity.MainActivity this$0 -> a
-    267:267:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    270:271:void run() -> run
-com.vector.cleaner.activity.MainActivity$4 -> com.vector.cleaner.activity.MainActivity$9:
+    241:241:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
+    244:245:void run() -> run
+com.vector.cleaner.activity.MainActivity$4 -> com.vector.cleaner.activity.MainActivity$8:
     java.lang.Runnable val$sdRunable -> a
     com.vector.cleaner.activity.MainActivity this$0 -> b
-    273:273:void <init>(com.vector.cleaner.activity.MainActivity,java.lang.Runnable) -> <init>
-    276:278:void progressUpdate(int) -> a
-com.vector.cleaner.activity.MainActivity$5 -> com.vector.cleaner.activity.MainActivity$10:
+    247:247:void <init>(com.vector.cleaner.activity.MainActivity,java.lang.Runnable) -> <init>
+    250:252:void progressUpdate(int) -> a
+    256:299:void progressSuccess() -> a
+com.vector.cleaner.activity.MainActivity$4$1 -> com.vector.cleaner.activity.MainActivity$8$1:
+    com.vector.cleaner.activity.MainActivity$4 this$1 -> a
+    256:256:void <init>(com.vector.cleaner.activity.MainActivity$4) -> <init>
+    259:297:void run() -> run
+com.vector.cleaner.activity.MainActivity$4$1$1 -> com.vector.cleaner.activity.MainActivity$8$1$1:
+    android.animation.ObjectAnimator val$objectanimator_4 -> a
+    android.animation.ObjectAnimator val$objectanimator_5 -> b
+    com.vector.cleaner.activity.MainActivity$4$1 this$2 -> c
+    272:272:void <init>(com.vector.cleaner.activity.MainActivity$4$1,android.animation.ObjectAnimator,android.animation.ObjectAnimator) -> <init>
+    276:276:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    280:285:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    290:290:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    295:295:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.vector.cleaner.activity.MainActivity$5 -> com.vector.cleaner.activity.MainActivity$9:
+    int val$percent -> a
+    com.vector.cleaner.activity.MainActivity this$0 -> b
+    308:308:void <init>(com.vector.cleaner.activity.MainActivity,int) -> <init>
+    312:319:void run() -> run
+com.vector.cleaner.activity.MainActivity$6 -> com.vector.cleaner.activity.MainActivity$10:
     java.lang.String val$size -> a
     com.vector.cleaner.activity.MainActivity this$0 -> b
-    281:281:void <init>(com.vector.cleaner.activity.MainActivity,java.lang.String) -> <init>
-    284:285:void run() -> run
-com.vector.cleaner.activity.MainActivity$6 -> com.vector.cleaner.activity.MainActivity$11:
-    com.vector.cleaner.activity.MainActivity this$0 -> a
-    292:292:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    295:317:void run() -> run
-com.vector.cleaner.activity.MainActivity$6$1 -> com.vector.cleaner.activity.MainActivity$11$1:
-    com.vector.cleaner.activity.MainActivity$6 this$1 -> a
-    298:298:void <init>(com.vector.cleaner.activity.MainActivity$6) -> <init>
-    301:304:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    309:309:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    314:314:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.vector.cleaner.activity.MainActivity$7 -> com.vector.cleaner.activity.MainActivity$12:
-    java.lang.String val$size -> a
-    com.vector.cleaner.activity.MainActivity this$0 -> b
-    324:324:void <init>(com.vector.cleaner.activity.MainActivity,java.lang.String) -> <init>
-    327:334:void progressUpdate(int) -> a
-com.vector.cleaner.activity.MainActivity$7$1 -> com.vector.cleaner.activity.MainActivity$12$1:
+    322:322:void <init>(com.vector.cleaner.activity.MainActivity,java.lang.String) -> <init>
+    325:332:void progressUpdate(int) -> a
+    336:350:void progressSuccess() -> a
+com.vector.cleaner.activity.MainActivity$6$1 -> com.vector.cleaner.activity.MainActivity$10$1:
     int val$progress -> a
-    com.vector.cleaner.activity.MainActivity$7 this$1 -> b
-    327:327:void <init>(com.vector.cleaner.activity.MainActivity$7,int) -> <init>
-    330:332:void run() -> run
-com.vector.cleaner.activity.MainActivity$8 -> com.vector.cleaner.activity.MainActivity$13:
+    com.vector.cleaner.activity.MainActivity$6 this$1 -> b
+    325:325:void <init>(com.vector.cleaner.activity.MainActivity$6,int) -> <init>
+    328:330:void run() -> run
+com.vector.cleaner.activity.MainActivity$6$2 -> com.vector.cleaner.activity.MainActivity$10$2:
+    com.vector.cleaner.activity.MainActivity$6 this$1 -> a
+    336:336:void <init>(com.vector.cleaner.activity.MainActivity$6) -> <init>
+    339:348:void run() -> run
+com.vector.cleaner.activity.MainActivity$7 -> com.vector.cleaner.activity.MainActivity$11:
     com.vector.cleaner.activity.MainActivity this$0 -> a
-    418:418:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    421:429:void onClick(android.view.View) -> onClick
-com.vector.cleaner.activity.MainActivity$9 -> com.vector.cleaner.activity.MainActivity$14:
+    413:413:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
+    416:424:void onClick(android.view.View) -> onClick
+com.vector.cleaner.activity.MainActivity$8 -> com.vector.cleaner.activity.MainActivity$12:
     com.vector.cleaner.activity.MainActivity this$0 -> a
-    444:444:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
-    447:454:void run() -> run
+    439:439:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
+    442:449:void run() -> run
+com.vector.cleaner.activity.MainActivity$9 -> com.vector.cleaner.activity.MainActivity$13:
+    com.vector.cleaner.activity.MainActivity this$0 -> a
+    453:453:void <init>(com.vector.cleaner.activity.MainActivity) -> <init>
+    457:457:void onRefresh(com.vector.cleaner.myview.PullToRefreshLayout) -> a
+    462:462:void onLoadMore(com.vector.cleaner.myview.PullToRefreshLayout) -> b
 com.vector.cleaner.activity.MyApplication -> com.vector.cleaner.activity.MyApplication:
     android.os.HandlerThread mThread -> a
     28:28:void <init>() -> <init>
@@ -36661,19 +36606,55 @@ com.vector.cleaner.activity.NotifiSettingActivity$1 -> com.vector.cleaner.activi
 com.vector.cleaner.activity.NotifiYindaoActivity -> com.vector.cleaner.activity.NotifiYindaoActivity:
     android.widget.Button notifi_info_text -> a
     android.os.Handler myHandler -> b
-    20:20:void <init>() -> <init>
-    28:55:void onCreate(android.os.Bundle) -> onCreate
-    59:61:void findId() -> a
-    65:66:void onBackPressed() -> onBackPressed
-    70:77:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    android.widget.TextView title_name -> c
+    android.widget.FrameLayout title_left -> d
+    android.widget.ImageView notifi_animation_1 -> e
+    android.widget.ImageView notifi_animation_2 -> f
+    android.widget.ImageView notifi_animation_3 -> g
+    android.widget.ImageView notifi_animation_4 -> h
+    android.widget.ImageView notifi_animation_5 -> i
+    android.widget.LinearLayout notifi_animation -> j
+    android.animation.AnimatorSet animatorSet -> n
+    java.lang.Runnable runnable_animation -> k
+    java.lang.Runnable runnable_ac -> l
+    java.lang.Runnable runnable_per -> m
+    28:85:void <init>() -> <init>
+    40:69:void onCreate(android.os.Bundle) -> onCreate
+    97:141:void startAnimation() -> b
+    145:161:void findId() -> a
+    165:166:void onBackPressed() -> onBackPressed
+    170:180:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    184:192:void onDestroy() -> onDestroy
+    28:28:void access$000(com.vector.cleaner.activity.NotifiYindaoActivity) -> a
+    28:28:android.animation.AnimatorSet access$102(com.vector.cleaner.activity.NotifiYindaoActivity,android.animation.AnimatorSet) -> a
+    28:28:android.animation.AnimatorSet access$100(com.vector.cleaner.activity.NotifiYindaoActivity) -> b
 com.vector.cleaner.activity.NotifiYindaoActivity$1 -> com.vector.cleaner.activity.NotifiYindaoActivity$1:
     com.vector.cleaner.activity.NotifiYindaoActivity this$0 -> a
-    34:34:void <init>(com.vector.cleaner.activity.NotifiYindaoActivity) -> <init>
-    37:53:void onClick(android.view.View) -> onClick
-com.vector.cleaner.activity.NotifiYindaoActivity$1$1 -> com.vector.cleaner.activity.NotifiYindaoActivity$1$1:
-    com.vector.cleaner.activity.NotifiYindaoActivity$1 this$1 -> a
-    39:39:void <init>(com.vector.cleaner.activity.NotifiYindaoActivity$1) -> <init>
-    42:44:void run() -> run
+    52:52:void <init>(com.vector.cleaner.activity.NotifiYindaoActivity) -> <init>
+    55:65:void onClick(android.view.View) -> onClick
+com.vector.cleaner.activity.NotifiYindaoActivity$2 -> com.vector.cleaner.activity.NotifiYindaoActivity$2:
+    com.vector.cleaner.activity.NotifiYindaoActivity this$0 -> a
+    71:71:void <init>(com.vector.cleaner.activity.NotifiYindaoActivity) -> <init>
+    74:76:void run() -> run
+com.vector.cleaner.activity.NotifiYindaoActivity$3 -> com.vector.cleaner.activity.NotifiYindaoActivity$3:
+    com.vector.cleaner.activity.NotifiYindaoActivity this$0 -> a
+    78:78:void <init>(com.vector.cleaner.activity.NotifiYindaoActivity) -> <init>
+    81:83:void run() -> run
+com.vector.cleaner.activity.NotifiYindaoActivity$4 -> com.vector.cleaner.activity.NotifiYindaoActivity$4:
+    com.vector.cleaner.activity.NotifiYindaoActivity this$0 -> a
+    85:85:void <init>(com.vector.cleaner.activity.NotifiYindaoActivity) -> <init>
+    88:93:void run() -> run
+com.vector.cleaner.activity.NotifiYindaoActivity$5 -> com.vector.cleaner.activity.NotifiYindaoActivity$5:
+    com.vector.cleaner.activity.NotifiYindaoActivity this$0 -> a
+    113:113:void <init>(com.vector.cleaner.activity.NotifiYindaoActivity) -> <init>
+    117:117:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    121:129:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    134:134:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    139:139:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.vector.cleaner.activity.NotifiYindaoActivity$6 -> com.vector.cleaner.activity.NotifiYindaoActivity$6:
+    com.vector.cleaner.activity.NotifiYindaoActivity this$0 -> a
+    155:155:void <init>(com.vector.cleaner.activity.NotifiYindaoActivity) -> <init>
+    158:159:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.NotificationActivity -> com.vector.cleaner.activity.NotificationActivity:
     android.widget.TextView white_wu -> a
     android.widget.TextView title_name -> b
@@ -36739,47 +36720,43 @@ com.vector.cleaner.activity.SettingActivity -> com.vector.cleaner.activity.Setti
     android.widget.RelativeLayout setting_hui -> i
     android.widget.RelativeLayout setting_notifi -> j
     android.widget.RelativeLayout setting_white -> k
-    android.widget.RelativeLayout setting_short -> o
-    android.widget.RelativeLayout setting_rotate -> p
-    android.widget.ImageView setting_tongzhi_check -> q
-    android.widget.ImageView setting_tongzhilan_check -> r
-    android.widget.ImageView setting_float_check -> s
+    android.widget.RelativeLayout setting_short -> l
+    android.widget.RelativeLayout setting_rotate -> m
+    android.widget.ImageView setting_tongzhi_check -> n
+    android.widget.ImageView setting_tongzhilan_check -> o
+    android.widget.ImageView setting_float_check -> p
     android.widget.ImageView setting_battery_check -> t
     android.widget.FrameLayout title_left -> u
     android.widget.TextView title_name -> v
-    android.widget.ImageView tongzhi_iv -> w
-    android.widget.ImageView tongzhilan_iv -> x
-    android.widget.ImageView float_iv -> y
-    android.widget.ImageView battery_iv -> z
-    android.widget.TextView tongzhi_tv -> A
-    android.widget.TextView tongzhilan_tv -> B
-    android.widget.TextView float_tv -> C
-    android.widget.TextView battery_tv -> D
-    android.widget.LinearLayout ll_ad -> E
-    android.widget.ScrollView setting_scroll -> F
-    android.view.View nativeView -> H
-    java.lang.String TAG_SETTING -> I
-    android.os.Handler myHandler -> J
-    android.view.View$OnClickListener onClickListener -> G
-    33:196:void <init>() -> <init>
-    50:80:void findId() -> a
-    84:112:void onCreate(android.os.Bundle) -> onCreate
-    116:117:void onResume() -> onResume
-    121:122:void onPause() -> onPause
-    126:133:void addAd() -> b
-    137:165:void initData() -> c
-    168:177:void setAlphaAndColor(android.widget.ImageView,android.widget.TextView,boolean) -> a
-    180:193:void initListener() -> d
-    321:331:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    335:337:void onBackPressed() -> onBackPressed
+    android.widget.TextView tongzhi_tv -> w
+    android.widget.TextView tongzhilan_tv -> x
+    android.widget.TextView float_tv -> y
+    android.widget.TextView battery_tv -> z
+    android.widget.LinearLayout ll_ad -> A
+    android.widget.ScrollView setting_scroll -> B
+    android.view.View nativeView -> D
+    java.lang.String TAG_SETTING -> E
+    android.os.Handler myHandler -> F
+    android.view.View$OnClickListener onClickListener -> C
+    33:189:void <init>() -> <init>
+    49:75:void findId() -> a
+    79:107:void onCreate(android.os.Bundle) -> onCreate
+    111:112:void onResume() -> onResume
+    116:117:void onPause() -> onPause
+    121:128:void addAd() -> b
+    132:160:void initData() -> c
+    163:170:void setAlphaAndColor(android.widget.TextView,boolean) -> a
+    173:186:void initListener() -> d
+    314:324:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    328:330:void onBackPressed() -> onBackPressed
 com.vector.cleaner.activity.SettingActivity$1 -> com.vector.cleaner.activity.SettingActivity$1:
     com.vector.cleaner.activity.SettingActivity this$0 -> a
-    93:93:void <init>(com.vector.cleaner.activity.SettingActivity) -> <init>
-    96:97:void run() -> run
+    88:88:void <init>(com.vector.cleaner.activity.SettingActivity) -> <init>
+    91:92:void run() -> run
 com.vector.cleaner.activity.SettingActivity$2 -> com.vector.cleaner.activity.SettingActivity$2:
     com.vector.cleaner.activity.SettingActivity this$0 -> a
-    196:196:void <init>(com.vector.cleaner.activity.SettingActivity) -> <init>
-    199:316:void onClick(android.view.View) -> onClick
+    189:189:void <init>(com.vector.cleaner.activity.SettingActivity) -> <init>
+    192:309:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.ShoujiMsgActivity -> com.vector.cleaner.activity.ShoujiMsgActivity:
     android.widget.TextView message_model -> a
     android.widget.TextView message_android_version -> b
@@ -36792,11 +36769,11 @@ com.vector.cleaner.activity.ShoujiMsgActivity -> com.vector.cleaner.activity.Sho
     android.widget.TextView message_imei -> i
     android.widget.TextView message_ram -> j
     android.widget.TextView message_sd -> k
-    android.widget.FrameLayout title_left -> o
-    android.telephony.TelephonyManager telManager -> r
-    android.widget.TextView title_name -> p
-    android.widget.LinearLayout ll_ad -> q
-    java.lang.String TAG_MESSAGE -> s
+    android.widget.FrameLayout title_left -> l
+    android.telephony.TelephonyManager telManager -> o
+    android.widget.TextView title_name -> m
+    android.widget.LinearLayout ll_ad -> n
+    java.lang.String TAG_MESSAGE -> p
     android.os.Handler myHandler -> t
     34:42:void <init>() -> <init>
     47:62:void findId() -> a
@@ -36845,11 +36822,11 @@ com.vector.cleaner.activity.SimilarPhotoActivity -> com.vector.cleaner.activity.
     android.widget.ProgressBar picture_progressbar -> i
     android.widget.LinearLayout picture_other -> j
     android.widget.FrameLayout pager_fl -> k
-    android.widget.ImageView pic_pager_left -> o
-    android.widget.LinearLayout pic_pager_check -> p
-    android.widget.Button picture_button -> q
-    android.widget.TextView picture_scan -> r
-    android.widget.TextView pic_pager_title -> s
+    android.widget.ImageView pic_pager_left -> l
+    android.widget.LinearLayout pic_pager_check -> m
+    android.widget.Button picture_button -> n
+    android.widget.TextView picture_scan -> o
+    android.widget.TextView pic_pager_title -> p
     android.widget.LinearLayout pic_pager_delete -> t
     android.widget.ImageView pic_pager_check_iv -> u
     android.support.v4.view.PagerAdapter pagerAdapter -> B
@@ -36989,48 +36966,50 @@ com.vector.cleaner.activity.SuccessActivity -> com.vector.cleaner.activity.Succe
     android.widget.FrameLayout title_left -> f
     android.widget.LinearLayout main_rotate_all -> g
     android.widget.ImageView main_rotate_cha -> h
-    android.widget.LinearLayout main_power_button -> i
-    android.widget.LinearLayout main_notifi_button -> j
-    android.widget.LinearLayout main_file_button -> k
-    android.widget.TextView success_clean_size -> o
-    com.vector.cleaner.myview.SlowScrollView scrollView -> p
-    android.widget.LinearLayout success_title -> q
-    android.widget.LinearLayout main_picture_button -> r
-    android.widget.TextView main_rotate_bad -> s
-    com.vector.cleaner.myview.Gou success_gou -> t
-    android.widget.FrameLayout success_dong -> u
-    android.widget.LinearLayout ll_ad_xiao -> v
-    android.widget.ImageView power_icon -> w
-    android.widget.TextView power_text -> x
-    android.widget.TextView main_rotate_good -> y
-    android.widget.LinearLayout ad_title -> z
-    android.widget.LinearLayout ad_native_2 -> A
-    android.view.View nativeView -> C
-    android.view.View native_xiao -> D
-    android.os.Handler myHandler -> E
-    java.lang.String TAG_CLEAN -> F
-    java.lang.String TAG_CLEAN_2 -> G
-    boolean haveAd -> H
-    boolean animationEnd -> I
-    com.vector.cleaner.activity.MyApplication cleanApplication -> J
-    android.animation.AnimatorSet set -> K
-    android.view.View$OnClickListener onClickListener -> B
-    46:464:void <init>() -> <init>
-    89:116:void findId() -> a
-    120:244:void onCreate(android.os.Bundle) -> onCreate
-    247:264:void shendu() -> c
-    268:281:void addListener() -> d
-    284:290:void initAnimation() -> e
-    293:312:void addAd() -> f
-    383:429:void startFirstAnimation() -> b
-    432:462:void startSecondAnimation() -> g
-    558:569:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    573:575:void onResume() -> onResume
-    579:580:void onPause() -> onPause
-    584:589:void onStop() -> onStop
-    593:598:void onDestroy() -> onDestroy
-    602:604:void onBackPressed() -> onBackPressed
+    android.widget.LinearLayout main_notifi_button -> i
+    android.widget.LinearLayout main_file_button -> j
+    android.widget.TextView success_clean_size -> k
+    com.vector.cleaner.myview.SlowScrollView scrollView -> l
+    android.widget.LinearLayout success_title -> m
+    android.widget.LinearLayout main_picture_button -> n
+    android.widget.TextView main_rotate_bad -> o
+    android.widget.FrameLayout success_dong -> p
+    android.widget.ImageView xing_1 -> t
+    android.widget.ImageView xing_2 -> u
+    android.widget.ImageView xing_3 -> v
+    android.widget.LinearLayout ll_ad_xiao -> w
+    android.widget.ImageView power_icon -> x
+    android.widget.TextView power_text -> y
+    android.widget.TextView main_rotate_good -> z
+    android.widget.LinearLayout ad_title -> A
+    android.widget.LinearLayout ad_native_2 -> B
+    android.view.View nativeView -> D
+    android.view.View native_xiao -> E
+    android.os.Handler myHandler -> F
+    java.lang.String TAG_CLEAN -> G
+    java.lang.String TAG_CLEAN_2 -> H
+    boolean haveAd -> I
+    boolean animationEnd -> J
+    com.vector.cleaner.activity.MyApplication cleanApplication -> K
+    android.animation.AnimatorSet set -> L
+    android.view.View$OnClickListener onClickListener -> C
+    46:518:void <init>() -> <init>
+    88:116:void findId() -> a
+    120:235:void onCreate(android.os.Bundle) -> onCreate
+    238:254:void shendu() -> c
+    258:270:void addListener() -> d
+    273:279:void initAnimation() -> e
+    282:301:void addAd() -> f
+    372:483:void startFirstAnimation() -> b
+    486:516:void startSecondAnimation() -> g
+    603:614:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    618:620:void onResume() -> onResume
+    624:625:void onPause() -> onPause
+    629:634:void onStop() -> onStop
+    638:639:void onDestroy() -> onDestroy
+    643:645:void onBackPressed() -> onBackPressed
     46:46:void access$000(com.vector.cleaner.activity.SuccessActivity) -> a
+    46:46:android.animation.AnimatorSet access$102(com.vector.cleaner.activity.SuccessActivity,android.animation.AnimatorSet) -> a
     46:46:android.animation.AnimatorSet access$100(com.vector.cleaner.activity.SuccessActivity) -> b
     46:46:void access$200(com.vector.cleaner.activity.SuccessActivity) -> c
     46:46:boolean access$302(com.vector.cleaner.activity.SuccessActivity,boolean) -> a
@@ -37038,41 +37017,47 @@ com.vector.cleaner.activity.SuccessActivity -> com.vector.cleaner.activity.Succe
     46:46:android.os.Handler access$500(com.vector.cleaner.activity.SuccessActivity) -> e
 com.vector.cleaner.activity.SuccessActivity$1 -> com.vector.cleaner.activity.SuccessActivity$1:
     com.vector.cleaner.activity.SuccessActivity this$0 -> a
-    237:237:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
-    239:240:void run() -> run
+    228:228:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
+    230:231:void run() -> run
 com.vector.cleaner.activity.SuccessActivity$2 -> com.vector.cleaner.activity.SuccessActivity$2:
     com.vector.cleaner.activity.SuccessActivity this$0 -> a
-    284:284:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
-    287:288:void run() -> run
+    273:273:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
+    276:277:void run() -> run
 com.vector.cleaner.activity.SuccessActivity$3 -> com.vector.cleaner.activity.SuccessActivity$3:
     com.vector.cleaner.activity.SuccessActivity this$0 -> a
-    384:384:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
-    387:394:void animaEnd() -> a
+    380:380:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
+    384:384:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    388:469:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    474:474:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    479:479:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.vector.cleaner.activity.SuccessActivity$3$1 -> com.vector.cleaner.activity.SuccessActivity$3$1:
     com.vector.cleaner.activity.SuccessActivity$3 this$1 -> a
-    388:388:void <init>(com.vector.cleaner.activity.SuccessActivity$3) -> <init>
-    391:392:void run() -> run
+    413:413:void <init>(com.vector.cleaner.activity.SuccessActivity$3) -> <init>
+    417:417:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    421:453:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    458:458:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    463:463:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.vector.cleaner.activity.SuccessActivity$3$1$1 -> com.vector.cleaner.activity.SuccessActivity$3$1$1:
+    com.vector.cleaner.activity.SuccessActivity$3$1 this$2 -> a
+    428:428:void <init>(com.vector.cleaner.activity.SuccessActivity$3$1) -> <init>
+    431:431:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    435:440:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    445:445:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    450:450:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.vector.cleaner.activity.SuccessActivity$4 -> com.vector.cleaner.activity.SuccessActivity$4:
     com.vector.cleaner.activity.SuccessActivity this$0 -> a
-    404:404:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
-    407:407:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    411:416:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    421:421:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    426:426:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    489:489:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
+    492:504:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    509:509:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    514:514:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.vector.cleaner.activity.SuccessActivity$4$1 -> com.vector.cleaner.activity.SuccessActivity$4$1:
+    com.vector.cleaner.activity.SuccessActivity$4 this$1 -> a
+    492:492:void <init>(com.vector.cleaner.activity.SuccessActivity$4) -> <init>
+    495:501:void run() -> run
 com.vector.cleaner.activity.SuccessActivity$5 -> com.vector.cleaner.activity.SuccessActivity$5:
     com.vector.cleaner.activity.SuccessActivity this$0 -> a
-    435:435:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
-    438:450:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    455:455:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    460:460:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.vector.cleaner.activity.SuccessActivity$5$1 -> com.vector.cleaner.activity.SuccessActivity$5$1:
-    com.vector.cleaner.activity.SuccessActivity$5 this$1 -> a
-    438:438:void <init>(com.vector.cleaner.activity.SuccessActivity$5) -> <init>
-    441:447:void run() -> run
-com.vector.cleaner.activity.SuccessActivity$6 -> com.vector.cleaner.activity.SuccessActivity$6:
-    com.vector.cleaner.activity.SuccessActivity this$0 -> a
-    464:464:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
-    467:553:void onClick(android.view.View) -> onClick
+    518:518:void <init>(com.vector.cleaner.activity.SuccessActivity) -> <init>
+    521:598:void onClick(android.view.View) -> onClick
 com.vector.cleaner.activity.UnloadActivity -> com.vector.cleaner.activity.UnloadActivity:
     android.widget.LinearLayout ll_ad -> a
     long size -> b
@@ -37083,7 +37068,7 @@ com.vector.cleaner.activity.UnloadActivity -> com.vector.cleaner.activity.Unload
     java.lang.String path -> g
     android.view.View nativeView -> j
     java.lang.String TAG_UNLOAD -> k
-    java.util.ArrayList mngList -> o
+    java.util.ArrayList mngList -> l
     android.os.Handler myHandler -> h
     android.view.View$OnClickListener BtClickListener -> i
     31:119:void <init>() -> <init>
@@ -37135,84 +37120,72 @@ com.vector.cleaner.aservice.MemoryService$3 -> com.vector.cleaner.aservice.Memor
     156:167:void onGlobalLayout() -> onGlobalLayout
 com.vector.cleaner.aservice.NotificationService -> com.vector.cleaner.aservice.NotificationService:
     android.os.Handler myHandler -> a
-    android.widget.RemoteViews remoteView_1 -> c
-    android.widget.RemoteViews remoteViewNotifi -> d
-    android.app.Notification notification_1 -> e
-    com.vector.cleaner.utils.PhoneManager phoneManager -> f
-    android.app.NotificationManager mNotifyManager -> g
-    android.app.Notification notification_ram -> h
-    android.app.Notification notification_cooling -> i
-    android.app.Notification notification_junk -> j
-    android.app.Notification notification_two_day -> k
-    android.app.Notification notification_gboost -> l
+    android.widget.RemoteViews remoteView_1 -> d
+    android.widget.RemoteViews remoteViewNotifi -> e
+    android.app.Notification notification_1 -> f
+    com.vector.cleaner.utils.PhoneManager phoneManager -> g
+    android.app.NotificationManager mNotifyManager -> h
+    android.app.Notification notification_ram -> i
+    android.app.Notification notification_cooling -> j
+    android.app.Notification notification_junk -> k
+    android.app.Notification notification_two_day -> l
     android.app.Notification notification_notifi -> m
     android.content.Intent notifyIntentRam -> n
     android.content.Intent notifyIntentCooling -> o
-    android.content.Intent notifyIntentJunkRam -> p
-    android.content.Intent notifyIntentNotifi -> q
-    android.content.Intent notifyIntentGBoost -> r
-    android.graphics.Bitmap bitmap_progress -> s
-    android.graphics.Paint paint_1 -> t
-    int pointX -> u
-    android.graphics.RectF oval -> v
-    int cpuTemp -> w
-    int num -> x
+    android.content.Intent notifyIntentFlash -> p
+    android.content.Intent notifyIntentJunkRam -> q
+    android.content.Intent notifyIntentNotifi -> r
+    android.content.Intent notifyIntentGBoost -> s
+    android.graphics.Bitmap bitmap_progress -> t
+    android.graphics.Paint paint_1 -> u
+    int pointX -> v
+    android.graphics.RectF oval -> w
+    int cpuTemp -> x
     long lastTotalRxBytes -> y
     long lastTimeStamp -> z
-    com.vector.mcleaner.notification.NotificationCallBack notificationCallBack -> b
+    android.content.BroadcastReceiver broadcastReceiver -> b
+    com.vector.mcleaner.notification.NotificationCallBack notificationCallBack -> c
     java.lang.Runnable runnableW -> A
-    51:225:void <init>() -> <init>
-    74:74:android.os.IBinder onBind(android.content.Intent) -> onBind
-    79:97:void onCreate() -> onCreate
-    125:145:void initIntent() -> b
-    148:153:android.graphics.Canvas getCanvas() -> a
-    159:167:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    172:174:void onstart() -> c
-    183:223:void changZhuTongzhi() -> d
-    258:392:void update() -> e
-    396:412:void tonghzi_two_day() -> f
-    417:420:long getTotalRxBytes() -> g
-    426:441:void tonghzi_Ram() -> h
-    445:460:void tonghzi_cooling() -> i
-    464:480:void tonghzi_junk() -> j
-    485:501:void tonghzi_gboost() -> k
-    505:513:android.graphics.Bitmap screenShot(android.view.View,int) -> a
-    518:537:void tonghzi_notifi() -> l
-    543:549:void onDestroy() -> onDestroy
-    51:51:void access$000(com.vector.cleaner.aservice.NotificationService) -> a
-    51:51:android.widget.RemoteViews access$100(com.vector.cleaner.aservice.NotificationService) -> b
-    51:51:android.app.Notification access$200(com.vector.cleaner.aservice.NotificationService) -> c
-    51:51:android.app.NotificationManager access$300(com.vector.cleaner.aservice.NotificationService) -> d
-    51:51:long access$400(com.vector.cleaner.aservice.NotificationService) -> e
-    51:51:long access$500(com.vector.cleaner.aservice.NotificationService) -> f
-    51:51:long access$600(com.vector.cleaner.aservice.NotificationService) -> g
-    51:51:com.vector.cleaner.utils.PhoneManager access$700(com.vector.cleaner.aservice.NotificationService) -> h
-    51:51:android.widget.RemoteViews access$800(com.vector.cleaner.aservice.NotificationService) -> i
-    51:51:int access$908(com.vector.cleaner.aservice.NotificationService) -> j
-    51:51:int access$900(com.vector.cleaner.aservice.NotificationService) -> k
-    51:51:int access$902(com.vector.cleaner.aservice.NotificationService,int) -> a
-    51:51:void access$1000(com.vector.cleaner.aservice.NotificationService) -> l
-    51:51:android.app.Notification access$1100(com.vector.cleaner.aservice.NotificationService) -> m
-    51:51:long access$602(com.vector.cleaner.aservice.NotificationService,long) -> a
-    51:51:long access$502(com.vector.cleaner.aservice.NotificationService,long) -> b
-    51:51:int access$1202(com.vector.cleaner.aservice.NotificationService,int) -> b
-    51:51:int access$1200(com.vector.cleaner.aservice.NotificationService) -> n
-    51:51:android.graphics.Paint access$1300(com.vector.cleaner.aservice.NotificationService) -> o
-    51:51:android.graphics.RectF access$1400(com.vector.cleaner.aservice.NotificationService) -> p
-    51:51:android.graphics.Bitmap access$1500(com.vector.cleaner.aservice.NotificationService) -> q
+    54:248:void <init>() -> <init>
+    78:78:android.os.IBinder onBind(android.content.Intent) -> onBind
+    83:104:void onCreate() -> onCreate
+    141:164:void initIntent() -> b
+    167:172:android.graphics.Canvas getCanvas() -> a
+    178:185:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    190:192:void onstart() -> c
+    201:246:void changZhuTongzhi() -> d
+    258:391:void update() -> e
+    395:411:void tonghzi_two_day() -> f
+    425:440:void tonghzi_Ram() -> g
+    444:459:void tonghzi_cooling() -> h
+    463:479:void tonghzi_junk() -> i
+    504:512:android.graphics.Bitmap screenShot(android.view.View,int) -> a
+    517:536:void tonghzi_notifi() -> j
+    542:549:void onDestroy() -> onDestroy
+    54:54:android.widget.RemoteViews access$000(com.vector.cleaner.aservice.NotificationService) -> a
+    54:54:android.app.Notification access$100(com.vector.cleaner.aservice.NotificationService) -> b
+    54:54:android.app.NotificationManager access$200(com.vector.cleaner.aservice.NotificationService) -> c
+    54:54:void access$300(com.vector.cleaner.aservice.NotificationService) -> d
+    54:54:android.widget.RemoteViews access$400(com.vector.cleaner.aservice.NotificationService) -> e
+    54:54:android.app.Notification access$500(com.vector.cleaner.aservice.NotificationService) -> f
+    54:54:void access$600(com.vector.cleaner.aservice.NotificationService) -> g
+    54:54:int access$702(com.vector.cleaner.aservice.NotificationService,int) -> a
 com.vector.cleaner.aservice.NotificationService$1 -> com.vector.cleaner.aservice.NotificationService$1:
     com.vector.cleaner.aservice.NotificationService this$0 -> a
-    99:99:void <init>(com.vector.cleaner.aservice.NotificationService) -> <init>
-    102:120:void notificationChanged(java.util.ArrayList) -> a
+    106:106:void <init>(com.vector.cleaner.aservice.NotificationService) -> <init>
+    109:112:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.vector.cleaner.aservice.NotificationService$2 -> com.vector.cleaner.aservice.NotificationService$2:
     com.vector.cleaner.aservice.NotificationService this$0 -> a
-    225:225:void <init>(com.vector.cleaner.aservice.NotificationService) -> <init>
-    227:252:void run() -> run
+    115:115:void <init>(com.vector.cleaner.aservice.NotificationService) -> <init>
+    118:136:void notificationChanged(java.util.ArrayList) -> a
 com.vector.cleaner.aservice.NotificationService$3 -> com.vector.cleaner.aservice.NotificationService$3:
-    int val$memory -> a
-    com.vector.cleaner.aservice.NotificationService this$0 -> b
-    260:260:void <init>(com.vector.cleaner.aservice.NotificationService,int) -> <init>
-    263:282:void callbackResult(com.vector.cleaner.utils.RCpuTempReader$ResultCpuTemperature) -> a
+    com.vector.cleaner.aservice.NotificationService this$0 -> a
+    248:248:void <init>(com.vector.cleaner.aservice.NotificationService) -> <init>
+    250:252:void run() -> run
+com.vector.cleaner.aservice.NotificationService$4 -> com.vector.cleaner.aservice.NotificationService$4:
+    com.vector.cleaner.aservice.NotificationService this$0 -> a
+    260:260:void <init>(com.vector.cleaner.aservice.NotificationService) -> <init>
+    263:268:void callbackResult(com.vector.cleaner.utils.RCpuTempReader$ResultCpuTemperature) -> a
 com.vector.cleaner.broadcast.UnloadBroadcast -> com.vector.cleaner.broadcast.UnloadBroadcast:
     20:20:void <init>() -> <init>
     31:52:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -37230,15 +37203,13 @@ com.vector.cleaner.entity.FileInfo -> com.vector.cleaner.a.a:
     android.graphics.drawable.Drawable icon -> f
     42:49:void <init>(long,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long,boolean) -> <init>
 com.vector.cleaner.entity.SideInfo -> com.vector.cleaner.a.b:
-    boolean isCheck -> a
-    int textId -> b
-    int drawableId -> c
-    12:16:void <init>(int,int,boolean) -> <init>
+    int textId -> a
+    int drawableId -> b
     18:21:void <init>(int,int) -> <init>
 com.vector.cleaner.madapter.AppAdapter -> com.vector.cleaner.b.a:
     com.vector.cleaner.presenter.ManagerPresenter managerPresenter -> a
     27:36:void <init>(android.content.Context,com.vector.cleaner.presenter.ManagerPresenter) -> <init>
-    44:91:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    44:79:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.vector.cleaner.madapter.AppAdapter$1 -> com.vector.cleaner.b.a$1:
     com.vector.cleaner.madapter.AppAdapter this$0 -> a
     29:29:void <init>(com.vector.cleaner.madapter.AppAdapter,int) -> <init>
@@ -37246,10 +37217,9 @@ com.vector.cleaner.madapter.AppAdapter$1 -> com.vector.cleaner.b.a$1:
     29:29:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
 com.vector.cleaner.madapter.AppAdapter$2 -> com.vector.cleaner.b.a$2:
     com.vector.mcleaner.entity.JunkInfo val$info -> a
-    com.vector.cleaner.madapter.AppAdapter$ViewHolder val$holder -> b
-    com.vector.cleaner.madapter.AppAdapter this$0 -> c
-    76:76:void <init>(com.vector.cleaner.madapter.AppAdapter,com.vector.mcleaner.entity.JunkInfo,com.vector.cleaner.madapter.AppAdapter$ViewHolder) -> <init>
-    79:87:void onClick(android.view.View) -> onClick
+    com.vector.cleaner.madapter.AppAdapter this$0 -> b
+    71:71:void <init>(com.vector.cleaner.madapter.AppAdapter,com.vector.mcleaner.entity.JunkInfo) -> <init>
+    74:75:void onClick(android.view.View) -> onClick
 com.vector.cleaner.madapter.AppAdapter$ViewHolder -> com.vector.cleaner.b.a$a:
     android.widget.ImageView icon -> a
     android.widget.TextView time -> b
@@ -37257,23 +37227,23 @@ com.vector.cleaner.madapter.AppAdapter$ViewHolder -> com.vector.cleaner.b.a$a:
     android.widget.TextView name -> d
     android.widget.TextView size -> e
     com.vector.cleaner.madapter.AppAdapter this$0 -> f
-    94:94:void <init>(com.vector.cleaner.madapter.AppAdapter) -> <init>
+    82:82:void <init>(com.vector.cleaner.madapter.AppAdapter) -> <init>
 com.vector.cleaner.madapter.FilesAdapter -> com.vector.cleaner.b.b:
     java.lang.String name -> a
     26:27:void <init>(android.content.Context) -> <init>
     30:32:void <init>(android.content.Context,java.lang.String) -> <init>
-    44:100:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    44:98:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.vector.cleaner.madapter.FilesAdapter$1 -> com.vector.cleaner.b.b$1:
     com.vector.cleaner.entity.FileInfo val$info -> a
     com.vector.cleaner.madapter.FilesAdapter$ViewHolder val$viewHolder -> b
     com.vector.cleaner.madapter.FilesAdapter this$0 -> c
-    82:82:void <init>(com.vector.cleaner.madapter.FilesAdapter,com.vector.cleaner.entity.FileInfo,com.vector.cleaner.madapter.FilesAdapter$ViewHolder) -> <init>
-    85:92:void onClick(android.view.View) -> onClick
+    80:80:void <init>(com.vector.cleaner.madapter.FilesAdapter,com.vector.cleaner.entity.FileInfo,com.vector.cleaner.madapter.FilesAdapter$ViewHolder) -> <init>
+    83:90:void onClick(android.view.View) -> onClick
 com.vector.cleaner.madapter.FilesAdapter$2 -> com.vector.cleaner.b.b$2:
     com.vector.cleaner.entity.FileInfo val$info -> a
     com.vector.cleaner.madapter.FilesAdapter this$0 -> b
-    94:94:void <init>(com.vector.cleaner.madapter.FilesAdapter,com.vector.cleaner.entity.FileInfo) -> <init>
-    97:98:void onClick(android.view.View) -> onClick
+    92:92:void <init>(com.vector.cleaner.madapter.FilesAdapter,com.vector.cleaner.entity.FileInfo) -> <init>
+    95:96:void onClick(android.view.View) -> onClick
 com.vector.cleaner.madapter.FilesAdapter$ViewHolder -> com.vector.cleaner.b.b$a:
     android.widget.TextView file_name -> a
     android.widget.RelativeLayout file -> b
@@ -37345,36 +37315,33 @@ com.vector.cleaner.madapter.LajiAdapter$ViewHolder -> com.vector.cleaner.b.e$a:
     com.vector.cleaner.madapter.LajiAdapter this$0 -> e
     105:105:void <init>(com.vector.cleaner.madapter.LajiAdapter) -> <init>
 com.vector.cleaner.madapter.MSideAdapter -> com.vector.cleaner.b.f:
-    int BATTERY -> a
-    int FLOAT -> f
+    int COOLING -> a
+    int RAM -> f
     int JUNK -> g
-    int RAM -> h
-    int MANAGER -> i
+    int MANAGER -> h
+    int GAME -> i
     int FILE -> j
     int POWER -> k
     int PICTURE -> l
     int NOTIFI -> m
     int SETTING -> n
     int ROTATE -> o
-    39:72:void <init>(android.content.Context) -> <init>
-    76:124:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    128:194:void onC(int) -> b
-    37:37:void access$000(com.vector.cleaner.madapter.MSideAdapter,int) -> a
+    41:68:void <init>(android.content.Context) -> <init>
+    72:102:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    106:160:void onC(int) -> b
+    39:39:void access$000(com.vector.cleaner.madapter.MSideAdapter,int) -> a
 com.vector.cleaner.madapter.MSideAdapter$1 -> com.vector.cleaner.b.f$1:
-    com.vector.cleaner.entity.SideInfo val$info -> a
-    com.vector.cleaner.madapter.MSideAdapter$ViewHolder val$holder -> b
-    int val$position -> c
-    com.vector.cleaner.madapter.MSideAdapter this$0 -> d
-    102:102:void <init>(com.vector.cleaner.madapter.MSideAdapter,com.vector.cleaner.entity.SideInfo,com.vector.cleaner.madapter.MSideAdapter$ViewHolder,int) -> <init>
-    105:112:void onClick(android.view.View) -> onClick
+    int val$position -> a
+    com.vector.cleaner.madapter.MSideAdapter this$0 -> b
+    91:91:void <init>(com.vector.cleaner.madapter.MSideAdapter,int) -> <init>
+    94:95:void onClick(android.view.View) -> onClick
 com.vector.cleaner.madapter.MSideAdapter$ViewHolder -> com.vector.cleaner.b.f$a:
-    android.widget.ImageView checkBox -> a
-    android.widget.TextView tv_name -> b
-    android.widget.RelativeLayout rl_item -> c
-    android.view.View side_divide -> d
-    android.widget.ImageView iv_le -> e
-    com.vector.cleaner.madapter.MSideAdapter this$0 -> f
-    203:203:void <init>(com.vector.cleaner.madapter.MSideAdapter) -> <init>
+    android.widget.TextView tv_name -> a
+    android.widget.RelativeLayout rl_item -> b
+    android.view.View side_divide -> c
+    android.widget.ImageView iv_le -> d
+    com.vector.cleaner.madapter.MSideAdapter this$0 -> e
+    169:169:void <init>(com.vector.cleaner.madapter.MSideAdapter) -> <init>
 com.vector.cleaner.madapter.MybaseAdapter -> com.vector.cleaner.b.g:
     java.util.List list -> b
     android.content.Context context -> c
@@ -37553,6 +37520,180 @@ com.vector.cleaner.madapter.WhiteListAdapter$ViewHolder -> com.vector.cleaner.b.
     android.widget.ImageView iv_icon -> d
     com.vector.cleaner.madapter.WhiteListAdapter this$0 -> e
     121:121:void <init>(com.vector.cleaner.madapter.WhiteListAdapter) -> <init>
+com.vector.cleaner.myview.BubbleCenterLayout -> com.vector.cleaner.myview.BubbleCenterLayout:
+    java.util.List bubbles -> a
+    java.util.Random random -> b
+    int width -> c
+    int height -> d
+    boolean starting -> e
+    boolean thread -> f
+    boolean isDestory -> g
+    android.graphics.Bitmap bitmap1 -> h
+    android.graphics.Bitmap bitmap2 -> i
+    android.graphics.Bitmap bitmap3 -> j
+    android.graphics.Bitmap bitmap4 -> k
+    android.graphics.Bitmap dstBitmap -> l
+    22:38:void <init>(android.content.Context) -> <init>
+    22:43:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    22:48:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    51:55:void init() -> d
+    58:80:void destroy() -> a
+    84:88:void pause() -> b
+    91:94:void reStart() -> c
+    98:274:void onDraw(android.graphics.Canvas) -> onDraw
+    20:20:boolean access$000(com.vector.cleaner.myview.BubbleCenterLayout) -> a
+    20:20:boolean access$100(com.vector.cleaner.myview.BubbleCenterLayout) -> b
+    20:20:java.util.Random access$300(com.vector.cleaner.myview.BubbleCenterLayout) -> c
+    20:20:android.graphics.Bitmap access$400(com.vector.cleaner.myview.BubbleCenterLayout) -> d
+    20:20:android.graphics.Bitmap access$502(com.vector.cleaner.myview.BubbleCenterLayout,android.graphics.Bitmap) -> a
+    20:20:android.graphics.Bitmap access$500(com.vector.cleaner.myview.BubbleCenterLayout) -> e
+    20:20:android.graphics.Bitmap access$600(com.vector.cleaner.myview.BubbleCenterLayout) -> f
+    20:20:android.graphics.Bitmap access$700(com.vector.cleaner.myview.BubbleCenterLayout) -> g
+    20:20:android.graphics.Bitmap access$800(com.vector.cleaner.myview.BubbleCenterLayout) -> h
+    20:20:int access$900(com.vector.cleaner.myview.BubbleCenterLayout) -> i
+    20:20:int access$1000(com.vector.cleaner.myview.BubbleCenterLayout) -> j
+    20:20:java.util.List access$1100(com.vector.cleaner.myview.BubbleCenterLayout) -> k
+com.vector.cleaner.myview.BubbleCenterLayout$1 -> com.vector.cleaner.myview.BubbleCenterLayout$1:
+    com.vector.cleaner.myview.BubbleCenterLayout this$0 -> a
+    103:103:void <init>(com.vector.cleaner.myview.BubbleCenterLayout) -> <init>
+    105:224:void run() -> run
+com.vector.cleaner.myview.BubbleCenterLayout$Bubble -> com.vector.cleaner.myview.BubbleCenterLayout$a:
+    float radius -> b
+    float speedY -> c
+    float speedX -> d
+    float x -> e
+    float y -> f
+    float scale -> g
+    android.graphics.Bitmap bitmap -> h
+    com.vector.cleaner.myview.BubbleCenterLayout this$0 -> a
+    277:291:void <init>(com.vector.cleaner.myview.BubbleCenterLayout) -> <init>
+    294:294:android.graphics.Bitmap getBitmap() -> a
+    298:299:void setBitmap(android.graphics.Bitmap) -> a
+    302:302:float getRadius() -> b
+    306:307:void setRadius(float) -> a
+    310:311:void setScale(float) -> b
+    314:314:float getScale() -> c
+    318:318:float getX() -> d
+    322:323:void setX(float) -> c
+    326:326:float getY() -> e
+    330:331:void setY(float) -> d
+    334:334:float getSpeedY() -> f
+    338:339:void setSpeedY(float) -> e
+    342:342:float getSpeedX() -> g
+    346:347:void setSpeedX(float) -> f
+    277:277:void <init>(com.vector.cleaner.myview.BubbleCenterLayout,com.vector.cleaner.myview.BubbleCenterLayout$1) -> <init>
+com.vector.cleaner.myview.BubbleLayoutJunk -> com.vector.cleaner.myview.BubbleLayoutJunk:
+    java.util.List bubbles -> a
+    java.util.Random random -> b
+    int width -> c
+    int height -> d
+    boolean starting -> e
+    boolean thread -> f
+    android.graphics.Bitmap bitmap -> g
+    android.graphics.Bitmap dstBitmap -> h
+    20:31:void <init>(android.content.Context) -> <init>
+    20:36:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    20:41:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    44:45:void init() -> e
+    48:56:void destroy() -> a
+    59:60:void setParticleBitmap(android.graphics.Bitmap) -> setParticleBitmap
+    63:67:void pause() -> b
+    69:72:void resume() -> c
+    75:78:void reStart() -> d
+    82:165:void onDraw(android.graphics.Canvas) -> onDraw
+    18:18:boolean access$000(com.vector.cleaner.myview.BubbleLayoutJunk) -> a
+    18:18:boolean access$100(com.vector.cleaner.myview.BubbleLayoutJunk) -> b
+    18:18:java.util.Random access$300(com.vector.cleaner.myview.BubbleLayoutJunk) -> c
+    18:18:int access$400(com.vector.cleaner.myview.BubbleLayoutJunk) -> d
+    18:18:android.graphics.Bitmap access$500(com.vector.cleaner.myview.BubbleLayoutJunk) -> e
+    18:18:android.graphics.Bitmap access$602(com.vector.cleaner.myview.BubbleLayoutJunk,android.graphics.Bitmap) -> a
+    18:18:android.graphics.Bitmap access$600(com.vector.cleaner.myview.BubbleLayoutJunk) -> f
+    18:18:java.util.List access$700(com.vector.cleaner.myview.BubbleLayoutJunk) -> g
+com.vector.cleaner.myview.BubbleLayoutJunk$1 -> com.vector.cleaner.myview.BubbleLayoutJunk$1:
+    com.vector.cleaner.myview.BubbleLayoutJunk this$0 -> a
+    87:87:void <init>(com.vector.cleaner.myview.BubbleLayoutJunk) -> <init>
+    89:125:void run() -> run
+com.vector.cleaner.myview.BubbleLayoutJunk$Bubble -> com.vector.cleaner.myview.BubbleLayoutJunk$a:
+    float radius -> b
+    float speedY -> c
+    float speedX -> d
+    float x -> e
+    float y -> f
+    float scale -> g
+    android.graphics.Bitmap bitmap -> h
+    com.vector.cleaner.myview.BubbleLayoutJunk this$0 -> a
+    168:182:void <init>(com.vector.cleaner.myview.BubbleLayoutJunk) -> <init>
+    185:185:android.graphics.Bitmap getBitmap() -> a
+    189:190:void setBitmap(android.graphics.Bitmap) -> a
+    193:193:float getRadius() -> b
+    197:198:void setRadius(float) -> a
+    201:202:void setScale(float) -> b
+    205:205:float getScale() -> c
+    209:209:float getX() -> d
+    213:214:void setX(float) -> c
+    217:217:float getY() -> e
+    221:222:void setY(float) -> d
+    225:225:float getSpeedY() -> f
+    229:230:void setSpeedY(float) -> e
+    233:233:float getSpeedX() -> g
+    237:238:void setSpeedX(float) -> f
+    168:168:void <init>(com.vector.cleaner.myview.BubbleLayoutJunk,com.vector.cleaner.myview.BubbleLayoutJunk$1) -> <init>
+com.vector.cleaner.myview.BubbleLayoutRam -> com.vector.cleaner.myview.BubbleLayoutRam:
+    java.util.List bubbles -> a
+    java.util.Random random -> b
+    int width -> c
+    int height -> d
+    boolean starting -> e
+    boolean thread -> f
+    android.graphics.Bitmap bitmap -> g
+    android.graphics.Bitmap dstBitmap -> h
+    21:32:void <init>(android.content.Context) -> <init>
+    21:37:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    21:42:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    45:46:void init() -> e
+    49:57:void destroy() -> a
+    60:61:void setParticleBitmap(android.graphics.Bitmap) -> setParticleBitmap
+    64:68:void pause() -> b
+    70:73:void resume() -> c
+    76:79:void reStart() -> d
+    83:166:void onDraw(android.graphics.Canvas) -> onDraw
+    19:19:boolean access$000(com.vector.cleaner.myview.BubbleLayoutRam) -> a
+    19:19:boolean access$100(com.vector.cleaner.myview.BubbleLayoutRam) -> b
+    19:19:java.util.Random access$300(com.vector.cleaner.myview.BubbleLayoutRam) -> c
+    19:19:int access$400(com.vector.cleaner.myview.BubbleLayoutRam) -> d
+    19:19:android.graphics.Bitmap access$500(com.vector.cleaner.myview.BubbleLayoutRam) -> e
+    19:19:android.graphics.Bitmap access$602(com.vector.cleaner.myview.BubbleLayoutRam,android.graphics.Bitmap) -> a
+    19:19:android.graphics.Bitmap access$600(com.vector.cleaner.myview.BubbleLayoutRam) -> f
+    19:19:java.util.List access$700(com.vector.cleaner.myview.BubbleLayoutRam) -> g
+com.vector.cleaner.myview.BubbleLayoutRam$1 -> com.vector.cleaner.myview.BubbleLayoutRam$1:
+    com.vector.cleaner.myview.BubbleLayoutRam this$0 -> a
+    88:88:void <init>(com.vector.cleaner.myview.BubbleLayoutRam) -> <init>
+    90:126:void run() -> run
+com.vector.cleaner.myview.BubbleLayoutRam$Bubble -> com.vector.cleaner.myview.BubbleLayoutRam$a:
+    float radius -> b
+    float speedY -> c
+    float speedX -> d
+    float x -> e
+    float y -> f
+    float scale -> g
+    android.graphics.Bitmap bitmap -> h
+    com.vector.cleaner.myview.BubbleLayoutRam this$0 -> a
+    169:183:void <init>(com.vector.cleaner.myview.BubbleLayoutRam) -> <init>
+    186:186:android.graphics.Bitmap getBitmap() -> a
+    190:191:void setBitmap(android.graphics.Bitmap) -> a
+    194:194:float getRadius() -> b
+    198:199:void setRadius(float) -> a
+    202:203:void setScale(float) -> b
+    206:206:float getScale() -> c
+    210:210:float getX() -> d
+    214:215:void setX(float) -> c
+    218:218:float getY() -> e
+    222:223:void setY(float) -> d
+    226:226:float getSpeedY() -> f
+    230:231:void setSpeedY(float) -> e
+    234:234:float getSpeedX() -> g
+    238:239:void setSpeedX(float) -> f
+    169:169:void <init>(com.vector.cleaner.myview.BubbleLayoutRam,com.vector.cleaner.myview.BubbleLayoutRam$1) -> <init>
 com.vector.cleaner.myview.DeepWidgetContainer -> com.vector.cleaner.myview.DeepWidgetContainer:
     android.os.Handler widgetHandler -> a
     android.view.WindowManager$LayoutParams lp -> b
@@ -37676,81 +37817,65 @@ com.vector.cleaner.myview.FloatStateView -> com.vector.cleaner.myview.FloatState
     android.graphics.Matrix mShaderMatrix -> l
     android.graphics.Paint mViewPaint -> m
     android.animation.AnimatorSet mAnimatorSet -> n
-    android.graphics.BitmapShader mWaveShader -> o
-    float mDefaultWaterLevel -> p
-    double mDefaultAngularFrequency -> q
-    float mDefaultAmplitude -> r
-    float mDefaultWaveLength -> s
-    float mWaterLevelRatio -> t
-    float mWaveShiftRatio -> u
-    int mFirstColor -> v
-    int mSecondColor -> w
+    float mWaterLevelRatio -> o
+    int mFirstColor -> p
+    int mSecondColor -> q
     66:67:void <init>(android.content.Context) -> <init>
     70:71:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     40:78:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     82:84:void onSizeChanged(int,int,int,int) -> onSizeChanged
     87:93:void initW() -> c
     96:115:void initAnimation() -> d
-    118:154:void createShader() -> e
     164:167:void onMeasure(int,int) -> onMeasure
-    173:191:void initPaints() -> f
-    207:246:void onDraw(android.graphics.Canvas) -> onDraw
-    251:252:void setBackgroundColor(int) -> setBackgroundColor
-    255:257:void setDragState(int) -> setDragState
-    260:272:void upDate(int) -> a
-    275:279:void setWaterLevelRatio(float) -> setWaterLevelRatio
-    282:285:void start() -> a
-    288:292:void cancel() -> b
-    296:299:void onAttachedToWindow() -> onAttachedToWindow
-    303:305:void onDetachedFromWindow() -> onDetachedFromWindow
-    309:315:void init() -> g
+    173:190:void initPaints() -> e
+    206:231:void onDraw(android.graphics.Canvas) -> onDraw
+    236:237:void setBackgroundColor(int) -> setBackgroundColor
+    240:242:void setDragState(int) -> setDragState
+    245:257:void upDate(int) -> a
+    260:264:void setWaterLevelRatio(float) -> setWaterLevelRatio
+    267:270:void start() -> a
+    273:277:void cancel() -> b
+    281:284:void onAttachedToWindow() -> onAttachedToWindow
+    288:290:void onDetachedFromWindow() -> onDetachedFromWindow
+    294:300:void init() -> f
 com.vector.cleaner.myview.Gou -> com.vector.cleaner.myview.Gou:
-    boolean isGou -> c
-    android.content.Context mContext -> d
-    int width -> e
-    int height -> f
-    android.graphics.Paint ballPaint -> g
-    android.graphics.Paint ballPaint_1 -> h
-    float pretant -> i
-    float pretant_e -> j
-    float line -> k
-    float line_e -> l
-    int lint_yua -> m
-    int lint_h -> n
-    int line1_x -> o
-    int line1_y -> p
-    int line2_x -> q
-    int line2_y -> r
-    float line2_success -> s
-    int move_distance -> t
-    boolean run -> a
-    com.vector.cleaner.myview.Gou$GouListener listener -> b
-    24:94:void <init>(android.content.Context) -> <init>
+    boolean isGou -> b
+    android.content.Context mContext -> c
+    int width -> d
+    int height -> e
+    android.graphics.Paint ballPaint -> f
+    android.graphics.Paint ballPaint_1 -> g
+    float pretant -> h
+    float pretant_e -> i
+    float line -> j
+    float line_e -> k
+    int lint_yua -> l
+    int lint_h -> m
+    int line1_x -> n
+    int line1_y -> o
+    int line2_x -> p
+    int line2_y -> q
+    float line2_success -> r
+    int move_distance -> s
+    com.vector.cleaner.myview.Gou$GouListener listener -> a
     30:94:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     36:94:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     44:50:void onMeasure(int,int) -> onMeasure
-    53:65:void init() -> c
+    53:65:void init() -> a
     99:163:void draw(android.graphics.Canvas) -> draw
-    166:222:void startAni() -> a
-    227:228:void stopAnima() -> b
     231:240:void setPa(int) -> setPa
     245:251:void setPaL(int) -> setPaL
     257:258:void setGouListener(com.vector.cleaner.myview.Gou$GouListener) -> setGouListener
-    19:19:boolean access$000(com.vector.cleaner.myview.Gou) -> a
-com.vector.cleaner.myview.Gou$1 -> com.vector.cleaner.myview.Gou$1:
-    com.vector.cleaner.myview.Gou this$0 -> a
-    168:168:void <init>(com.vector.cleaner.myview.Gou) -> <init>
-    171:219:void run() -> run
 com.vector.cleaner.myview.Gou$GouListener -> com.vector.cleaner.myview.Gou$a:
-    void animaEnd() -> a
 com.vector.cleaner.myview.LineRam -> com.vector.cleaner.myview.LineRam:
-    android.content.Context context -> b
-    android.graphics.Paint circlePoint -> c
+    android.content.Context context -> c
+    android.graphics.Paint circlePoint -> d
     float lineWidth -> a
-    int progress -> d
-    int width -> e
-    int height -> f
-    com.vector.cleaner.myview.LineRam$CustomRoundListener customRoundListener -> g
+    int progress -> e
+    int width -> f
+    int height -> g
+    com.vector.cleaner.myview.LineRam$CustomRoundListener customRoundListener -> h
+    boolean isRun -> b
     24:25:void <init>(android.content.Context) -> <init>
     28:29:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     18:35:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
@@ -37758,16 +37883,17 @@ com.vector.cleaner.myview.LineRam -> com.vector.cleaner.myview.LineRam:
     46:50:void onMeasure(int,int) -> onMeasure
     53:57:void init() -> a
     61:72:void onDraw(android.graphics.Canvas) -> onDraw
-    75:92:void startProgress(int) -> a
-    95:96:void setCustomRoundListener(com.vector.cleaner.myview.LineRam$CustomRoundListener) -> setCustomRoundListener
+    77:101:void startProgress(int) -> a
+    104:105:void setCustomRoundListener(com.vector.cleaner.myview.LineRam$CustomRoundListener) -> setCustomRoundListener
     15:15:com.vector.cleaner.myview.LineRam$CustomRoundListener access$000(com.vector.cleaner.myview.LineRam) -> a
 com.vector.cleaner.myview.LineRam$1 -> com.vector.cleaner.myview.LineRam$1:
     int val$progress -> a
     com.vector.cleaner.myview.LineRam this$0 -> b
-    75:75:void <init>(com.vector.cleaner.myview.LineRam,int) -> <init>
-    78:89:void run() -> run
+    77:77:void <init>(com.vector.cleaner.myview.LineRam,int) -> <init>
+    80:98:void run() -> run
 com.vector.cleaner.myview.LineRam$CustomRoundListener -> com.vector.cleaner.myview.LineRam$a:
     void progressUpdate(int) -> a
+    void progressSuccess() -> a
 com.vector.cleaner.myview.ListViewForScrollView -> com.vector.cleaner.myview.ListViewForScrollView:
     13:14:void <init>(android.content.Context) -> <init>
     17:18:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
@@ -37801,11 +37927,9 @@ com.vector.cleaner.myview.MyScrollView -> com.vector.cleaner.myview.MyScrollView
     72:72:boolean canPullDown() -> a
     85:86:void setXadSuccess(boolean) -> setXadSuccess
     89:90:void setSadSuccess(boolean) -> setSadSuccess
-    93:99:boolean canPullUp() -> b
-    104:107:void smoothScrollToSlow(int) -> a
-    129:132:void smoothScrollBySlow(int,int,int) -> a
-    139:147:void computeScroll() -> computeScroll
-    151:152:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    94:94:boolean canPullUp() -> b
+    142:150:void computeScroll() -> computeScroll
+    154:155:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
 com.vector.cleaner.myview.MyScrollView$ScrollViewListener -> com.vector.cleaner.myview.MyScrollView$a:
     void onScrollChanged(com.vector.cleaner.myview.MyScrollView,int,int,int,int) -> a
 com.vector.cleaner.myview.PullToRefreshLayout -> com.vector.cleaner.myview.PullToRefreshLayout:
@@ -37844,8 +37968,7 @@ com.vector.cleaner.myview.PullToRefreshLayout -> com.vector.cleaner.myview.PullT
     43:182:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     185:195:void initView(android.content.Context) -> a
     198:199:void hide() -> a
-    248:278:void loadmoreFinish(int) -> a
-    281:324:void changeState(int) -> b
+    281:324:void changeState(int) -> a
     330:332:void releasePull() -> b
     341:460:boolean dispatchTouchEvent(android.view.MotionEvent) -> dispatchTouchEvent
     523:535:void initView() -> c
@@ -37860,15 +37983,10 @@ com.vector.cleaner.myview.PullToRefreshLayout -> com.vector.cleaner.myview.PullT
     28:28:android.view.View access$600(com.vector.cleaner.myview.PullToRefreshLayout) -> g
     28:28:void access$700(com.vector.cleaner.myview.PullToRefreshLayout,int) -> a
     28:28:android.view.View access$800(com.vector.cleaner.myview.PullToRefreshLayout) -> h
-    28:28:void access$900(com.vector.cleaner.myview.PullToRefreshLayout) -> i
 com.vector.cleaner.myview.PullToRefreshLayout$1 -> com.vector.cleaner.myview.PullToRefreshLayout$1:
     com.vector.cleaner.myview.PullToRefreshLayout this$0 -> a
     113:113:void <init>(com.vector.cleaner.myview.PullToRefreshLayout) -> <init>
     118:161:void handleMessage(android.os.Message) -> handleMessage
-com.vector.cleaner.myview.PullToRefreshLayout$3 -> com.vector.cleaner.myview.PullToRefreshLayout$2:
-    com.vector.cleaner.myview.PullToRefreshLayout this$0 -> a
-    267:267:void <init>(com.vector.cleaner.myview.PullToRefreshLayout) -> <init>
-    270:272:void handleMessage(android.os.Message) -> handleMessage
 com.vector.cleaner.myview.PullToRefreshLayout$MyTimer -> com.vector.cleaner.myview.PullToRefreshLayout$a:
     android.os.Handler handler -> b
     java.util.Timer timer -> c
@@ -37943,10 +38061,9 @@ com.vector.cleaner.myview.WaveProgress -> com.vector.cleaner.myview.WaveProgress
     android.graphics.Bitmap bitmap -> C
     boolean isRun -> c
     com.vector.cleaner.myview.WaveProgress$StopListener stopListener -> d
-    92:389:void <init>(android.content.Context) -> <init>
     92:389:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     92:389:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    120:137:void init() -> d
+    120:137:void init() -> c
     140:140:float getWaveShiftRatio() -> getWaveShiftRatio
     150:154:void setWaveShiftRatio(float) -> setWaveShiftRatio
     158:164:void onMeasure(int,int) -> onMeasure
@@ -37958,33 +38075,21 @@ com.vector.cleaner.myview.WaveProgress -> com.vector.cleaner.myview.WaveProgress
     211:212:void setWaveLengthRatio(float) -> setWaveLengthRatio
     237:239:void setShapeType(com.vector.cleaner.myview.WaveProgress$ShapeType) -> setShapeType
     243:245:void onSizeChanged(int,int,int,int) -> onSizeChanged
-    251:287:void createShader() -> e
+    251:287:void createShader() -> d
     294:300:void setBackgroundColor(int) -> setBackgroundColor
     305:362:void onDraw(android.graphics.Canvas) -> onDraw
-    365:384:void initAnimation() -> f
+    365:384:void initAnimation() -> e
     394:395:void setWaveSpeed(int) -> setWaveSpeed
     398:399:void setProgressMax(int) -> setProgressMax
     402:405:void setProgress(int) -> setProgress
-    410:429:void stopProgress() -> a
     434:435:void setStopListener(com.vector.cleaner.myview.WaveProgress$StopListener) -> setStopListener
-    442:458:void startProgress(int) -> a
     462:462:int getProgress() -> getProgress
-    466:469:void start() -> b
-    472:476:void cancel() -> c
+    466:469:void start() -> a
+    472:476:void cancel() -> b
     480:484:void onAttachedToWindow() -> onAttachedToWindow
     488:491:void onDetachedFromWindow() -> onDetachedFromWindow
-    42:42:int access$000(com.vector.cleaner.myview.WaveProgress) -> a
     66:66:void <clinit>() -> <clinit>
-com.vector.cleaner.myview.WaveProgress$1 -> com.vector.cleaner.myview.WaveProgress$1:
-    com.vector.cleaner.myview.WaveProgress this$0 -> a
-    410:410:void <init>(com.vector.cleaner.myview.WaveProgress) -> <init>
-    413:427:void run() -> run
-com.vector.cleaner.myview.WaveProgress$2 -> com.vector.cleaner.myview.WaveProgress$2:
-    int val$progress -> a
-    com.vector.cleaner.myview.WaveProgress this$0 -> b
-    442:442:void <init>(com.vector.cleaner.myview.WaveProgress,int) -> <init>
-    445:456:void run() -> run
-com.vector.cleaner.myview.WaveProgress$3 -> com.vector.cleaner.myview.WaveProgress$3:
+com.vector.cleaner.myview.WaveProgress$3 -> com.vector.cleaner.myview.WaveProgress$1:
     int[] $SwitchMap$com$vector$cleaner$myview$WaveProgress$ShapeType -> a
     328:328:void <clinit>() -> <clinit>
 com.vector.cleaner.myview.WaveProgress$ShapeType -> com.vector.cleaner.myview.WaveProgress$ShapeType:
@@ -37996,7 +38101,6 @@ com.vector.cleaner.myview.WaveProgress$ShapeType -> com.vector.cleaner.myview.Wa
     70:70:void <init>(java.lang.String,int) -> <init>
     70:72:void <clinit>() -> <clinit>
 com.vector.cleaner.myview.WaveProgress$StopListener -> com.vector.cleaner.myview.WaveProgress$a:
-    void stopO() -> a
 com.vector.cleaner.myview.WidgetContainer -> com.vector.cleaner.myview.WidgetContainer:
     android.view.WindowManager$LayoutParams lp -> a
     boolean modal -> b
@@ -38028,7 +38132,6 @@ com.vector.cleaner.presenter.BasePresenter -> com.vector.cleaner.c.a:
     27:27:void init() -> a
     30:32:void jumpToActivity(java.lang.Class,int) -> a
     35:38:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    41:42:void goToGooglePlay() -> b
     46:46:void setUnit(long,android.widget.TextView) -> a
 com.vector.cleaner.presenter.FloatMemoryManager -> com.vector.cleaner.c.b:
     android.content.Context context -> c
@@ -38039,41 +38142,41 @@ com.vector.cleaner.presenter.FloatMemoryManager -> com.vector.cleaner.c.b:
     boolean added -> b
     android.view.View$OnTouchListener circleViewTouchListener -> g
     com.vector.cleaner.presenter.FloatMemoryManager instance -> h
-    37:128:void <init>(android.content.Context) -> <init>
-    133:136:com.vector.cleaner.presenter.FloatMemoryManager getInstance(android.content.Context) -> a
-    140:140:int getScreenWidth() -> a
-    166:167:void upDate(int) -> a
-    174:189:void showFloatCircleView() -> b
-    192:206:void addWindowsView() -> c
-    209:222:void removeWindowsView() -> d
-    29:29:android.view.WindowManager$LayoutParams access$000(com.vector.cleaner.presenter.FloatMemoryManager) -> a
-    29:29:com.vector.cleaner.myview.FloatStateView access$100(com.vector.cleaner.presenter.FloatMemoryManager) -> b
-    29:29:android.view.WindowManager access$200(com.vector.cleaner.presenter.FloatMemoryManager) -> c
+    36:127:void <init>(android.content.Context) -> <init>
+    132:135:com.vector.cleaner.presenter.FloatMemoryManager getInstance(android.content.Context) -> a
+    139:139:int getScreenWidth() -> a
+    165:166:void upDate(int) -> a
+    173:188:void showFloatCircleView() -> b
+    191:205:void addWindowsView() -> c
+    208:221:void removeWindowsView() -> d
+    28:28:android.view.WindowManager$LayoutParams access$000(com.vector.cleaner.presenter.FloatMemoryManager) -> a
+    28:28:com.vector.cleaner.myview.FloatStateView access$100(com.vector.cleaner.presenter.FloatMemoryManager) -> b
+    28:28:android.view.WindowManager access$200(com.vector.cleaner.presenter.FloatMemoryManager) -> c
 com.vector.cleaner.presenter.FloatMemoryManager$1 -> com.vector.cleaner.c.b$1:
     float startX -> b
     float startY -> c
     float x0 -> d
     float y0 -> e
     com.vector.cleaner.presenter.FloatMemoryManager this$0 -> a
-    39:39:void <init>(com.vector.cleaner.presenter.FloatMemoryManager) -> <init>
-    47:106:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    38:38:void <init>(com.vector.cleaner.presenter.FloatMemoryManager) -> <init>
+    46:105:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.vector.cleaner.presenter.FloatMemoryManager$1$1 -> com.vector.cleaner.c.b$1$1:
     com.vector.cleaner.presenter.FloatMemoryManager$1 this$1 -> a
-    88:88:void <init>(com.vector.cleaner.presenter.FloatMemoryManager$1) -> <init>
-    90:95:void run() -> run
+    87:87:void <init>(com.vector.cleaner.presenter.FloatMemoryManager$1) -> <init>
+    89:94:void run() -> run
 com.vector.cleaner.presenter.FloatMemoryManager$2 -> com.vector.cleaner.c.b$2:
     android.content.Context val$context -> a
     com.vector.cleaner.presenter.FloatMemoryManager this$0 -> b
-    118:118:void <init>(com.vector.cleaner.presenter.FloatMemoryManager,android.content.Context) -> <init>
-    121:125:void onClick(android.view.View) -> onClick
+    117:117:void <init>(com.vector.cleaner.presenter.FloatMemoryManager,android.content.Context) -> <init>
+    120:124:void onClick(android.view.View) -> onClick
 com.vector.cleaner.presenter.FloatMemoryManager$3 -> com.vector.cleaner.c.b$3:
     com.vector.cleaner.presenter.FloatMemoryManager this$0 -> a
-    193:193:void <init>(com.vector.cleaner.presenter.FloatMemoryManager) -> <init>
-    197:203:void run() -> run
+    192:192:void <init>(com.vector.cleaner.presenter.FloatMemoryManager) -> <init>
+    196:202:void run() -> run
 com.vector.cleaner.presenter.FloatMemoryManager$4 -> com.vector.cleaner.c.b$4:
     com.vector.cleaner.presenter.FloatMemoryManager this$0 -> a
-    210:210:void <init>(com.vector.cleaner.presenter.FloatMemoryManager) -> <init>
-    214:219:void run() -> run
+    209:209:void <init>(com.vector.cleaner.presenter.FloatMemoryManager) -> <init>
+    213:218:void run() -> run
 com.vector.cleaner.presenter.GetTopApp -> com.vector.cleaner.c.c:
     android.content.Context context -> a
     java.lang.reflect.Field processState -> b
@@ -38094,13 +38197,13 @@ com.vector.cleaner.presenter.JunkRamPresenter -> com.vector.cleaner.c.d:
     32:71:void init() -> a
     74:75:void changeColor(long) -> a
     78:84:void addCleandata(boolean,long) -> a
-    88:89:void addSystemAdapterData() -> c
-    92:93:void addApkAdapterData() -> d
-    96:97:void addUnloadAdapterData() -> e
-    100:101:void addLogAdapterData() -> f
-    104:105:void addUserAdapterData() -> g
-    109:110:void addRamAdapterData() -> h
-    114:120:void addAdapterData() -> i
+    88:89:void addSystemAdapterData() -> b
+    92:93:void addApkAdapterData() -> c
+    96:97:void addUnloadAdapterData() -> d
+    100:101:void addLogAdapterData() -> e
+    104:105:void addUserAdapterData() -> f
+    109:110:void addRamAdapterData() -> g
+    114:120:void addAdapterData() -> h
     124:126:void setUnit(long,android.widget.TextView) -> a
     130:184:void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> a
 com.vector.cleaner.presenter.LajiPresenter -> com.vector.cleaner.c.e:
@@ -38111,28 +38214,26 @@ com.vector.cleaner.presenter.LajiPresenter -> com.vector.cleaner.c.e:
     26:28:void <init>(com.vector.cleaner.view.JunkView,android.content.Context) -> <init>
     32:67:void init() -> a
     70:71:void changeColor(long) -> a
-    74:79:void addAdapterData() -> c
+    74:79:void addAdapterData() -> b
     82:88:void addCleandata(boolean,long) -> a
-    91:92:void addSystemAdapterData() -> d
-    95:96:void addApkAdapterData() -> e
-    99:100:void addUnloadAdapterData() -> f
-    103:104:void addLogAdapterData() -> g
-    107:108:void addUserAdapterData() -> h
+    91:92:void addSystemAdapterData() -> c
+    95:96:void addApkAdapterData() -> d
+    99:100:void addUnloadAdapterData() -> e
+    103:104:void addLogAdapterData() -> f
+    107:108:void addUserAdapterData() -> g
     112:115:void setUnit(long,android.widget.TextView) -> a
-    119:163:void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> a
+    121:147:void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> a
 com.vector.cleaner.presenter.LastRunsort -> com.vector.cleaner.c.f:
-    114:114:void <init>() -> <init>
-    117:117:int compare(com.vector.mcleaner.entity.JunkInfo,com.vector.mcleaner.entity.JunkInfo) -> a
-    114:114:int compare(java.lang.Object,java.lang.Object) -> compare
+    96:96:void <init>() -> <init>
+    99:99:int compare(com.vector.mcleaner.entity.JunkInfo,com.vector.mcleaner.entity.JunkInfo) -> a
+    96:96:int compare(java.lang.Object,java.lang.Object) -> compare
 com.vector.cleaner.presenter.MainPresenter -> com.vector.cleaner.c.g:
     int cpuTemp -> c
-    27:28:void openDrawer() -> c
-    35:63:void init() -> a
-    23:69:void <init>(com.vector.cleaner.view.MainView,android.content.Context) -> <init>
-    73:88:void reStart() -> d
-    92:97:void clickRotate(boolean) -> a
-    100:103:void setRotateGone() -> e
-    107:120:void setDrawerLeftEdgeSize(android.support.v4.widget.DrawerLayout,float) -> a
+    27:28:void openDrawer() -> b
+    35:62:void init() -> a
+    23:68:void <init>(com.vector.cleaner.view.MainView,android.content.Context) -> <init>
+    72:85:void reStart() -> c
+    90:103:void setDrawerLeftEdgeSize(android.support.v4.widget.DrawerLayout,float) -> a
     22:22:int access$002(com.vector.cleaner.presenter.MainPresenter,int) -> a
     22:22:int access$000(com.vector.cleaner.presenter.MainPresenter) -> a
 com.vector.cleaner.presenter.MainPresenter$1 -> com.vector.cleaner.c.g$1:
@@ -38153,10 +38254,9 @@ com.vector.cleaner.presenter.ManagerPresenter -> com.vector.cleaner.c.h:
     java.util.ArrayList list_pinlv -> i
     28:36:void <init>(com.vector.cleaner.view.AppManagerView,android.content.Context) -> <init>
     40:58:void init() -> a
-    61:68:void addCleandata(boolean,long) -> a
-    71:72:void addAdapterData() -> c
-    75:96:void unloadSuccess(java.lang.String) -> a
-    100:110:void bleachFile(java.util.List) -> a
+    61:62:void addAdapterData() -> b
+    65:83:void unloadSuccess(java.lang.String) -> a
+    87:92:void bleachFile(com.vector.mcleaner.entity.JunkInfo) -> a
 com.vector.cleaner.presenter.RamPresenter -> com.vector.cleaner.c.i:
     com.vector.cleaner.activity.MyApplication cleanApplication -> c
     long allSize -> d
@@ -38168,21 +38268,26 @@ com.vector.cleaner.presenter.RamPresenter -> com.vector.cleaner.c.i:
     62:67:void changeColor(long) -> a
     70:76:void addCleandata(boolean,long) -> a
     79:84:void addWhiteList(java.lang.String) -> a
-    88:89:void addAdapterData() -> c
-    93:94:void addRamAdapterData() -> d
+    88:89:void addAdapterData() -> b
+    93:94:void addRamAdapterData() -> c
 com.vector.cleaner.presenter.Sizesort -> com.vector.cleaner.c.j:
-    121:121:void <init>() -> <init>
-    124:124:int compare(com.vector.mcleaner.entity.JunkInfo,com.vector.mcleaner.entity.JunkInfo) -> a
-    121:121:int compare(java.lang.Object,java.lang.Object) -> compare
+    103:103:void <init>() -> <init>
+    106:106:int compare(com.vector.mcleaner.entity.JunkInfo,com.vector.mcleaner.entity.JunkInfo) -> a
+    103:103:int compare(java.lang.Object,java.lang.Object) -> compare
 com.vector.cleaner.presenter.Timesort -> com.vector.cleaner.c.k:
-    128:128:void <init>() -> <init>
-    130:130:int compare(com.vector.mcleaner.entity.JunkInfo,com.vector.mcleaner.entity.JunkInfo) -> a
-    128:128:int compare(java.lang.Object,java.lang.Object) -> compare
+    110:110:void <init>() -> <init>
+    112:112:int compare(com.vector.mcleaner.entity.JunkInfo,com.vector.mcleaner.entity.JunkInfo) -> a
+    110:110:int compare(java.lang.Object,java.lang.Object) -> compare
 com.vector.cleaner.utils.ASwitchControl -> com.vector.cleaner.d.a:
-    android.hardware.Camera camera -> a
+    android.hardware.Camera$Parameters parameters -> a
+    android.hardware.Camera camera -> b
     87:97:void setMobileData(android.content.Context,boolean) -> a
     100:111:int switchWifi(android.content.Context) -> a
     116:124:void switchSound(android.content.Context) -> b
+    494:537:boolean switchFlashlight() -> a
+    542:572:boolean getSwitchFlashlight() -> b
+    644:655:void openLight() -> c
+    666:675:void closeLight() -> d
     36:36:void <clinit>() -> <clinit>
 com.vector.cleaner.utils.AdUtil -> com.vector.cleaner.d.b:
     19:21:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
@@ -38211,9 +38316,7 @@ com.vector.cleaner.utils.PhoneManager -> com.vector.cleaner.d.f:
     com.vector.cleaner.utils.PhoneManager systemManager -> e
     45:51:void <init>(android.content.Context) -> <init>
     54:57:com.vector.cleaner.utils.PhoneManager getPhoneManage(android.content.Context) -> a
-    97:104:java.lang.String getPhoneNetworkType() -> a
-    126:129:boolean isOnline(android.net.NetworkInfo) -> a
-    383:392:boolean isRoot() -> b
+    383:392:boolean isRoot() -> a
 com.vector.cleaner.utils.RCpuTempReader -> com.vector.cleaner.d.g:
     java.lang.String TAG -> a
     java.lang.String[] CPU_TEMP_FILE_PATHS -> b
@@ -38255,7 +38358,6 @@ com.vector.cleaner.utils.UtilGp -> com.vector.cleaner.d.i:
 com.vector.cleaner.view.AppManagerView -> com.vector.cleaner.e.a:
     void initData(long) -> a
     void updateAdapter(java.util.List,java.util.List,java.util.List) -> a
-    void setCleanDAta(long) -> b
 com.vector.cleaner.view.BaseView -> com.vector.cleaner.e.b:
     void loadFullAd() -> b
     void onClick() -> c
@@ -38282,10 +38384,8 @@ com.vector.cleaner.view.MainView -> com.vector.cleaner.e.f:
     void initCpu(int) -> b
     void initSd(int,java.lang.String,long) -> a
     void initRam(int,java.lang.String) -> a
-    void initHuojian() -> e
-    void setRotateGone() -> f
     void initSideData() -> d
-    void openDrawer() -> g
+    void openDrawer() -> e
 com.vector.mcleaner.db.CleanDBHelper -> com.vector.mcleaner.db.CleanDBHelper:
     com.vector.mcleaner.db.CleanDBHelper cleanDBHelper -> a
     android.content.Context mContext -> b
@@ -38639,8 +38739,7 @@ com.vector.mcleaner.mutil.Util -> com.vector.mcleaner.c.e:
     80:93:int millTransFate(long) -> e
     97:110:java.lang.String millTransFate2(long) -> f
     115:126:java.lang.String convertStorage(long,boolean) -> a
-    135:148:java.lang.String convertStorageWifi(long) -> g
-    153:162:java.lang.String convertStorageDanwei(long) -> h
+    153:162:java.lang.String convertStorageDanwei(long) -> g
     169:169:int dp2px(int) -> a
     194:199:boolean isThirdApp(android.content.pm.ApplicationInfo) -> a
     221:231:boolean isStartSelf(android.content.pm.PackageManager,java.lang.String) -> a
@@ -39256,12 +39355,12 @@ com.vector.module.R$id -> com.vector.module.a$d:
     int always -> always
     int basic -> basic
     int battery_ad_layout -> battery_ad_layout
-    int battery_bubble_layout -> battery_bubble_layout
     int battery_charge_save -> battery_charge_save
     int battery_icon -> battery_icon
     int battery_level -> battery_level
     int battery_more -> battery_more
     int battery_now_battery_left -> battery_now_battery_left
+    int battery_now_battery_left_2 -> battery_now_battery_left_2
     int battery_now_date -> battery_now_date
     int battery_now_time -> battery_now_time
     int battery_now_week -> battery_now_week
@@ -39270,6 +39369,7 @@ com.vector.module.R$id -> com.vector.module.a$d:
     int battery_switch_check -> battery_switch_check
     int battery_title -> battery_title
     int battery_water -> battery_water
+    int battery_zhuan -> battery_zhuan
     int beginning -> beginning
     int bottom -> bottom
     int buttonPanel -> buttonPanel
@@ -39447,7 +39547,9 @@ com.vector.module.R$mipmap -> com.vector.module.a$f:
     int battery_more -> battery_more
     int battery_setting_checkbox_close -> battery_setting_checkbox_close
     int battery_setting_checkbox_open -> battery_setting_checkbox_open
-    int beijing -> beijing
+    int bubble_main -> bubble_main
+    int level_tuo -> level_tuo
+    int level_zhuan -> level_zhuan
     int unlock -> unlock
 com.vector.module.R$string -> com.vector.module.a$g:
     int abc_action_bar_home_description -> abc_action_bar_home_description
@@ -39474,6 +39576,9 @@ com.vector.module.R$string -> com.vector.module.a$g:
     int bottom_sheet_behavior -> bottom_sheet_behavior
     int character_counter_pattern -> character_counter_pattern
     int charge_screen_save -> charge_screen_save
+    int charging_1 -> charging_1
+    int charging_2 -> charging_2
+    int charging_3 -> charging_3
     int charging_on_left -> charging_on_left
     int charging_use_left -> charging_use_left
     int cpu -> cpu
@@ -40075,7 +40180,7 @@ com.vector.module.R$styleable -> com.vector.module.a$h:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1522:2103:void <clinit>() -> <clinit>
+    1528:2109:void <clinit>() -> <clinit>
 com.vector.module.Util.ADUtileRequest -> com.vector.module.Util.a:
     13:13:void <init>() -> <init>
     16:17:void showFullAD() -> a
@@ -40165,50 +40270,43 @@ com.vector.module.entry.LevelStep -> com.vector.module.a.b:
 com.vector.module.mView.AWaterView -> com.vector.module.mView.AWaterView:
     int width -> a
     int height -> b
-    android.graphics.Paint firstPaint -> k
-    android.graphics.Paint beijingPaint -> l
-    java.lang.String text -> m
-    int pratent -> n
-    android.graphics.Bitmap bitmap -> o
-    android.graphics.RectF rectF -> p
+    android.graphics.Paint firstPaint -> j
+    android.graphics.Paint beijingPaint -> k
+    java.lang.String text -> l
+    int pratent -> m
+    android.graphics.Bitmap bitmap -> n
+    android.graphics.RectF rectF -> o
     android.content.Context context -> c
-    android.graphics.Paint textPaint -> q
-    int textSize -> r
-    float sin_offset_increment_value -> s
-    float sin_offset_increment_value2 -> t
-    android.graphics.Path firstPath -> u
-    int sin_amplitude -> v
-    float sin_cycle -> w
+    android.graphics.Paint textPaint -> p
+    int textSize -> q
+    float sin_offset_increment_value -> r
+    float sin_offset_increment_value2 -> s
+    android.graphics.Path firstPath -> t
+    int sin_amplitude -> u
+    float sin_cycle -> v
     float sin_offset -> d
     float sin_offset2 -> e
     com.vector.module.mView.AWaterView$UpThread upThread -> f
     boolean isup -> g
-    com.vector.module.mView.AWaterView$RunThread runThread -> h
-    boolean isStart -> i
-    com.vector.module.mView.AWaterView$FloatWaterListener listener -> j
+    boolean isStart -> h
+    com.vector.module.mView.AWaterView$FloatWaterListener listener -> i
     38:39:void <init>(android.content.Context) -> <init>
     42:43:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     29:173:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     52:58:void onMeasure(int,int) -> onMeasure
-    61:82:void initPaints() -> c
+    61:82:void initPaints() -> a
     85:86:void setTextSize(int) -> setTextSize
     90:106:void onDraw(android.graphics.Canvas) -> onDraw
-    117:132:android.graphics.Path firstPath() -> d
-    136:150:android.graphics.Path firstPath2() -> e
+    117:132:android.graphics.Path firstPath() -> b
+    136:150:android.graphics.Path firstPath2() -> c
     158:164:void setPratent(int) -> setPratent
     167:170:void upDate(int) -> a
-    176:181:void start() -> a
-    184:185:void stop() -> b
     244:245:void setFloatWaterListener(com.vector.module.mView.AWaterView$FloatWaterListener) -> setFloatWaterListener
-    255:261:void init() -> f
+    255:261:void init() -> d
 com.vector.module.mView.AWaterView$FloatWaterListener -> com.vector.module.mView.AWaterView$a:
     void success() -> a
     void update(int) -> a
-com.vector.module.mView.AWaterView$RunThread -> com.vector.module.mView.AWaterView$b:
-    com.vector.module.mView.AWaterView this$0 -> a
-    187:187:void <init>(com.vector.module.mView.AWaterView) -> <init>
-    190:198:void run() -> run
-com.vector.module.mView.AWaterView$UpThread -> com.vector.module.mView.AWaterView$c:
+com.vector.module.mView.AWaterView$UpThread -> com.vector.module.mView.AWaterView$b:
     int p -> a
     com.vector.module.mView.AWaterView this$0 -> b
     204:206:void <init>(com.vector.module.mView.AWaterView,int) -> <init>
@@ -40232,64 +40330,66 @@ com.vector.module.mView.BatteryView -> com.vector.module.mView.BatteryView:
     android.widget.TextView date -> p
     android.widget.TextView week -> q
     android.widget.TextView batteryLeft -> r
-    android.widget.TextView currentLevel -> s
-    com.vector.module.mView.AWaterView battery_water -> t
-    com.vector.module.mView.BubbleLayout bubbleLayout -> u
-    int halfWidth -> v
-    android.content.BroadcastReceiver timerUpdateReceiver -> w
-    android.content.IntentFilter mIntentFilter -> x
-    int progress -> y
-    39:150:void <init>(android.content.Context) -> <init>
-    39:150:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    39:150:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    80:81:void setUnlockListener(com.vector.module.mView.BatteryView$UnlockListener) -> setUnlockListener
-    93:131:void showNativeAD() -> f
-    134:148:void updateTime() -> a
-    153:172:void bind(com.vector.module.entry.BatteryEntry) -> a
-    182:280:void onFinishInflate() -> onFinishInflate
-    283:297:void initViews() -> g
-    300:306:void pauseBubble() -> b
-    309:315:void reStartBubble() -> c
-    319:329:void onAttachedToWindow() -> onAttachedToWindow
-    333:355:void onDetachedFromWindow() -> onDetachedFromWindow
-    358:362:int analysisJson(org.json.JSONObject) -> a
-    367:374:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    377:379:void registerTimeUpdateReceiver() -> d
-    382:384:void unregisterTimeUpdateReceiver() -> e
-    34:34:android.view.GestureDetector access$000(com.vector.module.mView.BatteryView) -> a
-    34:34:int access$100(com.vector.module.mView.BatteryView) -> b
-    34:34:com.vector.module.mView.BatteryView$UnlockListener access$200(com.vector.module.mView.BatteryView) -> c
-    34:34:android.widget.LinearLayout access$300(com.vector.module.mView.BatteryView) -> d
-    34:34:float access$400(com.vector.module.mView.BatteryView) -> e
-    34:34:com.vector.module.mView.BatteryView access$500(com.vector.module.mView.BatteryView) -> f
-    34:34:float access$402(com.vector.module.mView.BatteryView,float) -> a
-    34:34:android.content.Context access$600(com.vector.module.mView.BatteryView) -> g
-    34:34:android.widget.CheckBox access$700(com.vector.module.mView.BatteryView) -> h
+    android.widget.TextView batteryLeft_2 -> s
+    android.widget.TextView currentLevel -> t
+    android.widget.ImageView battery_zhuan -> u
+    com.vector.module.mView.AWaterView battery_water -> v
+    int halfWidth -> w
+    android.animation.ObjectAnimator objectAnimator -> x
+    android.content.BroadcastReceiver timerUpdateReceiver -> y
+    android.content.IntentFilter mIntentFilter -> z
+    int progress -> A
+    42:154:void <init>(android.content.Context) -> <init>
+    42:154:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    42:154:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    84:85:void setUnlockListener(com.vector.module.mView.BatteryView$UnlockListener) -> setUnlockListener
+    97:135:void showNativeAD() -> f
+    138:152:void updateTime() -> a
+    157:177:void bind(com.vector.module.entry.BatteryEntry) -> a
+    187:285:void onFinishInflate() -> onFinishInflate
+    288:303:void initViews() -> g
+    309:312:void pauseBubble() -> b
+    318:321:void reStartBubble() -> c
+    325:344:void onAttachedToWindow() -> onAttachedToWindow
+    348:370:void onDetachedFromWindow() -> onDetachedFromWindow
+    373:377:int analysisJson(org.json.JSONObject) -> a
+    382:389:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    392:394:void registerTimeUpdateReceiver() -> d
+    397:399:void unregisterTimeUpdateReceiver() -> e
+    37:37:android.view.GestureDetector access$000(com.vector.module.mView.BatteryView) -> a
+    37:37:int access$100(com.vector.module.mView.BatteryView) -> b
+    37:37:com.vector.module.mView.BatteryView$UnlockListener access$200(com.vector.module.mView.BatteryView) -> c
+    37:37:android.widget.LinearLayout access$300(com.vector.module.mView.BatteryView) -> d
+    37:37:float access$400(com.vector.module.mView.BatteryView) -> e
+    37:37:com.vector.module.mView.BatteryView access$500(com.vector.module.mView.BatteryView) -> f
+    37:37:float access$402(com.vector.module.mView.BatteryView,float) -> a
+    37:37:android.content.Context access$600(com.vector.module.mView.BatteryView) -> g
+    37:37:android.widget.CheckBox access$700(com.vector.module.mView.BatteryView) -> h
 com.vector.module.mView.BatteryView$1 -> com.vector.module.mView.BatteryView$1:
     com.vector.module.mView.BatteryView this$0 -> a
-    83:83:void <init>(com.vector.module.mView.BatteryView) -> <init>
-    86:87:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    87:87:void <init>(com.vector.module.mView.BatteryView) -> <init>
+    90:91:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.vector.module.mView.BatteryView$2 -> com.vector.module.mView.BatteryView$2:
     com.vector.module.mView.BatteryView this$0 -> a
-    105:105:void <init>(com.vector.module.mView.BatteryView) -> <init>
-    108:128:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    109:109:void <init>(com.vector.module.mView.BatteryView) -> <init>
+    112:132:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.vector.module.mView.BatteryView$3 -> com.vector.module.mView.BatteryView$3:
     com.vector.module.mView.BatteryView this$0 -> a
-    192:192:void <init>(com.vector.module.mView.BatteryView) -> <init>
-    195:211:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    197:197:void <init>(com.vector.module.mView.BatteryView) -> <init>
+    200:216:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.vector.module.mView.BatteryView$4 -> com.vector.module.mView.BatteryView$4:
     com.vector.module.mView.BatteryView this$0 -> a
-    214:214:void <init>(com.vector.module.mView.BatteryView) -> <init>
-    217:221:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    226:234:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    219:219:void <init>(com.vector.module.mView.BatteryView) -> <init>
+    222:226:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    231:239:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.vector.module.mView.BatteryView$5 -> com.vector.module.mView.BatteryView$5:
     com.vector.module.mView.BatteryView this$0 -> a
-    245:245:void <init>(com.vector.module.mView.BatteryView) -> <init>
-    248:251:void onClick(android.view.View) -> onClick
+    250:250:void <init>(com.vector.module.mView.BatteryView) -> <init>
+    253:256:void onClick(android.view.View) -> onClick
 com.vector.module.mView.BatteryView$6 -> com.vector.module.mView.BatteryView$6:
     com.vector.module.mView.BatteryView this$0 -> a
-    263:263:void <init>(com.vector.module.mView.BatteryView) -> <init>
-    266:277:void onClick(android.view.View) -> onClick
+    268:268:void <init>(com.vector.module.mView.BatteryView) -> <init>
+    271:282:void onClick(android.view.View) -> onClick
 com.vector.module.mView.BatteryView$UnlockListener -> com.vector.module.mView.BatteryView$a:
     void onUnlock() -> a
 com.vector.module.mView.BubbleLayout -> com.vector.module.mView.BubbleLayout:
@@ -40314,11 +40414,10 @@ com.vector.module.mView.BubbleLayout -> com.vector.module.mView.BubbleLayout:
     18:18:boolean access$100(com.vector.module.mView.BubbleLayout) -> b
     18:18:java.util.Random access$300(com.vector.module.mView.BubbleLayout) -> c
     18:18:int access$400(com.vector.module.mView.BubbleLayout) -> d
-    18:18:int access$500(com.vector.module.mView.BubbleLayout) -> e
+    18:18:android.graphics.Bitmap access$500(com.vector.module.mView.BubbleLayout) -> e
+    18:18:android.graphics.Bitmap access$602(com.vector.module.mView.BubbleLayout,android.graphics.Bitmap) -> a
     18:18:android.graphics.Bitmap access$600(com.vector.module.mView.BubbleLayout) -> f
-    18:18:android.graphics.Bitmap access$702(com.vector.module.mView.BubbleLayout,android.graphics.Bitmap) -> a
-    18:18:android.graphics.Bitmap access$700(com.vector.module.mView.BubbleLayout) -> g
-    18:18:java.util.List access$800(com.vector.module.mView.BubbleLayout) -> h
+    18:18:java.util.List access$700(com.vector.module.mView.BubbleLayout) -> g
 com.vector.module.mView.BubbleLayout$1 -> com.vector.module.mView.BubbleLayout$1:
     com.vector.module.mView.BubbleLayout this$0 -> a
     82:82:void <init>(com.vector.module.mView.BubbleLayout) -> <init>
@@ -40385,6 +40484,16 @@ com.vector.module.mView.IndicatorView$OnPageChangeListener -> com.vector.module.
     void onPageScrolled(int,float,int) -> a
     void onPageSelected(int) -> a
     void onPageScrollStateChanged(int) -> b
+com.vector.module.mView.MyTextView -> com.vector.module.mView.MyTextView:
+    int mViewWidth -> a
+    android.graphics.Paint mPaint -> b
+    android.graphics.LinearGradient mLinearGradient -> c
+    android.graphics.Matrix mGradientMatrix -> d
+    int mTranslate -> e
+    18:26:void <init>(android.content.Context) -> <init>
+    18:30:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    34:44:void onSizeChanged(int,int,int,int) -> onSizeChanged
+    48:58:void onDraw(android.graphics.Canvas) -> onDraw
 com.vector.module.receiver.QidongReceiver -> com.vector.module.receiver.QidongReceiver:
     14:14:void <init>() -> <init>
     17:18:void onReceive(android.content.Context,android.content.Intent) -> onReceive

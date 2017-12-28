@@ -52,7 +52,6 @@ public class SuccessActivity extends BaseActivity {
     FrameLayout title_left;
     LinearLayout main_rotate_all;
     ImageView main_rotate_cha;
-    LinearLayout main_power_button;
     LinearLayout main_notifi_button;
     LinearLayout main_file_button;
     TextView success_clean_size;
@@ -62,8 +61,8 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_picture_button;
     TextView main_rotate_bad;
     //    ImageView delete;
-    Gou success_gou;
     FrameLayout success_dong;
+    ImageView xing_1, xing_2, xing_3;
     LinearLayout ll_ad_xiao;
     ImageView power_icon;
     TextView power_text;
@@ -94,7 +93,6 @@ public class SuccessActivity extends BaseActivity {
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_rotate_cha = (ImageView) findViewById(R.id.main_rotate_cha);
-        main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
         main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
         main_cooling_button = (LinearLayout) findViewById(R.id.main_cooling_button);
@@ -108,8 +106,10 @@ public class SuccessActivity extends BaseActivity {
 //        delete = (ImageView) findViewById(R.id.delete);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
-        success_gou = (Gou) findViewById(R.id.success_gou);
         success_dong = (FrameLayout) findViewById(R.id.success_dong);
+        xing_1 = (ImageView) findViewById(R.id.xing_1);
+        xing_2 = (ImageView) findViewById(R.id.xing_2);
+        xing_3 = (ImageView) findViewById(R.id.xing_3);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
         success_title = (LinearLayout) findViewById(R.id.success_title);
@@ -148,7 +148,6 @@ public class SuccessActivity extends BaseActivity {
             main_cooling_button.setVisibility(View.GONE);
             main_gboost_button.setVisibility(View.GONE);
         } else if (TextUtils.equals("power", getIntent().getStringExtra("from")) || TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
-            main_power_button.setVisibility(View.GONE);
             main_notifi_button.setVisibility(View.GONE);
             main_ram_button.setVisibility(View.GONE);
             main_gboost_button.setVisibility(View.GONE);
@@ -205,15 +204,7 @@ public class SuccessActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.PHOTO_KAIGUAN, 1) != 1) {
             main_picture_button.setVisibility(View.GONE);
         }
-        if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
-            success_dong.setVisibility(View.INVISIBLE);
-            if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                AndroidSdk.showFullAd(AdUtil.DEFAULT);
-            }
-            startSecondAnimation();
-        } else {
-            initAnimation();
-        }
+        initAnimation();
 //        success_drawhook.setListener(new DrawHookView.DrawHookListener() {
 //
 //            @Override
@@ -251,16 +242,15 @@ public class SuccessActivity extends BaseActivity {
                 startList.add(info);
             }
         }
-        if (startList.size() == 0) {
-            main_power_button.setVisibility(View.GONE);
-        } else {
-
-            power_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
-            String text1 = getString(R.string.power_1, String.valueOf(startList.size())) + " ";
-            SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
-            ss1.setSpan(new ForegroundColorSpan(Color.parseColor("#ff3131")), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            power_text.setText(ss1);
-        }
+//        if (startList.size() == 0) {
+//            main_power_button.setVisibility(View.GONE);
+//        } else {
+//            power_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
+//            String text1 = getString(R.string.power_1, String.valueOf(startList.size())) + " ";
+//            SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
+//            ss1.setSpan(new ForegroundColorSpan(Color.parseColor("#ff3131")), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            power_text.setText(ss1);
+//        }
     }
 
 
@@ -269,7 +259,6 @@ public class SuccessActivity extends BaseActivity {
         main_rotate_good.setOnClickListener(onClickListener);
         main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_cha.setOnClickListener(onClickListener);
-        main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
         main_cooling_button.setOnClickListener(onClickListener);
@@ -380,39 +369,103 @@ public class SuccessActivity extends BaseActivity {
 //    }
 
     public void startFirstAnimation() {
-        success_gou.startAni();
-        success_gou.setGouListener(new Gou.GouListener() {
-            @Override
-            public void animaEnd() {
-                success_gou.setGouListener(null);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        set.start();
-                    }
-                });
-            }
-        });
         set = new AnimatorSet();
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(success_dong, "scaleX", 1, 0f);
-        scaleX.setDuration(600);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(success_dong, "scaleY", 1, 0f);
-        scaleY.setDuration(600);
-        set.setInterpolator(new LinearInterpolator());
-        set.play(scaleX).with(scaleY);
-
+        ObjectAnimator scaleX_f = ObjectAnimator.ofFloat(success_dong, "scaleX", 0, 1f);
+        scaleX_f.setDuration(600);
+        ObjectAnimator scaleY_f = ObjectAnimator.ofFloat(success_dong, "scaleY", 0, 1f);
+        scaleY_f.setDuration(600);
+        set.play(scaleX_f).with(scaleY_f);
+        set.start();
+        success_dong.setVisibility(View.VISIBLE);
         set.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationCancel(Animator animation) {
+
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                Log.e("adadad", "succe====");
-                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
-                }
-                startSecondAnimation();
+                set = new AnimatorSet();
+                ObjectAnimator animator_1 = ObjectAnimator.ofFloat(xing_1, "scaleX", 0, 1f);
+                animator_1.setDuration(300);
+                ObjectAnimator animator_2 = ObjectAnimator.ofFloat(xing_1, "scaleY", 0, 1f);
+                animator_2.setDuration(300);
+                ObjectAnimator animator_3 = ObjectAnimator.ofFloat(xing_1, View.ROTATION, 0, 360);
+                animator_3.setDuration(300);
+                ObjectAnimator animator_4 = ObjectAnimator.ofFloat(xing_2, "scaleX", 0, 1f);
+                animator_4.setDuration(500);
+                ObjectAnimator animator_5 = ObjectAnimator.ofFloat(xing_2, "scaleY", 0, 1f);
+                animator_5.setDuration(500);
+                ObjectAnimator animator_6 = ObjectAnimator.ofFloat(xing_2, View.ROTATION, 0, 360);
+                animator_6.setDuration(500);
+                ObjectAnimator animator_7 = ObjectAnimator.ofFloat(xing_3, "scaleX", 0, 1f);
+                animator_7.setDuration(700);
+                ObjectAnimator animator_8 = ObjectAnimator.ofFloat(xing_3, "scaleY", 0, 1f);
+                animator_8.setDuration(700);
+                ObjectAnimator animator_9 = ObjectAnimator.ofFloat(xing_3, View.ROTATION, 0, 360);
+                animator_9.setDuration(700);
+//                set.play(animator_1).with(animator_2).with(animator_3);
+//                set.play(animator_4).with(animator_5).with(animator_6);
+//                set.play(animator_7).with(animator_8).with(animator_9);
+//                set.play(animator_4).after(animator_1);
+//                set.play(animator_7).after(animator_4);
+                set.playTogether(animator_1, animator_2, animator_3, animator_4, animator_5, animator_6, animator_7, animator_8, animator_9);
+                set.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        set = new AnimatorSet();
+                        ObjectAnimator scaleX = ObjectAnimator.ofFloat(success_dong, "scaleX", 1, 0f);
+                        scaleX.setDuration(600);
+                        ObjectAnimator scaleY = ObjectAnimator.ofFloat(success_dong, "scaleY", 1, 0f);
+                        scaleY.setDuration(600);
+                        set.setInterpolator(new LinearInterpolator());
+                        set.play(scaleX).with(scaleY);
+                        set.addListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationCancel(Animator animation) {
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                Log.e("adadad", "succe====");
+                                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
+                                }
+                                startSecondAnimation();
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animator animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationStart(Animator animation) {
+
+                            }
+                        });
+                        set.start();
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+                });
+                set.start();
+                xing_1.setVisibility(View.VISIBLE);
+                xing_2.setVisibility(View.VISIBLE);
+                xing_3.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -425,6 +478,7 @@ public class SuccessActivity extends BaseActivity {
 
             }
         });
+
 
     }
 
@@ -480,15 +534,6 @@ public class SuccessActivity extends BaseActivity {
                 case R.id.main_rotate_cha:
                     PreData.putDB(SuccessActivity.this, Constant.IS__SUCCESS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
-                    break;
-                case R.id.main_power_button:
-                    if (TextUtils.equals("power", getIntent().getStringExtra("from"))) {
-                        finish();
-                        return;
-                    }
-                    AdUtil.track("完成页面", "点击进入深度清理", "", 1);
-                    jumpTo(DeepActivity.class);
-                    onBackPressed();
                     break;
                 case R.id.main_junk_button:
                     AdUtil.track("完成页面", "点击进入垃圾清理", "", 1);
@@ -591,10 +636,6 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (success_gou != null) {
-            success_gou.setGouListener(null);
-            success_gou.stopAnima();
-        }
     }
 
     @Override

@@ -129,7 +129,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.NotifiYindaoActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".activity.PermissionActivity"
             android:allowTaskReparenting="true"
@@ -139,6 +141,7 @@
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
             android:name=".activity.NotificationActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.NotifiSettingActivity"

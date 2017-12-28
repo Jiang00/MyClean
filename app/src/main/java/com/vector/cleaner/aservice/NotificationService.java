@@ -5,8 +5,10 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -31,6 +33,7 @@ import android.widget.RemoteViews;
 import com.vector.cleaner.activity.LajiAndRamActivity;
 import com.vector.cleaner.activity.NotificationActivity;
 import com.vector.cleaner.activity.SuccessActivity;
+import com.vector.cleaner.utils.ASwitchControl;
 import com.vector.cleaner.utils.AdUtil;
 import com.vector.cleaner.utils.Constant;
 import com.vector.cleaner.utils.PhoneManager;
@@ -49,6 +52,7 @@ import java.util.ArrayList;
 
 
 public class NotificationService extends Service {
+    private static final String FLASH_ACTION = "action.flash.clean";
     Handler myHandler;
     private RemoteViews remoteView_1, remoteViewNotifi;
     private Notification notification_1;
@@ -57,7 +61,7 @@ public class NotificationService extends Service {
     private Notification notification_ram, notification_cooling, notification_junk, notification_two_day, notification_gboost;
     private Notification notification_notifi;
 
-    private Intent notifyIntentRam, notifyIntentCooling, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
+    private Intent notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
 
     private Bitmap bitmap_progress;
     private Paint paint_1;
@@ -91,10 +95,22 @@ public class NotificationService extends Service {
         pointX = getResources().getDimensionPixelOffset(R.dimen.d33) / 2;
         oval = new RectF(0 + Util.dp2px(3), -pointX + Util.dp2px(3), pointX
                 * 2 - Util.dp2px(3), pointX - Util.dp2px(3));
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(FLASH_ACTION);
+        registerReceiver(broadcastReceiver, intentFilter);
         changZhuTongzhi();
         tonghzi_notifi();
         CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
     }
+
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            boolean iskai = ASwitchControl.switchFlashlight();
+            remoteView_1.setImageViewResource(R.id.notifi_shou, iskai ? R.mipmap.notifi_shou_2 : R.mipmap.notifi_shou_1);
+            mNotifyManager.notify(102, notification_1);
+        }
+    };
 
     NotificationCallBack notificationCallBack = new NotificationCallBack() {
         @Override
@@ -134,6 +150,9 @@ public class NotificationService extends Service {
         notifyIntentJunkRam.putExtra("from", "notifi");
         notifyIntentJunkRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        notifyIntentFlash = new Intent(FLASH_ACTION);
+        notifyIntentFlash.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         notifyIntentNotifi = new Intent(this, NotificationActivity.class);
         notifyIntentNotifi.putExtra("from", "notifi");
         notifyIntentNotifi.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
@@ -159,10 +178,9 @@ public class NotificationService extends Service {
         if (intent != null && TextUtils.equals("notification", intent.getStringExtra("from"))) {
             onstart();
         }
-
         if (intent != null && TextUtils.equals("gboost", intent.getStringExtra("from"))) {
-            tonghzi_gboost();
-            mNotifyManager.notify(101, notification_gboost);
+//            tonghzi_gboost();
+//            mNotifyManager.notify(101, notification_gboost);
         }
         return super.onStartCommand(intent, flags, startId);
     }
@@ -190,7 +208,7 @@ public class NotificationService extends Service {
         if (memory > 70) {
             paint_1.setColor(ContextCompat.getColor(this, R.color.A2));
         } else {
-            paint_1.setColor(ContextCompat.getColor(this, R.color.A4));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.A5));
         }
         canvas.drawArc(oval, 0, 360 * memory / 100, false, paint_1);
 
@@ -203,10 +221,15 @@ public class NotificationService extends Service {
                 notifyIntentCooling, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentJunkRam = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendIntentFlash = PendingIntent.getBroadcast(this, requestCode,
+                notifyIntentFlash, PendingIntent.FLAG_UPDATE_CURRENT);
         notifyIntentJunkRam.putExtra("from2", "twoday");
         remoteView_1.setOnClickPendingIntent(R.id.notifi_ram, pendIntentRam);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_cooling, pendIntentCooling);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_junk_ram, pendIntentJunkRam);
+        remoteView_1.setOnClickPendingIntent(R.id.notifi_flash, pendIntentFlash);
+        remoteView_1.setImageViewResource(R.id.notifi_shou, ASwitchControl.getSwitchFlashlight() ? R.mipmap.notifi_shou_2 : R.mipmap.notifi_shou_1);
+
         mBuilder.setContent(remoteView_1);
         mBuilder.setAutoCancel(false);
         mBuilder.setOngoing(true);
@@ -224,31 +247,8 @@ public class NotificationService extends Service {
 
     private Runnable runnableW = new Runnable() {
         public void run() {
-            long nowTotalRxBytes = getTotalRxBytes(); // 获取当前数据总量
-            long nowTimeStamp = System.currentTimeMillis(); // 当前时间
-            // kb/s
-            long speed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp == lastTimeStamp ? nowTimeStamp : nowTimeStamp
-                    - lastTimeStamp));// 毫秒转换
-//            tv.setText(String.valueOf(speed) + "b/s");
-            String type = phoneManager.getPhoneNetworkType();
-            if (type.equals("WIFI")) {
-                remoteView_1.setImageViewResource(R.id.notifi_network_type, R.mipmap.notifi_wifi);
-            } else if (type.equals("MOBILE")) {
-                remoteView_1.setImageViewResource(R.id.notifi_network_type, R.mipmap.notifi_liuliang);
-            } else {
-                remoteView_1.setImageViewResource(R.id.notifi_network_type, R.drawable.translate);
-            }
-            remoteView_1.setTextViewText(R.id.notifi_network_sudu, Util.convertStorageWifi(speed));
-            num++;
-            if (num >= 10) {
-                num = 0;
-                update();
-            } else {
-                mNotifyManager.notify(102, notification_1);
-            }
-            lastTimeStamp = nowTimeStamp;
-            lastTotalRxBytes = nowTotalRxBytes;
-            myHandler.postDelayed(this, 2000);
+            update();
+            myHandler.postDelayed(this, 20000);
         }
     };
 
@@ -265,22 +265,21 @@ public class NotificationService extends Service {
                 } else {
                     cpuTemp = 40;
                 }
-                Log.e("notifi", "cpuTemp=" + cpuTemp);
-                remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
-                paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_50));
-                Canvas canvas = getCanvas();
-                canvas.drawArc(oval, 0, 360, false, paint_1);
-                if (memory > 70) {
-                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A2));
-                } else {
-                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A4));
-                }
-                canvas.drawArc(oval, 0, 360 * memory / 100, false, paint_1);
-                remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
-                remoteView_1.setTextViewText(R.id.norifi_memory_text, memory + "%");
-                mNotifyManager.notify(102, notification_1);
             }
         });
+        paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_50));
+        Canvas canvas = getCanvas();
+        canvas.drawArc(oval, 0, 360, false, paint_1);
+        if (memory > 70) {
+            paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A2));
+        } else {
+            paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A5));
+        }
+        canvas.drawArc(oval, 0, 360 * memory / 100, false, paint_1);
+        remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
+        remoteView_1.setTextViewText(R.id.norifi_memory_text, memory + "%");
+        mNotifyManager.notify(102, notification_1);
+
         long time = System.currentTimeMillis();
         if (PreData.getDB(this, Constant.TONGZHI_SWITCH, true)) {
             int hh = Integer.parseInt(Util.getStrTimeHH(time));
@@ -543,6 +542,7 @@ public class NotificationService extends Service {
         if (!PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             mNotifyManager.cancel(102);
         }
+        unregisterReceiver(broadcastReceiver);
         myHandler.removeCallbacks(runnableW);
         CleanManager.getInstance(this).removeNotificatioCallBack(notificationCallBack);
         super.onDestroy();

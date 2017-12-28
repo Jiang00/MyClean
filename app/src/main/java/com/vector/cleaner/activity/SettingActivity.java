@@ -36,7 +36,6 @@ public class SettingActivity extends BaseActivity {
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check;
     FrameLayout title_left;
     TextView title_name;
-    ImageView tongzhi_iv, tongzhilan_iv, float_iv, battery_iv;
     TextView tongzhi_tv, tongzhilan_tv, float_tv, battery_tv;
     LinearLayout ll_ad;
     ScrollView setting_scroll;
@@ -69,10 +68,6 @@ public class SettingActivity extends BaseActivity {
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
-        tongzhi_iv = (ImageView) findViewById(R.id.tongzhi_iv);
-        tongzhilan_iv = (ImageView) findViewById(R.id.tongzhilan_iv);
-        float_iv = (ImageView) findViewById(R.id.float_iv);
-        battery_iv = (ImageView) findViewById(R.id.battery_iv);
         tongzhi_tv = (TextView) findViewById(R.id.tongzhi_tv);
         tongzhilan_tv = (TextView) findViewById(R.id.tongzhilan_tv);
         float_tv = (TextView) findViewById(R.id.float_tv);
@@ -136,40 +131,38 @@ public class SettingActivity extends BaseActivity {
     private void initData() {
         if (PreData.getDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true)) {
             setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
-            setAlphaAndColor(tongzhi_iv, tongzhi_tv, true);
+            setAlphaAndColor(tongzhi_tv, true);
         } else {
-            setAlphaAndColor(tongzhi_iv, tongzhi_tv, false);
+            setAlphaAndColor(tongzhi_tv, false);
             setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
         }
         if (PreData.getDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
-            setAlphaAndColor(tongzhilan_iv, tongzhilan_tv, true);
+            setAlphaAndColor(tongzhilan_tv, true);
             setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
         } else {
-            setAlphaAndColor(tongzhilan_iv, tongzhilan_tv, false);
+            setAlphaAndColor(tongzhilan_tv, false);
             setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
         }
         if (PreData.getDB(SettingActivity.this, Constant.FlOAT_SWITCH, true)) {
-            setAlphaAndColor(float_iv, float_tv, true);
+            setAlphaAndColor(float_tv, true);
             setting_float_check.setImageResource(R.mipmap.side_check_passed);
         } else {
-            setAlphaAndColor(float_iv, float_tv, false);
+            setAlphaAndColor(float_tv, false);
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
         }
         if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)) {
-            setAlphaAndColor(battery_iv, battery_tv, true);
+            setAlphaAndColor(battery_tv, true);
             setting_battery_check.setImageResource(R.mipmap.side_check_passed);
         } else {
-            setAlphaAndColor(battery_iv, battery_tv, false);
+            setAlphaAndColor(battery_tv, false);
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
         }
     }
 
-    public void setAlphaAndColor(ImageView iv, TextView tv, boolean isKai) {
+    public void setAlphaAndColor(TextView tv, boolean isKai) {
         if (isKai) {
-            iv.setAlpha(1f);
             tv.setTextColor(ContextCompat.getColor(this, R.color.A8));
         } else {
-            iv.setAlpha(0.54f);
             tv.setTextColor(ContextCompat.getColor(this, R.color.A9));
 
         }
@@ -204,10 +197,10 @@ public class SettingActivity extends BaseActivity {
                     AdUtil.track("设置页面", "点击通知开关", "", 1);
                     if (PreData.getDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true)) {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHI_SWITCH, false);
-                        setAlphaAndColor(tongzhi_iv, tongzhi_tv, false);
+                        setAlphaAndColor( tongzhi_tv, false);
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
-                        setAlphaAndColor(tongzhi_iv, tongzhi_tv, true);
+                        setAlphaAndColor( tongzhi_tv, true);
                         PreData.putDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true);
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
                     }
@@ -219,13 +212,13 @@ public class SettingActivity extends BaseActivity {
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
                         Intent intent = new Intent(SettingActivity.this, NotificationService.class);
                         stopService(intent);
-                        setAlphaAndColor(tongzhilan_iv, tongzhilan_tv, false);
+                        setAlphaAndColor( tongzhilan_tv, false);
                     } else {
-                        setAlphaAndColor(tongzhilan_iv, tongzhilan_tv, true);
+                        setAlphaAndColor( tongzhilan_tv, true);
                         PreData.putDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
                         Intent intent = new Intent(SettingActivity.this, NotificationService.class);
-                        intent.putExtra("from","notification");
+                        intent.putExtra("from", "notification");
                         startService(intent);
                     }
                     break;
@@ -236,13 +229,13 @@ public class SettingActivity extends BaseActivity {
                         Intent intent1 = new Intent(SettingActivity.this, MemoryService.class);
                         setting_float_check.setImageResource(R.mipmap.side_check_normal);
                         stopService(intent1);
-                        setAlphaAndColor(float_iv, float_tv, false);
+                        setAlphaAndColor( float_tv, false);
                     } else {
                         PreData.putDB(SettingActivity.this, Constant.FlOAT_SWITCH, true);
                         Intent intent1 = new Intent(SettingActivity.this, MemoryService.class);
                         setting_float_check.setImageResource(R.mipmap.side_check_passed);
                         startService(intent1);
-                        setAlphaAndColor(float_iv, float_tv, true);
+                        setAlphaAndColor( float_tv, true);
                     }
                     break;
                 case R.id.setting_battery:
@@ -252,12 +245,12 @@ public class SettingActivity extends BaseActivity {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
                         AdUtil.track("设置页面", "点击充电屏保开关", "关", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_normal);
-                        setAlphaAndColor(battery_iv, battery_tv, false);
+                        setAlphaAndColor( battery_tv, false);
                     } else {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
                         AdUtil.track("设置页面", "点击充电屏保开关", "开", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_passed);
-                        setAlphaAndColor(battery_iv, battery_tv, true);
+                        setAlphaAndColor( battery_tv, true);
                     }
                     break;
                 case R.id.setting_white:

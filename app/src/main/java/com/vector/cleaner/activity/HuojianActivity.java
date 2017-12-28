@@ -43,7 +43,6 @@ public class HuojianActivity extends BaseActivity {
     private boolean isdoudong;
     private long size;
     private View nativeView;
-    LottieAnimationView short_b;
     LinearLayout ll_ad;
     FrameLayout short_fl;
     private Animation rotate;
@@ -58,7 +57,6 @@ public class HuojianActivity extends BaseActivity {
         super.findId();
         short_backg = (FrameLayout) findViewById(R.id.short_backg);
         short_fl = (FrameLayout) findViewById(R.id.short_fl);
-        short_b = (LottieAnimationView) findViewById(R.id.short_b);
     }
 
     @Override
@@ -171,10 +169,6 @@ public class HuojianActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        short_b.setImageAssetsFolder("images/short");
-        short_b.setAnimation("jiasu.json");
-        short_b.loop(true);
-        short_b.playAnimation();
 //        rotation = ObjectAnimator.ofFloat(short_b, "rotation", 0, 850);
 //        rotation.setDuration(3000);
 //        rotation.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -191,10 +185,6 @@ public class HuojianActivity extends BaseActivity {
                 @Override
                 public void onAnimationEnd(Animation animation) {
 //                    rotation.cancel();
-                    if (short_b != null) {
-                        short_b.pauseAnimation();
-                    }
-                    short_b.clearAnimation();
                     short_fl.setVisibility(View.GONE);
                     count++;
                     isdoudong = false;
@@ -223,9 +213,6 @@ public class HuojianActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (short_b != null) {
-            short_b.pauseAnimation();
-        }
         count = 0;
         finish();
     }

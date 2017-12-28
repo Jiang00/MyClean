@@ -1,5 +1,7 @@
 package com.vector.cleaner.activity;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.ComponentName;
@@ -39,7 +41,7 @@ public class FloatActivity extends BaseActivity {
     LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
     LinearLayout ll_ad;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
-    WaveProgress water_memory;
+    ImageView float_jiasu;
 
     private View nativeView;
     private MyApplication cleanApplication;
@@ -61,7 +63,7 @@ public class FloatActivity extends BaseActivity {
         iv_xianshi = (ImageView) findViewById(R.id.iv_xianshi);
         iv_shengyin = (ImageView) findViewById(R.id.iv_shengyin);
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
-        water_memory = (WaveProgress) findViewById(R.id.water_memory);
+        float_jiasu = (ImageView) findViewById(R.id.float_jiasu);
     }
 
     @Override
@@ -82,7 +84,6 @@ public class FloatActivity extends BaseActivity {
     }
 
     private void initList() {
-        water_memory.setProgress(Util.getMemory(this));
     }
 
     private void addListener() {
@@ -92,7 +93,7 @@ public class FloatActivity extends BaseActivity {
         ll_xianshi.setOnClickListener(kuaijieListener);
         ll_shengyin.setOnClickListener(kuaijieListener);
         ll_gps.setOnClickListener(kuaijieListener);
-        water_memory.setOnClickListener(kuaijieListener);
+        float_jiasu.setOnClickListener(kuaijieListener);
     }
 
 
@@ -118,6 +119,7 @@ public class FloatActivity extends BaseActivity {
     }
 
 
+    private ObjectAnimator objectAnimator;
     View.OnClickListener kuaijieListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -158,22 +160,40 @@ public class FloatActivity extends BaseActivity {
                         e.printStackTrace();
                     }
                     break;
-                case R.id.water_memory:
-                    water_memory.setOnClickListener(null);
+                case R.id.float_jiasu:
+                    float_jiasu.setOnClickListener(null);
                     startCleanAnimation();
+                    objectAnimator = ObjectAnimator.ofFloat(float_jiasu, View.ROTATION, 0, 3600);
+                    objectAnimator.setDuration(3000);
+                    objectAnimator.start();
+                    objectAnimator.addListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            float_jiasu.setOnClickListener(kuaijieListener);
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+
+                        }
+                    });
                     break;
             }
         }
     };
 
+    //qingli
     private void startCleanAnimation() {
-        water_memory.setStopListener(new WaveProgress.StopListener() {
-            @Override
-            public void stopO() {
-                water_memory.startProgress(Util.getMemory(FloatActivity.this));
-            }
-        });
-        water_memory.stopProgress();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -212,33 +232,33 @@ public class FloatActivity extends BaseActivity {
 
     private void wifi() {
         if (CheckState.wifiState(this)) {
-            iv_wifi.setAlpha(1f);
+            iv_wifi.setImageResource(R.mipmap.float_wifi);
         } else {
-            iv_wifi.setAlpha(0.2f);
+            iv_wifi.setImageResource(R.mipmap.float_wifi_n);
         }
     }
 
     private void wifiD() {
         if (!CheckState.wifiState(this)) {
-            iv_wifi.setAlpha(1f);
+            iv_wifi.setImageResource(R.mipmap.float_wifi);
         } else {
-            iv_wifi.setAlpha(0.2f);
+            iv_wifi.setImageResource(R.mipmap.float_wifi_n);
         }
     }
 
     private void liuLiang() {
         if (CheckState.networkState(this, null)) {
-            iv_liuliang.setAlpha(1f);
+            iv_liuliang.setImageResource(R.mipmap.float_liuliang);
         } else {
-            iv_liuliang.setAlpha(0.2f);
+            iv_liuliang.setImageResource(R.mipmap.float_liuliang_n);
         }
     }
 
     private void liuLiangd() {
         if (!CheckState.networkState(this, null)) {
-            iv_liuliang.setAlpha(1f);
+            iv_liuliang.setImageResource(R.mipmap.float_liuliang);
         } else {
-            iv_liuliang.setAlpha(0.2f);
+            iv_liuliang.setImageResource(R.mipmap.float_liuliang_n);
         }
     }
 
@@ -261,17 +281,17 @@ public class FloatActivity extends BaseActivity {
 
     private void shengYin() {
         if (CheckState.soundState(this)) {
-            iv_shengyin.setAlpha(1f);
+            iv_shengyin.setImageResource(R.mipmap.float_shengyin);
         } else {
-            iv_shengyin.setAlpha(0.2f);
+            iv_shengyin.setImageResource(R.mipmap.float_shengyin_n);
         }
     }
 
     private void gps() {
         if (CheckState.gpsState(this)) {
-            iv_gps.setAlpha(1f);
+            iv_gps.setImageResource(R.mipmap.float_gps);
         } else {
-            iv_gps.setAlpha(0.2f);
+            iv_gps.setImageResource(R.mipmap.float_gps_n);
         }
     }
 
@@ -375,5 +395,13 @@ public class FloatActivity extends BaseActivity {
         super.onResume();
         liuLiang();
         gps();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (objectAnimator != null && objectAnimator.isRunning()) {
+            objectAnimator.cancel();
+        }
     }
 }

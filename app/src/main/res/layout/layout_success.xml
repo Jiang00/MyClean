@@ -15,13 +15,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/d133">
+            android:layout_marginRight="@dimen/d24"
+            android:layout_marginTop="@dimen/d168"
+            android:visibility="invisible">
 
+            <ImageView
+                android:layout_width="@dimen/d146"
+                android:layout_height="@dimen/d146"
+                android:src="@mipmap/success_zhi" />
 
-            <com.vector.cleaner.myview.Gou
-                android:id="@+id/success_gou"
-                android:layout_width="@dimen/d208"
-                android:layout_height="@dimen/d208" />
+            <ImageView
+                android:id="@+id/xing_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d32"
+                android:layout_marginTop="@dimen/d24"
+                android:src="@mipmap/success_xing"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/xing_2"
+                android:layout_width="@dimen/d23"
+                android:layout_height="@dimen/d23"
+                android:layout_marginLeft="@dimen/d82"
+                android:src="@mipmap/success_xing"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/xing_3"
+                android:layout_width="@dimen/d18"
+                android:layout_height="@dimen/d18"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/d43"
+                android:rotation="30"
+                android:src="@mipmap/success_xing"
+                android:visibility="invisible" />
+
 
         </FrameLayout>
 
@@ -50,7 +79,7 @@
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A1"
+                android:background="@color/B3"
                 android:fillViewport="true"
                 android:scrollbars="none">
 
@@ -61,7 +90,8 @@
                     <!--tou-->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d109"
+                        android:layout_height="@dimen/d155"
+                        android:layout_marginBottom="@dimen/d8"
                         android:background="@color/A1">
 
                         <LinearLayout
@@ -69,21 +99,21 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:gravity="center"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@mipmap/success_duigou" />
+                                android:src="@mipmap/success_ram_title" />
 
                             <com.vector.module.mView.CustomerTypefaceTextView
                                 android:id="@+id/success_clean_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/d12"
+                                android:layout_marginTop="@dimen/d19"
                                 android:text="@string/success_cleaned"
                                 android:textColor="@color/white_100"
-                                android:textSize="@dimen/s15" />
+                                android:textSize="@dimen/s16" />
                         </LinearLayout>
                     </FrameLayout>
 
@@ -97,7 +127,7 @@
                         android:layout_marginRight="@dimen/d8"
                         android:background="@drawable/shape_ffffff_r"
                         android:orientation="vertical"
-                        android:visibility="visible">
+                        android:visibility="gone">
 
                         <FrameLayout
                             android:layout_width="match_parent"
@@ -187,11 +217,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                        <!--文件管理-->
+                        <!--手机降温-->
                         <LinearLayout
-                            android:id="@+id/main_file_button"
+                            android:id="@+id/main_cooling_button"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d88"
+                            android:layout_height="@dimen/d141"
                             android:layout_marginBottom="@dimen/d8"
                             android:layout_marginLeft="@dimen/d8"
                             android:layout_marginRight="@dimen/d8"
@@ -204,38 +234,187 @@
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d82"
-                                    android:layout_height="match_parent">
+                                    android:layout_width="@dimen/d72"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/success_1">
 
                                     <ImageView
                                         android:layout_width="@dimen/d40"
                                         android:layout_height="@dimen/d40"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/notifi_file" />
+                                        android:src="@mipmap/success_cpu" />
                                 </FrameLayout>
 
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/d10"
+                                    android:layout_marginRight="@dimen/d10"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical"
                                     android:orientation="vertical">
 
                                     <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/side_file"
-                                        android:textColor="@color/A8"
+                                        android:layout_marginTop="@dimen/d18"
+                                        android:text="@string/main_cooling_name"
+                                        android:textColor="@color/Z1"
+                                        android:textSize="@dimen/s20" />
+
+                                    <com.vector.module.mView.CustomerTypefaceTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:layout_marginTop="@dimen/d14"
+                                        android:layout_weight="1"
+                                        android:text="@string/success_10"
+                                        android:textColor="@color/Z2"
                                         android:textSize="@dimen/s16" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="@dimen/d18"
+                                        android:text="@string/notifi_jiangwen"
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s18" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <!--内存加速-->
+                        <LinearLayout
+                            android:id="@+id/main_ram_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d141"
+                            android:layout_marginBottom="@dimen/d8"
+                            android:layout_marginLeft="@dimen/d8"
+                            android:layout_marginRight="@dimen/d8"
+                            android:background="@drawable/shape_ffffff_r"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <FrameLayout
+                                    android:layout_width="@dimen/d72"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/success_2">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/d40"
+                                        android:layout_height="@dimen/d40"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/d16"
+                                        android:src="@mipmap/success_ram" />
+                                </FrameLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/d10"
+                                    android:layout_marginRight="@dimen/d10"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
 
                                     <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
+                                        android:layout_marginTop="@dimen/d18"
+                                        android:text="@string/side_ram"
+                                        android:textColor="@color/Z1"
+                                        android:textSize="@dimen/s20" />
+
+                                    <com.vector.module.mView.CustomerTypefaceTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:layout_marginTop="@dimen/d14"
+                                        android:layout_weight="1"
+                                        android:text="@string/success_9"
+                                        android:textColor="@color/Z2"
+                                        android:textSize="@dimen/s16" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="@dimen/d18"
+                                        android:text="@string/ram_button"
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s18" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!--文件管理-->
+                        <LinearLayout
+                            android:id="@+id/main_file_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d141"
+                            android:layout_marginBottom="@dimen/d8"
+                            android:layout_marginLeft="@dimen/d8"
+                            android:layout_marginRight="@dimen/d8"
+                            android:background="@drawable/shape_ffffff_r"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <FrameLayout
+                                    android:layout_width="@dimen/d72"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/success_3">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/d40"
+                                        android:layout_height="@dimen/d40"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/d16"
+                                        android:src="@mipmap/success_file" />
+                                </FrameLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/d10"
+                                    android:layout_marginRight="@dimen/d10"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <com.vector.module.mView.CustomerTypefaceTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d18"
+                                        android:text="@string/side_file"
+                                        android:textColor="@color/Z1"
+                                        android:textSize="@dimen/s20" />
+
+                                    <com.vector.module.mView.CustomerTypefaceTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:layout_marginTop="@dimen/d14"
+                                        android:layout_weight="1"
                                         android:text="@string/file_main"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/Z2"
+                                        android:textSize="@dimen/s16" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="@dimen/d18"
+                                        android:text="@string/side_file"
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s18" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -246,7 +425,7 @@
                         <LinearLayout
                             android:id="@+id/main_junk_button"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d88"
+                            android:layout_height="@dimen/d141"
                             android:layout_marginBottom="@dimen/d8"
                             android:layout_marginLeft="@dimen/d8"
                             android:layout_marginRight="@dimen/d8"
@@ -259,49 +438,62 @@
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d82"
-                                    android:layout_height="match_parent">
+                                    android:layout_width="@dimen/d72"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/success_4">
 
                                     <ImageView
                                         android:layout_width="@dimen/d40"
                                         android:layout_height="@dimen/d40"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/notifi_junk" />
+                                        android:src="@mipmap/success_junk" />
                                 </FrameLayout>
 
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/d10"
+                                    android:layout_marginRight="@dimen/d10"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical"
                                     android:orientation="vertical">
 
                                     <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d18"
                                         android:text="@string/side_junk"
-                                        android:textColor="@color/A8"
-                                        android:textSize="@dimen/s16" />
+                                        android:textColor="@color/Z1"
+                                        android:textSize="@dimen/s20" />
 
                                     <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
+                                        android:layout_height="0dp"
+                                        android:layout_marginTop="@dimen/d14"
+                                        android:layout_weight="1"
                                         android:text="@string/success_8"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/Z2"
+                                        android:textSize="@dimen/s16" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="@dimen/d18"
+                                        android:text="@string/junk_button"
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s18" />
                                 </LinearLayout>
 
                             </LinearLayout>
 
                         </LinearLayout>
 
-                        <!--内存加速-->
+                        <!--清理通知栏-->
                         <LinearLayout
-                            android:id="@+id/main_ram_button"
+                            android:id="@+id/main_notifi_button"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d88"
+                            android:layout_height="@dimen/d141"
                             android:layout_marginBottom="@dimen/d8"
                             android:layout_marginLeft="@dimen/d8"
                             android:layout_marginRight="@dimen/d8"
@@ -311,113 +503,74 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:background="#ffffff"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d82"
-                                    android:layout_height="match_parent">
-
-                                    <ImageView
-                                        android:layout_width="@dimen/d40"
-                                        android:layout_height="@dimen/d40"
-                                        android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/notifi_ram" />
-                                </FrameLayout>
-
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
+                                    android:layout_width="@dimen/d72"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:gravity="center_vertical"
-                                    android:orientation="vertical">
-
-                                    <com.vector.module.mView.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/side_ram"
-                                        android:textColor="@color/A8"
-                                        android:textSize="@dimen/s16" />
-
-                                    <com.vector.module.mView.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/success_9"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s14" />
-                                </LinearLayout>
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <!--手机降温-->
-                        <LinearLayout
-                            android:id="@+id/main_cooling_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d88"
-                            android:layout_marginBottom="@dimen/d8"
-                            android:layout_marginLeft="@dimen/d8"
-                            android:layout_marginRight="@dimen/d8"
-                            android:background="@drawable/shape_ffffff_r"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <FrameLayout
-                                    android:layout_width="@dimen/d82"
-                                    android:layout_height="match_parent">
+                                    android:background="@drawable/success_5">
 
                                     <ImageView
+                                        android:id="@+id/notifi_icon"
                                         android:layout_width="@dimen/d40"
                                         android:layout_height="@dimen/d40"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/notifi_cpu" />
+                                        android:src="@mipmap/success_noti" />
                                 </FrameLayout>
 
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/d10"
+                                    android:layout_marginRight="@dimen/d10"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical"
                                     android:orientation="vertical">
 
                                     <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/main_cooling_name"
-                                        android:textColor="@color/A8"
-                                        android:textSize="@dimen/s16" />
+                                        android:layout_marginTop="@dimen/d18"
+                                        android:text="@string/side_notifi"
+                                        android:textColor="@color/Z1"
+                                        android:textSize="@dimen/s20" />
 
                                     <com.vector.module.mView.CustomerTypefaceTextView
+                                        android:id="@+id/notifi_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:layout_marginTop="@dimen/d14"
+                                        android:layout_weight="1"
+                                        android:text="@string/notifi_msg_main"
+                                        android:textColor="@color/Z2"
+                                        android:textSize="@dimen/s16" />
+
+                                    <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/success_10"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s14" />
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="@dimen/d18"
+                                        android:text="@string/ram_button"
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s18" />
                                 </LinearLayout>
 
                             </LinearLayout>
 
                         </LinearLayout>
-
 
                         <!--游戏加速-->
                         <LinearLayout
                             android:id="@+id/main_gboost_button"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d88"
+                            android:layout_height="@dimen/d141"
                             android:layout_marginBottom="@dimen/d8"
                             android:layout_marginLeft="@dimen/d8"
                             android:layout_marginRight="@dimen/d8"
                             android:background="@drawable/shape_ffffff_r"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -425,7 +578,7 @@
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d82"
+                                    android:layout_width="@dimen/d72"
                                     android:layout_height="match_parent">
 
                                     <ImageView
@@ -433,7 +586,7 @@
                                         android:layout_height="@dimen/d40"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/notifi_gboost" />
+                                        android:src="@mipmap/success_gboost" />
                                 </FrameLayout>
 
 
@@ -448,16 +601,16 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/gboost_0"
-                                        android:textColor="@color/A8"
-                                        android:textSize="@dimen/s16" />
+                                        android:textColor="@color/Z1"
+                                        android:textSize="@dimen/s20" />
 
                                     <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
+                                        android:layout_marginTop="@dimen/d14"
                                         android:text="@string/gboost_10"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/Z2"
+                                        android:textSize="@dimen/s16" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -468,12 +621,13 @@
                         <LinearLayout
                             android:id="@+id/main_picture_button"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d88"
+                            android:layout_height="@dimen/d141"
                             android:layout_marginBottom="@dimen/d8"
                             android:layout_marginLeft="@dimen/d8"
                             android:layout_marginRight="@dimen/d8"
                             android:background="@drawable/shape_ffffff_r"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -481,7 +635,7 @@
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d82"
+                                    android:layout_width="@dimen/d72"
                                     android:layout_height="match_parent">
 
                                     <ImageView
@@ -489,7 +643,7 @@
                                         android:layout_height="@dimen/d40"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/notifi_pic" />
+                                        android:src="@mipmap/success_pic" />
                                 </FrameLayout>
 
                                 <LinearLayout
@@ -503,75 +657,16 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_picture"
-                                        android:textColor="@color/A8"
-                                        android:textSize="@dimen/s16" />
+                                        android:textColor="@color/Z1"
+                                        android:textSize="@dimen/s20" />
 
                                     <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
+                                        android:layout_marginTop="@dimen/d14"
                                         android:text="@string/picture_delete"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s14" />
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-
-                        <!--清理通知栏-->
-                        <LinearLayout
-                            android:id="@+id/main_notifi_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d88"
-                            android:layout_marginBottom="@dimen/d8"
-                            android:layout_marginLeft="@dimen/d8"
-                            android:layout_marginRight="@dimen/d8"
-                            android:background="@drawable/shape_ffffff_r"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="#ffffff"
-                                android:orientation="horizontal">
-
-                                <FrameLayout
-                                    android:layout_width="@dimen/d82"
-                                    android:layout_height="match_parent">
-
-                                    <ImageView
-                                        android:id="@+id/notifi_icon"
-                                        android:layout_width="@dimen/d40"
-                                        android:layout_height="@dimen/d40"
-                                        android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/notifi_noti" />
-                                </FrameLayout>
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:gravity="center_vertical"
-                                    android:orientation="vertical">
-
-                                    <com.vector.module.mView.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/side_notifi"
-                                        android:textColor="@color/A8"
+                                        android:textColor="@color/Z2"
                                         android:textSize="@dimen/s16" />
-
-                                    <com.vector.module.mView.CustomerTypefaceTextView
-                                        android:id="@+id/notifi_text"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/notifi_msg_main"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -583,15 +678,16 @@
                         <LinearLayout
                             android:id="@+id/main_power_button"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d88"
+                            android:layout_height="@dimen/d141"
                             android:layout_marginBottom="@dimen/d8"
                             android:layout_marginLeft="@dimen/d8"
                             android:layout_marginRight="@dimen/d8"
                             android:background="@drawable/shape_ffffff_r"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone">
 
                             <FrameLayout
-                                android:layout_width="@dimen/d82"
+                                android:layout_width="@dimen/d72"
                                 android:layout_height="match_parent">
 
                                 <ImageView
@@ -600,7 +696,7 @@
                                     android:layout_height="@dimen/d40"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/notifi_deep" />
+                                    android:src="@mipmap/success_deep" />
                             </FrameLayout>
 
 
@@ -615,16 +711,16 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/side_power"
-                                    android:textColor="@color/A8"
-                                    android:textSize="@dimen/s16" />
+                                    android:textColor="@color/Z1"
+                                    android:textSize="@dimen/s20" />
 
                                 <com.vector.module.mView.CustomerTypefaceTextView
                                     android:id="@+id/power_text"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/power_3"
-                                    android:textColor="@color/A9"
-                                    android:textSize="@dimen/s14" />
+                                    android:textColor="@color/Z2"
+                                    android:textSize="@dimen/s16" />
                             </LinearLayout>
 
                         </LinearLayout>

@@ -2,17 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/black_70"
+    android:background="@color/white_100"
     android:orientation="horizontal">
 
     <FrameLayout
-        android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d65"
+        android:layout_width="72dp"
+        android:layout_height="65dp"
         android:layout_gravity="center_vertical">
 
         <ImageView
-            android:layout_width="@dimen/d40"
-            android:layout_height="@dimen/d40"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
             android:layout_gravity="center"
             android:scaleType="center"
             android:src="@mipmap/notifi_noti" />
@@ -36,8 +36,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0 "
-                android:textColor="#7ec3ff"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/A1"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_memory"
@@ -45,15 +45,15 @@
                 android:layout_height="wrap_content"
                 android:lines="1"
                 android:text="@string/notifi"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s10" />
+                android:textColor="@color/Z1"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/ll_notifi"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/d15"
-            android:layout_marginTop="@dimen/d5" />
+            android:layout_height="15dp"
+            android:layout_marginTop="15dp" />
     </LinearLayout>
 
     <TextView
@@ -62,12 +62,11 @@
         android:layout_height="@dimen/d26"
         android:layout_gravity="center_vertical"
         android:layout_marginRight="@dimen/d16"
-        android:background="@drawable/shape__a4_round"
         android:gravity="center"
         android:paddingLeft="@dimen/d10"
         android:paddingRight="@dimen/d10"
         android:text="@string/notification_button"
-        android:textColor="@color/white_100"
-        android:textSize="@dimen/s13" />
+        android:textColor="@color/A4"
+        android:textSize="12sp" />
 
 </LinearLayout>

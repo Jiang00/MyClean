@@ -71,20 +71,29 @@ public class LineRam extends View {
         canvas.drawLine(0, height / 2, width * progress / 100, height / 2, circlePoint);
     }
 
+    boolean isRun;
+
     public void startProgress(final int progress) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i <= progress; i++) {
-                    try {
-                        Thread.sleep(20);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                if (!isRun) {
+                    isRun = true;
+                    for (int i = 0; i <= progress; i++) {
+                        try {
+                            Thread.sleep(20);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        setProgress(i);
+                        if (customRoundListener != null) {
+                            customRoundListener.progressUpdate(i);
+                        }
                     }
-                    setProgress(i);
                     if (customRoundListener != null) {
-                        customRoundListener.progressUpdate(i);
+                        customRoundListener.progressSuccess();
                     }
+                    isRun = false;
                 }
             }
         }).start();
@@ -97,6 +106,8 @@ public class LineRam extends View {
 
     public interface CustomRoundListener {
         void progressUpdate(int progress);
+
+        void progressSuccess();
     }
 
 }

@@ -50,10 +50,8 @@ public class AllAppActivity extends BaseActivity implements AppManagerView {
     LinearLayout ll_ad_size, ll_ad_time, ll_ad_pinlv;
     TextView manager_shouquan;
     FrameLayout title_left;
-    RelativeLayout manager_clean;
     ViewPager doc_view_pager;
     TextView title_name;
-    Button junk_button_clean;
     TabLayout view_pager_tab;
 
     private AppAdapter adapter_size, adapter_time, adapter_pinlv;
@@ -75,8 +73,6 @@ public class AllAppActivity extends BaseActivity implements AppManagerView {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         view_pager_tab = (TabLayout) findViewById(R.id.view_pager_tab);
-        junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
-        manager_clean = (RelativeLayout) findViewById(R.id.manager_clean);
         doc_view_pager = (ViewPager) findViewById(R.id.doc_view_pager);
     }
 
@@ -137,7 +133,6 @@ public class AllAppActivity extends BaseActivity implements AppManagerView {
     @Override
     public void onClick() {
         title_left.setOnClickListener(onClickListener);
-        junk_button_clean.setOnClickListener(onClickListener);
     }
 
     @Override
@@ -196,12 +191,6 @@ public class AllAppActivity extends BaseActivity implements AppManagerView {
         });
 
 //        managerPresenter.addAdapterData();
-        String fileSize = Util.convertStorage(cleanSize, true);
-        if (TextUtils.isEmpty(fileSize)) {
-            junk_button_clean.setText(getResources().getText(R.string.manager_button));
-        } else {
-            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
-        }
     }
 
 
@@ -312,15 +301,6 @@ public class AllAppActivity extends BaseActivity implements AppManagerView {
                         }
                     }, 1500);
                     break;
-                case R.id.junk_button_clean:
-                    if (doc_view_pager.getCurrentItem() == 0) {
-                        managerPresenter.bleachFile(adapter_size.getData());
-                    } else if (doc_view_pager.getCurrentItem() == 1) {
-                        managerPresenter.bleachFile(adapter_time.getData());
-                    } else {
-                        managerPresenter.bleachFile(adapter_pinlv.getData());
-                    }
-                    break;
             }
 
         }
@@ -388,19 +368,5 @@ public class AllAppActivity extends BaseActivity implements AppManagerView {
         }
     }
 
-    @Override
-    public void setCleanDAta(long size) {
-        String fileSize = Util.convertStorage(size, true);
-        if (TextUtils.isEmpty(fileSize)) {
-            junk_button_clean.setText(getResources().getText(R.string.manager_button));
-            manager_clean.setVisibility(View.GONE);
-        } else {
-            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
-            manager_clean.setVisibility(View.VISIBLE);
-        }
-        adapter_size.notifyDataSetChanged();
-        adapter_time.notifyDataSetChanged();
-        adapter_pinlv.notifyDataSetChanged();
-    }
 
 }

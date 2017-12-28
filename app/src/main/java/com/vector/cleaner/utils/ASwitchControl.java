@@ -493,35 +493,79 @@ public class ASwitchControl {
     public static boolean switchFlashlight() {
         boolean flashLightState = false;
         if (camera == null) {
-            camera = Camera.open();
+            try {
+                camera = Camera.open();
+            } catch (Exception e) {
+                return false;
+            }
         }
-//        Camera camera = Camera.open();
+        try {
+            camera.stopPreview();
+        } catch (Exception e) {
+            try {
+                camera = Camera.open();
+                parameters = camera.getParameters();
+            } catch (Exception e1) {
+                return false;
+            }
+        }
+        try {
+            parameters = camera.getParameters();
+        } catch (Exception e) {
+            try {
+                camera.release();
+                camera = Camera.open();
+                parameters = camera.getParameters();
+            } catch (Exception e1) {
+                return false;
+            }
+        }
+
+        String s = parameters.getFlashMode();
+        if (s == null) {
+            return false;
+        }
+        if (s.equals(Camera.Parameters.FLASH_MODE_OFF)) {
+            openLight();
+            flashLightState = true;
+        } else {
+            closeLight();
+            flashLightState = false;
+        }
+
+
+        return flashLightState;
+    }
+
+    //shoudiantong
+    public static boolean getSwitchFlashlight() {
+        boolean flashLightState = false;
+        if (camera == null) {
+            try {
+                camera = Camera.open();
+            } catch (Exception e) {
+                return false;
+            }
+        } else {
+            try {
+                camera.stopPreview();
+                camera.release();
+                camera = Camera.open();
+            } catch (Exception e) {
+                return false;
+            }
+        }
         camera.stopPreview();
 
         parameters = camera.getParameters();
         String s = parameters.getFlashMode();
-        Log.d("TEST", s);
+        if (s == null) {
+            return false;
+        }
         if (s.equals(Camera.Parameters.FLASH_MODE_OFF)) {
-
-//            mParameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-//            camera.setParameters(mParameters);
-//            camera.autoFocus(new Camera.AutoFocusCallback() {
-//                public void onAutoFocus(boolean success, Camera camera) {
-//                }
-//            });
-//            camera.startPreview();
-//            turnLightOn(camera);
-            openLight();
-            flashLightState = true;
-        } else {
-//            mParameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-//            camera.setParameters(mParameters);
-//            camera.startPreview();
-//            camera.release();
-//            camera = null;
-//            turnLightOff(camera);
-            closeLight();
             flashLightState = false;
+        } else {
+            flashLightState = true;
         }
 
 
@@ -535,7 +579,6 @@ public class ASwitchControl {
 //            }
 //        });
     }
-
 
     public static void turnLightOn(Camera mCamera) {
         if (mCamera == null) {

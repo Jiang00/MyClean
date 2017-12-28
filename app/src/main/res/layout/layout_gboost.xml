@@ -24,62 +24,6 @@
 
             <include layout="@layout/layout_title" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d95">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d2"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <com.vector.module.mView.CustomerTypefaceTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d10"
-                            android:text="30%"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s38" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/d6"
-                            android:src="@mipmap/gboost_j" />
-                    </LinearLayout>
-
-
-                    <com.vector.module.mView.CustomerTypefaceTextView
-                        android:id="@+id/gboost_power_check"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/d24"
-                        android:layout_marginTop="@dimen/d10"
-                        android:background="@drawable/shape__a4_l"
-                        android:gravity="center"
-                        android:paddingLeft="@dimen/d10"
-                        android:paddingRight="@dimen/d24"
-                        android:text="@string/gboost_kai"
-                        android:textColor="@color/white_100"
-                        android:textSize="@dimen/s16"
-                        app:typeface="Roboto-Medium.ttf" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right|bottom"
-                    android:src="@mipmap/game_boost" />
-            </FrameLayout>
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -106,14 +50,14 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d10"
                     android:text="@string/gboost_1"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/Z1"
                     android:textSize="@dimen/s15" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/A10" />
+                android:background="@color/B3" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -134,12 +78,12 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/d72"
             android:layout_gravity="bottom"
-            android:background="@color/A7">
+            android:background="@color/white_100">
 
             <Button
                 android:id="@+id/gboost_clean_button"
-                android:layout_width="@dimen/d250"
-                android:layout_height="@dimen/d40"
+                android:layout_width="@dimen/d208"
+                android:layout_height="@dimen/d48"
                 android:layout_centerInParent="true"
                 android:background="@drawable/shape_button"
                 android:text="@string/short_cut"

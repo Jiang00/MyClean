@@ -21,167 +21,185 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="@dimen/d176">
 
-            <LinearLayout
+            <View
+                android:layout_width="@dimen/d109"
+                android:layout_height="@dimen/d109"
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@drawable/shape_ffffff_round" />
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d61"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d39"
-                android:background="@drawable/shape_a1_r"
-                android:paddingLeft="@dimen/d39">
+                android:layout_height="@dimen/d141"
+                android:background="@drawable/shape_ffffff_r">
 
                 <LinearLayout
-                    android:id="@+id/ll_liuliang"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_marginTop="@dimen/d18">
 
-                    <ImageView
-                        android:id="@+id/iv_liuliang"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/ll_liuliang"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/float_liuliang" />
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                    <com.vector.module.mView.CustomerTypefaceTextView
-                        android:id="@+id/tv_liuliang"
-                        android:layout_width="wrap_content"
+                        <ImageView
+                            android:id="@+id/iv_liuliang"
+                            android:layout_width="@dimen/d48"
+                            android:layout_height="@dimen/d48"
+                            android:src="@mipmap/float_liuliang" />
+
+                        <com.vector.module.mView.CustomerTypefaceTextView
+                            android:id="@+id/tv_liuliang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d4"
+                            android:lines="1"
+                            android:text="@string/float_liuliang"
+                            android:textColor="@color/Z1"
+                            android:textSize="@dimen/s12" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_wifi"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d2"
-                        android:lines="1"
-                        android:text="@string/float_liuliang"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s10"
-                        android:visibility="gone" />
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_wifi"
+                            android:layout_width="@dimen/d48"
+                            android:layout_height="@dimen/d48"
+                            android:src="@mipmap/float_wifi" />
+
+                        <com.vector.module.mView.CustomerTypefaceTextView
+                            android:id="@+id/tv_wifi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d4"
+                            android:lines="1"
+                            android:text="@string/float_wifi"
+                            android:textColor="@color/A8"
+                            android:textSize="@dimen/s10" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_gps"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_gps"
+                            android:layout_width="@dimen/d48"
+                            android:layout_height="@dimen/d48"
+                            android:src="@mipmap/float_gps" />
+
+                        <com.vector.module.mView.CustomerTypefaceTextView
+                            android:id="@+id/tv_gps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d4"
+                            android:lines="1"
+                            android:text="@string/float_gps"
+                            android:textColor="@color/A8"
+                            android:textSize="@dimen/s10" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_shengyin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_shengyin"
+                            android:layout_width="@dimen/d48"
+                            android:layout_height="@dimen/d48"
+                            android:src="@mipmap/float_shengyin" />
+
+                        <com.vector.module.mView.CustomerTypefaceTextView
+                            android:id="@+id/tv_shengyin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d4"
+                            android:lines="1"
+                            android:text="@string/float_shengyin"
+                            android:textColor="@color/A8"
+                            android:textSize="@dimen/s10" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_xianshi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_xianshi"
+                            android:layout_width="@dimen/d48"
+                            android:layout_height="@dimen/d48"
+                            android:src="@mipmap/float_liangdu_0" />
+
+                        <com.vector.module.mView.CustomerTypefaceTextView
+                            android:id="@+id/tv_xianshi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d4"
+                            android:lines="1"
+                            android:text="@string/float_liangdu"
+                            android:textColor="@color/A8"
+                            android:textSize="@dimen/s10" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/ll_wifi"
-                    android:layout_width="0dp"
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="@dimen/d109"
+                android:layout_height="@dimen/d109"
+                android:layout_gravity="bottom|center_horizontal">
+
+                <ImageView
+                    android:id="@+id/float_jiasu"
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d72"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/float_1" />
+
+
+                <ImageView
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d72"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/float_2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/iv_wifi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/float_wifi" />
-
-                    <com.vector.module.mView.CustomerTypefaceTextView
-                        android:id="@+id/tv_wifi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d2"
-                        android:lines="1"
-                        android:text="@string/float_wifi"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s10"
-                        android:visibility="gone" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_gps"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/iv_gps"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/float_gps" />
-
-                    <com.vector.module.mView.CustomerTypefaceTextView
-                        android:id="@+id/tv_gps"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d2"
-                        android:lines="1"
-                        android:text="@string/float_gps"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s10"
-                        android:visibility="gone" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_shengyin"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/iv_shengyin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/float_shengyin" />
-
-                    <com.vector.module.mView.CustomerTypefaceTextView
-                        android:id="@+id/tv_shengyin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d2"
-                        android:lines="1"
-                        android:text="@string/float_shengyin"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s10"
-                        android:visibility="gone" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_xianshi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/iv_xianshi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/float_liangdu_0" />
-
-                    <com.vector.module.mView.CustomerTypefaceTextView
-                        android:id="@+id/tv_xianshi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d2"
-                        android:lines="1"
-                        android:text="@string/float_liangdu"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s10"
-                        android:visibility="gone" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="@dimen/d82"
-                android:layout_height="@dimen/d82"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/shape_a1_round">
-
-                <com.vector.cleaner.myview.WaveProgress
-                    android:id="@+id/water_memory"
-                    android:layout_width="@dimen/d50"
-                    android:layout_height="@dimen/d50"
-                    android:layout_centerInParent="true" />
-            </RelativeLayout>
-
+                    android:text="@string/notifi_jiasu"
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
+            </FrameLayout>
         </FrameLayout>
 
         <LinearLayout

@@ -24,7 +24,6 @@ import java.lang.reflect.Field;
  * 1 私有化构造行数
  * 2 创建静态的返回浮窗管理类的方法
  * <p>
- * Created by chengyuan on 16/8/12.
  */
 public class FloatMemoryManager {
     private Context context;
@@ -177,7 +176,7 @@ public class FloatMemoryManager {
             params.height = circleView.height;
             params.gravity = Gravity.TOP | Gravity.LEFT;
             params.x = getScreenWidth();
-            params.y = Util.dp2px(300);
+            params.y = Util.dp2px(261);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
                 params.type = WindowManager.LayoutParams.TYPE_TOAST;
             } else {

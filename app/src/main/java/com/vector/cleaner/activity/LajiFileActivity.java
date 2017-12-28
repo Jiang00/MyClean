@@ -1,5 +1,6 @@
 package com.vector.cleaner.activity;
 
+import android.animation.Animator;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -17,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.vector.cleaner.myview.BubbleLayoutJunk;
 import com.vector.cleaner.view.JunkView;
 import com.vector.mcleaner.mutil.PreData;
 import com.vector.mcleaner.mutil.Util;
@@ -51,6 +53,9 @@ public class LajiFileActivity extends BaseActivity implements JunkView {
     Button junk_button_clean;
     MyScrollView junk_scroll;
     ListView junk_list_all;
+    FrameLayout junk_clean;
+    ImageView junk_clean_zhuan;
+    BubbleLayoutJunk junk_clean_bubble;
 
     private LajiPresenter junkPresenter;
     private LajiAdapter adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterClear;
@@ -90,13 +95,17 @@ public class LajiFileActivity extends BaseActivity implements JunkView {
         junk_button_clean = $(R.id.junk_button_clean);
         junk_scroll = $(R.id.junk_scroll);
         junk_list_all = $(R.id.junk_list_all);
+        junk_clean = $(R.id.junk_clean);
+        junk_clean_zhuan = $(R.id.junk_clean_zhuan);
+        junk_clean_bubble = $(R.id.junk_clean_bubble);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk);
-        AndroidSdk.loadFullAd(AdUtil.DEFAULT,null);
+        junk_clean_bubble.pause();
+        AndroidSdk.loadFullAd(AdUtil.DEFAULT, null);
         myHandler = new Handler();
         junkPresenter = new LajiPresenter(this, this);
         junkPresenter.init();
@@ -185,7 +194,7 @@ public class LajiFileActivity extends BaseActivity implements JunkView {
         if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A3));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
@@ -194,7 +203,7 @@ public class LajiFileActivity extends BaseActivity implements JunkView {
         } else if (allSize > 1024 * 1024 * 200) {
             if (color2) {
                 color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A2));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
@@ -434,86 +443,32 @@ public class LajiFileActivity extends BaseActivity implements JunkView {
         final Bundle bundle = new Bundle();
         bundle.putLong("sizeJ", cleanSize);
         bundle.putString("from", "junkClean");
-        if (isZhankai) {
-            adapterClear.addDataList(cleanList);
-            junk_list_all.setAdapter(adapterClear);
-            junk_scroll.setVisibility(View.GONE);
-            junk_list_all.setVisibility(View.VISIBLE);
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    int a = adapterClear.getCount();
-                    int time = 100;
-                    for (int i = 0; i < a; i++) {
-                        if (onDestroyed) {
-                            break;
-                        }
-                        if (i > 10) {
-                            time = 30;
-                        }
-                        try {
-                            Thread.sleep(time--);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        runOnUiThread(new Runnable() {
-                            public void run() {
-                                if (adapterClear.getData().size() != 0) {
-                                    adapterClear.removeData(adapterClear.getData(0));
-                                    adapterClear.notifyDataSetChanged();
-                                }
-                            }
-                        });
-                    }
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            junkPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
-                        }
-                    });
-                }
-            }).start();
+        junk_clean.setVisibility(View.VISIBLE);
+        junk_clean_bubble.reStart();
+        objectAnimator = ObjectAnimator.ofFloat(junk_clean_zhuan, View.ROTATION, 0, 3600);
+        objectAnimator.setDuration(3000);
+        objectAnimator.start();
+        objectAnimator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-        } else {
-            myHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    startCleanAnimation(junk_button_system);
-                }
-            });
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startCleanAnimation(junk_button_apk);
-                }
-            }, 100);
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startCleanAnimation(junk_button_unload);
-                }
-            }, 200);
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startCleanAnimation(junk_button_log);
-                }
-            }, 300);
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startCleanAnimation(junk_button_user);
-                }
-            }, 400);
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    junkPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
-                }
-            }, 700);
+            }
 
-        }
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                junkPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
+            }
 
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
     }
 
     public void startCleanAnimation(final View view) {
@@ -525,6 +480,7 @@ public class LajiFileActivity extends BaseActivity implements JunkView {
         view.startAnimation(animation);
     }
 
+    private ObjectAnimator objectAnimator;
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -597,15 +553,17 @@ public class LajiFileActivity extends BaseActivity implements JunkView {
                     break;
                 case R.id.junk_button_clean:
                     junk_button_clean.setOnClickListener(null);
-                    showToast((String) getText(R.string.toast_ing));
                     PreData.putDB(LajiFileActivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
+                    junkPresenter.bleachFile(false, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
+
+
                     AdUtil.track("垃圾页面", "点击清理", "", 1);
-                    if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
-                            junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE) {
-                        junkPresenter.bleachFile(false, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
-                    } else {
-                        junkPresenter.bleachFile(true, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
-                    }
+//                    if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
+//                            junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE) {
+//                        junkPresenter.bleachFile(false, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
+//                    } else {
+//                        junkPresenter.bleachFile(true, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
+//                    }
 
                     break;
 
@@ -620,6 +578,10 @@ public class LajiFileActivity extends BaseActivity implements JunkView {
         super.onDestroy();
         if (myHandler != null) {
             myHandler.removeCallbacksAndMessages(null);
+        }
+        if (objectAnimator!=null&&objectAnimator.isRunning()){
+            objectAnimator.removeAllListeners();
+            objectAnimator.cancel();
         }
     }
 

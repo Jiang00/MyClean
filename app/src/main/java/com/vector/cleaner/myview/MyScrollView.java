@@ -90,6 +90,9 @@ public class MyScrollView extends NestedScrollView implements Pullable {
     }
 
     public boolean canPullUp() {
+        if (true) {
+            return false;
+        }
         if (XadSuccess) {
             return false;
         }

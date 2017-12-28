@@ -12,6 +12,5 @@ public interface AppManagerView extends BaseView {
 
     void updateAdapter(List<JunkInfo> listsize, List<JunkInfo> listtime, List<JunkInfo> listpinlv);
 
-    void setCleanDAta(long size);
 
 }
