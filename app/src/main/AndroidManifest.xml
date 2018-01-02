@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.vector.cleaner">
+    package="com.security.cleaner">
 
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -83,13 +83,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.BatteryCoolingActivity"
+            android:name=".activity.CpuCoolingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.LajiFileActivity"
+            android:name=".activity.JunkFileActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.vectorapps.LajiFileActivity" />
+                <action android:name="com.security.LajiFileActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -98,16 +98,16 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.AllAppActivity"
+            android:name=".activity.AppManagerActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ShoujiMsgActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ANeicunAvtivity"
+            android:name=".activity.ARamAvtivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.vectorapps.ANeicunAvtivity" />
+                <action android:name="com.security.ANeicunAvtivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -125,10 +125,7 @@
             android:name=".activity.IgnoreListAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.DeepActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.NotifiYindaoActivity"
+            android:name=".activity.NotifiPermissActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
@@ -161,10 +158,10 @@
             android:name=".activity.SimilarPhotoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.HuishouActivity"
+            android:name=".activity.AsbHuishouActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.DyxGboostActivity"
+            android:name=".activity.GameGboostActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -177,7 +174,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.HuojianActivity"
+            android:name=".activity.ShortHuojianActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -198,7 +195,7 @@
         </receiver>
 
         <service
-            android:name=".aservice.MemoryService"
+            android:name=".aservice.NeicunService"
             android:excludeFromRecents="true" />
         <service
             android:name=".aservice.NotificationService"
@@ -207,7 +204,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".activity.FilesActivity"
+            android:name=".activity.FilesManagerActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.FileListActivity"

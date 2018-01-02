@@ -20,6 +20,12 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,14 +39,19 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <com.vector.module.mView.CustomerTypefaceTextView
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/file_null" />
+
+            <com.security.module.mView.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/d16"
+                android:layout_marginTop="@dimen/d20"
                 android:text="@string/file_null"
-                android:textColor="@color/Z1"
-                android:textSize="@dimen/s16" />
+                android:textColor="@color/Z2"
+                android:textSize="@dimen/s14" />
         </LinearLayout>
 
 
@@ -64,11 +75,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/ll_ad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -97,6 +103,7 @@
 
                     <Button
                         android:id="@+id/file_button_clean"
+                        style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/d208"
                         android:layout_height="@dimen/d48"
                         android:layout_centerInParent="true"

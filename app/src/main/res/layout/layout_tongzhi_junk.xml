@@ -26,19 +26,27 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/electricity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/notifi_junk"
+            android:textColor="@color/Z1"
+            android:textSize="16sp" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/d5"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/electricity"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/notifi_junk"
-                android:textColor="@color/Z1"
-                android:textSize="16sp" />
+                android:text="@string/notifi_junk_msg"
+                android:textColor="@color/Z2"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_memory"
@@ -51,13 +59,6 @@
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d5"
-            android:text="@string/notifi_junk_msg"
-            android:textColor="@color/Z2"
-            android:textSize="12sp" />
     </LinearLayout>
 
     <TextView

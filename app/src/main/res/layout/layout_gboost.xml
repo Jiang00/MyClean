@@ -33,18 +33,24 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/ll_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d48"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/d24"
+                    android:layout_height="@dimen/d24"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d8"
                     android:src="@mipmap/main_theme_button" />
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -82,6 +88,7 @@
 
             <Button
                 android:id="@+id/gboost_clean_button"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="@dimen/d208"
                 android:layout_height="@dimen/d48"
                 android:layout_centerInParent="true"
@@ -137,7 +144,7 @@
                             android:src="@mipmap/tilte_left" />
                     </FrameLayout>
 
-                    <com.vector.module.mView.CustomerTypefaceTextView
+                    <com.security.module.mView.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"

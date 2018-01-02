@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <com.vector.module.mView.CustomerTypefaceTextView
+                    <com.security.module.mView.CustomerTypefaceTextView
                         android:id="@+id/junk_size_all"
                         android:layout_width="@dimen/d133"
                         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                         android:textSize="@dimen/s53"
                         app:typeface="Roboto-Light.ttf" />
 
-                    <com.vector.module.mView.CustomerTypefaceTextView
+                    <com.security.module.mView.CustomerTypefaceTextView
                         android:id="@+id/junk_unit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                         app:typeface="Roboto-Light.ttf" />
                 </RelativeLayout>
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:id="@+id/junk_fangxin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,6 +93,7 @@
 
                 <Button
                     android:id="@+id/junk_button_clean"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="@dimen/d208"
                     android:layout_height="@dimen/d48"
                     android:layout_gravity="bottom|center_horizontal"
@@ -116,12 +117,12 @@
         android:clickable="true"
         android:visibility="invisible">
 
-        <com.vector.cleaner.myview.BubbleLayoutJunk
+        <com.security.cleaner.myview.BubbleLayoutJunk
             android:id="@+id/ram_clean_bubble"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <com.vector.cleaner.myview.BubbleLayoutRam
+        <com.security.cleaner.myview.BubbleLayoutRam
             android:id="@+id/ram_clean_bubble_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -149,7 +150,7 @@
                 android:src="@mipmap/ram_3" />
         </LinearLayout>
 
-        <com.vector.module.mView.CustomerTypefaceTextView
+        <com.security.module.mView.CustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"

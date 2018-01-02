@@ -23,23 +23,44 @@
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <com.vector.module.mView.CustomerTypefaceTextView
+
+        <LinearLayout
             android:id="@+id/white_wu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
             android:gravity="center"
-            android:text="@string/notifi_nor"
-            android:textColor="@color/Z1"
-            android:textSize="@dimen/s16"
-            android:visibility="invisible" />
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/file_null" />
+
+            <com.security.module.mView.CustomerTypefaceTextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d20"
+                android:gravity="center"
+                android:text="@string/white_wu"
+                android:textColor="@color/Z2"
+                android:textSize="@dimen/s14" />
+        </LinearLayout>
 
 
         <ListView

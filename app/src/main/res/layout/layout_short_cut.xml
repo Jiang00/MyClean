@@ -11,26 +11,40 @@
         android:layout_width="wrap_content"
         android:layout_height="1dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+    <FrameLayout
+        android:id="@+id/short_fl"
+        android:layout_width="@dimen/d333"
+        android:layout_height="@dimen/d333"
+        android:layout_gravity="center">
 
-        <FrameLayout
-            android:id="@+id/short_fl"
-            android:layout_width="@dimen/d90"
-            android:layout_height="@dimen/d90"
-            android:layout_gravity="center">
+        <com.security.cleaner.myview.ShortBubbleCenterLayout
+            android:id="@+id/short_bubble"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/short_7" />
+        <ImageView
+            android:id="@+id/short_zhuan"
+            android:layout_width="@dimen/d121"
+            android:layout_height="@dimen/d121"
+            android:layout_gravity="center"
+            android:src="@mipmap/short_1" />
 
-        </FrameLayout>
 
-    </LinearLayout>
+        <ImageView
+
+            android:layout_width="@dimen/d121"
+            android:layout_height="@dimen/d121"
+            android:layout_gravity="center"
+            android:src="@mipmap/short_3" />
+
+        <ImageView
+            android:id="@+id/short_huo"
+            android:layout_width="@dimen/d121"
+            android:layout_height="@dimen/d121"
+            android:layout_gravity="center"
+            android:src="@mipmap/short_2"
+            android:visibility="invisible" />
+    </FrameLayout>
 
 
 </FrameLayout>

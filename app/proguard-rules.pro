@@ -107,7 +107,7 @@
 -keep class com.android.client.** { *;}
 -keep class com.core.** { *;}
 
--keep class com.vectorapps.kpa.nativ.** { *; }
+-keep class com.security.kpa.nativ.** { *; }
 
 -keep class com.sample.lottie.** { *;}
 

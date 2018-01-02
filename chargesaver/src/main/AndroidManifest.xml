@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vector.module">
+    package="com.security.module">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
@@ -26,11 +26,11 @@
         </receiver>
 
         <activity
-            android:name="com.vector.module.ADActivity"
+            android:name=".ADActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name="com.vector.module.BatteryActivity"
+            android:name=".BatteryActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="nosensor"
             android:theme="@style/CustomTranslate" />

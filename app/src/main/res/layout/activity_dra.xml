@@ -9,7 +9,7 @@
 
     <include layout="@layout/activity_main" />
 
-    <com.vector.cleaner.myview.MainFrameLayout
+    <com.security.cleaner.myview.MainFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <com.vector.cleaner.myview.ListViewForScrollView
+                <com.security.cleaner.myview.ListViewForScrollView
                     android:id="@+id/side_listView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -38,6 +38,6 @@
 
             </LinearLayout>
         </ScrollView>
-    </com.vector.cleaner.myview.MainFrameLayout>
+    </com.security.cleaner.myview.MainFrameLayout>
 
 </android.support.v4.widget.DrawerLayout>

@@ -42,13 +42,13 @@
             android:orientation="vertical">
 
 
-            <com.vector.module.mView.CustomerTypefaceTextView
+            <com.security.module.mView.CustomerTypefaceTextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d40"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/d16"
                 android:text="@string/setting_kaiguanllei"
-                android:textColor="@color/A1"
+                android:textColor="@color/Z2"
                 android:textSize="@dimen/s14" />
 
             <View
@@ -65,7 +65,7 @@
                 android:background="@color/white_100">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:id="@+id/tongzhi_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
                 android:background="@color/white_100">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:id="@+id/tongzhilan_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
                 android:background="@color/white_100">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:id="@+id/float_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
                     android:layout_centerVertical="true"
                     android:orientation="vertical">
 
-                    <com.vector.module.mView.CustomerTypefaceTextView
+                    <com.security.module.mView.CustomerTypefaceTextView
                         android:id="@+id/battery_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -163,12 +163,13 @@
                         android:textColor="@color/Z1"
                         android:textSize="@dimen/s16" />
 
-                    <com.vector.module.mView.CustomerTypefaceTextView
+                    <com.security.module.mView.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/battery_8"
                         android:textColor="@color/Z2"
-                        android:textSize="@dimen/s12" />
+                        android:textSize="@dimen/s12"
+                        android:visibility="gone" />
                 </LinearLayout>
 
 
@@ -186,13 +187,13 @@
                 android:layout_height="@dimen/d10"
                 android:background="@color/B2" />
 
-            <com.vector.module.mView.CustomerTypefaceTextView
+            <com.security.module.mView.CustomerTypefaceTextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d40"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
                 android:text="@string/setting_gongneng"
-                android:textColor="@color/A1"
+                android:textColor="@color/Z2"
                 android:textSize="@dimen/s14" />
 
             <View
@@ -207,10 +208,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d61"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/white_100">
+                android:background="@color/white_100"
+                android:visibility="gone">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -233,10 +235,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d61"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/white_100">
+                android:background="@color/white_100"
+                android:visibility="gone">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -259,10 +262,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d61"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/white_100">
+                android:background="@color/white_100"
+                android:visibility="gone">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -282,13 +286,13 @@
 
             <RelativeLayout
                 android:id="@+id/setting_file"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/d61"
                 android:layout_marginLeft="@dimen/d16"
                 android:background="@color/white_100">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -314,7 +318,7 @@
                 android:background="@color/white_100">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -337,10 +341,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d61"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/white_100">
+                android:background="@color/white_100"
+                android:visibility="gone">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -366,7 +371,7 @@
                 android:background="@color/white_100">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -392,7 +397,7 @@
                 android:background="@color/white_100">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -418,7 +423,7 @@
                 android:background="@color/white_100">
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"

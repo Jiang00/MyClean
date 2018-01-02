@@ -42,7 +42,7 @@
                     android:src="@mipmap/main_menu" />
 
 
-                <com.vector.module.mView.CustomerTypefaceTextView
+                <com.security.module.mView.CustomerTypefaceTextView
                     android:id="@+id/tv_title_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -52,24 +52,12 @@
                     android:textSize="@dimen/s18" />
 
 
-                <ImageView
-                    android:id="@+id/iv_title_right"
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d8"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:padding="@dimen/d8"
-                    android:scaleType="center"
-                    android:src="@mipmap/main_setting" />
-
-
-                <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@id/iv_title_right">
+                    android:layout_marginRight="@dimen/d16">
 
                     <ImageView
                         android:id="@+id/lot_ad"
@@ -85,7 +73,7 @@
 
             </RelativeLayout>
 
-            <com.vector.cleaner.myview.PullToRefreshLayout
+            <com.security.cleaner.myview.PullToRefreshLayout
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -93,7 +81,7 @@
 
                 <include layout="@layout/layout_load_more" />
 
-                <com.vector.cleaner.myview.MyScrollView
+                <com.security.cleaner.myview.MyScrollView
                     android:id="@+id/main_scroll_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -114,6 +102,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
 
                             <FrameLayout
@@ -140,7 +129,7 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
 
-                                        <com.vector.module.mView.CustomerTypefaceTextView
+                                        <com.security.module.mView.CustomerTypefaceTextView
                                             android:id="@+id/main_ram_per"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -151,7 +140,7 @@
                                             app:typeface="Roboto-Light.ttf" />
 
 
-                                        <com.vector.module.mView.CustomerTypefaceTextView
+                                        <com.security.module.mView.CustomerTypefaceTextView
                                             android:id="@+id/ram_danwei"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -162,7 +151,7 @@
                                             android:textColor="@color/white_100"
                                             android:textSize="@dimen/s18" />
 
-                                        <com.vector.module.mView.CustomerTypefaceTextView
+                                        <com.security.module.mView.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_alignBaseline="@id/main_ram_per"
@@ -174,7 +163,7 @@
                                             android:textSize="@dimen/s18" />
                                     </RelativeLayout>
 
-                                    <com.vector.module.mView.CustomerTypefaceTextView
+                                    <com.security.module.mView.CustomerTypefaceTextView
                                         android:id="@+id/main_ram_size"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -183,7 +172,7 @@
                                         android:textColor="@color/white_100"
                                         android:textSize="@dimen/s18" />
 
-                                    <com.vector.cleaner.myview.LineRam
+                                    <com.security.cleaner.myview.LineRam
                                         android:id="@+id/main_custom_ram"
                                         android:layout_width="@dimen/d100"
                                         android:layout_height="@dimen/d4"
@@ -264,7 +253,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content">
 
-                                        <com.vector.module.mView.CustomerTypefaceTextView
+                                        <com.security.module.mView.CustomerTypefaceTextView
                                             android:id="@+id/main_sd_per"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -273,7 +262,7 @@
                                             android:textSize="@dimen/s38"
                                             app:typeface="Roboto-Light.ttf" />
 
-                                        <com.vector.module.mView.CustomerTypefaceTextView
+                                        <com.security.module.mView.CustomerTypefaceTextView
                                             android:id="@+id/danwei"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -283,7 +272,7 @@
                                             android:textColor="@color/white_100"
                                             android:textSize="@dimen/s18" />
 
-                                        <com.vector.module.mView.CustomerTypefaceTextView
+                                        <com.security.module.mView.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_alignBaseline="@id/main_sd_per"
@@ -294,7 +283,7 @@
                                             android:textSize="@dimen/s18" />
                                     </RelativeLayout>
 
-                                    <com.vector.module.mView.CustomerTypefaceTextView
+                                    <com.security.module.mView.CustomerTypefaceTextView
                                         android:id="@+id/main_sd_size"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -303,7 +292,7 @@
                                         android:textColor="@color/white_100"
                                         android:textSize="@dimen/s18" />
 
-                                    <com.vector.cleaner.myview.LineRam
+                                    <com.security.cleaner.myview.LineRam
                                         android:id="@+id/main_custom_sd"
                                         android:layout_width="@dimen/d100"
                                         android:layout_height="@dimen/d4"
@@ -329,7 +318,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="match_parent">
 
-                                            <com.vector.module.mView.BubbleLayout
+                                            <com.security.module.mView.BubbleLayout
                                                 android:id="@+id/bubble_file"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="@dimen/d72"
@@ -415,7 +404,7 @@
                                             android:layout_height="wrap_content"
                                             android:src="@mipmap/main_junk_button" />
 
-                                        <com.vector.module.mView.CustomerTypefaceTextView
+                                        <com.security.module.mView.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="@dimen/d3"
@@ -428,7 +417,7 @@
 
 
                                 <RelativeLayout
-                                    android:id="@+id/main_applock_button"
+                                    android:id="@+id/main_cooling_button"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
@@ -443,13 +432,13 @@
                                         <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:src="@mipmap/main_applock_button" />
+                                            android:src="@mipmap/main_cooling_button" />
 
-                                        <com.vector.module.mView.CustomerTypefaceTextView
+                                        <com.security.module.mView.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="@dimen/d3"
-                                            android:text="@string/applock_9"
+                                            android:text="@string/main_cooling_name"
                                             android:textColor="@color/Z1"
                                             android:textSize="@dimen/s14" />
                                     </LinearLayout>
@@ -463,36 +452,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1">
-
-                                <RelativeLayout
-                                    android:id="@+id/main_cooling_button"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="?attr/selectableItemBackground"
-                                    android:visibility="gone">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="vertical">
-
-                                        <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:src="@mipmap/main_cooling_button" />
-
-                                        <com.vector.module.mView.CustomerTypefaceTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="@dimen/d3"
-                                            android:text="@string/main_cooling_name"
-                                            android:textColor="@color/Z1"
-                                            android:textSize="@dimen/s14" />
-                                    </LinearLayout>
-
-                                </RelativeLayout>
 
                                 <LinearLayout
                                     android:id="@+id/main_manager_button"
@@ -508,7 +467,7 @@
                                         android:layout_height="wrap_content"
                                         android:src="@mipmap/main_manager_button" />
 
-                                    <com.vector.module.mView.CustomerTypefaceTextView
+                                    <com.security.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d3"
@@ -531,7 +490,7 @@
                                         android:layout_height="wrap_content"
                                         android:src="@mipmap/main_theme_button" />
 
-                                    <com.vector.module.mView.CustomerTypefaceTextView
+                                    <com.security.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d3"
@@ -545,11 +504,11 @@
 
                     </LinearLayout>
 
-                </com.vector.cleaner.myview.MyScrollView>
+                </com.security.cleaner.myview.MyScrollView>
 
                 <include layout="@layout/layout_load_more" />
 
-            </com.vector.cleaner.myview.PullToRefreshLayout>
+            </com.security.cleaner.myview.PullToRefreshLayout>
         </LinearLayout>
 
 
@@ -574,7 +533,6 @@
             android:indeterminateTintMode="src_atop"
             android:visibility="gone" />
 
-        <include layout="@layout/layout_battery" />
 
         <FrameLayout
             android:id="@+id/full_load"
@@ -590,7 +548,7 @@
                 android:layout_height="@dimen/d425"
                 android:layout_gravity="center">
 
-                <com.vector.cleaner.myview.BubbleCenterLayout
+                <com.security.cleaner.myview.BubbleCenterLayout
                     android:id="@+id/full_bubble"
                     android:layout_width="@dimen/d333"
                     android:layout_height="@dimen/d333"
