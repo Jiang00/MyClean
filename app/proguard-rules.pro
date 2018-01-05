@@ -109,7 +109,7 @@
 
 -keep class com.supers.clean.junk.entity.** { *; }
 -keep class com.supers.clean.junk.presenter.** { *; }
--keep class com.mutter.kpa.nativ.** { *; }
+-keep class com.upupup.kpa.nativ.** { *; }
 
 
 -dontwarn com.squareup.picasso.**

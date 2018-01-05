@@ -1,4 +1,4 @@
-package com.mutter.ui.demo.dialog;
+package com.upupup.ui.demo.dialog;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,9 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.mutter.ui.demo.R;
-import com.mutter.ui.demo.util.Utils;
-import com.mutter.ui.demo.util.WrapNullPointException;
+import com.upupup.ui.demo.R;
+import com.upupup.ui.demo.util.Utils;
+import com.upupup.ui.demo.util.WrapNullPointException;
 
 public class PermanentPraiseView extends LinearLayout {
 

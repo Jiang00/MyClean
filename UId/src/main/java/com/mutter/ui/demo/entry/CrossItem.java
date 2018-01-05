@@ -1,4 +1,4 @@
-package com.mutter.ui.demo.entry;
+package com.upupup.ui.demo.entry;
 
 import android.text.TextUtils;
 

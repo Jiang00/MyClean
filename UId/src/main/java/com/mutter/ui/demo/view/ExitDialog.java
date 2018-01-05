@@ -1,4 +1,4 @@
-package com.mutter.ui.demo.view;
+package com.upupup.ui.demo.view;
 
 import android.app.Activity;
 import android.app.AlertDialog;

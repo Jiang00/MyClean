@@ -1,4 +1,4 @@
-package com.mutter.ui.demo.util;
+package com.upupup.ui.demo.util;
 
 import android.app.Activity;
 import android.content.Context;

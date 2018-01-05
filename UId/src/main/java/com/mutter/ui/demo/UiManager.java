@@ -1,4 +1,4 @@
-package com.mutter.ui.demo;
+package com.upupup.ui.demo;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -7,16 +7,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.mutter.ui.demo.cross.CrossDialog;
-import com.mutter.ui.demo.cross.CrossView;
-import com.mutter.ui.demo.cross.FloatCrossView;
-import com.mutter.ui.demo.dialog.Builder;
-import com.mutter.ui.demo.dialog.PermanentPraiseView;
-import com.mutter.ui.demo.dialog.VersionOrPraiseDialog;
-import com.mutter.ui.demo.util.Utils;
-import com.mutter.ui.demo.util.WrapNullPointException;
-import com.mutter.ui.demo.view.ExitDialog;
-import com.mutter.ui.demo.view.ExitView;
+import com.upupup.ui.demo.cross.CrossDialog;
+import com.upupup.ui.demo.cross.CrossView;
+import com.upupup.ui.demo.cross.FloatCrossView;
+import com.upupup.ui.demo.dialog.Builder;
+import com.upupup.ui.demo.dialog.PermanentPraiseView;
+import com.upupup.ui.demo.dialog.VersionOrPraiseDialog;
+import com.upupup.ui.demo.util.Utils;
+import com.upupup.ui.demo.util.WrapNullPointException;
+import com.upupup.ui.demo.view.ExitDialog;
+import com.upupup.ui.demo.view.ExitView;
 
 public class UiManager {
 
@@ -55,7 +55,7 @@ public class UiManager {
         return dialog;
     }
 
-    public static void getCrossView(Context context, com.mutter.ui.demo.cross.Builder builder,
+    public static void getCrossView(Context context, com.upupup.ui.demo.cross.Builder builder,
                                     final CrossView.OnDataFinishListener listener) throws WrapNullPointException {
         if (context == null) {
             throw new WrapNullPointException("getCrossView context is null");
@@ -77,7 +77,7 @@ public class UiManager {
         });
     }
 
-    public static void showCrossDialog(final Context context, com.mutter.ui.demo.cross.Builder builder,
+    public static void showCrossDialog(final Context context, com.upupup.ui.demo.cross.Builder builder,
                                        final CrossView.OnCrossDialogRequestFinishListener listener) throws WrapNullPointException {
         if (context == null) {
             throw new WrapNullPointException("getCrossView context is null");
@@ -85,7 +85,7 @@ public class UiManager {
         if (builder == null) {
             throw new WrapNullPointException("getCrossView builder is null");
         }
-        builder.setType(com.mutter.ui.demo.cross.Builder.Type.TYPE_DIALOG);
+        builder.setType(com.upupup.ui.demo.cross.Builder.Type.TYPE_DIALOG);
 
         new CrossView(context, builder, new CrossView.OnDataFinishListener() {
             @Override
@@ -104,7 +104,7 @@ public class UiManager {
                 WindowManager.LayoutParams params1 = window.getAttributes();
                 params1.width = width;
                 params1.gravity = Gravity.CENTER;
-                ImageView image = (ImageView) crossView.findViewById(com.mutter.ui.demo.R.id.head);
+                ImageView image = (ImageView) crossView.findViewById(com.upupup.ui.demo.R.id.head);
                 if (image != null) {
                     ViewGroup.LayoutParams params = image.getLayoutParams();
                     params.height = (int) (screenWidth * 0.425);//SdkEnv.scaleDp2Px(Utils.px2dip(context, (float) (screenWidth * 0.45)));
@@ -124,7 +124,7 @@ public class UiManager {
         void onClick();
     }
 
-    public static void showFloatCrossView(final Context context, final com.mutter.ui.demo.cross.Builder builder,
+    public static void showFloatCrossView(final Context context, final com.upupup.ui.demo.cross.Builder builder,
                                           final FloatCrossView.OnFloatCrossViewInitCallBack callBack,
                                           final OnClickListener listener) throws WrapNullPointException {
         if (context == null) {

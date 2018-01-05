@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A1"
+    android:background="@color/white_100"
     android:orientation="vertical">
 
     <View
@@ -20,34 +20,25 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="@dimen/d37"
-            android:layout_height="@dimen/d44"
-            android:layout_gravity="center"
-            android:src="@mipmap/loading_icon" />
+        <com.sample.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="loading.json"
+            app:lottie_imageAssetsFolder="image/loading"
+            app:lottie_loop="true" />
 
-        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+        <com.upupup.module.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/loading_text_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/d8"
             android:text="@string/app_name"
-            android:textColor="@color/A8"
+            android:textColor="@color/black_100"
             android:textSize="@dimen/s24"
             android:visibility="invisible"
-            app:typeface="lyp_text.otf" />
+             />
 
-        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-            android:id="@+id/loading_text_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d10"
-            android:layout_marginTop="@dimen/d4"
-            android:text="@string/loading_2"
-            android:textColor="@color/C1"
-            android:textSize="@dimen/s12"
-            android:visibility="invisible"
-            app:typeface="lyp_text.otf" />
     </LinearLayout>
 
 
