@@ -137,7 +137,6 @@ public class NotifiActivity extends Activity {
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, NotificationMonitorService.class));
         title_name.setText(R.string.side_notifi);
-        title_right.setImageResource(R.mipmap.main_setting);
         title_right.setVisibility(View.VISIBLE);
         setListener();
         adapter = new NotifiAdapter(this);

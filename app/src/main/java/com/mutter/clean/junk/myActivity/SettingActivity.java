@@ -42,7 +42,6 @@ public class SettingActivity extends BaseActivity {
     RelativeLayout setting_tongzhi, setting_tongzhilan, setting_auto, setting_float, setting_battery, setting_unload, setting_power, setting_file,
             setting_picture, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_auto_check, setting_float_check, setting_battery_check, setting_unload_check;
-    LinearLayout tuiguang_setting;
     FrameLayout title_left;
     TextView title_name;
     private View nativeView;
@@ -81,7 +80,6 @@ public class SettingActivity extends BaseActivity {
         setting_unload_check = (ImageView) findViewById(R.id.setting_unload_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
-        tuiguang_setting = (LinearLayout) findViewById(R.id.tuiguang_setting);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
     }
 
@@ -103,13 +101,7 @@ public class SettingActivity extends BaseActivity {
                 }
             }, 1000);
         } else {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    addAd();
-                }
-            }, 1000);
-
+            addAd();
         }
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             setting_notifi.setVisibility(View.GONE);
@@ -129,8 +121,6 @@ public class SettingActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) == 0) {
             setting_picture.setVisibility(View.GONE);
         }
-        tuiguang(TUIGUAN_SETTING_SOFT, true, tuiguang_setting);
-        tuiguang(TUIGUAN_SETTING, false, tuiguang_setting);
     }
 
     @Override
@@ -200,7 +190,7 @@ public class SettingActivity extends BaseActivity {
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
             setting_scroll.setScrollY(0);
-            AdUtil.startBannerAnimation(this, ad_fl);
+            ad_fl.setVisibility(View.VISIBLE);
         }
     }
 

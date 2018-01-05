@@ -34,11 +34,11 @@ public class ThemeActivity extends BaseActivity {
         battery_theme_0.setOnClickListener(onClickListener);
         battery_theme_1.setOnClickListener(onClickListener);
         if (Constants.TYPE_DUCK.equals(Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR))) {
-            theme_0_check.setImageResource(R.mipmap.battery_normal);
-            theme_1_check.setImageResource(R.mipmap.battery_passed);
+            theme_0_check.setImageResource(R.mipmap.ram_normal);
+            theme_1_check.setImageResource(R.mipmap.ram_passed);
         } else {
-            theme_0_check.setImageResource(R.mipmap.battery_passed);
-            theme_1_check.setImageResource(R.mipmap.battery_normal);
+            theme_0_check.setImageResource(R.mipmap.ram_passed);
+            theme_1_check.setImageResource(R.mipmap.ram_normal);
         }
     }
 
@@ -52,16 +52,16 @@ public class ThemeActivity extends BaseActivity {
                     break;
                 case R.id.battery_theme_0:
                     AdUtil.track("主题页面", "选择第一个主题", "", 1);
-                    theme_0_check.setImageResource(R.mipmap.battery_passed);
-                    theme_1_check.setImageResource(R.mipmap.battery_normal);
+                    theme_0_check.setImageResource(R.mipmap.ram_passed);
+                    theme_1_check.setImageResource(R.mipmap.ram_normal);
                     Utils.writeData(ThemeActivity.this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR);
                     Utils.writeData(ThemeActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
                     startService(new Intent(ThemeActivity.this, BatteryService.class).putExtra("show", true));
                     break;
                 case R.id.battery_theme_1:
                     AdUtil.track("主题页面", "选择第二个主题", "", 1);
-                    theme_0_check.setImageResource(R.mipmap.battery_normal);
-                    theme_1_check.setImageResource(R.mipmap.battery_passed);
+                    theme_0_check.setImageResource(R.mipmap.ram_normal);
+                    theme_1_check.setImageResource(R.mipmap.ram_passed);
                     Utils.writeData(ThemeActivity.this, Constants.KEY_SAVER_TYPE, Constants.TYPE_DUCK);
                     Utils.writeData(ThemeActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
                     startService(new Intent(ThemeActivity.this, BatteryService.class).putExtra("show", true));

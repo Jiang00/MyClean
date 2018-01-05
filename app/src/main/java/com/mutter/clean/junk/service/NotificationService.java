@@ -5,17 +5,14 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.RectF;
-import android.net.TrafficStats;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
@@ -23,7 +20,6 @@ import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,29 +27,25 @@ import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
 import com.mutter.clean.core.CleanManager;
-import com.mutter.clean.junk.myActivity.Loading1Activity;
-import com.mutter.clean.junk.myActivity.LoadingActivity;
-import com.mutter.clean.junk.util.BadgerCount;
-import com.mutter.clean.notifi.NotificationCallBack;
-import com.mutter.clean.notifi.NotificationInfo;
 import com.mutter.clean.junk.R;
-import com.mutter.clean.junk.myActivity.JiangwenActivity;
 import com.mutter.clean.junk.myActivity.CleanAndRamActivity;
+import com.mutter.clean.junk.myActivity.JiangwenActivity;
 import com.mutter.clean.junk.myActivity.MainActivity;
 import com.mutter.clean.junk.myActivity.MyApplication;
 import com.mutter.clean.junk.myActivity.NotifiActivity;
 import com.mutter.clean.junk.myActivity.RamAvtivity;
 import com.mutter.clean.junk.myActivity.SuccessActivity;
-import com.mutter.clean.util.Util;
 import com.mutter.clean.junk.util.AdUtil;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.junk.util.Constant;
 import com.mutter.clean.junk.util.CpuTempReader;
 import com.mutter.clean.junk.util.PhoneManager;
+import com.mutter.clean.notifi.NotificationCallBack;
+import com.mutter.clean.notifi.NotificationInfo;
 import com.mutter.clean.util.PreData;
+import com.mutter.clean.util.Util;
 
 import java.util.ArrayList;
-
-import me.leolin.shortcutbadger.ShortcutBadger;
 
 
 public class NotificationService extends Service {
@@ -100,8 +92,8 @@ public class NotificationService extends Service {
         oval = new RectF(0 + Util.dp2px(2), -pointX + Util.dp2px(2), pointX
                 * 2 - Util.dp2px(2), pointX - Util.dp2px(2));
         changZhuTongzhi();
-        tonghzi_notifi();
-        CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
+//        tonghzi_notifi();
+//        CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
     }
 
     NotificationCallBack notificationCallBack = new NotificationCallBack() {
@@ -133,7 +125,7 @@ public class NotificationService extends Service {
         Canvas canvas = new Canvas(bitmap_progress);
         canvas.save();
         canvas.translate(0, pointX);
-        canvas.rotate(135, pointX, 0);
+        canvas.rotate(-90, pointX, 0);
         canvas.drawColor(Color.BLACK, PorterDuff.Mode.CLEAR);
         return canvas;
     }
@@ -172,8 +164,8 @@ public class NotificationService extends Service {
         }
 
         if (intent != null && TextUtils.equals("gboost", intent.getStringExtra("from"))) {
-            tonghzi_gboost();
-            mNotifyManager.notify(101, notification_gboost);
+//            tonghzi_gboost();
+//            mNotifyManager.notify(101, notification_gboost);
         }
         return super.onStartCommand(intent, flags, startId);
     }
@@ -196,7 +188,7 @@ public class NotificationService extends Service {
         int memory = Util.getMemory(this);
         paint_1.setColor(ContextCompat.getColor(this, R.color.white_40));
         Canvas canvas = getCanvas();
-        canvas.drawArc(oval, 0, 270, false, paint_1);
+        canvas.drawArc(oval, 0, 360, false, paint_1);
         if (memory > 70) {
             paint_1.setColor(ContextCompat.getColor(this, R.color.A2));
             remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(this, R.color.A2));
@@ -204,7 +196,7 @@ public class NotificationService extends Service {
             paint_1.setColor(ContextCompat.getColor(this, R.color.A3));
             remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(this, R.color.A3));
         }
-        canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
+        canvas.drawArc(oval, 0, 360 * memory / 100, false, paint_1);
 
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
         remoteView_1.setTextViewText(R.id.norifi_memory_text, Util.getMemory(this) + "%");
@@ -227,7 +219,7 @@ public class NotificationService extends Service {
         mBuilder.setOngoing(true);
         mBuilder.setPriority(Notification.PRIORITY_MAX);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.loading_icon);
+        mBuilder.setSmallIcon(R.mipmap.notifi_title);
         notification_1 = mBuilder.build();
         notification_1.flags = Notification.FLAG_INSISTENT;
         notification_1.flags |= Notification.FLAG_ONGOING_EVENT;
@@ -239,58 +231,12 @@ public class NotificationService extends Service {
 
     private Runnable runnableW = new Runnable() {
         public void run() {
-            long nowTotalRxBytes = getTotalRxBytes(); // 获取当前数据总量
-            long nowTimeStamp = System.currentTimeMillis(); // 当前时间
-            // kb/s
-            long speed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp == lastTimeStamp ? nowTimeStamp : nowTimeStamp
-                    - lastTimeStamp));// 毫秒转换
-//            tv.setText(String.valueOf(speed) + "b/s");
-            String type = phoneManager.getPhoneNetworkType();
-            if (type.equals("WIFI")) {
-                remoteView_1.setImageViewResource(R.id.notifi_network_type, R.mipmap.notifi_wifi);
-            } else if (type.equals("MOBILE")) {
-                remoteView_1.setImageViewResource(R.id.notifi_network_type, R.mipmap.notifi_liuliang);
-            } else {
-                remoteView_1.setImageViewResource(R.id.notifi_network_type, R.drawable.translate);
-            }
-            remoteView_1.setTextViewText(R.id.notifi_network_sudu, Util.convertStorageWifi(speed));
-            num++;
-            if (num >= 10) {
-                num = 0;
-                update();
-            } else {
-                mNotifyManager.notify(102, notification_1);
-            }
-            lastTimeStamp = nowTimeStamp;
-            lastTotalRxBytes = nowTotalRxBytes;
-            myHandler.postDelayed(this, 2000);
+            update();
+            myHandler.postDelayed(this, 20000);
         }
     };
 
-    private long getTotalRxBytes() {
-        // 得到整个手机的流量值
-        try {
-            return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
-                    : (TrafficStats.getTotalRxBytes());//
-        } catch (Exception e) {
-            return 0;
-        }
-        // // 得到当前应用的流量值
-        // return TrafficStats.getUidRxBytes(getApplicationInfo().uid) ==  
-        // TrafficStats.UNSUPPORTED ? 0 : (TrafficStats  
-        // .getUidRxBytes(getApplicationInfo().uid) / 1024);// 转为KB  
-
-    }
-
     private void update() {
-
-
-//            getPackageManager()
-//                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), LoadingActivity.class)
-//                            , PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-//            getPackageManager()
-//                    .setComponentEnabledSetting(new ComponentName(getApplicationContext(), Loading1Activity.class)
-//                            , PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 
         final int memory = Util.getMemory(this);
         //cpu温度
@@ -306,11 +252,14 @@ public class NotificationService extends Service {
                 if (cpuTemp == 0) {
                     cpuTemp = 40;
                 }
-                Log.e("notifi", "cpuTemp=" + cpuTemp);
-                remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
+                if (cpuTemp > 50) {
+                    remoteView_1.setImageViewResource(R.id.notifi_cooling_icon, R.mipmap.notifi_cooling_2);
+                } else {
+                    remoteView_1.setImageViewResource(R.id.notifi_cooling_icon, R.mipmap.notifi_cooling_1);
+                }
                 paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_40));
                 Canvas canvas = getCanvas();
-                canvas.drawArc(oval, 0, 270, false, paint_1);
+                canvas.drawArc(oval, 0, 360, false, paint_1);
                 if (memory > 70) {
                     paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A2));
                     remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(NotificationService.this, R.color.A2));
@@ -318,12 +267,14 @@ public class NotificationService extends Service {
                     paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A3));
                     remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(NotificationService.this, R.color.A3));
                 }
-                canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
+                canvas.drawArc(oval, 0, 360 * memory / 100, false, paint_1);
                 remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
                 remoteView_1.setTextViewText(R.id.norifi_memory_text, memory + "%");
                 mNotifyManager.notify(102, notification_1);
             }
         });
+
+
         long time = System.currentTimeMillis();
         if (PreData.getDB(this, Constant.TONGZHI_SWITCH, true)) {
             int hh = Integer.parseInt(Util.getStrTimeHH(time));
@@ -465,7 +416,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(false);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.loading_icon);
+        mBuilder.setSmallIcon(R.mipmap.notifi_title);
         notification_ram = mBuilder.build();
         notification_ram.defaults = Notification.DEFAULT_SOUND;
         notification_ram.flags = Notification.FLAG_AUTO_CANCEL;
@@ -484,7 +435,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(false);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.loading_icon);
+        mBuilder.setSmallIcon(R.mipmap.notifi_title);
         notification_cooling = mBuilder.build();
         notification_cooling.defaults = Notification.DEFAULT_SOUND;
         notification_cooling.flags = Notification.FLAG_AUTO_CANCEL;
@@ -504,7 +455,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(false);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.loading_icon);
+        mBuilder.setSmallIcon(R.mipmap.notifi_title);
         notification_junk = mBuilder.build();
         notification_junk.defaults = Notification.DEFAULT_SOUND;
         notification_junk.flags = Notification.FLAG_AUTO_CANCEL;
@@ -524,7 +475,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(false);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.loading_icon);
+        mBuilder.setSmallIcon(R.mipmap.notifi_title);
         notification_two_day = mBuilder.build();
         notification_two_day.defaults = Notification.DEFAULT_SOUND;
         notification_two_day.flags = Notification.FLAG_AUTO_CANCEL;
@@ -544,7 +495,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(false);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.loading_icon);
+        mBuilder.setSmallIcon(R.mipmap.notifi_title);
         notification_gboost = mBuilder.build();
         notification_gboost.defaults = Notification.DEFAULT_SOUND;
         notification_gboost.flags = Notification.FLAG_AUTO_CANCEL;
@@ -564,7 +515,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(false);
         mBuilder.setOngoing(true);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.notifi_small);
+        mBuilder.setSmallIcon(R.mipmap.notifi_title);
         notification_notifi = mBuilder.build();
         notification_notifi.flags = Notification.FLAG_INSISTENT;
         notification_notifi.flags |= Notification.FLAG_ONGOING_EVENT;
@@ -593,7 +544,7 @@ public class NotificationService extends Service {
             mNotifyManager.cancel(102);
         }
         myHandler.removeCallbacks(runnableW);
-        CleanManager.getInstance(this).removeNotificatioCallBack(notificationCallBack);
+//        CleanManager.getInstance(this).removeNotificatioCallBack(notificationCallBack);
         super.onDestroy();
     }
 }

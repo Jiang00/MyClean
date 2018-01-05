@@ -112,12 +112,7 @@ public class PhotoHuiActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.RECYCLEBIN, 0) == 1) {
             AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
         } else {
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    addAd();
-                }
-            }, 1000);
+            addAd();
         }
     }
 
@@ -125,7 +120,7 @@ public class PhotoHuiActivity extends BaseActivity {
         nativeView = AdUtil.getNativeAdView(TAG_RECYCLE, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
-            AdUtil.startBannerAnimation(this,ad_fl);
+            ad_fl.setVisibility(View.VISIBLE);
         }
     }
 

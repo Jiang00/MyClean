@@ -178,7 +178,7 @@ public class FloatStateManager {
             params.height = circleView.height;
             params.gravity = Gravity.TOP | Gravity.LEFT;
             params.x = 0;
-            params.y = context.getResources().getDimensionPixelOffset(R.dimen.d200);
+            params.y = context.getResources().getDimensionPixelOffset(R.dimen.d250);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
                 params.type = WindowManager.LayoutParams.TYPE_TOAST;
             } else {

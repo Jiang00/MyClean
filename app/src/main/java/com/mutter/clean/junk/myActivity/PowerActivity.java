@@ -43,6 +43,7 @@ import com.mutter.clean.entity.JunkInfo;
 import com.mutter.clean.junk.service.NotificationService;
 import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.junk.util.Constant;
+import com.sample.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
 
@@ -54,10 +55,11 @@ public class PowerActivity extends BaseActivity {
     private MyApplication cleanApplication;
     private View containerView;
     Button junk_button_clean;
-    ImageView power_check;
     TextView title_name;
     FrameLayout title_left;
     private Button containerView_junk_button_clean;
+    private LottieAnimationView lottie_power;
+    TextView power_size_all, power_fangxin;
     Handler mHandler;
     RecyclerView power_recycler;
     LinearLayout ll_ad;
@@ -70,7 +72,7 @@ public class PowerActivity extends BaseActivity {
     private View nativeView;
     private WidgetContainer widgetContainer;
     private AlertDialog dialog;
-
+    long all_size;
 
     @Override
     protected void findId() {
@@ -79,9 +81,10 @@ public class PowerActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
-        power_check = (ImageView) findViewById(R.id.power_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
+        power_size_all = (TextView) findViewById(R.id.power_size_all);
+        power_fangxin = (TextView) findViewById(R.id.power_fangxin);
     }
 
     @Override
@@ -103,7 +106,6 @@ public class PowerActivity extends BaseActivity {
         // 设置item动画
         power_recycler.setItemAnimator(new DefaultItemAnimator());
         junk_button_clean.setOnClickListener(clickListener);
-        power_check.setOnClickListener(clickListener);
         title_left.setOnClickListener(clickListener);
 
         if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
@@ -133,14 +135,16 @@ public class PowerActivity extends BaseActivity {
             }
             junk_button_clean.callOnClick();
         }
+        if (startList.size() == 0) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("count", count);
+            bundle.putString("from", "power");
+            jumpToActivity(SuccessActivity.class, bundle, 1);
+            onBackPressed();
+            return;
+        }
         if (PreData.getDB(this, Constant.FULL_DEEP_NATIVE, 0) == 1) {
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    addAd();
-                }
-            }, 1000);
-
+            addAd();
         }
     }
 
@@ -148,7 +152,7 @@ public class PowerActivity extends BaseActivity {
         nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
-            AdUtil.startBannerAnimation(this, ad_fl);
+            ad_fl.setVisibility(View.VISIBLE);
         }
     }
 
@@ -158,10 +162,6 @@ public class PowerActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.title_left:
                     onBackPressed();
-                    break;
-                case R.id.power_check:
-                    AdUtil.track("深度清理页面", "开启辅助功能", "", 1);
-                    permissIntent();
                     break;
                 case R.id.junk_button_clean:
                     AdUtil.track("深度清理页面", "点击清理", "", 1);
@@ -191,6 +191,7 @@ public class PowerActivity extends BaseActivity {
     private void setContainer() {
         containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
         containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
+        lottie_power = (LottieAnimationView) containerView.findViewById(R.id.lottie_power);
         containerView_junk_button_clean.setVisibility(View.GONE);
         containerView_recyclerView.setLayoutManager(new LinearLayoutManager(this));
         containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
@@ -215,30 +216,53 @@ public class PowerActivity extends BaseActivity {
                     return;
                 }
             }
-            homeAdapter.notifyDataSetChanged();
-            if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
-                if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
-                    Util.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
-                    if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
-                        Intent intent = new Intent(PowerActivity.this, NotificationService.class);
-                        intent.putExtra("from", "gboost");
-                        startService(intent);
-                    }
+            lottie_power.playAnimation();
+            lottie_power.setVisibility(View.VISIBLE);
+            lottie_power.addAnimatorListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationCancel(Animator animation) {
 
-                } else {
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("count", count);
-                    bundle.putString("from", "GBoost");
-                    jumpToActivity(SuccessActivity.class, bundle, 1);
                 }
-                onBackPressed();
-            } else {
-                Bundle bundle = new Bundle();
-                bundle.putInt("count", count);
-                bundle.putString("from", "power");
-                jumpToActivity(SuccessActivity.class, bundle, 1);
-            }
-            container.removeFromWindow();
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
+                        if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
+                            Util.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
+                            if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
+                                Intent intent = new Intent(PowerActivity.this, NotificationService.class);
+                                intent.putExtra("from", "gboost");
+                                startService(intent);
+                            }
+
+                        } else {
+                            Bundle bundle = new Bundle();
+                            bundle.putInt("count", count);
+                            bundle.putString("from", "GBoost");
+                            jumpToActivity(SuccessActivity.class, bundle, 1);
+                        }
+                        onBackPressed();
+                    } else {
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("count", count);
+                        bundle.putString("from", "power");
+                        jumpToActivity(SuccessActivity.class, bundle, 1);
+                    }
+                    container.removeFromWindow();
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationStart(Animator animation) {
+
+                }
+            });
+            homeAdapter.notifyDataSetChanged();
+
         }
     };
 
@@ -246,7 +270,7 @@ public class PowerActivity extends BaseActivity {
         AnimatorSet set = new AnimatorSet();
         View recyc_item = view.findViewById(R.id.recyc_item);
         ObjectAnimator translationX = ObjectAnimator.ofFloat(recyc_item, "translationX", 0f, getResources().getDimensionPixelOffset(R.dimen.d333));
-        set.setDuration(1000)
+        set.setDuration(1500)
                 .addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationCancel(Animator animation) {
@@ -285,11 +309,15 @@ public class PowerActivity extends BaseActivity {
     private void initData() {
         cleanApplication = (MyApplication) getApplication();
         startList = new ArrayList<>();
+        all_size = 0;
         for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
             if (info.isSelfBoot) {
                 startList.add(info);
+                all_size += info.size;
             }
         }
+        power_size_all.setText(Util.convertStorage(all_size, false));
+        power_fangxin.setText(Util.convertStorageDanwei(all_size));
     }
 
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
@@ -312,7 +340,7 @@ public class PowerActivity extends BaseActivity {
             if (isWidget) {
                 holder.recyc_check.setVisibility(View.GONE);
             } else {
-                holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.power_4 : R.mipmap.power_5);
+                holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.ram_passed : R.mipmap.ram_normal);
             }
 
             holder.recyc_icon.setImageDrawable(LoadManager.getInstance(PowerActivity.this).getAppIcon(startList.get(position).pkg));
@@ -373,6 +401,9 @@ public class PowerActivity extends BaseActivity {
         if (mHandler != null) {
             mHandler.removeCallbacksAndMessages(null);
         }
+        if (lottie_power != null) {
+            lottie_power.cancelAnimation();
+        }
     }
 
     @Override
@@ -384,11 +415,6 @@ public class PowerActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (Util.isAccessibilitySettingsOn(this)) {
-            power_check.setImageResource(R.mipmap.side_check_passed);
-        } else {
-            power_check.setImageResource(R.mipmap.side_check_normal);
-        }
     }
 
     public void permissIntent() {

@@ -50,13 +50,12 @@ public class WhiteListAdapter extends MybaseAdapter<JunkInfo> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tv_zhuangtai.setVisibility(View.VISIBLE);
         if (info.isWhiteList) {
             holder.checkBox.setImageResource(R.mipmap.white_jian);
-            holder.tv_zhuangtai.setVisibility(View.VISIBLE);
+//            holder.tv_zhuangtai.setVisibility(View.VISIBLE);
         } else {
             holder.checkBox.setImageResource(R.mipmap.white_jia);
-            holder.tv_zhuangtai.setVisibility(View.GONE);
+//            holder.tv_zhuangtai.setVisibility(View.GONE);
         }
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override

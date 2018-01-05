@@ -10,52 +10,61 @@
     <LinearLayout
         android:id="@+id/doalig_result"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d72"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/d16"
         android:layout_marginRight="@dimen/d16"
-        android:background="@drawable/shape_ad"
-        android:orientation="horizontal">
+        android:background="@drawable/shape_a3_r"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/d37"
-            android:src="@mipmap/short_5" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d48"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/d27"
+                android:layout_height="@dimen/d27"
+                android:layout_marginLeft="@dimen/d10"
+                android:src="@mipmap/icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d7"
+                android:text="@string/app_name"
+                android:textColor="@color/white_70"
+                android:textSize="@dimen/s12" />
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/d16"
-            android:text="@string/short_cut_1"
-            android:textColor="@color/B2"
-            android:textSize="@dimen/s13" />
+            android:layout_gravity="center_horizontal"
+            android:text="@string/short_1"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s30" />
 
         <TextView
             android:id="@+id/short_clean_szie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/d20"
             android:layout_marginLeft="@dimen/d2"
-            android:textColor="@color/A1"
+            android:layout_marginTop="@dimen/d6"
+            android:textColor="@color/white_100"
             android:textSize="@dimen/s13" />
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/ll_ad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d16"
-            android:layout_marginRight="@dimen/d16"
-            android:layout_marginTop="@dimen/d5"
-            android:background="@drawable/shape_ad"
+            android:background="@drawable/shape_ffffff_b"
             android:orientation="vertical"
             android:visibility="gone" />
-    </FrameLayout>
+    </LinearLayout>
+
 
 </LinearLayout>

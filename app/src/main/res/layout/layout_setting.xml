@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A10"
+    android:background="@mipmap/backage"
     android:orientation="vertical">
 
 
@@ -11,7 +11,6 @@
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -42,8 +41,6 @@
                 android:layout_marginLeft="@dimen/d7"
                 android:layout_marginRight="@dimen/d7"
                 android:layout_marginTop="@dimen/d7"
-                android:background="@drawable/shape_ad"
-                android:elevation="@dimen/d2"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -56,35 +53,54 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d7"
-                android:layout_marginRight="@dimen/d7"
-                android:layout_marginTop="@dimen/d7"
-                android:background="@drawable/shape_ad"
-                android:elevation="@dimen/d2"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/d32"
+                    android:layout_height="@dimen/d33"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="@dimen/d2"
-                        android:layout_height="@dimen/d13"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_line" />
 
                     <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d5"
+                        android:layout_marginLeft="@dimen/d16"
                         android:gravity="center_vertical"
                         android:text="@string/setting_kaiguanllei"
-                        android:textColor="@color/A5"
-                        android:textSize="@dimen/s13"
+                        android:textColor="@color/A3"
+                        android:textSize="@dimen/s12"
                         app:typeface="lyp_text.otf" />
                 </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/setting_battery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                        android:id="@+id/battery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/setting_battery"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s14"
+                        app:typeface="lyp_text.otf" />
+
+                    <FrameLayout
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d56"
+                        android:layout_alignParentRight="true">
+
+                        <ImageView
+                            android:id="@+id/setting_battery_check"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d36"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/setting_tongzhi"
@@ -98,7 +114,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_tongzhi"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
@@ -128,7 +144,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_tongzhilan"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
@@ -147,6 +163,7 @@
 
                 <RelativeLayout
                     android:id="@+id/setting_auto"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -157,7 +174,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_auto"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
@@ -187,7 +204,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_float"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
@@ -198,47 +215,6 @@
 
                         <ImageView
                             android:id="@+id/setting_float_check"
-                            android:layout_width="@dimen/d36"
-                            android:layout_height="@dimen/d36"
-                            android:layout_gravity="center" />
-                    </FrameLayout>
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:id="@+id/setting_battery"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                        android:id="@+id/battery"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:text="@string/setting_battery"
-                        android:textColor="@color/B2"
-                        android:textSize="@dimen/s14"
-                        app:typeface="lyp_text.otf" />
-
-                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d8"
-                        android:layout_toRightOf="@id/battery"
-                        android:text="@string/battery_9"
-                        android:textColor="@color/B3"
-                        android:textSize="@dimen/s9"
-                        app:typeface="lyp_text.otf" />
-
-                    <FrameLayout
-                        android:layout_width="@dimen/d72"
-                        android:layout_height="@dimen/d56"
-                        android:layout_alignParentRight="true">
-
-                        <ImageView
-                            android:id="@+id/setting_battery_check"
                             android:layout_width="@dimen/d36"
                             android:layout_height="@dimen/d36"
                             android:layout_gravity="center" />
@@ -259,7 +235,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_unload"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
@@ -276,42 +252,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/d7"
-                android:background="@drawable/shape_ad"
-                android:elevation="@dimen/d2"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/d32"
+                    android:layout_height="@dimen/d33"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="@dimen/d2"
-                        android:layout_height="@dimen/d13"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/setting_line" />
 
                     <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d5"
+                        android:layout_marginLeft="@dimen/d16"
                         android:gravity="center_vertical"
                         android:text="@string/setting_gongneng"
-                        android:textColor="@color/A1"
-                        android:textSize="@dimen/s13"
+                        android:textColor="@color/A3"
+                        android:textSize="@dimen/s12"
                         app:typeface="lyp_text.otf" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/tuiguang_setting"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-
                 <RelativeLayout
                     android:id="@+id/setting_picture"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d56">
 
@@ -321,33 +284,21 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/side_picture"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
                     <ImageView
-                        android:id="@+id/a"
                         android:layout_width="@dimen/d36"
                         android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/d16"
                         android:src="@mipmap/setting_rig" />
-
-                    <TextView
-                        android:layout_width="@dimen/d30"
-                        android:layout_height="@dimen/d14"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@id/a"
-                        android:background="@drawable/shape_a2"
-                        android:gravity="center"
-                        android:text="NEW"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s8" />
                 </RelativeLayout>
 
 
-                <RelativeLayout
+                <RelativeLayout android:visibility="gone"
                     android:id="@+id/setting_hui"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d56">
@@ -359,12 +310,11 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/picture_hui"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
                     <ImageView
-                        android:id="@+id/b"
                         android:layout_width="@dimen/d36"
                         android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
@@ -372,20 +322,10 @@
                         android:layout_marginRight="@dimen/d16"
                         android:src="@mipmap/setting_rig" />
 
-                    <TextView
-                        android:layout_width="@dimen/d30"
-                        android:layout_height="@dimen/d14"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@id/b"
-                        android:background="@drawable/shape_a2"
-                        android:gravity="center"
-                        android:text="NEW"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s8" />
                 </RelativeLayout>
 
 
-                <RelativeLayout
+                <RelativeLayout android:visibility="gone"
                     android:id="@+id/setting_gboost"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d56">
@@ -397,12 +337,11 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/gboost_0"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
                     <ImageView
-                        android:id="@+id/c"
                         android:layout_width="@dimen/d36"
                         android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
@@ -410,20 +349,10 @@
                         android:layout_marginRight="@dimen/d16"
                         android:src="@mipmap/setting_rig" />
 
-                    <TextView
-                        android:layout_width="@dimen/d30"
-                        android:layout_height="@dimen/d14"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@id/c"
-                        android:background="@drawable/shape_a2"
-                        android:gravity="center"
-                        android:text="NEW"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s8" />
                 </RelativeLayout>
 
 
-                <RelativeLayout
+                <RelativeLayout android:visibility="gone"
                     android:id="@+id/setting_file"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d56">
@@ -435,12 +364,11 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/side_file"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
                     <ImageView
-                        android:id="@+id/d"
                         android:layout_width="@dimen/d36"
                         android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
@@ -448,20 +376,10 @@
                         android:layout_marginRight="@dimen/d16"
                         android:src="@mipmap/setting_rig" />
 
-                    <TextView
-                        android:layout_width="@dimen/d30"
-                        android:layout_height="@dimen/d14"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@id/d"
-                        android:background="@drawable/shape_a2"
-                        android:gravity="center"
-                        android:text="NEW"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s8" />
                 </RelativeLayout>
 
 
-                <RelativeLayout
+                <RelativeLayout android:visibility="gone"
                     android:id="@+id/setting_notifi"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d56">
@@ -473,12 +391,11 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/side_notifi"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
                     <ImageView
-                        android:id="@+id/e"
                         android:layout_width="@dimen/d36"
                         android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
@@ -486,20 +403,10 @@
                         android:layout_marginRight="@dimen/d16"
                         android:src="@mipmap/setting_rig" />
 
-                    <TextView
-                        android:layout_width="@dimen/d30"
-                        android:layout_height="@dimen/d14"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@id/e"
-                        android:background="@drawable/shape_a2"
-                        android:gravity="center"
-                        android:text="NEW"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s8" />
                 </RelativeLayout>
 
 
-                <RelativeLayout
+                <RelativeLayout android:visibility="gone"
                     android:id="@+id/setting_power"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d56">
@@ -511,12 +418,11 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/side_power"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
                     <ImageView
-                        android:id="@+id/f"
                         android:layout_width="@dimen/d36"
                         android:layout_height="@dimen/d36"
                         android:layout_alignParentRight="true"
@@ -524,16 +430,6 @@
                         android:layout_marginRight="@dimen/d16"
                         android:src="@mipmap/setting_rig" />
 
-                    <TextView
-                        android:layout_width="@dimen/d30"
-                        android:layout_height="@dimen/d14"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@id/f"
-                        android:background="@drawable/shape_a2"
-                        android:gravity="center"
-                        android:text="NEW"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s8" />
                 </RelativeLayout>
 
 
@@ -549,7 +445,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_white"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
@@ -575,7 +471,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_short"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 
@@ -601,7 +497,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_rotate"
-                        android:textColor="@color/B2"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s14"
                         app:typeface="lyp_text.otf" />
 

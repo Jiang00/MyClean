@@ -1,6 +1,7 @@
 package com.mutter.clean.junk.myActivity;
 
 import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.ActivityManager;
 import android.app.Dialog;
@@ -50,10 +51,7 @@ public class HuojianActivity extends BaseActivity {
     FrameLayout short_backg;
     LinearLayout ll_ad;
     FrameLayout short_fl;
-    BubbleCenterLayout bubble;
-    ImageView short_rotate;
-    private Animation rotate;
-    private Animation fang;
+    ImageView short_rotate, short_rotate_2;
     private long size;
     private int count;
     private Handler myHandler;
@@ -61,11 +59,11 @@ public class HuojianActivity extends BaseActivity {
     private String TAG_SHORTCUT = "mutter_shortcut";
     private Animation suo;
     private Dialog dialog;
-    private ObjectAnimator rotate_x;
     private ObjectAnimator translate;
     private long junk_size;
     private int num;
     private boolean ischeck;
+    private AnimatorSet animatorSet;
 
     @Override
     protected void findId() {
@@ -73,7 +71,7 @@ public class HuojianActivity extends BaseActivity {
         short_backg = (FrameLayout) findViewById(R.id.short_backg);
         short_fl = (FrameLayout) findViewById(R.id.short_fl);
         short_rotate = (ImageView) findViewById(R.id.short_rotate);
-        bubble = (BubbleCenterLayout) findViewById(R.id.bubble);
+        short_rotate_2 = (ImageView) findViewById(R.id.short_rotate_2);
     }
 
     @Override
@@ -81,37 +79,13 @@ public class HuojianActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         Log.e("autoservice", "HuojianonCreate");
         setContentView(R.layout.layout_short_cut);
-        rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
-        fang = AnimationUtils.loadAnimation(this, R.anim.fang);
         myHandler = new Handler();
         suo = AnimationUtils.loadAnimation(this, R.anim.suo_short);
-        short_rotate.startAnimation(rotate);
+
         new Thread(new Runnable() {
             @Override
             public void run() {
                 clear(HuojianActivity.this);
-                try {
-                    List<JunkInfo> deletelist = new ArrayList<>();
-                    deletelist.addAll(CleanManager.getInstance(HuojianActivity.this).getApkFiles());
-
-                    for (JunkInfo fileListInfo : deletelist) {
-                        CleanManager.getInstance(HuojianActivity.this).removeApkFiles(fileListInfo);
-                        junk_size += fileListInfo.size;
-                    }
-                    deletelist.clear();
-                    deletelist.addAll(CleanManager.getInstance(HuojianActivity.this).getLogFiles());
-                    for (JunkInfo fileListInfo : deletelist) {
-                        CleanManager.getInstance(HuojianActivity.this).removeAppLog(fileListInfo);
-                        junk_size += fileListInfo.size;
-                    }
-                    deletelist.clear();
-                    deletelist.addAll(CleanManager.getInstance(HuojianActivity.this).getAppCaches());
-                    for (JunkInfo fileListInfo : deletelist) {
-                        CleanManager.getInstance(HuojianActivity.this).removeAppCache(fileListInfo);
-                        junk_size += fileListInfo.size;
-                    }
-                } catch (Exception e) {
-                }
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -142,154 +116,29 @@ public class HuojianActivity extends BaseActivity {
                     HuojianActivity.this.finish();
                 }
             });
-            if (TextUtils.equals("auto", getIntent().getStringExtra("from"))) {
-                ischeck = true;
-                View view = getLayoutInflater().inflate(R.layout.layout_auto, null);
-                ImageView auto_cha = (ImageView) view.findViewById(R.id.auto_cha);
-                final ImageView auto_check = (ImageView) view.findViewById(R.id.auto_check);
-                FrameLayout dialog_a = (FrameLayout) view.findViewById(R.id.dialog_a);
-                TextView auto_junk = (TextView) view.findViewById(R.id.auto_junk);
-                TextView auto_ram = (TextView) view.findViewById(R.id.auto_ram);
-                TextView auto_battery = (TextView) view.findViewById(R.id.auto_battery);
-                TextView auto_app = (TextView) view.findViewById(R.id.auto_app);
-                LinearLayout auto_is_first = (LinearLayout) view.findViewById(R.id.auto_is_first);
-                ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
-                Button auto_ok = (Button) view.findViewById(R.id.auto_ok);
-                if (PreData.getDB(this, Constant.AUTO_KAIGUAN)) {
-                    nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad_2);
-                    if (ll_ad != null && nativeView != null) {
-                        ll_ad.addView(nativeView);
-                        ll_ad.setVisibility(View.VISIBLE);
-                    }
-                }
-                auto_ram.setText(Util.convertStorage(size, true));
-                auto_junk.setText(Util.convertStorage(junk_size, true));
-                long time_diff = getIntent().getLongExtra("time", 0);
-                if (time_diff > 24 * 60 * 60 * 1000) {
-                    time_diff = 24 * 60 * 60 * 1000;
-                }
-                auto_battery.setText(Util.millTransFate2(time_diff / 10));
-                auto_app.setText(num + "");
-
-                if (PreData.hasDB(this, Constant.AUTO_KAIGUAN)) {
-                    auto_is_first.setVisibility(View.INVISIBLE);
-                    auto_ok.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                        }
-                    });
-                    dialog_a.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                        }
-                    });
-                    auto_cha.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                        }
-                    });
-                } else {
-                    auto_check.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            ischeck = !ischeck;
-                            if (ischeck) {
-                                auto_check.setImageResource(R.mipmap.ram_passed);
-                            } else {
-                                auto_check.setImageResource(R.mipmap.ram_normal);
-                            }
-                        }
-                    });
-                    auto_ok.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (ischeck) {
-                                PreData.putDB(HuojianActivity.this, Constant.AUTO_KAIGUAN, true);
-                            } else {
-                                PreData.putDB(HuojianActivity.this, Constant.AUTO_KAIGUAN, false);
-                            }
-                            dialog.dismiss();
-                        }
-                    });
-                    dialog_a.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            PreData.putDB(HuojianActivity.this, Constant.AUTO_KAIGUAN, false);
-                            dialog.dismiss();
-                        }
-                    });
-                    auto_cha.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            PreData.putDB(HuojianActivity.this, Constant.AUTO_KAIGUAN, false);
-                            dialog.dismiss();
-                        }
-                    });
-                }
-                window.setContentView(view);
-            } else {
-                View view = getLayoutInflater().inflate(R.layout.layout_short_dialog, null);
-                ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
-                LinearLayout doalig_result = (LinearLayout) view.findViewById(R.id.doalig_result);
-                TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
-                if (size < 0) {
-                    size = 0;
-                }
-                short_clean_szie.setText(Util.convertStorage(size, true));
-                if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) != 1) {
-                    nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad_2);
-                    if (ll_ad != null && nativeView != null) {
-                        ll_ad.addView(nativeView);
-//                    ll_ad.setVisibility(View.VISIBLE);
-                        ll_ad.setVisibility(View.INVISIBLE);
-                    }
-                }
-                rotate_x = ObjectAnimator.ofFloat(doalig_result, View.ROTATION_X, 0, 360);
-                rotate_x.setDuration(1500);
-                rotate_x.setStartDelay(500);
-                rotate_x.start();
-                rotate_x.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (nativeView != null) {
-                            translate = ObjectAnimator.ofFloat(ll_ad, View.TRANSLATION_Y, -ll_ad.getHeight(), 0);
-                            translate.setDuration(500);
-                            translate.start();
-                            ll_ad.setVisibility(View.VISIBLE);
-                        }
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-                });
-                window.setContentView(view);
+            View view = getLayoutInflater().inflate(R.layout.layout_short_dialog, null);
+            ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
+            TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
+            if (size < 0) {
+                size = 0;
             }
-
-
+            short_clean_szie.setText(getString(R.string.success_3, Util.convertStorage(size, true)));
+            if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) != 1) {
+                nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad_2);
+                if (ll_ad != null && nativeView != null) {
+                    ll_ad.addView(nativeView);
+//                    ll_ad.setVisibility(View.VISIBLE);
+                    ll_ad.setVisibility(View.VISIBLE);
+                }
+            }
+            window.setContentView(view);
         }
+
+
     }
 
     private void clear(Context context) {
         size = killAll(context);
-    }
-
-    private void loadAd() {
-
     }
 
 
@@ -328,17 +177,21 @@ public class HuojianActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+        animatorSet = new AnimatorSet();
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(short_rotate, View.ROTATION, 0, 3600);
+        ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(short_rotate_2, View.ROTATION, 0, 3600);
+        animatorSet.play(objectAnimator).with(objectAnimator_2);
+        animatorSet.setDuration(4500);
+        animatorSet.start();
         myHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                bubble.pause();
                 short_fl.startAnimation(suo);
                 suo.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         short_fl.setVisibility(View.GONE);
                         short_rotate.clearAnimation();
-                        bubble.destroy();
                         count++;
                         show_text();
                     }
@@ -368,16 +221,11 @@ public class HuojianActivity extends BaseActivity {
         super.onStop();
         short_rotate.clearAnimation();
         count = 0;
-        if (bubble != null) {
-            bubble.pause();
-            bubble.destroy();
-        }
-        if (rotate_x != null) {
-            rotate_x.removeAllListeners();
-            rotate_x.cancel();
-        }
         if (translate != null) {
             translate.cancel();
+        }
+        if (animatorSet != null && animatorSet.isRunning()) {
+            animatorSet.cancel();
         }
         finish();
     }

@@ -50,17 +50,16 @@ public class FileAdapter extends MybaseAdapter<JunkInfo> {
         if (TextUtils.equals("apk", name)) {
             Drawable drawable = LoadManager.getInstance(context).getApkIconforPath(info.path);
             if (drawable == null) {
-                drawable = ContextCompat.getDrawable(context, R.mipmap.file_apk_icon);
             }
             viewHolder.file_icon.setImageDrawable(drawable);
-        } else if (TextUtils.equals("zip", name)) {
-            viewHolder.file_icon.setImageResource(R.mipmap.file_zip_icon);
-        } else if (TextUtils.equals("music", name)) {
-            viewHolder.file_icon.setImageResource(R.mipmap.file_music_icon);
-        } else if (TextUtils.equals("video", name)) {
-            viewHolder.file_icon.setImageResource(R.mipmap.file_video_icon);
-        } else if (TextUtils.equals("other", name)) {
-            viewHolder.file_icon.setImageResource(R.mipmap.file_other_icon);
+//        } else if (TextUtils.equals("zip", name)) {
+//            viewHolder.file_icon.setImageResource(R.mipmap.file_zip_icon);
+//        } else if (TextUtils.equals("music", name)) {
+//            viewHolder.file_icon.setImageResource(R.mipmap.file_music_icon);
+//        } else if (TextUtils.equals("video", name)) {
+//            viewHolder.file_icon.setImageResource(R.mipmap.file_video_icon);
+//        } else if (TextUtils.equals("other", name)) {
+//            viewHolder.file_icon.setImageResource(R.mipmap.file_other_icon);
         } else {
             viewHolder.file_icon.setImageDrawable(info.icon);
         }

@@ -1,5 +1,6 @@
 package com.mutter.clean.junk.myActivity;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
@@ -23,8 +24,10 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mutter.clean.core.CleanManager;
@@ -44,11 +47,12 @@ import java.util.List;
 
 public class XuanfuActivity extends BaseActivity {
     LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
-    FloatRound float_rotate;
     LinearLayout ll_ad;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
-    TextView float_ram_free, float_ram_use;
-    TextView float_tishi;
+    TextView memory;
+    RelativeLayout float_rotate;
+    ImageView short_rotate, short_rotate_2;
+    FrameLayout short_ani;
 
     private Handler myHandler;
     private View nativeView;
@@ -70,10 +74,11 @@ public class XuanfuActivity extends BaseActivity {
         iv_xianshi = (ImageView) findViewById(R.id.iv_xianshi);
         iv_shengyin = (ImageView) findViewById(R.id.iv_shengyin);
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
-        float_rotate = (FloatRound) findViewById(R.id.float_rotate);
-        float_tishi = (TextView) findViewById(R.id.float_tishi);
-        float_ram_free = (TextView) findViewById(R.id.float_ram_free);
-        float_ram_use = (TextView) findViewById(R.id.float_ram_use);
+        memory = (TextView) findViewById(R.id.memory);
+        float_rotate = (RelativeLayout) findViewById(R.id.float_rotate);
+        short_ani = (FrameLayout) findViewById(R.id.short_ani);
+        short_rotate = (ImageView) findViewById(R.id.short_rotate);
+        short_rotate_2 = (ImageView) findViewById(R.id.short_rotate_2);
     }
 
     @Override
@@ -102,6 +107,7 @@ public class XuanfuActivity extends BaseActivity {
         float_rotate.setOnClickListener(kuaijieListener);
     }
 
+    private boolean isAni;
     View.OnClickListener kuaijieListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -143,7 +149,10 @@ public class XuanfuActivity extends BaseActivity {
                     }
                     break;
                 case R.id.float_rotate:
-                    float_rotate.setOnClickListener(null);
+                    if (isAni) {
+                        return;
+                    }
+                    isAni = true;
                     startCleanAnimation();
                     break;
             }
@@ -162,23 +171,7 @@ public class XuanfuActivity extends BaseActivity {
             nativeView = AdUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
-                View ad_action = nativeView.findViewWithTag("ad_action");
-                animatorSet = new AnimatorSet();
-                ObjectAnimator animator_1 = ObjectAnimator.ofFloat(ll_ad, View.SCALE_X, 1, 1.2f, 0.9f, 1.1f, 1);
-                animator_1.setDuration(800);
-                ObjectAnimator animator_2 = ObjectAnimator.ofFloat(ll_ad, View.SCALE_Y, 1, 0.8f, 1.1f, 0.9f, 1);
-                animator_2.setDuration(800);
-                animatorSet.play(animator_1).with(animator_2);
-                animatorSet.setInterpolator(new DecelerateInterpolator());
-                myHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (animatorSet != null && !animatorSet.isRunning()) {
-                            animatorSet.start();
-                        }
-                        myHandler.postDelayed(this, 2000);
-                    }
-                });
+                ll_ad.setVisibility(View.VISIBLE);
             }
         }
     }
@@ -191,46 +184,54 @@ public class XuanfuActivity extends BaseActivity {
             }
         }).start();
         CleanManager.getInstance(this).clearRam();
-        float_rotate.setCustomRoundListener(new FloatRound.CustomRoundListener() {
+        animatorSet = new AnimatorSet();
+        ObjectAnimator objectAnimator_1 = ObjectAnimator.ofFloat(short_ani, View.SCALE_X, 0, 1);
+        objectAnimator_1.setDuration(500);
+        ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(short_ani, View.SCALE_Y, 0, 1);
+        objectAnimator_2.setDuration(500);
+        ObjectAnimator objectAnimator_3 = ObjectAnimator.ofFloat(short_rotate, View.ROTATION, 0, 3600);
+        objectAnimator_3.setDuration(3600);
+        ObjectAnimator objectAnimator_4 = ObjectAnimator.ofFloat(short_rotate_2, View.ROTATION, 0, 3600);
+        objectAnimator_4.setDuration(3600);
+        ObjectAnimator objectAnimator_5 = ObjectAnimator.ofFloat(short_ani, View.SCALE_X, 1, 0);
+        objectAnimator_1.setDuration(500);
+        ObjectAnimator objectAnimator_6 = ObjectAnimator.ofFloat(short_ani, View.SCALE_Y, 1, 0);
+        objectAnimator_2.setDuration(500);
+        animatorSet.play(objectAnimator_1).with(objectAnimator_2).with(objectAnimator_3).with(objectAnimator_4);
+        animatorSet.play(objectAnimator_5).with(objectAnimator_6).after(3100);
+        animatorSet.start();
+        animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
-            public void progressUpdate() {
-                float_rotate.startProgress2(Util.getMemory(XuanfuActivity.this));
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        initSize();
-                    }
-                });
+            public void onAnimationCancel(Animator animation) {
+
             }
-        });
-        float_rotate.startProgress1();
-        float_tishi.startAnimation(suo);
-        suo.setAnimationListener(new Animation.AnimationListener() {
+
             @Override
-            public void onAnimationEnd(Animation animation) {
-                float_tishi.setText(R.string.float_yijiasu);
-                float_tishi.startAnimation(fang);
+            public void onAnimationEnd(Animator animation) {
+                short_ani.setVisibility(View.GONE);
                 initSize();
+                isAni = false;
             }
 
             @Override
-            public void onAnimationRepeat(Animation animation) {
+            public void onAnimationRepeat(Animator animation) {
 
             }
 
             @Override
-            public void onAnimationStart(Animation animation) {
+            public void onAnimationStart(Animator animation) {
 
             }
         });
+        short_ani.setVisibility(View.VISIBLE);
     }
 
     private void initSize() {
-        long size_all = MemoryManager.getPhoneTotalRamMemory();
-        long kong = getAvailMemory((ActivityManager) getSystemService(Context.ACTIVITY_SERVICE));
-        float_ram_free.setText(Util.convertStorage(kong, true));
-        float_ram_use.setText(Util.convertStorage(size_all - kong, true));
-        float_rotate.setProgress(Util.getMemory(this));
+        long ram_size_kongxian = MemoryManager.getPhoneFreeRamMemory(this);
+        long ram__size_all = MemoryManager.getPhoneTotalRamMemory();
+        long ram_shiyong = ram__size_all - ram_size_kongxian;
+        int memo = (int) (ram_shiyong * 100 / ram__size_all);
+        memory.setText(memo + "%");
     }
 
     public int killAll(Context context) {
@@ -261,33 +262,33 @@ public class XuanfuActivity extends BaseActivity {
 
     private void wifi() {
         if (CheckState.wifiState(this)) {
-            iv_wifi.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setBackgroundResource(R.drawable.shape_a3_round);
         } else {
-            iv_wifi.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setBackgroundResource(R.drawable.shape_ffffff_20_round);
         }
     }
 
     private void wifiD() {
         if (!CheckState.wifiState(this)) {
-            iv_wifi.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setBackgroundResource(R.drawable.shape_a3_round);
         } else {
-            iv_wifi.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setBackgroundResource(R.drawable.shape_ffffff_20_round);
         }
     }
 
     private void liuLiang() {
         if (CheckState.networkState(this, null)) {
-            iv_liuliang.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setBackgroundResource(R.drawable.shape_a3_round);
         } else {
-            iv_liuliang.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setBackgroundResource(R.drawable.shape_ffffff_20_round);
         }
     }
 
     private void liuLiangd() {
         if (!CheckState.networkState(this, null)) {
-            iv_liuliang.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setBackgroundResource(R.drawable.shape_a3_round);
         } else {
-            iv_liuliang.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setBackgroundResource(R.drawable.shape_ffffff_20_round);
         }
     }
 
@@ -296,31 +297,35 @@ public class XuanfuActivity extends BaseActivity {
         if (light > 0 && light <= LIGHT_NORMAL) {
             //低亮度
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_0);
+            iv_xianshi.setBackgroundResource(R.drawable.shape_ffffff_20_round);
         } else if (light > LIGHT_NORMAL && light < LIGHT_100_PERCENT) {
             //中
+            iv_xianshi.setBackgroundResource(R.drawable.shape_ffffff_20_round);
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_50);
         } else if (light == LIGHT_100_PERCENT) {
             //高
+            iv_xianshi.setBackgroundResource(R.drawable.shape_ffffff_20_round);
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_100);
         } else if (light == -1) {
             //自动
+            iv_xianshi.setBackgroundResource(R.drawable.shape_a3_round);
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_zidong);
         }
     }
 
     private void shengYin() {
         if (CheckState.soundState(this)) {
-            iv_shengyin.setColorFilter(ContextCompat.getColor(this, R.color.float_kaiguan));
+            iv_shengyin.setBackgroundResource(R.drawable.shape_a3_round);
         } else {
-            iv_shengyin.setColorFilter(null);
+            iv_shengyin.setBackgroundResource(R.drawable.shape_ffffff_20_round);
         }
     }
 
     private void gps() {
         if (CheckState.gpsState(this)) {
-            iv_gps.setColorFilter(getResources().getColor(R.color.float_kaiguan));
+            iv_gps.setBackgroundResource(R.drawable.shape_a3_round);
         } else {
-            iv_gps.setColorFilter(null);
+            iv_gps.setBackgroundResource(R.drawable.shape_ffffff_20_round);
         }
     }
 
@@ -373,10 +378,12 @@ public class XuanfuActivity extends BaseActivity {
                 case LIGHT_NORMAL:
                     light = LIGHT_50_PERCENT - 1;
                     iv_xianshi.setImageResource(R.mipmap.float_liangdu_50);
+                    iv_xianshi.setBackgroundResource(R.drawable.shape_ffffff_20_round);
                     break;
                 case LIGHT_50_PERCENT:
                     light = LIGHT_100_PERCENT - 1;
                     iv_xianshi.setImageResource(R.mipmap.float_liangdu_100);
+                    iv_xianshi.setBackgroundResource(R.drawable.shape_ffffff_20_round);
                     break;
                 case LIGHT_100_PERCENT:
                     light = LIGHT_NORMAL - 1;
@@ -384,6 +391,7 @@ public class XuanfuActivity extends BaseActivity {
                             Settings.System.SCREEN_BRIGHTNESS_MODE,
                             Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
                     iv_xianshi.setImageResource(R.mipmap.float_liangdu_zidong);
+                    iv_xianshi.setBackgroundResource(R.drawable.shape_a3_round);
                     break;
                 case LIGHT_AUTO:
                     light = LIGHT_NORMAL - 1;
@@ -391,6 +399,7 @@ public class XuanfuActivity extends BaseActivity {
                             Settings.System.SCREEN_BRIGHTNESS_MODE,
                             Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
                     iv_xianshi.setImageResource(R.mipmap.float_liangdu_0);
+                    iv_xianshi.setBackgroundResource(R.drawable.shape_ffffff_20_round);
 
                     break;
                 case LIGHT_ERR:

@@ -74,7 +74,6 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
         } else {
             holder.name.setText(info.label);
             Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
-            holder.icon.setImageResource(R.mipmap.log_file);
         }
 
         if (info.isChecked) {
@@ -88,10 +87,8 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
                     holder.checkBox.setImageResource(R.mipmap.ram_passed);
-                    junkPresenter.addCleandata(true, info.size);
                 } else {
                     holder.checkBox.setImageResource(R.mipmap.ram_normal);
-                    junkPresenter.addCleandata(false, info.size);
                 }
             }
         });

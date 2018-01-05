@@ -77,19 +77,15 @@ public class IgnoreAddActivity extends BaseActivity {
         adapter = new WhiteListAdapter(this);
         list_si.setAdapter(adapter);
         initData();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                initAd();
-            }
-        }, 1000);
+        initAd();
     }
 
     private void initAd() {
         nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ll_ad.addView(nativeView);
-            AdUtil.startBannerAnimation(this,ad_fl);
+//            AdUtil.startBannerAnimation(this, ad_fl);
+            ad_fl.setVisibility(View.VISIBLE);
         }
     }
 

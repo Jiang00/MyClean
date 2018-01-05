@@ -1,108 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A10"
+    android:background="@mipmap/backage"
     android:orientation="vertical">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d225">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/shape_deep"
-            android:scaleType="fitXY"
-            android:src="@mipmap/power_1" />
+            android:layout_height="wrap_content">
 
-        <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/view_title_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
+
+                <include layout="@layout/layout_title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d95"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                        android:id="@+id/power_size_all"
+                        android:layout_width="@dimen/d176"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d61"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="0"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/s72" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            android:id="@+id/power_fangxin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="KB"
+                            android:textColor="@color/B10"
+                            android:textSize="@dimen/s21" />
+
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d12"
+                            android:text="@string/junk_title_clean"
+                            android:textColor="@color/B10"
+                            android:textSize="@dimen/s12" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/ad_fl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:visibility="gone">
 
-            <View
-                android:id="@+id/view_title_bar"
+            <LinearLayout
+                android:id="@+id/ll_ad"
                 android:layout_width="match_parent"
-                android:layout_height="24dp" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </FrameLayout>
 
-            <include layout="@layout/layout_title" />
-        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/power_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+
+                <com.mutter.clean.junk.view.CustomerTypefaceButton
+                    android:id="@+id/junk_button_clean"
+                    android:layout_width="@dimen/d333"
+                    android:layout_height="@dimen/d43"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="@dimen/d10"
+                    android:layout_marginTop="@dimen/d10"
+                    android:background="@drawable/shape_a3_r"
+                    android:text="@string/ram_button"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s24"
+                    app:typeface="Medium.otf" />
+            </LinearLayout>
+
+        </FrameLayout>
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/d7"
-            android:background="@drawable/shape_ad"
-            android:elevation="@dimen/d2"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d33"
-                android:orientation="horizontal">
-
-                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d7"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:text="@string/power_accb"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s11"
-                    app:typeface="lyp_text.otf" />
-
-                <ImageView
-                    android:id="@+id/power_check"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:layout_marginRight="@dimen/d8"
-                    android:src="@mipmap/side_check_passed" />
-            </LinearLayout>
-
-            <FrameLayout
-                android:id="@+id/ad_fl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d7"
-                android:background="@drawable/shape_ad"
-                android:elevation="@dimen/d2"
-                android:visibility="gone">
-
-                <LinearLayout
-                    android:id="@+id/ll_ad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </FrameLayout>
-
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/power_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:overScrollMode="never"
-                android:scrollbars="none" />
-        </LinearLayout>
-
-
-        <Button
-            android:id="@+id/junk_button_clean"
+        <com.sample.lottie.LottieAnimationView
+            android:id="@+id/lottie_power"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@drawable/shape_button" />
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:lottie_fileName="cloud.json"
+            app:lottie_imageAssetsFolder="image/huojian"
+            app:lottie_loop="false" />
     </FrameLayout>
-</LinearLayout>
+</FrameLayout>

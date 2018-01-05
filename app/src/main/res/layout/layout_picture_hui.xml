@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A10"
+    android:background="@mipmap/backage"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -24,9 +23,6 @@
         android:id="@+id/ad_fl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/d7"
-        android:background="@drawable/shape_ad"
-        android:elevation="@dimen/d2"
         android:visibility="gone">
 
         <LinearLayout
@@ -65,18 +61,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d24"
                     android:text="@string/picture_8"
-                    android:textColor="@color/B8"
-                    android:textSize="@dimen/s17"
-                    app:typeface="lyp_text.otf" />
+                    android:textColor="@color/white_50"
+                    android:textSize="@dimen/s17" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ll_picture"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/d7"
-                android:background="@drawable/shape_ad"
-                android:elevation="@dimen/d2"
                 android:orientation="vertical">
 
                 <TextView
@@ -85,7 +77,7 @@
                     android:layout_marginLeft="@dimen/d8"
                     android:gravity="center_vertical"
                     android:text="@string/picture_5"
-                    android:textColor="@color/B2"
+                    android:textColor="@color/white_100"
                     android:textSize="@dimen/s11" />
 
                 <View
@@ -93,7 +85,7 @@
                     android:layout_height="1px"
                     android:layout_marginLeft="@dimen/d8"
                     android:layout_marginRight="@dimen/d8"
-                    android:background="@color/B1" />
+                    android:background="@color/white_50" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/picture_hui_recyc"
@@ -104,12 +96,16 @@
             </LinearLayout>
         </FrameLayout>
 
-        <Button
+        <com.mutter.clean.junk.view.CustomerTypefaceButton
             android:id="@+id/picture_delete"
-            android:layout_width="@dimen/d95"
-            android:layout_height="@dimen/d95"
+            android:layout_width="@dimen/d333"
+            android:layout_height="@dimen/d43"
             android:layout_gravity="bottom|center_horizontal"
-            android:background="@drawable/shape_button" />
-
+            android:layout_marginBottom="@dimen/d10"
+            android:background="@drawable/shape_a3_r"
+            android:text="@string/picture_7"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s24"
+            app:typeface="Medium.otf" />
     </FrameLayout>
 </LinearLayout>

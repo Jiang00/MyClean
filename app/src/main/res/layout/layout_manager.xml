@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A10"
+    android:background="@mipmap/backage"
     android:orientation="vertical">
 
 
@@ -11,7 +11,6 @@
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -22,7 +21,7 @@
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -31,28 +30,30 @@
             android:id="@+id/view_pager_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/A8"
-            android:elevation="@dimen/d2"
-            app:tabIndicatorColor="@color/A7"
-            app:tabSelectedTextColor="@color/A7"
+            app:tabIndicatorColor="@color/A3"
+            app:tabSelectedTextColor="@color/A3"
             app:tabTextAppearance="@style/tablayout_textSize"
-            app:tabTextColor="@color/B5" />
+            app:tabTextColor="@color/white_100" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/doc_view_pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/view_pager_tab" />
+            android:layout_height="0dp"
+            android:layout_below="@id/view_pager_tab"
+            android:layout_weight="1" />
 
-
-        <Button
+        <com.mutter.clean.junk.view.CustomerTypefaceButton
             android:id="@+id/junk_button_clean"
-            android:layout_width="@dimen/d95"
-            android:layout_height="@dimen/d95"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"
-            android:background="@drawable/shape_button"
-            android:visibility="gone" />
-    </RelativeLayout>
+            android:layout_width="@dimen/d333"
+            android:layout_height="@dimen/d43"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/d10"
+            android:layout_marginTop="@dimen/d10"
+            android:background="@drawable/shape_a3_r"
+            android:text="@string/manager_button"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s24"
+            android:visibility="invisible"
+            app:typeface="Medium.otf" />
+    </LinearLayout>
 </LinearLayout>

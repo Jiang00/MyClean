@@ -58,13 +58,11 @@ public class BatteryView extends FrameLayout {
     private TextView date;
     private TextView week;
     private TextView batteryLeft;
-    private TextView currentLevel;
-    private BubbleLayout bubbleLayout;
+    TextView charging_n;
+    LottieAnimationView charging_lot;
+    private ChargWaterView currentLevel;
 
-    private LottieAnimationView shell;
-    private LottieAnimationView water;
     private int halfWidth;
-    private ImageView shutter;
 
     public interface UnlockListener {
         void onUnlock();
@@ -155,40 +153,26 @@ public class BatteryView extends FrameLayout {
         }
     }
 
-    private int progress = 0;
 
     public void bind(BatteryEntry entry) {
         if (entry == null) {
             return;
         }
         final int curLevel = entry.getLevel();
-        currentLevel.setText(curLevel + "%");
+        currentLevel.upDate(curLevel);
         final int le = curLevel % 100;
 
-        if (water != null && !water.isAnimating()) {
-            initWater();
-            water.playAnimation();
-            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    progress = (int) (animation.getAnimatedFraction() * 100);
-                    if (le == 0) {
-                        if (progress == 99) {
-                            progress = 100;
-                            water.pauseAnimation();
-                        }
-                    } else if (progress == le) {
-                        water.pauseAnimation();
-                    }
-                }
-            });
-        }
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
             String str;
             if (entry.isCharging()) {
                 str = getResources().getString(R.string.charging_on_left);
+                charging_lot.setVisibility(VISIBLE);
+                charging_n.setVisibility(INVISIBLE);
+
             } else {
+                charging_lot.setVisibility(INVISIBLE);
+                charging_n.setVisibility(VISIBLE);
                 str = getResources().getString(R.string.charging_use_left);
             }
             String result = String.format(str, entry.extractHours(leftChargeTime), entry.extractMinutes(leftChargeTime));
@@ -202,43 +186,16 @@ public class BatteryView extends FrameLayout {
     }
 
 
-    private void initShell() {
-        try {
-            shell.setImageAssetsFolder(mContext, "theme://images/waikuang");
-            shell.setAnimation(mContext, "theme://waikuang.json");
-            shell.loop(true);
-            shell.playAnimation();
-        } catch (Exception e) {
-            shell.setImageAssetsFolder(null, "images/shell");
-            shell.setAnimation(null, "waikuang.json");
-        }
-        shell.loop(true);
-        shell.playAnimation();
-    }
-
-    private void initWater() {
-        try {
-            water.setImageAssetsFolder(mContext, "theme://images/shui");
-            water.setAnimation(mContext, "theme://shui.json");
-        } catch (Exception e) {
-            if (!water.isAnimating()) {
-                water.setImageAssetsFolder(null, "images/shui");
-                water.setAnimation(null, "shui.json");
-            }
-        }
-        water.loop(true);
-        water.setSpeed(5.0f);
-    }
-
-
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
         if (!isBindView) {
             initViews();
             isBindView = true;
-
-//            initShell();
+            if (currentLevel != null) {
+                currentLevel.start();
+            }
+            initLot();
 
             updateTime();
             showNativeAD();
@@ -336,10 +293,14 @@ public class BatteryView extends FrameLayout {
         }
     }
 
+    private void initLot() {
+        charging_lot.setAnimation("lightning_optimize.json");
+        charging_lot.loop(true);
+        charging_lot.playAnimation();
+    }
+
     private void initViews() {
-        shutter = (ImageView) findViewById(R.id.battery_shutter);
-        bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
-        currentLevel = (TextView) findViewById(R.id.battery_level);
+        currentLevel = (ChargWaterView) findViewById(R.id.battery_level);
         batteryView = (BatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
@@ -351,22 +312,14 @@ public class BatteryView extends FrameLayout {
         date = (TextView) findViewById(R.id.battery_now_date);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
-        shell = (LottieAnimationView) findViewById(R.id.battery_shell);
-        water = (LottieAnimationView) findViewById(R.id.battery_electricity);
+        charging_n = (TextView) findViewById(R.id.charging_n);
+        charging_lot = (LottieAnimationView) findViewById(R.id.charging_lot);
     }
 
     public void pauseBubble() {
-        if (bubbleLayout != null) {
-            bubbleLayout.pause();
-        }
     }
 
     public void reStartBubble() {
-        if (bubbleLayout != null) {
-//            bubbleLayout.reStart();
-            bubbleLayout.pause();
-
-        }
     }
 
     @Override
@@ -386,14 +339,8 @@ public class BatteryView extends FrameLayout {
         if (isRegisterTimeUpdate) {
             unregisterTimeUpdateReceiver();
         }
-        if (water != null && water.isAnimating()) {
-            water.cancelAnimation();
-        }
-        if (shell != null && shell.isAnimating()) {
-            shell.cancelAnimation();
-        }
-        if (bubbleLayout != null) {
-            bubbleLayout.destroy();
+        if (currentLevel != null) {
+            currentLevel.stop();
         }
         if (isBindView) {
             isBindView = false;

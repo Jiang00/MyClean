@@ -8,13 +8,13 @@
 
     <RelativeLayout
         android:id="@+id/junk_item_rl"
-        android:layout_width="@dimen/d65"
+        android:layout_width="@dimen/d72"
         android:layout_height="@dimen/d56">
 
         <ImageView
             android:id="@+id/recyc_icon"
-            android:layout_width="@dimen/d33"
-            android:layout_height="@dimen/d33"
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
             android:layout_centerInParent="true" />
     </RelativeLayout>
 
@@ -26,9 +26,8 @@
         android:layout_toRightOf="@id/junk_item_rl"
         android:maxLength="15"
         android:text="app标题"
-        android:textColor="@color/B2"
-        android:textSize="@dimen/s14"
-        app:typeface="lyp_text.otf" />
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/s16" />
 
     <ImageView
         android:id="@+id/recyc_check"
@@ -37,7 +36,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/d8"
-        android:layout_marginRight="@dimen/d8"
+        android:layout_marginRight="@dimen/d16"
         android:src="@mipmap/ram_passed" />
 
 </RelativeLayout>

@@ -8,8 +8,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -106,6 +110,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
             return;
         }
         adapterRam = new RamAdapter(this, ramPresenter);
+        junk_list_all.setLayoutAnimation(getAnimationController());
         junk_list_all.setAdapter(adapterRam);
 
         ramPresenter.addAdapterData();
@@ -150,25 +155,25 @@ public class RamAvtivity extends BaseActivity implements RamView {
             }
         }).start();
 //        junk_size_all.setText(String.valueOf(memory));
-        if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
-            if (color1) {
-                color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
-                colorAnim.setDuration(2000);
-                colorAnim.setRepeatCount(0);
-                colorAnim.setEvaluator(new ArgbEvaluator());
-                colorAnim.start();
-            }
-        } else if (allSize > 1024 * 1024 * 200) {
-            if (color2) {
-                color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
-                colorAnim.setDuration(2000);
-                colorAnim.setRepeatCount(0);
-                colorAnim.setEvaluator(new ArgbEvaluator());
-                colorAnim.start();
-            }
-        }
+//        if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
+//            if (color1) {
+//                color1 = false;
+//                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
+//                colorAnim.setDuration(2000);
+//                colorAnim.setRepeatCount(0);
+//                colorAnim.setEvaluator(new ArgbEvaluator());
+//                colorAnim.start();
+//            }
+//        } else if (allSize > 1024 * 1024 * 200) {
+//            if (color2) {
+//                color2 = false;
+//                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
+//                colorAnim.setDuration(2000);
+//                colorAnim.setRepeatCount(0);
+//                colorAnim.setEvaluator(new ArgbEvaluator());
+//                colorAnim.start();
+//            }
+//        }
     }
 
     public void setUnit(long size, TextView textView) {
@@ -193,6 +198,25 @@ public class RamAvtivity extends BaseActivity implements RamView {
             }
         });
 
+    }
+
+    protected LayoutAnimationController getAnimationController() {
+        int duration = 300;
+        AnimationSet set = new AnimationSet(true);
+
+        Animation animation = new AlphaAnimation(0.0f, 1.0f);
+        animation.setDuration(duration);
+        set.addAnimation(animation);
+
+        animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
+                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
+                -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+        animation.setDuration(duration);
+        set.addAnimation(animation);
+
+        LayoutAnimationController controller = new LayoutAnimationController(set, 0.5f);
+        controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
+        return controller;
     }
 
     @Override

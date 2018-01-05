@@ -4,16 +4,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.mutter.clean.util.Util;
 import com.mutter.clean.junk.R;
+
 
 /**
  * Created by chengyuan on 16/8/12.
@@ -32,8 +29,6 @@ public class FloatStateView extends View {
     private int type = 1;
     private int pratent;
     private Bitmap bitmap_normal;
-    private Bitmap bitmap_left;
-    private Bitmap bitmap_right;
 
 
     public FloatStateView(Context context) {
@@ -71,22 +66,20 @@ public class FloatStateView extends View {
      */
     private void initPaints() {
         firstPaint = new Paint();
-        firstPaint.setColor(getResources().getColor(R.color.A1));
         firstPaint.setAntiAlias(true);
-        firstPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        firstPaint.setStrokeWidth(getResources().getDimensionPixelOffset(R.dimen.d1));
 
         // 文字
         textPaint = new Paint();
-        textPaint.setTextSize(getResources().getDimensionPixelOffset(R.dimen.s12));
-        textPaint.setColor(Color.WHITE);
+        textPaint.setTextSize(getResources().getDimensionPixelOffset(R.dimen.s9));
+        textPaint.setColor(getResources().getColor(R.color.A3));
         textPaint.setAntiAlias(true);
         textPaint.setFakeBoldText(true);
         Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.icon);
         if (src != null) {
             bitmap_normal = Bitmap.createScaledBitmap(src, width, height, true);
         }
-        bitmap_left = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_left), width, height, true);
-        bitmap_right = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_right), width, height, true);
+
     }
 
     /**
@@ -100,21 +93,19 @@ public class FloatStateView extends View {
         if (type == STATE_NORMAL) {
             canvas.drawBitmap(bitmap_normal, 0, 0, null);
         } else {
-            canvas.drawBitmap(bitmap_left, 0, 0, null);
-            if (pratent > 40 && pratent <= 80) {
-                firstPaint.setColor(getResources().getColor(R.color.A4));
-            } else if (pratent > 80) {
-                firstPaint.setColor(getResources().getColor(R.color.A2));
-            } else {
-                firstPaint.setColor(getResources().getColor(R.color.A1));
-            }
+            firstPaint.setColor(getResources().getColor(R.color.white_100));
+            firstPaint.setStyle(Paint.Style.FILL);
+            canvas.drawCircle(width / 2, width / 2, width / 2, firstPaint);
+            firstPaint.setStyle(Paint.Style.STROKE);
+            firstPaint.setColor(getResources().getColor(R.color.A3));
+            canvas.drawCircle(width / 2, width / 2, width / 2 - getResources().getDimensionPixelOffset(R.dimen.d2), firstPaint);
+
             float textWidth = textPaint.measureText(text);
             float x = width / 2 - textWidth / 2;
             Paint.FontMetrics metrics = textPaint.getFontMetrics();
             float dy = -(metrics.descent + metrics.ascent) / 2;
             float y = dy + height / 2;
             canvas.drawText(text, x, y, textPaint);
-            canvas.drawBitmap(bitmap_right, 0, 0, null);
         }
     }
 

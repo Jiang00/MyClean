@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A10"
+    android:background="@mipmap/backage"
     android:orientation="vertical">
 
 
@@ -11,7 +11,6 @@
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -36,8 +35,7 @@
                 android:lines="1"
                 android:text="0"
                 android:textColor="#ffffff"
-                android:textSize="@dimen/s72"
-                app:typeface="lyp_text.otf" />
+                android:textSize="@dimen/s72" />
 
             <LinearLayout
                 android:id="@+id/ll_tv"
@@ -52,52 +50,54 @@
                     android:layout_height="wrap_content"
                     android:text="KB"
                     android:textColor="@color/B10"
-                    android:textSize="@dimen/s21"
-                    app:typeface="lyp_text.otf" />
+                    android:textSize="@dimen/s21" />
 
                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                     android:id="@+id/junk_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d8"
+                    android:layout_marginTop="@dimen/d12"
                     android:text="@string/junk_title_clean"
                     android:textColor="@color/B10"
-                    android:textSize="@dimen/s12"
-                    app:typeface="lyp_text.otf" />
+                    android:textSize="@dimen/s12" />
 
             </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <FrameLayout
+
+        <ListView
+            android:id="@+id/junk_list_all"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="0px"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
 
-            <ListView
-                android:id="@+id/junk_list_all"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/d7"
-                android:background="@drawable/shape_ad"
-                android:divider="@drawable/list_divider"
-                android:dividerHeight="0px"
-                android:elevation="@dimen/d2" />
-        </FrameLayout>
 
-        <Button
+        <com.mutter.clean.junk.view.CustomerTypefaceButton
             android:id="@+id/junk_button_clean"
-            android:layout_width="@dimen/d95"
-            android:layout_height="@dimen/d95"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@drawable/shape_button"
-            android:visibility="invisible" />
-    </FrameLayout>
+            android:layout_width="@dimen/d333"
+            android:layout_height="@dimen/d43"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/d10"
+            android:layout_marginTop="@dimen/d10"
+            android:background="@drawable/shape_a3_r"
+            android:text="@string/ram_button"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s24"
+            android:visibility="invisible"
+            app:typeface="Medium.otf" />
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -10,24 +10,17 @@
         android:id="@+id/manager_permision"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="@dimen/d30"
-            android:layout_height="@dimen/d36"
-            android:src="@mipmap/permiss_icon" />
 
         <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:text="@string/premiss_1"
-            android:textColor="@color/B2"
-            android:textSize="@dimen/s16"
-            app:typeface="lyp_text.otf" />
+            android:textColor="@color/white_70"
+            android:textSize="@dimen/s16" />
 
         <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:layout_width="wrap_content"
@@ -38,20 +31,18 @@
             android:layout_marginTop="22dp"
             android:gravity="center"
             android:text="@string/premiss_2"
-            android:textColor="@color/B3"
-            android:textSize="@dimen/s14"
-            app:typeface="lyp_text.otf" />
+            android:textColor="@color/white_50"
+            android:textSize="@dimen/s14" />
 
         <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/manager_shouquan"
-            android:layout_width="@dimen/d121"
-            android:layout_height="@dimen/d36"
+            android:layout_width="@dimen/d333"
+            android:layout_height="@dimen/d43"
             android:layout_marginTop="20dp"
-            android:background="@drawable/shape_a7_tuo"
+            android:background="@drawable/shape_a3_r"
             android:gravity="center"
             android:text="@string/premiss_5"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/s16"
-            app:typeface="lyp_text.otf" />
+            android:textSize="@dimen/s16" />
     </LinearLayout>
 </LinearLayout>

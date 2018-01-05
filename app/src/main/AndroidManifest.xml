@@ -92,33 +92,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".myActivity.Loading1Activity"
-            android:enabled="false"
-            android:icon="@mipmap/icon_1"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/LoadingTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.CREATE_SHORTCUT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.PICK" />
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <action android:name="android.intent.action.MEDIA_MOUNTED" />
-                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
-
-                <data android:scheme="file" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name="com.mutter.clean.junk.myActivity.JiangwenActivity"
             android:screenOrientation="portrait" />
         <activity

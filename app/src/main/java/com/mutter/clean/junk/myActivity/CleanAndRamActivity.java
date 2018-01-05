@@ -139,6 +139,11 @@ public class CleanAndRamActivity extends BaseActivity implements JunkRamView {
     }
 
     @Override
+    public void cleanAnimation(long cleanSize) {
+
+    }
+
+    @Override
     public void setColor(final long size) {
         new Thread(new Runnable() {
             @Override

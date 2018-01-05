@@ -1,65 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/shape_ad"
+    android:layout_height="64dp"
     android:orientation="horizontal">
 
-    <FrameLayout
-        android:layout_width="72dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center_vertical">
-
-        <ImageView
-            android:id="@+id/chongdian"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:scaleType="center"
-            android:src="@mipmap/gboost_main" />
-    </FrameLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/backage" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="72dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/chongdian"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:scaleType="center"
+                />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/electricity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gboost_0"
+                    android:textColor="@color/white_100"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/electricity"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/gboost_0"
-                android:textColor="@color/B2"
-                android:textSize="16sp" />
+                android:layout_marginTop="5dp"
+                android:text="@string/gboost_8"
+                android:textColor="@color/white_50"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/gboost_8"
-            android:textColor="@color/B3"
+            android:id="@+id/tv_jiasu"
+            android:layout_width="65dp"
+            android:layout_height="26dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/shape_notifi_button"
+            android:gravity="center"
+            android:text="@string/gboost_9"
+            android:textColor="@color/A3"
             android:textSize="12sp" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_jiasu"
-        android:layout_width="65dp"
-        android:layout_height="26dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/shape_notifi_button"
-        android:gravity="center"
-        android:text="@string/gboost_9"
-        android:textColor="@color/A1"
-        android:textSize="12sp" />
-
-</LinearLayout>
+</FrameLayout>

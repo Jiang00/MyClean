@@ -4,96 +4,77 @@
     android:id="@+id/onclick"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_54"
-    android:gravity="center">
+    android:background="@color/black_54">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
-
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
 
         <LinearLayout
-            android:layout_width="@dimen/d301"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/shape_a1_p"
+            android:layout_gravity="bottom"
+            android:background="@color/A3"
             android:orientation="vertical">
 
-            <ImageView
+
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:padding="@dimen/d8"
-                android:src="@mipmap/permiss_1" />
+                android:layout_marginBottom="@dimen/d16"
+                android:layout_marginLeft="@dimen/d14"
+                android:layout_marginRight="@dimen/d14"
+                android:layout_marginTop="@dimen/d20"
+                android:fontFamily="sans-serif"
+                android:text="@string/power_promiss_3"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s16" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d46"
+                android:layout_height="@dimen/d56"
+                android:layout_marginBottom="@dimen/d20"
                 android:layout_marginLeft="@dimen/d17"
                 android:layout_marginRight="@dimen/d17"
-                android:layout_marginTop="@dimen/d8"
-                android:background="@drawable/shape_ffffff_permiss"
+                android:background="@color/white_100"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="@dimen/d24"
-                    android:layout_height="@dimen/d24"
+                    android:layout_width="@dimen/d43"
+                    android:layout_height="@dimen/d43"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/d14"
+                    android:layout_marginLeft="@dimen/d7"
                     android:background="@mipmap/icon" />
 
                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/d47"
+                    android:layout_marginLeft="@dimen/d53"
                     android:fontFamily="sans-serif"
                     android:text="@string/app_name"
                     android:textColor="@color/A9"
-                    android:textSize="@dimen/s11"
-                    app:typeface="lyp_text.otf" />
-
-                <ImageView
-                    android:layout_width="@dimen/d20"
-                    android:layout_height="@dimen/d30"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d14"
-                    android:src="@mipmap/permiss_2" />
+                    android:textSize="@dimen/s16" />
 
 
             </RelativeLayout>
 
 
-            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/d16"
-                android:layout_marginLeft="@dimen/d16"
-                android:layout_marginRight="@dimen/d16"
-                android:layout_marginTop="@dimen/d14"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:text="@string/power_promiss_3"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s12"
-                app:typeface="lyp_text.otf" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="@dimen/d133"
+        <com.sample.lottie.LottieAnimationView
+            android:layout_width="@dimen/d61"
             android:layout_height="@dimen/d50"
-            android:layout_marginTop="@dimen/d72"
-            android:background="@drawable/shape_ffffff_k"
-            android:gravity="center"
-            android:text="@string/power_promiss_4"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/s18" />
-    </LinearLayout>
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="@dimen/d8"
+            android:layout_marginRight="@dimen/d16"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="permiss.json"
+            app:lottie_imageAssetsFolder="image/permiss"
+            app:lottie_loop="true" />
+
+    </FrameLayout>
 
 </LinearLayout>
 

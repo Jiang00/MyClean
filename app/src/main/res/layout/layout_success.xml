@@ -3,14 +3,13 @@
     android:id="@+id/success"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A10"
+    android:background="@color/A1"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -25,35 +24,52 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/A1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d33">
 
-            <ImageView
+            <com.sample.lottie.LottieAnimationView
+                android:id="@+id/lottie_power"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d72"
-                android:src="@mipmap/success_duigou" />
+                android:layout_gravity="center"
+                app:lottie_fileName="success.json"
+                app:lottie_loop="false" />
 
-            <TextView
-                android:id="@+id/success_c"
+            <LinearLayout
+                android:id="@+id/success_ani_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d33"
-                android:text="@string/clean_success"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s17" />
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="invisible">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/success_title_1"
+                    android:textColor="@color/A8"
+                    android:textSize="@dimen/s20" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d6"
+                    android:text="@string/success_title_2"
+                    android:textColor="@color/A8"
+                    android:textSize="@dimen/s16" />
+
+            </LinearLayout>
+
+        </FrameLayout>
 
         <com.mutter.clean.junk.myview.SlowScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/A1"
             android:fillViewport="true"
             android:scrollbars="none"
             android:visibility="invisible">
@@ -61,42 +77,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A10"
                 android:orientation="vertical">
                 <!--tou-->
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d116"
-                    android:layout_marginBottom="@dimen/d10"
-                    android:background="@color/A1">
+                    android:layout_height="@dimen/d82"
+                    android:layout_marginBottom="@dimen/d10">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:gravity="center_vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="@dimen/d50"
-                            android:layout_height="@dimen/d56"
-                            android:layout_marginLeft="@dimen/d72"
-                            android:src="@mipmap/success_duigou" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/d20"
+                            android:gravity="center"
                             android:orientation="vertical">
 
                             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                 android:id="@+id/success_clean_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/success_cleaned"
+                                android:text="@string/success_title_1"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s17"
+                                android:textSize="@dimen/s20"
                                 app:typeface="lyp_text.otf" />
 
                             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -104,9 +112,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/d8"
-                                android:text="@string/success_1"
+                                android:text="@string/success_title_2"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s17"
+                                android:textSize="@dimen/s16"
                                 app:typeface="lyp_text.otf" />
                         </LinearLayout>
                     </LinearLayout>
@@ -123,7 +131,6 @@
                     android:layout_marginLeft="@dimen/d10"
                     android:layout_marginRight="@dimen/d10"
                     android:background="@drawable/shape_ad"
-                    android:elevation="@dimen/d2"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -138,11 +145,11 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="@dimen/d16"
+                                android:layout_marginLeft="@dimen/d14"
+                                android:layout_marginTop="@dimen/d14"
                                 android:text="@string/rotate_1"
-                                android:textColor="@color/A6"
-                                android:textSize="@dimen/s14" />
+                                android:textColor="@color/black_87"
+                                android:textSize="@dimen/s16" />
 
                             <ImageView
                                 android:id="@+id/main_rotate_cha"
@@ -151,61 +158,55 @@
                                 android:layout_gravity="right"
                                 android:layout_marginRight="@dimen/d3"
                                 android:layout_marginTop="@dimen/d3"
+                                android:padding="@dimen/d10"
                                 android:src="@mipmap/rotate_cha" />
                         </FrameLayout>
 
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d14"
+                            android:layout_marginTop="@dimen/d8"
+                            android:text="@string/rotate_2"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/s13" />
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom"
-                                android:layout_marginLeft="@dimen/d36"
-                                android:layout_marginRight="@dimen/d17"
-                                android:src="@mipmap/main_rotate_2" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:text="@string/rotate_2"
-                                android:textColor="@color/B3"
-                                android:textSize="@dimen/s16" />
-                        </LinearLayout>
-
-
+                        <com.sample.lottie.LottieAnimationView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/d5"
+                            app:lottie_autoPlay="true"
+                            app:lottie_fileName="rate_stars.json"
+                            app:lottie_loop="true" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/d12"
-                        android:layout_marginTop="@dimen/d16"
-                        android:gravity="center"
+                        android:layout_marginBottom="@dimen/d6"
+                        android:gravity="right"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/main_rotate_bad"
-                            android:layout_width="@dimen/d125"
-                            android:layout_height="@dimen/d36"
-                            android:background="@drawable/shape_rotate_bad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:padding="@dimen/d10"
                             android:text="@string/main_rotate_bad"
-                            android:textColor="@color/B3"
+                            android:textColor="@color/black_54"
                             android:textSize="@dimen/s13" />
 
                         <TextView
                             android:id="@+id/main_rotate_good"
-                            android:layout_width="@dimen/d125"
-                            android:layout_height="@dimen/d36"
-                            android:background="@drawable/shape_rotate_good"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:padding="@dimen/d10"
                             android:text="@string/main_rotate_good"
-                            android:textColor="@color/A8"
+                            android:textColor="@color/A1"
                             android:textSize="@dimen/s13" />
                     </LinearLayout>
 
@@ -219,7 +220,6 @@
                     android:layout_marginLeft="@dimen/d10"
                     android:layout_marginRight="@dimen/d10"
                     android:background="@drawable/shape_ad"
-                    android:elevation="@dimen/d2"
                     android:visibility="gone">
                     <!--ad-->
                     <LinearLayout
@@ -232,125 +232,76 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/d10"
-                    android:layout_marginLeft="@dimen/d10"
-                    android:layout_marginRight="@dimen/d10"
-                    android:background="@drawable/shape_ad"
-                    android:elevation="@dimen/d2"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/tuiguang_success"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical" />
-                    <!--文件管理-->
-                    <LinearLayout
-                        android:id="@+id/main_file_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d72"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:src="@mipmap/file_main" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:orientation="vertical">
-
-                                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                                    android:id="@+id/main_msg_file"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/side_file"
-                                    android:textColor="@color/B2"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="lyp_text.otf" />
-
-                                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d8"
-                                    android:text="@string/file_main"
-                                    android:textColor="@color/B3"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="lyp_text.otf" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:background="@color/B1" />
-                    </LinearLayout>
 
                     <!--垃圾清理-->
                     <LinearLayout
                         android:id="@+id/main_junk_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/d10"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:layout_marginRight="@dimen/d10"
+                        android:background="@drawable/shape_ad"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d72"
+                            android:layout_height="@dimen/d100"
                             android:background="?attr/selectableItemBackground"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:src="@mipmap/junk_card" />
+                            <FrameLayout
+                                android:layout_width="@dimen/d56"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/shape_a3_l">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
+                                    android:layout_gravity="center"
+                                    android:src="@mipmap/junk_card" />
+                            </FrameLayout>
+
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/d16"
+                                android:layout_marginLeft="@dimen/d10"
+                                android:layout_marginRight="@dimen/d10"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
                                 android:orientation="vertical">
 
                                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d16"
                                     android:text="@string/side_junk"
-                                    android:textColor="@color/B2"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="lyp_text.otf" />
+                                    android:textColor="@color/black_87"
+                                    android:textSize="@dimen/s16" />
 
                                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="0dp"
                                     android:layout_marginTop="@dimen/d8"
+                                    android:layout_weight="1"
                                     android:text="@string/success_8"
-                                    android:textColor="@color/B3"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="lyp_text.otf" />
+                                    android:textColor="@color/black_54"
+                                    android:textSize="@dimen/s12" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right"
+                                    android:layout_marginBottom="@dimen/d10"
+                                    android:text="@string/junk_button"
+                                    android:textColor="@color/A1"
+                                    android:textSize="@dimen/s13" />
                             </LinearLayout>
 
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:background="@color/B1" />
                     </LinearLayout>
 
                     <!--内存加速-->
@@ -358,53 +309,69 @@
                         android:id="@+id/main_ram_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/d10"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:layout_marginRight="@dimen/d10"
+                        android:background="@drawable/shape_ad"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d72"
+                            android:layout_height="@dimen/d100"
                             android:background="?attr/selectableItemBackground"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:src="@mipmap/ram_card" />
+                            <FrameLayout
+                                android:layout_width="@dimen/d56"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/shape_a3_l">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
+                                    android:layout_gravity="center"
+                                    android:src="@mipmap/ram_card" />
+                            </FrameLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/d16"
+                                android:layout_marginLeft="@dimen/d10"
+                                android:layout_marginRight="@dimen/d10"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
                                 android:orientation="vertical">
 
                                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d16"
                                     android:text="@string/side_ram"
-                                    android:textColor="@color/B2"
-                                    android:textSize="@dimen/s14"
+                                    android:textColor="@color/black_87"
+                                    android:textSize="@dimen/s16"
                                     app:typeface="lyp_text.otf" />
 
                                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="0dp"
                                     android:layout_marginTop="@dimen/d8"
+                                    android:layout_weight="1"
                                     android:text="@string/success_9"
-                                    android:textColor="@color/B3"
+                                    android:textColor="@color/black_54"
                                     android:textSize="@dimen/s12"
                                     app:typeface="lyp_text.otf" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right"
+                                    android:layout_marginBottom="@dimen/d10"
+                                    android:text="@string/ram_button"
+                                    android:textColor="@color/A1"
+                                    android:textSize="@dimen/s13" />
                             </LinearLayout>
 
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:background="@color/B1" />
                     </LinearLayout>
 
                     <!--手机降温-->
@@ -412,108 +379,69 @@
                         android:id="@+id/main_cooling_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/d10"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:layout_marginRight="@dimen/d10"
+                        android:background="@drawable/shape_ad"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d72"
+                            android:layout_height="@dimen/d100"
                             android:background="?attr/selectableItemBackground"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:src="@mipmap/cpu_card" />
+                            <FrameLayout
+                                android:layout_width="@dimen/d56"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/shape_a3_l">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
+                                    android:layout_gravity="center"
+                                    android:src="@mipmap/cpu_card" />
+                            </FrameLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/d16"
+                                android:layout_marginLeft="@dimen/d10"
+                                android:layout_marginRight="@dimen/d10"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
                                 android:orientation="vertical">
 
                                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d16"
                                     android:text="@string/main_cooling_name"
-                                    android:textColor="@color/B2"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="lyp_text.otf" />
+                                    android:textColor="@color/black_87"
+                                    android:textSize="@dimen/s16" />
 
                                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="0dp"
                                     android:layout_marginTop="@dimen/d8"
+                                    android:layout_weight="1"
                                     android:text="@string/success_10"
-                                    android:textColor="@color/B3"
+                                    android:textColor="@color/black_54"
                                     android:textSize="@dimen/s12"
                                     app:typeface="lyp_text.otf" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right"
+                                    android:layout_marginBottom="@dimen/d10"
+                                    android:text="@string/main_tab_3"
+                                    android:textColor="@color/A1"
+                                    android:textSize="@dimen/s13" />
+
                             </LinearLayout>
 
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:background="@color/B1" />
-                    </LinearLayout>
-
-                    <!--游戏加速-->
-                    <LinearLayout
-                        android:id="@+id/main_gboost_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d72"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:src="@mipmap/gboost_main" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:orientation="vertical">
-
-                                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                                    android:id="@+id/main_msg_GBoost"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/gboost_0"
-                                    android:textColor="@color/B2"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="lyp_text.otf" />
-
-                                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d8"
-                                    android:text="@string/gboost_10"
-                                    android:textColor="@color/B3"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="lyp_text.otf" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:background="@color/B1" />
                     </LinearLayout>
 
                     <!--相似图片-->
@@ -521,153 +449,129 @@
                         android:id="@+id/main_picture_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/d10"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:layout_marginRight="@dimen/d10"
+                        android:background="@drawable/shape_ad"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d72"
+                            android:layout_height="@dimen/d100"
                             android:background="?attr/selectableItemBackground"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:src="@mipmap/picture_main" />
+                            <FrameLayout
+                                android:layout_width="@dimen/d56"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/shape_a3_l">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
+                                    android:layout_gravity="center"
+                                    android:src="@mipmap/picture_main" />
+                            </FrameLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/d16"
+                                android:layout_marginLeft="@dimen/d10"
+                                android:layout_marginRight="@dimen/d10"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
                                 android:orientation="vertical">
 
                                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                     android:id="@+id/main_msg_picture"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d16"
                                     android:text="@string/side_picture"
-                                    android:textColor="@color/B2"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="lyp_text.otf" />
+                                    android:textColor="@color/black_87"
+                                    android:textSize="@dimen/s16" />
 
                                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="0dp"
                                     android:layout_marginTop="@dimen/d8"
+                                    android:layout_weight="1"
                                     android:text="@string/picture_delete"
-                                    android:textColor="@color/B3"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="lyp_text.otf" />
+                                    android:textColor="@color/black_54"
+                                    android:textSize="@dimen/s12" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right"
+                                    android:layout_marginBottom="@dimen/d10"
+                                    android:text="@string/picture_button"
+                                    android:textColor="@color/A1"
+                                    android:textSize="@dimen/s13" />
                             </LinearLayout>
 
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:background="@color/B1" />
                     </LinearLayout>
-
-                    <!--清理通知栏-->
-                    <LinearLayout
-                        android:id="@+id/main_notifi_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d72"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:src="@mipmap/notifi_6" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_weight="1"
-                                android:gravity="center_vertical"
-                                android:orientation="vertical">
-
-                                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                                    android:id="@+id/main_msg_notifi"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/side_notifi"
-                                    android:textColor="@color/B2"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="lyp_text.otf" />
-
-                                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d8"
-                                    android:text="@string/notifi_msg_main"
-                                    android:textColor="@color/B3"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="lyp_text.otf" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:background="@color/B1" />
-                    </LinearLayout>
-
 
                     <!--深度清理-->
                     <LinearLayout
                         android:id="@+id/main_power_button"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d72"
-                        android:background="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/d100"
+                        android:layout_marginBottom="@dimen/d10"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:layout_marginRight="@dimen/d10"
+                        android:background="@drawable/shape_ad"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:id="@+id/power_icon"
-                            android:layout_width="@dimen/d40"
-                            android:layout_height="@dimen/d40"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d16"
-                            android:src="@mipmap/icon" />
+                        <FrameLayout
+                            android:layout_width="@dimen/d56"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/shape_a3_l">
+
+                            <ImageView
+                                android:layout_width="@dimen/d40"
+                                android:layout_height="@dimen/d40"
+                                android:layout_gravity="center"
+                                android:src="@mipmap/power_6" />
+                        </FrameLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="@dimen/d16"
-                            android:layout_marginRight="@dimen/d8"
+                            android:layout_marginLeft="@dimen/d10"
+                            android:layout_marginRight="@dimen/d10"
                             android:layout_weight="1"
-                            android:gravity="center_vertical"
                             android:orientation="vertical">
 
                             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d16"
                                 android:text="@string/side_power"
-                                android:textColor="@color/B2"
-                                android:textSize="@dimen/s14"
+                                android:textColor="@color/black_87"
+                                android:textSize="@dimen/s12"
                                 app:typeface="lyp_text.otf" />
 
                             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                 android:id="@+id/power_text"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="0dp"
                                 android:layout_marginTop="@dimen/d8"
+                                android:layout_weight="1"
                                 android:text="@string/power_3"
-                                android:textColor="@color/B3"
+                                android:textColor="@color/black_54"
                                 android:textSize="@dimen/s12"
                                 app:typeface="lyp_text.otf" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginBottom="@dimen/d10"
+                                android:text="@string/notification_button"
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s13" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -683,7 +587,6 @@
                     android:layout_marginLeft="@dimen/d10"
                     android:layout_marginRight="@dimen/d10"
                     android:background="@drawable/shape_ad"
-                    android:elevation="@dimen/d2"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:visibility="gone" />

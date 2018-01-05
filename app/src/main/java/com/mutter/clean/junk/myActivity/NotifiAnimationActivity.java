@@ -34,7 +34,6 @@ public class NotifiAnimationActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_notifi_info);
         handler = new Handler();
-        notifi_info_lot.setAnimation("lyp_tz.json");
         notifi_info_lot.loop(true);
         notifi_info_lot.setSpeed(0.5f);
         notifi_info_lot.playAnimation();

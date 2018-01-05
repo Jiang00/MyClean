@@ -1,135 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="64dp"
-    android:background="#202020"
     android:orientation="horizontal">
 
-    <FrameLayout
-        android:id="@+id/notifi_icon"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/notifi_icon" />
-    </FrameLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/backage" />
 
     <LinearLayout
-        android:id="@+id/notifi_ram"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
         <FrameLayout
-            android:layout_width="29dp"
-            android:layout_height="29dp">
+            android:id="@+id/notifi_icon"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/notifi_memory"
-                android:layout_width="29dp"
-                android:layout_height="29dp" />
-
-            <TextView
-                android:id="@+id/norifi_memory_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="78%"
-                android:textColor="@color/A1"
-                android:textSize="9sp" />
+                android:scaleType="fitCenter"
+                android:src="@mipmap/loading_icon" />
         </FrameLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white_50" />
+
+        <LinearLayout
+            android:id="@+id/notifi_ram"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="@string/notifi_jiasu"
-            android:textColor="@color/white_100"
-            android:textSize="9sp" />
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <FrameLayout
+                android:layout_width="33dp"
+                android:layout_height="33dp">
 
-    <LinearLayout
-        android:id="@+id/notifi_cooling"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/notifi_memory"
+                    android:layout_width="33dp"
+                    android:layout_height="33dp" />
 
-        <TextView
-            android:id="@+id/notifi_cpu"
-            android:layout_width="wrap_content"
-            android:layout_height="29dp"
-            android:gravity="center"
-            android:text="53℃"
-            android:textColor="@color/A4"
-            android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/norifi_memory_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="78%"
+                    android:textColor="@color/white_100"
+                    android:textSize="9sp" />
+            </FrameLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/notifi_jiasu"
+                android:textColor="@color/white_100"
+                android:textSize="9sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/notifi_junk_ram"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="@string/notifi_wendu"
-            android:textColor="@color/white_100"
-            android:textSize="9sp" />
-    </LinearLayout>
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/notifi_junk_ram"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:scaleType="center"
+                android:src="@mipmap/notifi_speed_1" />
 
-        <ImageView
-            android:layout_width="29dp"
-            android:layout_height="29dp"
-            android:scaleType="center"
-            android:src="@mipmap/notifi_speed" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/notifi_clean"
+                android:textColor="@color/white_100"
+                android:textSize="9sp" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/notifi_cooling"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="@string/notifi_clean"
-            android:textColor="@color/white_100"
-            android:textSize="9sp" />
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/notifi_cooling_icon"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:scaleType="center"
+                android:src="@mipmap/notifi_cooling_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/notifi_wendu"
+                android:textColor="@color/white_100"
+                android:textSize="9sp" />
+        </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/notifi_network_type"
-            android:layout_width="29dp"
-            android:layout_height="29dp"
-            android:scaleType="center"
-            android:src="@mipmap/notifi_liuliang" />
-
-        <TextView
-            android:id="@+id/notifi_network_sudu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="3.4KB/s"
-            android:textColor="@color/white_100"
-            android:textSize="9sp" />
-    </LinearLayout>
-</LinearLayout>
+</FrameLayout>

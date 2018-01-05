@@ -7,29 +7,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/d4"
-        android:layout_marginLeft="@dimen/d7"
-        android:layout_marginRight="@dimen/d7"
-        android:layout_marginTop="@dimen/d4"
-        android:background="@drawable/shape_ad"
-        android:elevation="@dimen/d2"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/recycle_time"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d33"
-            android:layout_marginLeft="@dimen/d8"
+            android:layout_height="@dimen/d40"
+            android:layout_marginLeft="@dimen/d16"
             android:gravity="center_vertical"
-            android:textColor="@color/B2"
-            android:textSize="@dimen/s11" />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s13" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginLeft="@dimen/d8"
-            android:layout_marginRight="@dimen/d8"
-            android:background="@color/B1" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyc"

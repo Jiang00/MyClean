@@ -1,85 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/shape_ad"
+    android:layout_height="64dp"
     android:orientation="horizontal">
 
-    <FrameLayout
-        android:layout_width="72dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center_vertical">
-
-        <ImageView
-            android:id="@+id/chongdian"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:scaleType="center"
-            android:src="@mipmap/cpu_card" />
-    </FrameLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/backage" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="72dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/chongdian"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:scaleType="center"
+                android:src="@mipmap/notifi_cpu_icon" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/electricity"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/notifi_tongzhi_2"
-                android:textColor="@color/B2"
-                android:textSize="16sp" />
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:id="@+id/electricity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notifi_tongzhi_2"
+                    android:textColor="@color/white_100"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notifi_tongzhi"
+                    android:textColor="@color/white_50"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/tv_memory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:lines="1"
+                    android:text="50℃"
+                    android:textColor="@color/A4"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/tv_jiasu"
+            android:layout_width="65dp"
+            android:layout_height="26dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="3dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notifi_tongzhi"
-                android:textColor="@color/B3"
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/tv_memory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:lines="1"
-                android:text="50℃"
-                android:textColor="@color/A4"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:layout_marginRight="16dp"
+            android:background="@drawable/shape_notifi_button"
+            android:gravity="center"
+            android:text="@string/notifi_jiangwen"
+            android:textColor="@color/A3"
+            android:textSize="12dp" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_jiasu"
-        android:layout_width="65dp"
-        android:layout_height="26dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/shape_notifi_button"
-        android:gravity="center"
-        android:text="@string/notifi_jiangwen"
-        android:textColor="@color/A1"
-        android:textSize="12dp" />
-
-</LinearLayout>
+</FrameLayout>

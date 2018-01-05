@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A10"
+    android:background="@mipmap/backage"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -25,11 +24,9 @@
         android:id="@+id/ad_fl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/d7"
-        android:layout_marginRight="@dimen/d7"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
         android:layout_marginTop="@dimen/d7"
-        android:background="@drawable/shape_ad"
-        android:elevation="@dimen/d2"
         android:visibility="gone">
 
         <LinearLayout
@@ -65,8 +62,8 @@
                 android:layout_marginRight="@dimen/d16"
                 android:layout_marginTop="@dimen/d24"
                 android:text="@string/white_wu"
-                android:textColor="@color/B8"
-                android:textSize="@dimen/s17"
+                android:textColor="@color/white_50"
+                android:textSize="@dimen/s12"
                 app:typeface="lyp_text.otf" />
         </LinearLayout>
 
@@ -75,11 +72,8 @@
             android:id="@+id/list_si"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/d7"
-            android:background="@drawable/shape_ad"
             android:divider="@drawable/list_divider"
             android:dividerHeight="0px"
-            android:elevation="@dimen/d2"
             android:scrollbars="none" />
     </FrameLayout>
 

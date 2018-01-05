@@ -174,10 +174,10 @@ public class LoadingActivity extends BaseActivity {
         } catch (Exception e) {
 
         }
-        if (PreData.getDB(this, Constant.AUTO_KAIGUAN)) {
-            Intent intent = new Intent(this, AutoService.class);
-            startService(intent);
-        }
+//        if (PreData.getDB(this, Constant.AUTO_KAIGUAN)) {
+//            Intent intent = new Intent(this, AutoService.class);
+//            startService(intent);
+//        }
     }
 
     Runnable runnable1 = new Runnable() {

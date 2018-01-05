@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.mutter.clean.junk.R;
+import com.mutter.clean.junk.myview.CoolingZhuanView;
 import com.mutter.clean.junk.service.NotificationService;
 import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.junk.util.BadgerCount;
@@ -35,7 +36,6 @@ import java.util.Random;
 public class JiangwenActivity extends BaseActivity {
     private static final int FLAKE_NUM = 5;
     ImageView cooling_xuehua;
-    ImageView cooling_kuo;
     LinearLayout cooling_text;
     FrameLayout cooling_fl;
     TextView cooling_wendu;
@@ -57,8 +57,8 @@ public class JiangwenActivity extends BaseActivity {
     private Animation rotate_ni;
     private Animation suo;
     private Animation rotate_zheng;
-    private AnimatorSet animationLine_1;
     private int time;
+    private CoolingZhuanView cooling_jindu;
 
     @Override
     protected void findId() {
@@ -67,10 +67,10 @@ public class JiangwenActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
         cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
-        cooling_kuo = (ImageView) findViewById(R.id.cooling_kuo);
         cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
+        cooling_jindu = (CoolingZhuanView) findViewById(R.id.cooling_jindu);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class JiangwenActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
         PreData.putDB(this, Constant.HONG_COOLING, false);
-        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
         BadgerCount.setCount(this);
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,17 +95,6 @@ public class JiangwenActivity extends BaseActivity {
         cooling_xuehua.startAnimation(rotate_zheng);
         startCoolingAni();
 
-        animationLine_1 = new AnimatorSet();
-        ObjectAnimator animator_ine_1_x = ObjectAnimator.ofFloat(cooling_kuo, "scaleX", 0, 2f);
-        animator_ine_1_x.setRepeatCount(-1);
-        ObjectAnimator animator_ine_1_y = ObjectAnimator.ofFloat(cooling_kuo, "scaleY", 0, 2f);
-        ObjectAnimator animator_ine_1_r = ObjectAnimator.ofFloat(cooling_kuo, "alpha", 1, 0f);
-        animator_ine_1_y.setRepeatCount(-1);
-        animator_ine_1_r.setRepeatCount(-1);
-        animationLine_1.setDuration(1000);
-        animationLine_1.setInterpolator(new AccelerateDecelerateInterpolator());
-        animationLine_1.playTogether(animator_ine_1_x, animator_ine_1_y, animator_ine_1_r);
-        animationLine_1.start();
 
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -206,29 +195,29 @@ public class JiangwenActivity extends BaseActivity {
     }
 
     private void startCoolingAni() {
+        cooling_jindu.startProgress(100);
+        cooling_jindu.setCustomRoundListener(new CoolingZhuanView.CustomRoundListener() {
+            @Override
+            public void progressUpdate(int progress) {
+
+            }
+
+            @Override
+            public void progressSuccess() {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (cooling_fl != null) {
+                            cooling_fl.startAnimation(suo);
+                        }
+                        hideSnow();
+                    }
+                });
+            }
+        });
         random = new Random();
         time = random.nextInt(5) + 1;
 //        cooling_wendu.setText(time + "℃");
-        final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 20);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int value = (int) animation.getAnimatedValue();
-                if (value == 20) {
-                    if (animationLine_1 != null) {
-                        animationLine_1.cancel();
-                    }
-                    if (cooling_fl != null) {
-                        cooling_fl.startAnimation(suo);
-                    }
-                    hideSnow();
-                }
-            }
-        });
-        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        valueAnimator.setDuration(3000);
-        valueAnimator.start();
-
     }
 
     @Override

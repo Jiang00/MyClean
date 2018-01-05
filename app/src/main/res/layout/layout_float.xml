@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d6000000"
+    android:background="@color/black_40"
     android:orientation="vertical">
 
     <View
@@ -11,24 +11,35 @@
         android:layout_width="match_parent"
         android:layout_height="10dp" />
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/ll_ad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/d36"
             android:layout_marginLeft="@dimen/d16"
             android:layout_marginRight="@dimen/d16"
+            android:background="@drawable/shape_ad"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d167"
+            android:layout_gravity="bottom"
+            android:background="@mipmap/xuanfu_backg"
             android:orientation="vertical">
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d127">
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -36,72 +47,27 @@
                     android:layout_gravity="bottom"
                     android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d37"
-                        android:background="@drawable/shape_float_1"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/a"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/d14"
-                            android:text="@string/float_1"
-                            android:textColor="@color/A8"
-                            android:textSize="@dimen/s11" />
-
-                        <TextView
-                            android:id="@+id/float_ram_use"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_toRightOf="@id/a"
-                            android:text="1.02GB"
-                            android:textColor="@color/C5"
-                            android:textSize="@dimen/s11" />
-
-
-                        <TextView
-                            android:id="@+id/float_ram_free"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d14"
-                            android:text="1.02GB"
-                            android:textColor="@color/C5"
-                            android:textSize="@dimen/s11" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toLeftOf="@id/float_ram_free"
-                            android:text="@string/float_2"
-                            android:textColor="@color/A8"
-                            android:textSize="@dimen/s11" />
-                    </RelativeLayout>
-
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d72"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:background="@drawable/shape_float_2"
+                        android:layout_marginBottom="@dimen/d20"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:id="@+id/ll_wifi"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/iv_wifi"
-                                android:layout_width="@dimen/d36"
-                                android:layout_height="@dimen/d36"
+                                android:layout_width="@dimen/d50"
+                                android:layout_height="@dimen/d50"
+                                android:background="@drawable/shape_ffffff_20_round"
+                                android:scaleType="centerInside"
                                 android:src="@mipmap/float_wifi" />
 
                             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -114,22 +80,23 @@
                                 android:text="@string/float_wifi"
                                 android:textColor="@color/A8"
                                 android:textSize="@dimen/s9"
-                                app:typeface="lyp_text.otf" />
+                                android:visibility="gone" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/ll_liuliang"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/iv_liuliang"
-                                android:layout_width="@dimen/d36"
-                                android:layout_height="@dimen/d36"
+                                android:layout_width="@dimen/d50"
+                                android:layout_height="@dimen/d50"
+                                android:background="@drawable/shape_ffffff_20_round"
+                                android:scaleType="centerInside"
                                 android:src="@mipmap/float_liuliang" />
 
                             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -142,22 +109,23 @@
                                 android:text="@string/float_liuliang"
                                 android:textColor="@color/A8"
                                 android:textSize="@dimen/s9"
-                                app:typeface="lyp_text.otf" />
+                                android:visibility="gone" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/ll_xianshi"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/iv_xianshi"
-                                android:layout_width="@dimen/d36"
-                                android:layout_height="@dimen/d36"
+                                android:layout_width="@dimen/d50"
+                                android:layout_height="@dimen/d50"
+                                android:background="@drawable/shape_a3_round"
+                                android:scaleType="centerInside"
                                 android:src="@mipmap/float_liangdu_0" />
 
                             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -170,22 +138,23 @@
                                 android:text="@string/float_liangdu"
                                 android:textColor="@color/A8"
                                 android:textSize="@dimen/s9"
-                                app:typeface="lyp_text.otf" />
+                                android:visibility="gone" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/ll_shengyin"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/iv_shengyin"
-                                android:layout_width="@dimen/d36"
-                                android:layout_height="@dimen/d36"
+                                android:layout_width="@dimen/d50"
+                                android:layout_height="@dimen/d50"
+                                android:background="@drawable/shape_ffffff_20_round"
+                                android:scaleType="centerInside"
                                 android:src="@mipmap/float_shengyin" />
 
                             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -198,22 +167,23 @@
                                 android:text="@string/float_shengyin"
                                 android:textColor="@color/A8"
                                 android:textSize="@dimen/s9"
-                                app:typeface="lyp_text.otf" />
+                                android:visibility="gone" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/ll_gps"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/iv_gps"
-                                android:layout_width="@dimen/d36"
-                                android:layout_height="@dimen/d36"
+                                android:layout_width="@dimen/d50"
+                                android:layout_height="@dimen/d50"
+                                android:background="@drawable/shape_ffffff_20_round"
+                                android:scaleType="centerInside"
                                 android:src="@mipmap/float_gps" />
 
                             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -226,43 +196,86 @@
                                 android:text="@string/float_gps"
                                 android:textColor="@color/A8"
                                 android:textSize="@dimen/s9"
-                                app:typeface="lyp_text.otf" />
+                                android:visibility="gone" />
                         </LinearLayout>
 
                     </LinearLayout>
                 </LinearLayout>
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/float_rotate"
+                    android:layout_width="@dimen/d76"
+                    android:layout_height="@dimen/d76"
                     android:layout_gravity="center_horizontal"
+                    android:background="@drawable/shape_ffffff_round"
                     android:visibility="visible">
 
 
                     <ImageView
-                        android:layout_width="@dimen/d59"
-                        android:layout_height="@dimen/d59"
-                        android:layout_centerHorizontal="true"
-                        android:src="@mipmap/float_dialog_2" />
+                        android:layout_width="@dimen/d67"
+                        android:layout_height="@dimen/d67"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/shape_a3_k" />
 
-                    <com.mutter.clean.junk.myview.FloatRound
-                        android:id="@+id/float_rotate"
-                        android:layout_width="@dimen/d56"
-                        android:layout_height="@dimen/d56"
-                        android:layout_centerInParent="true" />
-
-
-                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                        android:id="@+id/float_tishi"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="@string/float_jiasu"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s10"
-                        app:typeface="lyp_text.otf" />
+                        android:gravity="center"
+                        android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/memory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="60%"
+                            android:textColor="@color/A3"
+                            android:textSize="@dimen/s20" />
 
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="@dimen/d2"
+                            android:text="@string/main_tab_1"
+                            android:textColor="@color/A3"
+                            android:textSize="@dimen/s10" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/short_ani"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/shape_a3_round"
+                        android:visibility="invisible">
+
+                        <ImageView
+                            android:id="@+id/short_rotate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@mipmap/short_0"
+                            android:src="@mipmap/short_0" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/short_1" />
+
+                        <ImageView
+                            android:id="@+id/short_rotate_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/short_2" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/short_3" />
+                    </FrameLayout>
                 </RelativeLayout>
 
 
@@ -270,17 +283,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_ad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d16"
-            android:layout_marginRight="@dimen/d16"
-            android:layout_marginTop="@dimen/d16"
-            android:background="@drawable/shape_float_3"
-            android:orientation="vertical">
 
-        </LinearLayout>
-
-    </LinearLayout>
+    </FrameLayout>
 </LinearLayout>

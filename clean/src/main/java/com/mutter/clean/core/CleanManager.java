@@ -744,6 +744,16 @@ public class CleanManager {
         }
     }
 
+    public void removeAllAppCache() {
+        for (JunkInfo info : appCaches) {
+            Util.deleteFile(info.path);
+        }
+        appCacheSize = 0;
+        if (appCaches != null) {
+            appCaches.clear();
+        }
+    }
+
     public void removeAppList(JunkInfo appInfo) {
         appListSize -= appInfo.size;
         if (appList != null) {
@@ -759,6 +769,16 @@ public class CleanManager {
         }
     }
 
+    public void removeAllFilesOfUnintalledApk() {
+        for (JunkInfo info : uninstallResiduals) {
+            Util.deleteFile(info.path);
+        }
+        uninstallSize = 0;
+        if (uninstallResiduals != null) {
+            uninstallResiduals.clear();
+        }
+    }
+
     public void removeApkFiles(JunkInfo fileInfo) {
         Util.deleteFile(fileInfo.path);
         apkSize -= fileInfo.size;
@@ -767,11 +787,31 @@ public class CleanManager {
         }
     }
 
+    public void removeAllApkFiles() {
+        for (JunkInfo info : apkFiles) {
+            Util.deleteFile(info.path);
+        }
+        apkSize = 0;
+        if (apkFiles != null) {
+            apkFiles.clear();
+        }
+    }
+
     public void removeAppLog(JunkInfo fileInfo) {
         Util.deleteFile(fileInfo.path);
         logSize -= fileInfo.size;
         if (logFiles != null) {
             logFiles.remove(fileInfo);
+        }
+    }
+
+    public void removeAllAppLog() {
+        for (JunkInfo info : logFiles) {
+            Util.deleteFile(info.path);
+        }
+        logSize = 0;
+        if (logFiles != null) {
+            logFiles.clear();
         }
     }
 }

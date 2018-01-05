@@ -157,13 +157,13 @@ public class DocFileActivity extends BaseActivity {
                 long _id = cursorDoc.getLong(FileCategoryHelper.COLUMN_ID);
                 long size = Long.parseLong(cursorDoc.getString(FileCategoryHelper.COLUMN_SIZE));
                 Drawable icon = null;
-                if (fc == FileCategoryHelper.FileCategory.Word) {
-                    icon = ContextCompat.getDrawable(DocFileActivity.this, R.mipmap.file_doc_icon);
-                } else if (fc == FileCategoryHelper.FileCategory.Txt) {
-                    icon = ContextCompat.getDrawable(DocFileActivity.this, R.mipmap.file_txt_icon);
-                } else if (fc == FileCategoryHelper.FileCategory.Pdf) {
-                    icon = ContextCompat.getDrawable(DocFileActivity.this, R.mipmap.file_pd_icon);
-                }
+//                if (fc == FileCategoryHelper.FileCategory.Word) {
+//                    icon = ContextCompat.getDrawable(DocFileActivity.this, R.mipmap.file_doc_icon);
+//                } else if (fc == FileCategoryHelper.FileCategory.Txt) {
+//                    icon = ContextCompat.getDrawable(DocFileActivity.this, R.mipmap.file_txt_icon);
+//                } else if (fc == FileCategoryHelper.FileCategory.Pdf) {
+//                    icon = ContextCompat.getDrawable(DocFileActivity.this, R.mipmap.file_pd_icon);
+//                }
                 list.add(new JunkInfo(_id, icon, Util.getNameFromFilepath(cursorDoc.getString(FileCategoryHelper.COLUMN_PATH)),
                         cursorDoc.getString(FileCategoryHelper.COLUMN_PATH), size, false));
             } while (cursorDoc.moveToNext());

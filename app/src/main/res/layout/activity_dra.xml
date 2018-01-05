@@ -4,133 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_drawer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.mutter.clean.junk.myActivity.MainActivity">
+    android:layout_height="match_parent">
 
     <include layout="@layout/activity_main" />
 
     <com.mutter.clean.junk.myview.MainFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="#ffffff">
+        android:layout_gravity="start">
         <!--android:layout_gravity="start"-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffffff"
             android:orientation="vertical">
 
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d146"
-                android:background="@color/A1"
+                android:layout_height="@dimen/d154"
+                android:background="@mipmap/side_title"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/side_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@mipmap/side_title_1" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/d48"
-                    android:gravity="center"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="@dimen/d18"
+                    android:layout_marginLeft="@dimen/d16"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="@dimen/d37"
-                        android:layout_height="@dimen/d46"
-                        android:src="@mipmap/side_icon" />
+                    <com.mutter.clean.junk.myview.RoundImageView
+                        android:layout_width="@dimen/d50"
+                        android:layout_height="@dimen/d50"
+                        android:background="@mipmap/icon"
+                        app:roundHeight="@dimen/d25"
+                        app:roundWidth="@dimen/d25" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d10"
+                        android:layout_marginTop="@dimen/d6"
                         android:text="@string/app_name"
                         android:textColor="@color/A8"
-                        android:textSize="@dimen/s13" />
+                        android:textSize="@dimen/s17" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d4"
+                        android:layout_marginTop="@dimen/d3"
                         android:text="@string/loading_2"
                         android:textColor="@color/A8"
-                        android:textSize="@dimen/s9" />
+                        android:textSize="@dimen/s11" />
 
                 </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_ad_side"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
 
             </FrameLayout>
 
             <com.mutter.clean.junk.myview.MyScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/A6">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <com.mutter.cleanmodule.view.ListViewForScrollView
+                    <com.mutter.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/side_listView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/d8"
                         android:divider="#00000000"
                         android:dividerHeight="0dp" />
-
-                    <RelativeLayout
-                        android:id="@+id/tuiguang_side_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d40"
-                        android:background="@color/A10">
-
-                        <ImageView
-                            android:id="@+id/line"
-                            android:layout_width="@dimen/d2"
-                            android:layout_height="@dimen/d13"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="@dimen/d16"
-                            android:src="@mipmap/setting_line" />
-
-                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="@dimen/d5"
-                            android:layout_toRightOf="@id/line"
-                            android:text="Family"
-                            android:textColor="@color/A5"
-                            android:textSize="@dimen/s13"
-                            app:typeface="lyp_text.otf" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignParentRight="true"
-                            android:textColor="@color/black_10"
-                            android:textSize="@dimen/d9" />
-
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:id="@+id/tuiguang_side"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical" />
                 </LinearLayout>
             </com.mutter.clean.junk.myview.MyScrollView>
 

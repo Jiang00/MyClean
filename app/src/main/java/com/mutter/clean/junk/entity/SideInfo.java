@@ -8,13 +8,13 @@ public class SideInfo {
     public boolean isCheck;
     public int drawableId;
 
-    public SideInfo(int textId, int drawableId, boolean isCheck) {
+    public SideInfo(int drawableId, int textId, boolean isCheck) {
         this.textId = textId;
         this.drawableId = drawableId;
         this.isCheck = isCheck;
     }
 
-    public SideInfo(int textId, int drawableId) {
+    public SideInfo(int drawableId, int textId) {
         this.textId = textId;
         this.drawableId = drawableId;
     }

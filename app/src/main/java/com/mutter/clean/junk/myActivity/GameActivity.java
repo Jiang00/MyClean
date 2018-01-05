@@ -342,9 +342,9 @@ public class GameActivity extends BaseActivity {
                 GameActivity.class.getCanonicalName()));
         String title = GameActivity.this.getString(R.string.gboost_0);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
-            ShortCutUtils.addShortcut(GameActivity.this, shortcutIntent, title, false, bitmap);
-            gboost_short_iv.setImageBitmap(bitmap);
+//            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
+//            ShortCutUtils.addShortcut(GameActivity.this, shortcutIntent, title, false, bitmap);
+//            gboost_short_iv.setImageBitmap(bitmap);
             return;
         }
         if (list.size() > 1 && (!PreData.getDB(GameActivity.this, Constant.GBOOST_SI, false) || isChuangjian)) {
@@ -446,7 +446,7 @@ public class GameActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(final GbAdapter.HomeViewHolder holder, final int position) {
             if (position == 0) {
-                holder.gboost_item_icon.setImageResource(R.mipmap.gboost_add);
+//                holder.gboost_item_icon.setImageResource(R.mipmap.gboost_add);
                 holder.gboost_item_name.setText(list.get(position));
             } else {
                 try {
