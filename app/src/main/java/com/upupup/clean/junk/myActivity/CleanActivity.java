@@ -19,7 +19,7 @@ import com.upupup.clean.junk.util.AdUtil;
 import com.upupup.clean.junk.util.Constant;
 import com.upupup.clean.junk.view.JunkView;
 import com.upupup.clean.junk.presenter.JunkPresenter;
-import com.sample.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieAnimationView;
 
 /**
  * Created by on 2017/3/2.
@@ -178,13 +178,18 @@ public class CleanActivity extends BaseActivity implements JunkView {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
             setResult(Constant.JUNK_RESUIL);
-            finish();
+            onBackPressed();
         }
     }
 
     @Override
     public void onBackPressed() {
-        setResult(Constant.JUNK_RESUIL);
+        if ("notifi".equals(getIntent().getStringExtra("from"))) {
+            AdUtil.track("通知栏", "跳转垃圾清页面", "", 1);
+            jumpTo(MainActivity.class);
+        } else {
+            setResult(Constant.JUNK_RESUIL);
+        }
         finish();
     }
 }

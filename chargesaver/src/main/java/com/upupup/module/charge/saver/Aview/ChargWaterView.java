@@ -63,6 +63,8 @@ public class ChargWaterView extends View {
         textSize_s = getResources().getDimensionPixelSize(R.dimen.d40);
 //        firstPaint.setStrokeJoin(Paint.Join.ROUND);
         firstPaint.setTextSize(textSize_b);
+        Typeface mFace = Typeface.createFromAsset(getContext().getAssets(), "Medium.otf");
+        firstPaint.setTypeface(mFace);
         Paint.FontMetrics metrics = firstPaint.getFontMetrics();
         height_t = metrics.ascent;
         beijingPaint = new Paint();
@@ -111,7 +113,7 @@ public class ChargWaterView extends View {
         firstPath.moveTo(0, y);// 移动到左下角的点
         for (float x = 0; x <= width; x++) {
             if (pratent != 100) {
-                float y1 = (float) (sin_amplitude * Math.sin(sin_cycle * x + sin_offset)) + (y + height_t) * (100 - pratent) / 100;
+                float y1 = (float) (sin_amplitude * Math.sin(sin_cycle * x + sin_offset)) + y + (height_t) * (pratent) / 100;
                 firstPath.lineTo(x, y1);
             } else {
                 firstPath.lineTo(x, y + height_t);

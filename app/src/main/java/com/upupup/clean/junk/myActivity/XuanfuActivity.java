@@ -154,19 +154,10 @@ public class XuanfuActivity extends BaseActivity {
     };
 
     private void loadAd() {
-        if (PreData.getDB(this, Constant.FULL_FLOAT, 0) == 1) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
-                }
-            }, 1000);
-        } else {
-            nativeView = AdUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
-            if (ll_ad != null && nativeView != null) {
-                ll_ad.addView(nativeView);
-                ll_ad.setVisibility(View.VISIBLE);
-            }
+        nativeView = AdUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
         }
     }
 

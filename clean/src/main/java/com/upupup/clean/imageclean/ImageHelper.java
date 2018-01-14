@@ -244,15 +244,12 @@ public class ImageHelper {
 
     public Bitmap pathWithScaledBitmap(Context context, String path, int screenWidth, int screenHeight) {
         DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
-        Bitmap bitmap = loadBitmapFromFile(path, dm.widthPixels,
-                dm.heightPixels);
+        Bitmap bitmap = loadBitmapFromFile(path, dm.heightPixels,
+                dm.widthPixels);
         if (bitmap == null) {
             return null;
         }
-        Bitmap thumb = Bitmap.createScaledBitmap(bitmap, screenWidth, screenHeight, false);
-        recyclebitmap(bitmap);
-        System.gc();
-        return thumb;
+        return bitmap;
     }
 
 

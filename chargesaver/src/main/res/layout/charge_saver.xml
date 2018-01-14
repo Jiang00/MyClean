@@ -18,8 +18,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d56"
-                android:layout_marginTop="@dimen/d24">
+                android:layout_height="@dimen/d56">
 
                 <ImageView
                     android:id="@+id/battery_icon"
@@ -119,8 +118,7 @@
                 android:text="1h 39min left"
                 android:textColor="@color/white_100"
                 android:textSize="@dimen/s13"
-                android:textStyle="bold"
-                 />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <FrameLayout
@@ -156,7 +154,7 @@
                 android:textSize="@dimen/s13"
                 android:textStyle="bold" />
 
-            <com.sample.lottie.LottieAnimationView
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/charging_lot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -16,7 +16,7 @@ import com.upupup.clean.junk.R;
  */
 
 public class AdUtil {
-    public static final String FULL_DEFAULT = "loading_full";//mutter_full
+    public static final String FULL_DEFAULT = "clean_full";//
 
     public static void track(String category, String action, String label, int value) {
         if (BuildConfig.TRACK) {
@@ -25,10 +25,10 @@ public class AdUtil {
     }
 
     public static View getNativeAdView(String tag, @LayoutRes int layout) {
-        if (!AndroidSdk.hasNativeAd("mutter_native")) {
+        if (!AndroidSdk.hasNativeAd("clean_native")) {
             return null;
         }
-        View nativeView = AndroidSdk.peekNativeAdViewWithLayout("mutter_native", layout, null);
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout("clean_native", layout, null);
         if (nativeView == null) {
             return null;
         }

@@ -54,7 +54,7 @@ public class ListFileActivity extends BaseActivity {
     private int nameId;
     private AlertDialog dialog;
     private FileCategoryHelper.FileCategory fc;
-    private String Tag_file_1 = "mutter_file_1";
+    private String Tag_file_1 = "_file_1";
     private View nativeView;
 
     @Override

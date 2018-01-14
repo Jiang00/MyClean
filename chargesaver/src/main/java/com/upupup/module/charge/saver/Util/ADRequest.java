@@ -13,7 +13,7 @@ import com.upupup.module.charge.saver.R;
 public class ADRequest {
 
     public static void showFullAD() {
-        AndroidSdk.showFullAd("mutter_full");
+        AndroidSdk.showFullAd("_full");
     }
 
     public View showCustomNativeAD(String adTag, int layoutID, final ICustomNativeADClicked adClick) {

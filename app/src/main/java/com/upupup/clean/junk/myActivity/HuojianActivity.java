@@ -115,13 +115,10 @@ public class HuojianActivity extends BaseActivity {
                 size = 0;
             }
             short_clean_szie.setText(getString(R.string.success_3, Util.convertStorage(size, true)));
-            if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) != 1) {
-                nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad_2);
-                if (ll_ad != null && nativeView != null) {
-                    ll_ad.addView(nativeView);
-//                    ll_ad.setVisibility(View.VISIBLE);
-                    ll_ad.setVisibility(View.VISIBLE);
-                }
+            nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad_2);
+            if (ll_ad != null && nativeView != null) {
+                ll_ad.addView(nativeView);
+                ll_ad.setVisibility(View.VISIBLE);
             }
             window.setContentView(view);
         }

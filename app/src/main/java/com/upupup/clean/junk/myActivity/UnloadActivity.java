@@ -37,7 +37,7 @@ public class UnloadActivity extends BaseActivity {
     String path;
 
     private View nativeView;
-    private String TAG_UNLOAD = "mutter_unload";
+    private String TAG_UNLOAD = "_unload";
     private ArrayList<JunkInfo> mngList;
     Handler myHandler;
 

@@ -80,6 +80,9 @@ public class LoadingActivity extends BaseActivity {
             if (jsonObject.has("full_exit")) {
                 PreData.putDB(LoadingActivity.this, Constant.FULL_EXIT, jsonObject.getInt("full_exit"));
             }
+            if (jsonObject.has("show_exit_native")) {
+                PreData.putDB(LoadingActivity.this, Constant.NATIVE_EXIT, jsonObject.getInt("show_exit_native"));
+            }
             if (jsonObject.has("skip_time")) {
                 PreData.putDB(LoadingActivity.this, Constant.SKIP_TIME, jsonObject.getInt("skip_time"));
                 Log.e("timeada", jsonObject.getInt("skip_time") + "==");

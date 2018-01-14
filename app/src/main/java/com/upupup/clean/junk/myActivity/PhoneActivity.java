@@ -17,7 +17,7 @@ import com.upupup.clean.util.MemoryManager;
 import com.upupup.clean.util.PreData;
 import com.upupup.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.sample.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieAnimationView;
 import com.upupup.clean.junk.R;
 import com.upupup.clean.junk.myview.MessageRoundView;
 import com.upupup.clean.junk.myview.MessageRoundViewCpu;

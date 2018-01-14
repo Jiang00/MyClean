@@ -42,7 +42,7 @@ import com.upupup.clean.entity.JunkInfo;
 import com.upupup.clean.junk.service.NotificationService;
 import com.upupup.clean.junk.util.AdUtil;
 import com.upupup.clean.junk.util.Constant;
-import com.sample.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
 

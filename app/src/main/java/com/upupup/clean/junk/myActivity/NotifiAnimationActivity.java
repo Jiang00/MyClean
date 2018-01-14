@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.upupup.clean.util.PreData;
 import com.upupup.clean.util.Util;
-import com.sample.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieAnimationView;
 import com.upupup.clean.junk.R;
 import com.upupup.clean.junk.util.Constant;
 

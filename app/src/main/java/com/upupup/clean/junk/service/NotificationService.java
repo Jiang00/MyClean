@@ -28,6 +28,7 @@ import android.widget.RemoteViews;
 
 import com.upupup.clean.core.CleanManager;
 import com.upupup.clean.junk.R;
+import com.upupup.clean.junk.myActivity.CleanActivity;
 import com.upupup.clean.junk.myActivity.CleanAndRamActivity;
 import com.upupup.clean.junk.myActivity.JiangwenActivity;
 import com.upupup.clean.junk.myActivity.MainActivity;
@@ -142,7 +143,7 @@ public class NotificationService extends Service {
         notifyIntentCooling.putExtra("from", "notifi");
         notifyIntentCooling.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        notifyIntentJunkRam = new Intent(this, CleanAndRamActivity.class);
+        notifyIntentJunkRam = new Intent(this, CleanActivity.class);
         notifyIntentJunkRam.putExtra("from", "notifi");
         notifyIntentJunkRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);

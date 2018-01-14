@@ -62,7 +62,7 @@ public class UserAppActivity extends BaseActivity implements AppManagerView {
     private IntentFilter filter;
     private View nativeView1, nativeView2, nativeView3;
 
-    private String TAG_MANAGER = "mutter_manager";
+    private String TAG_MANAGER = "_manager";
     private ArrayList<String> titleList;
     private View view_size, view_time, view_pinlv, view_permiss;
     private ArrayList<View> viewList;
@@ -120,6 +120,10 @@ public class UserAppActivity extends BaseActivity implements AppManagerView {
                 ll_ad_pinlv.addView(nativeView3);
                 view_pinlv.findViewById(R.id.ad_fl).setVisibility(View.VISIBLE);
             }
+            if (ll_ad_size != null && nativeView1 != null) {
+                ll_ad_size.addView(nativeView1);
+                view_size.findViewById(R.id.ad_fl).setVisibility(View.VISIBLE);
+            }
 
         }
 
@@ -170,6 +174,17 @@ public class UserAppActivity extends BaseActivity implements AppManagerView {
 
             @Override
             public void onPageSelected(int position) {
+                if (position == 2) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isNoSwitch() && isNoOption()) {
+                        if (junk_button_clean.getVisibility() == View.VISIBLE) {
+                            junk_button_clean.setVisibility(View.INVISIBLE);
+                        }
+                    }
+                } else {
+                    if (junk_button_clean.getVisibility() == View.INVISIBLE) {
+                        junk_button_clean.setVisibility(View.VISIBLE);
+                    }
+                }
             }
 
             @Override

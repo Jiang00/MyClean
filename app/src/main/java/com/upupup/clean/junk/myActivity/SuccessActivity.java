@@ -30,7 +30,7 @@ import com.upupup.clean.junk.myview.SlowScrollView;
 import com.upupup.clean.junk.util.AdUtil;
 import com.upupup.clean.junk.util.Constant;
 import com.upupup.clean.junk.util.UtilGp;
-import com.sample.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,9 +68,8 @@ public class SuccessActivity extends BaseActivity {
     private View native_xiao;
 
     private Handler myHandler;
-    private String TAG_CLEAN = "mutter_success";
-    private String TAG_CLEAN_2 = "mutter_success_2";
-    private String TAG_TITLE = "mutter_icon";
+    private String TAG_CLEAN = "_success";
+    private String TAG_CLEAN_2 = "_success_2";
 
 
     private boolean haveAd;
@@ -167,15 +166,13 @@ public class SuccessActivity extends BaseActivity {
         initAnimation();
         addListener();
 //        shendu();
-        if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
-        } else {
-            myHandler.postDelayed(new Runnable() {
-                public void run() {
-                    addAd();
-                }
-            }, 1000);
-
-        }
+//        if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
+//            myHandler.postDelayed(new Runnable() {
+//                public void run() {
+//                    addAd();
+//                }
+//            }, 1000);
+//        }
         if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS_NATIVE, 0) == 1) {
             native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_6);
             if (ll_ad_xiao != null && native_xiao != null) {
@@ -187,23 +184,6 @@ public class SuccessActivity extends BaseActivity {
 
     }
 
-    public static View getNativeAdView(String tag, @LayoutRes int layout) {
-        if (!AndroidSdk.hasNativeAd("mutter_start_native")) {
-            return null;
-        }
-        View nativeView = AndroidSdk.peekNativeAdViewWithLayout("mutter_start_native", layout, null);
-        if (nativeView == null) {
-            return null;
-        }
-
-        if (nativeView != null) {
-            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
-            if (viewParent != null) {
-                viewParent.removeAllViews();
-            }
-        }
-        return nativeView;
-    }
 
     private void addListener() {
         title_left.setOnClickListener(onClickListener);
@@ -253,9 +233,7 @@ public class SuccessActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
-                }
+                AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
                 startSecondAnimation();
             }
 
@@ -272,15 +250,6 @@ public class SuccessActivity extends BaseActivity {
 //        myHandler.postDelayed(runnable, 3000);
     }
 
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
-            }
-            startSecondAnimation();
-        }
-    };
 
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
@@ -408,7 +377,6 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        myHandler.removeCallbacks(runnable);
     }
 
     @Override

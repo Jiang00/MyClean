@@ -153,7 +153,7 @@ public class CoolingFragment extends Fragment {
                     public void run() {
                         if (cpuTemp > 50) {
                             ram_zhuangtai.setImageResource(R.mipmap.yuan_bad);
-                            ram_msg.setVisibility(View.VISIBLE);
+
                         } else {
                             ram_zhuangtai.setImageResource(R.mipmap.yuan_good);
                             ram_msg.setVisibility(View.GONE);

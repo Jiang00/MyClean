@@ -35,7 +35,7 @@ import com.upupup.clean.junk.myAdapter.SideAdapter;
 import com.upupup.clean.junk.myview.ListViewForScrollView;
 import com.upupup.clean.junk.util.Constant;
 import com.upupup.clean.util.PreData;
-import com.sample.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieAnimationView;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -235,7 +235,7 @@ public class MainActivity extends BaseActivity {
         sideAdapter.clear();
         sideAdapter.addData(new SideInfo(R.mipmap.side_junk, R.string.side_junk));//垃圾清理
         sideAdapter.addData(new SideInfo(R.mipmap.side_ram, R.string.side_ram));//内存
-        sideAdapter.addData(new SideInfo(R.mipmap.side_battery, R.string.side_charging));//cPu
+        sideAdapter.addData(new SideInfo(R.mipmap.side_battery, R.string.main_cooling_name));//cPu
         sideAdapter.addData(new SideInfo(R.mipmap.side_manager, R.string.side_manager));//cPu
         sideAdapter.addData(new SideInfo(R.mipmap.side_power, R.string.side_power));//cPu
         sideAdapter.addData(new SideInfo(R.mipmap.side_picture, R.string.side_picture));//cPu
@@ -372,7 +372,7 @@ public class MainActivity extends BaseActivity {
         dialog.setCanceledOnTouchOutside(false);
         dialog.setView(view);
         dialog.show();
-        if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
+        if (PreData.getDB(this, Constant.NATIVE_EXIT, 0) == 1) {
             View nativeView = getNativeAdView("exit_native", R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
@@ -403,6 +403,7 @@ public class MainActivity extends BaseActivity {
     public void setDrawerLeftEdgeSize(DrawerLayout drawerLayout, float displayWidthPercentage) {
         if (drawerLayout == null) return;
         try {
+
             Field leftDraggerField = drawerLayout.getClass().getDeclaredField("mLeftDragger");
             leftDraggerField.setAccessible(true);
             ViewDragHelper leftDragger = (ViewDragHelper) leftDraggerField.get(drawerLayout);

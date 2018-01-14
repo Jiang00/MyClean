@@ -141,7 +141,7 @@ public class GameActivity extends BaseActivity {
                 nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
                 if (ll_ad != null && nativeView != null) {
                     ll_ad.addView(nativeView);
-                    AdUtil.startBannerAnimation(GameActivity.this,ad_fl);
+                    AdUtil.startBannerAnimation(GameActivity.this, ad_fl);
                 }
             }
         }, 1000);
@@ -362,8 +362,8 @@ public class GameActivity extends BaseActivity {
 
             Bitmap bitmap = getViewBitmap(shortcut_view, this);
             if (bitmap != null) {
-                ShortCutUtils.removeShortcut(GameActivity.this, shortcutIntent, title);
-                ShortCutUtils.addShortcut(GameActivity.this, shortcutIntent, title, false, bitmap);
+//                ShortCutUtils.removeShortcut(GameActivity.this, shortcutIntent, title);
+//                ShortCutUtils.addShortcut(GameActivity.this, shortcutIntent, title, false, bitmap);
                 gboost_short_iv.setImageBitmap(bitmap);
             }
         }

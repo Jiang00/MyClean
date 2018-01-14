@@ -61,7 +61,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="com.mutter.clean.main" />
+                <action android:name="com.upupup.clean.main" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -98,7 +98,7 @@
             android:name=".myActivity.CleanActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.mutter.clean.CleanActivity" />
+                <action android:name="com.upupup.clean.CleanActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -116,7 +116,7 @@
             android:name=".myActivity.RamAvtivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.mutter.clean.RamAvtivity" />
+                <action android:name="com.upupup.clean.RamAvtivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -175,16 +175,7 @@
         <activity
             android:name=".myActivity.GameActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.CREATE_SHORTCUT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".myActivity.HuojianActivity"
             android:launchMode="singleInstance"
