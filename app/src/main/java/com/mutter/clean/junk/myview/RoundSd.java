@@ -4,13 +4,17 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.Shader;
+import android.graphics.SweepGradient;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -23,12 +27,16 @@ import com.mutter.clean.junk.R;
 
 public class RoundSd extends View {
     private Context context;
-    private Paint backgPoint;
-    float lineWidth = getResources().getDimension(R.dimen.d8);
+    private Paint backgPoint;//背景圆
+    private Paint circlePoint;//进度
+    private Paint keduPaint;//圆刻度
+    float lineWidth = getResources().getDimension(R.dimen.d10);
+    float keduWidth = getResources().getDimension(R.dimen.d16);
+    float keduHight = getResources().getDimension(R.dimen.d5);
+    float margin = getResources().getDimension(R.dimen.d16);
     int size;
     private CustomRoundListener customRoundListener;
     private Matrix mMatrix;
-    private Paint circlePoint;
     private int progress;
     private boolean isRotate;
     private Bitmap bitmap;
@@ -60,6 +68,13 @@ public class RoundSd extends View {
         circlePoint.setAntiAlias(true);
         circlePoint.setStrokeWidth(lineWidth);
         circlePoint.setStyle(Paint.Style.STROKE);
+
+        keduPaint = new Paint();
+        keduPaint.setStrokeCap(Paint.Cap.ROUND);
+        keduPaint.setFilterBitmap(true);
+        keduPaint.setAntiAlias(true);
+        keduPaint.setStrokeWidth(keduHight);
+
         backgPoint = new Paint();
         backgPoint.setAntiAlias(true);
         backgPoint.setStrokeWidth(lineWidth);
@@ -67,8 +82,9 @@ public class RoundSd extends View {
         backgPoint.setStyle(Paint.Style.STROKE);
         backgPoint.setColor(context.getResources().getColor(R.color.B4));
         mMatrix = new Matrix();
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.main_dian);
-        bitmap = Bitmap.createScaledBitmap(bitmap, getResources().getDimensionPixelOffset(R.dimen.d10), getResources().getDimensionPixelOffset(R.dimen.d10), true);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.main_dian_d);
+        bitmap = Bitmap.createScaledBitmap(bitmap, getResources().getDimensionPixelOffset(R.dimen.d7),
+                getResources().getDimensionPixelOffset(R.dimen.d7), true);
     }
 
     @Override
@@ -79,8 +95,8 @@ public class RoundSd extends View {
         int d = (width >= height) ? height : width;
         size = d;
         setMeasuredDimension(d, d);
-        LinearGradient gradient = new LinearGradient(0, 0, size, size, ContextCompat.getColor(context, R.color.C8)
-                , ContextCompat.getColor(context, R.color.C9), Shader.TileMode.CLAMP);
+        LinearGradient gradient = new LinearGradient(0, 0, size, size, ContextCompat.getColor(context, R.color.A6)
+                , ContextCompat.getColor(context, R.color.A5), Shader.TileMode.CLAMP);
         circlePoint.setShader(gradient);
     }
 
@@ -93,8 +109,9 @@ public class RoundSd extends View {
         rect.top = 0 + lineWidth / 2 + 1;
         rect.bottom = size - lineWidth / 2 - 1;
         canvas.drawArc(rect, 0, 360, false, backgPoint);
+
         canvas.save();
-        canvas.rotate(90, size / 2, size / 2);
+        canvas.rotate(-90, size / 2, size / 2);
         canvas.drawArc(rect, 0, progress * 360 / 100, false, circlePoint);
         if (progress != 100 || progress != 0) {
             Path path = new Path();
@@ -108,6 +125,32 @@ public class RoundSd extends View {
             canvas.drawBitmap(bitmap, mMatrix, circlePoint);
         }
         canvas.restore();
+
+
+        int src = canvas.saveLayer(0, 0, size, size, keduPaint, Canvas.ALL_SAVE_FLAG);
+        canvas.save();
+        canvas.translate(0, size / 2);
+        canvas.rotate(90, size / 2, 0);
+        float degrees = (float) (360.0 / 36);
+        for (int i = 0; i <= 36; i++) {
+            canvas.drawLine(margin, keduHight / 2, keduWidth + margin, keduHight / 2, keduPaint);
+            canvas.rotate(degrees, size / 2, 0);
+        }
+        canvas.restore();
+
+        canvas.save();
+        canvas.rotate(-90, size / 2, size / 2);
+        keduPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP));
+//        SweepGradient mColorShader = new SweepGradient(size / 2, size / 2, new int[]{ContextCompat.getColor(context, R.color.A4)
+//                , ContextCompat.getColor(context, R.color.A6)}, null);
+        LinearGradient gradient = new LinearGradient(0, 0, size, size, ContextCompat.getColor(context, R.color.A6)
+                , ContextCompat.getColor(context, R.color.A4), Shader.TileMode.CLAMP);
+        keduPaint.setShader(gradient);
+        canvas.drawCircle(size / 2, size / 2, size / 2, keduPaint);
+        keduPaint.setShader(null);
+        keduPaint.setXfermode(null);
+        canvas.restore();
+        canvas.restoreToCount(src);
     }
 
     public void startProgress(boolean isRotate, final int progress) {

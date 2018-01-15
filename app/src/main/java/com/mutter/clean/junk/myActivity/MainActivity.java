@@ -1,25 +1,18 @@
 package com.mutter.clean.junk.myActivity;
 
-import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.LayoutRes;
-import android.support.v4.util.LruCache;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,53 +26,41 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AdListener;
-import com.mutter.clean.core.CleanManager;
-import com.mutter.clean.imageclean.ImageInfo;
-import com.mutter.clean.imageclean.RecyclerDbHelper;
-import com.mutter.clean.junk.entity.TuiguangInfo;
-import com.mutter.clean.junk.myview.LoadingTime;
-import com.mutter.clean.junk.util.BadgerCount;
-import com.mutter.clean.junk.util.UtilGp;
-import com.mutter.clean.util.PreData;
-import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.jkb.slidemenu.SlideMenuLayout;
 import com.mingle.circletreveal.CircularRevealCompat;
 import com.mingle.widget.animation.CRAnimation;
 import com.mingle.widget.animation.SimpleAnimListener;
-import com.mutter.module.charge.saver.Util.Constants;
-import com.mutter.module.charge.saver.Util.Utils;
+import com.mutter.clean.core.CleanManager;
 import com.mutter.clean.junk.R;
+import com.mutter.clean.junk.entity.SideInfo;
 import com.mutter.clean.junk.myAdapter.SideAdapter;
-import com.mutter.clean.junk.myview.RoundRam;
-import com.mutter.clean.junk.myview.RoundSd;
+import com.mutter.clean.junk.myview.LoadingTime;
 import com.mutter.clean.junk.myview.MyScrollView;
 import com.mutter.clean.junk.myview.PullToRefreshLayout;
-import com.mutter.clean.junk.entity.SideInfo;
+import com.mutter.clean.junk.myview.RoundRam;
+import com.mutter.clean.junk.myview.RoundSd;
 import com.mutter.clean.junk.presenter.MainPresenter;
 import com.mutter.clean.junk.util.AdUtil;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.junk.util.Constant;
 import com.mutter.clean.junk.view.MainView;
-import com.mutter.ui.demo.entry.CrossItem;
-import com.mutter.ui.demo.util.JsonParser;
+import com.mutter.clean.util.PreData;
+import com.mutter.clean.util.Util;
+import com.mutter.module.charge.saver.Util.Constants;
+import com.mutter.module.charge.saver.Util.Utils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class MainActivity extends BaseActivity implements MainView, DrawerLayout.DrawerListener {
+public class MainActivity extends BaseActivity implements MainView {
 
     ImageView iv_title_right;
     ImageView iv_title_left;
-    ImageView menu_hong;
     RelativeLayout main_sd_air_button, main_ram_air_button;
     public static final String TAG = "MainActivity";
     MyScrollView main_scroll_view;
@@ -99,7 +80,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     ListView side_listView;
     LinearLayout main_notifi_button;
     LinearLayout main_file_button;
-    DrawerLayout main_drawer;
+    SlideMenuLayout main_drawer;
     LinearLayout ll_ad_side, ad_native_2;
     com.mingle.widget.LinearLayout ll_ad_full;
     TextView main_full_time;
@@ -154,13 +135,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void findId() {
         super.findId();
-        main_drawer = (DrawerLayout) findViewById(R.id.main_drawer);
-        main_drawer.addDrawerListener(this);
+        main_drawer = (SlideMenuLayout) findViewById(R.id.main_drawer);
         main_scroll_view = (MyScrollView) findViewById(R.id.main_scroll_view);
         main_pull_refresh = (PullToRefreshLayout) findViewById(R.id.main_pull_refresh);
         iv_title_right = (ImageView) findViewById(R.id.iv_title_right);
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
-        menu_hong = (ImageView) findViewById(R.id.menu_hong);
 
         main_circle = (ImageView) findViewById(R.id.main_circle);
         main_sd_air_button = (RelativeLayout) findViewById(R.id.main_sd_air_button);
@@ -208,38 +187,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         setContentView(R.layout.activity_dra);
         cleanApplication = (MyApplication) getApplication();
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            main_notifi_button.setVisibility(View.GONE);
-            PreData.putDB(this, Constant.HONG_NOTIFI, false);
-        }
-        if (PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) == 0) {
-            main_notifi_button.setVisibility(View.GONE);
-            PreData.putDB(this, Constant.HONG_NOTIFI, false);
-        }
-        if (PreData.getDB(this, Constant.DEEP_KAIGUAN, 1) == 0) {
-            main_power_button.setVisibility(View.GONE);
-            PreData.putDB(this, Constant.HONG_DEEP, false);
-        }
-        if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) == 0) {
-            main_file_button.setVisibility(View.GONE);
-            PreData.putDB(this, Constant.HONG_FILE, false);
-        }
-        if (PreData.getDB(this, Constant.GBOOST_KAIGUAN, 1) == 0) {
-            main_gboost_button.setVisibility(View.GONE);
-            PreData.putDB(this, Constant.HONG_GBOOST, false);
-        }
-        if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) == 0) {
-            main_picture_button.setVisibility(View.GONE);
-            PreData.putDB(this, Constant.HONG_PHOTO, false);
-        }
-        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) ||
-                PreData.getDB(this, Constant.HONG_COOLING, true) || PreData.getDB(this, Constant.HONG_MESSAGE, true) || PreData.getDB(this, Constant.HONG_NOTIFI, true) ||
-                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
-                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
-            menu_hong.setVisibility(View.VISIBLE);
-        } else {
-            menu_hong.setVisibility(View.GONE);
-        }
         BadgerCount.setCount(this);
 
         arrayList = new ArrayList<>();
@@ -308,7 +255,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }, 4000);
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
-        mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
 
         AdUtil.track("主页面", "进入主页面", "", 1);
         RotateAnimation animation = new RotateAnimation(0, 360, 2, 0.5f, 2, 0.5f);
@@ -317,53 +263,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         animation.setInterpolator(new LinearInterpolator());
         animation.setFillAfter(true);//动画执行完后是否停留在执行完的状态
         lot_family.startAnimation(animation);
-//        tuiguang(TUIGUAN_MAIN_SOFT, true, tuiguang_main);
-//        tuiguang(TUIGUAN_MAIN, false, tuiguang_main);
-        tuiguang(TUIGUAN_SIDE_SOFT, true, tuiguang_side);
-        tuiguang(TUIGUAN_SIDE, false, tuiguang_side);
-        ArrayList<TuiguangInfo> tuiguangList = new ArrayList<>();
-        ArrayList<CrossItem> crossItems_soft = JsonParser.getCrossData(this, AndroidSdk.getExtraData(), TUIGUAN_MAIN_SOFT);
-        if (crossItems_soft != null) {
-            for (int i = 0; i < crossItems_soft.size(); i++) {
-                CrossItem item = crossItems_soft.get(i);
-                TuiguangInfo info = new TuiguangInfo();
-                info.action = item.action;
-                info.packageName = item.getPkgName();
-                info.title = item.title;
-                info.url = item.getTagIconUrl();
-                tuiguangList.add(info);
-                AdUtil.track("交叉推广_广告位", "广告位_主界面", "展示" + info.packageName, 1);
-            }
-        }
-        ArrayList<CrossItem> crossItems = JsonParser.getCrossData(this, AndroidSdk.getExtraData(), TUIGUAN_MAIN);
-        if (crossItems != null) {
-            for (int i = 0; i < crossItems.size(); i++) {
-                CrossItem item = crossItems.get(i);
-                TuiguangInfo info = new TuiguangInfo();
-                info.action = item.action;
-                info.packageName = item.getPkgName();
-                info.title = item.title;
-                info.url = item.getTagIconUrl();
-                tuiguangList.add(info);
-                AdUtil.track("交叉推广_广告位", "广告位_主界面", "展示" + info.packageName, 1);
-            }
-        }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) == 1) {
-            TuiguangInfo info = new TuiguangInfo();
-            info.title = getString(R.string.side_notifi);
-            info.drable_id = R.mipmap.tuiguang_notifi;
-            tuiguangList.add(info);
-        }
-        TuiguangInfo info = new TuiguangInfo();
-        info.title = getString(R.string.side_rotate);
-        info.drable_id = R.mipmap.tuiguang_rotate;
-        tuiguangList.add(info);
-        recyc_tuiguang.setLayoutManager(new GridLayoutManager(this, 3));
-        recyc_tuiguang.setAdapter(new HuiAdapter(tuiguangList));
-        if (tuiguang_side.getChildCount() == 0) {
-            tuiguang_side_title.setVisibility(View.GONE);
-        }
         initSideData();
     }
 
@@ -416,36 +316,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         main_junk_h.setText(Util.convertStorage(junk_size, true));
                         if (PreData.getDB(MainActivity.this, Constant.HONG_JUNK, true)) {
                             main_junk_h.setVisibility(View.VISIBLE);
-//                            new Thread(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    int time = 500;
-//                                    for (long i = 0; i <= junk_size; i += (junk_size / 40)) {
-//                                        final long finalI = i;
-//                                        time -= 5;
-//                                        if (time < 30) {
-//                                            time = 30;
-//                                        }
-//                                        if (onDestroyed) {
-//                                            break;
-//                                        }
-//                                        try {
-//                                            Thread.sleep(time);
-//                                        } catch (InterruptedException e) {
-//                                            e.printStackTrace();
-//                                        }
-//                                        if (onDestroyed) {
-//                                            break;
-//                                        }
-//                                        runOnUiThread(new Runnable() {
-//                                            @Override
-//                                            public void run() {
-//                                                main_junk_h.setText(Util.convertStorage(finalI, true));
-//                                            }
-//                                        });
-//                                    }
-//                                }
-//                            }).start();
                         }
                     }
                 }
@@ -691,13 +561,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void openDrawer() {
-        main_drawer.openDrawer(GravityCompat.START);
+        main_drawer.openLeftSlide();
     }
 
     @Override
     public void closeDrawer() {
-        if (main_drawer.isDrawerOpen(GravityCompat.START)) {
-            main_drawer.closeDrawer(GravityCompat.START);
+        if (main_drawer.isLeftSlideOpen()) {
+            main_drawer.closeLeftSlide();
         }
     }
 
@@ -1057,8 +927,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             handler.removeCallbacks(runnable_load);
             return;
         }
-        if (main_drawer.isDrawerOpen(GravityCompat.START)) {
-            main_drawer.closeDrawer(GravityCompat.START);
+        if (main_drawer.isLeftSlideOpen()) {
+            main_drawer.closeLeftSlide();
         } else {
             if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
                 AndroidSdk.showFullAd(EXIT_FULL);
@@ -1154,113 +1024,5 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         dialog.show();
     }
 
-    @Override
-    public void onDrawerSlide(View drawerView, float slideOffset) {
-
-    }
-
-    @Override
-    public void onDrawerOpened(View drawerView) {
-        mDrawerOpened = true;
-        Log.e(TAG, "onDrawerOpened");
-    }
-
-    @Override
-    public void onDrawerClosed(View drawerView) {
-        mDrawerOpened = false;
-        Log.e(TAG, "onDrawerClosed");
-        if (PreData.getDB(this, Constant.HONG_RAM, true) || PreData.getDB(this, Constant.HONG_JUNK, true) ||
-                PreData.getDB(this, Constant.HONG_COOLING, true) || PreData.getDB(this, Constant.HONG_MESSAGE, true) || PreData.getDB(this, Constant.HONG_NOTIFI, true) ||
-                PreData.getDB(this, Constant.HONG_FILE, true) || PreData.getDB(this, Constant.HONG_MANAGER, true) ||
-                PreData.getDB(this, Constant.HONG_DEEP, true) || PreData.getDB(this, Constant.HONG_PHOTO, true) || PreData.getDB(this, Constant.HONG_GBOOST, true)) {
-            menu_hong.setVisibility(View.VISIBLE);
-        } else {
-            menu_hong.setVisibility(View.GONE);
-        }
-    }
-
-    @Override
-    public void onDrawerStateChanged(int newState) {
-
-    }
-
-    class HuiAdapter extends RecyclerView.Adapter<HuiAdapter.HomeViewHolder> {
-        ArrayList<TuiguangInfo> list;
-
-        public HuiAdapter(ArrayList<TuiguangInfo> list) {
-            this.list = list;
-        }
-
-
-        public HuiAdapter.HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            HuiAdapter.HomeViewHolder holder = new HuiAdapter.HomeViewHolder(LayoutInflater.from(
-                    MainActivity.this).inflate(R.layout.layout_tuiguang_item, parent,
-                    false));
-            return holder;
-        }
-
-        @Override
-        public void onBindViewHolder(final HuiAdapter.HomeViewHolder holder, final int position) {
-            final TuiguangInfo info = list.get(position);
-            holder.recyc_name.setText(info.title);
-            if (info.drable_id == -1) {
-                holder.recyc_ad.setVisibility(View.VISIBLE);
-                Util.loadImg(MainActivity.this, info.url, R.mipmap.icon, holder.recyc_icon);
-                holder.recycle_item.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        com.mutter.ui.demo.util.Utils.reactionForAction(MainActivity.this, AndroidSdk.getExtraData(), info.packageName, info.action);
-                        AdUtil.track("交叉推广_广告位", "广告位_主界面", "点击" + info.packageName, 1);
-                    }
-                });
-            } else if (info.drable_id == R.mipmap.tuiguang_notifi) {
-                holder.recyc_ad.setVisibility(View.INVISIBLE);
-                holder.recyc_icon.setImageResource(info.drable_id);
-                holder.recycle_item.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (!Util.isNotificationListenEnabled(MainActivity.this) || !PreData.getDB(MainActivity.this, Constant.KEY_NOTIFI, true)) {
-                            Intent intent6 = new Intent(MainActivity.this, NotifiAnimationActivity.class);
-                            startActivityForResult(intent6, 1);
-                        } else {
-                            Intent intent6 = new Intent(MainActivity.this, NotifiActivity.class);
-                            startActivityForResult(intent6, 1);
-                        }
-                    }
-                });
-            } else {
-                holder.recyc_ad.setVisibility(View.INVISIBLE);
-                holder.recyc_icon.setImageResource(info.drable_id);
-                holder.recycle_item.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        AdUtil.track("主页面", "点击方格好评", "", 1);
-                        UtilGp.rate(MainActivity.this);
-                        PreData.putDB(MainActivity.this, Constant.IS_ROTATE, true);
-                    }
-                });
-            }
-        }
-
-        @Override
-        public int getItemCount() {
-            return this.list.size();
-        }
-
-        class HomeViewHolder extends RecyclerView.ViewHolder {
-            ImageView recyc_icon;
-            TextView recyc_name;
-            TextView recyc_ad;
-            LinearLayout recycle_item;
-
-            public HomeViewHolder(View view) {
-                super(view);
-                recycle_item = (LinearLayout) view.findViewById(R.id.recycle_item);
-                recyc_icon = (ImageView) view.findViewById(R.id.recyc_icon);
-                recyc_name = (TextView) view.findViewById(R.id.recyc_name);
-                recyc_ad = (TextView) view.findViewById(R.id.recyc_ad);
-            }
-        }
-    }
 
 }

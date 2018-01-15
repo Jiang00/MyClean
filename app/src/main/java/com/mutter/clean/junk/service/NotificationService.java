@@ -53,7 +53,6 @@ import com.mutter.clean.util.PreData;
 
 import java.util.ArrayList;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
 
 
 public class NotificationService extends Service {

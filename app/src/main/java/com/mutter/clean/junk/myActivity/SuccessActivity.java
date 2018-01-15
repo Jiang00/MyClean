@@ -234,8 +234,6 @@ public class SuccessActivity extends BaseActivity {
 
         }
 
-        tuiguang(TUIGUAN_SUCCESS_SOFT, true, tuiguang_success);
-        tuiguang(TUIGUAN_SUCCESS, false, tuiguang_success);
     }
 
     public static View getNativeAdView(String tag, @LayoutRes int layout) {

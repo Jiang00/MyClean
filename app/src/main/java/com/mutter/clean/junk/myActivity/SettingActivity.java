@@ -1,16 +1,10 @@
 package com.mutter.clean.junk.myActivity;
 
-import android.animation.ValueAnimator;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,21 +12,19 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.mutter.clean.junk.service.AutoService;
-import com.mutter.clean.util.PreData;
-import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.mutter.module.charge.saver.Util.Constants;
-import com.mutter.module.charge.saver.Util.Utils;
 import com.mutter.clean.junk.R;
+import com.mutter.clean.junk.service.AutoService;
 import com.mutter.clean.junk.service.FloatService;
 import com.mutter.clean.junk.service.NotificationService;
 import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.junk.util.Constant;
 import com.mutter.clean.junk.util.ShortCutUtils;
 import com.mutter.clean.junk.util.UtilGp;
-
-import me.leolin.shortcutbadger.ShortcutBadger;
+import com.mutter.clean.util.PreData;
+import com.mutter.clean.util.Util;
+import com.mutter.module.charge.saver.Util.Constants;
+import com.mutter.module.charge.saver.Util.Utils;
 
 /**
  * Created by on 2017/3/2.
@@ -129,8 +121,6 @@ public class SettingActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) == 0) {
             setting_picture.setVisibility(View.GONE);
         }
-        tuiguang(TUIGUAN_SETTING_SOFT, true, tuiguang_setting);
-        tuiguang(TUIGUAN_SETTING, false, tuiguang_setting);
     }
 
     @Override
@@ -228,7 +218,6 @@ public class SettingActivity extends BaseActivity {
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
                         Intent intent = new Intent(SettingActivity.this, NotificationService.class);
                         stopService(intent);
-                        ShortcutBadger.removeCount(SettingActivity.this);
                     } else {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);

@@ -5,7 +5,6 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A10"
     android:orientation="vertical"
     tools:context="com.mutter.clean.junk.myActivity.MainActivity">
 
@@ -14,7 +13,7 @@
         android:id="@+id/view_title_bar"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@color/B7" />
+        android:background="@color/A1" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -28,7 +27,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/title_hight"
-                android:background="@color/B7">
+                android:background="@color/A1">
 
                 <ImageView
                     android:id="@+id/iv_title_left"
@@ -42,13 +41,6 @@
                     android:padding="@dimen/d8"
                     android:src="@mipmap/main_menu" />
 
-                <ImageView
-                    android:id="@+id/menu_hong"
-                    android:layout_width="@dimen/d8"
-                    android:layout_height="@dimen/d8"
-                    android:layout_alignRight="@id/iv_title_left"
-                    android:layout_marginTop="@dimen/d16"
-                    android:src="@drawable/shape_a2" />
 
                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                     android:id="@+id/tv_title_name"
@@ -95,7 +87,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A10"
                         android:orientation="vertical">
 
                         <!--tou-->
@@ -104,7 +95,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/d288"
                             android:layout_gravity="center"
-                            android:background="@drawable/shape_main_circle">
+                            android:background="@color/A1">
 
                             <RelativeLayout
                                 android:id="@+id/main_sd_air_button"
@@ -297,12 +288,6 @@
 
                                 </FrameLayout>
                             </FrameLayout>
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom"
-                                android:background="@mipmap/main_tou_backg" />
                         </FrameLayout>
 
                         <!--六个按钮-->

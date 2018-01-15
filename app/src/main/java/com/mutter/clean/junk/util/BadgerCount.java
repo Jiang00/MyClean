@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.mutter.clean.util.PreData;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
 
 /**
  * Created by ${} on 2017/9/18.
@@ -43,6 +42,5 @@ public class BadgerCount {
         if (PreData.getDB(context, Constant.HONG_GBOOST, true)) {
             badger++;
         }
-        ShortcutBadger.applyCount(context, badger);
     }
 }

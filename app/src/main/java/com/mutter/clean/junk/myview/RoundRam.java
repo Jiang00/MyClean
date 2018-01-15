@@ -72,7 +72,7 @@ public class RoundRam extends View {
         bluePoint.setStrokeWidth(lineWidth);
         bluePoint.setColor(context.getResources().getColor(R.color.B6));
         mMatrix = new Matrix();
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.main_dian);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.main_dian_s);
         bitmap = Bitmap.createScaledBitmap(bitmap, getResources().getDimensionPixelOffset(R.dimen.d10), getResources().getDimensionPixelOffset(R.dimen.d10), true);
 
     }
@@ -85,8 +85,8 @@ public class RoundRam extends View {
         int d = (width >= height) ? height : width;
         size = d;
         setMeasuredDimension(d, d);
-        LinearGradient gradient = new LinearGradient(0, 0, size, size, ContextCompat.getColor(context, R.color.C8)
-                , ContextCompat.getColor(context, R.color.C9), Shader.TileMode.CLAMP);
+        LinearGradient gradient = new LinearGradient(0, 0, size, size, ContextCompat.getColor(context, R.color.A5)
+                , ContextCompat.getColor(context, R.color.A6), Shader.TileMode.CLAMP);
         circlePoint.setShader(gradient);
     }
 
@@ -100,7 +100,7 @@ public class RoundRam extends View {
         rect.bottom = size - lineWidth - 1;
         canvas.drawArc(rect, 0, 360, false, backgPoint);
         canvas.save();
-        canvas.rotate(90, size / 2, size / 2);
+        canvas.rotate(-90, size / 2, size / 2);
         canvas.drawArc(rect, 0, progress * 360 / 100, false, circlePoint);
         Path path = new Path();
         path.addArc(rect, 0, progress * 360 / 100);
