@@ -236,6 +236,15 @@ public class LoadingActivity extends BaseActivity {
                 if (jsonObject.has("show_exit_native")) {
                     DataPre.putDB(LoadingActivity.this, Constant.NATIVE_EXIT, jsonObject.getInt("show_exit_native"));
                 }
+                if (jsonObject.has("clean_native_size")) {
+                    DataPre.putDB(LoadingActivity.this, Constant.SUCCESS_NATIVE_SIZE, jsonObject.getString("clean_native_size"));
+                }
+                if (jsonObject.has("float_native_size")) {
+                    DataPre.putDB(LoadingActivity.this, Constant.FLOAT_NATIVE_SIZE, jsonObject.getString("float_native_size"));
+                }
+                if (jsonObject.has("shortcut_native_size")) {
+                    DataPre.putDB(LoadingActivity.this, Constant.SHORTCUT_NATIVE_SIZE, jsonObject.getString("shortcut_native_size"));
+                }
                 if (jsonObject.has("skip_time")) {
                     DataPre.putDB(LoadingActivity.this, Constant.SKIP_TIME, jsonObject.getInt("skip_time"));
                     Log.e("timeada", jsonObject.getInt("skip_time") + "==");

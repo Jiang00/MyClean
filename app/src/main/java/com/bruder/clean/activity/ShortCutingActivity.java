@@ -11,6 +11,7 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,11 +88,16 @@ public class ShortCutingActivity extends BaseActivity {
     private void loadAd() {
         if (DataPre.getDB(this, Constant.FULL_SHORTCUT, 0) == 1) {
         } else {
-            nativeView = UtilAd.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
+            if (TextUtils.equals(UtilAd.NATIVE_SMALL, DataPre.getDB(this, Constant.SHORTCUT_NATIVE_SIZE, UtilAd.NATIVE_SMALL))) {
+                nativeView = UtilAd.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad_3);
+            } else {
+                nativeView = UtilAd.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
+            }
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
                 ll_ad.setVisibility(View.VISIBLE);
             } else {
+                UtilAd.showBanner();
             }
         }
     }
@@ -135,7 +141,7 @@ public class ShortCutingActivity extends BaseActivity {
             WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
             lp.width = dm.widthPixels; //设置宽度
             lp.height = dm.heightPixels; //设置高度
-            if (PreData.getDB(this, Constant.IS_ACTION_BAR, true)) {
+            if (DataPre.getDB(this, Constant.IS_ACTION_BAR, true)) {
                 int uiOptions =
                         View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
                                 //布局位于状态栏下方
@@ -230,6 +236,7 @@ public class ShortCutingActivity extends BaseActivity {
         super.onStop();
         count = 0;
         istween = false;
+        UtilAd.closeBanner();
         finish();
     }
 

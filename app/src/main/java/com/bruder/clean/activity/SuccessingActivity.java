@@ -30,6 +30,7 @@ import com.android.client.AndroidSdk;
 import com.bruder.clean.customeview.MySlowScrollView;
 import com.bruder.clean.junk.R;
 import com.bruder.clean.util.Constant;
+import com.bruder.clean.util.PreData;
 import com.bruder.clean.util.TransmitValue;
 import com.bruder.clean.util.UtilAd;
 import com.bruder.clean.util.UtilGp;
@@ -243,10 +244,17 @@ public class SuccessingActivity extends BaseActivity {
             }, 1000);
         }
         if (DataPre.getDB(this, Constant.NATIVE_SUCCESS, 0) == 1) {
-            native_xiao = getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+            if (TextUtils.equals(UtilAd.NATIVE_SMALL, DataPre.getDB(this, Constant.SUCCESS_NATIVE_SIZE, UtilAd.NATIVE_SMALL))) {
+                native_xiao = getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_3);
+            } else {
+                native_xiao = getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+            }
             if (ll_ad_xiao != null && native_xiao != null) {
                 ll_ad_xiao.addView(native_xiao);
                 ll_ad_xiao.setVisibility(View.VISIBLE);
+            } else {
+                UtilAd.showBanner();
+                findViewById(R.id.banner).setVisibility(View.VISIBLE);
             }
         }
     }
@@ -328,6 +336,12 @@ public class SuccessingActivity extends BaseActivity {
         main_gboost_button1.setOnClickListener(onClickListener);
         main_picture_button.setOnClickListener(onClickListener);
         main_picture_button1.setOnClickListener(onClickListener);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UtilAd.closeBanner();
     }
 
     private void addAd() {

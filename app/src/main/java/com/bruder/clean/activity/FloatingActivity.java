@@ -17,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -31,6 +32,7 @@ import com.android.client.AndroidSdk;
 import com.bruder.clean.junk.R;
 import com.bruder.clean.util.CheckState;
 import com.bruder.clean.util.Constant;
+import com.bruder.clean.util.PreData;
 import com.bruder.clean.util.SwitchControl;
 import com.bruder.clean.util.UtilAd;
 import com.cleaner.entity.JunkInfo;
@@ -84,14 +86,15 @@ public class FloatingActivity extends BaseActivity {
                 }
             }, 1000);
         } else {
-            nativeView = UtilAd.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
+            if (TextUtils.equals(UtilAd.NATIVE_SMALL, DataPre.getDB(this, Constant.FLOAT_NATIVE_SIZE, UtilAd.NATIVE_SMALL))) {
+                nativeView = UtilAd.getNativeAdView(TAG_FLAOT, R.layout.native_ad_3);
+            } else {
+                nativeView = UtilAd.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
+            }
             if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == Util.dp2px(250)) {
-                    layout_ad.height = Util.dp2px(250);
-                }
-                ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
+            } else {
+                UtilAd.showBanner();
             }
         }
     }
@@ -115,6 +118,12 @@ public class FloatingActivity extends BaseActivity {
         float_memory = (TextView) findViewById(R.id.float_memory);
         rl_memory = (LinearLayout) findViewById(R.id.rl_memory);
         float_tishi = (TextView) findViewById(R.id.float_tishi);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UtilAd.closeBanner();
     }
 
     private void initList() {

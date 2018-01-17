@@ -10,6 +10,9 @@ import com.bruder.clean.junk.BuildConfig;
 
 public class UtilAd {
     public static final String DEFAULT_FULL = "clean_full";
+    public static final String NATIVE_FULL = "full";
+    public static final String NATIVE_LARGE = "large";
+    public static final String NATIVE_SMALL = "small";
 
     public static void track(String category, String action, String label, int value) {
         if (BuildConfig.TRACK) {
@@ -34,4 +37,13 @@ public class UtilAd {
         }
         return nativeView;
     }
+
+    public static void showBanner() {
+        AndroidSdk.showBanner("clean_banner", 4);
+    }
+
+    public static void closeBanner() {
+        AndroidSdk.closeBanner("clean_banner");
+    }
+
 }
