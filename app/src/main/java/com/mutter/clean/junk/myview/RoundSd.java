@@ -62,7 +62,6 @@ public class RoundSd extends View {
 
     private void init() {
         circlePoint = new Paint();
-        circlePoint.setColor(ContextCompat.getColor(context, R.color.A8));
         circlePoint.setStrokeCap(Paint.Cap.ROUND);
         circlePoint.setFilterBitmap(true);
         circlePoint.setAntiAlias(true);
@@ -80,7 +79,7 @@ public class RoundSd extends View {
         backgPoint.setStrokeWidth(lineWidth);
         backgPoint.setStrokeCap(Paint.Cap.ROUND);
         backgPoint.setStyle(Paint.Style.STROKE);
-        backgPoint.setColor(context.getResources().getColor(R.color.B4));
+        backgPoint.setColor(context.getResources().getColor(R.color.A2));
         mMatrix = new Matrix();
         bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.main_dian_d);
         bitmap = Bitmap.createScaledBitmap(bitmap, getResources().getDimensionPixelOffset(R.dimen.d7),
