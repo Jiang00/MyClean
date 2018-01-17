@@ -166,6 +166,17 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginRight="@dimen/d8"
+                android:layout_marginTop="@dimen/d8"
+                android:background="@color/white_100"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+            <LinearLayout
                 android:id="@+id/file_video_button"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d135"
@@ -664,7 +675,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_ad"
+                android:id="@+id/ll_ad_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/d8"
@@ -673,7 +684,6 @@
                 android:background="@color/white_100"
                 android:orientation="vertical"
                 android:visibility="gone" />
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

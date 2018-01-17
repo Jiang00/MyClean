@@ -50,9 +50,12 @@ public class NotifiPermissActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (!Util.isNotificationListenEnabled(NotifiPermissActivity.this)) {
-                    startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), REQUSETSET);
-                    myHandler.postDelayed(runnable_ac, 1500);
-                    myHandler.post(runnable_per);
+                    try {
+                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), REQUSETSET);
+                        myHandler.postDelayed(runnable_ac, 1500);
+                        myHandler.post(runnable_per);
+                    } catch (Exception e) {
+                    }
                 } else {
                     PreData.putDB(NotifiPermissActivity.this, Constant.KEY_NOTIFI, true);
                     startActivity(new Intent(NotifiPermissActivity.this, NotificationActivity.class));

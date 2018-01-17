@@ -521,6 +521,9 @@ public class CleanManager {
         if (isAdd) {
             notificationList.add(notifiInfo);
         }
+        if (notificationCallBackList == null) {
+            return;
+        }
         for (NotificationCallBack callBack : notificationCallBackList) {
             callBack.notificationChanged(notificationList);
         }

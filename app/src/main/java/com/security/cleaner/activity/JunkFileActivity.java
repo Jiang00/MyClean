@@ -62,6 +62,7 @@ public class JunkFileActivity extends BaseActivity implements JunkView {
     private boolean color1 = true;
     private boolean color2 = true;
     public Handler myHandler;
+    private View nativeView;
 
     @Override
     protected void findId() {
@@ -109,6 +110,15 @@ public class JunkFileActivity extends BaseActivity implements JunkView {
         myHandler = new Handler();
         junkPresenter = new LajiPresenter(this, this);
         junkPresenter.init();
+        addAd();
+    }
+
+    private void addAd() {
+        nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
     @Override

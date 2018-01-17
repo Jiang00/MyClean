@@ -555,19 +555,21 @@ public class ASwitchControl {
                 return false;
             }
         }
-        camera.stopPreview();
-
-        parameters = camera.getParameters();
-        String s = parameters.getFlashMode();
-        if (s == null) {
+        try {
+            camera.stopPreview();
+            parameters = camera.getParameters();
+            String s = parameters.getFlashMode();
+            if (s == null) {
+                return false;
+            }
+            if (s.equals(Camera.Parameters.FLASH_MODE_OFF)) {
+                flashLightState = false;
+            } else {
+                flashLightState = true;
+            }
+        } catch (Exception e) {
             return false;
         }
-        if (s.equals(Camera.Parameters.FLASH_MODE_OFF)) {
-            flashLightState = false;
-        } else {
-            flashLightState = true;
-        }
-
 
         return flashLightState;
 

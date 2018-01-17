@@ -61,6 +61,7 @@ public class ARamAvtivity extends BaseActivity implements MRamView {
     private boolean color2 = true;
     public Handler myHandler;
     private AnimatorSet animatorSet;
+    private View nativeView;
 
     @Override
     protected void findId() {
@@ -93,7 +94,15 @@ public class ARamAvtivity extends BaseActivity implements MRamView {
         ramPresenter.init();
         title_right.setImageResource(R.mipmap.ram_white);
         title_right.setVisibility(View.VISIBLE);
+        addAd();
+    }
 
+    private void addAd() {
+        nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+        LinearLayout ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+        }
     }
 
 

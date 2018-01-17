@@ -23,7 +23,7 @@ import com.security.mcleaner.mutil.Util;
  */
 
 public class FilesManagerActivity extends BaseActivity {
-    LinearLayout ll_ad;
+    LinearLayout ll_ad, ll_ad_2;
 
     FrameLayout title_left;
     LinearLayout file_apk_button, file_zip_button, file_txt_button, file_music_button, file_video_button;
@@ -40,6 +40,7 @@ public class FilesManagerActivity extends BaseActivity {
     private FileCategoryHelper fileHelper;
     private FileCategoryHelper.CategoryInfo apkInfo, zipInfo, docInfo, musicInfo, videoInfo;
     private Handler mHandler;
+    private View nativeView_2;
 
     @Override
     protected void findId() {
@@ -67,6 +68,7 @@ public class FilesManagerActivity extends BaseActivity {
         file_music_button = (LinearLayout) findViewById(R.id.file_music_button);
         file_video_button = (LinearLayout) findViewById(R.id.file_video_button);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ll_ad_2 = (LinearLayout) findViewById(R.id.ll_ad_2);
         file_sd_keyong = (TextView) findViewById(R.id.file_sd_keyong);
         file_video_size = (TextView) findViewById(R.id.file_video_size);
         file_apk_size = (TextView) findViewById(R.id.file_apk_size);
@@ -124,16 +126,16 @@ public class FilesManagerActivity extends BaseActivity {
 
 
     private void initAd() {
-        if (PreData.getDB(this, Constant.FULL_FILE, 0) == 1) {
-            AndroidSdk.showFullAd(AdUtil.DEFAULT);
-        } else {
-            nativeView = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
-            if (ll_ad != null && nativeView != null) {
-                ll_ad.addView(nativeView);
-                ll_ad.setVisibility(View.VISIBLE);
-            }
+        nativeView = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
         }
-
+        nativeView_2 = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
+        if (ll_ad_2 != null && nativeView_2 != null) {
+            ll_ad_2.addView(nativeView_2);
+            ll_ad_2.setVisibility(View.VISIBLE);
+        }
     }
 
     private void setFileNum(TextView view1, TextView view2, TextView view3, long num) {
