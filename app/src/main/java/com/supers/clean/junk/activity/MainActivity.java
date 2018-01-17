@@ -601,63 +601,65 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
+        try {
+            DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
+                @Override
+                public void onClick(View view) {
 
-            }
+                }
 
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    fl_lot_side.setVisibility(View.VISIBLE);
-                    side_title.setVisibility(View.GONE);
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_side = (LottieAnimationView) view.findViewById(R.id.cross_default_lottie);
-                    if (lot_side == null) {
-                        return;
-                    }
-                    lot_side.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    fl_lot_side.addView(view, 0);
-                    if (mDrawerOpened) {
-                        lot_side.playAnimation();
+                @Override
+                public void onLoadView(View view) {
+                    if (view != null) {
+                        fl_lot_side.setVisibility(View.VISIBLE);
+                        side_title.setVisibility(View.GONE);
+                        ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        lot_side = (LottieAnimationView) view.findViewById(R.id.cross_default_lottie);
+                        if (lot_side == null) {
+                            return;
+                        }
+                        lot_side.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        fl_lot_side.addView(view, 0);
+                        if (mDrawerOpened) {
+                            lot_side.playAnimation();
+                        } else {
+                            lot_side.pauseAnimation();
+                        }
                     } else {
-                        lot_side.pauseAnimation();
+                        fl_lot_side.setVisibility(View.GONE);
+                        side_title.setVisibility(View.VISIBLE);
                     }
-                } else {
-                    fl_lot_side.setVisibility(View.GONE);
-                    side_title.setVisibility(View.VISIBLE);
                 }
-            }
-        });
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
+            });
+            DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
+                @Override
+                public void onClick(View view) {
 
-            }
-
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    if (bean != null && bean.appName != null & bean.appName.get(0) != null && bean.appName.get(0).content != null) {
-                        main_msg_tuiguang.setText(bean.appName.get(0).content);
-                    }
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_main = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                    lot_main.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    Log.e("tuiguang", "main 不为空");
-                    main_tuiguang_button.setVisibility(View.VISIBLE);
-                    if (onPause) {
-                        lot_main.pauseAnimation();
-                    }
-                    fl_lot_main.addView(view, 0);
-                } else {
-                    main_tuiguang_button.setVisibility(View.GONE);
-                    Log.e("tuiguang", "main 为空");
                 }
-            }
-        });
 
+                @Override
+                public void onLoadView(View view) {
+                    if (view != null) {
+                        if (bean != null && bean.appName != null & bean.appName.get(0) != null && bean.appName.get(0).content != null) {
+                            main_msg_tuiguang.setText(bean.appName.get(0).content);
+                        }
+                        ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        lot_main = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                        lot_main.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        Log.e("tuiguang", "main 不为空");
+                        main_tuiguang_button.setVisibility(View.VISIBLE);
+                        if (onPause) {
+                            lot_main.pauseAnimation();
+                        }
+                        fl_lot_main.addView(view, 0);
+                    } else {
+                        main_tuiguang_button.setVisibility(View.GONE);
+                        Log.e("tuiguang", "main 为空");
+                    }
+                }
+            });
+        } catch (Exception e) {
+        }
     }
 
     //初始化监听
