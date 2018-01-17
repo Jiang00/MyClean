@@ -226,6 +226,7 @@ public class SuccessActivity extends BaseActivity {
         }
 
         addListener();
+
         shendu();
         if (PreData.getDB(this, Constant.FULL_SUCCESS_NATIVE, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
@@ -281,24 +282,32 @@ public class SuccessActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = AdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
-        native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
-        if (ad_native_2 != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
-            layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
-            Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
-            ad_native_2.setLayoutParams(layout_ad);
-            haveAd = true;
-            ad_native_2.addView(nativeView);
-            if (animationEnd) {
-                ad_native_2.setVisibility(View.VISIBLE);
-                scrollView.isTouch = false;
-                scrollView.smoothScrollToSlow(2000);
-            }
+//        nativeView = AdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
+
+//        if (ad_native_2 != null && nativeView != null) {
+//            ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
+//            layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
+//            Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
+//            ad_native_2.setLayoutParams(layout_ad);
+//            haveAd = true;
+//            ad_native_2.addView(nativeView);
+//            if (animationEnd) {
+//                ad_native_2.setVisibility(View.VISIBLE);
+//                scrollView.isTouch = false;
+//                scrollView.smoothScrollToSlow(2000);
+//            }
+//        }
+        if (TextUtils.equals(PreData.getDB(this, Constant.SUCCESS_NATIVVE_SIZE, AdUtil.SIZE_SMALL), AdUtil.SIZE_SMALL)) {
+            native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_3);
+        } else {
+            native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
         }
         if (ll_ad_xiao != null && native_xiao != null) {
             ll_ad_xiao.addView(native_xiao);
             ll_ad_xiao.setVisibility(View.VISIBLE);
+        } else {
+            AdUtil.showBanner();
+            findViewById(R.id.banner_ad).setVisibility(View.VISIBLE);
         }
     }
 
@@ -635,6 +644,7 @@ public class SuccessActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        AdUtil.closeBanner();
         super.onDestroy();
     }
 

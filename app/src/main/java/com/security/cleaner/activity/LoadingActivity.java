@@ -158,6 +158,15 @@ public class LoadingActivity extends BaseActivity {
             if (jsonObject.has("full_similar_photo")) {
                 PreData.putDB(LoadingActivity.this, Constant.PICTURE, jsonObject.getInt("full_similar_photo"));
             }
+            if (jsonObject.has("clean_native_size")) {
+                PreData.putDB(LoadingActivity.this, Constant.SUCCESS_NATIVVE_SIZE, jsonObject.getString("clean_native_size"));
+            }
+            if (jsonObject.has("float_native_size")) {
+                PreData.putDB(LoadingActivity.this, Constant.FLOAT_NATIVVE_SIZE, jsonObject.getString("float_native_size"));
+            }
+            if (jsonObject.has("shortcut_native_size")) {
+                PreData.putDB(LoadingActivity.this, Constant.SHORTCUT_NATIVVE_SIZE, jsonObject.getString("shortcut_native_size"));
+            }
             if (jsonObject.has("full_recyclebin")) {
                 PreData.putDB(LoadingActivity.this, Constant.RECYCLEBIN, jsonObject.getInt("full_recyclebin"));
             }

@@ -13,6 +13,9 @@ import com.security.cleaner.BuildConfig;
 
 public class AdUtil {
     public static final String DEFAULT = "clean_full";
+    public static final String SIZE_FULL = "full";
+    public static final String SIZE_LARGE = "large";
+    public static final String SIZE_SMALL = "small";
 
     public static void track(String category, String action, String label, int value) {
         if (BuildConfig.TRACK) {
@@ -35,5 +38,13 @@ public class AdUtil {
             }
         }
         return nativeView;
+    }
+
+    public static void showBanner() {
+        AndroidSdk.showBanner("clean_banner", 4);
+    }
+
+    public static void closeBanner() {
+        AndroidSdk.closeBanner("clean_banner");
     }
 }

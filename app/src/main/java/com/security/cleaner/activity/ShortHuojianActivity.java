@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,8 @@ import com.android.client.AndroidSdk;
 import com.security.cleaner.myview.ShortBubbleCenterLayout;
 import com.security.cleaner.utils.AdUtil;
 import com.security.cleaner.R;
+import com.security.cleaner.utils.Constant;
+import com.security.mcleaner.mutil.PreData;
 import com.security.mcleaner.mutil.Util;
 
 import java.util.List;
@@ -84,16 +87,16 @@ public class ShortHuojianActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
+        if (TextUtils.equals(PreData.getDB(this, Constant.SHORTCUT_NATIVVE_SIZE, AdUtil.SIZE_SMALL), AdUtil.SIZE_SMALL)) {
+            nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad_3);
+        } else {
+            nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
+        }
         if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            if (nativeView.getHeight() == Util.dp2px(250)) {
-                layout_ad.height = Util.dp2px(250);
-            }
-            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
             ll_ad.setVisibility(View.VISIBLE);
         } else {
+            AdUtil.showBanner();
         }
     }
 
@@ -253,6 +256,7 @@ public class ShortHuojianActivity extends BaseActivity {
         if (animatorSet != null && animatorSet.isRunning()) {
             animatorSet.cancel();
         }
+        AdUtil.closeBanner();
         finish();
     }
 }

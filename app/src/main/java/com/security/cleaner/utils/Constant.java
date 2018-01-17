@@ -76,6 +76,9 @@ public class Constant {
     public static final String FULL_EXIT = "FULL_EXIT";
     public static final String FULL_EXIT_NATIVE = "FULL_EXIT_NATIVE";
     public static final String SKIP_TIME = "SKIP_TIME";
+    public static final String SUCCESS_NATIVVE_SIZE = "SUCCESS_NATIVVE_SIZE";
+    public static final String FLOAT_NATIVVE_SIZE = "FLOAT_NATIVVE_SIZE";
+    public static final String SHORTCUT_NATIVVE_SIZE = "SHORTCUT_NATIVVE_SIZE";
 
     public static final String FULL_MANAGER = "FULL_MANAGER";
 

@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -208,14 +209,15 @@ public class FloatActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        nativeView = AdUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
+        if (TextUtils.equals(PreData.getDB(this, Constant.FLOAT_NATIVVE_SIZE, AdUtil.SIZE_SMALL), AdUtil.SIZE_SMALL)) {
+            nativeView = AdUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_3);
+        } else {
+            nativeView = AdUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
+        }
         if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            if (nativeView.getHeight() == Util.dp2px(250)) {
-                layout_ad.height = Util.dp2px(250);
-            }
-            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
+        } else {
+            AdUtil.showBanner();
         }
     }
 
@@ -380,6 +382,7 @@ public class FloatActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        AdUtil.closeBanner();
         super.onDestroy();
         if (objectAnimator != null && objectAnimator.isRunning()) {
             objectAnimator.cancel();

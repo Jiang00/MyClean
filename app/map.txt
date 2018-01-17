@@ -28567,193 +28567,6 @@ com.android.view.RoundImageView -> com.android.view.RoundImageView:
     41:57:void init(android.util.AttributeSet) -> a
     61:65:void layout(int,int,int,int) -> layout
     69:73:void onDraw(android.graphics.Canvas) -> onDraw
-com.aurora.kpa.DaemonApplication -> com.aurora.kpa.DaemonApplication:
-    com.aurora.kpa.IDaemonClient mDaemonClient -> a
-    boolean mHasAttachBaseContext -> b
-    com.aurora.kpa.DaemonConfigurations getDaemonConfigurations() -> a
-    23:32:void <init>() -> <init>
-    36:43:void attachBaseContext(android.content.Context) -> attachBaseContext
-    51:51:void attachBaseContextByDaemon(android.content.Context) -> a
-com.aurora.kpa.DaemonClient -> com.aurora.kpa.a:
-    com.aurora.kpa.DaemonConfigurations mConfigurations -> a
-    java.lang.String DAEMON_PERMITTING_SP_FILENAME -> b
-    java.lang.String DAEMON_PERMITTING_SP_KEY -> c
-    java.io.BufferedReader mBufferedReader -> d
-    24:38:void <init>(com.aurora.kpa.DaemonConfigurations) -> <init>
-    30:34:void onAttachBaseContext(android.content.Context) -> a
-    57:79:void initDaemon(android.content.Context) -> b
-    99:104:java.lang.String getProcessName() -> a
-    112:120:void releaseIO() -> b
-    123:124:boolean isDaemonPermitting(android.content.Context) -> c
-com.aurora.kpa.DaemonConfigurations -> com.aurora.kpa.b:
-    com.aurora.kpa.DaemonConfigurations$DaemonConfiguration PERSISTENT_CONFIG -> a
-    com.aurora.kpa.DaemonConfigurations$DaemonConfiguration DAEMON_ASSISTANT_CONFIG -> b
-    com.aurora.kpa.DaemonConfigurations$DaemonListener LISTENER -> c
-com.aurora.kpa.DaemonConfigurations$DaemonConfiguration -> com.aurora.kpa.b$a:
-    java.lang.String PROCESS_NAME -> a
-    java.lang.String SERVICE_NAME -> b
-    java.lang.String RECEIVER_NAME -> c
-com.aurora.kpa.DaemonConfigurations$DaemonListener -> com.aurora.kpa.b$b:
-    void onPersistentStart(android.content.Context) -> a
-    void onDaemonAssistantStart(android.content.Context) -> b
-    void onWatchDaemonDead() -> a
-com.aurora.kpa.DaemonReceiver -> com.aurora.kpa.DaemonReceiver:
-    12:12:void <init>() -> <init>
-    15:15:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.aurora.kpa.DaemonService -> com.aurora.kpa.DaemonService:
-    12:12:void <init>() -> <init>
-    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
-    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-com.aurora.kpa.IDaemonClient -> com.aurora.kpa.c:
-    void onAttachBaseContext(android.content.Context) -> a
-com.aurora.kpa.IDaemonStrategy -> com.aurora.kpa.d:
-    boolean onInitialization(android.content.Context) -> a
-    void onPersistentCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> a
-    void onDaemonAssistantCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> b
-com.aurora.kpa.IDaemonStrategy$Fetcher -> com.aurora.kpa.d$a:
-    com.aurora.kpa.IDaemonStrategy mDaemonStrategy -> a
-    63:94:com.aurora.kpa.IDaemonStrategy fetchStrategy() -> a
-com.aurora.kpa.JobSchedulerService -> com.aurora.kpa.JobSchedulerService:
-    8:8:void <init>() -> <init>
-    14:20:boolean onStartJob(android.app.job.JobParameters) -> onStartJob
-    25:26:boolean onStopJob(android.app.job.JobParameters) -> onStopJob
-com.aurora.kpa.NativeDaemonBase -> com.aurora.kpa.e:
-    android.content.Context mContext -> a
-    17:19:void <init>(android.content.Context) -> <init>
-com.aurora.kpa.PersistReceiver -> com.aurora.kpa.PersistReceiver:
-    12:12:void <init>() -> <init>
-    16:16:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.aurora.kpa.PersistService -> com.aurora.kpa.PersistService:
-    15:15:void <init>() -> <init>
-    19:21:void onCreate() -> onCreate
-    25:25:android.os.IBinder onBind(android.content.Intent) -> onBind
-    30:30:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    36:48:void onDestroy() -> onDestroy
-    52:59:void keepAlive() -> a
-com.aurora.kpa.PersistService$1 -> com.aurora.kpa.PersistService$1:
-    com.aurora.kpa.PersistService this$0 -> a
-    36:36:void <init>(com.aurora.kpa.PersistService) -> <init>
-    41:45:void run() -> run
-com.aurora.kpa.WatchmenReceiver -> com.aurora.kpa.WatchmenReceiver:
-    20:20:void <init>() -> <init>
-    25:29:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.aurora.kpa.nativ.NativeDaemonAPIK -> com.aurora.kpa.nativ.NativeDaemonAPIK:
-    15:16:void <init>(android.content.Context) -> <init>
-    void doDaemon(java.lang.String,java.lang.String,java.lang.String) -> doDaemon
-    20:24:void <clinit>() -> <clinit>
-com.aurora.kpa.nativ.NativeDaemonAPIL -> com.aurora.kpa.nativ.NativeDaemonAPIL:
-    15:16:void <init>(android.content.Context) -> <init>
-    void doDaemon(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> doDaemon
-    20:24:void <clinit>() -> <clinit>
-com.aurora.kpa.strategy.DaemonStrategy21 -> com.aurora.kpa.a.a:
-    android.app.AlarmManager mAlarmManager -> a
-    android.app.PendingIntent mPendingIntent -> b
-    com.aurora.kpa.DaemonConfigurations mConfigs -> c
-    22:22:void <init>() -> <init>
-    35:35:boolean onInitialization(android.content.Context) -> a
-    40:65:void onPersistentCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> a
-    69:93:void onDaemonAssistantCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> b
-    107:118:void initAlarm(android.content.Context,java.lang.String) -> a
-    122:132:boolean initIndicators(android.content.Context) -> b
-    138:142:void createNewFile(java.io.File,java.lang.String) -> a
-com.aurora.kpa.strategy.DaemonStrategy21$1 -> com.aurora.kpa.a.a$1:
-    android.content.Context val$context -> a
-    com.aurora.kpa.strategy.DaemonStrategy21 this$0 -> b
-    47:47:void <init>(com.aurora.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
-    50:56:void run() -> run
-com.aurora.kpa.strategy.DaemonStrategy21$2 -> com.aurora.kpa.a.a$2:
-    android.content.Context val$context -> a
-    com.aurora.kpa.strategy.DaemonStrategy21 this$0 -> b
-    76:76:void <init>(com.aurora.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
-    78:84:void run() -> run
-com.aurora.kpa.strategy.DaemonStrategy22 -> com.aurora.kpa.a.b:
-    android.os.IBinder mRemote -> a
-    android.os.Parcel mServiceData -> b
-    com.aurora.kpa.DaemonConfigurations mConfigs -> c
-    27:27:void <init>() -> <init>
-    40:40:boolean onInitialization(android.content.Context) -> a
-    45:65:void onPersistentCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> a
-    69:90:void onDaemonAssistantCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> b
-    109:127:void initAmsBinder() -> a
-    132:164:void initServiceParcel(android.content.Context,java.lang.String) -> a
-    169:177:boolean startServiceByAmsBinder() -> b
-    185:195:boolean initIndicatorFiles(android.content.Context) -> b
-    200:204:void createNewFile(java.io.File,java.lang.String) -> a
-com.aurora.kpa.strategy.DaemonStrategy22$1 -> com.aurora.kpa.a.b$1:
-    android.content.Context val$context -> a
-    com.aurora.kpa.strategy.DaemonStrategy22 this$0 -> b
-    49:49:void <init>(com.aurora.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
-    51:57:void run() -> run
-com.aurora.kpa.strategy.DaemonStrategy22$2 -> com.aurora.kpa.a.b$2:
-    android.content.Context val$context -> a
-    com.aurora.kpa.strategy.DaemonStrategy22 this$0 -> b
-    73:73:void <init>(com.aurora.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
-    75:81:void run() -> run
-com.aurora.kpa.strategy.DaemonStrategy23 -> com.aurora.kpa.a.c:
-    android.os.IBinder mRemote -> a
-    android.os.Parcel mBroadcastData -> b
-    com.aurora.kpa.DaemonConfigurations mConfigs -> c
-    27:27:void <init>() -> <init>
-    40:40:boolean onInitialization(android.content.Context) -> a
-    45:72:void onPersistentCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> a
-    76:103:void onDaemonAssistantCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> b
-    120:138:void initAmsBinder() -> a
-    144:180:void initBroadcastParcel(android.content.Context,java.lang.String) -> a
-    186:194:boolean sendBroadcastByAmsBinder() -> b
-    200:210:boolean initIndicatorFiles(android.content.Context) -> b
-    215:219:void createNewFile(java.io.File,java.lang.String) -> a
-com.aurora.kpa.strategy.DaemonStrategy23$1 -> com.aurora.kpa.a.c$1:
-    android.content.Context val$context -> a
-    com.aurora.kpa.strategy.DaemonStrategy23 this$0 -> b
-    49:49:void <init>(com.aurora.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
-    51:57:void run() -> run
-com.aurora.kpa.strategy.DaemonStrategy23$2 -> com.aurora.kpa.a.c$2:
-    android.content.Context val$context -> a
-    com.aurora.kpa.strategy.DaemonStrategy23 this$0 -> b
-    80:80:void <init>(com.aurora.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
-    82:88:void run() -> run
-com.aurora.kpa.strategy.DaemonStrategyUnder21 -> com.aurora.kpa.a.d:
-    java.lang.String BINARY_DEST_DIR_NAME -> a
-    java.lang.String BINARY_FILE_NAME -> b
-    android.app.AlarmManager mAlarmManager -> c
-    android.app.PendingIntent mPendingIntent -> d
-    28:30:void <init>() -> <init>
-    37:37:boolean onInitialization(android.content.Context) -> a
-    42:58:void onPersistentCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> a
-    62:70:void onDaemonAssistantCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> b
-    81:92:void initAlarm(android.content.Context,java.lang.String) -> a
-    96:105:boolean installBinary(android.content.Context) -> b
-    110:118:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
-    123:126:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
-    129:142:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
-com.aurora.kpa.strategy.DaemonStrategyUnder21$1 -> com.aurora.kpa.a.d$1:
-    android.content.Context val$context -> a
-    com.aurora.kpa.DaemonConfigurations val$configs -> b
-    com.aurora.kpa.strategy.DaemonStrategyUnder21 this$0 -> c
-    43:43:void <init>(com.aurora.kpa.strategy.DaemonStrategyUnder21,android.content.Context,com.aurora.kpa.DaemonConfigurations) -> <init>
-    45:50:void run() -> run
-com.aurora.kpa.strategy.DaemonStrategyXiaomi -> com.aurora.kpa.a.e:
-    java.lang.String BINARY_DEST_DIR_NAME -> a
-    java.lang.String BINARY_FILE_NAME -> b
-    android.os.IBinder mRemote -> c
-    android.os.Parcel mServiceData -> d
-    com.aurora.kpa.DaemonConfigurations mConfigs -> e
-    30:32:void <init>() -> <init>
-    40:40:boolean onInitialization(android.content.Context) -> a
-    45:64:void onPersistentCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> a
-    69:77:void onDaemonAssistantCreate(android.content.Context,com.aurora.kpa.DaemonConfigurations) -> b
-    94:112:void initAmsBinder() -> a
-    118:150:void initServiceParcel(android.content.Context,java.lang.String) -> a
-    167:176:boolean installBinary(android.content.Context) -> b
-    181:189:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
-    194:197:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
-    200:213:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
-com.aurora.kpa.strategy.DaemonStrategyXiaomi$1 -> com.aurora.kpa.a.e$1:
-    android.content.Context val$context -> a
-    com.aurora.kpa.DaemonConfigurations val$configs -> b
-    com.aurora.kpa.strategy.DaemonStrategyXiaomi this$0 -> c
-    47:47:void <init>(com.aurora.kpa.strategy.DaemonStrategyXiaomi,android.content.Context,com.aurora.kpa.DaemonConfigurations) -> <init>
-    49:54:void run() -> run
 com.bumptech.glide.MemoryCategory -> com.bumptech.glide.MemoryCategory:
     com.bumptech.glide.MemoryCategory LOW -> LOW
     com.bumptech.glide.MemoryCategory NORMAL -> NORMAL
@@ -32735,7 +32548,7 @@ com.security.cleaner.R$styleable -> com.security.cleaner.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5023:13598:void <clinit>() -> <clinit>
+    5028:13603:void <clinit>() -> <clinit>
 com.security.cleaner.activity.ARamAvtivity -> com.security.cleaner.activity.ARamAvtivity:
     android.widget.ImageView title_right -> a
     android.widget.LinearLayout junk_title_backg -> b
@@ -33473,48 +33286,48 @@ com.security.cleaner.activity.FloatActivity -> com.security.cleaner.activity.Flo
     java.lang.String TAG_FLAOT -> o
     android.animation.ObjectAnimator objectAnimator -> p
     android.view.View$OnClickListener kuaijieListener -> m
-    39:92:void <init>() -> <init>
-    50:63:void findId() -> a
-    67:75:void onCreate(android.os.Bundle) -> onCreate
-    78:78:void initList() -> b
-    82:88:void addListener() -> c
-    166:173:void startCleanAnimation() -> d
-    177:192:int killAll(android.content.Context) -> a
-    196:199:long getAvailMemory(android.app.ActivityManager) -> a
-    203:208:void wifi() -> e
-    211:220:void loadAd() -> f
-    223:228:void wifiD() -> g
-    231:236:void liuLiang() -> h
-    239:244:void liuLiangd() -> i
-    247:261:void xianshiD() -> j
-    264:269:void shengYin() -> k
-    272:277:void gps() -> l
-    280:291:int getLight() -> m
-    302:360:void brightnessSwitchUtils(android.content.Context) -> b
-    363:371:void changeAppBrightness(android.content.Context,int) -> a
-    376:379:void onResume() -> onResume
-    383:387:void onDestroy() -> onDestroy
-    39:39:void access$000(com.security.cleaner.activity.FloatActivity) -> a
-    39:39:void access$100(com.security.cleaner.activity.FloatActivity) -> b
-    39:39:void access$200(com.security.cleaner.activity.FloatActivity) -> c
-    39:39:void access$300(com.security.cleaner.activity.FloatActivity) -> d
-    39:39:android.animation.ObjectAnimator access$402(com.security.cleaner.activity.FloatActivity,android.animation.ObjectAnimator) -> a
-    39:39:android.animation.ObjectAnimator access$400(com.security.cleaner.activity.FloatActivity) -> e
+    40:93:void <init>() -> <init>
+    51:64:void findId() -> a
+    68:76:void onCreate(android.os.Bundle) -> onCreate
+    79:79:void initList() -> b
+    83:89:void addListener() -> c
+    167:174:void startCleanAnimation() -> d
+    178:193:int killAll(android.content.Context) -> a
+    197:200:long getAvailMemory(android.app.ActivityManager) -> a
+    204:209:void wifi() -> e
+    212:222:void loadAd() -> f
+    225:230:void wifiD() -> g
+    233:238:void liuLiang() -> h
+    241:246:void liuLiangd() -> i
+    249:263:void xianshiD() -> j
+    266:271:void shengYin() -> k
+    274:279:void gps() -> l
+    282:293:int getLight() -> m
+    304:362:void brightnessSwitchUtils(android.content.Context) -> b
+    365:373:void changeAppBrightness(android.content.Context,int) -> a
+    378:381:void onResume() -> onResume
+    385:390:void onDestroy() -> onDestroy
+    40:40:void access$000(com.security.cleaner.activity.FloatActivity) -> a
+    40:40:void access$100(com.security.cleaner.activity.FloatActivity) -> b
+    40:40:void access$200(com.security.cleaner.activity.FloatActivity) -> c
+    40:40:void access$300(com.security.cleaner.activity.FloatActivity) -> d
+    40:40:android.animation.ObjectAnimator access$402(com.security.cleaner.activity.FloatActivity,android.animation.ObjectAnimator) -> a
+    40:40:android.animation.ObjectAnimator access$400(com.security.cleaner.activity.FloatActivity) -> e
 com.security.cleaner.activity.FloatActivity$1 -> com.security.cleaner.activity.FloatActivity$1:
     com.security.cleaner.activity.FloatActivity this$0 -> a
-    92:92:void <init>(com.security.cleaner.activity.FloatActivity) -> <init>
-    95:161:void onClick(android.view.View) -> onClick
+    93:93:void <init>(com.security.cleaner.activity.FloatActivity) -> <init>
+    96:162:void onClick(android.view.View) -> onClick
 com.security.cleaner.activity.FloatActivity$1$1 -> com.security.cleaner.activity.FloatActivity$1$1:
     com.security.cleaner.activity.FloatActivity$1 this$1 -> a
-    138:138:void <init>(com.security.cleaner.activity.FloatActivity$1) -> <init>
-    142:142:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    146:147:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    152:152:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    157:157:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    139:139:void <init>(com.security.cleaner.activity.FloatActivity$1) -> <init>
+    143:143:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    147:148:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    153:153:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    158:158:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.security.cleaner.activity.FloatActivity$2 -> com.security.cleaner.activity.FloatActivity$2:
     com.security.cleaner.activity.FloatActivity this$0 -> a
-    166:166:void <init>(com.security.cleaner.activity.FloatActivity) -> <init>
-    169:170:void run() -> run
+    167:167:void <init>(com.security.cleaner.activity.FloatActivity) -> <init>
+    170:171:void run() -> run
 com.security.cleaner.activity.GameGboostActivity -> com.security.cleaner.activity.GameGboostActivity:
     android.widget.Button gboost_clean_button -> a
     android.widget.LinearLayout ll_add_game -> b
@@ -34030,15 +33843,15 @@ com.security.cleaner.activity.LoadingActivity -> com.security.cleaner.activity.L
     android.widget.TextView text -> c
     android.animation.AnimatorSet animatorSet -> e
     java.lang.Runnable runnable1 -> d
-    32:178:void <init>() -> <init>
+    32:187:void <init>() -> <init>
     40:43:void findId() -> a
     49:65:void onCreate(android.os.Bundle) -> onCreate
     68:104:void initAnimation() -> b
-    108:176:void initBackgData() -> c
-    188:190:void onResume() -> onResume
-    194:195:void onStop() -> onStop
-    199:204:void onDestroy() -> onDestroy
-    208:209:void onBackPressed() -> onBackPressed
+    108:185:void initBackgData() -> c
+    197:199:void onResume() -> onResume
+    203:204:void onStop() -> onStop
+    208:213:void onDestroy() -> onDestroy
+    217:218:void onBackPressed() -> onBackPressed
     32:32:void access$000(com.security.cleaner.activity.LoadingActivity) -> a
 com.security.cleaner.activity.LoadingActivity$1 -> com.security.cleaner.activity.LoadingActivity$1:
     com.security.cleaner.activity.LoadingActivity this$0 -> a
@@ -34049,8 +33862,8 @@ com.security.cleaner.activity.LoadingActivity$1 -> com.security.cleaner.activity
     102:102:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.security.cleaner.activity.LoadingActivity$2 -> com.security.cleaner.activity.LoadingActivity$2:
     com.security.cleaner.activity.LoadingActivity this$0 -> a
-    178:178:void <init>(com.security.cleaner.activity.LoadingActivity) -> <init>
-    181:182:void run() -> run
+    187:187:void <init>(com.security.cleaner.activity.LoadingActivity) -> <init>
+    190:191:void run() -> run
 com.security.cleaner.activity.MainActivity -> com.security.cleaner.activity.MainActivity:
     com.security.cleaner.myview.MyScrollView main_scroll_view -> a
     android.widget.FrameLayout main_ram_qiu -> b
@@ -34416,25 +34229,21 @@ com.security.cleaner.activity.SettingActivity -> com.security.cleaner.activity.S
     java.lang.String TAG_SETTING -> E
     android.os.Handler myHandler -> F
     android.view.View$OnClickListener onClickListener -> C
-    33:189:void <init>() -> <init>
+    33:171:void <init>() -> <init>
     49:75:void findId() -> a
-    79:107:void onCreate(android.os.Bundle) -> onCreate
-    111:112:void onResume() -> onResume
-    116:117:void onPause() -> onPause
-    121:128:void addAd() -> b
-    132:160:void initData() -> c
-    163:170:void setAlphaAndColor(android.widget.TextView,boolean) -> a
-    173:186:void initListener() -> d
-    314:324:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    328:330:void onBackPressed() -> onBackPressed
+    79:88:void onCreate(android.os.Bundle) -> onCreate
+    92:93:void onResume() -> onResume
+    97:98:void onPause() -> onPause
+    102:110:void addAd() -> b
+    114:142:void initData() -> c
+    145:152:void setAlphaAndColor(android.widget.TextView,boolean) -> a
+    155:168:void initListener() -> d
+    296:306:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    310:312:void onBackPressed() -> onBackPressed
 com.security.cleaner.activity.SettingActivity$1 -> com.security.cleaner.activity.SettingActivity$1:
     com.security.cleaner.activity.SettingActivity this$0 -> a
-    88:88:void <init>(com.security.cleaner.activity.SettingActivity) -> <init>
-    91:92:void run() -> run
-com.security.cleaner.activity.SettingActivity$2 -> com.security.cleaner.activity.SettingActivity$2:
-    com.security.cleaner.activity.SettingActivity this$0 -> a
-    189:189:void <init>(com.security.cleaner.activity.SettingActivity) -> <init>
-    192:309:void onClick(android.view.View) -> onClick
+    171:171:void <init>(com.security.cleaner.activity.SettingActivity) -> <init>
+    174:291:void onClick(android.view.View) -> onClick
 com.security.cleaner.activity.ShortHuojianActivity -> com.security.cleaner.activity.ShortHuojianActivity:
     int count -> g
     android.os.Handler myHandler -> h
@@ -34451,50 +34260,50 @@ com.security.cleaner.activity.ShortHuojianActivity -> com.security.cleaner.activ
     android.view.animation.Animation suo -> n
     android.animation.AnimatorSet animatorSet -> o
     java.lang.Runnable runnable -> f
-    37:214:void <init>() -> <init>
-    57:62:void findId() -> a
-    66:84:void onCreate(android.os.Bundle) -> onCreate
-    87:98:void loadAd() -> b
-    102:140:void show_text() -> c
-    144:145:void clear(android.content.Context) -> b
-    148:151:long getAvailMemory(android.app.ActivityManager) -> a
-    155:172:long killAll(android.content.Context) -> a
-    178:212:void onResume() -> onResume
-    245:247:void onPause() -> onPause
-    251:257:void onStop() -> onStop
-    37:37:void access$000(com.security.cleaner.activity.ShortHuojianActivity,android.content.Context) -> a
-    37:37:int access$108(com.security.cleaner.activity.ShortHuojianActivity) -> a
-    37:37:void access$200(com.security.cleaner.activity.ShortHuojianActivity) -> b
-    37:37:android.app.Dialog access$300(com.security.cleaner.activity.ShortHuojianActivity) -> c
-    37:37:android.view.animation.Animation access$400(com.security.cleaner.activity.ShortHuojianActivity) -> d
-    37:37:android.animation.AnimatorSet access$500(com.security.cleaner.activity.ShortHuojianActivity) -> e
-    37:37:boolean access$602(com.security.cleaner.activity.ShortHuojianActivity,boolean) -> a
+    40:217:void <init>() -> <init>
+    60:65:void findId() -> a
+    69:87:void onCreate(android.os.Bundle) -> onCreate
+    90:101:void loadAd() -> b
+    105:143:void show_text() -> c
+    147:148:void clear(android.content.Context) -> b
+    151:154:long getAvailMemory(android.app.ActivityManager) -> a
+    158:175:long killAll(android.content.Context) -> a
+    181:215:void onResume() -> onResume
+    248:250:void onPause() -> onPause
+    254:261:void onStop() -> onStop
+    40:40:void access$000(com.security.cleaner.activity.ShortHuojianActivity,android.content.Context) -> a
+    40:40:int access$108(com.security.cleaner.activity.ShortHuojianActivity) -> a
+    40:40:void access$200(com.security.cleaner.activity.ShortHuojianActivity) -> b
+    40:40:android.app.Dialog access$300(com.security.cleaner.activity.ShortHuojianActivity) -> c
+    40:40:android.view.animation.Animation access$400(com.security.cleaner.activity.ShortHuojianActivity) -> d
+    40:40:android.animation.AnimatorSet access$500(com.security.cleaner.activity.ShortHuojianActivity) -> e
+    40:40:boolean access$602(com.security.cleaner.activity.ShortHuojianActivity,boolean) -> a
 com.security.cleaner.activity.ShortHuojianActivity$1 -> com.security.cleaner.activity.ShortHuojianActivity$1:
     com.security.cleaner.activity.ShortHuojianActivity this$0 -> a
-    71:71:void <init>(com.security.cleaner.activity.ShortHuojianActivity) -> <init>
-    74:82:void run() -> run
+    74:74:void <init>(com.security.cleaner.activity.ShortHuojianActivity) -> <init>
+    77:85:void run() -> run
 com.security.cleaner.activity.ShortHuojianActivity$1$1 -> com.security.cleaner.activity.ShortHuojianActivity$1$1:
     com.security.cleaner.activity.ShortHuojianActivity$1 this$1 -> a
-    75:75:void <init>(com.security.cleaner.activity.ShortHuojianActivity$1) -> <init>
-    78:80:void run() -> run
+    78:78:void <init>(com.security.cleaner.activity.ShortHuojianActivity$1) -> <init>
+    81:83:void run() -> run
 com.security.cleaner.activity.ShortHuojianActivity$2 -> com.security.cleaner.activity.ShortHuojianActivity$2:
     com.security.cleaner.activity.ShortHuojianActivity this$0 -> a
-    110:110:void <init>(com.security.cleaner.activity.ShortHuojianActivity) -> <init>
-    113:114:void onClick(android.view.View) -> onClick
+    113:113:void <init>(com.security.cleaner.activity.ShortHuojianActivity) -> <init>
+    116:117:void onClick(android.view.View) -> onClick
 com.security.cleaner.activity.ShortHuojianActivity$3 -> com.security.cleaner.activity.ShortHuojianActivity$3:
     com.security.cleaner.activity.ShortHuojianActivity this$0 -> a
-    133:133:void <init>(com.security.cleaner.activity.ShortHuojianActivity) -> <init>
-    136:137:void onDismiss(android.content.DialogInterface) -> onDismiss
+    136:136:void <init>(com.security.cleaner.activity.ShortHuojianActivity) -> <init>
+    139:140:void onDismiss(android.content.DialogInterface) -> onDismiss
 com.security.cleaner.activity.ShortHuojianActivity$4 -> com.security.cleaner.activity.ShortHuojianActivity$4:
     com.security.cleaner.activity.ShortHuojianActivity this$0 -> a
-    214:214:void <init>(com.security.cleaner.activity.ShortHuojianActivity) -> <init>
-    217:240:void run() -> run
+    217:217:void <init>(com.security.cleaner.activity.ShortHuojianActivity) -> <init>
+    220:243:void run() -> run
 com.security.cleaner.activity.ShortHuojianActivity$4$1 -> com.security.cleaner.activity.ShortHuojianActivity$4$1:
     com.security.cleaner.activity.ShortHuojianActivity$4 this$1 -> a
-    218:218:void <init>(com.security.cleaner.activity.ShortHuojianActivity$4) -> <init>
-    221:228:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    233:233:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    238:238:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    221:221:void <init>(com.security.cleaner.activity.ShortHuojianActivity$4) -> <init>
+    224:231:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    236:236:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    241:241:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.security.cleaner.activity.ShoujiMsgActivity -> com.security.cleaner.activity.ShoujiMsgActivity:
     android.widget.TextView message_model -> a
     android.widget.TextView message_android_version -> b
@@ -34722,31 +34531,30 @@ com.security.cleaner.activity.SuccessActivity -> com.security.cleaner.activity.S
     android.widget.TextView main_rotate_good -> A
     android.widget.LinearLayout ad_title -> B
     android.widget.LinearLayout ad_native_2 -> C
-    android.view.View nativeView -> E
-    android.view.View native_xiao -> F
-    android.os.Handler myHandler -> G
-    java.lang.String TAG_CLEAN -> H
-    java.lang.String TAG_CLEAN_2 -> I
-    boolean haveAd -> J
-    boolean animationEnd -> K
-    com.security.cleaner.activity.MyApplication cleanApplication -> L
-    android.animation.AnimatorSet set -> M
+    android.view.View native_xiao -> E
+    android.os.Handler myHandler -> F
+    java.lang.String TAG_CLEAN -> G
+    java.lang.String TAG_CLEAN_2 -> H
+    boolean haveAd -> I
+    boolean animationEnd -> J
+    com.security.cleaner.activity.MyApplication cleanApplication -> K
+    android.animation.AnimatorSet set -> L
     android.view.View$OnClickListener onClickListener -> D
-    40:518:void <init>() -> <init>
+    40:526:void <init>() -> <init>
     83:112:void findId() -> a
     116:237:void onCreate(android.os.Bundle) -> onCreate
     240:256:void shendu() -> c
     260:266:void initAnimation() -> d
     269:281:void addListener() -> e
-    284:303:void addAd() -> f
-    374:483:void startFirstAnimation() -> b
-    486:516:void startSecondAnimation() -> g
-    603:614:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    618:620:void onResume() -> onResume
-    624:625:void onPause() -> onPause
-    629:634:void onStop() -> onStop
-    638:639:void onDestroy() -> onDestroy
-    643:645:void onBackPressed() -> onBackPressed
+    299:311:void addAd() -> f
+    382:491:void startFirstAnimation() -> b
+    494:524:void startSecondAnimation() -> g
+    611:622:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    626:628:void onResume() -> onResume
+    632:633:void onPause() -> onPause
+    637:642:void onStop() -> onStop
+    646:648:void onDestroy() -> onDestroy
+    652:654:void onBackPressed() -> onBackPressed
     40:40:void access$000(com.security.cleaner.activity.SuccessActivity) -> a
     40:40:android.animation.AnimatorSet access$102(com.security.cleaner.activity.SuccessActivity,android.animation.AnimatorSet) -> a
     40:40:android.animation.AnimatorSet access$100(com.security.cleaner.activity.SuccessActivity) -> b
@@ -34764,39 +34572,39 @@ com.security.cleaner.activity.SuccessActivity$2 -> com.security.cleaner.activity
     263:264:void run() -> run
 com.security.cleaner.activity.SuccessActivity$3 -> com.security.cleaner.activity.SuccessActivity$3:
     com.security.cleaner.activity.SuccessActivity this$0 -> a
-    382:382:void <init>(com.security.cleaner.activity.SuccessActivity) -> <init>
-    386:386:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    390:469:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    474:474:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    479:479:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    390:390:void <init>(com.security.cleaner.activity.SuccessActivity) -> <init>
+    394:394:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    398:477:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    482:482:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    487:487:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.security.cleaner.activity.SuccessActivity$3$1 -> com.security.cleaner.activity.SuccessActivity$3$1:
     com.security.cleaner.activity.SuccessActivity$3 this$1 -> a
-    415:415:void <init>(com.security.cleaner.activity.SuccessActivity$3) -> <init>
-    419:419:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    423:453:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    458:458:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    463:463:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    423:423:void <init>(com.security.cleaner.activity.SuccessActivity$3) -> <init>
+    427:427:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    431:461:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    466:466:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    471:471:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.security.cleaner.activity.SuccessActivity$3$1$1 -> com.security.cleaner.activity.SuccessActivity$3$1$1:
     com.security.cleaner.activity.SuccessActivity$3$1 this$2 -> a
-    430:430:void <init>(com.security.cleaner.activity.SuccessActivity$3$1) -> <init>
-    433:433:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    437:440:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    445:445:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    450:450:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    438:438:void <init>(com.security.cleaner.activity.SuccessActivity$3$1) -> <init>
+    441:441:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    445:448:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    453:453:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    458:458:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.security.cleaner.activity.SuccessActivity$4 -> com.security.cleaner.activity.SuccessActivity$4:
     com.security.cleaner.activity.SuccessActivity this$0 -> a
-    489:489:void <init>(com.security.cleaner.activity.SuccessActivity) -> <init>
-    492:504:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    509:509:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    514:514:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    497:497:void <init>(com.security.cleaner.activity.SuccessActivity) -> <init>
+    500:512:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    517:517:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    522:522:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.security.cleaner.activity.SuccessActivity$4$1 -> com.security.cleaner.activity.SuccessActivity$4$1:
     com.security.cleaner.activity.SuccessActivity$4 this$1 -> a
-    492:492:void <init>(com.security.cleaner.activity.SuccessActivity$4) -> <init>
-    495:501:void run() -> run
+    500:500:void <init>(com.security.cleaner.activity.SuccessActivity$4) -> <init>
+    503:509:void run() -> run
 com.security.cleaner.activity.SuccessActivity$5 -> com.security.cleaner.activity.SuccessActivity$5:
     com.security.cleaner.activity.SuccessActivity this$0 -> a
-    518:518:void <init>(com.security.cleaner.activity.SuccessActivity) -> <init>
-    521:598:void onClick(android.view.View) -> onClick
+    526:526:void <init>(com.security.cleaner.activity.SuccessActivity) -> <init>
+    529:606:void onClick(android.view.View) -> onClick
 com.security.cleaner.activity.UnloadActivity -> com.security.cleaner.activity.UnloadActivity:
     android.widget.LinearLayout ll_ad -> a
     long size -> b
@@ -36089,8 +35897,10 @@ com.security.cleaner.utils.ASwitchControl -> com.security.cleaner.d.a:
     666:675:void closeLight() -> d
     36:36:void <clinit>() -> <clinit>
 com.security.cleaner.utils.AdUtil -> com.security.cleaner.d.b:
-    19:21:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
-    24:37:android.view.View getNativeAdView(java.lang.String,int) -> a
+    22:24:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
+    27:40:android.view.View getNativeAdView(java.lang.String,int) -> a
+    44:45:void showBanner() -> a
+    48:49:void closeBanner() -> b
 com.security.cleaner.utils.CameraUtils -> com.security.cleaner.d.c:
     18:26:int HasFrontCamera() -> a
     30:55:java.lang.String getCameraPixels(int) -> a
@@ -36712,6 +36522,7 @@ com.security.mcleaner.mutil.PreData -> com.security.mcleaner.c.c:
     54:73:void putDB(android.content.Context,java.lang.String,java.lang.Object) -> a
     99:107:int getDB(android.content.Context,java.lang.String,int) -> a
     111:119:long getDB(android.content.Context,java.lang.String,long) -> a
+    123:131:java.lang.String getDB(android.content.Context,java.lang.String,java.lang.String) -> a
     135:143:boolean getDB(android.content.Context,java.lang.String,boolean) -> a
     14:15:void <clinit>() -> <clinit>
 com.security.mcleaner.mutil.TopActivityPkg -> com.security.mcleaner.c.d:

@@ -84,26 +84,7 @@ public class SettingActivity extends BaseActivity {
         title_left.setOnClickListener(onClickListener);
         initData();
         initListener();
-        if (PreData.getDB(this, Constant.FULL_SETTING, 0) == 1) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AdUtil.DEFAULT);
-                }
-            }, 1000);
-        } else {
-            addAd();
-        }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT || PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) != 1) {
-            setting_notifi.setVisibility(View.GONE);
-        }
-
-        if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) != 1) {
-            setting_file.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.PHOTO_KAIGUAN, 1) != 1) {
-            setting_picture.setVisibility(View.GONE);
-        }
+        addAd();
     }
 
     @Override
@@ -124,6 +105,7 @@ public class SettingActivity extends BaseActivity {
 //            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
             setting_scroll.setScrollY(0);
         } else {
+
         }
     }
 
