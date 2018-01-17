@@ -58,12 +58,9 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DataPre.getDB(context, Constant.POWERACATIVITY, 0) != 0) {
             POWER = idx++;
         }
-        PICTURE = idx++;
-        GBOOST = idx++;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DataPre.getDB(context, Constant.NOTIFIACTIVITY, 0) != 0) {
             NOTIFI = idx++;
         }
-        MANAGER = idx++;
 
     }
 

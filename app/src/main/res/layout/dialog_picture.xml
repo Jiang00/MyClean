@@ -22,7 +22,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/d20"
             android:text="@string/delete_queren"
-            android:textColor="@color/A2"
+            android:textColor="#444444"
             android:textSize="@dimen/s16" />
 
         <LinearLayout
@@ -93,33 +93,33 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d8"
-            android:layout_marginLeft="@dimen/d24"
-            android:layout_marginRight="@dimen/d24"
-            android:layout_marginTop="@dimen/d32"
+            android:layout_marginBottom="@dimen/d16"
+            android:layout_marginTop="@dimen/d27"
             android:orientation="horizontal">
 
-            <Button
+            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                 android:id="@+id/ok"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/d114"
-                android:layout_height="@dimen/d36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/shape_button"
+                android:layout_marginRight="@dimen/d24"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/d5"
                 android:text="@string/premiss_3"
-                android:textColor="@color/A0"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s16" />
 
-            <Button
+            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                 android:id="@+id/cancle"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/d114"
-                android:layout_height="@dimen/d36"
-                android:layout_alignParentLeft="true"
-                android:background="@drawable/shape_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/d30"
+                android:layout_toLeftOf="@id/ok"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/d5"
                 android:text="@string/premiss_4"
-                android:textColor="@color/A0"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/A2"
+                android:textSize="@dimen/s16" />
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

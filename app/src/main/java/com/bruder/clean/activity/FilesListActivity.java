@@ -78,7 +78,7 @@ public class FilesListActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AndroidSdk.loadFullAd(UtilAd.DEFAULT_FULL,null);
+        AndroidSdk.loadFullAd(UtilAd.DEFAULT_FULL, null);
         name = getIntent().getStringExtra("name");
         nameId = getIntent().getIntExtra("nameId", 0);
         if (name == null) {
@@ -223,11 +223,11 @@ public class FilesListActivity extends BaseActivity {
         TextView ok = (TextView) view.findViewById(R.id.ok);
         TextView cancle = (TextView) view.findViewById(R.id.cancle);
 
-        if (deleteList.size() == 1) {
-            title.setText(deleteList.get(0).name);
-        } else {
-            title.setText(R.string.delete_queren);
-        }
+//        if (deleteList.size() == 1) {
+//            title.setText(deleteList.get(0).name);
+//        } else {
+//            title.setText(R.string.delete_queren);
+//        }
         message.setText(getString(R.string.delete_2, deleteList.size()));
         dialog = new AlertDialog.Builder(FilesListActivity.this).create();
         dialog.setView(view);

@@ -116,7 +116,7 @@ public class GBoostingActivity extends BaseActivity {
         if (Util.isAccessibilitySettingsOn(this)) {
             gboost_power_check.setImageResource(R.mipmap.side_check_passed);
         } else {
-            gboost_power_check.setImageResource(R.mipmap.side_check_normal2);
+            gboost_power_check.setImageResource(R.mipmap.side_check_normal);
         }
         gboost_power_check.setOnClickListener(clickListener);
         gboost_clean_button.setOnClickListener(clickListener);
@@ -542,7 +542,7 @@ public class GBoostingActivity extends BaseActivity {
             if (Util.isAccessibilitySettingsOn(this)) {
                 gboost_power_check.setImageResource(R.mipmap.side_check_passed);
             } else {
-                gboost_power_check.setImageResource(R.mipmap.side_check_normal2);
+                gboost_power_check.setImageResource(R.mipmap.side_check_normal);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

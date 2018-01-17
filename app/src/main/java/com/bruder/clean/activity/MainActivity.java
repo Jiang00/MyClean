@@ -474,12 +474,12 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DataPre.getDB(this, Constant.POWERACATIVITY, 0) != 0) {
             adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
         }
-        adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
-        adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
+//        adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
+//        adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DataPre.getDB(this, Constant.NOTIFIACTIVITY, 0) != 0) {
             adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
         }
-        adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
+//        adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
         side_listView.setAdapter(adapter);
     }
 

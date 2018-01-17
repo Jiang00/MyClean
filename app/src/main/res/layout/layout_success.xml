@@ -303,7 +303,7 @@
                                     android:textSize="@dimen/s14" />
 
                                 <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d6"
                                     android:text="@string/notifi_msg_main"
@@ -626,27 +626,6 @@
                         </RelativeLayout>
                     </LinearLayout>
 
-                    <!--完成button-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/A0">
-
-                        <Button
-                            android:id="@+id/junk_button_clean"
-                            style="?android:attr/borderlessButtonStyle"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d40"
-                            android:layout_centerInParent="true"
-                            android:layout_marginBottom="@dimen/d8"
-                            android:layout_marginLeft="@dimen/d16"
-                            android:layout_marginRight="@dimen/d16"
-                            android:background="@drawable/shape_button"
-                            android:text="@string/complete"
-                            android:textAllCaps="false"
-                            android:textColor="@color/A0"
-                            android:textSize="@dimen/s12" />
-                    </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
@@ -661,6 +640,27 @@
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
                         android:visibility="invisible" />
+                    <!--完成button-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/A0">
+
+                        <Button
+                            android:id="@+id/junk_button_clean"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d36"
+                            android:layout_centerInParent="true"
+                            android:layout_marginBottom="@dimen/d8"
+                            android:layout_marginLeft="@dimen/d16"
+                            android:layout_marginRight="@dimen/d16"
+                            android:background="@drawable/shape_button"
+                            android:text="@string/complete"
+                            android:textAllCaps="false"
+                            android:textColor="@color/A0"
+                            android:textSize="@dimen/s18" />
+                    </LinearLayout>
                 </LinearLayout>
             </com.bruder.clean.customeview.MySlowScrollView>
         </FrameLayout>

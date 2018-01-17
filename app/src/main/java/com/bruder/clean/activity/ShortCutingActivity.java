@@ -89,11 +89,6 @@ public class ShortCutingActivity extends BaseActivity {
         } else {
             nativeView = UtilAd.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
             if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == Util.dp2px(250)) {
-                    layout_ad.height = Util.dp2px(250);
-                }
-                ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
                 ll_ad.setVisibility(View.VISIBLE);
             } else {

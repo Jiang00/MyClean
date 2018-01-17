@@ -301,11 +301,11 @@ public class FilesDocActivity extends BaseActivity {
         TextView ok = (TextView) view.findViewById(R.id.ok);
         TextView cancle = (TextView) view.findViewById(R.id.cancle);
 
-        if (deleteList.size() == 1) {
-            title.setText(deleteList.get(0).name);
-        } else {
-            title.setText(R.string.delete_queren);
-        }
+//        if (deleteList.size() == 1) {
+//            title.setText(deleteList.get(0).name);
+//        } else {
+//            title.setText(R.string.delete_queren);
+//        }
         message.setText(getString(R.string.delete_2, deleteList.size()));
         dialog = new AlertDialog.Builder(FilesDocActivity.this).create();
         dialog.setView(view);
