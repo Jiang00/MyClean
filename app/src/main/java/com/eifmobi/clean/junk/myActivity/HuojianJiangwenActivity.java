@@ -94,6 +94,31 @@ public class HuojianJiangwenActivity extends BaseActivity {
                 });
             }
         }).start();
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                clean_button.startAnimation(suo);
+                suo.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        clean_button.setVisibility(View.INVISIBLE);
+                        count++;
+                        show_text();
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+                });
+            }
+        }, 3000);
+        startCleanAnimation();
     }
 
     private void show_text() {
@@ -122,10 +147,10 @@ public class HuojianJiangwenActivity extends BaseActivity {
             if (size < 0) {
                 size = 0;
             }
-            short_clean_szie.setText(getString(R.string.success_5, (Math.random() * 3 + 1)) + "℃");
+            short_clean_szie.setText(getString(R.string.success_5, (int) (Math.random() * 3 + 1)) + "℃");
             if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) != 1) {
                 if (TextUtils.equals(PreData.getDB(HuojianJiangwenActivity.this, Constant.SHORT_NATIVE_SIZE, AdUtil.NATIVE_SMALL), AdUtil.NATIVE_SMALL)) {
-                    nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3);
+                    nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_3_b);
                 } else {
                     nativeView = AdUtil.getNativeAdView("", R.layout.native_ad_2);
                 }
@@ -187,31 +212,7 @@ public class HuojianJiangwenActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        myHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                clean_button.startAnimation(suo);
-                suo.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        clean_button.setVisibility(View.INVISIBLE);
-                        count++;
-                        show_text();
-                    }
 
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-                });
-            }
-        }, 3000);
-        startCleanAnimation();
     }
 
     private void startCleanAnimation() {

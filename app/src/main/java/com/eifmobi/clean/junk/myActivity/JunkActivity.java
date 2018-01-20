@@ -619,14 +619,17 @@ public class JunkActivity extends BaseActivity implements JunkView {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            setResult(Constant.JUNK_RESUIL);
-            finish();
+            onBackPressed();
         }
     }
 
     @Override
     public void onBackPressed() {
-        setResult(Constant.JUNK_RESUIL);
+        if ("notifi".equals(getIntent().getStringExtra("from"))) {
+            jumpTo(MainActivity.class);
+        } else {
+            setResult(Constant.JUNK_RESUIL);
+        }
         finish();
     }
 }

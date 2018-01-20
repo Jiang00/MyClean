@@ -270,6 +270,7 @@ public class MainActivity extends BaseActivity implements MainView {
     public void loadFullAd() {
         int num = PreData.getDB(this, Constant.ROTATE_FIRST, 0);
         if (num == 2) {
+//        if (true){
             showRotate();
             num++;
             PreData.putDB(this, Constant.ROTATE_FIRST, num);

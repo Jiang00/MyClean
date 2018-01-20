@@ -133,6 +133,9 @@ public class SuccessActivity extends BaseActivity {
 
 
         addListener();
+        if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
+            main_rotate_all.setVisibility(View.GONE);
+        }
         if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
         } else {
             myHandler.postDelayed(new Runnable() {
@@ -141,19 +144,7 @@ public class SuccessActivity extends BaseActivity {
                 }
             }, 1000);
         }
-        if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS_NATIVE, 0) == 1) {
-            if (TextUtils.equals(PreData.getDB(SuccessActivity.this, Constant.SUCCESS_NATIVE_SIZE, AdUtil.NATIVE_SMALL), AdUtil.NATIVE_SMALL)) {
-                native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_3);
-            } else {
-                native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
-            }
-            if (ll_ad_xiao != null && native_xiao != null) {
-                ll_ad_xiao.addView(native_xiao);
-                AdUtil.startBannerAnimation(SuccessActivity.this, ad_fl);
-            } else {
-                AdUtil.showBanner();
-            }
-        }
+
     }
 
 
@@ -339,7 +330,19 @@ public class SuccessActivity extends BaseActivity {
                         }
                     }
                 }, 1000);
-
+                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS_NATIVE, 0) == 1) {
+                    if (TextUtils.equals(PreData.getDB(SuccessActivity.this, Constant.SUCCESS_NATIVE_SIZE, AdUtil.NATIVE_SMALL), AdUtil.NATIVE_SMALL)) {
+                        native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_3);
+                    } else {
+                        native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+                    }
+                    if (ll_ad_xiao != null && native_xiao != null) {
+                        ll_ad_xiao.addView(native_xiao);
+                        AdUtil.startBannerAnimation(SuccessActivity.this, ad_fl);
+                    } else {
+                        AdUtil.showBanner();
+                    }
+                }
             }
 
             @Override
@@ -371,7 +374,7 @@ public class SuccessActivity extends BaseActivity {
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_rotate_cha:
-                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE_SUCC, true);
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_junk_button:
