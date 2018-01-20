@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.mutter.module.charge.saver.Aview.BatteryView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.eifmobi.charge.saver.Aview.BatteryView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/battery_charge_save"
     android:layout_width="match_parent"
@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.mutter.module.charge.saver.Aview.BubbleLayout
+        <com.eifmobi.charge.saver.Aview.BubbleLayout
             android:id="@+id/battery_bubble_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -42,7 +42,7 @@
                     android:layout_marginLeft="@dimen/d16"
                     android:src="@mipmap/battery_inner_icon" />
 
-                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                     android:id="@+id/battery_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/d36">
 
-                <com.mutter.module.charge.saver.Aview.ChargingView
+                <com.eifmobi.charge.saver.Aview.ChargingView
                     android:id="@+id/kedu_pregress"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
@@ -95,8 +95,8 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d6"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/d6"
                         android:src="@mipmap/charging_zhuan" />
                 </FrameLayout>
 
@@ -105,55 +105,61 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center">
 
-                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                    <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                         android:id="@+id/battery_now_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:text="17"
                         android:textColor="@color/white_100"
                         android:textSize="@dimen/s90"
                         app:typeface="ROBOTO-THIN_0.TTF" />
 
-
-                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                        android:id="@+id/battery_now_date"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBaseline="@id/battery_now_time"
+                        android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/battery_now_time"
-                        android:text="09/03"
-                        android:textColor="#cdffffff"
-                        android:textSize="@dimen/s15"
-                        app:typeface="ROBOTO-THIN_0.TTF" />
+                        android:orientation="vertical">
 
-                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                        android:id="@+id/battery_now_week"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_above="@id/battery_now_date"
-                        android:layout_toRightOf="@id/battery_now_time"
-                        android:text="Fri"
-                        android:textColor="#cdffffff"
-                        android:textSize="@dimen/s15"
-                        app:typeface="ROBOTO-THIN_0.TTF" />
+                        <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
+                            android:id="@+id/battery_now_time_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":17"
+                            android:textColor="@color/white_100"
+                            android:textSize="@dimen/s24"
+                            app:typeface="ROBOTO-THIN_0.TTF" />
 
-                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                        android:id="@+id/battery_now_time_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_above="@id/battery_now_week"
-                        android:layout_toRightOf="@id/battery_now_time"
-                        android:text=":17"
-                        android:textColor="@color/white_100"
-                        android:textSize="@dimen/s24"
-                        app:typeface="ROBOTO-THIN_0.TTF" />
+                        <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
+                            android:id="@+id/battery_now_week"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fri"
+                            android:textColor="#cdffffff"
+                            android:textSize="@dimen/s15"
+                            app:typeface="ROBOTO-THIN_0.TTF" />
+
+                        <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
+                            android:id="@+id/battery_now_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@id/battery_now_time"
+                            android:layout_below="@id/battery_now_week"
+                            android:layout_toRightOf="@id/battery_now_time"
+                            android:text="09/03"
+                            android:textColor="#cdffffff"
+                            android:textSize="@dimen/s15"
+                            app:typeface="ROBOTO-THIN_0.TTF" />
+                    </LinearLayout>
+
 
                 </RelativeLayout>
 
             </FrameLayout>
 
 
-            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                 android:id="@+id/battery_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -162,7 +168,7 @@
                 android:textColor="@color/white_100"
                 android:textSize="@dimen/s16" />
 
-            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                 android:id="@+id/battery_now_battery_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -201,7 +207,7 @@
             android:visibility="visible">
 
 
-            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/unlock"
@@ -247,4 +253,4 @@
             android:layout_marginLeft="@dimen/time_top" />
     </LinearLayout>
 
-</com.mutter.module.charge.saver.Aview.BatteryView>
+</com.eifmobi.charge.saver.Aview.BatteryView>

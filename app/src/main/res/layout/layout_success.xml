@@ -31,7 +31,7 @@
             android:layout_gravity="bottom"
             android:background="@mipmap/clean_beijing" />
 
-        <com.mutter.clean.junk.myview.BubbleLineLayout
+        <com.eifmobi.clean.junk.myview.BubbleLineLayout
             android:id="@+id/clean_bubble"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -55,7 +55,7 @@
             android:textSize="@dimen/s18" />
 
 
-        <com.mutter.clean.junk.myview.SlowScrollView
+        <com.eifmobi.clean.junk.myview.SlowScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -77,13 +77,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="@dimen/d29"
                             android:layout_height="@dimen/d29"
-                            android:layout_marginLeft="@dimen/d72"
                             android:src="@mipmap/success_duigou" />
 
                         <LinearLayout
@@ -92,7 +91,7 @@
                             android:layout_marginLeft="@dimen/d18"
                             android:orientation="vertical">
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:id="@+id/success_clean_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -103,6 +102,24 @@
                     </LinearLayout>
 
 
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/ad_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_marginRight="@dimen/d16"
+                    android:background="@drawable/shape_a3"
+                    android:visibility="gone">
+                    <!--ad-->
+                    <LinearLayout
+                        android:id="@+id/ll_ad_xiao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/d6"
+                        android:orientation="vertical" />
                 </FrameLayout>
                 <!--好评-->
                 <LinearLayout
@@ -152,7 +169,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:layout_marginBottom="@dimen/d16"
-                        android:layout_marginTop="@dimen/d24"
+                        android:layout_marginTop="@dimen/d16"
                         android:gravity="center"
                         android:orientation="horizontal">
 
@@ -180,24 +197,6 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
-                <FrameLayout
-                    android:id="@+id/ad_fl"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/d8"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:layout_marginRight="@dimen/d16"
-                    android:background="@drawable/shape_a3"
-                    android:visibility="gone">
-                    <!--ad-->
-                    <LinearLayout
-                        android:id="@+id/ll_ad_xiao"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/d6"
-                        android:orientation="vertical" />
-                </FrameLayout>
                 <!--功能块-->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -219,7 +218,7 @@
                             android:layout_height="@dimen/d56"
                             android:background="?attr/selectableItemBackground">
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
@@ -228,20 +227,13 @@
                                 android:textColor="@color/white_100"
                                 android:textSize="@dimen/s16" />
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <ImageView
                                 android:layout_width="wrap_content"
-                                android:layout_height="@dimen/d20"
+                                android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="@dimen/d16"
-                                android:background="@drawable/shape_a7"
-                                android:gravity="center"
-                                android:paddingLeft="@dimen/d7"
-                                android:paddingRight="@dimen/d7"
-                                android:text="@string/junk_button"
-                                android:textColor="@color/white_100"
-                                android:textSize="@dimen/s10" />
-
+                                android:src="@mipmap/success_right" />
                         </RelativeLayout>
 
                     </LinearLayout>
@@ -262,7 +254,7 @@
                             android:layout_height="@dimen/d56"
                             android:background="?attr/selectableItemBackground">
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
@@ -271,19 +263,14 @@
                                 android:textColor="@color/white_100"
                                 android:textSize="@dimen/s16" />
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+
+                            <ImageView
                                 android:layout_width="wrap_content"
-                                android:layout_height="@dimen/d20"
+                                android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="@dimen/d16"
-                                android:background="@drawable/shape_a7"
-                                android:gravity="center"
-                                android:paddingLeft="@dimen/d7"
-                                android:paddingRight="@dimen/d7"
-                                android:text="@string/ram_button"
-                                android:textColor="@color/white_100"
-                                android:textSize="@dimen/s10" />
+                                android:src="@mipmap/success_right" />
 
 
                         </RelativeLayout>
@@ -306,7 +293,7 @@
                             android:layout_height="@dimen/d56"
                             android:background="?attr/selectableItemBackground">
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
@@ -315,19 +302,14 @@
                                 android:textColor="@color/white_100"
                                 android:textSize="@dimen/s16" />
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+
+                            <ImageView
                                 android:layout_width="wrap_content"
-                                android:layout_height="@dimen/d20"
+                                android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="@dimen/d16"
-                                android:background="@drawable/shape_a7"
-                                android:gravity="center"
-                                android:paddingLeft="@dimen/d7"
-                                android:paddingRight="@dimen/d7"
-                                android:text="@string/notifi_jiangwen"
-                                android:textColor="@color/white_100"
-                                android:textSize="@dimen/s10" />
+                                android:src="@mipmap/success_right" />
 
 
                         </RelativeLayout>
@@ -350,6 +332,6 @@
 
 
             </LinearLayout>
-        </com.mutter.clean.junk.myview.SlowScrollView>
+        </com.eifmobi.clean.junk.myview.SlowScrollView>
     </FrameLayout>
 </LinearLayout>

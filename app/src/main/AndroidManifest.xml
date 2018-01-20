@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.mutter.clean.junk">
+    package="com.eifmobi.clean.junk">
 
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -47,7 +47,7 @@
 
 
     <application
-        android:name="com.mutter.clean.junk.myActivity.MyApplication"
+        android:name=".myActivity.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
 
@@ -57,17 +57,17 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
-            android:name="com.mutter.clean.junk.myActivity.MainActivity"
+            android:name=".myActivity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="com.mutter.clean.main" />
+                <action android:name="com.eifmobi.clean.main" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name="com.mutter.clean.junk.myActivity.LoadingActivity"
+            android:name=".myActivity.LoadingActivity"
             android:icon="@mipmap/icon"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
@@ -92,39 +92,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mutter.clean.junk.myActivity.JiangwenActivity"
+            android:name=".myActivity.JiangwenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.mutter.clean.junk.myActivity.CleanActivity"
+            android:name=".myActivity.JunkActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.mutter.clean.CleanActivity" />
+                <action android:name="com.eifmobi.clean.CleanActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mutter.clean.junk.myActivity.CleanAndRamActivity"
+            android:name=".myActivity.CleanAndRamActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.mutter.clean.junk.myActivity.UserAppActivity"
+            android:name=".myActivity.UserAppActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.mutter.clean.junk.myActivity.PhoneActivity"
+            android:name=".myActivity.PhoneActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.mutter.clean.junk.myActivity.RamAvtivity"
+            android:name=".myActivity.RamAvtivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.mutter.clean.RamAvtivity" />
+                <action android:name="com.eifmobi.clean.RamAvtivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mutter.clean.junk.myActivity.SettingActivity"
+            android:name=".myActivity.SettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.mutter.clean.junk.myActivity.ShortCutAddActivity"
+            android:name=".myActivity.ShortCutAddActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
@@ -132,69 +132,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mutter.clean.junk.myActivity.ThemeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.SuccessActivity"
+            android:name=".myActivity.SuccessActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.mutter.clean.junk.myActivity.IgnoreListAvtivity"
+            android:name=".myActivity.IgnoreListAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.mutter.clean.junk.myActivity.IgnoreAddActivity"
+            android:name=".myActivity.IgnoreAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.mutter.clean.junk.myActivity.PowerActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.NotifiAnimationActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.ShowPermissionActivity"
+            android:name=".myActivity.ShowPermissionActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/permiss" />
         <activity
-            android:name="com.mutter.clean.junk.myActivity.NotifiActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.NotifiSettingActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.XuanfuActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/Transparent" />
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.UnloadActivity"
+            android:name=".myActivity.XuanfuActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name="com.mutter.clean.junk.myActivity.SimilarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.PhotoHuiActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.GameActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.CREATE_SHORTCUT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.HuojianActivity"
+            android:name=".myActivity.HuojianActivity"
             android:launchMode="singleInstance"
             android:noHistory="true"
             android:screenOrientation="portrait"
@@ -205,7 +166,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mutter.clean.junk.myActivity.HuojianJiangwenActivity"
+            android:name=".myActivity.HuojianJiangwenActivity"
             android:launchMode="singleInstance"
             android:noHistory="true"
             android:screenOrientation="portrait"
@@ -216,40 +177,15 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.mutter.clean.junk.broadcast.UnloadBroadcast">
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REPLACED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
 
         <service
-            android:name="com.mutter.clean.junk.service.FloatService"
+            android:name=".service.FloatService"
             android:excludeFromRecents="true" />
         <service
-            android:name="com.mutter.clean.junk.service.NotificationService"
+            android:name=".service.NotificationService"
             android:enabled="true"
             android:excludeFromRecents="true"
             android:exported="false" />
-
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.FileManaActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.ListFileActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-        <activity
-            android:name="com.mutter.clean.junk.myActivity.DocFileActivity"
-            android:screenOrientation="portrait" />
-
-        <service
-            android:name=".service.AutoService"
-            android:excludeFromRecents="true" />
 
     </application>
 

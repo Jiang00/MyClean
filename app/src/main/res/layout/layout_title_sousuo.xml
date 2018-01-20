@@ -26,7 +26,7 @@
                 android:src="@mipmap/tilte_left" />
         </FrameLayout>
 
-        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+        <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,8 +34,7 @@
             android:layout_toRightOf="@id/title_left"
             android:text="@string/app_name"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/s17"
-            />
+            android:textSize="@dimen/s17" />
 
         <ImageView
             android:id="@+id/title_right"
@@ -52,8 +51,8 @@
         android:id="@+id/search_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/d56"
-        android:layout_marginLeft="@dimen/d8"
-        android:layout_marginRight="@dimen/d8"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
         android:visibility="gone">
 
         <ImageView
@@ -73,9 +72,9 @@
             android:focusableInTouchMode="true"
             android:hint="@string/edit_hint"
             android:singleLine="true"
-            android:textSize="@dimen/s15"
             android:textColor="@color/white_100"
-            android:textColorHint="@color/white_50" />
+            android:textColorHint="@color/white_50"
+            android:textSize="@dimen/s15" />
 
         <ImageView
             android:layout_width="@dimen/d24"

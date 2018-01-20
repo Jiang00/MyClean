@@ -11,6 +11,10 @@
         android:layout_gravity="bottom"
         android:background="@mipmap/clean_beijing" />
 
+    <com.eifmobi.clean.junk.myview.BubbleLineLayout
+        android:id="@+id/cooling_piao"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <LinearLayout
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
@@ -26,13 +30,8 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/cooling_piao"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" />
 
-    <com.mutter.clean.junk.myview.CoolingView
+    <com.eifmobi.clean.junk.myview.CoolingView
         android:id="@+id/cooling_view"
         android:layout_width="@dimen/d76"
         android:layout_height="@dimen/d176"
@@ -47,7 +46,7 @@
         android:orientation="horizontal"
         android:visibility="invisible">
 
-        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+        <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -55,7 +54,7 @@
             android:textColor="@color/white_100"
             android:textSize="@dimen/s18" />
 
-        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+        <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/cooling_wendu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

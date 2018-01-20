@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mutter.module.charge.saver">
+    package="com.eifmobi.charge.saver">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
@@ -8,11 +8,6 @@
         <service
             android:name=".service.BatteryService"
             android:permission="android.permission.BIND_JOB_SERVICE">
-            <intent-filter>
-                <action android:name="com.mutter.battery.service" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </service>
 
         <receiver android:name=".receiver.StartReceiver">

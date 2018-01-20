@@ -47,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical"
+            android:layout_marginBottom="@dimen/d24"
             android:visibility="invisible">
 
             <ImageView
@@ -55,7 +56,7 @@
                 android:layout_gravity="center_horizontal"
                 android:src="@mipmap/no_photo" />
 
-            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/d16"
@@ -78,7 +79,7 @@
             android:background="@drawable/shape_a3"
             android:divider="@drawable/list_divider"
             android:dividerHeight="0px"
-            android:scrollbars="none" />
+            android:overScrollMode="never"/>
     </FrameLayout>
 
 </LinearLayout>

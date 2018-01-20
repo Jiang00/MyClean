@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/A1"
     android:orientation="vertical"
-    tools:context="com.mutter.clean.junk.myActivity.MainActivity">
+    tools:context="com.eifmobi.clean.junk.myActivity.MainActivity">
 
 
     <View
@@ -43,16 +43,15 @@
                     android:src="@mipmap/main_menu" />
 
 
-                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                     android:id="@+id/tv_title_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/iv_title_left"
                     android:text="@string/app_name"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s17"
-                    app:typeface="ROBOTO-THIN_0.TTF" />
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s17" />
 
                 <ImageView
                     android:id="@+id/iv_title_right"
@@ -88,7 +87,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:layout_marginTop="@dimen/d16">
 
-                        <com.mutter.clean.junk.myview.RoundSd
+                        <com.eifmobi.clean.junk.myview.RoundSd
                             android:id="@+id/main_custom_sd"
                             android:layout_width="@dimen/d225"
                             android:layout_height="@dimen/d225"
@@ -106,7 +105,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/d14">
 
-                                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                                <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                     android:id="@+id/main_sd_per"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -115,7 +114,7 @@
                                     android:textColor="@color/A5"
                                     android:textSize="@dimen/s50" />
 
-                                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                                <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignBaseline="@id/main_sd_per"
@@ -126,7 +125,7 @@
                                     android:textSize="@dimen/s15" />
                             </RelativeLayout>
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -134,7 +133,7 @@
                                 android:textColor="@color/A5"
                                 android:textSize="@dimen/s14" />
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:id="@+id/main_sd_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -154,7 +153,7 @@
                         android:layout_gravity="right|bottom"
                         android:layout_marginRight="@dimen/d16">
 
-                        <com.mutter.clean.junk.myview.RoundRam
+                        <com.eifmobi.clean.junk.myview.RoundRam
                             android:id="@+id/main_custom_ram"
                             android:layout_width="@dimen/d141"
                             android:layout_height="@dimen/d141"
@@ -173,7 +172,7 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="@dimen/d9">
 
-                                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                                <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                     android:id="@+id/main_ram_per"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -182,7 +181,7 @@
                                     android:textColor="@color/A5"
                                     android:textSize="@dimen/s27" />
 
-                                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                                <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignBaseline="@id/main_ram_per"
@@ -194,7 +193,7 @@
                                     app:typeface="ROBOTO-THIN_0.TTF" />
                             </RelativeLayout>
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -202,7 +201,7 @@
                                 android:textColor="@color/A5"
                                 android:textSize="@dimen/s10" />
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:id="@+id/main_ram_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -224,7 +223,7 @@
                         android:layout_marginLeft="@dimen/d48"
                         android:orientation="vertical">
 
-                        <com.mutter.clean.junk.myview.BubbleMainLayout
+                        <com.eifmobi.clean.junk.myview.BubbleMainLayout
                             android:id="@+id/bubble_main"
                             android:layout_width="@dimen/d56"
                             android:layout_height="@dimen/d72"
@@ -272,7 +271,7 @@
                                 android:layout_height="@dimen/d33"
                                 android:src="@mipmap/main_junk_button" />
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/d12"
@@ -289,7 +288,7 @@
                                 android:gravity="center"
                                 android:textColor="@color/white_100"
                                 android:textSize="@dimen/s10"
-                                android:visibility="invisible" />
+                                android:visibility="gone" />
                         </LinearLayout>
 
 
@@ -315,7 +314,7 @@
                                 android:layout_height="@dimen/d33"
                                 android:src="@mipmap/main_cooling_button" />
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/d12"
@@ -332,7 +331,7 @@
                                 android:gravity="center"
                                 android:textColor="@color/white_100"
                                 android:textSize="@dimen/s10"
-                                android:visibility="invisible" />
+                                android:visibility="gone" />
                         </LinearLayout>
 
                     </RelativeLayout>
@@ -357,7 +356,7 @@
                                 android:layout_height="@dimen/d33"
                                 android:src="@mipmap/main_manager_button" />
 
-                            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            <com.eifmobi.charge.saver.Aview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/d12"
@@ -416,12 +415,12 @@
                     android:layout_marginBottom="@dimen/d8"
                     android:orientation="horizontal">
 
-                    <com.mutter.clean.junk.myview.CatShuView
+                    <com.eifmobi.clean.junk.myview.CatShuView
                         android:id="@+id/shu_1"
                         android:layout_width="@dimen/d24"
                         android:layout_height="@dimen/d24" />
 
-                    <com.mutter.clean.junk.myview.CatShuView
+                    <com.eifmobi.clean.junk.myview.CatShuView
                         android:id="@+id/shu_2"
                         android:layout_width="@dimen/d24"
                         android:layout_height="@dimen/d24"
