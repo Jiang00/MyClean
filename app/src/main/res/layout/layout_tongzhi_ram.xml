@@ -3,7 +3,7 @@
     android:id="@+id/ll_jiasu"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/shape_ad"
+    android:background="@color/A1"
     android:orientation="horizontal">
 
     <FrameLayout
@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/chongdian"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
             android:layout_gravity="center"
             android:scaleType="center"
             android:src="@mipmap/ram_card" />
@@ -38,8 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/notifi_tongzhi_3"
-                android:textColor="@color/B2"
-                android:textSize="16sp" />
+                android:textColor="@color/white_100"
+                android:textSize="15sp" />
 
 
         </LinearLayout>
@@ -55,8 +55,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/notifi_tongzhi"
-                android:textColor="@color/B3"
-                android:textSize="12sp" />
+                android:textColor="@color/white_80"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_memory"
@@ -65,7 +65,7 @@
                 android:layout_marginLeft="5dp"
                 android:lines="1"
                 android:text="70%"
-                android:textColor="@color/A2"
+                android:textColor="@color/A4"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -77,10 +77,10 @@
         android:layout_height="26dp"
         android:layout_gravity="center_vertical"
         android:layout_marginRight="16dp"
-        android:background="@drawable/shape_notifi_button"
+        android:background="@drawable/shape_ffffff_k"
         android:gravity="center"
         android:text="@string/notification_button"
-        android:textColor="@color/A1"
-        android:textSize="12sp" />
+        android:textColor="@color/white_100"
+        android:textSize="8sp" />
 
 </LinearLayout>

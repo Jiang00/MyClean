@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:id="@+id/junk_item_rl"
-        android:layout_width="@dimen/d65"
+        android:layout_width="@dimen/d72"
         android:layout_height="@dimen/d56">
 
         <ImageView
@@ -30,19 +30,17 @@
             android:layout_height="wrap_content"
             android:maxLength="20"
             android:text="app标题"
-            android:textColor="@color/B2"
-            android:textSize="@dimen/s14"
-            app:typeface="lyp_text.otf" />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s16" />
 
         <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/item_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/d7"
             android:text="app标题"
-            android:textColor="@color/B3"
-            android:textSize="@dimen/s11"
-            app:typeface="lyp_text.otf" />
+            android:textColor="@color/white_80"
+            android:textSize="@dimen/s10" />
     </LinearLayout>
 
     <ImageView
@@ -51,8 +49,9 @@
         android:layout_height="@dimen/d24"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/d8"
-        android:layout_marginRight="@dimen/d8"
+        android:layout_marginLeft="@dimen/d23"
+        android:layout_marginRight="@dimen/d16"
+        android:scaleType="center"
         android:src="@mipmap/ram_passed" />
 
     <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -62,7 +61,6 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
-        android:textColor="@color/B3"
-        android:textSize="@dimen/s11"
-        app:typeface="lyp_text.otf" />
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/s13" />
 </RelativeLayout>

@@ -1,14 +1,11 @@
 package com.mutter.clean.junk.myAdapter;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -17,48 +14,25 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mutter.clean.junk.myActivity.Loading1Activity;
-import com.mutter.clean.junk.myActivity.LoadingActivity;
-import com.mutter.clean.junk.service.NotificationService;
-import com.mutter.clean.junk.util.BadgerCount;
-import com.mutter.clean.util.PreData;
-import com.mutter.clean.util.Util;
-import com.mutter.clean.junk.myActivity.SimilarActivity;
-import com.mutter.module.charge.saver.Util.Constants;
-import com.mutter.module.charge.saver.Util.Utils;
 import com.mutter.clean.junk.R;
-import com.mutter.clean.junk.myActivity.JiangwenActivity;
-import com.mutter.clean.junk.myActivity.FileManaActivity;
-import com.mutter.clean.junk.myActivity.GameActivity;
+import com.mutter.clean.junk.entity.SideInfo;
 import com.mutter.clean.junk.myActivity.CleanActivity;
-import com.mutter.clean.junk.myActivity.UserAppActivity;
-import com.mutter.clean.junk.myActivity.PhoneActivity;
-import com.mutter.clean.junk.myActivity.NotifiActivity;
-import com.mutter.clean.junk.myActivity.NotifiAnimationActivity;
-import com.mutter.clean.junk.myActivity.PowerActivity;
+import com.mutter.clean.junk.myActivity.JiangwenActivity;
 import com.mutter.clean.junk.myActivity.RamAvtivity;
 import com.mutter.clean.junk.myActivity.SettingActivity;
-import com.mutter.clean.junk.entity.SideInfo;
-import com.mutter.clean.junk.service.FloatService;
+import com.mutter.clean.junk.myActivity.UserAppActivity;
 import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.junk.util.Constant;
 import com.mutter.clean.junk.util.UtilGp;
+import com.mutter.clean.util.PreData;
 
 
 public class SideAdapter extends MybaseAdapter<SideInfo> {
 
-    private int BATTERY = -1;
-    private int FLOAT = -1;
     private int JUNK = -1;
     private int RAM = -1;
-    private int BATTERY_COOLING = -1;
-    private int POWER = -1;
-    private int NOTIFI = -1;
-    private int GBOOST = -1;
     private int MANAGER = -1;
-    private int PICTURE = -1;
-    private int FILE = -1;
-    private int MESSAGE = -1;
+    private int BATTERY_COOLING = -1;
     private int SETTING = -1;
     private int ROTATE = -1;
 
@@ -66,28 +40,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         super(context);
         int idx = 0;
 
-        BATTERY = idx++;
-        FLOAT = idx++;
         JUNK = idx++;
         RAM = idx++;
-        BATTERY_COOLING = idx++;
-        if (PreData.getDB(context, Constant.DEEP_KAIGUAN, 1) != 0) {
-            POWER = idx++;
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, Constant.NOTIFI_KAIGUAN, 1) != 0) {
-            NOTIFI = idx++;
-        }
-        if (PreData.getDB(context, Constant.GBOOST_KAIGUAN, 1) != 0) {
-            GBOOST = idx++;
-        }
         MANAGER = idx++;
-        if (PreData.getDB(context, Constant.PICTURE_KAIGUAN, 1) != 0) {
-            PICTURE = idx++;
-        }
-        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) != 0) {
-            FILE = idx++;
-        }
-        MESSAGE = idx++;
+        BATTERY_COOLING = idx++;
         SETTING = idx++;
         ROTATE = idx++;
     }
@@ -123,19 +79,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             holder.checkBox.setImageResource(R.mipmap.side_check_normal);
         }
 
-        if (position == BATTERY || position == FLOAT) {
-            holder.checkBox.setVisibility(View.VISIBLE);
-            holder.iv_hong.setVisibility(View.GONE);
-        } else {
-            holder.checkBox.setVisibility(View.INVISIBLE);
-        }
-
-        if (position == JUNK || position == GBOOST || position == MESSAGE) {
-            holder.side_divide.setVisibility(View.VISIBLE);
-        } else {
-            holder.side_divide.setVisibility(View.GONE);
-        }
-        hongV(holder, position);
+//        hongV(holder, position);
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,48 +128,6 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 holder.iv_hong.setVisibility(View.GONE);
             }
         }
-        if (position == FILE) {
-            if (PreData.getDB(context, Constant.HONG_FILE, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == POWER) {
-            if (PreData.getDB(context, Constant.HONG_DEEP, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == NOTIFI) {
-            if (PreData.getDB(context, Constant.HONG_NOTIFI, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == PICTURE) {
-            if (PreData.getDB(context, Constant.HONG_PHOTO, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == GBOOST) {
-            if (PreData.getDB(context, Constant.HONG_GBOOST, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
-        if (position == MESSAGE) {
-            if (PreData.getDB(context, Constant.HONG_MESSAGE, true)) {
-                holder.iv_hong.setVisibility(View.VISIBLE);
-            } else {
-                holder.iv_hong.setVisibility(View.GONE);
-            }
-        }
     }
 
     private void guan(int position, int item, ViewHolder holder, View convertView) {
@@ -242,28 +144,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     }
 
     private void onC(int position) {
-        if (position == BATTERY) {
-            if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, false)) {
-                AdUtil.track("侧边栏", "点击关闭充电屏保", "", 1);
-                Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, false);
-            } else {
-                AdUtil.track("侧边栏", "点击开启充电屏保", "", 1);
-                Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, true);
-            }
-        } else if (position == FLOAT) {
-            if (PreData.getDB(context, Constant.FlOAT_SWITCH, true)) {
-                AdUtil.track("侧边栏", "点击关闭悬浮窗", "", 1);
-                PreData.putDB(context, Constant.FlOAT_SWITCH, false);
-                Intent intent1 = new Intent(context, FloatService.class);
-                context.stopService(intent1);
-
-            } else {
-                AdUtil.track("侧边栏", "点击开启悬浮窗", "", 1);
-                PreData.putDB(context, Constant.FlOAT_SWITCH, true);
-                Intent intent1 = new Intent(context, FloatService.class);
-                context.startService(intent1);
-            }
-        } else if (position == JUNK) {
+         if (position == JUNK) {
             AdUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
             Intent intent2 = new Intent(context, CleanActivity.class);
             ((Activity) context).startActivityForResult(intent2, 1);
@@ -281,51 +162,13 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             AdUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
             Intent intent4 = new Intent(context, UserAppActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
-        } else if (position == FILE) {
-            AdUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
-            PreData.putDB(context, Constant.FILE_CLEAN, true);
-            Intent intent5 = new Intent(context, FileManaActivity.class);
-            ((Activity) context).startActivityForResult(intent5, 1);
-        } else if (position == POWER) {
-            PreData.putDB(context, Constant.DEEP_CLEAN, true);
-            AdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
-            Intent intent5 = new Intent(context, PowerActivity.class);
-            ((Activity) context).startActivityForResult(intent5, 1);
-        } else if (position == NOTIFI) {
-
-            AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
-            PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
-            if (!Util.isNotificationListenEnabled(context) || !PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
-                Intent intent6 = new Intent(context, NotifiAnimationActivity.class);
-                ((Activity) context).startActivityForResult(intent6, 1);
-            } else {
-                Intent intent6 = new Intent(context, NotifiActivity.class);
-                ((Activity) context).startActivityForResult(intent6, 1);
-            }
-        } else if (position == PICTURE) {
-
-            AdUtil.track("侧边栏", "点击进入相似图片", "", 1);
-            PreData.putDB(context, Constant.PHOTO_CLEAN, true);
-            Intent intent = new Intent(context, SimilarActivity.class);
-            ((Activity) context).startActivityForResult(intent, 1);
-        } else if (position == GBOOST) {
-
-            AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
-            PreData.putDB(context, Constant.GBOOST_CLEAN, true);
-            Intent intent = new Intent(context, GameActivity.class);
-            ((Activity) context).startActivityForResult(intent, 1);
-        } else if (position == MESSAGE) {
-
-            AdUtil.track("侧边栏", "点击进入硬件信息", "", 1);
-            Intent intent = new Intent(context, PhoneActivity.class);
-            ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == SETTING) {
             AdUtil.track("侧边栏", "点击进入设置页面", "", 1);
             Intent intent9 = new Intent(context, SettingActivity.class);
             ((Activity) context).startActivityForResult(intent9, 1);
         } else if (position == ROTATE) {
             AdUtil.track("侧边栏", "点击好评", "", 1);
-            UtilGp.rate(context);
+            UtilGp.rate(context.getApplicationContext());
         }
     }
 

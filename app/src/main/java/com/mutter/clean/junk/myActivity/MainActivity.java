@@ -36,6 +36,7 @@ import com.mutter.clean.junk.R;
 import com.mutter.clean.junk.entity.SideInfo;
 import com.mutter.clean.junk.myAdapter.SideAdapter;
 import com.mutter.clean.junk.myview.BubbleMainLayout;
+import com.mutter.clean.junk.myview.CatShuView;
 import com.mutter.clean.junk.myview.LoadingTime;
 import com.mutter.clean.junk.myview.RoundRam;
 import com.mutter.clean.junk.myview.RoundSd;
@@ -43,6 +44,7 @@ import com.mutter.clean.junk.presenter.MainPresenter;
 import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.junk.util.Constant;
+import com.mutter.clean.junk.util.UtilGp;
 import com.mutter.clean.junk.view.MainView;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
@@ -63,14 +65,13 @@ public class MainActivity extends BaseActivity implements MainView {
     TextView main_junk_h, main_cooling_h;
     ListView side_listView;
     SlideMenuLayout main_drawer;
-    LinearLayout ll_ad_side;
     com.mingle.widget.LinearLayout ll_ad_full;
     TextView main_full_time;
     FrameLayout libao_load;
-    ImageView load_2, load_2_2, load_3, load_1, load_4;
+    ImageView load_1;
+    CatShuView shu_1, shu_2;
 
     // LottieAnimationView lot_side;
-    ImageView side_title;
     FrameLayout ad_delete;
     BubbleMainLayout bubble_main;
     private LoadingTime ad_loading;
@@ -121,7 +122,6 @@ public class MainActivity extends BaseActivity implements MainView {
         main_ram_size = (TextView) findViewById(R.id.main_ram_size);
 
         side_listView = (ListView) findViewById(R.id.side_listView);
-        ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
 
         main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
@@ -130,15 +130,12 @@ public class MainActivity extends BaseActivity implements MainView {
         main_junk_h = (TextView) findViewById(R.id.main_junk_h);
         main_cooling_h = (TextView) findViewById(R.id.main_cooling_h);
 
-        side_title = (ImageView) findViewById(R.id.side_title);
         ad_delete = (FrameLayout) findViewById(R.id.ad_delete);
         bubble_main = (BubbleMainLayout) findViewById(R.id.bubble_main);
         libao_load = (FrameLayout) findViewById(R.id.libao_load);
         load_1 = (ImageView) findViewById(R.id.load_1);
-        load_2 = (ImageView) findViewById(R.id.load_2);
-        load_2_2 = (ImageView) findViewById(R.id.load_2_2);
-        load_3 = (ImageView) findViewById(R.id.load_3);
-        load_4 = (ImageView) findViewById(R.id.load_4);
+        shu_1 = (CatShuView) findViewById(R.id.shu_1);
+        shu_2 = (CatShuView) findViewById(R.id.shu_2);
     }
 
     @Override
@@ -242,6 +239,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_junk_button.setOnClickListener(onClickListener);
         main_manager_button.setOnClickListener(onClickListener);
         main_cooling_button.setOnClickListener(onClickListener);
+        ad_delete.setOnClickListener(onClickListener);
 
 
     }
@@ -294,28 +292,10 @@ public class MainActivity extends BaseActivity implements MainView {
             side_listView.setAdapter(adapter);
         }
         adapter.clear();
-        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)));//充电屏保
-        adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
-        adapter.addData(new SideInfo(R.string.main_cooling_name, R.mipmap.side_battery));//电池降温
-        if (PreData.getDB(this, Constant.DEEP_KAIGUAN, 1) != 0) {
-            adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) != 0) {
-            adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
-        }
-        if (PreData.getDB(this, Constant.GBOOST_KAIGUAN, 1) != 0) {
-            adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
-        }
         adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
-        if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) != 0) {
-            adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
-        }
-        if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) != 0) {
-            adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
-        }
-        adapter.addData(new SideInfo(R.string.main_msg_title, R.mipmap.side_message));//硬件信息
+        adapter.addData(new SideInfo(R.string.main_cooling_name, R.mipmap.side_battery));//电池降温
         adapter.addData(new SideInfo(R.string.side_setting, R.mipmap.side_setting));//设置
         adapter.addData(new SideInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
 
@@ -324,22 +304,14 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     public void loadFullAd() {
-        if (PreData.getDB(this, Constant.FULL_MAIN, 0) == 1) {
-        } else {
-            View nativeView_side = AdUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_2);
-            if (ll_ad_side != null && nativeView_side != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad_side.getLayoutParams();
-                layout_ad.height = nativeView_side.getMeasuredHeight();
-                ll_ad_side.setLayoutParams(layout_ad);
-                ll_ad_side.addView(nativeView_side);
-            }
-
-        }
-
-        if (!PreData.getDB(this, Constant.BATTERY_FIRST, false)) {
-            showBattery();
-            PreData.putDB(this, Constant.BATTERY_FIRST, true);
-//            return;
+        int num = PreData.getDB(this, Constant.ROTATE_FIRST, 0);
+        if (num == 2) {
+            showRotate();
+            num++;
+            PreData.putDB(this, Constant.ROTATE_FIRST, num);
+        } else if (num < 2) {
+            num++;
+            PreData.putDB(this, Constant.ROTATE_FIRST, num);
         }
 
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
@@ -407,23 +379,28 @@ public class MainActivity extends BaseActivity implements MainView {
         }
     };
 
-    private void showBattery() {
-        View view = getLayoutInflater().inflate(R.layout.dialog_battery, null);
-        TextView battery_cha = (TextView) view.findViewById(R.id.battery_cancel);
-        TextView battery_button = (TextView) view.findViewById(R.id.battery_ok);
-        battery_cha.setOnClickListener(new View.OnClickListener() {
+    private void showRotate() {
+        View view = getLayoutInflater().inflate(R.layout.dialog_rotate, null);
+        TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
+        TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
+        ImageView rotate_cha = (ImageView) view.findViewById(R.id.rotate_cha);
+        rotate_cha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialogB.dismiss();
             }
         });
-        battery_button.setOnClickListener(new View.OnClickListener() {
+        exit_quxiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
-                initSideData();
-                adapter.notifyDataSetChanged();
                 dialogB.dismiss();
+            }
+        });
+        exit_queren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogB.dismiss();
+                UtilGp.rate(MainActivity.this.getApplicationContext());
             }
         });
         dialogB = new AlertDialog.Builder(this).create();
@@ -431,7 +408,6 @@ public class MainActivity extends BaseActivity implements MainView {
         dialogB.setView(view);
         dialogB.show();
     }
-
 
 
     //点击事件监听
@@ -486,28 +462,18 @@ public class MainActivity extends BaseActivity implements MainView {
                                 libao_load.setVisibility(View.GONE);
                             }
                         });
-                        load_2.setVisibility(View.VISIBLE);
                         load_1.setVisibility(View.VISIBLE);
-                        load_3.setVisibility(View.VISIBLE);
-                        load_2_2.setVisibility(View.VISIBLE);
-                        load_4.setVisibility(View.GONE);
-                        load_rotate = ObjectAnimator.ofFloat(load_1, View.ROTATION, 0, 3600);
-                        load_rotate.setDuration(4000);
+                        load_rotate = ObjectAnimator.ofFloat(load_1, View.ROTATION, 0, -360 * 2);
+                        load_rotate.setDuration(4500);
+                        load_rotate.start();
                         load_rotate.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                            int count = 0;
-
+                            @Override
                             public void onAnimationUpdate(ValueAnimator animation) {
-                                count++;
-                                if (count % 15 == 0) {
-                                    if (load_2.getVisibility() == View.VISIBLE) {
-                                        load_2.setVisibility(View.GONE);
-                                    } else {
-                                        load_2.setVisibility(View.VISIBLE);
-                                    }
-                                }
+                                float value = (float) animation.getAnimatedValue();
+                                shu_1.setProgress((int) value);
+                                shu_2.setProgress((int) value);
                             }
                         });
-                        load_rotate.start();
                         libao_load.setVisibility(View.VISIBLE);
                         handler.postDelayed(runnable_load, 4500);
                     } else {

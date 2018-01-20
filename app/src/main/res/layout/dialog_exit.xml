@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/d333"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical">
@@ -22,65 +22,55 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/d14"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textColor="@color/A6"
-                android:textSize="@dimen/s16" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/d14"
+                android:layout_marginTop="@dimen/d29"
                 android:gravity="center"
                 android:text="@string/main_quit"
-                android:textColor="@color/B3"
+                android:textColor="@color/A2"
                 android:textSize="@dimen/s14" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/d10"
-                android:layout_marginLeft="@dimen/d30"
-                android:layout_marginRight="@dimen/d30"
-                android:layout_marginTop="@dimen/d30"
+                android:layout_gravity="right"
+                android:layout_marginBottom="@dimen/d16"
+                android:layout_marginTop="@dimen/d24"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/exit_queren"
-                    android:layout_width="@dimen/d125"
-                    android:layout_height="@dimen/d36"
-                    android:background="@drawable/shape_rotate_bad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/d12"
                     android:gravity="center"
+                    android:padding="@dimen/d5"
                     android:text="@string/main_quit_sure"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s13" />
+                    android:textColor="@color/A2_30"
+                    android:textSize="@dimen/s14" />
 
                 <TextView
                     android:id="@+id/exit_quxiao"
-                    android:layout_width="@dimen/d125"
-                    android:layout_height="@dimen/d36"
-                    android:background="@drawable/shape_rotate_good"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/d20"
                     android:gravity="center"
+                    android:padding="@dimen/d5"
                     android:text="@string/main_quit_no"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s13" />
+                    android:textColor="@color/A14"
+                    android:textSize="@dimen/s14" />
             </LinearLayout>
 
         </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/ll_ad_exit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d8"
-                android:background="@drawable/shape_ad"
-                android:orientation="vertical"
-                android:visibility="invisible" />
+        <LinearLayout
+            android:id="@+id/ll_ad_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d8"
+            android:background="@drawable/shape_ad"
+            android:orientation="vertical"
+            android:visibility="invisible" />
 
     </LinearLayout>
 

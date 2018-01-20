@@ -137,7 +137,7 @@ public class BatteryService extends Service {
 
     private void showChargeView() {
         Log.e("battery", "showChargeView");
-        boolean isChargeScreenSaver = (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false);
+        boolean isChargeScreenSaver = (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true);
         if (!isChargeScreenSaver) {
             return;
         }

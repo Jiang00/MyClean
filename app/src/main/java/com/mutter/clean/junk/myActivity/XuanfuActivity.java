@@ -1,5 +1,6 @@
 package com.mutter.clean.junk.myActivity;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
@@ -10,10 +11,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
@@ -23,6 +26,8 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,6 +35,7 @@ import android.widget.TextView;
 import com.mutter.clean.core.CleanManager;
 import com.android.client.AndroidSdk;
 import com.mutter.clean.junk.R;
+import com.mutter.clean.junk.myview.BubbleLineLayout;
 import com.mutter.clean.junk.myview.FloatRound;
 import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.junk.util.Constant;
@@ -44,17 +50,32 @@ import java.util.List;
 
 public class XuanfuActivity extends BaseActivity {
     LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
-    FloatRound float_rotate;
     LinearLayout ll_ad;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
-    TextView float_ram_free, float_ram_use;
-    TextView float_tishi;
+    TextView float_size;
+    LinearLayout float_tishi;
+    FrameLayout wifi_fl, liuliang_fl, shengyin_fl, liangdu_fl, gps_fl;
+    ImageView float_huojian;
+    ImageView float_zhuan;
+    FrameLayout clean_button;
+    BubbleLineLayout bubble_line;
 
-    private Handler myHandler;
+
+    private Handler myHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 10) {
+                count++;
+                initSize();
+            }
+        }
+    };
     private View nativeView;
     private String TAG_FLAOT = "mutter_float";
-    private Animation suo, fang;
+    private Animation fang;
     private AnimatorSet animatorSet;
+    private long shifang;
 
     @Override
     protected void findId() {
@@ -70,27 +91,47 @@ public class XuanfuActivity extends BaseActivity {
         iv_xianshi = (ImageView) findViewById(R.id.iv_xianshi);
         iv_shengyin = (ImageView) findViewById(R.id.iv_shengyin);
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
-        float_rotate = (FloatRound) findViewById(R.id.float_rotate);
-        float_tishi = (TextView) findViewById(R.id.float_tishi);
-        float_ram_free = (TextView) findViewById(R.id.float_ram_free);
-        float_ram_use = (TextView) findViewById(R.id.float_ram_use);
+        float_tishi = (LinearLayout) findViewById(R.id.float_tishi);
+        float_size = (TextView) findViewById(R.id.float_size);
+        wifi_fl = (FrameLayout) findViewById(R.id.wifi_fl);
+        liuliang_fl = (FrameLayout) findViewById(R.id.liuliang_fl);
+        shengyin_fl = (FrameLayout) findViewById(R.id.shengyin_fl);
+        liangdu_fl = (FrameLayout) findViewById(R.id.liangdu_fl);
+        gps_fl = (FrameLayout) findViewById(R.id.gps_fl);
+        clean_button = (FrameLayout) findViewById(R.id.clean_button);
+        bubble_line = (BubbleLineLayout) findViewById(R.id.bubble_line);
+        float_huojian = (ImageView) findViewById(R.id.float_huojian);
+        float_zhuan = (ImageView) findViewById(R.id.float_zhuan);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_float);
-        myHandler = new Handler();
-        suo = AnimationUtils.loadAnimation(this, R.anim.suo);
+        bubble_line.pause();
         fang = AnimationUtils.loadAnimation(this, R.anim.fang);
+
+        rotate(liuliang_fl, ll_liuliang, 36);
+
+        rotate(liangdu_fl, ll_xianshi, 36 * 2);
+
+        rotate(shengyin_fl, ll_shengyin, 36 * 3);
+
+        rotate(gps_fl, ll_gps, 36 * 4);
+
         loadAd();
-        initSize();
         wifi();
         shengYin();
         xianshiD();
         addListener();
     }
 
+    private void rotate(View view, View view2, float rotate) {
+        view.setPivotY(getResources().getDimension(R.dimen.d141));
+        view.setPivotX(getResources().getDimension(R.dimen.d288) / 2);
+        view.setRotation(rotate);
+        view2.setRotation(-rotate);
+    }
 
     private void addListener() {
 //        waterView.setFloatWaterListener(floatWaterListener);
@@ -99,7 +140,7 @@ public class XuanfuActivity extends BaseActivity {
         ll_xianshi.setOnClickListener(kuaijieListener);
         ll_shengyin.setOnClickListener(kuaijieListener);
         ll_gps.setOnClickListener(kuaijieListener);
-        float_rotate.setOnClickListener(kuaijieListener);
+        clean_button.setOnClickListener(kuaijieListener);
     }
 
     View.OnClickListener kuaijieListener = new View.OnClickListener() {
@@ -142,8 +183,8 @@ public class XuanfuActivity extends BaseActivity {
                         e.printStackTrace();
                     }
                     break;
-                case R.id.float_rotate:
-                    float_rotate.setOnClickListener(null);
+                case R.id.clean_button:
+                    clean_button.setOnClickListener(null);
                     startCleanAnimation();
                     break;
             }
@@ -162,23 +203,7 @@ public class XuanfuActivity extends BaseActivity {
             nativeView = AdUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
-                View ad_action = nativeView.findViewWithTag("ad_action");
-                animatorSet = new AnimatorSet();
-                ObjectAnimator animator_1 = ObjectAnimator.ofFloat(ll_ad, View.SCALE_X, 1, 1.2f, 0.9f, 1.1f, 1);
-                animator_1.setDuration(800);
-                ObjectAnimator animator_2 = ObjectAnimator.ofFloat(ll_ad, View.SCALE_Y, 1, 0.8f, 1.1f, 0.9f, 1);
-                animator_2.setDuration(800);
-                animatorSet.play(animator_1).with(animator_2);
-                animatorSet.setInterpolator(new DecelerateInterpolator());
-                myHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (animatorSet != null && !animatorSet.isRunning()) {
-                            animatorSet.start();
-                        }
-                        myHandler.postDelayed(this, 2000);
-                    }
-                });
+
             }
         }
     }
@@ -187,55 +212,80 @@ public class XuanfuActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                killAll(XuanfuActivity.this);
+                shifang = killAll(XuanfuActivity.this);
+                myHandler.sendEmptyMessage(10);
             }
         }).start();
         CleanManager.getInstance(this).clearRam();
-        float_rotate.setCustomRoundListener(new FloatRound.CustomRoundListener() {
+        int w = float_huojian.getWidth();
+        int h = float_huojian.getHeight();
+        bubble_line.setParticleBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_line));
+        bubble_line.reStart();
+        animatorSet = new AnimatorSet();
+        ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(float_zhuan, View.ROTATION, 0, 3600);
+        objectAnimator_2.setDuration(2000);
+        ObjectAnimator objectAnimator_3 = ObjectAnimator.ofFloat(float_huojian, View.TRANSLATION_Y, 0, 5,
+                0, -5, 0);
+        objectAnimator_3.setDuration(300);
+        objectAnimator_3.setInterpolator(new LinearInterpolator());
+        objectAnimator_3.setRepeatCount(5);
+        ObjectAnimator objectAnimator_4 = ObjectAnimator.ofFloat(float_huojian, View.TRANSLATION_X, 0, 5,
+                0, -0.5f * -5, 0);
+        objectAnimator_4.setDuration(300);
+        objectAnimator_4.setInterpolator(new LinearInterpolator());
+        objectAnimator_4.setRepeatCount(5);
+        ObjectAnimator objectAnimator_5 = ObjectAnimator.ofFloat(float_huojian, View.TRANSLATION_Y, 0, 0.3f * h, -h * 2);
+        objectAnimator_5.setDuration(500);
+        ObjectAnimator objectAnimator_6 = ObjectAnimator.ofFloat(float_huojian, View.TRANSLATION_X, 0, -0.3f * w, w * 2);
+        objectAnimator_6.setDuration(500);
+        animatorSet.play(objectAnimator_2);
+        animatorSet.play(objectAnimator_3).with(objectAnimator_4);
+        animatorSet.play(objectAnimator_5).with(objectAnimator_6);
+        animatorSet.play(objectAnimator_5).after(objectAnimator_3);
+        animatorSet.start();
+        animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
-            public void progressUpdate() {
-                float_rotate.startProgress2(Util.getMemory(XuanfuActivity.this));
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        initSize();
-                    }
-                });
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                float_huojian.setVisibility(View.INVISIBLE);
+                bubble_line.pause();
+                bubble_line.destroy();
+                myHandler.sendEmptyMessage(10);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
             }
         });
-        float_rotate.startProgress1();
-        float_tishi.startAnimation(suo);
-        suo.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                float_tishi.setText(R.string.float_yijiasu);
-                float_tishi.startAnimation(fang);
-                initSize();
-            }
 
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-        });
     }
+
+    int count;
 
     private void initSize() {
-        long size_all = MemoryManager.getPhoneTotalRamMemory();
-        long kong = getAvailMemory((ActivityManager) getSystemService(Context.ACTIVITY_SERVICE));
-        float_ram_free.setText(Util.convertStorage(kong, true));
-        float_ram_use.setText(Util.convertStorage(size_all - kong, true));
-        float_rotate.setProgress(Util.getMemory(this));
+        if (count < 2) {
+            return;
+        }
+        float_size.setText(Util.convertStorage(Math.abs(shifang), true));
+
+        float_tishi.startAnimation(fang);
+        float_tishi.setVisibility(View.VISIBLE);
     }
 
-    public int killAll(Context context) {
+    public long killAll(Context context) {
         long ram_all = MemoryManager.getPhoneTotalRamMemory();
         final ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        final long beforeMem = getAvailMemory(am);
         final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(PackageManager.GET_META_DATA);
         for (PackageInfo packageInfo : installedPackages) {
             if (packageInfo.packageName.equals(context.getPackageName())) {
@@ -248,8 +298,9 @@ public class XuanfuActivity extends BaseActivity {
             }
         }
         final long afterMem = getAvailMemory(am);
-        int pratent = (int) ((ram_all - afterMem) * 100 / ram_all);
-        return pratent;
+//        int pratent = (int) ((ram_all - afterMem) * 100 / ram_all);
+        return afterMem - beforeMem;
+
     }
 
     private long getAvailMemory(ActivityManager am) {
@@ -261,33 +312,33 @@ public class XuanfuActivity extends BaseActivity {
 
     private void wifi() {
         if (CheckState.wifiState(this)) {
-            iv_wifi.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setAlpha(1f);
         } else {
-            iv_wifi.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setAlpha(0.4f);
         }
     }
 
     private void wifiD() {
         if (!CheckState.wifiState(this)) {
-            iv_wifi.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setAlpha(1f);
         } else {
-            iv_wifi.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setAlpha(0.4f);
         }
     }
 
     private void liuLiang() {
         if (CheckState.networkState(this, null)) {
-            iv_liuliang.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setAlpha(1f);
         } else {
-            iv_liuliang.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setAlpha(0.4f);
         }
     }
 
     private void liuLiangd() {
         if (!CheckState.networkState(this, null)) {
-            iv_liuliang.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setAlpha(1f);
         } else {
-            iv_liuliang.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setAlpha(0.4f);
         }
     }
 
@@ -310,17 +361,17 @@ public class XuanfuActivity extends BaseActivity {
 
     private void shengYin() {
         if (CheckState.soundState(this)) {
-            iv_shengyin.setColorFilter(ContextCompat.getColor(this, R.color.float_kaiguan));
+            iv_shengyin.setAlpha(1f);
         } else {
-            iv_shengyin.setColorFilter(null);
+            iv_shengyin.setAlpha(0.4f);
         }
     }
 
     private void gps() {
         if (CheckState.gpsState(this)) {
-            iv_gps.setColorFilter(getResources().getColor(R.color.float_kaiguan));
+            iv_gps.setAlpha(1f);
         } else {
-            iv_gps.setColorFilter(null);
+            iv_gps.setAlpha(0.4f);
         }
     }
 
@@ -432,11 +483,16 @@ public class XuanfuActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        count = 0;
+        if (animatorSet != null) {
+            animatorSet.removeAllListeners();
+            animatorSet.cancel();
+        }
         if (myHandler != null) {
             myHandler.removeCallbacksAndMessages(null);
         }
-        if (animatorSet != null) {
-            animatorSet.cancel();
-        }
+
+        fang.cancel();
+        float_tishi.clearAnimation();
     }
 }

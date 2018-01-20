@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/d333"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_ad"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/rotate_cha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:padding="@dimen/d8"
+                android:src="@mipmap/rotate_cha" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d20"
+                android:src="@mipmap/rotate_iv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/d27"
+                android:layout_marginRight="@dimen/d27"
+                android:layout_marginTop="@dimen/d40"
+                android:gravity="center"
+                android:text="@string/main_rotate_msg"
+                android:textColor="@color/A2"
+                android:textSize="@dimen/s14" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="@dimen/d16"
+                android:layout_marginTop="@dimen/d24"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/exit_quxiao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/d12"
+                    android:gravity="center"
+                    android:padding="@dimen/d5"
+                    android:text="@string/main_rotate_bad"
+                    android:textColor="@color/A2_30"
+                    android:textSize="@dimen/s14" />
+
+                <TextView
+                    android:id="@+id/exit_queren"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/d20"
+                    android:gravity="center"
+                    android:padding="@dimen/d5"
+                    android:text="@string/main_rotate_good"
+                    android:textColor="@color/A14"
+                    android:textSize="@dimen/s14" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

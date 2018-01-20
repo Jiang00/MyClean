@@ -44,24 +44,24 @@ public class AdUtil {
 
     public static void startBannerAnimation(Context context, final View view) {
         view.setVisibility(View.VISIBLE);
-        int w = View.MeasureSpec.makeMeasureSpec(0,
-                View.MeasureSpec.UNSPECIFIED);
-        int h = View.MeasureSpec.makeMeasureSpec(0,
-                View.MeasureSpec.UNSPECIFIED);
-        view.measure(w, h);
-        int height = view.getMeasuredHeight();
-
-        ValueAnimator animator = ValueAnimator.ofInt(context.getResources().getDimensionPixelOffset(R.dimen.d20), height);
-        animator.setDuration(500);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int h = (int) animation.getAnimatedValue();
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
-                layoutParams.height = h;
-                view.setLayoutParams(layoutParams);
-            }
-        });
-        animator.start();
+//        int w = View.MeasureSpec.makeMeasureSpec(0,
+//                View.MeasureSpec.UNSPECIFIED);
+//        int h = View.MeasureSpec.makeMeasureSpec(0,
+//                View.MeasureSpec.UNSPECIFIED);
+//        view.measure(w, h);
+//        int height = view.getMeasuredHeight();
+//
+//        ValueAnimator animator = ValueAnimator.ofInt(context.getResources().getDimensionPixelOffset(R.dimen.d20), height);
+//        animator.setDuration(500);
+//        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            @Override
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                int h = (int) animation.getAnimatedValue();
+//                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
+//                layoutParams.height = h;
+//                view.setLayoutParams(layoutParams);
+//            }
+//        });
+//        animator.start();
     }
 }

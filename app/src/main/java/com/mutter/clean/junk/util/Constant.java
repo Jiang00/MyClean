@@ -55,6 +55,7 @@ public class Constant {
     public static final String KEY_TONGZHI_WAN_JUNK = "KEY_TONGZHI_WAN_JUNK";//一天三次
 
     public static final String KEY_SHORTCUT = "KEY_SHORTCUT";//桌面快捷方式
+    public static final String KEY_SHORTCUT_JIANGWEN = "KEY_SHORTCUT_JIANGWEN";//桌面快捷方式
 
     public static final String ROOT_TRAK = "ROOT_TRAK";
 
@@ -83,6 +84,7 @@ public class Constant {
     public static final String FULL_EXIT = "FULL_EXIT";
     public static final String SKIP_TIME = "SKIP_TIME";
     public static final String BATTERY_FIRST = "BATTERY_FIRST";
+    public static final String ROTATE_FIRST = "ROTATE_FIRST";
 
     public static final String FULL_MANAGER = "FULL_MANAGER";
 

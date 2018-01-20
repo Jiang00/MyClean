@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A10"
+    android:background="@color/A1"
     android:orientation="vertical">
 
     <LinearLayout
@@ -25,11 +25,9 @@
         android:id="@+id/ad_fl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/d7"
-        android:layout_marginRight="@dimen/d7"
-        android:layout_marginTop="@dimen/d7"
-        android:background="@drawable/shape_ad"
-        android:elevation="@dimen/d2"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
+        android:background="@drawable/shape_a3"
         android:visibility="gone">
 
         <LinearLayout
@@ -58,16 +56,14 @@
                 android:src="@mipmap/no_photo" />
 
             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/d16"
                 android:layout_marginRight="@dimen/d16"
-                android:layout_marginTop="@dimen/d24"
+                android:layout_marginTop="@dimen/d20"
                 android:text="@string/white_wu"
-                android:textColor="@color/B8"
-                android:textSize="@dimen/s17"
-                app:typeface="lyp_text.otf" />
+                android:textColor="@color/wu"
+                android:textSize="@dimen/s16" />
         </LinearLayout>
 
 
@@ -75,11 +71,13 @@
             android:id="@+id/list_si"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/d7"
-            android:background="@drawable/shape_ad"
+            android:layout_marginBottom="@dimen/d8"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
+            android:layout_marginTop="@dimen/d8"
+            android:background="@drawable/shape_a3"
             android:divider="@drawable/list_divider"
             android:dividerHeight="0px"
-            android:elevation="@dimen/d2"
             android:scrollbars="none" />
     </FrameLayout>
 

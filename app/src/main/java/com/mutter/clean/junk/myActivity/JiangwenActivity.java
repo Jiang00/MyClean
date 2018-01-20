@@ -6,6 +6,7 @@ import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.mutter.clean.junk.R;
+import com.mutter.clean.junk.myview.CoolingView;
 import com.mutter.clean.junk.service.NotificationService;
 import com.mutter.clean.junk.util.AdUtil;
 import com.mutter.clean.junk.util.BadgerCount;
@@ -34,17 +36,14 @@ import java.util.Random;
 
 public class JiangwenActivity extends BaseActivity {
     private static final int FLAKE_NUM = 5;
-    ImageView cooling_xuehua;
-    ImageView cooling_kuo;
     LinearLayout cooling_text;
-    FrameLayout cooling_fl;
+    CoolingView cooling_view;
     TextView cooling_wendu;
     FrameLayout title_left;
     TextView title_name;
     LinearLayout cooling_piao;
 
     private FlakeView flakeView;
-    private Handler mHandler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
@@ -54,11 +53,8 @@ public class JiangwenActivity extends BaseActivity {
         }
     };
     private Random random;
-    private Animation rotate_ni;
-    private Animation suo;
-    private Animation rotate_zheng;
-    private AnimatorSet animationLine_1;
     private int time;
+    int count;
 
     @Override
     protected void findId() {
@@ -66,11 +62,9 @@ public class JiangwenActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
-        cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
-        cooling_kuo = (ImageView) findViewById(R.id.cooling_kuo);
-        cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
+        cooling_view = (CoolingView) findViewById(R.id.cooling_view);
     }
 
     @Override
@@ -78,7 +72,7 @@ public class JiangwenActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
         PreData.putDB(this, Constant.HONG_COOLING, false);
-        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT,null);
+        AndroidSdk.loadFullAd(AdUtil.FULL_DEFAULT, null);
         BadgerCount.setCount(this);
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,97 +82,82 @@ public class JiangwenActivity extends BaseActivity {
         });
         title_name.setText(R.string.main_cooling_name);
 
-        rotate_zheng = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
-        rotate_ni = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
-        suo = AnimationUtils.loadAnimation(this, R.anim.suo);
-        mHandler = new Handler();
-        cooling_xuehua.startAnimation(rotate_zheng);
         startCoolingAni();
 
-        animationLine_1 = new AnimatorSet();
-        ObjectAnimator animator_ine_1_x = ObjectAnimator.ofFloat(cooling_kuo, "scaleX", 0, 2f);
-        animator_ine_1_x.setRepeatCount(-1);
-        ObjectAnimator animator_ine_1_y = ObjectAnimator.ofFloat(cooling_kuo, "scaleY", 0, 2f);
-        ObjectAnimator animator_ine_1_r = ObjectAnimator.ofFloat(cooling_kuo, "alpha", 1, 0f);
-        animator_ine_1_y.setRepeatCount(-1);
-        animator_ine_1_r.setRepeatCount(-1);
-        animationLine_1.setDuration(1000);
-        animationLine_1.setInterpolator(new AccelerateDecelerateInterpolator());
-        animationLine_1.playTogether(animator_ine_1_x, animator_ine_1_y, animator_ine_1_r);
-        animationLine_1.start();
-
-        suo.setAnimationListener(new Animation.AnimationListener() {
+        cooling_text.setVisibility(View.VISIBLE);
+        final int wendu = getIntent().getIntExtra("wendu", 40);
+        cooling_view.startProgress2(30);
+        cooling_view.setCustomRoundListener(new CoolingView.CustomRoundListener() {
             @Override
-            public void onAnimationEnd(Animation animation) {
-                cooling_fl.setVisibility(View.INVISIBLE);
-                cooling_xuehua.clearAnimation();
-                if (PreData.getDB(JiangwenActivity.this, Constant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
-                }
-                Bundle bundle = new Bundle();
-                bundle.putInt("wendu", time);
-                bundle.putString("from", "cooling");
-                bundle.putString("name", getString(R.string.cooling_succ));
-                jumpToActivity(SuccessActivity.class, bundle, 1);
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-
+            public void progressSuccess() {
+                handler.sendEmptyMessage(10);
             }
         });
-        if (TextUtils.equals("main", getIntent().getStringExtra("from"))) {
-            cooling_text.setVisibility(View.VISIBLE);
-            final int wendu = getIntent().getIntExtra("wendu", 40);
-            cooling_wendu.setText(wendu + "℃");
-            for (int i = 0; i <= time; i++) {
-                cooling_wendu.setText((wendu - i) + "℃");
-            }
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
+        cooling_wendu.setText(wendu + "℃");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
 
-                    for (int i = 0; i <= time; i++) {
-                        if (onPause) {
-                            return;
-                        }
-                        final int finalI = i;
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                cooling_wendu.setText((wendu - finalI) + "℃");
-                            }
-                        });
-                        try {
-                            Thread.sleep(500);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                for (int i = 0; i <= time; i++) {
+                    if (onPause) {
+                        return;
                     }
-
+                    final int finalI = i;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            cooling_wendu.setText((wendu - finalI) + "℃");
+                        }
+                    });
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }).start();
-        }
+            }
+        }).start();
     }
 
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 10) {
+                count++;
+                startAc();
+            } else if (msg.what == 11) {
+                count++;
+                startAc();
+                hideSnow();
+            }
+        }
+    };
+
+
+    private void startAc() {
+        if (count < 2) {
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putInt("wendu", time);
+        bundle.putString("from", "cooling");
+        bundle.putString("name", getString(R.string.cooling_succ));
+        jumpToActivity(SuccessActivity.class, bundle, 1);
+    }
 
     private void hideSnow() {
+
         if (flakeView != null) {
             flakeView.subtractFlakes(FLAKE_NUM);
             flakeView.pause();
             flakeView = null;
-            mHandler.removeCallbacks(runnable);
         }
         if (cooling_piao != null) {
             cooling_piao.removeAllViews();
             cooling_piao.setVisibility(View.GONE);
         }
+
     }
 
     @Override
@@ -199,8 +178,8 @@ public class JiangwenActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        if (mHandler != null && runnable != null) {
-            mHandler.removeCallbacks(runnable);
+        if (handler != null && runnable != null) {
+            handler.removeCallbacksAndMessages(null);
         }
         super.onDestroy();
     }
@@ -208,26 +187,7 @@ public class JiangwenActivity extends BaseActivity {
     private void startCoolingAni() {
         random = new Random();
         time = random.nextInt(5) + 1;
-//        cooling_wendu.setText(time + "℃");
-        final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 20);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int value = (int) animation.getAnimatedValue();
-                if (value == 20) {
-                    if (animationLine_1 != null) {
-                        animationLine_1.cancel();
-                    }
-                    if (cooling_fl != null) {
-                        cooling_fl.startAnimation(suo);
-                    }
-                    hideSnow();
-                }
-            }
-        });
-        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        valueAnimator.setDuration(3000);
-        valueAnimator.start();
+        handler.sendEmptyMessageDelayed(11, 3000);
 
     }
 
@@ -236,7 +196,7 @@ public class JiangwenActivity extends BaseActivity {
         super.onResume();
         flakeView = new FlakeView(this);
         cooling_piao.addView(flakeView);
-        mHandler.post(runnable);
+        handler.post(runnable);
     }
 
     @Override

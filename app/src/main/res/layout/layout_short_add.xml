@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/A1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/A1"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/view_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <include layout="@layout/layout_title" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/ad_fl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
+        android:layout_marginTop="@dimen/d8"
+        android:background="@drawable/shape_a3"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ll_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
+        android:layout_marginTop="@dimen/d8"
+        android:background="@drawable/shape_a3"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/setting_cut_jiasu"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56">
+
+            <ImageView
+                android:id="@+id/icon_1"
+                android:layout_width="@dimen/d36"
+                android:layout_height="@dimen/d36"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d16"
+                android:src="@mipmap/short_cut_icon" />
+
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_toRightOf="@id/icon_1"
+                android:text="@string/short_cut"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s14" />
+
+
+            <ImageView
+                android:layout_width="@dimen/d36"
+                android:layout_height="@dimen/d36"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@mipmap/short_jia" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/A1" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/setting_cut_jiangwen"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56">
+
+            <ImageView
+                android:id="@+id/icon_2"
+                android:layout_width="@dimen/d36"
+                android:layout_height="@dimen/d36"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d16"
+                android:src="@mipmap/short_cut_icon_2" />
+
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_toRightOf="@id/icon_2"
+                android:text="@string/short_jiangwen_name"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s14" />
+
+
+            <ImageView
+                android:layout_width="@dimen/d36"
+                android:layout_height="@dimen/d36"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@mipmap/short_jia" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

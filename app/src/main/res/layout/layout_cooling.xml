@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cooling_backg">
+    android:background="@color/A1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@mipmap/clean_beijing" />
 
     <LinearLayout
         android:id="@+id/junk_title_backg"
@@ -20,42 +26,17 @@
     </LinearLayout>
 
 
-    <FrameLayout
-        android:id="@+id/cooling_fl"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d333"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/d50">
-
-
-        <ImageView
-            android:id="@+id/cooling_xuehua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/cooling_1" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/privary_4" />
-
-        <ImageView
-            android:id="@+id/cooling_kuo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/privary_4" />
-
-
-    </FrameLayout>
-
     <LinearLayout
         android:id="@+id/cooling_piao"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" />
+
+    <com.mutter.clean.junk.myview.CoolingView
+        android:id="@+id/cooling_view"
+        android:layout_width="@dimen/d76"
+        android:layout_height="@dimen/d176"
+        android:layout_gravity="center" />
 
     <LinearLayout
         android:id="@+id/cooling_text"
@@ -63,29 +44,25 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="@dimen/d90"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:visibility="invisible">
 
         <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
             android:text="@string/cooling_start"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s15"
-            app:typeface="lyp_text.otf" />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s18" />
 
         <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/cooling_wendu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
             android:text="40℃"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s30"
-            app:typeface="lyp_text.otf" />
+            android:textColor="@color/A9"
+            android:textSize="@dimen/s18" />
     </LinearLayout>
 
 

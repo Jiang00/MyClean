@@ -1,103 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A10"
+    android:background="@color/A1"
     android:orientation="vertical">
 
-
     <LinearLayout
-        android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/A1"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <View
-            android:id="@+id/view_title_bar"
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <include layout="@layout/layout_title" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d95"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:background="@color/A1"
+            android:orientation="vertical">
 
-            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                android:id="@+id/junk_size_all"
-                android:layout_width="@dimen/d176"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d61"
-                android:gravity="center"
-                android:lines="1"
-                android:text="0"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/s72"
-                app:typeface="lyp_text.otf" />
+            <View
+                android:id="@+id/view_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
 
-            <LinearLayout
-                android:id="@+id/ll_tv"
+            <include layout="@layout/layout_title" />
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
+                android:layout_height="@dimen/d100"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/d133"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                    android:id="@+id/junk_fangxin"
+                    android:id="@+id/junk_size_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="KB"
-                    android:textColor="@color/B10"
-                    android:textSize="@dimen/s21"
-                    app:typeface="lyp_text.otf" />
+                    android:lines="1"
+                    android:text="0"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/s63" />
 
                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                     android:id="@+id/junk_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d8"
-                    android:text="@string/junk_title_clean"
-                    android:textColor="@color/B10"
-                    android:textSize="@dimen/s12"
-                    app:typeface="lyp_text.otf" />
-
-            </LinearLayout>
-
+                    android:layout_alignBaseline="@id/junk_size_all"
+                    android:layout_marginLeft="@dimen/d10"
+                    android:layout_toRightOf="@id/junk_size_all"
+                    android:text="B"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s24" />
+            </RelativeLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
 
             <ListView
                 android:id="@+id/junk_list_all"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/d7"
-                android:background="@drawable/shape_ad"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginRight="@dimen/d16"
+                android:background="@drawable/shape_a3"
                 android:divider="@drawable/list_divider"
-                android:dividerHeight="0px"
-                android:elevation="@dimen/d2" />
+                android:dividerHeight="0px" />
+
         </FrameLayout>
 
         <Button
             android:id="@+id/junk_button_clean"
-            android:layout_width="@dimen/d95"
-            android:layout_height="@dimen/d95"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@drawable/shape_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/d8"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
+            android:layout_marginTop="@dimen/d8"
+            android:background="@drawable/shape_a8"
+            android:text="@string/ram_button"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s18"
             android:visibility="invisible" />
-    </FrameLayout>
+    </LinearLayout>
 
-
-</LinearLayout>
+</FrameLayout>

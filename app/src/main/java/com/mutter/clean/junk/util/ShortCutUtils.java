@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.os.Parcelable;
 
 import com.mutter.clean.junk.myActivity.HuojianActivity;
+import com.mutter.clean.junk.myActivity.HuojianJiangwenActivity;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.junk.R;
 import com.mutter.clean.junk.myActivity.GameActivity;
@@ -57,6 +58,40 @@ public class ShortCutUtils {
             if (PreData.getDB(cx, Constant.KEY_SHORTCUT, true)) {
                 cx.sendBroadcast(shortcut);
                 PreData.putDB(cx, Constant.KEY_SHORTCUT, false);
+            }
+        }
+    }
+
+    public static void addShortcutJiang(Activity cx) {
+        final Intent launchIntent = cx.getIntent();
+        final String action = launchIntent.getAction();
+        Intent shortcut = new Intent(
+                "com.android.launcher.action.INSTALL_SHORTCUT");
+        Intent shortcutIntent = new Intent();
+        shortcutIntent.setComponent(new ComponentName(cx.getPackageName(),
+                HuojianJiangwenActivity.class.getCanonicalName()));
+        //设置启动的模式
+        shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
+                | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+        String title = cx.getResources().getString(R.string.short_jiangwen_name);
+
+        // 快捷方式名称
+        shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, title);
+        // 不允许重复创建（不一定有效）
+        shortcut.putExtra("duplicate", false);
+        // 快捷方式的图标
+        Parcelable iconResource = Intent.ShortcutIconResource.fromContext(cx,
+                R.mipmap.short_cut_icon_2);
+        shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, iconResource);
+        if (Intent.ACTION_CREATE_SHORTCUT.equals(action)) {
+            cx.setResult(cx.RESULT_OK, shortcut);
+            cx.finish();
+        } else {
+            if (PreData.getDB(cx, Constant.KEY_SHORTCUT_JIANGWEN, true)) {
+                cx.sendBroadcast(shortcut);
+                PreData.putDB(cx, Constant.KEY_SHORTCUT_JIANGWEN, false);
             }
         }
     }

@@ -41,11 +41,9 @@ import java.util.List;
 public class CleanActivity extends BaseActivity implements JunkView {
 
     TextView junk_unit;
-    TextView junk_fangxin;
     LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user;
     FrameLayout title_left;
     TextView title_name;
-    LinearLayout junk_title_backg;
     ListViewForScrollView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list;
     TextView junk_size_all;
     TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size;
@@ -65,10 +63,8 @@ public class CleanActivity extends BaseActivity implements JunkView {
         super.findId();
         title_left = $(R.id.title_left);
         title_name = $(R.id.title_name);
-        junk_title_backg = $(R.id.junk_title_backg);
         junk_size_all = $(R.id.junk_size_all);
         junk_unit = $(R.id.junk_unit);
-        junk_fangxin = $(R.id.junk_fangxin);
         junk_button_system = $(R.id.junk_button_system);
         junk_button_apk = $(R.id.junk_button_apk);
         junk_button_unload = $(R.id.junk_button_unload);
@@ -176,26 +172,6 @@ public class CleanActivity extends BaseActivity implements JunkView {
         }).start();
 
 //        junk_size_all.setText(Util.getFileSize2(allSize));
-
-        if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
-            if (color1) {
-                color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
-                colorAnim.setDuration(2000);
-                colorAnim.setRepeatCount(0);
-                colorAnim.setEvaluator(new ArgbEvaluator());
-                colorAnim.start();
-            }
-        } else if (allSize > 1024 * 1024 * 200) {
-            if (color2) {
-                color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
-                colorAnim.setDuration(2000);
-                colorAnim.setRepeatCount(0);
-                colorAnim.setEvaluator(new ArgbEvaluator());
-                colorAnim.start();
-            }
-        }
     }
 
     @Override
@@ -545,7 +521,9 @@ public class CleanActivity extends BaseActivity implements JunkView {
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
                         AdUtil.track("垃圾页面", "点击收起系统缓存", "", 1);
                         junk_system_list.setVisibility(View.GONE);
+                        junk_system_jiantou.setRotation(-90);
                     } else {
+                        junk_system_jiantou.setRotation(0);
                         AdUtil.track("垃圾页面", "点击打开系统缓存", "", 1);
                         junk_system_list.setVisibility(View.VISIBLE);
                     }
@@ -557,7 +535,9 @@ public class CleanActivity extends BaseActivity implements JunkView {
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
                         AdUtil.track("垃圾页面", "点击收起apk文件", "", 1);
                         junk_apk_list.setVisibility(View.GONE);
+                        junk_apk_jiaotou.setRotation(-90);
                     } else {
+                        junk_apk_jiaotou.setRotation(0);
                         AdUtil.track("垃圾页面", "点击打开apk文件", "", 1);
                         junk_apk_list.setVisibility(View.VISIBLE);
                     }
@@ -569,7 +549,9 @@ public class CleanActivity extends BaseActivity implements JunkView {
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
                         AdUtil.track("垃圾页面", "点击收起unload文件", "", 1);
                         junk_unload_list.setVisibility(View.GONE);
+                        junk_unload_jiantou.setRotation(-90);
                     } else {
+                        junk_unload_jiantou.setRotation(0);
                         AdUtil.track("垃圾页面", "点击打开apk文件", "", 1);
                         junk_unload_list.setVisibility(View.VISIBLE);
                     }
@@ -581,7 +563,9 @@ public class CleanActivity extends BaseActivity implements JunkView {
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
                         AdUtil.track("垃圾页面", "点击收起log文件", "", 1);
                         junk_log_list.setVisibility(View.GONE);
+                        junk_log_jiantou.setRotation(-90);
                     } else {
+                        junk_log_jiantou.setRotation(0);
                         AdUtil.track("垃圾页面", "点击打开log文件", "", 1);
                         junk_log_list.setVisibility(View.VISIBLE);
                     }
@@ -594,7 +578,9 @@ public class CleanActivity extends BaseActivity implements JunkView {
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
                         AdUtil.track("垃圾页面", "点击收起user文件", "", 1);
                         junk_user_list.setVisibility(View.GONE);
+                        junk_user_jiantou.setRotation(-90);
                     } else {
+                        junk_user_jiantou.setRotation(0);
                         AdUtil.track("垃圾页面", "点击打开user文件", "", 1);
                         junk_user_list.setVisibility(View.VISIBLE);
                     }

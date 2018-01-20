@@ -3,24 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/battery_charge_save"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/backg_b">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/battery_shutter"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/backg_b" />
-
         <com.mutter.module.charge.saver.Aview.BubbleLayout
             android:id="@+id/battery_bubble_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
+            android:layout_height="match_parent" />
+
 
     </FrameLayout>
 
@@ -37,15 +31,15 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top"
-                android:paddingLeft="@dimen/icon_p">
+                android:layout_marginTop="@dimen/top">
 
                 <ImageView
                     android:id="@+id/battery_icon"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
+                    android:layout_width="@dimen/d24"
+                    android:layout_height="@dimen/d24"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/d16"
                     android:src="@mipmap/battery_inner_icon" />
 
                 <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -56,10 +50,9 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/title_p"
                     android:layout_toRightOf="@id/battery_icon"
-                    android:text="CLEANER"
+                    android:text="@string/app_name"
                     android:textColor="@color/white_100"
-                    android:textSize="13sp"
-                    app:typeface="Roboto-Light.ttf" />
+                    android:textSize="@dimen/s16" />
 
                 <LinearLayout
                     android:id="@+id/battery_more"
@@ -71,89 +64,103 @@
                     android:paddingRight="@dimen/icon_h">
 
                     <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
+                        android:layout_width="@dimen/d24"
+                        android:layout_height="@dimen/d24"
                         android:src="@mipmap/battery_more" />
                 </LinearLayout>
             </RelativeLayout>
 
-            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                android:id="@+id/battery_now_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:layout_marginTop="@dimen/time_top"
-                android:text="17:24"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s61"
-                app:typeface="lyp_text.otf" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                    android:id="@+id/battery_now_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="09/03"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s16"
-                    app:typeface="lyp_text.otf" />
-
-                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                    android:id="@+id/battery_now_week"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/week_p"
-                    android:text="Fri"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s16"
-                    app:typeface="lyp_text.otf" />
-            </LinearLayout>
-
             <FrameLayout
-                android:layout_width="@dimen/d120"
-                android:layout_height="@dimen/d50"
-                android:layout_marginLeft="@dimen/d23"
-                android:layout_marginTop="@dimen/d16">
+                android:layout_width="@dimen/d266"
+                android:layout_height="@dimen/d266"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d36">
 
-                <ImageView
+                <com.mutter.module.charge.saver.Aview.ChargingView
+                    android:id="@+id/kedu_pregress"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="1dp"
-                    android:layout_marginLeft="@dimen/d9"
-                    android:layout_marginRight="@dimen/d9"
-                    android:layout_marginTop="1dp"
-                    android:background="@mipmap/battery_di" />
+                    android:layout_height="match_parent" />
 
-                <com.sample.lottie.LottieAnimationView
-                    android:id="@+id/battery_electricity"
+                <View
+                    android:layout_width="@dimen/d242"
+                    android:layout_height="@dimen/d242"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_charging" />
+
+                <FrameLayout
+                    android:id="@+id/qiu_zhuan"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="1dp"
-                    app:lottie_autoPlay="false" />
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d6"
+                        android:src="@mipmap/charging_zhuan" />
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                        android:id="@+id/battery_now_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="17"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s90"
+                        app:typeface="ROBOTO-THIN_0.TTF" />
 
 
-                <com.sample.lottie.LottieAnimationView
-                    android:id="@+id/battery_shell"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:lottie_autoPlay="false" />
+                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                        android:id="@+id/battery_now_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/battery_now_time"
+                        android:layout_toRightOf="@id/battery_now_time"
+                        android:text="09/03"
+                        android:textColor="#cdffffff"
+                        android:textSize="@dimen/s15"
+                        app:typeface="ROBOTO-THIN_0.TTF" />
 
-                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                    android:id="@+id/battery_level"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s16"
-                    app:typeface="lyp_text.otf" />
+                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                        android:id="@+id/battery_now_week"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/battery_now_date"
+                        android:layout_toRightOf="@id/battery_now_time"
+                        android:text="Fri"
+                        android:textColor="#cdffffff"
+                        android:textSize="@dimen/s15"
+                        app:typeface="ROBOTO-THIN_0.TTF" />
+
+                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                        android:id="@+id/battery_now_time_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/battery_now_week"
+                        android:layout_toRightOf="@id/battery_now_time"
+                        android:text=":17"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s24"
+                        app:typeface="ROBOTO-THIN_0.TTF" />
+
+                </RelativeLayout>
+
             </FrameLayout>
+
+
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                android:id="@+id/battery_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d24"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s16" />
 
             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                 android:id="@+id/battery_now_battery_left"
@@ -164,7 +171,7 @@
                 android:text="1h 39min left"
                 android:textColor="@color/white_100"
                 android:textSize="@dimen/s16"
-                app:typeface="lyp_text.otf" />
+                android:visibility="gone" />
         </LinearLayout>
 
         <FrameLayout
@@ -188,26 +195,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="@dimen/d44"
+            android:layout_marginBottom="@dimen/d19"
             android:gravity="center"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:visibility="visible">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/unlock" />
 
             <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d15"
                 android:text="@string/unlock"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/s16"
-                app:typeface="Roboto-Light.ttf" />
+                android:textSize="@dimen/s20" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d12"
+                android:src="@mipmap/unlock" />
 
         </LinearLayout>
     </LinearLayout>

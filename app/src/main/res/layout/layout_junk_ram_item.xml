@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:id="@+id/junk_item_rl"
-        android:layout_width="@dimen/d65"
+        android:layout_width="@dimen/d72"
         android:layout_height="@dimen/d56">
 
         <ImageView
@@ -26,9 +26,9 @@
         android:layout_toRightOf="@id/junk_item_rl"
         android:maxLength="15"
         android:text="app标题"
-        android:textColor="@color/B2"
-        android:textSize="@dimen/s14"
-        app:typeface="lyp_text.otf" />
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/s16"
+        app:typeface="ROBOTO-THIN_0.TTF" />
 
     <ImageView
         android:id="@+id/check_iv"
@@ -38,6 +38,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/d8"
         android:layout_marginRight="@dimen/d8"
+        android:scaleType="center"
         android:src="@mipmap/ram_passed" />
 
     <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -47,7 +48,7 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
-        android:textColor="@color/B3"
-        android:textSize="@dimen/s12"
-        app:typeface="lyp_text.otf" />
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/s14"
+        app:typeface="ROBOTO-THIN_0.TTF" />
 </RelativeLayout>

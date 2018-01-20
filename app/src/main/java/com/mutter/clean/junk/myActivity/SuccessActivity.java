@@ -1,5 +1,8 @@
 package com.mutter.clean.junk.myActivity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -16,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,6 +27,7 @@ import android.widget.TextView;
 
 import com.mutter.clean.core.CleanManager;
 import com.mutter.clean.entity.JunkInfo;
+import com.mutter.clean.junk.myview.BubbleLineLayout;
 import com.mutter.clean.util.LoadManager;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
@@ -47,25 +52,18 @@ public class SuccessActivity extends BaseActivity {
     TextView main_rotate_good;
     TextView main_rotate_bad;
     ImageView main_rotate_cha;
-    LinearLayout main_power_button;
-    LinearLayout main_notifi_button;
-    TextView success_clean_2;
-    LinearLayout main_file_button;
     LinearLayout main_cooling_button;
     TextView title_name;
     TextView success_clean_size;
     LinearLayout main_ram_button;
     LinearLayout main_junk_button;
-    LinearLayout main_gboost_button;
-    LinearLayout main_picture_button;
-    ImageView power_icon;
-    TextView power_text;
+    BubbleLineLayout clean_bubble;
+    ImageView clean_huojian;
 
     //    ImageView delete;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
     FrameLayout ad_fl;
-    LinearLayout tuiguang_success;
     TextView success_c;
 
     LinearLayout ad_native_2;
@@ -80,6 +78,7 @@ public class SuccessActivity extends BaseActivity {
 
     private boolean haveAd;
     private boolean animationEnd;
+    private AnimatorSet animatorSet;
 
     @Override
     protected void findId() {
@@ -87,34 +86,28 @@ public class SuccessActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
-        success_clean_2 = (TextView) findViewById(R.id.success_clean_2);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
-        main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
-        main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
-        main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
         main_cooling_button = (LinearLayout) findViewById(R.id.main_cooling_button);
         main_ram_button = (LinearLayout) findViewById(R.id.main_ram_button);
         main_junk_button = (LinearLayout) findViewById(R.id.main_junk_button);
-        main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
-        main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
-        power_text = (TextView) findViewById(R.id.power_text);
         main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_rotate_cha = (ImageView) findViewById(R.id.main_rotate_cha);
-        power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
         ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
-        tuiguang_success = (LinearLayout) findViewById(R.id.tuiguang_success);
         success_c = (TextView) findViewById(R.id.success_c);
+        clean_bubble = (BubbleLineLayout) findViewById(R.id.clean_bubble);
+        clean_huojian = (ImageView) findViewById(R.id.clean_huojian);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_success);
+        clean_bubble.pause();
         myHandler = new Handler();
         if (getIntent().getStringExtra("name") != null) {
             title_name.setText(getIntent().getStringExtra("name"));
@@ -123,46 +116,11 @@ public class SuccessActivity extends BaseActivity {
         }
 
         if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
-            main_notifi_button.setVisibility(View.GONE);
-            main_file_button.setVisibility(View.GONE);
             main_ram_button.setVisibility(View.GONE);
-            main_gboost_button.setVisibility(View.GONE);
-            main_picture_button.setVisibility(View.GONE);
         } else if (TextUtils.equals("junkClean", getIntent().getStringExtra("from"))) {
-            main_notifi_button.setVisibility(View.GONE);
-            main_file_button.setVisibility(View.GONE);
             main_junk_button.setVisibility(View.GONE);
-            main_gboost_button.setVisibility(View.GONE);
-            main_picture_button.setVisibility(View.GONE);
-        } else if (TextUtils.equals("allJunk", getIntent().getStringExtra("from"))) {
-            main_power_button.setVisibility(View.GONE);
-            main_notifi_button.setVisibility(View.GONE);
-            main_ram_button.setVisibility(View.GONE);
-            main_junk_button.setVisibility(View.GONE);
-            main_gboost_button.setVisibility(View.GONE);
         } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
             success_c.setText(R.string.cooling_succ);
-            main_file_button.setVisibility(View.GONE);
-            main_notifi_button.setVisibility(View.GONE);
-            main_ram_button.setVisibility(View.GONE);
-            main_cooling_button.setVisibility(View.GONE);
-            main_gboost_button.setVisibility(View.GONE);
-            main_picture_button.setVisibility(View.GONE);
-        } else if (TextUtils.equals("power", getIntent().getStringExtra("from")) || TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
-            main_power_button.setVisibility(View.GONE);
-            main_notifi_button.setVisibility(View.GONE);
-            main_ram_button.setVisibility(View.GONE);
-            main_cooling_button.setVisibility(View.GONE);
-            main_gboost_button.setVisibility(View.GONE);
-        } else if (TextUtils.equals("file", getIntent().getStringExtra("from"))) {
-            main_file_button.setVisibility(View.GONE);
-            main_notifi_button.setVisibility(View.GONE);
-            main_ram_button.setVisibility(View.GONE);
-            main_cooling_button.setVisibility(View.GONE);
-            main_gboost_button.setVisibility(View.GONE);
-        } else if (TextUtils.equals("picture", getIntent().getStringExtra("from"))) {
-            main_picture_button.setVisibility(View.GONE);
-            main_notifi_button.setVisibility(View.GONE);
             main_cooling_button.setVisibility(View.GONE);
         }
 
@@ -171,59 +129,25 @@ public class SuccessActivity extends BaseActivity {
         long sizeR = getIntent().getLongExtra("sizeR", 0);
         //垃圾清理
         long sizeJ = getIntent().getLongExtra("sizeJ", 0);
-        //文件清理
-        long sizeF = getIntent().getLongExtra("sizeF", 0);
-        //相似图片清理
-        int sizePic = getIntent().getIntExtra("sizePic", 0);
-        //强力清理
-        int count = getIntent().getIntExtra("count", 0);
-        //通知栏
-        int num = getIntent().getIntExtra("num", 0);
         //降温
         int wendu = getIntent().getIntExtra("wendu", 0);
         if (sizeR > 0) {
             success_clean_size.setText(getString(R.string.success_3, Util.convertStorage(sizeR, true)));
         } else if (sizeJ > 0) {
             success_clean_size.setText(getString(R.string.success_2, Util.convertStorage(sizeJ, true)));
-        } else if (count > 0) {
-            success_clean_size.setText(getString(R.string.power_1, String.valueOf(count)) + " ");
-        } else if (sizeF > 0) {
-            success_clean_size.setText(getString(R.string.success_7, Util.convertStorage(sizeF, true)));
-        } else if (num > 0) {
-            success_clean_size.setText(getString(R.string.success_6, num + ""));
         } else if (wendu > 0) {
             success_clean_size.setText(getString(R.string.success_5, wendu + "℃"));
-        } else if (sizePic > 0) {
-            success_clean_size.setText(getString(R.string.success_4, sizePic + ""));
         } else {
             success_clean_size.setText(getText(R.string.success_normal));
-            success_clean_2.setVisibility(View.GONE);
         }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            main_notifi_button.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) == 0) {
-            main_notifi_button.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.DEEP_KAIGUAN, 1) == 0) {
-            main_power_button.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) == 0) {
-            main_file_button.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.GBOOST_KAIGUAN, 1) == 0) {
-            main_gboost_button.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) == 0) {
-            main_picture_button.setVisibility(View.GONE);
+        if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+            startSecondAnimation();
+        } else {
+            firstAnimation();
         }
 
-        initAnimation();
-        if (PreData.getDB(this, Constant.IS_ROTATE, false) || PreData.getDB(this, Constant.IS_ROTATE_SUCC, false)) {
-            main_rotate_all.setVisibility(View.GONE);
-        }
+
         addListener();
-        shendu();
         if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
         } else {
             myHandler.postDelayed(new Runnable() {
@@ -259,49 +183,72 @@ public class SuccessActivity extends BaseActivity {
         main_rotate_good.setOnClickListener(onClickListener);
         main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_cha.setOnClickListener(onClickListener);
-        main_power_button.setOnClickListener(onClickListener);
-        main_notifi_button.setOnClickListener(onClickListener);
-        main_file_button.setOnClickListener(onClickListener);
         main_cooling_button.setOnClickListener(onClickListener);
         main_ram_button.setOnClickListener(onClickListener);
         main_junk_button.setOnClickListener(onClickListener);
-        main_gboost_button.setOnClickListener(onClickListener);
-        main_picture_button.setOnClickListener(onClickListener);
 
     }
 
     private void shendu() {
-        List<JunkInfo> startList = new ArrayList<>();
-        for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
-            if (info.isSelfBoot) {
-                startList.add(info);
-            }
-        }
-        if (startList.size() == 0) {
-            main_power_button.setVisibility(View.GONE);
-        } else {
-            power_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
-            String text1 = getString(R.string.power_1, String.valueOf(startList.size())) + " ";
-            SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
-            ss1.setSpan(new ForegroundColorSpan(Color.parseColor("#ff3131")), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            power_text.setText(ss1);
-        }
+//            SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
+//            ss1.setSpan(new ForegroundColorSpan(Color.parseColor("#ff3131")), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            power_text.setText(ss1);
     }
 
 
-    private void initAnimation() {
-        myHandler.postDelayed(runnable, 3000);
-    }
+    private void firstAnimation() {
+        clean_bubble.reStart();
+        int w = (int) getResources().getDimension(R.dimen.d318);
+        int h = (int) getResources().getDimension(R.dimen.d233);
+        animatorSet = new AnimatorSet();
+        ObjectAnimator objectAnimator_1 = ObjectAnimator.ofFloat(clean_huojian, View.TRANSLATION_Y, h, 0.5f * h);
+        objectAnimator_1.setDuration(500);
+        ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(clean_huojian, View.TRANSLATION_X, -w, -0.5f * w);
+        objectAnimator_2.setDuration(500);
+        ObjectAnimator objectAnimator_3 = ObjectAnimator.ofFloat(clean_huojian, View.TRANSLATION_Y, 0.5f * h, 0.5f * h + 5,
+                0.5f * h, 0.5f * h - 5, 0.5f * h);
+        objectAnimator_3.setDuration(300);
+        objectAnimator_3.setInterpolator(new LinearInterpolator());
+        objectAnimator_3.setRepeatCount(5);
+        ObjectAnimator objectAnimator_4 = ObjectAnimator.ofFloat(clean_huojian, View.TRANSLATION_X, -0.5f * w, -0.5f * w + 5,
+                -0.5f * w, -0.5f * w - 5, -0.5f * w);
+        objectAnimator_4.setDuration(300);
+        objectAnimator_4.setInterpolator(new LinearInterpolator());
+        objectAnimator_4.setRepeatCount(5);
+        ObjectAnimator objectAnimator_5 = ObjectAnimator.ofFloat(clean_huojian, View.TRANSLATION_Y, 0.5f * h, -h);
+        objectAnimator_5.setDuration(500);
+        ObjectAnimator objectAnimator_6 = ObjectAnimator.ofFloat(clean_huojian, View.TRANSLATION_X, -0.5f * w, w);
+        objectAnimator_6.setDuration(500);
+        animatorSet.play(objectAnimator_1).with(objectAnimator_2);
+        animatorSet.play(objectAnimator_3).with(objectAnimator_4);
+        animatorSet.play(objectAnimator_5).with(objectAnimator_6);
+        animatorSet.play(objectAnimator_3).after(objectAnimator_1);
+        animatorSet.play(objectAnimator_5).after(objectAnimator_3);
+        animatorSet.start();
+        animatorSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
             }
-            startSecondAnimation();
-        }
-    };
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                clean_bubble.pause();
+                clean_bubble.destroy();
+                startSecondAnimation();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
+    }
 
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
@@ -392,6 +339,10 @@ public class SuccessActivity extends BaseActivity {
 
 
     private void startSecondAnimation() {
+        clean_huojian.setVisibility(View.INVISIBLE);
+        if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+            AndroidSdk.showFullAd(AdUtil.FULL_DEFAULT);
+        }
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.translate_success);
         scrollView.startAnimation(animation);
         scrollView.setVisibility(View.VISIBLE);
@@ -410,10 +361,10 @@ public class SuccessActivity extends BaseActivity {
                     }
                 }, 1000);
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS_NATIVE, 0) == 1) {
-                    native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_6);
+                    native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
                     if (ll_ad_xiao != null && native_xiao != null) {
                         ll_ad_xiao.addView(native_xiao);
-                        AdUtil.startBannerAnimation(SuccessActivity.this,ad_fl);
+                        AdUtil.startBannerAnimation(SuccessActivity.this, ad_fl);
                     }
                 }
             }
@@ -450,16 +401,6 @@ public class SuccessActivity extends BaseActivity {
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE_SUCC, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
-                case R.id.main_power_button:
-                    if (TextUtils.equals("power", getIntent().getStringExtra("from"))) {
-                        finish();
-                        return;
-                    }
-                    AdUtil.track("完成页面", "点击进入深度清理", "", 1);
-                    PreData.putDB(SuccessActivity.this, Constant.DEEP_CLEAN, true);
-                    jumpTo(PowerActivity.class);
-                    onBackPressed();
-                    break;
                 case R.id.main_junk_button:
                     AdUtil.track("完成页面", "点击进入垃圾清理", "", 1);
                     jumpTo(CleanActivity.class);
@@ -474,49 +415,6 @@ public class SuccessActivity extends BaseActivity {
                     AdUtil.track("完成页面", "点击进入降温页面", "", 1);
                     jumpTo(JiangwenActivity.class);
                     onBackPressed();
-                    break;
-                case R.id.main_file_button:
-                    if (TextUtils.equals("file", getIntent().getStringExtra("from"))) {
-                        finish();
-                        return;
-                    }
-                    AdUtil.track("完成页面", "点击进入文件管理", "", 1);
-                    PreData.putDB(SuccessActivity.this, Constant.FILE_CLEAN, true);
-                    jumpTo(FileManaActivity.class);
-                    onBackPressed();
-                    break;
-                case R.id.main_gboost_button:
-                    if (TextUtils.equals("Gboost", getIntent().getStringExtra("from"))) {
-                        finish();
-                        return;
-                    }
-                    AdUtil.track("完成页面", "点击进入游戏加速", "", 1);
-                    PreData.putDB(SuccessActivity.this, Constant.GBOOST_CLEAN, true);
-                    jumpTo(GameActivity.class);
-                    onBackPressed();
-                    break;
-                case R.id.main_picture_button:
-                    if (TextUtils.equals("picture", getIntent().getStringExtra("from"))) {
-                        finish();
-                        return;
-                    }
-                    AdUtil.track("完成页面", "点击进入相似图片", "", 1);
-                    PreData.putDB(SuccessActivity.this, Constant.PHOTO_CLEAN, true);
-                    jumpTo(SimilarActivity.class);
-                    onBackPressed();
-                    break;
-                case R.id.main_notifi_button:
-                    AdUtil.track("完成页面", "点击进入通知栏清理", "", 1);
-                    PreData.putDB(SuccessActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!Util.isNotificationListenEnabled(SuccessActivity.this) || !PreData.getDB(SuccessActivity.this, Constant.KEY_NOTIFI, true)) {
-                        Intent intent6 = new Intent(SuccessActivity.this, NotifiAnimationActivity.class);
-                        startActivity(intent6);
-                        onBackPressed();
-                    } else {
-                        Intent intent6 = new Intent(SuccessActivity.this, NotifiActivity.class);
-                        startActivity(intent6);
-                        onBackPressed();
-                    }
                     break;
             }
         }
@@ -538,6 +436,15 @@ public class SuccessActivity extends BaseActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (animatorSet != null) {
+            animatorSet.removeAllListeners();
+            animatorSet.cancel();
+        }
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
@@ -551,7 +458,6 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        myHandler.removeCallbacks(runnable);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.mutter.clean.junk.myActivity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -10,12 +12,16 @@ import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AdListener;
 import com.mutter.clean.junk.service.AutoService;
+import com.mutter.clean.junk.util.DecelerateAccelerateInterpolator;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -34,12 +40,14 @@ import org.json.JSONObject;
 public class LoadingActivity extends BaseActivity {
     Handler myHandler;
 
-    TextView loading_text_1, loading_text_2;
+    TextView loading_text_2;
+    LinearLayout loading_text_1;
+    private AnimatorSet animatorSet;
 
     @Override
     protected void findId() {
         super.findId();
-        loading_text_1 = (TextView) findViewById(R.id.loading_text_1);
+        loading_text_1 = (LinearLayout) findViewById(R.id.loading_text_1);
         loading_text_2 = (TextView) findViewById(R.id.loading_text_2);
     }
 
@@ -50,6 +58,7 @@ public class LoadingActivity extends BaseActivity {
         AndroidSdk.onCreate(this);
         setContentView(R.layout.layout_loading);
         ShortCutUtils.addShortcut(this);
+        ShortCutUtils.addShortcutJiang(this);
         myHandler = new Handler();
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
             AdUtil.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
@@ -62,27 +71,41 @@ public class LoadingActivity extends BaseActivity {
         myHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Animation animation = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.translate_loading);
-                loading_text_1.startAnimation(animation);
+                animatorSet = new AnimatorSet();
+                ObjectAnimator animator = ObjectAnimator.ofFloat(loading_text_1, View.TRANSLATION_X, loading_text_1.getWidth(), 0);
+                animator.setDuration(1000);
+                animator.setInterpolator(new AccelerateInterpolator());
+                ObjectAnimator animator_2 = ObjectAnimator.ofFloat(loading_text_1, View.TRANSLATION_X, 0, getResources().getDimension(R.dimen.d25), 0);
+                animator_2.setDuration(600);
+                animator_2.setInterpolator(new DecelerateAccelerateInterpolator());
+                ObjectAnimator animator_3 = ObjectAnimator.ofFloat(loading_text_1, View.TRANSLATION_X, 0, getResources().getDimension(R.dimen.d20), 0);
+                animator_3.setDuration(500);
+                animator_3.setInterpolator(new DecelerateAccelerateInterpolator());
+                animatorSet.play(animator_2).after(animator);
+                animatorSet.play(animator_3).after(animator_2);
+                animatorSet.start();
                 loading_text_1.setVisibility(View.VISIBLE);
-                animation.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        Animation animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.translate_loading);
-                        loading_text_2.startAnimation(animation1);
-                        loading_text_2.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-                });
+//                Animation animation = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.translate_loading);
+//                loading_text_1.startAnimation(animation);
+//                loading_text_1.setVisibility(View.VISIBLE);
+//                animation.setAnimationListener(new Animation.AnimationListener() {
+//                    @Override
+//                    public void onAnimationEnd(Animation animation) {
+//                        Animation animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.translate_loading);
+//                        loading_text_2.startAnimation(animation1);
+//                        loading_text_2.setVisibility(View.VISIBLE);
+//                    }
+//
+//                    @Override
+//                    public void onAnimationRepeat(Animation animation) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onAnimationStart(Animation animation) {
+//
+//                    }
+//                });
             }
         }, 1000);
 

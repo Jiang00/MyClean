@@ -33,9 +33,9 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/title_left"
             android:text="@string/app_name"
-            android:textColor="@color/A8"
+            android:textColor="@color/white_100"
             android:textSize="@dimen/s17"
-            app:typeface="lyp_text.otf" />
+            />
 
         <ImageView
             android:id="@+id/title_right"
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/d36"
             android:layout_gravity="center"
-            android:background="@drawable/shape_radio" />
+            android:background="@drawable/shape_a3" />
 
         <EditText
             android:id="@+id/search_edit_text"
@@ -73,15 +73,16 @@
             android:focusableInTouchMode="true"
             android:hint="@string/edit_hint"
             android:singleLine="true"
-            android:textColor="@color/B2"
-            android:textColorHint="@color/B4" />
+            android:textSize="@dimen/s15"
+            android:textColor="@color/white_100"
+            android:textColorHint="@color/white_50" />
 
         <ImageView
             android:layout_width="@dimen/d24"
             android:layout_height="@dimen/d24"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/d8"
-            android:src="@mipmap/edit_left_drawable" />
+            android:src="@mipmap/white_add_right" />
 
         <ImageButton
             android:id="@+id/clear"

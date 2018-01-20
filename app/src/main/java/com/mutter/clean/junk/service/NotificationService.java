@@ -5,10 +5,8 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -31,28 +29,25 @@ import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
 import com.mutter.clean.core.CleanManager;
-import com.mutter.clean.junk.myActivity.Loading1Activity;
-import com.mutter.clean.junk.myActivity.LoadingActivity;
-import com.mutter.clean.junk.util.BadgerCount;
-import com.mutter.clean.notifi.NotificationCallBack;
-import com.mutter.clean.notifi.NotificationInfo;
 import com.mutter.clean.junk.R;
+import com.mutter.clean.junk.myActivity.CleanActivity;
 import com.mutter.clean.junk.myActivity.JiangwenActivity;
-import com.mutter.clean.junk.myActivity.CleanAndRamActivity;
 import com.mutter.clean.junk.myActivity.MainActivity;
 import com.mutter.clean.junk.myActivity.MyApplication;
 import com.mutter.clean.junk.myActivity.NotifiActivity;
 import com.mutter.clean.junk.myActivity.RamAvtivity;
 import com.mutter.clean.junk.myActivity.SuccessActivity;
-import com.mutter.clean.util.Util;
 import com.mutter.clean.junk.util.AdUtil;
+import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.junk.util.Constant;
 import com.mutter.clean.junk.util.CpuTempReader;
 import com.mutter.clean.junk.util.PhoneManager;
+import com.mutter.clean.notifi.NotificationCallBack;
+import com.mutter.clean.notifi.NotificationInfo;
 import com.mutter.clean.util.PreData;
+import com.mutter.clean.util.Util;
 
 import java.util.ArrayList;
-
 
 
 public class NotificationService extends Service {
@@ -149,7 +144,7 @@ public class NotificationService extends Service {
         notifyIntentCooling.putExtra("from", "notifi");
         notifyIntentCooling.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        notifyIntentJunkRam = new Intent(this, CleanAndRamActivity.class);
+        notifyIntentJunkRam = new Intent(this, CleanActivity.class);
         notifyIntentJunkRam.putExtra("from", "notifi");
         notifyIntentJunkRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -170,10 +165,6 @@ public class NotificationService extends Service {
             onstart();
         }
 
-        if (intent != null && TextUtils.equals("gboost", intent.getStringExtra("from"))) {
-            tonghzi_gboost();
-            mNotifyManager.notify(101, notification_gboost);
-        }
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -197,11 +188,11 @@ public class NotificationService extends Service {
         Canvas canvas = getCanvas();
         canvas.drawArc(oval, 0, 270, false, paint_1);
         if (memory > 70) {
-            paint_1.setColor(ContextCompat.getColor(this, R.color.A2));
-            remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(this, R.color.A2));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.A4));
+            remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(this, R.color.A4));
         } else {
-            paint_1.setColor(ContextCompat.getColor(this, R.color.A3));
-            remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(this, R.color.A3));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.A5));
+            remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(this, R.color.A5));
         }
         canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
 
@@ -306,16 +297,21 @@ public class NotificationService extends Service {
                     cpuTemp = 40;
                 }
                 Log.e("notifi", "cpuTemp=" + cpuTemp);
+                if (cpuTemp > 55) {
+                    remoteView_1.setTextColor(R.id.notifi_cpu, ContextCompat.getColor(NotificationService.this, R.color.A4));
+                } else {
+                    remoteView_1.setTextColor(R.id.notifi_cpu, ContextCompat.getColor(NotificationService.this, R.color.A5));
+                }
                 remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
                 paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_40));
                 Canvas canvas = getCanvas();
                 canvas.drawArc(oval, 0, 270, false, paint_1);
                 if (memory > 70) {
-                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A2));
-                    remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(NotificationService.this, R.color.A2));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A4));
+                    remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(NotificationService.this, R.color.A4));
                 } else {
-                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A3));
-                    remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(NotificationService.this, R.color.A3));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A5));
+                    remoteView_1.setTextColor(R.id.norifi_memory_text, ContextCompat.getColor(NotificationService.this, R.color.A5));
                 }
                 canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
                 remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
@@ -392,7 +388,7 @@ public class NotificationService extends Service {
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_COOLING, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, true);
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, true);
-                if (cpuTemp > 50) {
+                if (cpuTemp > 55) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
@@ -529,25 +525,6 @@ public class NotificationService extends Service {
         notification_two_day.flags = Notification.FLAG_AUTO_CANCEL;
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    private void tonghzi_gboost() {
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-        RemoteViews remoteView = new RemoteViews(getPackageName(),
-                R.layout.layout_tongzhi_gboost);
-        int requestCode = (int) SystemClock.uptimeMillis();
-        PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
-                notifyIntentGBoost, PendingIntent.FLAG_CANCEL_CURRENT);
-        notifyIntentGBoost.putExtra("from", "gboost");
-        mBuilder.setContent(remoteView);
-        mBuilder.setContentIntent(pendIntent);
-        mBuilder.setAutoCancel(true);
-        mBuilder.setOngoing(false);
-        mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.loading_icon);
-        notification_gboost = mBuilder.build();
-        notification_gboost.defaults = Notification.DEFAULT_SOUND;
-        notification_gboost.flags = Notification.FLAG_AUTO_CANCEL;
-    }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_notifi() {

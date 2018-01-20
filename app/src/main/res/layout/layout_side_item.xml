@@ -13,7 +13,7 @@
         <RelativeLayout
             android:id="@+id/rl"
             android:layout_width="@dimen/d72"
-            android:layout_height="@dimen/d48"
+            android:layout_height="@dimen/d56"
             android:orientation="horizontal">
 
 
@@ -33,9 +33,8 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/rl"
             android:text="aaaaaaa"
-            android:textColor="@color/B2"
-            android:textSize="@dimen/s13"
-            app:typeface="lyp_text.otf" />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s16" />
 
         <ImageView
             android:id="@+id/iv_hong"
@@ -54,7 +53,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/d16"
-            android:src="@mipmap/side_check_normal" />
+            android:src="@mipmap/side_check_normal"
+            android:visibility="gone" />
 
         <View
             android:id="@+id/side_divide"

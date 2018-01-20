@@ -1,5 +1,6 @@
 package com.mutter.clean.junk.myActivity;
 
+import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -17,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.mutter.clean.junk.myview.BubbleLineLayout;
 import com.mutter.clean.junk.service.NotificationService;
 import com.mutter.clean.junk.util.BadgerCount;
 import com.mutter.clean.util.PreData;
@@ -40,19 +42,19 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
     TextView junk_size_all;
     TextView junk_unit;
-    TextView junk_fangxin;
     FrameLayout title_left;
     TextView title_name;
     ListView junk_list_all;
     ImageView title_right;
-    LinearLayout junk_title_backg;
     Button junk_button_clean;
+
 
     private RamPresenter ramPresenter;
     private RamAdapter adapterRam;
     private boolean color1 = true;
     private boolean color2 = true;
     public Handler myHandler;
+    private AnimatorSet animatorSet;
 
     @Override
     protected void findId() {
@@ -60,12 +62,11 @@ public class RamAvtivity extends BaseActivity implements RamView {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         title_right = (ImageView) findViewById(R.id.title_right);
-        junk_title_backg = (LinearLayout) findViewById(R.id.junk_title_backg);
         junk_size_all = (TextView) findViewById(R.id.junk_size_all);
         junk_unit = (TextView) findViewById(R.id.junk_unit);
-        junk_fangxin = (TextView) findViewById(R.id.junk_fangxin);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
+
     }
 
 
@@ -135,7 +136,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
                         @Override
                         public void run() {
                             junk_size_all.setText(Util.convertStorage(finalI, false));
-                            setUnit(allSize, junk_fangxin);
+                            setUnit(allSize, junk_unit);
                         }
                     });
                 }
@@ -150,25 +151,6 @@ public class RamAvtivity extends BaseActivity implements RamView {
             }
         }).start();
 //        junk_size_all.setText(String.valueOf(memory));
-        if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
-            if (color1) {
-                color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
-                colorAnim.setDuration(2000);
-                colorAnim.setRepeatCount(0);
-                colorAnim.setEvaluator(new ArgbEvaluator());
-                colorAnim.start();
-            }
-        } else if (allSize > 1024 * 1024 * 200) {
-            if (color2) {
-                color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
-                colorAnim.setDuration(2000);
-                colorAnim.setRepeatCount(0);
-                colorAnim.setEvaluator(new ArgbEvaluator());
-                colorAnim.start();
-            }
-        }
     }
 
     public void setUnit(long size, TextView textView) {
@@ -234,6 +216,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
     @Override
     public void cleanAnimation(final List<JunkInfo> cleanList, final long cleanSize) {
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

@@ -34,7 +34,6 @@ public class SettingActivity extends BaseActivity {
     RelativeLayout setting_tongzhi, setting_tongzhilan, setting_auto, setting_float, setting_battery, setting_unload, setting_power, setting_file,
             setting_picture, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_auto_check, setting_float_check, setting_battery_check, setting_unload_check;
-    LinearLayout tuiguang_setting;
     FrameLayout title_left;
     TextView title_name;
     private View nativeView;
@@ -73,7 +72,6 @@ public class SettingActivity extends BaseActivity {
         setting_unload_check = (ImageView) findViewById(R.id.setting_unload_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
-        tuiguang_setting = (LinearLayout) findViewById(R.id.tuiguang_setting);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
     }
 
@@ -102,24 +100,6 @@ public class SettingActivity extends BaseActivity {
                 }
             }, 1000);
 
-        }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            setting_notifi.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) == 0) {
-            setting_notifi.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.DEEP_KAIGUAN, 1) == 0) {
-            setting_power.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) == 0) {
-            setting_file.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.GBOOST_KAIGUAN, 1) == 0) {
-            setting_gboost.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) == 0) {
-            setting_picture.setVisibility(View.GONE);
         }
     }
 
@@ -155,7 +135,7 @@ public class SettingActivity extends BaseActivity {
         } else {
             setting_auto_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)) {
+        if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)) {
             setting_battery_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
@@ -255,7 +235,7 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_battery:
                     //chongdian
-                    if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false)) {
+                    if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true)) {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
                         AdUtil.track("设置页面", "点击充电屏保开关", "关", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_normal);
@@ -284,8 +264,8 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_short:
                     AdUtil.track("设置页面", "添加桌面快捷方式", "", 1);
-                    PreData.putDB(SettingActivity.this, Constant.KEY_SHORTCUT, true);
-                    ShortCutUtils.addShortcut(SettingActivity.this);
+                    Intent intent_s = new Intent(SettingActivity.this, ShortCutAddActivity.class);
+                    startActivity(intent_s);
                     break;
                 case R.id.setting_power:
                     AdUtil.track("设置页面", "进入深度清理", "", 1);
@@ -329,7 +309,7 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_rotate:
                     AdUtil.track("设置页面", "好评", "", 1);
-                    UtilGp.rate(SettingActivity.this);
+                    UtilGp.rate(SettingActivity.this.getApplicationContext());
                     break;
             }
         }
