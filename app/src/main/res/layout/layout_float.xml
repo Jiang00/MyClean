@@ -193,12 +193,41 @@
                     android:src="@mipmap/float_2" />
 
                 <TextView
+                    android:id="@+id/float_jiasu_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/notifi_jiasu"
                     android:textColor="@color/A1"
                     android:textSize="@dimen/s14" />
+
+                <LinearLayout
+                    android:id="@+id/float_jiasu_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="invisible"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/float_jiasu_tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/notifi_jiasu"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/d2"
+                        android:text="@string/short_1"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s8" />
+                </LinearLayout>
             </FrameLayout>
         </FrameLayout>
 

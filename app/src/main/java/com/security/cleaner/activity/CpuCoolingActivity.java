@@ -34,7 +34,7 @@ public class CpuCoolingActivity extends BaseActivity {
     TextView title_name;
     private static final int FLAKE_NUM = 5;
     FrameLayout title_left;
-    ImageView cooling_xuehua, cooling_xuehua_z;
+    ImageView cooling_xuehua;
     LinearLayout cooling_text;
     LinearLayout cooling_piao;
     LinearLayout cooling_fl;
@@ -61,7 +61,6 @@ public class CpuCoolingActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
         cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
-        cooling_xuehua_z = (ImageView) findViewById(R.id.cooling_xuehua_z);
         cooling_fl = (LinearLayout) findViewById(R.id.cooling_fl);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
@@ -84,10 +83,9 @@ public class CpuCoolingActivity extends BaseActivity {
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         mHandler = new Handler();
         animatorSet = new AnimatorSet();
-        ObjectAnimator rotationY = ObjectAnimator.ofFloat(cooling_xuehua_z, View.ROTATION, 0, 7200);
         ObjectAnimator rotationY_2 = ObjectAnimator.ofFloat(cooling_xuehua, View.ROTATION, 0, -7200);
         animatorSet.setDuration(3000);
-        animatorSet.play(rotationY).with(rotationY_2);
+        animatorSet.play(rotationY_2);
         animatorSet.start();
         startCoolingAni();
 

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -46,6 +48,7 @@ public class NotificationActivity extends Activity {
 
     private NotifiAdapter adapter;
     private MyApplication myApplication;
+    Handler handler;
 
     public int getStatusHeight(Activity activity) {
         int result = 0;
@@ -114,7 +117,7 @@ public class NotificationActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        handler = new Handler();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
 
@@ -152,16 +155,26 @@ public class NotificationActivity extends Activity {
 
     NotificationCallBack notificationCallBack = new NotificationCallBack() {
         @Override
-        public void notificationChanged(ArrayList<NotificationInfo> notificationList) {
-
+        public void notificationChanged(final ArrayList<NotificationInfo> notificationList) {
             if (notificationList != null && notificationList.size() != 0) {
-                adapter.upList(notificationList);
-                adapter.notifyDataSetChanged();
-                white_wu.setVisibility(View.INVISIBLE);
-                notifi_button_rl.setVisibility(View.VISIBLE);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.upList(notificationList);
+                        adapter.notifyDataSetChanged();
+                        white_wu.setVisibility(View.INVISIBLE);
+                        notifi_button_rl.setVisibility(View.VISIBLE);
+                    }
+                });
             } else {
-                white_wu.setVisibility(View.VISIBLE);
-                notifi_button_rl.setVisibility(View.GONE);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        white_wu.setVisibility(View.VISIBLE);
+                        notifi_button_rl.setVisibility(View.GONE);
+                    }
+                });
+
             }
         }
     };
@@ -236,7 +249,7 @@ public class NotificationActivity extends Activity {
 
     @Override
     protected void onDestroy() {
-        CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
+        CleanManager.getInstance(this).removeNotificatioCallBack(notificationCallBack);
         super.onDestroy();
     }
 

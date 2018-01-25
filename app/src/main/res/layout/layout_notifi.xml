@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/A1"
-        android:elevation="@dimen/d4"
         android:orientation="vertical">
 
         <View
@@ -57,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/d20"
                 android:gravity="center"
-                android:text="@string/white_wu"
+                android:text="@string/notifi_nor"
                 android:textColor="@color/Z2"
                 android:textSize="@dimen/s14" />
         </LinearLayout>
@@ -79,11 +78,6 @@
             android:clickable="true"
             android:visibility="gone" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@mipmap/yinying" />
     </FrameLayout>
 
     <RelativeLayout

@@ -645,6 +645,9 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         AdUtil.closeBanner();
+        if (myHandler != null) {
+            myHandler.removeCallbacksAndMessages(null);
+        }
         super.onDestroy();
     }
 

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -106,11 +108,11 @@ public class FilesManagerActivity extends BaseActivity {
                         musicInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Music);
                         videoInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Video);
 
-                        setFileNum(file_apk_num, file_apk_num_d, file_apk_num_check, apkInfo.count);
-                        setFileNum(file_zip_num, file_zip_num_d, file_zip_num_check, zipInfo.count);
-                        setFileNum(file_txt_num, file_txt_num_d, file_txt_num_check, docInfo.count);
-                        setFileNum(file_music_num, file_music_num_d, file_music_num_check, musicInfo.count);
-                        setFileNum(file_video_num, file_video_num_d, file_video_num_check, videoInfo.count);
+                        setFileNum(file_apk_button, file_apk_num, file_apk_num_d, file_apk_num_check, apkInfo.count);
+                        setFileNum(file_zip_button, file_zip_num, file_zip_num_d, file_zip_num_check, zipInfo.count);
+                        setFileNum(file_txt_button, file_txt_num, file_txt_num_d, file_txt_num_check, docInfo.count);
+                        setFileNum(file_music_button, file_music_num, file_music_num_d, file_music_num_check, musicInfo.count);
+                        setFileNum(file_video_button, file_video_num, file_video_num_d, file_video_num_check, videoInfo.count);
 
                         file_video_size.setText(Util.convertStorage(videoInfo.size, true));
                         file_apk_size.setText(Util.convertStorage(apkInfo.size, true));
@@ -138,7 +140,7 @@ public class FilesManagerActivity extends BaseActivity {
         }
     }
 
-    private void setFileNum(TextView view1, TextView view2, TextView view3, long num) {
+    private void setFileNum(View view0, TextView view1, TextView view2, TextView view3, long num) {
         view1.setText(num + " " + getString(R.string.file_num));
         if (num > 0) {
             view1.setTextColor(ContextCompat.getColor(FilesManagerActivity.this, R.color.A2));
@@ -146,6 +148,9 @@ public class FilesManagerActivity extends BaseActivity {
             view2.setTextColor(ContextCompat.getColor(FilesManagerActivity.this, R.color.Z1));
             view3.setBackgroundResource(R.drawable.shape_a2_round);
         } else {
+            ViewGroup viewParent = (ViewGroup) view0.getParent();
+            viewParent.removeView(view0);
+            viewParent.addView(view0);
             view1.setTextColor(ContextCompat.getColor(FilesManagerActivity.this, R.color.Z1));
             view2.setText(R.string.file_null);
             view2.setTextColor(ContextCompat.getColor(FilesManagerActivity.this, R.color.Z2));

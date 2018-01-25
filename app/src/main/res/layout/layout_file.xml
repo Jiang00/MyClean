@@ -166,511 +166,518 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_ad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:layout_marginTop="@dimen/d8"
-                android:background="@color/white_100"
-                android:orientation="vertical"
-                android:visibility="gone" />
-
-            <LinearLayout
-                android:id="@+id/file_video_button"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d135"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:layout_marginTop="@dimen/d8"
-                android:background="@drawable/shape_ffffff_10">
+                android:layout_marginBottom="@dimen/d8"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="@dimen/d78"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/file_video_button" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                    android:id="@+id/ll_ad"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d8"
                     android:layout_marginRight="@dimen/d8"
-                    android:orientation="vertical">
+                    android:layout_marginTop="@dimen/d8"
+                    android:background="@color/white_100"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d48">
+                <LinearLayout
+                    android:id="@+id/file_video_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d135"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginTop="@dimen/d8"
+                    android:background="@drawable/shape_ffffff_10">
 
-                        <TextView
+                    <LinearLayout
+                        android:layout_width="@dimen/d78"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="@string/file_video"
-                            android:textColor="@color/Z1"
-                            android:textSize="@dimen/s16" />
+                            android:src="@mipmap/file_video_button" />
 
-                        <com.security.module.mView.CustomerTypefaceTextView
-                            android:id="@+id/file_video_size_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:textColor="@color/Z2"
-                            android:textSize="@dimen/s12" />
-                    </RelativeLayout>
+                    </LinearLayout>
 
-                    <View
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="@color/B3" />
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/d8"
+                        android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d48">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:orientation="vertical">
-
-                            <com.security.module.mView.CustomerTypefaceTextView
-                                android:id="@+id/file_video_num"
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
+                                android:layout_centerVertical="true"
+                                android:text="@string/file_video"
                                 android:textColor="@color/Z1"
                                 android:textSize="@dimen/s16" />
 
                             <com.security.module.mView.CustomerTypefaceTextView
-                                android:id="@+id/file_video_num_d"
+                                android:id="@+id/file_video_size_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginTop="@dimen/d14"
-                                android:text="@string/file_main"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
                                 android:textColor="@color/Z2"
-                                android:textSize="@dimen/s14" />
-                        </LinearLayout>
+                                android:textSize="@dimen/s12" />
+                        </RelativeLayout>
 
-                        <TextView
-                            android:id="@+id/file_video_num_check"
-                            android:layout_width="@dimen/d53"
-                            android:layout_height="@dimen/d24"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/shape_a2_round"
-                            android:gravity="center"
-                            android:text="@string/gboost_9"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s12" />
-                    </RelativeLayout>
-                </LinearLayout>
-            </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B3" />
 
-            <LinearLayout
-                android:id="@+id/file_music_button"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d135"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:layout_marginTop="@dimen/d8"
-                android:background="@drawable/shape_ffffff_10">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:layout_width="@dimen/d78"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/file_music_button" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/d8"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d48">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="@string/file_music"
-                            android:textColor="@color/Z1"
-                            android:textSize="@dimen/s16" />
-
-                        <com.security.module.mView.CustomerTypefaceTextView
-                            android:id="@+id/file_music_size_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:textColor="@color/Z2"
-                            android:textSize="@dimen/s12" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="@color/B3" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:orientation="vertical">
-
-                            <com.security.module.mView.CustomerTypefaceTextView
-                                android:id="@+id/file_music_num"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical">
+
+                                <com.security.module.mView.CustomerTypefaceTextView
+                                    android:id="@+id/file_video_num"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:textColor="@color/Z1"
+                                    android:textSize="@dimen/s16" />
+
+                                <com.security.module.mView.CustomerTypefaceTextView
+                                    android:id="@+id/file_video_num_d"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="@dimen/d14"
+                                    android:text="@string/file_main"
+                                    android:textColor="@color/Z2"
+                                    android:textSize="@dimen/s14" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/file_video_num_check"
+                                android:layout_width="@dimen/d53"
+                                android:layout_height="@dimen/d24"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/shape_a2_round"
+                                android:gravity="center"
+                                android:text="@string/gboost_9"
+                                android:textColor="@color/white_100"
+                                android:textSize="@dimen/s12" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/file_music_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d135"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginTop="@dimen/d8"
+                    android:background="@drawable/shape_ffffff_10">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/d78"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_music_button" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/d8"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d48">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="@string/file_music"
                                 android:textColor="@color/Z1"
                                 android:textSize="@dimen/s16" />
 
                             <com.security.module.mView.CustomerTypefaceTextView
-                                android:id="@+id/file_music_num_d"
+                                android:id="@+id/file_music_size_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginTop="@dimen/d14"
-                                android:text="@string/file_main"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
                                 android:textColor="@color/Z2"
-                                android:textSize="@dimen/s14" />
-                        </LinearLayout>
+                                android:textSize="@dimen/s12" />
+                        </RelativeLayout>
 
-                        <TextView
-                            android:id="@+id/file_music_num_check"
-                            android:layout_width="@dimen/d53"
-                            android:layout_height="@dimen/d24"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/shape_a2_round"
-                            android:gravity="center"
-                            android:text="@string/gboost_9"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s12" />
-                    </RelativeLayout>
-                </LinearLayout>
-            </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B3" />
 
-            <LinearLayout
-                android:id="@+id/file_apk_button"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d135"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:layout_marginTop="@dimen/d8"
-                android:background="@drawable/shape_ffffff_10">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:layout_width="@dimen/d78"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/file_apk_button" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/d8"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d48">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="@string/file_apk"
-                            android:textColor="@color/Z1"
-                            android:textSize="@dimen/s16" />
-
-                        <com.security.module.mView.CustomerTypefaceTextView
-                            android:id="@+id/file_apk_size_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:textColor="@color/Z2"
-                            android:textSize="@dimen/s12" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="@color/B3" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:orientation="vertical">
-
-                            <com.security.module.mView.CustomerTypefaceTextView
-                                android:id="@+id/file_apk_num"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical">
+
+                                <com.security.module.mView.CustomerTypefaceTextView
+                                    android:id="@+id/file_music_num"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:textColor="@color/Z1"
+                                    android:textSize="@dimen/s16" />
+
+                                <com.security.module.mView.CustomerTypefaceTextView
+                                    android:id="@+id/file_music_num_d"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="@dimen/d14"
+                                    android:text="@string/file_main"
+                                    android:textColor="@color/Z2"
+                                    android:textSize="@dimen/s14" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/file_music_num_check"
+                                android:layout_width="@dimen/d53"
+                                android:layout_height="@dimen/d24"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/shape_a2_round"
+                                android:gravity="center"
+                                android:text="@string/gboost_9"
+                                android:textColor="@color/white_100"
+                                android:textSize="@dimen/s12" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/file_apk_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d135"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginTop="@dimen/d8"
+                    android:background="@drawable/shape_ffffff_10">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/d78"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_apk_button" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/d8"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d48">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="@string/file_apk"
                                 android:textColor="@color/Z1"
                                 android:textSize="@dimen/s16" />
 
                             <com.security.module.mView.CustomerTypefaceTextView
-                                android:id="@+id/file_apk_num_d"
+                                android:id="@+id/file_apk_size_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginTop="@dimen/d14"
-                                android:text="@string/file_main"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
                                 android:textColor="@color/Z2"
-                                android:textSize="@dimen/s14" />
-                        </LinearLayout>
+                                android:textSize="@dimen/s12" />
+                        </RelativeLayout>
 
-                        <TextView
-                            android:id="@+id/file_apk_num_check"
-                            android:layout_width="@dimen/d53"
-                            android:layout_height="@dimen/d24"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/shape_a2_round"
-                            android:gravity="center"
-                            android:text="@string/gboost_9"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s12" />
-                    </RelativeLayout>
-                </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B3" />
 
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/file_zip_button"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d135"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:layout_marginTop="@dimen/d8"
-                android:background="@drawable/shape_ffffff_10">
-
-                <LinearLayout
-                    android:layout_width="@dimen/d78"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/file_zip_button" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/d8"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d48">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="@string/file_zip"
-                            android:textColor="@color/Z1"
-                            android:textSize="@dimen/s16" />
-
-                        <com.security.module.mView.CustomerTypefaceTextView
-                            android:id="@+id/file_zip_size_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:textColor="@color/Z2"
-                            android:textSize="@dimen/s12" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="@color/B3" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:orientation="vertical">
-
-                            <com.security.module.mView.CustomerTypefaceTextView
-                                android:id="@+id/file_zip_num"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical">
+
+                                <com.security.module.mView.CustomerTypefaceTextView
+                                    android:id="@+id/file_apk_num"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:textColor="@color/Z1"
+                                    android:textSize="@dimen/s16" />
+
+                                <com.security.module.mView.CustomerTypefaceTextView
+                                    android:id="@+id/file_apk_num_d"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="@dimen/d14"
+                                    android:text="@string/file_main"
+                                    android:textColor="@color/Z2"
+                                    android:textSize="@dimen/s14" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/file_apk_num_check"
+                                android:layout_width="@dimen/d53"
+                                android:layout_height="@dimen/d24"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/shape_a2_round"
+                                android:gravity="center"
+                                android:text="@string/gboost_9"
+                                android:textColor="@color/white_100"
+                                android:textSize="@dimen/s12" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/file_zip_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d135"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginTop="@dimen/d8"
+                    android:background="@drawable/shape_ffffff_10">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/d78"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_zip_button" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/d8"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d48">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="@string/file_zip"
                                 android:textColor="@color/Z1"
                                 android:textSize="@dimen/s16" />
 
                             <com.security.module.mView.CustomerTypefaceTextView
-                                android:id="@+id/file_zip_num_d"
+                                android:id="@+id/file_zip_size_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginTop="@dimen/d14"
-                                android:text="@string/file_main"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
                                 android:textColor="@color/Z2"
-                                android:textSize="@dimen/s14" />
-                        </LinearLayout>
+                                android:textSize="@dimen/s12" />
+                        </RelativeLayout>
 
-                        <TextView
-                            android:id="@+id/file_zip_num_check"
-                            android:layout_width="@dimen/d53"
-                            android:layout_height="@dimen/d24"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/shape_a2_round"
-                            android:gravity="center"
-                            android:text="@string/gboost_9"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s12" />
-                    </RelativeLayout>
-                </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B3" />
 
-            </LinearLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/file_txt_button"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d135"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:layout_marginTop="@dimen/d8"
-                android:background="@drawable/shape_ffffff_10">
-
-                <LinearLayout
-                    android:layout_width="@dimen/d78"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/file_txt_button" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/d8"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d48">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="@string/file_txt"
-                            android:textColor="@color/Z1"
-                            android:textSize="@dimen/s16" />
-
-                        <com.security.module.mView.CustomerTypefaceTextView
-                            android:id="@+id/file_txt_size_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:textColor="@color/Z2"
-                            android:textSize="@dimen/s12" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:background="@color/B3" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:orientation="vertical">
-
-                            <com.security.module.mView.CustomerTypefaceTextView
-                                android:id="@+id/file_txt_num"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical">
+
+                                <com.security.module.mView.CustomerTypefaceTextView
+                                    android:id="@+id/file_zip_num"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:textColor="@color/Z1"
+                                    android:textSize="@dimen/s16" />
+
+                                <com.security.module.mView.CustomerTypefaceTextView
+                                    android:id="@+id/file_zip_num_d"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="@dimen/d14"
+                                    android:text="@string/file_main"
+                                    android:textColor="@color/Z2"
+                                    android:textSize="@dimen/s14" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/file_zip_num_check"
+                                android:layout_width="@dimen/d53"
+                                android:layout_height="@dimen/d24"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/shape_a2_round"
+                                android:gravity="center"
+                                android:text="@string/gboost_9"
+                                android:textColor="@color/white_100"
+                                android:textSize="@dimen/s12" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/file_txt_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d135"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginTop="@dimen/d8"
+                    android:background="@drawable/shape_ffffff_10">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/d78"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/file_txt_button" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/d8"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d48">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="@string/file_txt"
                                 android:textColor="@color/Z1"
                                 android:textSize="@dimen/s16" />
 
                             <com.security.module.mView.CustomerTypefaceTextView
-                                android:id="@+id/file_txt_num_d"
+                                android:id="@+id/file_txt_size_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginTop="@dimen/d14"
-                                android:text="@string/file_main"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
                                 android:textColor="@color/Z2"
-                                android:textSize="@dimen/s14" />
-                        </LinearLayout>
+                                android:textSize="@dimen/s12" />
+                        </RelativeLayout>
 
-                        <TextView
-                            android:id="@+id/file_txt_num_check"
-                            android:layout_width="@dimen/d53"
-                            android:layout_height="@dimen/d24"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/shape_a2_round"
-                            android:gravity="center"
-                            android:text="@string/gboost_9"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s12" />
-                    </RelativeLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B3" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical">
+
+                                <com.security.module.mView.CustomerTypefaceTextView
+                                    android:id="@+id/file_txt_num"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:textColor="@color/Z1"
+                                    android:textSize="@dimen/s16" />
+
+                                <com.security.module.mView.CustomerTypefaceTextView
+                                    android:id="@+id/file_txt_num_d"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="@dimen/d14"
+                                    android:text="@string/file_main"
+                                    android:textColor="@color/Z2"
+                                    android:textSize="@dimen/s14" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/file_txt_num_check"
+                                android:layout_width="@dimen/d53"
+                                android:layout_height="@dimen/d24"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/shape_a2_round"
+                                android:gravity="center"
+                                android:text="@string/gboost_9"
+                                android:textColor="@color/white_100"
+                                android:textSize="@dimen/s12" />
+                        </RelativeLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -678,10 +685,10 @@
                 android:id="@+id/ll_ad_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d8"
                 android:layout_marginLeft="@dimen/d8"
                 android:layout_marginRight="@dimen/d8"
-                android:layout_marginTop="@dimen/d8"
-                android:background="@color/white_100"
+                android:background="@drawable/shape_ffffff_10"
                 android:orientation="vertical"
                 android:visibility="gone" />
         </LinearLayout>

@@ -180,7 +180,7 @@ public class FloatStateView extends View {
         textPaint.setFakeBoldText(true);
         Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.icon);
         bitmap_normal = Bitmap.createScaledBitmap(src, width, height, true);
-        bitmap_left = BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_left);
+
         rectF = new RectF();
         rectF.top = 0;
         rectF.left = 0;
@@ -226,7 +226,10 @@ public class FloatStateView extends View {
             float dy = -(metrics.descent + metrics.ascent) / 2;
             float y = dy + height / 2;
             canvas.drawText(text, x, y, textPaint);
+            bitmap_left = BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_left);
+            bitmap_left = Bitmap.createScaledBitmap(bitmap_left, width, height, true);
             canvas.drawBitmap(bitmap_left, null, rectF, firstPaint);
+            bitmap_left.recycle();
         }
     }
 

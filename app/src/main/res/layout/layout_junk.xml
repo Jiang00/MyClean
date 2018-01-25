@@ -424,28 +424,25 @@
         android:clickable="true"
         android:visibility="invisible">
 
-        <com.security.cleaner.myview.BubbleLayoutJunk
-            android:id="@+id/junk_clean_bubble"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/junk_clean_fl"
+            android:layout_width="@dimen/d333"
+            android:layout_height="@dimen/d333"
             android:layout_gravity="center">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@mipmap/junk_1" />
+            <com.security.cleaner.myview.ShortBubbleCenterLayout
+                android:id="@+id/junk_clean_bubble"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" />
 
             <ImageView
                 android:id="@+id/junk_clean_zhuan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/cooling_2" />
+                android:src="@mipmap/junk_1" />
         </FrameLayout>
 
         <com.security.module.mView.CustomerTypefaceTextView

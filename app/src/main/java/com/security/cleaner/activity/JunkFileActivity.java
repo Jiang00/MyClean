@@ -1,6 +1,7 @@
 package com.security.cleaner.activity;
 
 import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -19,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.security.cleaner.myview.BubbleLayoutJunk;
+import com.security.cleaner.myview.ShortBubbleCenterLayout;
 import com.security.cleaner.view.JunkView;
 import com.security.mcleaner.mutil.PreData;
 import com.security.mcleaner.mutil.Util;
@@ -54,8 +56,9 @@ public class JunkFileActivity extends BaseActivity implements JunkView {
     MyScrollView junk_scroll;
     ListView junk_list_all;
     FrameLayout junk_clean;
+    FrameLayout junk_clean_fl;
     ImageView junk_clean_zhuan;
-    BubbleLayoutJunk junk_clean_bubble;
+    ShortBubbleCenterLayout junk_clean_bubble;
 
     private LajiPresenter junkPresenter;
     private LajiAdapter adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterClear;
@@ -97,6 +100,7 @@ public class JunkFileActivity extends BaseActivity implements JunkView {
         junk_scroll = $(R.id.junk_scroll);
         junk_list_all = $(R.id.junk_list_all);
         junk_clean = $(R.id.junk_clean);
+        junk_clean_fl = $(R.id.junk_clean_fl);
         junk_clean_zhuan = $(R.id.junk_clean_zhuan);
         junk_clean_bubble = $(R.id.junk_clean_bubble);
     }
@@ -455,10 +459,18 @@ public class JunkFileActivity extends BaseActivity implements JunkView {
         bundle.putString("from", "junkClean");
         junk_clean.setVisibility(View.VISIBLE);
         junk_clean_bubble.reStart();
-        objectAnimator = ObjectAnimator.ofFloat(junk_clean_zhuan, View.ROTATION, 0, 3600);
+        animatorSet = new AnimatorSet();
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(junk_clean_zhuan, View.ROTATION, 0, 3600);
         objectAnimator.setDuration(3000);
-        objectAnimator.start();
-        objectAnimator.addListener(new Animator.AnimatorListener() {
+        ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(junk_clean_fl, View.SCALE_Y, 1, 0);
+        objectAnimator_2.setDuration(500);
+        ObjectAnimator objectAnimator_3 = ObjectAnimator.ofFloat(junk_clean_fl, View.SCALE_X, 1, 0);
+        objectAnimator_3.setDuration(500);
+        animatorSet.play(objectAnimator);
+        animatorSet.play(objectAnimator_2).after(2500);
+        animatorSet.play(objectAnimator_3).after(2500);
+        animatorSet.start();
+        animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationCancel(Animator animation) {
 
@@ -490,7 +502,7 @@ public class JunkFileActivity extends BaseActivity implements JunkView {
         view.startAnimation(animation);
     }
 
-    private ObjectAnimator objectAnimator;
+    private AnimatorSet animatorSet;
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -589,9 +601,13 @@ public class JunkFileActivity extends BaseActivity implements JunkView {
         if (myHandler != null) {
             myHandler.removeCallbacksAndMessages(null);
         }
-        if (objectAnimator != null && objectAnimator.isRunning()) {
-            objectAnimator.removeAllListeners();
-            objectAnimator.cancel();
+        if (animatorSet != null && animatorSet.isRunning()) {
+            animatorSet.removeAllListeners();
+            animatorSet.cancel();
+        }
+        if (junk_clean_bubble != null) {
+            junk_clean_bubble.pause();
+            junk_clean_bubble.destroy();
         }
     }
 

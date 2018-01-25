@@ -140,8 +140,8 @@ public class FileDocActivity extends BaseActivity {
     private void initData() {
         initCur();
         titleList = new ArrayList<>();
-        titleList.add("DOC");
         titleList.add("TXT");
+        titleList.add("DOC");
         titleList.add("PDF");
         view_pager_tab.addTab(view_pager_tab.newTab().setText(titleList.get(0)));
         view_pager_tab.addTab(view_pager_tab.newTab().setText(titleList.get(1)));
@@ -154,8 +154,8 @@ public class FileDocActivity extends BaseActivity {
         ll_ad_2 = (LinearLayout) view_txt.findViewById(R.id.ll_ad);
         ll_ad_3 = (LinearLayout) view_pdf.findViewById(R.id.ll_ad);
         initDoc();
-        viewList.add(view_doc);
         viewList.add(view_txt);
+        viewList.add(view_doc);
         viewList.add(view_pdf);
         doc_view_pager.setAdapter(new PagerAdapter() {
             @Override
@@ -228,15 +228,16 @@ public class FileDocActivity extends BaseActivity {
                 case R.id.file_button_clean:
                     ArrayList<FileInfo> deleteList = new ArrayList<>();
                     if (doc_view_pager.getCurrentItem() == 0) {
-                        fc_clean = FileCategoryHelper.FileCategory.Word;
-                        for (FileInfo info : docList) {
+                        fc_clean = FileCategoryHelper.FileCategory.Txt;
+                        for (FileInfo info : txtList) {
                             if (info.isChecked) {
                                 deleteList.add(info);
                             }
                         }
                     } else if (doc_view_pager.getCurrentItem() == 1) {
-                        fc_clean = FileCategoryHelper.FileCategory.Txt;
-                        for (FileInfo info : txtList) {
+
+                        fc_clean = FileCategoryHelper.FileCategory.Word;
+                        for (FileInfo info : docList) {
                             if (info.isChecked) {
                                 deleteList.add(info);
                             }
@@ -315,18 +316,15 @@ public class FileDocActivity extends BaseActivity {
                         super.run();
                         for (FileInfo info : deleteList) {
                             boolean deleteSuce = FileUtils.deleteFile(FileDocActivity.this, info.path);
-                            if (!deleteSuce) {
-                                android.util.Log.e(TAG, "delete fail --" + info.path);
-                            }
                         }
                     }
                 }.start();
                 if (doc_view_pager.getCurrentItem() == 0) {
-                    docList.removeAll(deleteList);
-                    adapter_doc.notifyDataSetChanged();
-                } else if (doc_view_pager.getCurrentItem() == 1) {
                     txtList.removeAll(deleteList);
                     adapter_txt.notifyDataSetChanged();
+                } else if (doc_view_pager.getCurrentItem() == 1) {
+                    docList.removeAll(deleteList);
+                    adapter_doc.notifyDataSetChanged();
                 } else {
                     pdfList.removeAll(deleteList);
                     adapter_pdf.notifyDataSetChanged();

@@ -98,20 +98,20 @@ public class NotificationService extends Service {
                 * 2 - Util.dp2px(3), pointX - Util.dp2px(3));
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(FLASH_ACTION);
-        registerReceiver(broadcastReceiver, intentFilter);
+//        registerReceiver(broadcastReceiver, intentFilter);
         changZhuTongzhi();
         tonghzi_notifi();
         CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
     }
 
-    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            boolean iskai = ASwitchControl.switchFlashlight();
-            remoteView_1.setImageViewResource(R.id.notifi_shou, iskai ? R.mipmap.notifi_shou_2 : R.mipmap.notifi_shou_1);
-            mNotifyManager.notify(102, notification_1);
-        }
-    };
+//    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            boolean iskai = ASwitchControl.switchFlashlight();
+//            remoteView_1.setImageViewResource(R.id.notifi_shou, iskai ? R.mipmap.notifi_shou_2 : R.mipmap.notifi_shou_1);
+//            mNotifyManager.notify(102, notification_1);
+//        }
+//    };
 
     NotificationCallBack notificationCallBack = new NotificationCallBack() {
         @Override
@@ -226,8 +226,8 @@ public class NotificationService extends Service {
         remoteView_1.setOnClickPendingIntent(R.id.notifi_ram, pendIntentRam);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_cooling, pendIntentCooling);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_junk_ram, pendIntentJunkRam);
-        remoteView_1.setOnClickPendingIntent(R.id.notifi_flash, pendIntentFlash);
-        remoteView_1.setImageViewResource(R.id.notifi_shou, ASwitchControl.getSwitchFlashlight() ? R.mipmap.notifi_shou_2 : R.mipmap.notifi_shou_1);
+//        remoteView_1.setOnClickPendingIntent(R.id.notifi_flash, pendIntentFlash);
+//        remoteView_1.setImageViewResource(R.id.notifi_shou, ASwitchControl.getSwitchFlashlight() ? R.mipmap.notifi_shou_2 : R.mipmap.notifi_shou_1);
 
         mBuilder.setContent(remoteView_1);
         mBuilder.setAutoCancel(false);
@@ -550,7 +550,7 @@ public class NotificationService extends Service {
         if (!PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             mNotifyManager.cancel(102);
         }
-        unregisterReceiver(broadcastReceiver);
+//        unregisterReceiver(broadcastReceiver);
         myHandler.removeCallbacks(runnableW);
         CleanManager.getInstance(this).removeNotificatioCallBack(notificationCallBack);
         super.onDestroy();

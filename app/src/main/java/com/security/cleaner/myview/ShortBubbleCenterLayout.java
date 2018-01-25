@@ -47,10 +47,10 @@ public class ShortBubbleCenterLayout extends View {
     }
 
     private void init() {
-        bitmap1 = BitmapFactory.decodeResource(getResources(), R.mipmap.short_bubble_1);
-        bitmap2 = BitmapFactory.decodeResource(getResources(), R.mipmap.short_bubble_2);
-        bitmap3 = BitmapFactory.decodeResource(getResources(), R.mipmap.short_bubble_3);
-        bitmap4 = BitmapFactory.decodeResource(getResources(), R.mipmap.short_bubble_4);
+        bitmap1 = BitmapFactory.decodeResource(getResources(), R.mipmap.bubble_main);
+        bitmap2 = BitmapFactory.decodeResource(getResources(), R.mipmap.bubble_main);
+        bitmap3 = BitmapFactory.decodeResource(getResources(), R.mipmap.bubble_main);
+        bitmap4 = BitmapFactory.decodeResource(getResources(), R.mipmap.bubble_main);
     }
 
     public void destroy() {
@@ -105,7 +105,7 @@ public class ShortBubbleCenterLayout extends View {
                         Log.d("MyTest", "bubble Thread");
                         Bubble bubble = new Bubble();
                         float speedY = random.nextFloat() * 3 + 5;
-                        float scale = random.nextFloat() * 0.3f + 0.5f;
+                        float scale = random.nextFloat() * 0.6f + 0.7f;
 
                         bubble.setScale(scale);
                         int s = random.nextInt(4);

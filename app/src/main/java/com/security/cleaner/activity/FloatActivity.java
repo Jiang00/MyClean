@@ -1,6 +1,7 @@
 package com.security.cleaner.activity;
 
 import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -22,6 +23,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.security.cleaner.utils.AdUtil;
 import com.security.cleaner.utils.Constant;
@@ -45,6 +47,8 @@ public class FloatActivity extends BaseActivity {
 
     private View nativeView;
     private String TAG_FLAOT = "my_float";
+    private TextView float_jiasu_tv, float_jiasu_tv2;
+    private LinearLayout float_jiasu_ll;
 
     @Override
     protected void findId() {
@@ -61,6 +65,9 @@ public class FloatActivity extends BaseActivity {
         iv_shengyin = (ImageView) findViewById(R.id.iv_shengyin);
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
         float_jiasu = (ImageView) findViewById(R.id.float_jiasu);
+        float_jiasu_tv = (TextView) findViewById(R.id.float_jiasu_tv);
+        float_jiasu_ll = (LinearLayout) findViewById(R.id.float_jiasu_ll);
+        float_jiasu_tv2 = (TextView) findViewById(R.id.float_jiasu_tv2);
     }
 
     @Override
@@ -90,6 +97,7 @@ public class FloatActivity extends BaseActivity {
 
 
     private ObjectAnimator objectAnimator;
+    private AnimatorSet animator_set;
     View.OnClickListener kuaijieListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -132,6 +140,7 @@ public class FloatActivity extends BaseActivity {
                     break;
                 case R.id.float_jiasu:
                     float_jiasu.setOnClickListener(null);
+                    count = 0;
                     startCleanAnimation();
                     objectAnimator = ObjectAnimator.ofFloat(float_jiasu, View.ROTATION, 0, 3600);
                     objectAnimator.setDuration(3000);
@@ -144,7 +153,7 @@ public class FloatActivity extends BaseActivity {
 
                         @Override
                         public void onAnimationEnd(Animator animation) {
-                            float_jiasu.setOnClickListener(kuaijieListener);
+                            startSeondAnimation();
                         }
 
                         @Override
@@ -161,22 +170,76 @@ public class FloatActivity extends BaseActivity {
             }
         }
     };
+    int count;
+    long kill_size;
 
     //qingli
     private void startCleanAnimation() {
+
         new Thread(new Runnable() {
             @Override
             public void run() {
-                killAll(FloatActivity.this);
+                kill_size = killAll(FloatActivity.this);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        startSeondAnimation();
+                    }
+                });
             }
         }).start();
         CleanManager.getInstance(this).clearRam();
     }
 
+    private void startSeondAnimation() {
+        count++;
+        if (count < 2) {
+            return;
+        }
+        if (kill_size < 0) {
+            kill_size = 0;
+        }
+        float_jiasu_tv2.setText(Util.convertStorage(kill_size, true));
+        animator_set = new AnimatorSet();
+        ObjectAnimator objectAnimator_1 = ObjectAnimator.ofFloat(float_jiasu_tv, View.SCALE_Y, 1, 0);
+        ObjectAnimator objectAnimator_2 = ObjectAnimator.ofFloat(float_jiasu_tv, View.SCALE_X, 1, 0);
 
-    public int killAll(Context context) {
+        animator_set.play(objectAnimator_1).with(objectAnimator_2);
+        animator_set.setDuration(500);
+        animator_set.start();
+        animator_set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                animator_set = new AnimatorSet();
+                ObjectAnimator objectAnimator_3 = ObjectAnimator.ofFloat(float_jiasu_ll, View.SCALE_Y, 0, 1);
+                ObjectAnimator objectAnimator_4 = ObjectAnimator.ofFloat(float_jiasu_ll, View.SCALE_X, 0, 1);
+                animator_set.play(objectAnimator_3).with(objectAnimator_4);
+                animator_set.setDuration(500);
+                animator_set.start();
+                float_jiasu_ll.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
+    }
+
+    public long killAll(Context context) {
         long ram_all = MemoryManager.getPhoneTotalRamMemory();
         final ActivityManager am = (ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
+        final long beforeMem = getAvailMemory(am);
         final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
         for (PackageInfo packageInfo : installedPackages) {
             if (packageInfo.packageName.equals(context.getPackageName())) {
@@ -189,8 +252,8 @@ public class FloatActivity extends BaseActivity {
             }
         }
         final long afterMem = getAvailMemory(am);
-        int pratent = (int) ((ram_all - afterMem) * 100 / ram_all);
-        return pratent;
+        int pratent = (int) ((beforeMem - afterMem) * 100 / ram_all);
+        return afterMem - beforeMem;
     }
 
     private long getAvailMemory(ActivityManager am) {
@@ -383,9 +446,15 @@ public class FloatActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         AdUtil.closeBanner();
+        count = 0;
         super.onDestroy();
         if (objectAnimator != null && objectAnimator.isRunning()) {
+            objectAnimator.removeAllListeners();
             objectAnimator.cancel();
+        }
+        if (animator_set != null && animator_set.isRunning()) {
+            animator_set.removeAllListeners();
+            animator_set.cancel();
         }
     }
 }
