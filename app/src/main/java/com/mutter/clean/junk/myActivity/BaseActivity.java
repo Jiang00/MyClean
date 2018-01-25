@@ -26,6 +26,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.frigate.layout.FrigateLayoutActivity;
 import com.mutter.ui.demo.entry.CrossItem;
 import com.mutter.ui.demo.util.JsonParser;
 import com.mutter.clean.junk.util.AdUtil;
@@ -43,8 +44,8 @@ import java.util.ArrayList;
 /**
  * Created by on 2017/2/28.
  */
-
-public class BaseActivity extends AppCompatActivity {
+//FrigateLayoutActivity
+public class BaseActivity extends FrigateLayoutActivity {
     private Toast toast;
     protected String extraData;
 
@@ -180,10 +181,11 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
-        View view_title_bar = findViewById(R.id.view_title_bar);
-        ViewGroup.LayoutParams linearParams = view_title_bar.getLayoutParams();
-        linearParams.height = getStatusHeight(this);
-        view_title_bar.setLayoutParams(linearParams);
+//        View view_title_bar = findViewById(R.id.view_title_bar);
+//        ViewGroup.LayoutParams linearParams = view_title_bar.getLayoutParams();
+//        linearParams.height = getStatusHeight(this);
+//        Log.e("view_title_bar", "size="+ linearParams.height);
+//        view_title_bar.setLayoutParams(linearParams);
         findId();
     }
 

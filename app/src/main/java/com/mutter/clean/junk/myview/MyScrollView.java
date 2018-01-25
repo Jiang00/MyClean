@@ -12,7 +12,7 @@ import com.mutter.clean.junk.R;
 /**
  */
 
-public class MyScrollView extends NestedScrollView implements Pullable {
+public class MyScrollView extends NestedScrollView {
 
     private Scroller mScroller;
     Context context;
@@ -63,29 +63,6 @@ public class MyScrollView extends NestedScrollView implements Pullable {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         return super.dispatchTouchEvent(ev);
-    }
-
-    public boolean canPullDown() {
-//        if (getScrollY() == 0)
-//            return true;
-//        else
-        return false;
-    }
-
-    boolean adSuccess;
-
-    public void setAdSuccess(boolean isSuccess) {
-        this.adSuccess = isSuccess;
-    }
-
-    public boolean canPullUp() {
-        if (adSuccess) {
-            return false;
-        }
-        if (getScrollY() >= (getChildAt(0).getHeight() - getMeasuredHeight()))
-            return true;
-        else
-            return false;
     }
 
     //调用此方法滚动到目标位置  duration滚动时间

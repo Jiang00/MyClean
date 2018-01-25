@@ -1,8 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="image" format="reference" />
+    <attr name="image_size" format="dimension" />
 
     <declare-styleable name="RoundAngleImageView">
         <attr name="roundWidth" format="dimension" />
         <attr name="roundHeight" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="AutoRoundView">
+        <attr name="name" format="string|reference" />
+        <attr name="name_text_size" format="dimension" />
+        <attr name="name_marge_top" format="dimension" />
+        <attr name="memory" format="integer" />
+        <attr name="memory_text_size" format="dimension" />
+        <attr name="memory_marge_top" format="dimension" />
+        <attr name="memory_danwei" format="string" />
+        <attr name="memory_danwei_size" format="dimension" />
+        <attr name="usage" format="string" />
+        <attr name="usage_text_size" format="dimension" />
+        <attr name="usage_marge_top" format="dimension" />
+        <attr name="backColor" format="color|reference" />
+        <attr name="startColor" format="color|reference" />
+        <attr name="endColor" format="color|reference" />
+        <attr name="lineWidth" format="dimension" />
+        <attr name="bitmap" format="reference" />
+        <attr name="bitmapSize" format="dimension" />
+        <attr name="startAngle" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="AutoImageTextView">
+        <attr name="image_size" />
+        <attr name="text_size" format="dimension" />
+        <attr name="text_margin_top" format="dimension" />
+        <attr name="text_color" format="color|reference" />
+        <attr name="image" />
+        <attr name="text" format="string|reference" />
+    </declare-styleable>
+    <declare-styleable name="AutoImageText2View">
+        <attr name="image" />
+        <attr name="image_size" />
+        <attr name="image_margin_left" format="dimension" />
+        <attr name="text_margin_left" format="dimension" />
+        <attr name="title_size" format="dimension" />
+        <attr name="msg_size" format="dimension" />
+        <attr name="msg_margin_top" format="dimension" />
+        <attr name="title_color" format="color|reference" />
+        <attr name="msg_color" format="color|reference" />
+        <attr name="title_text" format="string|reference" />
+        <attr name="msg" format="string|reference" />
     </declare-styleable>
 </resources>

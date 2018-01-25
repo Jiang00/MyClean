@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
+import com.frigate.layout.FrigateFrameLayout;
+
 /**
  * Created by on 2017/3/2.
  */

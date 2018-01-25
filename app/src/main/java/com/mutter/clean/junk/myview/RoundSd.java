@@ -16,6 +16,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.frigate.utils.AutoUtils;
 import com.mutter.clean.junk.R;
 
 /**
@@ -24,14 +25,16 @@ import com.mutter.clean.junk.R;
 public class RoundSd extends View {
     private Context context;
     private Paint backgPoint;
-    float lineWidth = getResources().getDimension(R.dimen.d8);
+    float lineWidth = AutoUtils.getPercentWidthSize(24);
     int size;
+    int backageColor;
     private CustomRoundListener customRoundListener;
     private Matrix mMatrix;
     private Paint circlePoint;
     private int progress;
     private boolean isRotate;
     private Bitmap bitmap;
+    int startAngle=90;
 
     public RoundSd(Context context) {
         this(context, null);
@@ -65,10 +68,11 @@ public class RoundSd extends View {
         backgPoint.setStrokeWidth(lineWidth);
         backgPoint.setStrokeCap(Paint.Cap.ROUND);
         backgPoint.setStyle(Paint.Style.STROKE);
-        backgPoint.setColor(context.getResources().getColor(R.color.B4));
+        backageColor=ContextCompat.getColor(context,R.color.B4);
+        backgPoint.setColor(backageColor);
         mMatrix = new Matrix();
         bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.main_dian);
-        bitmap = Bitmap.createScaledBitmap(bitmap, getResources().getDimensionPixelOffset(R.dimen.d10), getResources().getDimensionPixelOffset(R.dimen.d10), true);
+        bitmap = Bitmap.createScaledBitmap(bitmap, AutoUtils.getPercentWidthSize(30), AutoUtils.getPercentWidthSize(30), true);
     }
 
     @Override
@@ -83,7 +87,38 @@ public class RoundSd extends View {
                 , ContextCompat.getColor(context, R.color.C9), Shader.TileMode.CLAMP);
         circlePoint.setShader(gradient);
     }
+public void setBitmap(Bitmap bitmap){
+    if (this.bitmap!=null&&!this.bitmap.isRecycled()){
+        this.bitmap.recycle();
+    }
+    this.bitmap=bitmap;
+}
+public void setBitmapSize(int size){
+    bitmap = Bitmap.createScaledBitmap(bitmap, AutoUtils.getPercentWidthSize(size), AutoUtils.getPercentWidthSize(size), true);
+}
+public void setLineWidth(int size){
+    lineWidth=AutoUtils.getPercentWidthSize(size);
+    circlePoint.setStrokeWidth(AutoUtils.getPercentWidthSize(size));
+    backgPoint.setStrokeWidth(AutoUtils.getPercentWidthSize(size));
+}
+public void setBackagePaintColor(int color){
+    backageColor=color;
+    backgPoint.setColor(backageColor);
+}
+public void setStartAngle(int angle){
+    startAngle=angle;
+}
+public void setLineColor(int... colors){
+    if (colors.length==1){
+        circlePoint.setShader(null);
+        circlePoint.setColor( colors[0]);
+    }else {
+        LinearGradient gradient = new LinearGradient(0, 0, size, size, colors[0]
+                , colors[1], Shader.TileMode.CLAMP);
+        circlePoint.setShader(gradient);
+    }
 
+}
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -92,9 +127,10 @@ public class RoundSd extends View {
         rect.right = size - lineWidth / 2 - 1;
         rect.top = 0 + lineWidth / 2 + 1;
         rect.bottom = size - lineWidth / 2 - 1;
+
         canvas.drawArc(rect, 0, 360, false, backgPoint);
         canvas.save();
-        canvas.rotate(90, size / 2, size / 2);
+        canvas.rotate(startAngle, size / 2, size / 2);
         canvas.drawArc(rect, 0, progress * 360 / 100, false, circlePoint);
         if (progress != 100 || progress != 0) {
             Path path = new Path();

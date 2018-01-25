@@ -56,6 +56,14 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
+
+        <meta-data
+            android:name="design_width"
+            android:value="1080" />
+        <meta-data
+            android:name="design_height"
+            android:value="1920" />
+
         <activity
             android:name="com.mutter.clean.junk.myActivity.MainActivity"
             android:screenOrientation="portrait"

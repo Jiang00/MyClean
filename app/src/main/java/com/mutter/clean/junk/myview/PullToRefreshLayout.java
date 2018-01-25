@@ -14,6 +14,7 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.RelativeLayout;
 
+import com.frigate.layout.FrigateRelativeLayout;
 import com.mutter.clean.junk.R;
 
 import java.util.Timer;

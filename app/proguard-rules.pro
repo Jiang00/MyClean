@@ -110,6 +110,8 @@
 -keep class com.supers.clean.junk.entity.** { *; }
 -keep class com.supers.clean.junk.presenter.** { *; }
 -keep class com.mutter.kpa.nativ.** { *; }
+-keep class com.frigate.** { *; }
+-keep class com.zhy.autolayout.widget.** { *; }
 
 
 -dontwarn com.squareup.picasso.**
