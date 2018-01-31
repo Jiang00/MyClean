@@ -22,7 +22,6 @@
         android:background="@color/B7" />
 
     <com.frigate.view.AutoImageView
-        android:id="@+id/iv_title_left"
         android:layout_width="120px"
         android:layout_height="120px"
         android:layout_marginLeft="24px"
@@ -31,7 +30,8 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:padding="24px"
-        android:src="@mipmap/main_menu" />
+        android:src="@mipmap/main_menu"
+        android:tag="main_title_menu" />
 
     <com.frigate.view.AutoImageView
         android:id="@+id/menu_hong"
@@ -39,6 +39,7 @@
         android:layout_height="24px"
         android:layout_marginLeft="100px"
         android:layout_marginTop="120px"
+        android:tag="main_menu_hong"
         app:roundRadius="36px"
         app:soildColor="@color/A2" />
 
@@ -62,11 +63,11 @@
         android:layout_marginTop="96px"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="24px"
-        android:src="@mipmap/main_setting" />
+        android:src="@mipmap/main_setting"
+        android:tag="main_title_setting" />
 
 
     <com.mutter.clean.junk.myview.MyScrollView
-        android:id="@+id/main_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="240px"
@@ -75,144 +76,151 @@
         android:scrollbars="none">
 
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/A10"
             android:orientation="vertical">
 
-            <!--tou-->
-            <com.frigate.view.AutoView
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="864px"
-                app:gradient_angle="TOP_BOTTOM"
-                app:gradient_endColor="@color/B6"
-                app:gradient_startColor="@color/B7" />
-
-            <com.mutter.clean.junk.myview.conpentview.AutoRoundView
-                android:id="@+id/main_sd_air_button"
-                android:layout_width="528px"
-                android:layout_height="528px"
-                android:layout_marginLeft="99px"
-                android:layout_marginTop="159px"
-                app:backColor="@color/B4"
-                app:bitmapSize="30px"
-                app:endColor="@color/C9"
-                app:lineWidth="24px"
-                app:memory_danwei="%"
-                app:memory_danwei_size="90px"
-                app:memory_marge_top="150px"
-                app:memory_text_size="183px"
-                app:name="@string/main_arc_sd"
-                app:name_marge_top="98px"
-                app:name_text_size="36px"
-                app:startAngle="90"
-                app:startColor="@color/C8"
-                app:usage_marge_top="385px"
-                app:usage_text_size="39px" />
-
-            <com.mutter.clean.junk.myview.conpentview.AutoRoundView
-                android:id="@+id/main_ram_air_button"
-                android:layout_width="375px"
-                android:layout_height="375px"
-                android:layout_marginLeft="585px"
-                android:layout_marginTop="24px"
-                app:backColor="@color/B4"
-                app:bitmapSize="25px"
-                app:endColor="@color/C9"
-                app:lineWidth="15px"
-                app:memory_danwei="%"
-                app:memory_danwei_size="54px"
-                app:memory_marge_top="121px"
-                app:memory_text_size="102px"
-                app:name="@string/main_arc_ram"
-                app:name_marge_top="58px"
-                app:name_text_size="33px"
-                app:startAngle="90"
-                app:startColor="@color/C8"
-                app:usage_marge_top="248px"
-                app:usage_text_size="33px" />
-
-            <com.mutter.clean.junk.myview.conpentview.AutoRotateXView
-                android:id="@+id/ad_delete"
-                android:layout_width="195px"
-                android:layout_height="201px"
-                android:layout_marginLeft="694px"
-                android:layout_marginTop="495px" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="69px"
-                android:layout_marginTop="795px"
-                android:background="@mipmap/main_tou_backg" />
-
-            <!--六个按钮-->
-
-            <com.mutter.clean.junk.myview.conpentview.AutoImageTextView
-                android:id="@+id/main_junk_button"
-                android:layout_width="345px"
-                android:layout_height="198px"
-                android:layout_marginLeft="99px"
-                android:layout_marginTop="855px"
-                app:image="@mipmap/main_junk_button"
-                app:image_size="108px"
-                app:text="@string/main_junk_name"
-                app:text_color="@color/A6"
-                app:text_margin_top="27px"
-                app:text_size="33px" />
-
-            <com.mutter.clean.junk.myview.conpentview.AutoImageTextView
-                android:id="@+id/main_ram_button"
-                android:layout_width="345px"
-                android:layout_height="198px"
-                android:layout_marginLeft="636px"
-                android:layout_marginTop="855px"
-                app:image="@mipmap/main_ram_button"
-                app:image_size="108px"
-                app:text="@string/main_ram_name"
-                app:text_color="@color/A6"
-                app:text_margin_top="27px"
-                app:text_size="33px" />
-
-            <com.mutter.clean.junk.myview.conpentview.AutoImageTextView
-                android:id="@+id/main_cooling_button"
-                android:layout_width="345px"
-                android:layout_height="198px"
-                android:layout_marginLeft="99px"
-                android:layout_marginTop="1122px"
-                app:image="@mipmap/main_cooling_button"
-                app:image_size="108px"
-                app:text="@string/main_cooling_name"
-                app:text_color="@color/A6"
-                app:text_margin_top="27px"
-                app:text_size="33px" />
-
-            <com.mutter.clean.junk.myview.conpentview.AutoImageTextView
-                android:id="@+id/main_manager_button"
-                android:layout_width="345px"
-                android:layout_height="198px"
-                android:layout_marginLeft="636px"
-                android:layout_marginTop="1122px"
-                app:image="@mipmap/main_manager_button"
-                app:image_size="108px"
-                app:text="@string/main_manager_name"
-                app:text_color="@color/A6"
-                app:text_margin_top="27px"
-                app:text_size="33px" />
+                android:layout_height="wrap_content">
 
 
+                <!--tou-->
+                <com.frigate.view.AutoView
+                    android:layout_width="match_parent"
+                    android:layout_height="864px"
+                    app:gradient_angle="TOP_BOTTOM"
+                    app:gradient_endColor="@color/B6"
+                    app:gradient_startColor="@color/B7" />
+
+                <com.mutter.clean.junk.myview.conpentview.AutoRoundView
+                    android:layout_width="528px"
+                    android:layout_height="528px"
+                    android:layout_marginLeft="99px"
+                    android:layout_marginTop="159px"
+                    android:tag="main_sd_round"
+                    app:backColor="@color/B4"
+                    app:bitmapSize="30px"
+                    app:endColor="@color/C9"
+                    app:lineWidth="24px"
+                    app:memory_danwei="%"
+                    app:memory_danwei_size="90px"
+                    app:memory_marge_top="150px"
+                    app:memory_text_size="183px"
+                    app:name="@string/main_arc_sd"
+                    app:name_marge_top="98px"
+                    app:name_text_size="36px"
+                    app:startAngle="90"
+                    app:startColor="@color/C8"
+                    app:usage_marge_top="385px"
+                    app:usage_text_size="39px" />
+
+                <com.mutter.clean.junk.myview.conpentview.AutoRoundView
+                    android:layout_width="375px"
+                    android:layout_height="375px"
+                    android:layout_marginLeft="585px"
+                    android:layout_marginTop="24px"
+                    android:tag="main_ram_round"
+                    app:backColor="@color/B4"
+                    app:bitmapSize="25px"
+                    app:endColor="@color/C9"
+                    app:lineWidth="15px"
+                    app:memory_danwei="%"
+                    app:memory_danwei_size="54px"
+                    app:memory_marge_top="121px"
+                    app:memory_text_size="102px"
+                    app:name="@string/main_arc_ram"
+                    app:name_marge_top="58px"
+                    app:name_text_size="33px"
+                    app:startAngle="90"
+                    app:startColor="@color/C8"
+                    app:usage_marge_top="248px"
+                    app:usage_text_size="33px" />
+
+                <com.mutter.clean.junk.myview.conpentview.AutoRotateXView
+                    android:layout_width="195px"
+                    android:layout_height="201px"
+                    android:layout_marginLeft="694px"
+                    android:layout_marginTop="495px"
+                    android:tag="main_rotate_x"
+                    app:tag_back="main_circle_ad"
+                    app:tag_front="main_circle_junk_ram" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="69px"
+                    android:layout_marginTop="795px"
+                    android:background="@mipmap/main_tou_backg" />
+
+                <!--六个按钮-->
+
+                <com.mutter.clean.junk.myview.conpentview.AutoImageTextView
+                    android:layout_width="345px"
+                    android:layout_height="198px"
+                    android:layout_marginLeft="99px"
+                    android:layout_marginTop="855px"
+                    android:tag="main_junk_button"
+                    app:image="@mipmap/main_junk_button"
+                    app:image_size="108px"
+                    app:text="@string/main_junk_name"
+                    app:text_color="@color/A6"
+                    app:text_margin_top="27px"
+                    app:text_size="33px" />
+
+                <com.mutter.clean.junk.myview.conpentview.AutoImageTextView
+                    android:id="@+id/main_ram_button"
+                    android:layout_width="345px"
+                    android:layout_height="198px"
+                    android:layout_marginLeft="636px"
+                    android:layout_marginTop="855px"
+                    android:tag="main_ram_button"
+                    app:image="@mipmap/main_ram_button"
+                    app:image_size="108px"
+                    app:text="@string/main_ram_name"
+                    app:text_color="@color/A6"
+                    app:text_margin_top="27px"
+                    app:text_size="33px" />
+
+                <com.mutter.clean.junk.myview.conpentview.AutoImageTextView
+                    android:layout_width="345px"
+                    android:layout_height="198px"
+                    android:layout_marginLeft="99px"
+                    android:layout_marginTop="1122px"
+                    android:tag="main_cooling_button"
+                    app:image="@mipmap/main_cooling_button"
+                    app:image_size="108px"
+                    app:text="@string/main_cooling_name"
+                    app:text_color="@color/A6"
+                    app:text_margin_top="27px"
+                    app:text_size="33px" />
+
+                <com.mutter.clean.junk.myview.conpentview.AutoImageTextView
+                    android:layout_width="345px"
+                    android:layout_height="198px"
+                    android:layout_marginLeft="636px"
+                    android:layout_marginTop="1122px"
+                    android:tag="main_manager_button"
+                    app:image="@mipmap/main_manager_button"
+                    app:image_size="108px"
+                    app:text="@string/main_manager_name"
+                    app:text_color="@color/A6"
+                    app:text_margin_top="27px"
+                    app:text_size="33px" />
+
+            </FrameLayout>
             <!--好评-->
             <FrameLayout
-                android:id="@+id/main_rotate_all"
                 android:layout_width="1020px"
                 android:layout_height="510px"
-                android:layout_below="@id/main_manager_button"
                 android:layout_marginBottom="30px"
                 android:layout_marginLeft="30px"
                 android:layout_marginRight="30px"
                 android:layout_marginTop="30px"
                 android:elevation="6px"
                 android:orientation="vertical"
+                android:tag="main_rotate_all"
                 app:roundRadius="9px"
                 app:soildColor="@color/white_100">
 
@@ -227,12 +235,12 @@
                     android:textSize="42px" />
 
                 <ImageView
-                    android:id="@+id/main_rotate_cha"
                     android:layout_width="54px"
                     android:layout_height="54px"
                     android:layout_marginLeft="914px"
                     android:layout_marginTop="9px"
-                    android:src="@mipmap/rotate_cha" />
+                    android:src="@mipmap/rotate_cha"
+                    android:tag="main_rotate_cha" />
 
 
                 <ImageView
@@ -252,38 +260,40 @@
                     android:textSize="48px" />
 
 
-                <TextView
-                    android:id="@+id/main_rotate_bad"
+                <com.frigate.view.AutoTextView
                     android:layout_width="375px"
                     android:layout_height="108px"
                     android:layout_marginLeft="135px"
                     android:layout_marginTop="350px"
-                    android:background="@drawable/shape_rotate_bad"
                     android:gravity="center"
+                    android:tag="main_rotate_bad"
                     android:text="@string/main_rotate_bad"
                     android:textColor="@color/B3"
-                    android:textSize="39px" />
+                    android:textSize="39px"
+                    app:bl_roundRadius="60px"
+                    app:soildColor="@color/B1"
+                    app:tl_roundRadius="60px" />
 
-                <TextView
-                    android:id="@+id/main_rotate_good"
+                <com.frigate.view.AutoTextView
                     android:layout_width="375px"
                     android:layout_height="108px"
                     android:layout_marginLeft="510px"
                     android:layout_marginTop="350px"
-                    android:background="@drawable/shape_rotate_good"
                     android:gravity="center"
+                    android:tag="main_rotate_good"
                     android:text="@string/main_rotate_good"
                     android:textColor="@color/A8"
-                    android:textSize="39px" />
+                    android:textSize="39px"
+                    app:br_roundRadius="60px"
+                    app:soildColor="@color/A7"
+                    app:tr_roundRadius="60px" />
 
             </FrameLayout>
 
             <!--功能块-->
             <com.frigate.layout.FrigateLinearLayout
-                android:id="@+id/gongnengkuai"
                 android:layout_width="1020px"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/main_rotate_all"
                 android:layout_marginBottom="30px"
                 android:layout_marginLeft="30px"
                 android:layout_marginRight="30px"
@@ -292,17 +302,19 @@
                 app:roundRadius="9px"
                 app:soildColor="@color/white_100">
 
-                <com.frigate.layout.FrigateLinearLayout
-                    android:id="@+id/tuiguang_main"
+
+                <com.mutter.clean.junk.myview.conpentview.AutoTuiguangView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" />
+                    android:orientation="vertical"
+                    app:types_of="main" />
 
                 <!--通知栏清理-->
                 <com.mutter.clean.junk.myview.conpentview.AutoImageText2View
                     android:id="@+id/main_notifi_button"
                     android:layout_width="match_parent"
                     android:layout_height="216px"
+                    android:tag="main_notifi_button"
                     app:image="@mipmap/notifi_6"
                     app:image_margin_left="48px"
                     app:image_size="120px"
@@ -321,9 +333,9 @@
                     android:background="@color/B1" />
                 <!--深度清理-->
                 <com.mutter.clean.junk.myview.conpentview.AutoImageText2View
-                    android:id="@+id/main_power_button"
                     android:layout_width="match_parent"
                     android:layout_height="216px"
+                    android:tag="main_power_button"
                     app:image="@mipmap/power_6"
                     app:image_margin_left="48px"
                     app:image_size="120px"
@@ -344,9 +356,9 @@
 
                 <!--文件管理-->
                 <com.mutter.clean.junk.myview.conpentview.AutoImageText2View
-                    android:id="@+id/main_file_button"
                     android:layout_width="match_parent"
                     android:layout_height="216px"
+                    android:tag="main_file_button"
                     app:image="@mipmap/file_main"
                     app:image_margin_left="48px"
                     app:image_size="120px"
@@ -367,9 +379,9 @@
 
                 <!--游戏加速-->
                 <com.mutter.clean.junk.myview.conpentview.AutoImageText2View
-                    android:id="@+id/main_gboost_button"
                     android:layout_width="match_parent"
                     android:layout_height="216px"
+                    android:tag="main_gboost_button"
                     app:image="@mipmap/gboost_main"
                     app:image_margin_left="48px"
                     app:image_size="120px"
@@ -388,9 +400,9 @@
                     android:background="@color/B1" />
                 <!--相似图片-->
                 <com.mutter.clean.junk.myview.conpentview.AutoImageText2View
-                    android:id="@+id/main_picture_button"
                     android:layout_width="match_parent"
                     android:layout_height="216px"
+                    android:tag="main_picture_button"
                     app:image="@mipmap/picture_main"
                     app:image_margin_left="48px"
                     app:image_size="120px"
@@ -406,10 +418,8 @@
             </com.frigate.layout.FrigateLinearLayout>
 
             <com.mutter.clean.junk.myview.conpentview.GrildRecycleView
-                android:id="@+id/recyc_tuiguang"
                 android:layout_width="1020px"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/gongnengkuai"
                 android:layout_marginBottom="30px"
                 android:layout_marginLeft="30px"
                 android:layout_marginRight="30px"
@@ -417,80 +427,24 @@
                 app:listItem="@layout/layout_tuiguang_item"
                 app:roundRadius="9px"
                 app:soildColor="@color/white_100" />
-            <!--广告-->
-            <LinearLayout
-                android:id="@+id/ad_native_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30px"
-                android:layout_marginLeft="30px"
-                android:layout_marginRight="30px"
-                android:layout_marginTop="3702px"
-                android:elevation="6px"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:visibility="gone"
-                app:roundRadius="9px"
-                app:soildColor="@color/white_100" />
-        </RelativeLayout>
+        </LinearLayout>
 
     </com.mutter.clean.junk.myview.MyScrollView>
 
     <com.mingle.widget.LinearLayout
-        android:id="@+id/ll_ad_full"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/A8"
         android:clickable="true"
         android:orientation="vertical"
+        android:tag="main_ad_full"
         android:visibility="gone" />
 
-    <FrameLayout
-        android:id="@+id/libao_load"
+    <com.mutter.clean.junk.myview.conpentview.AutoLoadFllView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black_40"
-        android:clickable="true"
-        android:visibility="gone">
-
-        <com.frigate.view.AutoImageView
-            android:id="@+id/load_2_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/load_2" />
-
-        <com.frigate.view.AutoImageView
-            android:id="@+id/load_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:rotation="22.5"
-            android:src="@mipmap/load_2"
-            android:visibility="gone" />
-
-        <com.frigate.view.AutoImageView
-            android:id="@+id/load_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/load_1" />
-
-        <com.frigate.view.AutoImageView
-            android:id="@+id/load_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/load_3" />
-
-        <com.frigate.view.AutoImageView
-            android:id="@+id/load_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/load_4"
-            android:visibility="gone" />
-    </FrameLayout>
+        android:tag="main_load_full"
+        android:visibility="gone" />
 
 
 </FrameLayout>

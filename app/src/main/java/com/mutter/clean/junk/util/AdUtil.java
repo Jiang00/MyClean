@@ -17,6 +17,7 @@ import com.mutter.clean.junk.R;
 
 public class AdUtil {
     public static final String FULL_DEFAULT = "loading_full";//mutter_full
+    public static final String NATIVE_DEFAULT = "mutter_native";//mutter_full
 
     public static void track(String category, String action, String label, int value) {
         if (BuildConfig.TRACK) {
@@ -25,10 +26,10 @@ public class AdUtil {
     }
 
     public static View getNativeAdView(String tag, @LayoutRes int layout) {
-        if (!AndroidSdk.hasNativeAd("mutter_native")) {
+        if (!AndroidSdk.hasNativeAd(NATIVE_DEFAULT)) {
             return null;
         }
-        View nativeView = AndroidSdk.peekNativeAdViewWithLayout("mutter_native", layout, null);
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(NATIVE_DEFAULT, layout, null);
         if (nativeView == null) {
             return null;
         }

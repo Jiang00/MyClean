@@ -2,6 +2,7 @@ package com.mutter.clean.junk.presenter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
@@ -25,11 +26,14 @@ import java.lang.reflect.Field;
 
 public class MainPresenter extends BasePresenter<MainView> {
     private int cpuTemp = 40;
+    Handler handler;
 
-    public MainPresenter(MainView iView, Context context) {
+    public MainPresenter(MainView iView, Context context, Handler handler) {
         super(iView, context);
         this.iView = iView;
         this.context = context;
+        this.handler = handler;
+
     }
 
 
@@ -67,14 +71,9 @@ public class MainPresenter extends BasePresenter<MainView> {
 
     public void init() {
         iView.loadFullAd();
-        new Thread(new Runnable() {
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 reStart();
                 //cpu温度
                 CpuTempReader.getCPUTemp(new CpuTempReader.TemperatureResultCallback() {
@@ -92,7 +91,7 @@ public class MainPresenter extends BasePresenter<MainView> {
                     }
                 });
             }
-        }).start();
+        }, 1000);
         TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
         translate.setInterpolator(new AccelerateInterpolator());//OvershootInterpolator
         translate.setDuration(300);
@@ -100,7 +99,6 @@ public class MainPresenter extends BasePresenter<MainView> {
         translate.setRepeatMode(Animation.REVERSE);
         iView.loadAirAnimator(translate);
         setRotateGone();
-        iView.onClick();
 
     }
 

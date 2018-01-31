@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,6 +29,8 @@ import com.mutter.clean.junk.util.Constant;
 import com.mutter.clean.junk.util.UtilGp;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.util.Util;
+import com.mutter.ui.demo.entry.CrossItem;
+import com.mutter.ui.demo.util.JsonParser;
 
 import java.util.ArrayList;
 
@@ -75,6 +78,50 @@ public class GrildRecycleView extends RecyclerView {
         } else {
             adapter.setData(list);
         }
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        ArrayList<TuiguangInfo> tuiguangList = new ArrayList<>();
+        ArrayList<CrossItem> crossItems_soft = JsonParser.getCrossData(mContext, AndroidSdk.getExtraData(), "main_soft");
+        if (crossItems_soft != null) {
+            for (int i = 0; i < crossItems_soft.size(); i++) {
+                CrossItem item = crossItems_soft.get(i);
+                TuiguangInfo info = new TuiguangInfo();
+                info.action = item.action;
+                info.packageName = item.getPkgName();
+                info.title = item.title;
+                info.url = item.getTagIconUrl();
+                tuiguangList.add(info);
+                AdUtil.track("交叉推广_广告位", "广告位_主界面", "展示" + info.packageName, 1);
+            }
+        }
+        ArrayList<CrossItem> crossItems = JsonParser.getCrossData(mContext, AndroidSdk.getExtraData(), "main_hard");
+        if (crossItems != null) {
+            for (int i = 0; i < crossItems.size(); i++) {
+                CrossItem item = crossItems.get(i);
+                TuiguangInfo info = new TuiguangInfo();
+                info.action = item.action;
+                info.packageName = item.getPkgName();
+                info.title = item.title;
+                info.url = item.getTagIconUrl();
+                tuiguangList.add(info);
+                AdUtil.track("交叉推广_广告位", "广告位_主界面", "展示" + info.packageName, 1);
+            }
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(mContext, Constant.NOTIFI_KAIGUAN, 1) == 1) {
+            TuiguangInfo info = new TuiguangInfo();
+            info.title = mContext.getString(R.string.side_notifi);
+            info.drable_id = R.mipmap.tuiguang_notifi;
+            tuiguangList.add(info);
+        }
+        TuiguangInfo info = new TuiguangInfo();
+        info.title = mContext.getString(R.string.side_rotate);
+        info.drable_id = R.mipmap.tuiguang_rotate;
+        tuiguangList.add(info);
+        setData(tuiguangList);
     }
 
     private void setBackageShape(AttributeSet attrs) {

@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.frigate.R;
-import com.frigate.event.AutoEventListener;
-import com.frigate.event.FrigateEventListener;
+import com.frigate.event.IAutoEvent;
+import com.frigate.event.IFrigateEventListener;
 import com.frigate.utils.AutoLayoutHelper;
 import com.frigate.utils.AutoUtils;
 
@@ -22,7 +22,7 @@ import com.frigate.utils.AutoUtils;
 public class FrigateLinearLayout extends LinearLayout {
 
     public AutoLayoutHelper mHelper;
-    Context mContext;
+    protected Context mContext;
 
     int tl_roundRadius; //  圆角半径
     int tr_roundRadius; //  圆角半径
@@ -38,18 +38,18 @@ public class FrigateLinearLayout extends LinearLayout {
     int soildColor;//内部填充颜色
     GradientDrawable.Orientation orientation;
 
-    public interface AutoLayoutEventListener extends AutoEventListener {
+    public interface AutoLayoutEventListener extends IAutoEvent {
 
     }
 
     private FrigateLinearLayout.AutoLayoutEventListener autoLayoutEventListener;
 
 
-    public AutoEventListener getEventListener() {
+    public IAutoEvent getEventListener() {
         return autoLayoutEventListener;
     }
 
-    public void setEventListener(FrigateEventListener autoLayoutEventListener) {
+    public void setEventListener(IFrigateEventListener autoLayoutEventListener) {
         this.autoLayoutEventListener = autoLayoutEventListener;
     }
 
@@ -108,7 +108,7 @@ public class FrigateLinearLayout extends LinearLayout {
             gd.setCornerRadius(roundRadius);
         } else {
             gd.setCornerRadii(new float[]{tl_roundRadius, tl_roundRadius, tr_roundRadius, tr_roundRadius
-                    , bl_roundRadius, bl_roundRadius, br_roundRadius, br_roundRadius});
+                    , br_roundRadius, br_roundRadius, bl_roundRadius, bl_roundRadius});
         }
         setBackgroundDrawable(gd);
     }

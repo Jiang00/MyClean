@@ -1,15 +1,98 @@
 {
   "data": [
     {
-      "tag": "tag1",
-      "type": "button",
-      "click": "go:GoActivity",
-      "long_click": "go:GoActivity"
+      "tag": "main_title_menu",
+      "click": "openDrawer",
+      "long_click": "do:adb install -r apk"
     },
     {
-      "tag": "tag2",
-      "type": "button",
+      "tag": "main_menu_hong",
       "click": "do:adb install -r apk",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_title_setting",
+      "click": "startSetting",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_sd_round",
+      "click": "startJunk",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_ram_round",
+      "click": "startRam",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_circle_junk_ram",
+      "click": "startRamAndJunk",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_circle_ad",
+      "click": "startFull",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_junk_button",
+      "click": "startJunk",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_ram_button",
+      "click": "startRam",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_cooling_button",
+      "click": "startCooling",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_manager_button",
+      "click": "startManager",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_rotate_cha",
+      "click": "startRotateDelete",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_rotate_good",
+      "click": "startRotateGood",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_notifi_button",
+      "click": "startNotification",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_power_button",
+      "click": "startPower",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_file_button",
+      "click": "startFileManager",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_gboost_button",
+      "click": "startGboost",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_picture_button",
+      "click": "startSimilar",
+      "long_click": "do:adb install -r apk"
+    },
+    {
+      "tag": "main_rotate_bad",
+      "click": "startRotateBad",
       "long_click": "do:adb install -r apk"
     }
   ]

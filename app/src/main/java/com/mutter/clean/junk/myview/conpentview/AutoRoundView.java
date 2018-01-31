@@ -209,6 +209,11 @@ public class AutoRoundView extends FrigateFrameLayout {
         });
     }
 
+    public void reFresh(int memo, String usagea) {
+        setMemory(memo);
+        setUsage(usagea);
+    }
+
     public void setMemory(int memo) {
         main_custom_sd.startProgress(true, memo);
     }

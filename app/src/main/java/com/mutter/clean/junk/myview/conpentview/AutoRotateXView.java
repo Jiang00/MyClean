@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -20,7 +21,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
+import com.frigate.event.IFrigateEvent;
 import com.frigate.layout.FrigateFrameLayout;
+import com.frigate.parser.FrigateManager;
 import com.frigate.utils.AutoUtils;
 import com.mutter.clean.junk.R;
 import com.mutter.clean.junk.myview.RoundSd;
@@ -49,15 +53,30 @@ public class AutoRotateXView extends FrigateFrameLayout {
         handler = new Handler();
         LayoutInflater.from(context).inflate(R.layout.auto_rotate_x, this, true);
         intView();
+        TypedArray ta = this.mContext.obtainStyledAttributes(attrs, R.styleable.AutoRotateXView);
+        String tag_front = ta.getString(R.styleable.AutoRotateXView_tag_front);
+        String tag_back = ta.getString(R.styleable.AutoRotateXView_tag_back);
+        ta.recycle();
+        if (tag_front != null) {
+            main_circle.setTag(tag_front);
+        }
+        if (tag_back != null) {
+            main_ad.setTag(tag_back);
+        }
     }
 
 
     private void intView() {
         main_circle = (ImageView) findViewById(R.id.main_circle);
+
         main_ad = (FrameLayout) findViewById(R.id.main_ad);
         lot_family = (ImageView) findViewById(R.id.lot_family);
     }
 
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+    }
 
     @Override
     protected void onAttachedToWindow() {

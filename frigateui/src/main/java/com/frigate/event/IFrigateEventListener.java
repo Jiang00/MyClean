@@ -9,5 +9,5 @@ import com.frigate.layout.FrigateRelativeLayout;
  * Created by renqingyou on 2017/2/17.
  */
 
-public interface FrigateEventListener extends FrigateFrameLayout.AutoLayoutEventListener, AutoDrawerLayout.AutoLayoutEventListener, FrigateLinearLayout.AutoLayoutEventListener, FrigateRelativeLayout.AutoLayoutEventListener {
+public interface IFrigateEventListener extends FrigateFrameLayout.AutoLayoutEventListener, AutoDrawerLayout.AutoLayoutEventListener, FrigateLinearLayout.AutoLayoutEventListener, FrigateRelativeLayout.AutoLayoutEventListener {
 }

@@ -3,11 +3,9 @@ package com.frigate.layout;
 import android.content.Context;
 import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
-import com.frigate.event.AutoEventListener;
-import com.frigate.event.FrigateEventListener;
+import com.frigate.event.IAutoEvent;
+import com.frigate.event.IFrigateEventListener;
 import com.frigate.utils.AutoLayoutHelper;
 
 /**
@@ -43,17 +41,17 @@ public class AutoDrawerLayout extends DrawerLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    public interface AutoLayoutEventListener extends AutoEventListener {
+    public interface AutoLayoutEventListener extends IAutoEvent {
 
     }
     private AutoLayoutEventListener autoLayoutEventListener;
 
 
-    public AutoEventListener getEventListener() {
+    public IAutoEvent getEventListener() {
         return autoLayoutEventListener;
     }
 
-    public void setEventListener(FrigateEventListener autoLayoutEventListener) {
+    public void setEventListener(IFrigateEventListener autoLayoutEventListener) {
         this.autoLayoutEventListener = autoLayoutEventListener;
     }
 

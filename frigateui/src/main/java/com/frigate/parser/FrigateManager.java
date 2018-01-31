@@ -5,19 +5,66 @@ import android.content.res.AssetManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.frigate.event.IFrigateEvent;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by renqingyou on 2017/2/15.
  */
 
-public class FrigateManager {
+public final class FrigateManager {
+
+    private static final HashMap<String, ArrayList<IFrigateEvent>> frigateEventListenerMap = new HashMap<>();
 
     public static final String RAW_DIRECTORY = "raw";
 
-    public static ArrayList<FrigateData> parseJson(Context context, String jsonName) {
+    private static ArrayList<IFrigateEvent> _getFrigateEventListeners(String eventName) {
+        ArrayList<IFrigateEvent> arr = frigateEventListenerMap.get(eventName);
+        return arr == null ? new ArrayList<IFrigateEvent>() : arr;
+    }
+
+    public static void registerFrigateEventListener(String eventName, IFrigateEvent eventListener) {
+        if (eventName != null && eventListener != null) {
+            ArrayList<IFrigateEvent> arr = _getFrigateEventListeners(eventName);
+            if (!arr.contains(eventListener))
+                arr.add(eventListener);
+            frigateEventListenerMap.put(eventName, arr);
+        }
+    }
+
+    public static void removeFrigateEventListener(String eventName, IFrigateEvent eventListener) {
+        if (eventName != null && eventListener != null) {
+            ArrayList<IFrigateEvent> arr = _getFrigateEventListeners(eventName);
+            if (arr.contains(eventListener))
+                arr.remove(eventListener);
+            frigateEventListenerMap.put(eventName, arr);
+        }
+    }
+
+    public static void removeAllFrigateEventListener(String eventName) {
+        if (eventName != null) {
+            ArrayList<IFrigateEvent> arr = _getFrigateEventListeners(eventName);
+            arr.clear();
+            frigateEventListenerMap.put(eventName, arr);
+        }
+    }
+
+    public static void dispatchFrigateEvent(String eventName, String...eventParams) {
+        if (eventName != null) {
+            ArrayList<IFrigateEvent> arr = _getFrigateEventListeners(eventName);
+            if (arr.size() != 0) {
+                for (IFrigateEvent listener : arr) {
+                    listener.onFrigateEvent(eventName, eventParams);
+                }
+            }
+        }
+    }
+
+    public static String parseJson(Context context, String jsonName) {
         if (TextUtils.isEmpty(jsonName)) {
             return null;
         }
@@ -30,7 +77,7 @@ public class FrigateManager {
             e.read(buffer);
             e.close();
             String json = JsonParser.getStrFromByte(buffer);
-            return JsonParser.fromJson(json);
+            return json;
         } catch (Exception e) {
             return null;
         }

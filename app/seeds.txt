@@ -30485,14 +30485,16 @@ com.frigate.config.AutoLayoutConifg: void init(android.content.Context)
 com.frigate.config.AutoLayoutConifg: void getMetaData(android.content.Context)
 com.frigate.config.AutoLayoutConifg: void <clinit>()
 com.frigate.config.UseLandscape
-com.frigate.event.AutoEventListener
-com.frigate.event.AutoEventListener: void onClickEvent(android.view.View,android.view.ViewGroup,com.frigate.parser.FrigateData)
-com.frigate.event.AutoEventListener: boolean onLongClickEvent(android.view.View,android.view.ViewGroup,com.frigate.parser.FrigateData)
 com.frigate.event.FrigateEventListenImp
 com.frigate.event.FrigateEventListenImp: FrigateEventListenImp()
 com.frigate.event.FrigateEventListenImp: void onClickEvent(android.view.View,android.view.ViewGroup,com.frigate.parser.FrigateData)
 com.frigate.event.FrigateEventListenImp: boolean onLongClickEvent(android.view.View,android.view.ViewGroup,com.frigate.parser.FrigateData)
-com.frigate.event.FrigateEventListener
+com.frigate.event.IAutoEvent
+com.frigate.event.IAutoEvent: void onClickEvent(android.view.View,android.view.ViewGroup,com.frigate.parser.FrigateData)
+com.frigate.event.IAutoEvent: boolean onLongClickEvent(android.view.View,android.view.ViewGroup,com.frigate.parser.FrigateData)
+com.frigate.event.IFrigateEvent
+com.frigate.event.IFrigateEvent: void onFrigateEvent(java.lang.String,java.lang.String)
+com.frigate.event.IFrigateEventListener
 com.frigate.layout.AutoDrawerLayout
 com.frigate.layout.AutoDrawerLayout: com.frigate.utils.AutoLayoutHelper mHelper
 com.frigate.layout.AutoDrawerLayout: android.content.Context mContext
@@ -30502,8 +30504,8 @@ com.frigate.layout.AutoDrawerLayout: AutoDrawerLayout(android.content.Context,an
 com.frigate.layout.AutoDrawerLayout: AutoDrawerLayout(android.content.Context,android.util.AttributeSet,int)
 com.frigate.layout.AutoDrawerLayout: void onFinishInflate()
 com.frigate.layout.AutoDrawerLayout: void onMeasure(int,int)
-com.frigate.layout.AutoDrawerLayout: com.frigate.event.AutoEventListener getEventListener()
-com.frigate.layout.AutoDrawerLayout: void setEventListener(com.frigate.event.FrigateEventListener)
+com.frigate.layout.AutoDrawerLayout: com.frigate.event.IAutoEvent getEventListener()
+com.frigate.layout.AutoDrawerLayout: void setEventListener(com.frigate.event.IFrigateEventListener)
 com.frigate.layout.AutoDrawerLayout$AutoLayoutEventListener
 com.frigate.layout.AutoLayoutInfo
 com.frigate.layout.AutoLayoutInfo: java.util.List autoAttrs
@@ -30529,8 +30531,8 @@ com.frigate.layout.FrigateFrameLayout: int strokeWidth
 com.frigate.layout.FrigateFrameLayout: int soildColor
 com.frigate.layout.FrigateFrameLayout: android.graphics.drawable.GradientDrawable$Orientation orientation
 com.frigate.layout.FrigateFrameLayout: com.frigate.layout.FrigateFrameLayout$AutoLayoutEventListener autoLayoutEventListener
-com.frigate.layout.FrigateFrameLayout: com.frigate.event.AutoEventListener getEventListener()
-com.frigate.layout.FrigateFrameLayout: void setEventListener(com.frigate.event.FrigateEventListener)
+com.frigate.layout.FrigateFrameLayout: com.frigate.event.IAutoEvent getEventListener()
+com.frigate.layout.FrigateFrameLayout: void setEventListener(com.frigate.event.IFrigateEventListener)
 com.frigate.layout.FrigateFrameLayout: FrigateFrameLayout(android.content.Context)
 com.frigate.layout.FrigateFrameLayout: FrigateFrameLayout(android.content.Context,android.util.AttributeSet)
 com.frigate.layout.FrigateFrameLayout: FrigateFrameLayout(android.content.Context,android.util.AttributeSet,int)
@@ -30578,8 +30580,8 @@ com.frigate.layout.FrigateLinearLayout: int strokeWidth
 com.frigate.layout.FrigateLinearLayout: int soildColor
 com.frigate.layout.FrigateLinearLayout: android.graphics.drawable.GradientDrawable$Orientation orientation
 com.frigate.layout.FrigateLinearLayout: com.frigate.layout.FrigateLinearLayout$AutoLayoutEventListener autoLayoutEventListener
-com.frigate.layout.FrigateLinearLayout: com.frigate.event.AutoEventListener getEventListener()
-com.frigate.layout.FrigateLinearLayout: void setEventListener(com.frigate.event.FrigateEventListener)
+com.frigate.layout.FrigateLinearLayout: com.frigate.event.IAutoEvent getEventListener()
+com.frigate.layout.FrigateLinearLayout: void setEventListener(com.frigate.event.IFrigateEventListener)
 com.frigate.layout.FrigateLinearLayout: FrigateLinearLayout(android.content.Context)
 com.frigate.layout.FrigateLinearLayout: FrigateLinearLayout(android.content.Context,android.util.AttributeSet)
 com.frigate.layout.FrigateLinearLayout: FrigateLinearLayout(android.content.Context,android.util.AttributeSet,int)
@@ -30618,8 +30620,8 @@ com.frigate.layout.FrigateRelativeLayout: int strokeWidth
 com.frigate.layout.FrigateRelativeLayout: int soildColor
 com.frigate.layout.FrigateRelativeLayout: android.graphics.drawable.GradientDrawable$Orientation orientation
 com.frigate.layout.FrigateRelativeLayout: com.frigate.layout.FrigateRelativeLayout$AutoLayoutEventListener autoLayoutEventListener
-com.frigate.layout.FrigateRelativeLayout: com.frigate.event.AutoEventListener getEventListener()
-com.frigate.layout.FrigateRelativeLayout: void setEventListener(com.frigate.event.FrigateEventListener)
+com.frigate.layout.FrigateRelativeLayout: com.frigate.event.IAutoEvent getEventListener()
+com.frigate.layout.FrigateRelativeLayout: void setEventListener(com.frigate.event.IFrigateEventListener)
 com.frigate.layout.FrigateRelativeLayout: FrigateRelativeLayout(android.content.Context)
 com.frigate.layout.FrigateRelativeLayout: FrigateRelativeLayout(android.content.Context,android.util.AttributeSet)
 com.frigate.layout.FrigateRelativeLayout: FrigateRelativeLayout(android.content.Context,android.util.AttributeSet,int)
@@ -30670,10 +30672,14 @@ com.frigate.parser.FrigateData: java.lang.String toString()
 com.frigate.parser.FrigateData: FrigateData()
 com.frigate.parser.FrigateData: FrigateData(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 com.frigate.parser.FrigateManager
+com.frigate.parser.FrigateManager: java.util.HashMap frigateEventListenerMap
 com.frigate.parser.FrigateManager: java.lang.String RAW_DIRECTORY
 com.frigate.parser.FrigateManager: FrigateManager()
+com.frigate.parser.FrigateManager: void registerFrigateEventListener(java.lang.String,com.frigate.event.IFrigateEvent)
+com.frigate.parser.FrigateManager: void dispatchFrigateEvent(java.lang.String,java.lang.String)
 com.frigate.parser.FrigateManager: java.util.ArrayList parseJson(android.content.Context,java.lang.String)
 com.frigate.parser.FrigateManager: boolean isExistJsonFile(android.content.Context,java.lang.String)
+com.frigate.parser.FrigateManager: void <clinit>()
 com.frigate.parser.JsonParser
 com.frigate.parser.JsonParser: java.lang.String TAG
 com.frigate.parser.JsonParser: JsonParser()
@@ -30716,13 +30722,13 @@ com.frigate.utils.AutoLayoutHelper$AutoLayoutParams
 com.frigate.utils.AutoLayoutHelper$AutoLayoutParams: com.frigate.layout.AutoLayoutInfo getAutoLayoutInfo()
 com.frigate.utils.AutoLayoutHelper$EventListener
 com.frigate.utils.AutoLayoutHelper$EventListener: android.view.ViewGroup mViewGroup
-com.frigate.utils.AutoLayoutHelper$EventListener: com.frigate.event.AutoEventListener mAutoEventListener
+com.frigate.utils.AutoLayoutHelper$EventListener: com.frigate.event.IAutoEvent mAutoEventListener
 com.frigate.utils.AutoLayoutHelper$EventListener: com.frigate.utils.AutoLayoutHelper this$0
 com.frigate.utils.AutoLayoutHelper$EventListener: AutoLayoutHelper$EventListener(com.frigate.utils.AutoLayoutHelper,android.view.ViewGroup)
 com.frigate.utils.AutoLayoutHelper$EventListener: void onClick(android.view.View)
 com.frigate.utils.AutoLayoutHelper$EventListener: void parseClickAction(com.frigate.parser.FrigateData)
 com.frigate.utils.AutoLayoutHelper$EventListener: boolean onLongClick(android.view.View)
-com.frigate.utils.AutoLayoutHelper$EventListener: com.frigate.event.AutoEventListener createEventListener()
+com.frigate.utils.AutoLayoutHelper$EventListener: com.frigate.event.IAutoEvent createEventListener()
 com.frigate.utils.AutoUtils
 com.frigate.utils.AutoUtils: AutoUtils()
 com.frigate.utils.AutoUtils: void auto(android.view.View)

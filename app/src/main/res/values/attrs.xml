@@ -35,6 +35,23 @@
         <attr name="image" />
         <attr name="text" format="string|reference" />
     </declare-styleable>
+    <declare-styleable name="AutoRotateXView">
+        <attr name="tag_front" format="string" />
+        <attr name="tag_back" format="string" />
+    </declare-styleable>
+    <declare-styleable name="AutoNativeAdView">
+        <attr name="ad_tag" format="string" />
+        <attr name="ad_switch" format="string" />
+        <attr name="ad_layout" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="AutoTuiguangView">
+        <attr name="types_of">
+            <enum name="main" value="0" />
+            <enum name="slide" value="1" />
+            <enum name="setting" value="2" />
+            <enum name="success" value="3" />
+        </attr>
+    </declare-styleable>
     <declare-styleable name="AutoImageText2View">
         <attr name="image" />
         <attr name="image_size" />

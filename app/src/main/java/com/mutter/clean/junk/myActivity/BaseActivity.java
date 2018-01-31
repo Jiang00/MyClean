@@ -190,7 +190,6 @@ public class BaseActivity extends FrigateLayoutActivity {
     }
 
     protected void findId() {
-
     }
 
     @Override

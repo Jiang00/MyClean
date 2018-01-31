@@ -16,6 +16,7 @@
 
 package com.frigate.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
@@ -44,7 +45,7 @@ import com.frigate.attr.PaddingTopAttr;
 import com.frigate.attr.TextSizeAttr;
 import com.frigate.attr.WidthAttr;
 import com.frigate.config.AutoLayoutConifg;
-import com.frigate.event.AutoEventListener;
+import com.frigate.event.IAutoEvent;
 import com.frigate.layout.AutoDrawerLayout;
 import com.frigate.layout.AutoLayoutInfo;
 import com.frigate.layout.FrigateFrameLayout;
@@ -54,7 +55,9 @@ import com.frigate.parser.ActionEvent;
 import com.frigate.parser.Command;
 import com.frigate.parser.FrigateData;
 import com.frigate.parser.FrigateManager;
+import com.frigate.parser.JsonParser;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 public class AutoLayoutHelper {
@@ -64,6 +67,7 @@ public class AutoLayoutHelper {
     private final ViewGroup mHost;
 
     private ArrayList<FrigateData> mFrigateDataList;
+    private String json;
 
     private static final int[] LL = new int[]{ //
             android.R.attr.textSize,
@@ -110,15 +114,18 @@ public class AutoLayoutHelper {
      */
     private static AutoLayoutConifg mAutoLayoutConifg;
 
-    public void obtainAttrs(AttributeSet attrs) {
+    public String obtainAttrs(AttributeSet attrs) {
         if (attrs != null) {
             Context context = mHost.getContext();
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.AutoLayout_Layout);
             String jsonName = ta.getString(R.styleable.AutoLayout_Layout_jsonfile);
             Log.e(TAG, "jsonName=" + jsonName);
-            mFrigateDataList = FrigateManager.parseJson(context, jsonName);
+            String json = FrigateManager.parseJson(context, jsonName);
+            mFrigateDataList = JsonParser.fromJson(json);
             ta.recycle();
+            return json;
         }
+        return null;
     }
 
     public AutoLayoutHelper(ViewGroup host) {
@@ -133,12 +140,16 @@ public class AutoLayoutHelper {
         if (mAutoLayoutConifg == null) {
             initAutoLayoutConfig(host);
         }
-        obtainAttrs(attributeSet);
+        json = obtainAttrs(attributeSet);
     }
 
     private void initAutoLayoutConfig(ViewGroup host) {
         mAutoLayoutConifg = AutoLayoutConifg.getInstance();
         mAutoLayoutConifg.init(host.getContext());
+    }
+
+    public String getJson() {
+        return json;
     }
 
     public void adjustChildren() {
@@ -280,7 +291,7 @@ public class AutoLayoutHelper {
 
         private ViewGroup mViewGroup;
 
-        private AutoEventListener mAutoEventListener;
+        private IAutoEvent mAutoEventListener;
 
         public EventListener(ViewGroup viewGroup) {
             mViewGroup = viewGroup;
@@ -293,11 +304,29 @@ public class AutoLayoutHelper {
             FrigateData frigateData = null;
             if (object != null && object instanceof FrigateData) {
                 frigateData = (FrigateData) object;
+
                 parseClickAction(frigateData);
             }
+
             mAutoEventListener = createEventListener();
             if (mAutoEventListener != null) {
                 mAutoEventListener.onClickEvent(v, mViewGroup, frigateData);
+                Context context = mViewGroup.getContext();
+                if (context instanceof Activity) {
+                    Activity activityContext = (Activity) context;
+                    Class activityClass = activityContext.getClass();
+                    try {
+                        Log.e("rqy", "frigateData.click=" + frigateData.click);
+                        activityClass.getDeclaredMethod(frigateData.click).invoke(activityContext);
+                        Log.e("rqy", "frigateData.click1=" + frigateData.click);
+                    } catch (NoSuchMethodException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
 
@@ -312,6 +341,7 @@ public class AutoLayoutHelper {
             } else if (type == Command.TYPE_GO) {
                 /*Toast.makeText(mHost.getContext(), "测试GO指令--" + frigateData, Toast.LENGTH_SHORT).show();*/
             }
+
         }
 
         @Override
@@ -330,14 +360,14 @@ public class AutoLayoutHelper {
             return false;
         }
 
-        private AutoEventListener createEventListener() {
+        private IAutoEvent createEventListener() {
             if (mAutoEventListener != null) {
                 return mAutoEventListener;
             }
             if (mViewGroup == null) {
                 return null;
             }
-            AutoEventListener autoEventListener = null;
+            IAutoEvent autoEventListener = null;
             if (mViewGroup instanceof FrigateFrameLayout) {
                 autoEventListener = ((FrigateFrameLayout) mViewGroup).getEventListener();
             } else if (mViewGroup instanceof FrigateRelativeLayout) {

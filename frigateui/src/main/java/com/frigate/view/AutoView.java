@@ -91,7 +91,7 @@ public class AutoView extends View {
             gd.setCornerRadius(roundRadius);
         } else {
             gd.setCornerRadii(new float[]{tl_roundRadius, tl_roundRadius, tr_roundRadius, tr_roundRadius
-                    , bl_roundRadius, bl_roundRadius, br_roundRadius, br_roundRadius});
+                    , br_roundRadius, br_roundRadius, bl_roundRadius, bl_roundRadius});
         }
         setBackgroundDrawable(gd);
     }

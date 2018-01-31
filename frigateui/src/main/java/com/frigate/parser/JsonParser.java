@@ -50,10 +50,22 @@ public class JsonParser {
             for (int i = 0; i < jsonArray.length(); i++) {
                 try {
                     JSONObject jo = jsonArray.getJSONObject(i);
-                    String tag = jo.getString(FrigateData.TAG);
-                    String type = jo.getString(FrigateData.TYPE);
-                    String click = jo.getString(FrigateData.CLICK);
-                    String long_click = jo.getString(FrigateData.LONG_CLICK);
+                    String tag = "";
+                    if (jo.has(FrigateData.TAG)) {
+                        tag = jo.getString(FrigateData.TAG);
+                    }
+                    String click = "";
+                    if (jo.has(FrigateData.CLICK)) {
+                        click = jo.getString(FrigateData.CLICK);
+                    }
+                    String type = "";
+                    if (jo.has(FrigateData.TYPE)) {
+                        type = jo.getString(FrigateData.TYPE);
+                    }
+                    String long_click = "";
+                    if (jo.has(FrigateData.LONG_CLICK)) {
+                        long_click = jo.getString(FrigateData.LONG_CLICK);
+                    }
                     frigateDataList.add(new FrigateData(tag, type, click, long_click));
                 } catch (Exception e) {
                     continue;

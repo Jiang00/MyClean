@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.frigate.utils.AutoUtils;
 import com.mutter.clean.junk.myActivity.Loading1Activity;
 import com.mutter.clean.junk.myActivity.LoadingActivity;
 import com.mutter.clean.junk.service.NotificationService;
@@ -71,22 +72,14 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         JUNK = idx++;
         RAM = idx++;
         BATTERY_COOLING = idx++;
-        if (PreData.getDB(context, Constant.DEEP_KAIGUAN, 1) != 0) {
-            POWER = idx++;
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, Constant.NOTIFI_KAIGUAN, 1) != 0) {
+        POWER = idx++;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             NOTIFI = idx++;
         }
-        if (PreData.getDB(context, Constant.GBOOST_KAIGUAN, 1) != 0) {
-            GBOOST = idx++;
-        }
+        GBOOST = idx++;
         MANAGER = idx++;
-        if (PreData.getDB(context, Constant.PICTURE_KAIGUAN, 1) != 0) {
-            PICTURE = idx++;
-        }
-        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) != 0) {
-            FILE = idx++;
-        }
+        PICTURE = idx++;
+        FILE = idx++;
         MESSAGE = idx++;
         SETTING = idx++;
         ROTATE = idx++;
@@ -112,6 +105,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             holder.side_divide = convertView
                     .findViewById(R.id.side_divide);
             convertView.setTag(holder);
+            AutoUtils.autoSize(convertView);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }

@@ -9,7 +9,7 @@ import com.frigate.parser.FrigateData;
  * Created by renqingyou on 2017/2/17.
  */
 
-public class FrigateEventListenImp implements FrigateEventListener {
+public class FrigateEventListenImp implements IFrigateEventListener {
     @Override
     public void onClickEvent(View v, ViewGroup viewGroup, FrigateData frigateData) {
 

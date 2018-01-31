@@ -4,14 +4,15 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.frigate.layout.FrigateFrameLayout;
 
 /**
  * Created by on 2017/3/2.
  */
-public class MainFrameLayout extends FrameLayout {
-    public MainFrameLayout(Context context, AttributeSet attrs) {
+public class MainLinearLayout extends LinearLayout {
+    public MainLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
