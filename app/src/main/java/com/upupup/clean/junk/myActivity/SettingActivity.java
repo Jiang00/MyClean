@@ -152,7 +152,7 @@ public class SettingActivity extends BaseActivity {
         } else {
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if (PreData.getDB(this, Constant.KEY_UNLOAD, false)) {
+        if (PreData.getDB(this, Constant.KEY_UNLOAD, true)) {
             setting_unload_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_unload_check.setImageResource(R.mipmap.side_check_normal);
@@ -259,7 +259,7 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_unload:
                     //chongdian
-                    if (PreData.getDB(SettingActivity.this, Constant.KEY_UNLOAD, false)) {
+                    if (PreData.getDB(SettingActivity.this, Constant.KEY_UNLOAD, true)) {
                         PreData.putDB(SettingActivity.this, Constant.KEY_UNLOAD, false);
                         setting_unload_check.setImageResource(R.mipmap.side_check_normal);
                         AdUtil.track("设置页面", "点击卸载残余开关", "关", 1);

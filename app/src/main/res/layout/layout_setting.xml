@@ -69,8 +69,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/setting_kaiguanllei"
                         android:textColor="@color/A3"
-                        android:textSize="@dimen/s12"
-                         />
+                        android:textSize="@dimen/s12" />
                 </LinearLayout>
 
                 <RelativeLayout
@@ -86,8 +85,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_battery"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <FrameLayout
                         android:layout_width="@dimen/d72"
@@ -115,8 +113,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_tongzhi"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <FrameLayout
                         android:layout_width="@dimen/d72"
@@ -145,8 +142,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_tongzhilan"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <FrameLayout
                         android:layout_width="@dimen/d72"
@@ -163,9 +159,9 @@
 
                 <RelativeLayout
                     android:id="@+id/setting_auto"
-                    android:visibility="gone"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
 
 
                     <com.upupup.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -175,8 +171,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_auto"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <FrameLayout
                         android:layout_width="@dimen/d72"
@@ -205,8 +200,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_float"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <FrameLayout
                         android:layout_width="@dimen/d72"
@@ -226,8 +220,7 @@
                     android:id="@+id/setting_unload"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone">
-
+                    android:visibility="visible">
 
                     <com.upupup.module.charge.saver.Aview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
@@ -236,14 +229,12 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_unload"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <ImageView
                         android:id="@+id/setting_unload_check"
                         android:layout_width="@dimen/d72"
                         android:layout_height="@dimen/d56"
-
                         android:layout_alignParentRight="true"
                         android:scaleType="center" />
                 </RelativeLayout>
@@ -268,15 +259,14 @@
                         android:gravity="center_vertical"
                         android:text="@string/setting_gongneng"
                         android:textColor="@color/A3"
-                        android:textSize="@dimen/s12"
-                         />
+                        android:textSize="@dimen/s12" />
                 </LinearLayout>
 
                 <RelativeLayout
                     android:id="@+id/setting_picture"
-                    android:visibility="gone"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d56">
+                    android:layout_height="@dimen/d56"
+                    android:visibility="gone">
 
                     <com.upupup.module.charge.saver.Aview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
@@ -285,8 +275,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/side_picture"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -298,10 +287,11 @@
                 </RelativeLayout>
 
 
-                <RelativeLayout android:visibility="gone"
+                <RelativeLayout
                     android:id="@+id/setting_hui"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d56">
+                    android:layout_height="@dimen/d56"
+                    android:visibility="gone">
 
 
                     <com.upupup.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -311,8 +301,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/picture_hui"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -325,10 +314,11 @@
                 </RelativeLayout>
 
 
-                <RelativeLayout android:visibility="gone"
+                <RelativeLayout
                     android:id="@+id/setting_gboost"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d56">
+                    android:layout_height="@dimen/d56"
+                    android:visibility="gone">
 
 
                     <com.upupup.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -338,8 +328,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/gboost_0"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -352,10 +341,11 @@
                 </RelativeLayout>
 
 
-                <RelativeLayout android:visibility="gone"
+                <RelativeLayout
                     android:id="@+id/setting_file"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d56">
+                    android:layout_height="@dimen/d56"
+                    android:visibility="gone">
 
 
                     <com.upupup.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -365,8 +355,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/side_file"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -379,10 +368,11 @@
                 </RelativeLayout>
 
 
-                <RelativeLayout android:visibility="gone"
+                <RelativeLayout
                     android:id="@+id/setting_notifi"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d56">
+                    android:layout_height="@dimen/d56"
+                    android:visibility="gone">
 
 
                     <com.upupup.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -392,8 +382,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/side_notifi"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -406,10 +395,11 @@
                 </RelativeLayout>
 
 
-                <RelativeLayout android:visibility="gone"
+                <RelativeLayout
                     android:id="@+id/setting_power"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d56">
+                    android:layout_height="@dimen/d56"
+                    android:visibility="gone">
 
 
                     <com.upupup.module.charge.saver.Aview.CustomerTypefaceTextView
@@ -419,8 +409,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/side_power"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -446,8 +435,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_white"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -472,8 +460,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_short"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -498,8 +485,7 @@
                         android:layout_marginLeft="@dimen/d16"
                         android:text="@string/setting_rotate"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/s14"
-                         />
+                        android:textSize="@dimen/s14" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
