@@ -16,7 +16,7 @@ public final class PreData {
 
     private static SharedPreferences getDB(Context context) {
         if (db == null && context != null)
-            db = context.getSharedPreferences(Constant.SHARED_FILE, 0);
+            db = context.getSharedPreferences(CleanConstant.SHARED_FILE, 0);
         return db;
     }
 

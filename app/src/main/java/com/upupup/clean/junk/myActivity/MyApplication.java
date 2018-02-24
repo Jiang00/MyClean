@@ -107,8 +107,8 @@ public class MyApplication extends Application {
             return;
         }
         am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-//        Log.e("auto", PreData.getDB(this, Constant.AUTO_KAIGUAN) + "==" + PreData.hasDB(this, Constant.AUTO_KAIGUAN));
-//        if (PreData.getDB(this, Constant.AUTO_KAIGUAN) || !PreData.hasDB(this, Constant.AUTO_KAIGUAN)) {
+//        Log.e("auto", PreData.getDB(this, CleanConstant.AUTO_KAIGUAN) + "==" + PreData.hasDB(this, CleanConstant.AUTO_KAIGUAN));
+//        if (PreData.getDB(this, CleanConstant.AUTO_KAIGUAN) || !PreData.hasDB(this, CleanConstant.AUTO_KAIGUAN)) {
 //            Intent intent = new Intent(this, AutoService.class);
 //            startService(intent);
 //        }

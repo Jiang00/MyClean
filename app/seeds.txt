@@ -38533,6 +38533,8 @@ com.upupup.clean.junk.R$color: int background_floating_material_dark
 com.upupup.clean.junk.R$color: int background_floating_material_light
 com.upupup.clean.junk.R$color: int background_material_dark
 com.upupup.clean.junk.R$color: int background_material_light
+com.upupup.clean.junk.R$color: int battery_excessive
+com.upupup.clean.junk.R$color: int battery_normal
 com.upupup.clean.junk.R$color: int black_10
 com.upupup.clean.junk.R$color: int black_100
 com.upupup.clean.junk.R$color: int black_20
@@ -39087,6 +39089,7 @@ com.upupup.clean.junk.R$drawable: int shape_auto_1
 com.upupup.clean.junk.R$drawable: int shape_auto_2
 com.upupup.clean.junk.R$drawable: int shape_auto_3
 com.upupup.clean.junk.R$drawable: int shape_auto_4
+com.upupup.clean.junk.R$drawable: int shape_button
 com.upupup.clean.junk.R$drawable: int shape_deep
 com.upupup.clean.junk.R$drawable: int shape_dian_apk
 com.upupup.clean.junk.R$drawable: int shape_dian_music
@@ -39167,7 +39170,9 @@ com.upupup.clean.junk.R$id: int battery
 com.upupup.clean.junk.R$id: int battery_ad_layout
 com.upupup.clean.junk.R$id: int battery_cancel
 com.upupup.clean.junk.R$id: int battery_charge_save
+com.upupup.clean.junk.R$id: int battery_fl
 com.upupup.clean.junk.R$id: int battery_icon
+com.upupup.clean.junk.R$id: int battery_iv
 com.upupup.clean.junk.R$id: int battery_level
 com.upupup.clean.junk.R$id: int battery_more
 com.upupup.clean.junk.R$id: int battery_now_battery_left
@@ -39220,6 +39225,14 @@ com.upupup.clean.junk.R$id: int design_menu_item_action_area
 com.upupup.clean.junk.R$id: int design_menu_item_action_area_stub
 com.upupup.clean.junk.R$id: int design_menu_item_text
 com.upupup.clean.junk.R$id: int design_navigation_view
+com.upupup.clean.junk.R$id: int detect_ad
+com.upupup.clean.junk.R$id: int detect_baifen
+com.upupup.clean.junk.R$id: int detect_cha
+com.upupup.clean.junk.R$id: int detect_clean
+com.upupup.clean.junk.R$id: int detect_ram
+com.upupup.clean.junk.R$id: int detect_shiyong
+com.upupup.clean.junk.R$id: int detect_time
+com.upupup.clean.junk.R$id: int detect_zhuangtai
 com.upupup.clean.junk.R$id: int dialog_a
 com.upupup.clean.junk.R$id: int dialog_icon
 com.upupup.clean.junk.R$id: int disableHome
@@ -39311,7 +39324,6 @@ com.upupup.clean.junk.R$id: int iv_4
 com.upupup.clean.junk.R$id: int iv_check
 com.upupup.clean.junk.R$id: int iv_gps
 com.upupup.clean.junk.R$id: int iv_ic
-com.upupup.clean.junk.R$id: int iv_icon
 com.upupup.clean.junk.R$id: int iv_jiantou
 com.upupup.clean.junk.R$id: int iv_le
 com.upupup.clean.junk.R$id: int iv_liuliang
@@ -39544,6 +39556,8 @@ com.upupup.clean.junk.R$id: int setting_auto
 com.upupup.clean.junk.R$id: int setting_auto_check
 com.upupup.clean.junk.R$id: int setting_battery
 com.upupup.clean.junk.R$id: int setting_battery_check
+com.upupup.clean.junk.R$id: int setting_detect
+com.upupup.clean.junk.R$id: int setting_detect_check
 com.upupup.clean.junk.R$id: int setting_file
 com.upupup.clean.junk.R$id: int setting_float
 com.upupup.clean.junk.R$id: int setting_float_check
@@ -39722,6 +39736,7 @@ com.upupup.clean.junk.R$layout: int dialog_picture
 com.upupup.clean.junk.R$layout: int dialog_power
 com.upupup.clean.junk.R$layout: int horizontal_list_item
 com.upupup.clean.junk.R$layout: int layout_auto
+com.upupup.clean.junk.R$layout: int layout_battery_r
 com.upupup.clean.junk.R$layout: int layout_cooling
 com.upupup.clean.junk.R$layout: int layout_cooling_fragment
 com.upupup.clean.junk.R$layout: int layout_file
@@ -39788,6 +39803,7 @@ com.upupup.clean.junk.R$layout: int layout_white_list_add
 com.upupup.clean.junk.R$layout: int layout_white_list_item
 com.upupup.clean.junk.R$layout: int main_ad
 com.upupup.clean.junk.R$layout: int native_ad
+com.upupup.clean.junk.R$layout: int native_ad1
 com.upupup.clean.junk.R$layout: int native_ad_2
 com.upupup.clean.junk.R$layout: int native_ad_3
 com.upupup.clean.junk.R$layout: int native_ad_4
@@ -39822,12 +39838,15 @@ com.upupup.clean.junk.R$mipmap: int backage
 com.upupup.clean.junk.R$mipmap: int battery_bubble
 com.upupup.clean.junk.R$mipmap: int battery_di
 com.upupup.clean.junk.R$mipmap: int battery_inner_icon
+com.upupup.clean.junk.R$mipmap: int battery_jiance
 com.upupup.clean.junk.R$mipmap: int battery_more
 com.upupup.clean.junk.R$mipmap: int bubble_bai
 com.upupup.clean.junk.R$mipmap: int cooling_0
 com.upupup.clean.junk.R$mipmap: int cooling_1
 com.upupup.clean.junk.R$mipmap: int cooling_2
 com.upupup.clean.junk.R$mipmap: int cpu_card
+com.upupup.clean.junk.R$mipmap: int detect_cha
+com.upupup.clean.junk.R$mipmap: int detect_ram
 com.upupup.clean.junk.R$mipmap: int edit_left_drawable
 com.upupup.clean.junk.R$mipmap: int eidt_cha
 com.upupup.clean.junk.R$mipmap: int float_gps
@@ -39954,11 +39973,14 @@ com.upupup.clean.junk.R$string: int battery_6
 com.upupup.clean.junk.R$string: int battery_7
 com.upupup.clean.junk.R$string: int battery_8
 com.upupup.clean.junk.R$string: int battery_9
+com.upupup.clean.junk.R$string: int battery_jiance
+com.upupup.clean.junk.R$string: int battery_size
 com.upupup.clean.junk.R$string: int bottom_sheet_behavior
 com.upupup.clean.junk.R$string: int character_counter_pattern
 com.upupup.clean.junk.R$string: int charge_screen_save
 com.upupup.clean.junk.R$string: int charging_on_left
 com.upupup.clean.junk.R$string: int charging_use_left
+com.upupup.clean.junk.R$string: int clean
 com.upupup.clean.junk.R$string: int clean_success
 com.upupup.clean.junk.R$string: int com_android_kpa_nativ_process_name
 com.upupup.clean.junk.R$string: int cooling_start
@@ -39969,6 +39991,14 @@ com.upupup.clean.junk.R$string: int delete_2
 com.upupup.clean.junk.R$string: int delete_message
 com.upupup.clean.junk.R$string: int delete_queren
 com.upupup.clean.junk.R$string: int delete_title
+com.upupup.clean.junk.R$string: int detect_1
+com.upupup.clean.junk.R$string: int detect_2
+com.upupup.clean.junk.R$string: int detect_3
+com.upupup.clean.junk.R$string: int detect_4
+com.upupup.clean.junk.R$string: int detect_5
+com.upupup.clean.junk.R$string: int detect_6
+com.upupup.clean.junk.R$string: int detect_7
+com.upupup.clean.junk.R$string: int detect_zhuangtai
 com.upupup.clean.junk.R$string: int edit_hint
 com.upupup.clean.junk.R$string: int exit_msg
 com.upupup.clean.junk.R$string: int exit_queren
@@ -41541,6 +41571,8 @@ com.upupup.module.charge.saver.Aview.IndicatorView: void setViewPager(android.su
 com.upupup.module.charge.saver.Aview.IndicatorView: void setIndicatorState(int)
 com.upupup.module.charge.saver.BatteryActivity
 com.upupup.module.charge.saver.BatteryActivity: BatteryActivity()
+com.upupup.module.charge.saver.DetectActivity
+com.upupup.module.charge.saver.DetectActivity: DetectActivity()
 com.upupup.module.charge.saver.R$anim: int abc_fade_in
 com.upupup.module.charge.saver.R$anim: int abc_fade_out
 com.upupup.module.charge.saver.R$anim: int abc_grow_fade_in_from_bottom
@@ -41986,6 +42018,8 @@ com.upupup.module.charge.saver.R$color: int background_floating_material_dark
 com.upupup.module.charge.saver.R$color: int background_floating_material_light
 com.upupup.module.charge.saver.R$color: int background_material_dark
 com.upupup.module.charge.saver.R$color: int background_material_light
+com.upupup.module.charge.saver.R$color: int battery_excessive
+com.upupup.module.charge.saver.R$color: int battery_normal
 com.upupup.module.charge.saver.R$color: int bright_foreground_disabled_material_dark
 com.upupup.module.charge.saver.R$color: int bright_foreground_disabled_material_light
 com.upupup.module.charge.saver.R$color: int bright_foreground_inverse_material_dark
@@ -42462,6 +42496,7 @@ com.upupup.module.charge.saver.R$drawable: int rectangle_back_ad
 com.upupup.module.charge.saver.R$drawable: int select_text_ad
 com.upupup.module.charge.saver.R$drawable: int setting_checkbox_selector
 com.upupup.module.charge.saver.R$drawable: int shape_ad
+com.upupup.module.charge.saver.R$drawable: int shape_button
 com.upupup.module.charge.saver.R$drawable: int text_ad_normal
 com.upupup.module.charge.saver.R$drawable: int text_ad_passed
 com.upupup.module.charge.saver.R$id: int BOTTOM_LEFT
@@ -42500,7 +42535,9 @@ com.upupup.module.charge.saver.R$id: int auto
 com.upupup.module.charge.saver.R$id: int basic
 com.upupup.module.charge.saver.R$id: int battery_ad_layout
 com.upupup.module.charge.saver.R$id: int battery_charge_save
+com.upupup.module.charge.saver.R$id: int battery_fl
 com.upupup.module.charge.saver.R$id: int battery_icon
+com.upupup.module.charge.saver.R$id: int battery_iv
 com.upupup.module.charge.saver.R$id: int battery_level
 com.upupup.module.charge.saver.R$id: int battery_more
 com.upupup.module.charge.saver.R$id: int battery_now_battery_left
@@ -42535,6 +42572,14 @@ com.upupup.module.charge.saver.R$id: int design_menu_item_action_area
 com.upupup.module.charge.saver.R$id: int design_menu_item_action_area_stub
 com.upupup.module.charge.saver.R$id: int design_menu_item_text
 com.upupup.module.charge.saver.R$id: int design_navigation_view
+com.upupup.module.charge.saver.R$id: int detect_ad
+com.upupup.module.charge.saver.R$id: int detect_baifen
+com.upupup.module.charge.saver.R$id: int detect_cha
+com.upupup.module.charge.saver.R$id: int detect_clean
+com.upupup.module.charge.saver.R$id: int detect_ram
+com.upupup.module.charge.saver.R$id: int detect_shiyong
+com.upupup.module.charge.saver.R$id: int detect_time
+com.upupup.module.charge.saver.R$id: int detect_zhuangtai
 com.upupup.module.charge.saver.R$id: int disableHome
 com.upupup.module.charge.saver.R$id: int edit_query
 com.upupup.module.charge.saver.R$id: int end
@@ -42700,7 +42745,9 @@ com.upupup.module.charge.saver.R$layout: int design_navigation_item_subheader
 com.upupup.module.charge.saver.R$layout: int design_navigation_menu
 com.upupup.module.charge.saver.R$layout: int design_navigation_menu_item
 com.upupup.module.charge.saver.R$layout: int design_text_input_password_icon
+com.upupup.module.charge.saver.R$layout: int layout_battery_r
 com.upupup.module.charge.saver.R$layout: int native_ad
+com.upupup.module.charge.saver.R$layout: int native_ad1
 com.upupup.module.charge.saver.R$layout: int native_ad_2
 com.upupup.module.charge.saver.R$layout: int notification_action
 com.upupup.module.charge.saver.R$layout: int notification_action_tombstone
@@ -42726,7 +42773,10 @@ com.upupup.module.charge.saver.R$mipmap: int backage
 com.upupup.module.charge.saver.R$mipmap: int battery_bubble
 com.upupup.module.charge.saver.R$mipmap: int battery_di
 com.upupup.module.charge.saver.R$mipmap: int battery_inner_icon
+com.upupup.module.charge.saver.R$mipmap: int battery_jiance
 com.upupup.module.charge.saver.R$mipmap: int battery_more
+com.upupup.module.charge.saver.R$mipmap: int detect_cha
+com.upupup.module.charge.saver.R$mipmap: int detect_ram
 com.upupup.module.charge.saver.R$mipmap: int side_check_normal
 com.upupup.module.charge.saver.R$mipmap: int side_check_passed
 com.upupup.module.charge.saver.R$mipmap: int unlock
@@ -42763,12 +42813,23 @@ com.upupup.module.charge.saver.R$string: int abc_shareactionprovider_share_with_
 com.upupup.module.charge.saver.R$string: int abc_toolbar_collapse_description
 com.upupup.module.charge.saver.R$string: int app_name
 com.upupup.module.charge.saver.R$string: int appbar_scrolling_view_behavior
+com.upupup.module.charge.saver.R$string: int battery_jiance
+com.upupup.module.charge.saver.R$string: int battery_size
 com.upupup.module.charge.saver.R$string: int bottom_sheet_behavior
 com.upupup.module.charge.saver.R$string: int character_counter_pattern
 com.upupup.module.charge.saver.R$string: int charge_screen_save
 com.upupup.module.charge.saver.R$string: int charging_on_left
 com.upupup.module.charge.saver.R$string: int charging_use_left
+com.upupup.module.charge.saver.R$string: int clean
 com.upupup.module.charge.saver.R$string: int cpu
+com.upupup.module.charge.saver.R$string: int detect_1
+com.upupup.module.charge.saver.R$string: int detect_2
+com.upupup.module.charge.saver.R$string: int detect_3
+com.upupup.module.charge.saver.R$string: int detect_4
+com.upupup.module.charge.saver.R$string: int detect_5
+com.upupup.module.charge.saver.R$string: int detect_6
+com.upupup.module.charge.saver.R$string: int detect_7
+com.upupup.module.charge.saver.R$string: int detect_zhuangtai
 com.upupup.module.charge.saver.R$string: int game
 com.upupup.module.charge.saver.R$string: int internet
 com.upupup.module.charge.saver.R$string: int password_toggle_content_description
@@ -42778,6 +42839,7 @@ com.upupup.module.charge.saver.R$string: int path_password_eye_mask_visible
 com.upupup.module.charge.saver.R$string: int path_password_strike_through
 com.upupup.module.charge.saver.R$string: int ram
 com.upupup.module.charge.saver.R$string: int search_menu_title
+com.upupup.module.charge.saver.R$string: int security_power_mode_des_description
 com.upupup.module.charge.saver.R$string: int status_bar_notification_info_overflow
 com.upupup.module.charge.saver.R$string: int talk
 com.upupup.module.charge.saver.R$string: int temp
@@ -43815,6 +43877,7 @@ com.upupup.module.charge.saver.R$styleable: int View_android_theme
 com.upupup.module.charge.saver.R$styleable: int View_paddingEnd
 com.upupup.module.charge.saver.R$styleable: int View_paddingStart
 com.upupup.module.charge.saver.R$styleable: int View_theme
+com.upupup.module.charge.saver.R$xml: int acc
 com.upupup.module.charge.saver.Util.WidgetContainer
 com.upupup.module.charge.saver.Util.WidgetContainer: void setWidgetListener(com.upupup.module.charge.saver.Util.WidgetContainer$IWidgetListener)
 com.upupup.module.charge.saver.receiver.StartReceiver

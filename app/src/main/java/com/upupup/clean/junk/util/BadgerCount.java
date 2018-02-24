@@ -9,34 +9,34 @@ import android.content.Context;
 public class BadgerCount {
     public static void setCount(Context context) {
         int badger = 0;
-//        if (PreData.getDB(context, Constant.HONG_RAM, true)) {
+//        if (PreData.getDB(context, CleanConstant.HONG_RAM, true)) {
 //            badger++;
 //        }
-//        if (PreData.getDB(context, Constant.HONG_JUNK, true)) {
+//        if (PreData.getDB(context, CleanConstant.HONG_JUNK, true)) {
 //            badger++;
 //        }
-//        if (PreData.getDB(context, Constant.HONG_COOLING, true)) {
+//        if (PreData.getDB(context, CleanConstant.HONG_COOLING, true)) {
 //            badger++;
 //        }
-//        if (PreData.getDB(context, Constant.HONG_MESSAGE, true)) {
+//        if (PreData.getDB(context, CleanConstant.HONG_MESSAGE, true)) {
 //            badger++;
 //        }
-//        if (PreData.getDB(context, Constant.HONG_NOTIFI, true)) {
+//        if (PreData.getDB(context, CleanConstant.HONG_NOTIFI, true)) {
 //            badger++;
 //        }
-//        if (PreData.getDB(context, Constant.HONG_FILE, true)) {
+//        if (PreData.getDB(context, CleanConstant.HONG_FILE, true)) {
 //            badger++;
 //        }
-//        if (PreData.getDB(context, Constant.HONG_MANAGER, true)) {
+//        if (PreData.getDB(context, CleanConstant.HONG_MANAGER, true)) {
 //            badger++;
 //        }
-//        if (PreData.getDB(context, Constant.HONG_DEEP, true)) {
+//        if (PreData.getDB(context, CleanConstant.HONG_DEEP, true)) {
 //            badger++;
 //        }
-//        if (PreData.getDB(context, Constant.HONG_PHOTO, true)) {
+//        if (PreData.getDB(context, CleanConstant.HONG_PHOTO, true)) {
 //            badger++;
 //        }
-//        if (PreData.getDB(context, Constant.HONG_GBOOST, true)) {
+//        if (PreData.getDB(context, CleanConstant.HONG_GBOOST, true)) {
 //            badger++;
 //        }
 //        ShortcutBadger.applyCount(context, badger);

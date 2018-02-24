@@ -5,20 +5,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.upupup.clean.core.CleanManager;
-import com.upupup.clean.util.LoadManager;
-import com.upupup.clean.util.PreData;
 import com.android.client.AndroidSdk;
+import com.upupup.clean.core.CleanManager;
+import com.upupup.clean.entity.JunkInfo;
 import com.upupup.clean.junk.R;
 import com.upupup.clean.junk.util.AdUtil;
 import com.upupup.clean.junk.util.Constant;
-import com.upupup.clean.util.Util;
 import com.upupup.clean.util.MemoryManager;
-import com.upupup.clean.entity.JunkInfo;
+import com.upupup.clean.util.PreData;
+import com.upupup.clean.util.Util;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -29,7 +27,6 @@ import java.util.ArrayList;
 
 public class UnloadActivity extends BaseActivity {
     TextView bt_quxiao, bt_queren;
-    ImageView iv_icon;
     TextView tv_size;
     LinearLayout ll_ad;
     TextView title;
@@ -37,7 +34,7 @@ public class UnloadActivity extends BaseActivity {
     String path;
 
     private View nativeView;
-    private String TAG_UNLOAD = "_unload";
+    private String TAG_UNLOAD = "clean_native";
     private ArrayList<JunkInfo> mngList;
     Handler myHandler;
 
@@ -47,7 +44,6 @@ public class UnloadActivity extends BaseActivity {
         setContentView(R.layout.layout_unload);
         myHandler = new Handler();
         MyApplication cleanApplication = (MyApplication) getApplication();
-        iv_icon = (ImageView) findViewById(R.id.iv_icon);
         tv_size = (TextView) findViewById(R.id.tv_size);
         title = (TextView) findViewById(R.id.title);
         bt_queren = (TextView) findViewById(R.id.bt_queren);
@@ -63,9 +59,7 @@ public class UnloadActivity extends BaseActivity {
         for (JunkInfo info : CleanManager.getInstance(this).getAppCaches()) {
             if (info.pkg.equals(packageName)) {
                 a = true;
-                iv_icon.setRotation(-10);
-                iv_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
-                title.setText(LoadManager.getInstance(this).getAppLabel(info.pkg));
+                title.setText(info.label);
                 size = info.size;
                 path = info.path;
                 tv_size.setText(Util.convertStorage(size, false));
@@ -81,10 +75,7 @@ public class UnloadActivity extends BaseActivity {
             for (JunkInfo info : mngList) {
                 if (info.pkg.equals(packageName)) {
                     a = true;
-                    iv_icon.setRotation(-10);
-
-                    iv_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
-                    title.setText(LoadManager.getInstance(this).getAppLabel(info.pkg));
+                    title.setText(info.label);
                     size = (long) ((Math.random() * 1024 * 100) + 1024 * 10);
                     path = MemoryManager.getPhoneInSDCardPath() + "/Android/data/" + packageName;
                     tv_size.setText(Util.convertStorage(size, false));

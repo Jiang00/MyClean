@@ -3,8 +3,8 @@ package com.upupup.clean.gboost;
 
 import android.app.Activity;
 
+import com.upupup.clean.util.CleanConstant;
 import com.upupup.clean.util.Util;
-import com.upupup.clean.util.Constant;
 import com.upupup.clean.util.LoadManager;
 import com.upupup.clean.util.PreData;
 
@@ -23,8 +23,8 @@ public class GameBooster {
 
         ArrayList<String> list = new ArrayList<>();
         try {
-            if (PreData.getDB(context, Constant.GBOOST_LUN, true)) {
-                PreData.putDB(context, Constant.GBOOST_LUN, false);
+            if (PreData.getDB(context, CleanConstant.GBOOST_LUN, true)) {
+                PreData.putDB(context, CleanConstant.GBOOST_LUN, false);
                 String data = Util.readFileFromAssets(context, "raw/gboost.json");
                 JSONObject jsonObject = new JSONObject(data);
                 JSONArray jsonArray = jsonObject.getJSONArray("data");

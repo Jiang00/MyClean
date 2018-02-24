@@ -21,6 +21,7 @@ import com.upupup.clean.junk.util.AdUtil;
 import com.upupup.clean.junk.util.Constant;
 import com.upupup.clean.junk.util.ShortCutUtils;
 import com.upupup.clean.junk.util.UtilGp;
+import com.upupup.clean.util.CleanConstant;
 import com.upupup.clean.util.PreData;
 import com.upupup.clean.util.Util;
 import com.upupup.module.charge.saver.Util.Constants;
@@ -43,6 +44,8 @@ public class SettingActivity extends BaseActivity {
 
     private String TAG_SETTING = "_setting";
     private Handler myHandler;
+    private RelativeLayout setting_detect;
+    private ImageView setting_detect_check;
 
     @Override
     protected void findId() {
@@ -50,6 +53,7 @@ public class SettingActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         setting_tongzhi = (RelativeLayout) findViewById(R.id.setting_tongzhi);
+        setting_detect = (RelativeLayout) findViewById(R.id.setting_detect);
         setting_tongzhilan = (RelativeLayout) findViewById(R.id.setting_tongzhilan);
         setting_auto = (RelativeLayout) findViewById(R.id.setting_auto);
         setting_float = (RelativeLayout) findViewById(R.id.setting_float);
@@ -73,6 +77,7 @@ public class SettingActivity extends BaseActivity {
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ad_fl = (FrameLayout) findViewById(R.id.ad_fl);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
+        setting_detect_check = (ImageView) findViewById(R.id.setting_detect_check);
     }
 
     @Override
@@ -112,6 +117,11 @@ public class SettingActivity extends BaseActivity {
         }
         if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) == 0) {
             setting_picture.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(SettingActivity.this, CleanConstant.DETECT_KAIGUAN, true)) {
+            setting_detect_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            setting_detect_check.setImageResource(R.mipmap.side_check_normal);
         }
     }
 
@@ -162,6 +172,7 @@ public class SettingActivity extends BaseActivity {
     private void initListener() {
         setting_tongzhi.setOnClickListener(onClickListener);
         setting_tongzhilan.setOnClickListener(onClickListener);
+        setting_detect.setOnClickListener(onClickListener);
         setting_auto.setOnClickListener(onClickListener);
         setting_float.setOnClickListener(onClickListener);
         setting_battery.setOnClickListener(onClickListener);
@@ -201,6 +212,17 @@ public class SettingActivity extends BaseActivity {
                     } else {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true);
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
+                    }
+                    break;
+                case R.id.setting_detect:
+                    if (PreData.getDB(SettingActivity.this, CleanConstant.DETECT_KAIGUAN, true)) {
+                        AdUtil.track("侧边栏", "点击关闭充电检测", "", 1);
+                        PreData.putDB(SettingActivity.this, CleanConstant.DETECT_KAIGUAN, false);
+                        setting_detect_check.setImageResource(R.mipmap.side_check_normal);
+                    } else {
+                        setting_detect_check.setImageResource(R.mipmap.side_check_passed);
+                        AdUtil.track("侧边栏", "点击开启充电检测", "", 1);
+                        PreData.putDB(SettingActivity.this, CleanConstant.DETECT_KAIGUAN, true);
                     }
                     break;
                 case R.id.setting_tongzhilan:
