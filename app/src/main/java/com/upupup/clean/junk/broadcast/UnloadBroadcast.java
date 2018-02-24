@@ -3,6 +3,7 @@ package com.upupup.clean.junk.broadcast;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.upupup.clean.db.CleanDBHelper;
 import com.upupup.clean.util.PreData;
@@ -24,7 +25,8 @@ public class UnloadBroadcast extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        if (!PreData.getDB(context, Constant.KEY_UNLOAD, false)) {
+        Log.e("chfq","==EasyUnloadResidualBroadcast==");
+        if (!PreData.getDB(context, Constant.KEY_UNLOAD, true)) {
             return;
         }
         if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {
