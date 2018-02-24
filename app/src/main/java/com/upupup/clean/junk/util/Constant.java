@@ -64,7 +64,7 @@ public class Constant {
 
     public static final String KEY_APPLOCK = "KEY_APPLOCK";//applock
 
-    public static final String KEY_UNLOAD = "KEY_UNLOAD";//unload
+    public static final String KEY_UNLOAD = "KEY_UNLOAD_";//unload
 
     public static final String KEY_NOTIFI = "KEY_NOTIFI";//notifi
 

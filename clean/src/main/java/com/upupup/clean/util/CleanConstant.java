@@ -3,7 +3,7 @@ package com.upupup.clean.util;
 /**
  */
 
-public class Constant {
+public class CleanConstant {
     public static final String SHARED_FILE = "SHARED_FILE";
 
     public static final String WHILT_LIST = "whilt_list";//白名单
@@ -61,6 +61,18 @@ public class Constant {
     public static final String KEY_NOTIFI = "KEY_NOTIFI";//notifi
 
     public static final String KEY_CLEAN_TIME = "KEY_CLEAN_TIME";//两天
+
+    public static final String DETECT_KAIGUAN = "DETECT_KAIGUAN";
+    public static final String CONNECTED_CHA = "CONNECTED_CHA";
+    public static final String CONNECTED_TIME = "CONNECTED_TIME";
+    public static final String CONNECTED_LEVEL = "CONNECTED_LEVEL";
+    public static final String CONNECTED_LEFT_TIME_LUN = "CONNECTED_LEFT_TIME_LUN";
+    public static final String CONNECTED_TIME_LUN = "CONNECTED_TIME_LUN";
+    public static final String CONNECTED_LEVEL_LUN = "CONNECTED_LEVEL_LUN";
+    public static final String CONNECTED_GUO = "CONNECTED_GUO";
+    public static final String CONNECTED_ZZ = "CONNECTED_ZZ";
+    //付费
+    public static final String BILL_YOUXIAO = "BILL_YOUXIAO";
 
 
     /**

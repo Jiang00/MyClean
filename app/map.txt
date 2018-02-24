@@ -36373,6 +36373,193 @@ com.github.mikephil.charting.utils.ViewPortHandler -> com.github.mikephil.charti
     729:729:boolean canZoomInMoreX() -> x
     738:738:boolean canZoomOutMoreY() -> y
     747:747:boolean canZoomInMoreY() -> z
+com.icleanering.kpa.DaemonApplication -> com.icleanering.kpa.DaemonApplication:
+    com.icleanering.kpa.IDaemonClient mDaemonClient -> a
+    boolean mHasAttachBaseContext -> b
+    com.icleanering.kpa.DaemonConfigurations getDaemonConfigurations() -> a
+    23:32:void <init>() -> <init>
+    36:43:void attachBaseContext(android.content.Context) -> attachBaseContext
+    51:51:void attachBaseContextByDaemon(android.content.Context) -> a
+com.icleanering.kpa.DaemonClient -> com.icleanering.kpa.a:
+    com.icleanering.kpa.DaemonConfigurations mConfigurations -> a
+    java.lang.String DAEMON_PERMITTING_SP_FILENAME -> b
+    java.lang.String DAEMON_PERMITTING_SP_KEY -> c
+    java.io.BufferedReader mBufferedReader -> d
+    24:38:void <init>(com.icleanering.kpa.DaemonConfigurations) -> <init>
+    30:34:void onAttachBaseContext(android.content.Context) -> a
+    57:79:void initDaemon(android.content.Context) -> b
+    99:104:java.lang.String getProcessName() -> a
+    112:120:void releaseIO() -> b
+    123:124:boolean isDaemonPermitting(android.content.Context) -> c
+com.icleanering.kpa.DaemonConfigurations -> com.icleanering.kpa.b:
+    com.icleanering.kpa.DaemonConfigurations$DaemonConfiguration PERSISTENT_CONFIG -> a
+    com.icleanering.kpa.DaemonConfigurations$DaemonConfiguration DAEMON_ASSISTANT_CONFIG -> b
+    com.icleanering.kpa.DaemonConfigurations$DaemonListener LISTENER -> c
+com.icleanering.kpa.DaemonConfigurations$DaemonConfiguration -> com.icleanering.kpa.b$a:
+    java.lang.String PROCESS_NAME -> a
+    java.lang.String SERVICE_NAME -> b
+    java.lang.String RECEIVER_NAME -> c
+com.icleanering.kpa.DaemonConfigurations$DaemonListener -> com.icleanering.kpa.b$b:
+    void onPersistentStart(android.content.Context) -> a
+    void onDaemonAssistantStart(android.content.Context) -> b
+    void onWatchDaemonDead() -> a
+com.icleanering.kpa.DaemonReceiver -> com.icleanering.kpa.DaemonReceiver:
+    12:12:void <init>() -> <init>
+    15:15:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.icleanering.kpa.DaemonService -> com.icleanering.kpa.DaemonService:
+    12:12:void <init>() -> <init>
+    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
+    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+com.icleanering.kpa.IDaemonClient -> com.icleanering.kpa.c:
+    void onAttachBaseContext(android.content.Context) -> a
+com.icleanering.kpa.IDaemonStrategy -> com.icleanering.kpa.d:
+    boolean onInitialization(android.content.Context) -> a
+    void onPersistentCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> a
+    void onDaemonAssistantCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> b
+com.icleanering.kpa.IDaemonStrategy$Fetcher -> com.icleanering.kpa.d$a:
+    com.icleanering.kpa.IDaemonStrategy mDaemonStrategy -> a
+    63:94:com.icleanering.kpa.IDaemonStrategy fetchStrategy() -> a
+com.icleanering.kpa.JobSchedulerService -> com.icleanering.kpa.JobSchedulerService:
+    8:8:void <init>() -> <init>
+    14:20:boolean onStartJob(android.app.job.JobParameters) -> onStartJob
+    25:26:boolean onStopJob(android.app.job.JobParameters) -> onStopJob
+com.icleanering.kpa.NativeDaemonBase -> com.icleanering.kpa.e:
+    android.content.Context mContext -> a
+    17:19:void <init>(android.content.Context) -> <init>
+com.icleanering.kpa.PersistReceiver -> com.icleanering.kpa.PersistReceiver:
+    12:12:void <init>() -> <init>
+    16:16:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.icleanering.kpa.PersistService -> com.icleanering.kpa.PersistService:
+    15:15:void <init>() -> <init>
+    19:21:void onCreate() -> onCreate
+    25:25:android.os.IBinder onBind(android.content.Intent) -> onBind
+    30:30:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    36:48:void onDestroy() -> onDestroy
+    52:59:void keepAlive() -> a
+com.icleanering.kpa.PersistService$1 -> com.icleanering.kpa.PersistService$1:
+    com.icleanering.kpa.PersistService this$0 -> a
+    36:36:void <init>(com.icleanering.kpa.PersistService) -> <init>
+    41:45:void run() -> run
+com.icleanering.kpa.WatchmenReceiver -> com.icleanering.kpa.WatchmenReceiver:
+    20:20:void <init>() -> <init>
+    25:29:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.icleanering.kpa.nativ.NativeDaemonAPIK -> com.icleanering.kpa.nativ.NativeDaemonAPIK:
+    15:16:void <init>(android.content.Context) -> <init>
+    void doDaemon(java.lang.String,java.lang.String,java.lang.String) -> doDaemon
+    20:24:void <clinit>() -> <clinit>
+com.icleanering.kpa.nativ.NativeDaemonAPIL -> com.icleanering.kpa.nativ.NativeDaemonAPIL:
+    15:16:void <init>(android.content.Context) -> <init>
+    void doDaemon(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> doDaemon
+    20:24:void <clinit>() -> <clinit>
+com.icleanering.kpa.strategy.DaemonStrategy21 -> com.icleanering.kpa.a.a:
+    android.app.AlarmManager mAlarmManager -> a
+    android.app.PendingIntent mPendingIntent -> b
+    com.icleanering.kpa.DaemonConfigurations mConfigs -> c
+    22:22:void <init>() -> <init>
+    35:35:boolean onInitialization(android.content.Context) -> a
+    40:65:void onPersistentCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> a
+    69:93:void onDaemonAssistantCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> b
+    107:118:void initAlarm(android.content.Context,java.lang.String) -> a
+    122:132:boolean initIndicators(android.content.Context) -> b
+    138:142:void createNewFile(java.io.File,java.lang.String) -> a
+com.icleanering.kpa.strategy.DaemonStrategy21$1 -> com.icleanering.kpa.a.a$1:
+    android.content.Context val$context -> a
+    com.icleanering.kpa.strategy.DaemonStrategy21 this$0 -> b
+    47:47:void <init>(com.icleanering.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
+    50:56:void run() -> run
+com.icleanering.kpa.strategy.DaemonStrategy21$2 -> com.icleanering.kpa.a.a$2:
+    android.content.Context val$context -> a
+    com.icleanering.kpa.strategy.DaemonStrategy21 this$0 -> b
+    76:76:void <init>(com.icleanering.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
+    78:84:void run() -> run
+com.icleanering.kpa.strategy.DaemonStrategy22 -> com.icleanering.kpa.a.b:
+    android.os.IBinder mRemote -> a
+    android.os.Parcel mServiceData -> b
+    com.icleanering.kpa.DaemonConfigurations mConfigs -> c
+    26:26:void <init>() -> <init>
+    39:39:boolean onInitialization(android.content.Context) -> a
+    44:64:void onPersistentCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> a
+    68:89:void onDaemonAssistantCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> b
+    108:126:void initAmsBinder() -> a
+    131:163:void initServiceParcel(android.content.Context,java.lang.String) -> a
+    168:176:boolean startServiceByAmsBinder() -> b
+    184:194:boolean initIndicatorFiles(android.content.Context) -> b
+    199:203:void createNewFile(java.io.File,java.lang.String) -> a
+com.icleanering.kpa.strategy.DaemonStrategy22$1 -> com.icleanering.kpa.a.b$1:
+    android.content.Context val$context -> a
+    com.icleanering.kpa.strategy.DaemonStrategy22 this$0 -> b
+    48:48:void <init>(com.icleanering.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
+    50:56:void run() -> run
+com.icleanering.kpa.strategy.DaemonStrategy22$2 -> com.icleanering.kpa.a.b$2:
+    android.content.Context val$context -> a
+    com.icleanering.kpa.strategy.DaemonStrategy22 this$0 -> b
+    72:72:void <init>(com.icleanering.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
+    74:80:void run() -> run
+com.icleanering.kpa.strategy.DaemonStrategy23 -> com.icleanering.kpa.a.c:
+    android.os.IBinder mRemote -> a
+    android.os.Parcel mBroadcastData -> b
+    com.icleanering.kpa.DaemonConfigurations mConfigs -> c
+    27:27:void <init>() -> <init>
+    40:40:boolean onInitialization(android.content.Context) -> a
+    45:72:void onPersistentCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> a
+    76:103:void onDaemonAssistantCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> b
+    120:138:void initAmsBinder() -> a
+    144:180:void initBroadcastParcel(android.content.Context,java.lang.String) -> a
+    186:194:boolean sendBroadcastByAmsBinder() -> b
+    200:210:boolean initIndicatorFiles(android.content.Context) -> b
+    215:219:void createNewFile(java.io.File,java.lang.String) -> a
+com.icleanering.kpa.strategy.DaemonStrategy23$1 -> com.icleanering.kpa.a.c$1:
+    android.content.Context val$context -> a
+    com.icleanering.kpa.strategy.DaemonStrategy23 this$0 -> b
+    49:49:void <init>(com.icleanering.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
+    51:57:void run() -> run
+com.icleanering.kpa.strategy.DaemonStrategy23$2 -> com.icleanering.kpa.a.c$2:
+    android.content.Context val$context -> a
+    com.icleanering.kpa.strategy.DaemonStrategy23 this$0 -> b
+    80:80:void <init>(com.icleanering.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
+    82:88:void run() -> run
+com.icleanering.kpa.strategy.DaemonStrategyUnder21 -> com.icleanering.kpa.a.d:
+    java.lang.String BINARY_DEST_DIR_NAME -> a
+    java.lang.String BINARY_FILE_NAME -> b
+    android.app.AlarmManager mAlarmManager -> c
+    android.app.PendingIntent mPendingIntent -> d
+    28:30:void <init>() -> <init>
+    37:37:boolean onInitialization(android.content.Context) -> a
+    42:58:void onPersistentCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> a
+    62:70:void onDaemonAssistantCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> b
+    81:92:void initAlarm(android.content.Context,java.lang.String) -> a
+    96:105:boolean installBinary(android.content.Context) -> b
+    110:118:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    123:126:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
+    129:142:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
+com.icleanering.kpa.strategy.DaemonStrategyUnder21$1 -> com.icleanering.kpa.a.d$1:
+    android.content.Context val$context -> a
+    com.icleanering.kpa.DaemonConfigurations val$configs -> b
+    com.icleanering.kpa.strategy.DaemonStrategyUnder21 this$0 -> c
+    43:43:void <init>(com.icleanering.kpa.strategy.DaemonStrategyUnder21,android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> <init>
+    45:50:void run() -> run
+com.icleanering.kpa.strategy.DaemonStrategyXiaomi -> com.icleanering.kpa.a.e:
+    java.lang.String BINARY_DEST_DIR_NAME -> a
+    java.lang.String BINARY_FILE_NAME -> b
+    android.os.IBinder mRemote -> c
+    android.os.Parcel mServiceData -> d
+    com.icleanering.kpa.DaemonConfigurations mConfigs -> e
+    30:32:void <init>() -> <init>
+    40:40:boolean onInitialization(android.content.Context) -> a
+    45:64:void onPersistentCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> a
+    69:77:void onDaemonAssistantCreate(android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> b
+    94:112:void initAmsBinder() -> a
+    118:150:void initServiceParcel(android.content.Context,java.lang.String) -> a
+    167:176:boolean installBinary(android.content.Context) -> b
+    181:189:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    194:197:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
+    200:213:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
+com.icleanering.kpa.strategy.DaemonStrategyXiaomi$1 -> com.icleanering.kpa.a.e$1:
+    android.content.Context val$context -> a
+    com.icleanering.kpa.DaemonConfigurations val$configs -> b
+    com.icleanering.kpa.strategy.DaemonStrategyXiaomi this$0 -> c
+    47:47:void <init>(com.icleanering.kpa.strategy.DaemonStrategyXiaomi,android.content.Context,com.icleanering.kpa.DaemonConfigurations) -> <init>
+    49:54:void run() -> run
 com.jaredrummler.android.processes.AndroidProcesses -> com.jaredrummler.android.processes.a:
     boolean loggingEnabled -> a
     128:131:void log(java.lang.String,java.lang.Object[]) -> a
@@ -36948,8 +37135,8 @@ com.mingle.widget.LinearLayout -> com.mingle.widget.LinearLayout:
     95:95:android.widget.LinearLayout$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
     100:104:void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
     108:108:android.widget.LinearLayout$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
-    27:27:android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
     27:27:android.view.ViewGroup$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
+    27:27:android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
 com.mingle.widget.LinearLayout$SLayoutParams -> com.mingle.widget.LinearLayout$a:
     com.mingle.skin.hepler.DefaultViewSkinHelper mSkinHelper -> b
     com.mingle.widget.LinearLayout this$0 -> a
@@ -36967,7 +37154,6 @@ com.mingle.widget.ListView -> com.mingle.widget.ListView:
     67:68:void draw(android.graphics.Canvas) -> draw
     73:74:void superDraw(android.graphics.Canvas) -> a
     85:86:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
-    22:22:void setAdapter(android.widget.Adapter) -> setAdapter
 com.mingle.widget.MultiAutoCompleteTextView -> com.mingle.widget.MultiAutoCompleteTextView:
     com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
     com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
@@ -38674,15 +38860,15 @@ com.upupup.clean.junk.R$styleable -> com.upupup.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5481:14968:void <clinit>() -> <clinit>
+    5519:15006:void <clinit>() -> <clinit>
 com.upupup.clean.junk.broadcast.UnloadBroadcast -> com.upupup.clean.junk.broadcast.UnloadBroadcast:
-    23:23:void <init>() -> <init>
-    27:55:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    24:24:void <init>() -> <init>
+    28:57:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.upupup.clean.junk.broadcast.UnloadBroadcast$1 -> com.upupup.clean.junk.broadcast.UnloadBroadcast$1:
     android.content.Context val$context -> a
     com.upupup.clean.junk.broadcast.UnloadBroadcast this$0 -> b
-    35:35:void <init>(com.upupup.clean.junk.broadcast.UnloadBroadcast,android.content.Context) -> <init>
-    38:52:void run() -> run
+    37:37:void <init>(com.upupup.clean.junk.broadcast.UnloadBroadcast,android.content.Context) -> <init>
+    40:54:void run() -> run
 com.upupup.clean.junk.entity.JunkInfo -> com.upupup.clean.junk.a.a:
     java.lang.String path -> a
     android.graphics.drawable.Drawable icon -> b
@@ -39720,10 +39906,10 @@ com.upupup.clean.junk.myActivity.MainActivity -> com.upupup.clean.junk.myActivit
     336:351:void onBackPressed() -> onBackPressed
     354:382:void showExitDialog() -> d
     385:399:android.view.View getNativeAdView(java.lang.String,int) -> a
-    404:417:void setDrawerLeftEdgeSize(android.support.v4.widget.DrawerLayout,float) -> a
-    421:447:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    451:458:void onDestroy() -> onDestroy
-    462:467:void onResume() -> onResume
+    404:418:void setDrawerLeftEdgeSize(android.support.v4.widget.DrawerLayout,float) -> a
+    422:448:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    452:459:void onDestroy() -> onDestroy
+    463:468:void onResume() -> onResume
     43:43:com.upupup.clean.junk.fragment.RamFragment access$000(com.upupup.clean.junk.myActivity.MainActivity) -> a
     43:43:com.upupup.clean.junk.fragment.JunkFragment access$100(com.upupup.clean.junk.myActivity.MainActivity) -> b
     43:43:com.upupup.clean.junk.fragment.CoolingFragment access$200(com.upupup.clean.junk.myActivity.MainActivity) -> c
@@ -39771,16 +39957,16 @@ com.upupup.clean.junk.myActivity.MainActivity$6 -> com.upupup.clean.junk.myActiv
     368:369:void onClick(android.view.View) -> onClick
 com.upupup.clean.junk.myActivity.MainActivity$7 -> com.upupup.clean.junk.myActivity.MainActivity$7:
     com.upupup.clean.junk.myActivity.MainActivity this$0 -> a
-    426:426:void <init>(com.upupup.clean.junk.myActivity.MainActivity) -> <init>
-    429:430:void run() -> run
+    427:427:void <init>(com.upupup.clean.junk.myActivity.MainActivity) -> <init>
+    430:431:void run() -> run
 com.upupup.clean.junk.myActivity.MainActivity$8 -> com.upupup.clean.junk.myActivity.MainActivity$8:
     com.upupup.clean.junk.myActivity.MainActivity this$0 -> a
-    433:433:void <init>(com.upupup.clean.junk.myActivity.MainActivity) -> <init>
-    436:437:void run() -> run
+    434:434:void <init>(com.upupup.clean.junk.myActivity.MainActivity) -> <init>
+    437:438:void run() -> run
 com.upupup.clean.junk.myActivity.MainActivity$9 -> com.upupup.clean.junk.myActivity.MainActivity$9:
     com.upupup.clean.junk.myActivity.MainActivity this$0 -> a
-    440:440:void <init>(com.upupup.clean.junk.myActivity.MainActivity) -> <init>
-    443:444:void run() -> run
+    441:441:void <init>(com.upupup.clean.junk.myActivity.MainActivity) -> <init>
+    444:445:void run() -> run
 com.upupup.clean.junk.myActivity.MainActivity$MyAdapter -> com.upupup.clean.junk.myActivity.MainActivity$a:
     com.upupup.clean.junk.myActivity.MainActivity this$0 -> a
     313:315:void <init>(com.upupup.clean.junk.myActivity.MainActivity,android.support.v4.app.FragmentManager) -> <init>
@@ -40364,26 +40550,29 @@ com.upupup.clean.junk.myActivity.SettingActivity -> com.upupup.clean.junk.myActi
     android.widget.ScrollView setting_scroll -> E
     java.lang.String TAG_SETTING -> H
     android.os.Handler myHandler -> I
+    android.widget.RelativeLayout setting_detect -> J
+    android.widget.ImageView setting_detect_check -> K
     android.view.View$OnClickListener onClickListener -> F
-    33:189:void <init>() -> <init>
-    49:76:void findId() -> a
-    80:116:void onCreate(android.os.Bundle) -> onCreate
-    120:121:void onResume() -> onResume
-    125:126:void onPause() -> onPause
-    130:160:void initData() -> b
-    163:178:void initListener() -> c
-    181:187:void addAd() -> d
-    332:342:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    346:350:void onDestroy() -> onDestroy
-    354:356:void onBackPressed() -> onBackPressed
+    34:200:void <init>() -> <init>
+    52:81:void findId() -> a
+    85:126:void onCreate(android.os.Bundle) -> onCreate
+    130:131:void onResume() -> onResume
+    135:136:void onPause() -> onPause
+    140:170:void initData() -> b
+    173:189:void initListener() -> c
+    192:198:void addAd() -> d
+    354:364:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    368:372:void onDestroy() -> onDestroy
+    376:378:void onBackPressed() -> onBackPressed
+    34:34:android.widget.ImageView access$000(com.upupup.clean.junk.myActivity.SettingActivity) -> a
 com.upupup.clean.junk.myActivity.SettingActivity$1 -> com.upupup.clean.junk.myActivity.SettingActivity$1:
     com.upupup.clean.junk.myActivity.SettingActivity this$0 -> a
-    89:89:void <init>(com.upupup.clean.junk.myActivity.SettingActivity) -> <init>
-    92:93:void run() -> run
+    94:94:void <init>(com.upupup.clean.junk.myActivity.SettingActivity) -> <init>
+    97:98:void run() -> run
 com.upupup.clean.junk.myActivity.SettingActivity$2 -> com.upupup.clean.junk.myActivity.SettingActivity$2:
     com.upupup.clean.junk.myActivity.SettingActivity this$0 -> a
-    189:189:void <init>(com.upupup.clean.junk.myActivity.SettingActivity) -> <init>
-    192:327:void onClick(android.view.View) -> onClick
+    200:200:void <init>(com.upupup.clean.junk.myActivity.SettingActivity) -> <init>
+    203:349:void onClick(android.view.View) -> onClick
 com.upupup.clean.junk.myActivity.ShowPermissionActivity -> com.upupup.clean.junk.myActivity.ShowPermissionActivity:
     14:14:void <init>() -> <init>
     17:30:void onCreate(android.os.Bundle) -> onCreate
@@ -40621,30 +40810,29 @@ com.upupup.clean.junk.myActivity.ThemeActivity$1 -> com.upupup.clean.junk.myActi
 com.upupup.clean.junk.myActivity.UnloadActivity -> com.upupup.clean.junk.myActivity.UnloadActivity:
     android.widget.TextView bt_quxiao -> f
     android.widget.TextView bt_queren -> g
-    android.widget.ImageView iv_icon -> h
-    android.widget.TextView tv_size -> i
-    android.widget.LinearLayout ll_ad -> j
-    android.widget.TextView title -> k
-    long size -> l
-    java.lang.String path -> m
-    android.view.View nativeView -> p
-    java.lang.String TAG_UNLOAD -> q
-    java.util.ArrayList mngList -> r
-    android.os.Handler myHandler -> n
-    android.view.View$OnClickListener BtClickListener -> o
-    30:104:void <init>() -> <init>
-    46:101:void onCreate(android.os.Bundle) -> onCreate
-    129:130:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    133:155:void deleteFiles(java.lang.String) -> b
-    158:172:void addAd() -> b
+    android.widget.TextView tv_size -> h
+    android.widget.LinearLayout ll_ad -> i
+    android.widget.TextView title -> j
+    long size -> k
+    java.lang.String path -> l
+    android.view.View nativeView -> o
+    java.lang.String TAG_UNLOAD -> p
+    java.util.ArrayList mngList -> q
+    android.os.Handler myHandler -> m
+    android.view.View$OnClickListener BtClickListener -> n
+    28:95:void <init>() -> <init>
+    43:92:void onCreate(android.os.Bundle) -> onCreate
+    120:121:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    124:146:void deleteFiles(java.lang.String) -> b
+    149:163:void addAd() -> b
 com.upupup.clean.junk.myActivity.UnloadActivity$1 -> com.upupup.clean.junk.myActivity.UnloadActivity$1:
     com.upupup.clean.junk.myActivity.UnloadActivity this$0 -> a
-    104:104:void <init>(com.upupup.clean.junk.myActivity.UnloadActivity) -> <init>
-    107:124:void onClick(android.view.View) -> onClick
+    95:95:void <init>(com.upupup.clean.junk.myActivity.UnloadActivity) -> <init>
+    98:115:void onClick(android.view.View) -> onClick
 com.upupup.clean.junk.myActivity.UnloadActivity$2 -> com.upupup.clean.junk.myActivity.UnloadActivity$2:
     com.upupup.clean.junk.myActivity.UnloadActivity this$0 -> a
-    159:159:void <init>(com.upupup.clean.junk.myActivity.UnloadActivity) -> <init>
-    162:163:void run() -> run
+    150:150:void <init>(com.upupup.clean.junk.myActivity.UnloadActivity) -> <init>
+    153:154:void run() -> run
 com.upupup.clean.junk.myActivity.UserAppActivity -> com.upupup.clean.junk.myActivity.UserAppActivity:
     android.widget.LinearLayout ll_ad_size -> f
     android.widget.LinearLayout ll_ad_time -> g
@@ -42572,6 +42760,33 @@ com.upupup.module.charge.saver.BatteryActivity$2 -> com.upupup.module.charge.sav
     com.upupup.module.charge.saver.BatteryActivity this$0 -> a
     122:122:void <init>(com.upupup.module.charge.saver.BatteryActivity) -> <init>
     125:138:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.upupup.module.charge.saver.DetectActivity -> com.upupup.module.charge.saver.DetectActivity:
+    android.widget.ImageView detect_cha -> a
+    android.widget.TextView detect_zhuangtai -> b
+    android.widget.TextView detect_time -> c
+    android.widget.TextView detect_baifen -> d
+    android.widget.TextView detect_shiyong -> e
+    android.widget.TextView detect_ram -> f
+    android.widget.Button detect_clean -> g
+    android.widget.LinearLayout detect_ad -> h
+    java.lang.String TAG_DETECT -> i
+    android.widget.ImageView icon -> j
+    android.widget.ImageView battery_iv -> k
+    android.widget.FrameLayout battery_fl -> l
+    35:41:void <init>() -> <init>
+    47:58:void findId() -> b
+    62:128:void onCreate(android.os.Bundle) -> onCreate
+    132:139:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    172:185:java.lang.String millTransFate(long) -> a
+    190:203:void hideBottomUIMenu() -> a
+com.upupup.module.charge.saver.DetectActivity$1 -> com.upupup.module.charge.saver.DetectActivity$1:
+    com.upupup.module.charge.saver.DetectActivity this$0 -> a
+    74:74:void <init>(com.upupup.module.charge.saver.DetectActivity) -> <init>
+    77:79:void onClick(android.view.View) -> onClick
+com.upupup.module.charge.saver.DetectActivity$2 -> com.upupup.module.charge.saver.DetectActivity$2:
+    com.upupup.module.charge.saver.DetectActivity this$0 -> a
+    81:81:void <init>(com.upupup.module.charge.saver.DetectActivity) -> <init>
+    84:85:void onClick(android.view.View) -> onClick
 com.upupup.module.charge.saver.R -> com.upupup.module.charge.saver.a:
 com.upupup.module.charge.saver.R$anim -> com.upupup.module.charge.saver.a$a:
     int abc_fade_in -> abc_fade_in
@@ -42591,7 +42806,109 @@ com.upupup.module.charge.saver.R$anim -> com.upupup.module.charge.saver.a$a:
     int design_fab_out -> design_fab_out
     int design_snackbar_in -> design_snackbar_in
     int design_snackbar_out -> design_snackbar_out
-com.upupup.module.charge.saver.R$dimen -> com.upupup.module.charge.saver.a$b:
+com.upupup.module.charge.saver.R$color -> com.upupup.module.charge.saver.a$b:
+    int abc_background_cache_hint_selector_material_dark -> abc_background_cache_hint_selector_material_dark
+    int abc_background_cache_hint_selector_material_light -> abc_background_cache_hint_selector_material_light
+    int abc_btn_colored_borderless_text_material -> abc_btn_colored_borderless_text_material
+    int abc_btn_colored_text_material -> abc_btn_colored_text_material
+    int abc_color_highlight_material -> abc_color_highlight_material
+    int abc_hint_foreground_material_dark -> abc_hint_foreground_material_dark
+    int abc_hint_foreground_material_light -> abc_hint_foreground_material_light
+    int abc_input_method_navigation_guard -> abc_input_method_navigation_guard
+    int abc_primary_text_disable_only_material_dark -> abc_primary_text_disable_only_material_dark
+    int abc_primary_text_disable_only_material_light -> abc_primary_text_disable_only_material_light
+    int abc_primary_text_material_dark -> abc_primary_text_material_dark
+    int abc_primary_text_material_light -> abc_primary_text_material_light
+    int abc_search_url_text -> abc_search_url_text
+    int abc_search_url_text_normal -> abc_search_url_text_normal
+    int abc_search_url_text_pressed -> abc_search_url_text_pressed
+    int abc_search_url_text_selected -> abc_search_url_text_selected
+    int abc_secondary_text_material_dark -> abc_secondary_text_material_dark
+    int abc_secondary_text_material_light -> abc_secondary_text_material_light
+    int abc_tint_btn_checkable -> abc_tint_btn_checkable
+    int abc_tint_default -> abc_tint_default
+    int abc_tint_edittext -> abc_tint_edittext
+    int abc_tint_seek_thumb -> abc_tint_seek_thumb
+    int abc_tint_spinner -> abc_tint_spinner
+    int abc_tint_switch_thumb -> abc_tint_switch_thumb
+    int abc_tint_switch_track -> abc_tint_switch_track
+    int accent_material_dark -> accent_material_dark
+    int accent_material_light -> accent_material_light
+    int background_floating_material_dark -> background_floating_material_dark
+    int background_floating_material_light -> background_floating_material_light
+    int background_material_dark -> background_material_dark
+    int background_material_light -> background_material_light
+    int battery_excessive -> battery_excessive
+    int battery_normal -> battery_normal
+    int bright_foreground_disabled_material_dark -> bright_foreground_disabled_material_dark
+    int bright_foreground_disabled_material_light -> bright_foreground_disabled_material_light
+    int bright_foreground_inverse_material_dark -> bright_foreground_inverse_material_dark
+    int bright_foreground_inverse_material_light -> bright_foreground_inverse_material_light
+    int bright_foreground_material_dark -> bright_foreground_material_dark
+    int bright_foreground_material_light -> bright_foreground_material_light
+    int button_material_dark -> button_material_dark
+    int button_material_light -> button_material_light
+    int design_bottom_navigation_shadow_color -> design_bottom_navigation_shadow_color
+    int design_error -> design_error
+    int design_fab_shadow_end_color -> design_fab_shadow_end_color
+    int design_fab_shadow_mid_color -> design_fab_shadow_mid_color
+    int design_fab_shadow_start_color -> design_fab_shadow_start_color
+    int design_fab_stroke_end_inner_color -> design_fab_stroke_end_inner_color
+    int design_fab_stroke_end_outer_color -> design_fab_stroke_end_outer_color
+    int design_fab_stroke_top_inner_color -> design_fab_stroke_top_inner_color
+    int design_fab_stroke_top_outer_color -> design_fab_stroke_top_outer_color
+    int design_snackbar_background_color -> design_snackbar_background_color
+    int design_textinput_error_color_dark -> design_textinput_error_color_dark
+    int design_textinput_error_color_light -> design_textinput_error_color_light
+    int design_tint_password_toggle -> design_tint_password_toggle
+    int dim_foreground_disabled_material_dark -> dim_foreground_disabled_material_dark
+    int dim_foreground_disabled_material_light -> dim_foreground_disabled_material_light
+    int dim_foreground_material_dark -> dim_foreground_material_dark
+    int dim_foreground_material_light -> dim_foreground_material_light
+    int foreground_material_dark -> foreground_material_dark
+    int foreground_material_light -> foreground_material_light
+    int highlighted_text_material_dark -> highlighted_text_material_dark
+    int highlighted_text_material_light -> highlighted_text_material_light
+    int list_progress_green -> list_progress_green
+    int main_back -> main_back
+    int material_blue_grey_800 -> material_blue_grey_800
+    int material_blue_grey_900 -> material_blue_grey_900
+    int material_blue_grey_950 -> material_blue_grey_950
+    int material_deep_teal_200 -> material_deep_teal_200
+    int material_deep_teal_500 -> material_deep_teal_500
+    int material_grey_100 -> material_grey_100
+    int material_grey_300 -> material_grey_300
+    int material_grey_50 -> material_grey_50
+    int material_grey_600 -> material_grey_600
+    int material_grey_800 -> material_grey_800
+    int material_grey_850 -> material_grey_850
+    int material_grey_900 -> material_grey_900
+    int notification_action_color_filter -> notification_action_color_filter
+    int notification_icon_bg_color -> notification_icon_bg_color
+    int notification_material_background_media_default_color -> notification_material_background_media_default_color
+    int primary_dark_material_dark -> primary_dark_material_dark
+    int primary_dark_material_light -> primary_dark_material_light
+    int primary_material_dark -> primary_material_dark
+    int primary_material_light -> primary_material_light
+    int primary_text_default_material_dark -> primary_text_default_material_dark
+    int primary_text_default_material_light -> primary_text_default_material_light
+    int primary_text_disabled_material_dark -> primary_text_disabled_material_dark
+    int primary_text_disabled_material_light -> primary_text_disabled_material_light
+    int rect -> rect
+    int ripple_material_dark -> ripple_material_dark
+    int ripple_material_light -> ripple_material_light
+    int secondary_text_default_material_dark -> secondary_text_default_material_dark
+    int secondary_text_default_material_light -> secondary_text_default_material_light
+    int secondary_text_disabled_material_dark -> secondary_text_disabled_material_dark
+    int secondary_text_disabled_material_light -> secondary_text_disabled_material_light
+    int switch_thumb_disabled_material_dark -> switch_thumb_disabled_material_dark
+    int switch_thumb_disabled_material_light -> switch_thumb_disabled_material_light
+    int switch_thumb_material_dark -> switch_thumb_material_dark
+    int switch_thumb_material_light -> switch_thumb_material_light
+    int switch_thumb_normal_material_dark -> switch_thumb_normal_material_dark
+    int switch_thumb_normal_material_light -> switch_thumb_normal_material_light
+    int white_100 -> white_100
+com.upupup.module.charge.saver.R$dimen -> com.upupup.module.charge.saver.a$c:
     int abc_action_bar_content_inset_material -> abc_action_bar_content_inset_material
     int abc_action_bar_content_inset_with_nav -> abc_action_bar_content_inset_with_nav
     int abc_action_bar_default_height_material -> abc_action_bar_default_height_material
@@ -42885,7 +43202,7 @@ com.upupup.module.charge.saver.R$dimen -> com.upupup.module.charge.saver.a$b:
     int txt_title -> txt_title
     int txt_top_4 -> txt_top_4
     int week_p -> week_p
-com.upupup.module.charge.saver.R$id -> com.upupup.module.charge.saver.a$c:
+com.upupup.module.charge.saver.R$id -> com.upupup.module.charge.saver.a$d:
     int BOTTOM_LEFT -> BOTTOM_LEFT
     int BOTTOM_RIGHT -> BOTTOM_RIGHT
     int TOP_LEFT -> TOP_LEFT
@@ -42922,7 +43239,9 @@ com.upupup.module.charge.saver.R$id -> com.upupup.module.charge.saver.a$c:
     int basic -> basic
     int battery_ad_layout -> battery_ad_layout
     int battery_charge_save -> battery_charge_save
+    int battery_fl -> battery_fl
     int battery_icon -> battery_icon
+    int battery_iv -> battery_iv
     int battery_level -> battery_level
     int battery_more -> battery_more
     int battery_now_battery_left -> battery_now_battery_left
@@ -42957,6 +43276,14 @@ com.upupup.module.charge.saver.R$id -> com.upupup.module.charge.saver.a$c:
     int design_menu_item_action_area_stub -> design_menu_item_action_area_stub
     int design_menu_item_text -> design_menu_item_text
     int design_navigation_view -> design_navigation_view
+    int detect_ad -> detect_ad
+    int detect_baifen -> detect_baifen
+    int detect_cha -> detect_cha
+    int detect_clean -> detect_clean
+    int detect_ram -> detect_ram
+    int detect_shiyong -> detect_shiyong
+    int detect_time -> detect_time
+    int detect_zhuangtai -> detect_zhuangtai
     int disableHome -> disableHome
     int edit_query -> edit_query
     int end -> end
@@ -43071,7 +43398,7 @@ com.upupup.module.charge.saver.R$id -> com.upupup.module.charge.saver.a$c:
     int withText -> withText
     int wrap -> wrap
     int wrap_content -> wrap_content
-com.upupup.module.charge.saver.R$layout -> com.upupup.module.charge.saver.a$d:
+com.upupup.module.charge.saver.R$layout -> com.upupup.module.charge.saver.a$e:
     int abc_action_bar_title_item -> abc_action_bar_title_item
     int abc_action_bar_up_container -> abc_action_bar_up_container
     int abc_action_bar_view_list_nav_layout -> abc_action_bar_view_list_nav_layout
@@ -43114,7 +43441,9 @@ com.upupup.module.charge.saver.R$layout -> com.upupup.module.charge.saver.a$d:
     int design_navigation_menu -> design_navigation_menu
     int design_navigation_menu_item -> design_navigation_menu_item
     int design_text_input_password_icon -> design_text_input_password_icon
+    int layout_battery_r -> layout_battery_r
     int native_ad -> native_ad
+    int native_ad1 -> native_ad1
     int native_ad_2 -> native_ad_2
     int notification_action -> notification_action
     int notification_action_tombstone -> notification_action_tombstone
@@ -43135,17 +43464,20 @@ com.upupup.module.charge.saver.R$layout -> com.upupup.module.charge.saver.a$d:
     int select_dialog_multichoice_material -> select_dialog_multichoice_material
     int select_dialog_singlechoice_material -> select_dialog_singlechoice_material
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
-com.upupup.module.charge.saver.R$mipmap -> com.upupup.module.charge.saver.a$e:
+com.upupup.module.charge.saver.R$mipmap -> com.upupup.module.charge.saver.a$f:
     int ad_right -> ad_right
     int backage -> backage
     int battery_bubble -> battery_bubble
     int battery_di -> battery_di
     int battery_inner_icon -> battery_inner_icon
+    int battery_jiance -> battery_jiance
     int battery_more -> battery_more
+    int detect_cha -> detect_cha
+    int detect_ram -> detect_ram
     int side_check_normal -> side_check_normal
     int side_check_passed -> side_check_passed
     int unlock -> unlock
-com.upupup.module.charge.saver.R$string -> com.upupup.module.charge.saver.a$f:
+com.upupup.module.charge.saver.R$string -> com.upupup.module.charge.saver.a$g:
     int abc_action_bar_home_description -> abc_action_bar_home_description
     int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
     int abc_action_bar_home_subtitle_description_format -> abc_action_bar_home_subtitle_description_format
@@ -43179,12 +43511,23 @@ com.upupup.module.charge.saver.R$string -> com.upupup.module.charge.saver.a$f:
     int abc_toolbar_collapse_description -> abc_toolbar_collapse_description
     int app_name -> app_name
     int appbar_scrolling_view_behavior -> appbar_scrolling_view_behavior
+    int battery_jiance -> battery_jiance
+    int battery_size -> battery_size
     int bottom_sheet_behavior -> bottom_sheet_behavior
     int character_counter_pattern -> character_counter_pattern
     int charge_screen_save -> charge_screen_save
     int charging_on_left -> charging_on_left
     int charging_use_left -> charging_use_left
+    int clean -> clean
     int cpu -> cpu
+    int detect_1 -> detect_1
+    int detect_2 -> detect_2
+    int detect_3 -> detect_3
+    int detect_4 -> detect_4
+    int detect_5 -> detect_5
+    int detect_6 -> detect_6
+    int detect_7 -> detect_7
+    int detect_zhuangtai -> detect_zhuangtai
     int game -> game
     int internet -> internet
     int password_toggle_content_description -> password_toggle_content_description
@@ -43194,11 +43537,12 @@ com.upupup.module.charge.saver.R$string -> com.upupup.module.charge.saver.a$f:
     int path_password_strike_through -> path_password_strike_through
     int ram -> ram
     int search_menu_title -> search_menu_title
+    int security_power_mode_des_description -> security_power_mode_des_description
     int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
     int talk -> talk
     int temp -> temp
     int unlock -> unlock
-com.upupup.module.charge.saver.R$styleable -> com.upupup.module.charge.saver.a$g:
+com.upupup.module.charge.saver.R$styleable -> com.upupup.module.charge.saver.a$h:
     int[] ActionBar -> ActionBar
     int[] ActionBarLayout -> ActionBarLayout
     int ActionBarLayout_android_layout_gravity -> ActionBarLayout_android_layout_gravity
@@ -43851,7 +44195,7 @@ com.upupup.module.charge.saver.R$styleable -> com.upupup.module.charge.saver.a$g
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1659:2302:void <clinit>() -> <clinit>
+    1689:2332:void <clinit>() -> <clinit>
 com.upupup.module.charge.saver.Util.ADRequest -> com.upupup.module.charge.saver.Util.a:
     13:13:void <init>() -> <init>
     16:17:void showFullAD() -> a
@@ -43863,7 +44207,18 @@ com.upupup.module.charge.saver.Util.ADRequest$1 -> com.upupup.module.charge.save
     27:30:void onNativeAdClicked(com.android.client.ClientNativeAd) -> onNativeAdClicked
 com.upupup.module.charge.saver.Util.ADRequest$ICustomNativeADClicked -> com.upupup.module.charge.saver.Util.a$a:
     void onNativeADClicked(com.android.client.ClientNativeAd) -> a
-com.upupup.module.charge.saver.Util.Utils -> com.upupup.module.charge.saver.Util.b:
+com.upupup.module.charge.saver.Util.GetTopPackage -> com.upupup.module.charge.saver.Util.b:
+    android.content.Context context -> a
+    java.lang.reflect.Field processState -> b
+    java.util.HashMap excludes -> c
+    25:29:void <init>(android.content.Context) -> <init>
+    32:70:java.lang.String execute() -> a
+    74:90:java.lang.String getActivePackages() -> c
+    95:107:java.lang.String getTopPackage() -> d
+    133:200:java.lang.String getForegroundApp() -> b
+    204:214:java.lang.String read(java.lang.String) -> a
+    124:130:void <clinit>() -> <clinit>
+com.upupup.module.charge.saver.Util.Utils -> com.upupup.module.charge.saver.Util.c:
     23:36:void writeData(android.content.Context,java.lang.String,java.lang.Object) -> a
     39:46:java.lang.Object readData(android.content.Context,java.lang.String,java.lang.Object) -> b
 com.upupup.module.charge.saver.Util.WidgetContainer -> com.upupup.module.charge.saver.Util.WidgetContainer:
@@ -43905,13 +44260,14 @@ com.upupup.module.charge.saver.entry.BatteryEntry -> com.upupup.module.charge.sa
     39:51:void update(android.content.Context) -> a
     54:54:int getLevel() -> a
     58:58:int getLeftTime() -> b
+    62:62:int getLeftUseTime() -> c
     66:66:int extractHours(int) -> a
     70:70:int extractMinutes(int) -> b
     75:83:void update(android.content.Intent) -> a
     87:87:java.lang.String toString() -> toString
-    92:107:void evaluate() -> c
-    110:110:boolean isCharging() -> d
-    114:125:int getElectricCurrent() -> e
+    92:107:void evaluate() -> d
+    110:110:boolean isCharging() -> e
+    114:125:int getElectricCurrent() -> f
 com.upupup.module.charge.saver.entry.LevelStep -> com.upupup.module.charge.saver.a.b:
     int currentLevel -> a
     int lastLevelUpdateTime -> b
@@ -43922,44 +44278,57 @@ com.upupup.module.charge.saver.receiver.StartReceiver -> com.upupup.module.charg
     14:14:void <init>() -> <init>
     17:18:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.upupup.module.charge.saver.service.BatteryService -> com.upupup.module.charge.saver.service.BatteryService:
-    boolean b -> d
-    com.upupup.module.charge.saver.Util.WidgetContainer container -> e
-    com.upupup.module.charge.saver.Aview.BatteryView batteryView -> f
+    boolean b -> e
+    com.upupup.module.charge.saver.Util.WidgetContainer container -> f
+    com.upupup.module.charge.saver.Aview.BatteryView batteryView -> g
     com.upupup.module.charge.saver.entry.BatteryEntry entry -> a
-    android.os.Handler mHandler -> g
-    java.lang.Runnable runnable -> h
-    java.lang.Runnable batteryChangeRunnable -> i
+    android.os.Handler mHandler -> h
+    java.lang.Runnable runnable -> i
+    java.lang.Runnable batteryChangeRunnable -> j
+    com.upupup.module.charge.saver.Util.GetTopPackage topPackage -> k
+    java.util.List lunchPackage -> l
+    org.json.JSONObject jsonObject -> m
     android.content.BroadcastReceiver mReceiver -> b
-    com.upupup.module.charge.saver.Aview.BatteryView$UnlockListener horUnlock -> c
-    30:188:void <init>() -> <init>
-    66:70:boolean isScreenOn() -> a
-    93:97:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    101:107:void batteryChange(android.content.Intent) -> a
-    112:112:android.os.IBinder onBind(android.content.Intent) -> onBind
-    117:125:void onCreate() -> onCreate
-    129:136:void onDestroy() -> onDestroy
-    139:151:void showChargeView() -> b
-    30:30:boolean access$000(com.upupup.module.charge.saver.service.BatteryService) -> a
-    30:30:void access$100(com.upupup.module.charge.saver.service.BatteryService) -> b
-    30:30:com.upupup.module.charge.saver.Util.WidgetContainer access$200(com.upupup.module.charge.saver.service.BatteryService) -> c
-    30:30:com.upupup.module.charge.saver.Aview.BatteryView access$300(com.upupup.module.charge.saver.service.BatteryService) -> d
-    30:30:java.lang.Runnable access$400(com.upupup.module.charge.saver.service.BatteryService) -> e
-    30:30:android.os.Handler access$500(com.upupup.module.charge.saver.service.BatteryService) -> f
-    30:30:com.upupup.module.charge.saver.Util.WidgetContainer access$202(com.upupup.module.charge.saver.service.BatteryService,com.upupup.module.charge.saver.Util.WidgetContainer) -> a
-    30:30:com.upupup.module.charge.saver.Aview.BatteryView access$302(com.upupup.module.charge.saver.service.BatteryService,com.upupup.module.charge.saver.Aview.BatteryView) -> a
+    java.lang.Runnable runnableDialog -> c
+    com.upupup.module.charge.saver.Aview.BatteryView$UnlockListener horUnlock -> d
+    44:288:void <init>() -> <init>
+    83:87:boolean isScreenOn() -> b
+    173:177:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    181:187:void batteryChange(android.content.Intent) -> a
+    192:192:android.os.IBinder onBind(android.content.Intent) -> onBind
+    197:208:void onCreate() -> onCreate
+    211:224:java.util.List getLaunchers() -> a
+    229:236:void onDestroy() -> onDestroy
+    239:251:void showChargeView() -> c
+    44:44:boolean access$000(com.upupup.module.charge.saver.service.BatteryService) -> a
+    44:44:void access$100(com.upupup.module.charge.saver.service.BatteryService) -> b
+    44:44:com.upupup.module.charge.saver.Util.WidgetContainer access$200(com.upupup.module.charge.saver.service.BatteryService) -> c
+    44:44:com.upupup.module.charge.saver.Aview.BatteryView access$300(com.upupup.module.charge.saver.service.BatteryService) -> d
+    44:44:java.lang.Runnable access$400(com.upupup.module.charge.saver.service.BatteryService) -> e
+    44:44:android.os.Handler access$500(com.upupup.module.charge.saver.service.BatteryService) -> f
+    44:44:org.json.JSONObject access$602(com.upupup.module.charge.saver.service.BatteryService,org.json.JSONObject) -> a
+    44:44:org.json.JSONObject access$600(com.upupup.module.charge.saver.service.BatteryService) -> g
+    44:44:com.upupup.module.charge.saver.Util.GetTopPackage access$700(com.upupup.module.charge.saver.service.BatteryService) -> h
+    44:44:java.util.List access$800(com.upupup.module.charge.saver.service.BatteryService) -> i
+    44:44:com.upupup.module.charge.saver.Util.WidgetContainer access$202(com.upupup.module.charge.saver.service.BatteryService,com.upupup.module.charge.saver.Util.WidgetContainer) -> a
+    44:44:com.upupup.module.charge.saver.Aview.BatteryView access$302(com.upupup.module.charge.saver.service.BatteryService,com.upupup.module.charge.saver.Aview.BatteryView) -> a
 com.upupup.module.charge.saver.service.BatteryService$1 -> com.upupup.module.charge.saver.service.BatteryService$1:
     com.upupup.module.charge.saver.service.BatteryService this$0 -> a
-    41:41:void <init>(com.upupup.module.charge.saver.service.BatteryService) -> <init>
-    44:52:void run() -> run
+    55:55:void <init>(com.upupup.module.charge.saver.service.BatteryService) -> <init>
+    58:66:void run() -> run
 com.upupup.module.charge.saver.service.BatteryService$2 -> com.upupup.module.charge.saver.service.BatteryService$2:
     com.upupup.module.charge.saver.service.BatteryService this$0 -> a
-    55:55:void <init>(com.upupup.module.charge.saver.service.BatteryService) -> <init>
-    58:61:void run() -> run
+    69:69:void <init>(com.upupup.module.charge.saver.service.BatteryService) -> <init>
+    72:75:void run() -> run
 com.upupup.module.charge.saver.service.BatteryService$3 -> com.upupup.module.charge.saver.service.BatteryService$3:
     com.upupup.module.charge.saver.service.BatteryService this$0 -> a
-    74:74:void <init>(com.upupup.module.charge.saver.service.BatteryService) -> <init>
-    77:88:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    91:91:void <init>(com.upupup.module.charge.saver.service.BatteryService) -> <init>
+    94:154:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.upupup.module.charge.saver.service.BatteryService$4 -> com.upupup.module.charge.saver.service.BatteryService$4:
     com.upupup.module.charge.saver.service.BatteryService this$0 -> a
-    188:188:void <init>(com.upupup.module.charge.saver.service.BatteryService) -> <init>
-    191:197:void onUnlock() -> a
+    157:157:void <init>(com.upupup.module.charge.saver.service.BatteryService) -> <init>
+    160:168:void run() -> run
+com.upupup.module.charge.saver.service.BatteryService$5 -> com.upupup.module.charge.saver.service.BatteryService$5:
+    com.upupup.module.charge.saver.service.BatteryService this$0 -> a
+    288:288:void <init>(com.upupup.module.charge.saver.service.BatteryService) -> <init>
+    291:297:void onUnlock() -> a

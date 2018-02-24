@@ -101,6 +101,40 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/setting_detect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+                        <com.upupup.module.charge.saver.Aview.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/battery_jiance"
+                            android:layout_marginLeft="@dimen/d16"
+                            android:textColor="@color/white_100"
+                            android:textSize="@dimen/s14" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d56"
+                        android:layout_alignParentRight="true">
+
+                        <ImageView
+                            android:id="@+id/setting_detect_check"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d36"
+                            android:layout_gravity="center"
+                            android:scaleType="center" />
+                    </FrameLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:id="@+id/setting_tongzhi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
