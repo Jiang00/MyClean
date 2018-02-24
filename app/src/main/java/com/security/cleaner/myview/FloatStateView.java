@@ -262,7 +262,7 @@ public class FloatStateView extends View {
     public void setWaterLevelRatio(float waterLevelRatio) {
         if (mWaterLevelRatio != waterLevelRatio) {
             mWaterLevelRatio = waterLevelRatio;
-            invalidate();
+            postInvalidate();
         }
     }
 

@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.security.cleaner.R;
 
+import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -236,15 +237,28 @@ public class ShortBubbleCenterLayout extends View {
             }
             //碰到上边界从数组中移除
             if (bubble.getY() + bubble.getRadius() > height / 2 && bubble.getY() + bubble.getRadius() + bubble.getSpeedY() <= height / 2) {
+                if (bubble.getBitmap() != null) {
+                    bubble.getBitmap().recycle();
+                    bubble.setBitmap(null);
+                }
                 bubbles.remove(bubble);
             } else if (bubble.getY() + bubble.getRadius() < height / 2 && bubble.getY() + bubble.getRadius() + bubble.getSpeedY() >= height / 2) {
-
+                if (bubble.getBitmap() != null) {
+                    bubble.getBitmap().recycle();
+                    bubble.setBitmap(null);
+                }
                 bubbles.remove(bubble);
             } else if (bubble.getX() + bubble.getRadius() < width / 2 && bubble.getX() + bubble.getRadius() + bubble.getSpeedX() >= width / 2) {
-
+                if (bubble.getBitmap() != null) {
+                    bubble.getBitmap().recycle();
+                    bubble.setBitmap(null);
+                }
                 bubbles.remove(bubble);
             } else if (bubble.getX() + bubble.getRadius() > width / 2 && bubble.getX() + bubble.getRadius() + bubble.getSpeedX() <= width / 2) {
-
+                if (bubble.getBitmap() != null) {
+                    bubble.getBitmap().recycle();
+                    bubble.setBitmap(null);
+                }
                 bubbles.remove(bubble);
             } else {
                 int i = bubbles.indexOf(bubble);
@@ -269,6 +283,7 @@ public class ShortBubbleCenterLayout extends View {
         if (!isDestory) {
             //刷新屏幕
             invalidate();
+            
         }
     }
 

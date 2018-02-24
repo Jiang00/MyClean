@@ -225,8 +225,9 @@ public class MemoryManager {
             return Long.valueOf(array[1]) * 1024; // 原为kb, 转为b
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+        } catch (OutOfMemoryError e) {
         }
         return 0;
     }
