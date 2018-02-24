@@ -148,19 +148,22 @@ public class CoolingFragment extends Fragment {
                 } else {
                     cpuTemp = 40;
                 }
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (cpuTemp > 50) {
-                            ram_zhuangtai.setImageResource(R.mipmap.yuan_bad);
+                try {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (cpuTemp > 50) {
+                                ram_zhuangtai.setImageResource(R.mipmap.yuan_bad);
 
-                        } else {
-                            ram_zhuangtai.setImageResource(R.mipmap.yuan_good);
-                            ram_msg.setVisibility(View.GONE);
+                            } else {
+                                ram_zhuangtai.setImageResource(R.mipmap.yuan_good);
+                                ram_msg.setVisibility(View.GONE);
+                            }
+                            ram_baifen.start(cpuTemp);
                         }
-                        ram_baifen.start(cpuTemp);
-                    }
-                });
+                    });
+                } catch (Exception e) {
+                }
             }
         });
     }
