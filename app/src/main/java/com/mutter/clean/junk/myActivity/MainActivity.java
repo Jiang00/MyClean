@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.annotation.LayoutRes;
 import android.support.v4.util.LruCache;
 import android.support.v4.view.GravityCompat;
@@ -268,6 +269,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //            view_ad.setGravity(Gravity.CENTER);
 //            arrayList.add(viewpager_2);
 //        }
+
         viewpager = (ViewPager) findViewById(R.id.viewpager);
 
         viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
