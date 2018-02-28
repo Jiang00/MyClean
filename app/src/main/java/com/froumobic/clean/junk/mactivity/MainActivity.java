@@ -1133,6 +1133,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         } else {
             if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
                 AndroidSdk.showFullAd("frau_exit_full");
+//                AndroidSdk.onQuit();
             }
             showExitDialog();
         }
