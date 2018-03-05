@@ -1479,11 +1479,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
 
-            showExitDialog();
             if (!PreData.getDB(MainActivity.this, Constant.BILL_YOUXIAO, true)) {
                 if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
                     AndroidSdk.showFullAd("eos_exit_full");
+                    AndroidSdk.onQuit();
+                } else {
+                    showExitDialog();
                 }
+            } else {
+                showExitDialog();
             }
 
         }
